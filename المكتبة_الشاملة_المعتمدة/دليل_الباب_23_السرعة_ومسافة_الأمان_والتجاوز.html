@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دليل الباب 23: السرعة، مسافة الأمان، التجاوز والأسبقية — Patente B Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-base: #09090b;
+    --bg-surface: rgba(24, 24, 27, 0.75);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(255, 255, 255, 0.16);
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --emerald-primary: #10b981;
+    --rose-primary: #f43f5e;
+    --amber-primary: #f59e0b;
+    --sky-primary: #38bdf8;
+    --indigo-primary: #6366f1;
+    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
+    line-height: 1.75;
+    min-height: 100vh;
+    padding-bottom: 70px;
+    background-image: 
+      radial-gradient(ellipse at 50% -10%, rgba(56, 189, 248, 0.09), transparent 60%),
+      radial-gradient(circle at 90% 90%, rgba(16, 185, 129, 0.04), transparent 40%);
+  }
+
+  /* Navigation Bar */
+  .unified-portal-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: rgba(9, 9, 11, 0.85);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .nav-tabs-wrapper {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .nav-tab {
+    text-decoration: none;
+    color: var(--text-secondary);
+    padding: 7px 14px;
+    border-radius: 9px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-tab:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-subtle);
+  }
+  .nav-tab.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: var(--border-highlight);
+  }
+  .nav-audio-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s;
+  }
+  .nav-audio-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+
+  .container {
+    max-width: 1020px;
+    margin: 28px auto;
+    padding: 0 16px;
+  }
+  .content-sheet {
+    background: var(--bg-surface);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06), 0 20px 40px -15px rgba(0,0,0,0.7);
+    border-radius: 20px;
+    padding: 42px 48px;
+  }
+  @media (max-width: 700px) {
+    .content-sheet { padding: 26px 20px; }
+  }
+
+  .main-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.025em;
+  }
+  .sub-lead {
+    font-size: 1.15rem;
+    color: #38bdf8;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  .section-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 36px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .callout-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-subtle);
+    border-right: 4px solid #38bdf8;
+    padding: 16px 20px;
+    border-radius: 12px;
+    color: #e4e4e7;
+    margin-bottom: 16px;
+    line-height: 1.7;
+  }
+  .callout-box.warning {
+    border-right-color: #f59e0b;
+    background: rgba(245, 158, 11, 0.04);
+  }
+  .callout-box.danger {
+    border-right-color: #f43f5e;
+    background: rgba(244, 63, 94, 0.04);
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    margin: 22px 0 26px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    text-align: right;
+  }
+  .data-table th {
+    background: rgba(39, 39, 42, 0.95);
+    padding: 14px 16px;
+    border: 1px solid var(--border-subtle);
+    font-weight: 700;
+    color: #fff;
+  }
+  .data-table td {
+    padding: 13px 16px;
+    border: 1px solid var(--border-subtle);
+    color: #d4d4d8;
+  }
+  .data-table tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .bullet-item { margin: 8px 0; font-size: 1.02rem; color: #e4e4e7; }
+  .num-item { margin: 10px 0; font-size: 1.02rem; color: #e4e4e7; }
+  .para { margin: 10px 0; font-size: 1.02rem; color: #e4e4e7; }
+  .divider { border: 0; height: 1px; background: var(--border-subtle); margin: 32px 0; }
+  strong { color: #fff; }
+  a { color: #38bdf8; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ==========================================================================
+     Infographics & Responsive Visual Grid (Linear / Stripe Dark Zinc System)
+     ========================================================================== */
+  .diagram-wrapper {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    padding: 24px;
+    margin: 28px 0;
+  }
+  .diagram-wrapper-title {
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: #fff;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+  }
+  .compare-card {
+    background: #18181b;
+    border-radius: 14px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    border: 1px solid var(--border-subtle);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s, box-shadow 0.2s;
+  }
+  .compare-card:hover {
+    transform: translateY(-2px);
+  }
+  .compare-card.sky {
+    border-color: rgba(56, 189, 248, 0.35);
+    background: linear-gradient(180deg, rgba(56, 189, 248, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
+    box-shadow: 0 8px 24px -6px rgba(56, 189, 248, 0.08);
+  }
+  .compare-card.emerald {
+    border-color: rgba(16, 185, 129, 0.35);
+    background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
+    box-shadow: 0 8px 24px -6px rgba(16, 185, 129, 0.08);
+  }
+  .compare-card.rose {
+    border-color: rgba(244, 63, 94, 0.35);
+    background: linear-gradient(180deg, rgba(244, 63, 94, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
+    box-shadow: 0 8px 24px -6px rgba(244, 63, 94, 0.08);
+  }
+  .compare-card.amber {
+    border-color: rgba(245, 158, 11, 0.35);
+    background: linear-gradient(180deg, rgba(245, 158, 11, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
+    box-shadow: 0 8px 24px -6px rgba(245, 158, 11, 0.08);
+  }
+  .compare-card.purple {
+    border-color: rgba(129, 140, 248, 0.35);
+    background: linear-gradient(180deg, rgba(129, 140, 248, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
+    box-shadow: 0 8px 24px -6px rgba(129, 140, 248, 0.08);
+  }
+  
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .card-badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .badge-sky { background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+  .badge-emerald { background: rgba(16, 185, 129, 0.12); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+  .badge-rose { background: rgba(244, 63, 94, 0.12); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+  .badge-amber { background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+  .badge-purple { background: rgba(129, 140, 248, 0.12); color: #a5b4fc; border: 1px solid rgba(129, 140, 248, 0.3); }
+
+  .card-title-text {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  .card-subtitle-text {
+    font-size: 0.92rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+  .card-rule {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 2px 0;
+  }
+  .card-points {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.94rem;
+    line-height: 1.6;
+    color: #d4d4d8;
+  }
+  .card-points li .p-icon {
+    flex-shrink: 0;
+    font-size: 1rem;
+    margin-top: 2px;
+  }
+
+  /* Stopping Distance Formula Bar */
+  .formula-banner {
+    background: #18181b;
+    border: 1px solid rgba(129, 140, 248, 0.3);
+    border-radius: 14px;
+    padding: 18px 24px;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .formula-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .formula-val {
+    font-weight: 800;
+    font-size: 1.1rem;
+  }
+  .formula-lbl {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+  .formula-op {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--text-muted);
+  }
+
+  /* Quadratic Bar Graph Visual */
+  .bar-chart-container {
+    background: #121215;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 14px;
+  }
+  .bar-row {
+    margin-bottom: 16px;
+  }
+  .bar-row:last-child { margin-bottom: 0; }
+  .bar-row-head {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .bar-track {
+    height: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 9999px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+  }
+  .bar-segment-react {
+    background: #38bdf8;
+    height: 100%;
+  }
+  .bar-segment-fren {
+    background: #f43f5e;
+    height: 100%;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Unified Top Navigation -->
+<div class="unified-portal-nav">
+  <div class="nav-brand">
+    <span style="font-size:1.2rem;">🚦</span>
+    <span>Patente B Pro</span>
+  </div>
+  <div class="nav-tabs-wrapper">
+    <a href="../Capitoli_Divisi/index.html" class="nav-tab">📚 مذاكرة الأبواب المقسمة (25 باب)</a>
+    <a href="../Simulatore_Esame.html" class="nav-tab">⏱️ محاكي الامتحان الرسمي (20 دقيقة)</a>
+    <a href="index.html" class="nav-tab">📑 فهرس المكتبة</a>
+    <a href="دليل_الباب_23_السرعة_ومسافة_الأمان_والتجاوز.html" class="nav-tab active">📖 دليل الباب 23 (السرعة والتجاوز)</a>
+    <a href="دليل_الباب_24_المسؤولية_والتأمين.html" class="nav-tab">📖 دليل الباب 24 (المسؤولية والتأمين)</a>
+    <a href="دليل_الباب_الأخير.html" class="nav-tab">📖 دليل الباب الأخير (الميكانيكا)</a>
+  </div>
+  <div>
+    <button class="nav-audio-btn" onclick="soundEngine.click()" title="المؤثرات الصوتية نشطة">
+      <span>🔊</span>
+      <span>الصوت نشط</span>
+    </button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="content-sheet">
+
+    <h1 class="main-title">دليل وقاموس الباب الثالث والعشرين ثنائي اللغة (إيطالي/عربي)</h1>
+    <h3 class="sub-lead">قواعد السير: السرعة، مسافة الأمان، التجاوز، وقواعد الأسبقية (Capitolo 23)</h3>
+    
+    <div class="callout-box">
+      📌 <strong>مرجع استقصائي شامل معتمد بنسبة 100%:</strong> يغطي هذا الباب عصب السلامة المرورية في منهج رخصة القيادة الإيطالية (*Patente B*). يتضمن ما بين <strong>450 إلى 500 سؤال</strong> في بنك الأسئلة الوزاري، بنسبة تكرار امتحاني تصل إلى <strong>35%</strong>.
+    </div>
+
+    <!-- Quick Stats Bento -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 26px;">
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 14px; text-align: center;">
+        <div style="font-size: 1.5rem; font-weight: 800; color: #38bdf8;">500 سؤال</div>
+        <div style="font-size: 0.85rem; color: var(--text-secondary);">قاعدة بيانات الباب بالوزارة</div>
+      </div>
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 14px; text-align: center;">
+        <div style="font-size: 1.5rem; font-weight: 800; color: #10b981;">35%</div>
+        <div style="font-size: 0.85rem; color: var(--text-secondary);">نسبة الحضور في كل امتحان</div>
+      </div>
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 14px; text-align: center;">
+        <div style="font-size: 1.5rem; font-weight: 800; color: #f59e0b;">1 ثانية</div>
+        <div style="font-size: 0.85rem; color: var(--text-secondary);">متوسط زمن رد الفعل الحاسم</div>
+      </div>
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 14px; text-align: center;">
+        <div style="font-size: 1.5rem; font-weight: 800; color: #f43f5e;">V²</div>
+        <div style="font-size: 0.85rem; color: var(--text-secondary);">العلاقة التربيعية للفرملة</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ==========================================
+         SECTION 1: LIMITI DI VELOCITA
+         ========================================== -->
+    <h2 class="section-title">
+      <span>⚡</span>
+      <span>1. تنظيم السرعة والحدود القانونية الرسمية (Limiti di Velocità)</span>
+    </h2>
+    
+    <p class="para">
+      القاعدة الذهبية الأولى: يجب على السائق دائماً تكييف سرعته (*Regolare la velocità*) وفقاً لظروف الرؤية، حمولة السيارة، حالة الأسفلت، وكثافة المرور، بحيث يتوقف بأمان داخل حدود الرؤية المتاحة.
+    </p>
+
+    <!-- DIAGRAM 1: SPEED MATRIX -->
+    <div class="diagram-wrapper">
+      <div class="diagram-wrapper-title">
+        <span>🗺️</span>
+        <span>مخطط حدود السرعات الرسمية وتخفيضات الأحوال الجوية (تحديث 2026)</span>
+      </div>
+
+      <div class="comparison-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+        <!-- Autostrada -->
+        <div class="compare-card emerald">
+          <div class="card-top">
+            <div class="card-title-text" style="color: #34d399;">🛣️ الأوتوستراد</div>
+            <span class="card-badge badge-emerald">Autostrade</span>
+          </div>
+          <div style="text-align: center; padding: 6px 0;">
+            <div style="font-size: 2.2rem; font-weight: 800; color: #fff;">130 <span style="font-size:1rem; color:#a1a1aa;">كم/س</span></div>
+            <div style="font-size: 0.85rem; color: #34d399; font-weight: 700;">في الطقس العادي</div>
+          </div>
+          <div class="card-rule"></div>
+          <div style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 8px; padding: 8px 12px; text-align: center;">
+            <div style="font-size: 0.82rem; color: #fbbf24; font-weight: 700;">🌧️ في حال المطر (Pioggia):</div>
+            <div style="font-size: 1.25rem; font-weight: 800; color: #fff;">تنخفض إلى 110 كم/س</div>
+          </div>
+        </div>
+
+        <!-- Extraurbane Principali -->
+        <div class="compare-card sky">
+          <div class="card-top">
+            <div class="card-title-text" style="color: #38bdf8;">🛣️ خارجية رئيسية</div>
+            <span class="card-badge badge-sky">Principali</span>
+          </div>
+          <div style="text-align: center; padding: 6px 0;">
+            <div style="font-size: 2.2rem; font-weight: 800; color: #fff;">110 <span style="font-size:1rem; color:#a1a1aa;">كم/س</span></div>
+            <div style="font-size: 0.85rem; color: #38bdf8; font-weight: 700;">طرق زرقاء برصيف فاصل</div>
+          </div>
+          <div class="card-rule"></div>
+          <div style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 8px; padding: 8px 12px; text-align: center;">
+            <div style="font-size: 0.82rem; color: #fbbf24; font-weight: 700;">🌧️ في حال المطر (Pioggia):</div>
+            <div style="font-size: 1.25rem; font-weight: 800; color: #fff;">تنخفض إلى 90 كم/س</div>
+          </div>
+        </div>
+
+        <!-- Extraurbane Secondarie -->
+        <div class="compare-card amber">
+          <div class="card-top">
+            <div class="card-title-text" style="color: #fbbf24;">🛣️ خارجية ثانوية</div>
+            <span class="card-badge badge-amber">Secondarie</span>
+          </div>
+          <div style="text-align: center; padding: 6px 0;">
+            <div style="font-size: 2.2rem; font-weight: 800; color: #fff;">90 <span style="font-size:1rem; color:#a1a1aa;">كم/س</span></div>
+            <div style="font-size: 0.85rem; color: #fbbf24; font-weight: 700;">طرق خارج التجمعات</div>
+          </div>
+          <div class="card-rule"></div>
+          <div style="font-size: 0.88rem; color: #d4d4d8; text-align: center; padding: 6px 0;">
+            تبقى 90 كم/س حتى في المطر ما لم توجد إشارة تحدد أقل من ذلك.
+          </div>
+        </div>
+
+        <!-- Centri Urbani -->
+        <div class="compare-card purple">
+          <div class="card-top">
+            <div class="card-title-text" style="color: #a5b4fc;">🏙️ داخل المدن</div>
+            <span class="card-badge badge-purple">Centri Urbani</span>
+          </div>
+          <div style="text-align: center; padding: 6px 0;">
+            <div style="font-size: 2.2rem; font-weight: 800; color: #fff;">50 <span style="font-size:1rem; color:#a1a1aa;">كم/س</span></div>
+            <div style="font-size: 0.85rem; color: #a5b4fc; font-weight: 700;">الشوارع السكنية</div>
+          </div>
+          <div class="card-rule"></div>
+          <div style="font-size: 0.86rem; color: #d4d4d8; text-align: center; padding: 6px 0;">
+            يمكن رفعها إلى <strong>70 كم/س</strong> في الطرق الحضرية السريعة ذات المواصفات الخاصة.
+          </div>
+        </div>
+      </div>
+
+      <!-- Weather & Special Categories Sub-Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 18px;">
+        <!-- Fog Card -->
+        <div style="background:#18181b; border:1px solid rgba(244,63,94,0.3); border-radius:12px; padding:16px; display:flex; align-items:center; gap:14px;">
+          <span style="font-size: 2rem;">🌫️</span>
+          <div>
+            <div style="font-weight: 800; color: #f43f5e; font-size: 1rem;">الضباب الكثيف (Nebbia fitta)</div>
+            <div style="font-size: 0.88rem; color: #d4d4d8;">إذا انخفضت الرؤية عن <strong>50 متراً</strong>، الحد الأقصى الإجباري يصبح <strong>50 كم/س</strong> على كافة الطرق.</div>
+          </div>
+        </div>
+
+        <!-- Neopatentati Card -->
+        <div style="background:#18181b; border:1px solid rgba(56,189,248,0.3); border-radius:12px; padding:16px; display:flex; align-items:center; gap:14px;">
+          <span style="font-size: 2rem;">🔰</span>
+          <div>
+            <div style="font-weight: 800; color: #38bdf8; font-size: 1rem;">السائقون الجدد (Neopatentati - أول 3 سنوات)</div>
+            <div style="font-size: 0.88rem; color: #d4d4d8;">
+              • الأوتوستراد: بحد أقصى <strong>100 كم/س</strong>.<br>
+              • الطرق الرئيسية: بحد أقصى <strong>90 كم/س</strong>.<br>
+              <span style="color:#fca5a5;">❌ فخ: القول بأن حدهم 110 هو FALSO.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quadricicli Card -->
+        <div style="background:#18181b; border:1px solid rgba(245,158,11,0.3); border-radius:12px; padding:16px; display:flex; align-items:center; gap:14px;">
+          <span style="font-size: 2rem;">🚜</span>
+          <div>
+            <div style="font-weight: 800; color: #fbbf24; font-size: 1rem;">المركبات الرباعية (Quadricicli) - تدقيق 2026</div>
+            <div style="font-size: 0.88rem; color: #d4d4d8;">
+              • الخفيفة (*Leggeri*): بحد أقصى <strong>45 كم/س</strong>.<br>
+              • غير الخفيفة (*Non leggeri*): بحد أقصى <strong>80 كم/س</strong> خارج المدن.<br>
+              <span style="color:#fca5a5;">❌ فخ: زعم أن سرعتها 70 كم/س هو FALSO.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-box warning">
+      ⚠️ <strong>حالات إجبارية لتخفيض السرعة الفوري (*Rallentare obbligatoriamente*):</strong><br>
+      المنعطفات الشديدة، التقاطعات غير المكشوفة، مداخل المدارس ووجود أطفال، المنحدرات الحادة (*Forti discese*)، الممرات الضيقة، عند تلاقي مركبات ليلاً لتفادي إبهار الضوء، وعند ملاحظة مشاة مترددين أو من ذوي الاحتياجات الخاصة.
+    </div>
+
+    <hr class="divider">
+
+    <!-- ==========================================
+         SECTION 2: DISTANZA DI SICUREZZA
+         ========================================== -->
+    <h2 class="section-title">
+      <span>📐</span>
+      <span>2. مسافة الأمان، زمن رد الفعل، ومسافة الفرملة (Distanza e Frenatura)</span>
+    </h2>
+
+    <p class="para">
+      <strong>مسافة الأمان (Distanza di sicurezza):</strong> هي المسافة الواجب تركها خلف المركبة التي تتقدمك، ووظيفتها الحصرية هي: <strong>منع الاصطدام الخلفي (Evitare il tamponamento)</strong> عند توقف المركبة الأمامية فجأة.
+    </p>
+
+    <!-- Formula Banner -->
+    <div class="formula-banner">
+      <div class="formula-item">
+        <span class="formula-val" style="color: #a5b4fc;">مسافة التوقف الكلية</span>
+        <span class="formula-lbl">Spazio Totale di Arresto</span>
+      </div>
+      <span class="formula-op">=</span>
+      <div class="formula-item">
+        <span class="formula-val" style="color: #38bdf8;">مسافة رد الفعل</span>
+        <span class="formula-lbl">Spazio di Reazione (~1s)</span>
+      </div>
+      <span class="formula-op">+</span>
+      <div class="formula-item">
+        <span class="formula-val" style="color: #f43f5e;">مسافة الفرملة</span>
+        <span class="formula-lbl">Spazio di Frenatura (V²)</span>
+      </div>
+    </div>
+
+    <!-- DIAGRAM 2: QUADRATIC BRAKING & STOPPING DISTANCES -->
+    <div class="diagram-wrapper">
+      <div class="diagram-wrapper-title">
+        <span>📊</span>
+        <span>المخطط التوضيحي لحسابات مسافة التوقف والعلاقة التربيعية للفرملة</span>
+      </div>
+
+      <!-- Quadratic Rule Highlight -->
+      <div style="background: rgba(244, 63, 94, 0.08); border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 12px; padding: 16px 20px; margin-bottom: 20px;">
+        <div style="font-weight: 800; color: #fb7185; font-size: 1.05rem; margin-bottom: 6px;">
+          ⚡ القاعدة الذهبية التربيعية لمسافة الفرملة (Legge Quadratica):
+        </div>
+        <div style="font-size: 0.95rem; color: #f4f4f5; line-height: 1.6;">
+          مسافة الفرملة لا تزيد خطياً مع السرعة بل تزيد <strong>مع مربع السرعة (Al quadrato della velocità)</strong>:
+        </div>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px;">
+          <span style="background: #18181b; padding: 4px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem;">
+            السرعة <strong>2x</strong> (ضعف) ⬅️ الفرملة <strong>4 أضعاف</strong> (2²)
+          </span>
+          <span style="background: #18181b; padding: 4px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem;">
+            السرعة <strong>3x</strong> (3 أضعاف) ⬅️ الفرملة <strong>9 أضعاف</strong> (3²)
+          </span>
+          <span style="background: #18181b; padding: 4px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem;">
+            السرعة <strong>4x</strong> (4 أضعاف) ⬅️ الفرملة <strong>16 ضعفاً</strong> (4²)
+          </span>
+        </div>
+      </div>
+
+      <!-- Distance Bars Visualization -->
+      <div class="bar-chart-container">
+        <div style="font-weight: 700; font-size: 0.95rem; color: #fff; margin-bottom: 14px; display: flex; justify-content: space-between;">
+          <span>مقارنة المسافة المقطوعة (رد الفعل 🔵 + الفرملة 🔴):</span>
+          <span style="font-size: 0.8rem; color: #a1a1aa;">معادلة رد الفعل التقريبية: (السرعة ÷ 10) × 3</span>
+        </div>
+
+        <!-- 50 km/h -->
+        <div class="bar-row">
+          <div class="bar-row-head">
+            <span style="color: #38bdf8;">سرعة 50 كم/س (داخل المدن)</span>
+            <span style="color: #fff;">رد الفعل: ~14م | الفرملة: ~11م | <strong style="color:#6ee7b7;">التوقف الكلي: ~25 متراً</strong></span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-segment-react" style="width: 14%;"></div>
+            <div class="bar-segment-fren" style="width: 11%;"></div>
+          </div>
+        </div>
+
+        <!-- 100 km/h -->
+        <div class="bar-row">
+          <div class="bar-row-head">
+            <span style="color: #38bdf8;">سرعة 100 كم/س (خارج المدن)</span>
+            <span style="color: #fff;">رد الفعل: ~28م | الفرملة: ~44م (4x!) | <strong style="color:#fbbf24;">التوقف الكلي: ~72 متراً</strong></span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-segment-react" style="width: 28%;"></div>
+            <div class="bar-segment-fren" style="width: 44%;"></div>
+          </div>
+        </div>
+
+        <!-- 130 km/h -->
+        <div class="bar-row">
+          <div class="bar-row-head">
+            <span style="color: #38bdf8;">سرعة 130 كم/س (الأوتوستراد)</span>
+            <span style="color: #fff;">رد الفعل: ~36م | الفرملة: ~75م | <strong style="color:#f43f5e;">التوقف الكلي: ~111 متراً</strong></span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-segment-react" style="width: 36%;"></div>
+            <div class="bar-segment-fren" style="width: 64%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fixed Distance Rules Box -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-top: 18px;">
+        <div style="background: #18181b; border: 1px solid rgba(16,185,129,0.3); border-radius: 12px; padding: 16px;">
+          <div style="font-weight: 800; color: #34d399; font-size: 1rem; margin-bottom: 4px;">🚜 20 متراً إجبارية ثابتة:</div>
+          <div style="font-size: 0.88rem; color: #d4d4d8;">
+            المسافة الدنيا الإلزامية خلف آلات إزالة الثلوج ونثر الملح (*Macchine sgombraneve o spanditrici di sale*) أثناء عملها على الطريق.
+          </div>
+        </div>
+
+        <div style="background: #18181b; border: 1px solid rgba(245,158,11,0.3); border-radius: 12px; padding: 16px;">
+          <div style="font-weight: 800; color: #fbbf24; font-size: 1rem; margin-bottom: 4px;">🚛 100 متر بين الشاحنات:</div>
+          <div style="font-size: 0.88rem; color: #d4d4d8;">
+            المسافة الإلزامية بين مركبات نقل البضائع التي تزيد عن 3.5 طن في وجود إشارة منع التجاوز للشاحنات (*Divieto di sorpasso merci*).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FALSO Traps Box -->
+    <div class="callout-box danger">
+      ❌ <strong>فخاخ FALSO الامتحانية لمسافة الأمان:</strong><br>
+      • مسافة الأمان <strong>لا تعتمد أبداً</strong> على: كفاءة فرامل اليد (*Freno di stazionamento*)، قدرة المحرك (*Potenza*)، سعته بالسي سي (*Cilindrata*)، نوع الوقود، أو عرض السيارة.<br>
+      • مسافة الأمان <strong>لا تحمي</strong> من الاصطدام الجانبي بل الاصطدام الخلفي فقط (*Tamponamento*).<br>
+      • مسافة الأمان <strong>ليست مطابقة حسابياً</strong> لمسافة الفرملة فقط بل يجب أن تكون أكبر لتشمل زمن رد الفعل.
+    </div>
+
+    <hr class="divider">
+
+    <!-- ==========================================
+         SECTION 3: IL SORPASSO
+         ========================================== -->
+    <h2 class="section-title">
+      <span>🔄</span>
+      <span>3. مناورة التجاوز وفخاخ الترام (Il Sorpasso e Tram)</span>
+    </h2>
+
+    <p class="para">
+      التجاوز هو إحدى أخطر المناورات على الطريق؛ يتطلب التأكد التام من خلو المسار، النظر في المرآة العاكسة والزاوية الميتة (*Angolo cieco*)، تشغيل إشارة الانعطاف، وترك مسافة أمان جانبية كافية.
+    </p>
+
+    <!-- DIAGRAM 3: TRAM OVERTAKING SCENARIOS -->
+    <div class="diagram-wrapper">
+      <div class="diagram-wrapper-title">
+        <span>🚋</span>
+        <span>سيناريوهات تجاوز الترام من اليمين (Sorpasso a Destra del Tram)</span>
+      </div>
+
+      <div class="comparison-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+        <!-- Case 1: Con Salvagente (VERO) -->
+        <div class="compare-card emerald">
+          <div class="card-top">
+            <div class="card-title-text" style="color: #34d399;">✅ وجود جزيرة أمان (Salvagente)</div>
+            <span class="card-badge badge-emerald">VERO مسموح</span>
+          </div>
+          <!-- Visual schematic SVG -->
+          <div style="background:#121215; border-radius:10px; padding:12px; text-align:center;">
+            <svg viewBox="0 0 240 70" width="100%" style="max-width:240px; height:auto; display:inline-block;">
+              <!-- Tram rails -->
+              <line x1="20" y1="25" x2="220" y2="25" stroke="#71717a" stroke-width="2" stroke-dasharray="4,4"/>
+              <!-- Tram block -->
+              <rect x="70" y="10" width="60" height="30" rx="4" fill="#3f3f46" stroke="#fbbf24" stroke-width="1.5"/>
+              <text x="100" y="30" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">TRAM</text>
+              <!-- Salvagente island -->
+              <rect x="145" y="12" width="28" height="26" rx="4" fill="#10b981" stroke="#34d399" stroke-width="1.5"/>
+              <text x="159" y="28" fill="#042f2e" font-size="9" font-weight="bold" text-anchor="middle">رصيف</text>
+              <!-- Car overtaking path -->
+              <path d="M40,55 Q100,55 190,55" fill="none" stroke="#34d399" stroke-width="3" stroke-dasharray="4,3"/>
+              <polygon points="190,55 182,51 182,59" fill="#34d399"/>
+              <rect x="50" y="47" width="26" height="16" rx="3" fill="#0284c7"/>
+            </svg>
+          </div>
+          <div class="card-subtitle-text" style="color: #a7f3d0;">
+            إذا توقف الترام لإنزال ركاب و<strong>توجد جزيرة أمان (Salvagente)</strong> تحميهم:
+          </div>
+          <div class="card-rule"></div>
+          <ul class="card-points">
+            <li>
+              <span class="p-icon">🟢</span>
+              <div><strong>يُسمح بالتجاوز من اليمين</strong> وبسرعة معتدلة جداً مع الانتباه لحركة المشاة العابرين.</div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Case 2: Tram in Movimento (VERO) -->
+        <div class="compare-card emerald">
+          <div class="card-top">
+            <div class="card-title-text" style="color: #34d399;">✅ الترام في حالة حركة</div>
+            <span class="card-badge badge-emerald">VERO مسموح</span>
+          </div>
+          <!-- Visual schematic SVG -->
+          <div style="background:#121215; border-radius:10px; padding:12px; text-align:center;">
+            <svg viewBox="0 0 240 70" width="100%" style="max-width:240px; height:auto; display:inline-block;">
+              <line x1="20" y1="25" x2="220" y2="25" stroke="#71717a" stroke-width="2" stroke-dasharray="4,4"/>
+              <rect x="110" y="10" width="60" height="30" rx="4" fill="#3f3f46" stroke="#fbbf24" stroke-width="1.5"/>
+              <text x="140" y="30" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">TRAM ➔</text>
+              <path d="M40,55 Q110,55 200,55" fill="none" stroke="#34d399" stroke-width="3"/>
+              <polygon points="200,55 192,51 192,59" fill="#34d399"/>
+              <rect x="50" y="47" width="26" height="16" rx="3" fill="#0284c7"/>
+            </svg>
+          </div>
+          <div class="card-subtitle-text" style="color: #a7f3d0;">
+            إذا كان الترام <strong>يسير ويتحرك</strong> في منتصف الطريق:
+          </div>
+          <div class="card-rule"></div>
+          <ul class="card-points">
+            <li>
+              <span class="p-icon">🟢</span>
+              <div><strong>يُسمح بتجاوزه من اليمين</strong> بشرط وجود مساحة كافية على يمين المسار لا تعرض أحداً للخطر.</div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Case 3: Senza Salvagente (FALSO / VIETATO) -->
+        <div class="compare-card rose">
+          <div class="card-top">
+            <div class="card-title-text" style="color: #f43f5e;">❌ توقف بدون جزيرة أمان</div>
+            <span class="card-badge badge-rose">ممنوع قطعاً VIETATO</span>
+          </div>
+          <!-- Visual schematic SVG -->
+          <div style="background:#121215; border-radius:10px; padding:12px; text-align:center;">
+            <svg viewBox="0 0 240 70" width="100%" style="max-width:240px; height:auto; display:inline-block;">
+              <line x1="20" y1="25" x2="220" y2="25" stroke="#71717a" stroke-width="2" stroke-dasharray="4,4"/>
+              <rect x="90" y="10" width="60" height="30" rx="4" fill="#3f3f46" stroke="#f43f5e" stroke-width="1.5"/>
+              <text x="120" y="30" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">TRAM 🛑</text>
+              <!-- Pedestrian icon in road -->
+              <circle cx="165" cy="46" r="4" fill="#f43f5e"/>
+              <line x1="165" y1="50" x2="165" y2="60" stroke="#f43f5e" stroke-width="2"/>
+              <!-- Forbidden line -->
+              <line x1="60" y1="55" x2="140" y2="55" stroke="#f43f5e" stroke-width="3"/>
+              <line x1="90" y1="45" x2="110" y2="65" stroke="#f43f5e" stroke-width="3"/>
+              <rect x="40" y="47" width="26" height="16" rx="3" fill="#0284c7"/>
+            </svg>
+          </div>
+          <div class="card-subtitle-text" style="color: #fda4af;">
+            إذا توقف الترام لإنزال الركاب <strong>بدون رصيف جزيرة (Senza salvagente)</strong>:
+          </div>
+          <div class="card-rule"></div>
+          <ul class="card-points">
+            <li>
+              <span class="p-icon">🛑</span>
+              <div><strong>يُمنع التجاوز تماماً</strong> ويجب التوقف خلف الترام حتى ينزل الركاب ويعبروا بأمان.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- General Overtaking Rules & Prohibitions -->
+    <div class="callout-box">
+      🚫 <strong>مواضع الحظر الصارم للتجاوز (*Divieto di sorpasso*):</strong><br>
+      • عند <strong>المرتفعات (Dosso) والمنعطفات (Curve)</strong> في الطرق ذات الاتجاهين ومسار واحد فقط لكل اتجاه.<br>
+      • <strong>يُسمح بالتجاوز في المنعطفات والمرتفعات</strong> فقط إذا كان الطريق: باتجاه واحد (*Senso unico*)، أو مفصولاً بحواجز خرسانية، أو يضم حارتين على الأقل في نفس الاتجاه.<br>
+      • عند <strong>التقاطعات (Incroci)</strong>، إلا إذا كانت منظمة بإشارة خضراء، أو شرطي، أو على طريق يتمتع بالأسبقية القانونية (*Strada con diritto di precedenza*).<br>
+      • عند <strong>معابر المشاة</strong> إذا توقفت سيارة أخرى للسماح للمشاة بالعبور.<br>
+      • <strong>عقوبة السير على ممر الطوارئ (Corsia di emergenza):</strong> سحب الرخصة فوراً (*Sospensione della patente*).
+    </div>
+
+    <hr class="divider">
+
+    <!-- ==========================================
+         SECTION 4: PRECEDENZE E PENDENZE
+         ========================================== -->
+    <h2 class="section-title">
+      <span>⛰️</span>
+      <span>4. قواعد الأسبقية والمنحدرات الجبلية الضيقة (Precedenze e Pendenze)</span>
+    </h2>
+
+    <p class="para">
+      القاعدة العامة المطلقة في إيطاليا: <strong>الأسبقية دائماً للقادم من اليمين (Precedenza a destra)</strong> ما لم توجد إشارة تنص على خلاف ذلك (مثل إشارات قف أو اعط الأسبقية).
+    </p>
+
+    <!-- DIAGRAM 4: MOUNTAIN SLOPE RIGHT OF WAY -->
+    <div class="diagram-wrapper">
+      <div class="diagram-wrapper-title">
+        <span>🏔️</span>
+        <span>قواعد التقابل في الطرق الجبلية شديدة الانحدار (Strade di forte pendenza)</span>
+      </div>
+
+      <div class="comparison-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        <!-- Rule 1: Descending vs Ascending -->
+        <div class="compare-card sky">
+          <div class="card-top">
+            <div class="card-title-text" style="color: #38bdf8;">1. القاعدة العامة (سيارتان متماثلتان)</div>
+            <span class="card-badge badge-sky">Regola Generale</span>
+          </div>
+          <!-- Schematic SVG -->
+          <div style="background:#121215; border-radius:10px; padding:12px; text-align:center;">
+            <svg viewBox="0 0 280 80" width="100%" style="max-width:280px; height:auto; display:inline-block;">
+              <!-- Mountain slope line -->
+              <path d="M20,70 L260,15" stroke="#71717a" stroke-width="3"/>
+              <!-- Car Descending (Red) -->
+              <g transform="translate(190, 16) rotate(-13)">
+                <rect width="36" height="18" rx="4" fill="#f43f5e"/>
+                <text x="18" y="13" fill="#fff" font-size="9" font-weight="bold" text-anchor="middle">نازل ⬇️</text>
+              </g>
+              <!-- Car Ascending (Green) -->
+              <g transform="translate(50, 48) rotate(-13)">
+                <rect width="36" height="18" rx="4" fill="#10b981"/>
+                <text x="18" y="13" fill="#fff" font-size="9" font-weight="bold" text-anchor="middle">صاعد ⬆️</text>
+              </g>
+            </svg>
+          </div>
+          <div class="card-subtitle-text" style="color: #bae6fd;">
+            الأسبقية للمركبة الصاعدة (In salita)، والنازلة (In discesa) تتوقف.
+          </div>
+          <div class="card-rule"></div>
+          <ul class="card-points">
+            <li>
+              <span class="p-icon">🟢</span>
+              <div><strong>المركبة الصاعدة لها الأولوية</strong> لأن إعادة انطلاقها أصعب ميكانيكياً.</div>
+            </li>
+            <li>
+              <span class="p-icon">🛑</span>
+              <div>إذا تعذر المرور، <strong>المركبة النازلة هي التي ترجع للخلف (Retromarcia)</strong>، إلا إذا كانت ساحة الانتظار (*Piazzola*) أقرب للمركبة الصاعدة فتتوقف فيها.</div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Rule 2: Heavy Vehicle vs Light Car -->
+        <div class="compare-card amber">
+          <div class="card-top">
+            <div class="card-title-text" style="color: #fbbf24;">2. الاستثناء الجوهري (مركبة ثقيلة ضد سيارة)</div>
+            <span class="card-badge badge-amber">Eccezione Fondamentale</span>
+          </div>
+          <!-- Schematic SVG -->
+          <div style="background:#121215; border-radius:10px; padding:12px; text-align:center;">
+            <svg viewBox="0 0 280 80" width="100%" style="max-width:280px; height:auto; display:inline-block;">
+              <path d="M20,70 L260,15" stroke="#71717a" stroke-width="3"/>
+              <!-- Bus or Heavy Truck -->
+              <g transform="translate(160, 10) rotate(-13)">
+                <rect width="60" height="24" rx="4" fill="#f59e0b" stroke="#fff" stroke-width="1.5"/>
+                <text x="30" y="16" fill="#000" font-size="10" font-weight="bold" text-anchor="middle">حافلة / شاحنة</text>
+              </g>
+              <!-- Small Car -->
+              <g transform="translate(40, 52) rotate(-13)">
+                <rect width="32" height="16" rx="4" fill="#38bdf8"/>
+                <text x="16" y="12" fill="#fff" font-size="8" font-weight="bold" text-anchor="middle">سيارة</text>
+              </g>
+            </svg>
+          </div>
+          <div class="card-subtitle-text" style="color: #fde68a;">
+            السيارة الخفيفة ترجع للخلف دائماً أمام الحافلات والشاحنات.
+          </div>
+          <div class="card-rule"></div>
+          <ul class="card-points">
+            <li>
+              <span class="p-icon">🚌</span>
+              <div>إذا كان التقابل بين <strong>حافلة أو شاحنة ثقيلة (> 3.5t)</strong> وبين <strong>سيارة خفيفة (Autovettura)</strong>:</div>
+            </li>
+            <li>
+              <span class="p-icon">⚠️</span>
+              <div><strong>السيارة الخفيفة هي التي تتراجع وترجع للخلف دائماً</strong>، بغض النظر عمن هو الصاعد أو النازل؛ لصعوبة رجوع المركبات الثقيلة للخلف.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mandatory Yield Left and Right -->
+    <div class="callout-box">
+      🔄 <strong>حالات إعطاء الأسبقية لليمين واليسار معاً (*Dare la precedenza a destra e a sinistra*):</strong><br>
+      1. الخروج من ملك خاص، جراج، أو محطة وقود إلى طريق عام.<br>
+      2. البدء في السير من وضعية الوقوف على جانب الطريق (*Mettersi in marcia dal bordo*).<br>
+      3. الرجوع للخلف (*Retromarcia*) أو الدوران للخلف (*Inversione di marcia*).<br>
+      4. مركبات الترام (لها الأسبقية دائماً يميناً ويساراً إلا في وجود إشارة مخالفة).<br>
+      5. مركبات الطوارئ (إسعاف، شرطة، إطفاء) مع تشغيل الصافرة (*Sirena*) والوميض الأزرق.
+    </div>
+
+    <hr class="divider">
+
+    <!-- ==========================================
+         SECTION 5: GLOSSARIO TECNICO
+         ========================================== -->
+    <h2 class="section-title">
+      <span>📖</span>
+      <span>5. القاموس التقني ثنائي اللغة (Glossario Tecnico Bilingue)</span>
+    </h2>
+
+    <p class="para">المصطلحات الفنية الأكثر تكراراً في أسئلة السرعة، مسافة الأمان، والتجاوز:</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <tr>
+          <th>المصطلح بالإيطالية</th>
+          <th>المعنى باللغة العربية</th>
+          <th>دلالته في الامتحان وفخاخه ⚠️</th>
+        </tr>
+        <tr>
+          <td><strong>Distanza di sicurezza</strong></td>
+          <td>مسافة الأمان</td>
+          <td>🔄 تمنع الاصطدام الخلفي فقط (Tamponamento) ولا تعتمد على فرامل اليد إطلاقاً.</td>
+        </tr>
+        <tr>
+          <td><strong>Tempo di reazione</strong></td>
+          <td>زمن رد الفعل</td>
+          <td>🔄 يقدر بحوالي ثانية واحدة؛ يزيد مع التعب أو الكحول (ولا ينقص أبداً!).</td>
+        </tr>
+        <tr>
+          <td><strong>Spazio di frenatura</strong></td>
+          <td>مسافة الفرملة</td>
+          <td>🔄 تزيد مع مربع السرعة (V²). تتضاعف 4 مرات عند مضاعفة السرعة مرتين.</td>
+        </tr>
+        <tr>
+          <td><strong>Spazio di arresto</strong></td>
+          <td>مسافة التوقف الكلية</td>
+          <td>المسافة الإجمالية = مسافة رد الفعل + مسافة الفرملة.</td>
+        </tr>
+        <tr>
+          <td><strong>Tamponamento</strong></td>
+          <td>اصطدام خلفي بالسيارة التي أمامك</td>
+          <td>السبب المباشر له دائماً هو: عدم احترام مسافة الأمان الكافية.</td>
+        </tr>
+        <tr>
+          <td><strong>Salvagente</strong></td>
+          <td>جزيرة أمان للمشاة في محطة الترام</td>
+          <td>وجودها يسمح بتجاوز الترام من اليمين حتى لو كان واقفاً ينزل ركاباً.</td>
+        </tr>
+        <tr>
+          <td><strong>Quadricicli leggeri</strong></td>
+          <td>مركبات رباعية خفيفة (ميكروكار)</td>
+          <td>سرعتها القصوى القانونية <strong>45 كم/س</strong> وتعامل كالدراجات الصغيرة.</td>
+        </tr>
+        <tr>
+          <td><strong>Quadricicli non leggeri</strong></td>
+          <td>مركبات رباعية غير خفيفة (كواد)</td>
+          <td>سرعتها القصوى خارج المدن <strong>80 كم/س</strong> (فخ 70 كم/س = FALSO).</td>
+        </tr>
+        <tr>
+          <td><strong>Pendenza / Salita / Discesa</strong></td>
+          <td>انحدار / صعود / نزول</td>
+          <td>الصاعد له الأسبقية على النازل، إلا أمام الحافلات والشاحنات الكبيرة.</td>
+        </tr>
+        <tr>
+          <td><strong>Strisce discontinue</strong></td>
+          <td>خطوط مسار متقطعة</td>
+          <td>تسمح بتغيير المسار والانتقال إذا كانت المناورة آمنة ومبكرة.</td>
+        </tr>
+        <tr>
+          <td><strong>Rotaie del tram</strong></td>
+          <td>قضبان سكة الترام</td>
+          <td>تشكل خطورة انزلاق بالغة للمركبات ذات العجلتين وخاصة عند البلل.</td>
+        </tr>
+      </table>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ==========================================
+         SECTION 6: VERO O FALSO TRAPS
+         ========================================== -->
+    <h2 class="section-title">
+      <span>⚠️</span>
+      <span>6. جدول الفخاخ الوزارية المباشرة (Quiz Vero o Falso)</span>
+    </h2>
+
+    <p class="para">أشهر الأسئلة المضللة التي تتكرر بنصها في امتحانات رخصة القيادة الإيطالية:</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <tr>
+          <th>نص السؤال في الامتحان (Quiz Ministeriale)</th>
+          <th>الحكم</th>
+          <th>التحليل وسبب الإجابة</th>
+        </tr>
+        <tr>
+          <td>La distanza di sicurezza dipende dall'efficienza del freno di stazionamento</td>
+          <td><strong>FALSO ❌</strong></td>
+          <td>مسافة الأمان تعتمد على فرامل الخدمة وليس فرامل اليد (الركن).</td>
+        </tr>
+        <tr>
+          <td>Il limite massimo di velocità per i neopatentati in autostrada è di 110 km/h</td>
+          <td><strong>FALSO ❌</strong></td>
+          <td>الحد الأقصى للسائقين الجدد في الأوتوستراد هو 100 كم/س فقط (أول 3 سنوات).</td>
+        </tr>
+        <tr>
+          <td>Se la velocità raddoppia, lo spazio di frenatura aumenta di quattro volte</td>
+          <td><strong>VERO ✅</strong></td>
+          <td>صحيح، لأن مسافة الفرملة تتناسب مع مربع السرعة (2² = 4).</td>
+        </tr>
+        <tr>
+          <td>La velocità massima per i quadricicli non leggeri fuori dai centri urbani è di 80 km/h</td>
+          <td><strong>VERO ✅</strong></td>
+          <td>صحيح، 80 كم/س خارج المدن، والادعاء بأنها 70 كم/س هو خطأ امتحاني شهير.</td>
+        </tr>
+        <tr>
+          <td>In caso di nebbia fitta con visibilità inferiore a 50 m, il limite massimo è di 50 km/h</td>
+          <td><strong>VERO ✅</strong></td>
+          <td>صحيح، قاعدة قانونية إلزامية لجميع السائقين عند انعدام الرؤية.</td>
+        </tr>
+        <tr>
+          <td>È consentito il sorpasso a destra del tram fermo per la salita dei passeggeri solo se c'è il salvagente</td>
+          <td><strong>VERO ✅</strong></td>
+          <td>صحيح، وجود جزيرة الركاب شرط إلزامي للتجاوز من اليمين أثناء التوقف.</td>
+        </tr>
+        <tr>
+          <td>Lo spazio di frenatura diminuisce se la strada è in salita</td>
+          <td><strong>VERO ✅</strong></td>
+          <td>صحيح، لأن صعود المنحدر والجاذبية الأرضية يساعدان السيارة على التوقف أسرع.</td>
+        </tr>
+        <tr>
+          <td>Nelle strade di montagna, il veicolo in salita deve sempre fare retromarcia</td>
+          <td><strong>FALSO ❌</strong></td>
+          <td>خطأ، النازل هو الذي يرجع للخلف للصاعد، إلا إذا كان النازل حافلة أو شاحنة.</td>
+        </tr>
+        <tr>
+          <td>La distanza di sicurezza deve essere aumentata in caso di pioggia</td>
+          <td><strong>VERO ✅</strong></td>
+          <td>صحيح، لأن الإسفلت المبتل يقلل التماسك ويزيد مسافة الفرملة للضعف.</td>
+        </tr>
+      </table>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ==========================================
+         SECTION 7: EXPERT SUMMARY
+         ========================================== -->
+    <div class="callout-box" style="border-right-color: #10b981; background: rgba(16, 185, 129, 0.05);">
+      💡 <strong>الوصايا الذهبية لتقفيل أسئلة الباب في الامتحان:</strong><br>
+      1. <strong>في أسئلة السرعات:</strong> انتبه لنوع الطريق (أوتوستراد 130، رئيسية 110، ثانوية 90، مدن 50) + حالة الطقس (في المطر تنخفض إلى 110 و 90).<br>
+      2. <strong>في مسافة الأمان:</strong> تذكر دائماً أنها تحمي من الاصطدام الخلفي فقط (*Tamponamento*)، وأن فرامل اليد ونوع الوقود لا علاقة لهما بها.<br>
+      3. <strong>في التجاوز:</strong> تجاوز الترام من اليمين مسموح بشرطين: إما الترام يتحرك، أو متوقف بشرط وجود *Salvagente*.<br>
+      4. <strong>في المنحدرات:</strong> الصاعد هو الملك، والسيارة الخفيفة ترجع للخلف أمام الشاحنة أو الحافلة دائماً!
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const soundEngine = {
+    ctx: null,
+    enabled: true,
+    init() {
+      if (!this.ctx) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) this.ctx = new AudioCtx();
+      }
+      if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
+    },
+    click() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
+      try {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(520, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.04);
+        gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.04);
+      } catch(e) {}
+    }
+  };
+</script>
+</body>
+</html>
