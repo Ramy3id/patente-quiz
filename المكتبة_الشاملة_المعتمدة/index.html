@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المكتبة الشاملة المعتمدة للأدلة والقواميس — Patente B Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-base: #09090b;
+    --bg-surface: rgba(24, 24, 27, 0.75);
+    --bg-surface-elevated: rgba(39, 39, 42, 0.85);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(255, 255, 255, 0.16);
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --emerald-primary: #10b981;
+    --emerald-dark: #059669;
+    --emerald-glow: rgba(16, 185, 129, 0.25);
+    --amber-primary: #f59e0b;
+    --indigo-primary: #6366f1;
+    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image: 
+      radial-gradient(ellipse at 50% -10%, rgba(99, 102, 241, 0.1), transparent 60%),
+      radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.04), transparent 40%);
+  }
+
+  /* Top Navigation */
+  .unified-portal-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: rgba(9, 9, 11, 0.85);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .nav-brand .badge-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    padding: 2px 7px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    color: var(--text-secondary);
+  }
+  .nav-tabs-wrapper {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .nav-tab {
+    text-decoration: none;
+    color: var(--text-secondary);
+    padding: 7px 14px;
+    border-radius: 9px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-tab:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-subtle);
+  }
+  .nav-tab.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: var(--border-highlight);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), 0 2px 8px rgba(0,0,0,0.4);
+  }
+  .nav-audio-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s;
+  }
+  .nav-audio-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+
+  .container {
+    max-width: 1060px;
+    margin: 30px auto;
+    padding: 0 18px 50px;
+  }
+
+  /* Hero Header */
+  .hero-card {
+    background: var(--bg-surface);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06), 0 16px 36px -10px rgba(0,0,0,0.6);
+    border-radius: 20px;
+    padding: 34px 38px;
+    margin-bottom: 28px;
+  }
+  .hero-card h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-card p {
+    font-size: 0.98rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* Guides Grid */
+  .guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+    gap: 20px;
+  }
+  @media (max-width: 600px) {
+    .guides-grid { grid-template-columns: 1fr; }
+  }
+
+  .guide-card {
+    background: var(--bg-surface);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border-subtle);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05), 0 8px 24px -6px rgba(0,0,0,0.5);
+    border-radius: 18px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s var(--ease-spring);
+  }
+  .guide-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-highlight);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1), 0 14px 32px -8px rgba(0,0,0,0.7);
+  }
+
+  .guide-status-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #6ee7b7;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 3px 9px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 14px;
+    width: fit-content;
+  }
+  .guide-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .guide-subtitle {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #38bdf8;
+    margin-bottom: 14px;
+    direction: ltr;
+    text-align: right;
+  }
+  .guide-desc {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  .guide-actions {
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 16px;
+  }
+  .btn-read-guide {
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-subtle);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .btn-read-guide:hover {
+    background: var(--emerald-primary);
+    color: #042f2e;
+    border-color: #34d399;
+    box-shadow: 0 4px 14px -2px var(--emerald-glow);
+  }
+  .btn-read-guide:active { transform: scale(0.97); }
+
+  .btn-md-guide {
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    transition: all 0.15s;
+  }
+  .btn-md-guide:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--border-highlight);
+  }
+  .btn-md-guide:active { transform: scale(0.97); }
+</style>
+</head>
+<body>
+
+<!-- Unified Top Navigation -->
+<div class="unified-portal-nav">
+  <div class="nav-brand">
+    <span style="font-size:1.2rem;">🚦</span>
+    <span>Patente B Pro</span>
+    <span class="badge-tag">OFFLINE 100%</span>
+  </div>
+  <div class="nav-tabs-wrapper">
+    <a href="../Capitoli_Divisi/index.html" class="nav-tab">📚 مذاكرة الأبواب المقسمة (25 باب)</a>
+    <a href="../Simulatore_Esame.html" class="nav-tab">⏱️ محاكي الامتحان الرسمي (20 دقيقة)</a>
+    <a href="index.html" class="nav-tab active">📖 المكتبة الشاملة المعتمدة (A2)</a>
+  </div>
+  <div>
+    <button class="nav-audio-btn" id="audio-toggle-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
+      <span id="audio-icon">🔊</span>
+      <span id="audio-label">الصوت نشط</span>
+    </button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="hero-card">
+    <h1>
+      <span>📚</span>
+      <span>المكتبة الشاملة المعتمدة للأدلة والقواميس (A2)</span>
+    </h1>
+    <p>
+      مجموعة المراجع الاستراتيجية المعتمدة والمراجعة بدقة 100% لتأهيل الطالب لاجتياز اختبار رخصة القيادة الإيطالية. تجمع بين المادة العلمية الدقيقة، الشرح باللغتين العربية والإيطالية، الجداول الرسمية، وكشف الفخاخ الامتحانية قبل خوض الاختبارات.
+    </p>
+  </div>
+
+  <div class="guides-grid">
+    <!-- Card 1: Chapter 24 -->
+    <div class="guide-card">
+      <div>
+        <span class="guide-status-badge">✅ معتمد ومكتمل 100%</span>
+        <h3 class="guide-title">الباب 24: المسؤولية والتأمين RCA</h3>
+        <div class="guide-subtitle">Responsabilità Civile, Penale e Assicurazione RCA</div>
+        <p class="guide-desc">
+          يشمل الفارق الجوهري بين المسؤولية المدنية والجنائية، متى ينشأ الجنائي، تغطية ركاب العائلة، مهلة الـ 15 يوماً، حق الرجوع، صندوق ضحايا الطرق، ونظام Bonus/Malus، بالإضافة إلى الـ 5 الذهبية لتقفيل الباب.
+        </p>
+      </div>
+      <div class="guide-actions">
+        <a href="دليل_الباب_24_المسؤولية_والتأمين.html" class="btn-read-guide" onclick="soundEngine.click()">
+          <span>📖 فتح الدليل التفاعلي</span>
+        </a>
+        <a href="دليل_الباب_24_المسؤولية_والتأمين.md" class="btn-md-guide">
+          <span>📄 MD</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 2: Chapter 25 / Last Chapter -->
+    <div class="guide-card">
+      <div>
+        <span class="guide-status-badge">✅ معتمد ومكتمل 100%</span>
+        <h3 class="guide-title">الباب الأخير: الميكانيكا، الصيانة، والإسعافات</h3>
+        <div class="guide-subtitle">Meccanica, Sicurezza, Inquinamento e Primo Soccorso</div>
+        <p class="guide-desc">
+          دليل شامل يغطي أجزاء السيارة، نظام الـ ABS، الفرامل، ضغط ونقشات الإطارات، إطار الطوارئ 80 كم/س، ألوان لمبات التابلوه، جدول الفحص الدوري للمركبات، ومحظورات الإسعافات الأولية الصارمة.
+        </p>
+      </div>
+      <div class="guide-actions">
+        <a href="دليل_الباب_الأخير.html" class="btn-read-guide" onclick="soundEngine.click()">
+          <span>📖 فتح الدليل التفاعلي</span>
+        </a>
+        <a href="دليل_وقاموس_الباب_الأخير_الشامل_المعتمد.md" class="btn-md-guide">
+          <span>📄 MD</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const soundEngine = {
+    ctx: null,
+    enabled: true,
+    init() {
+      if (!this.ctx) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) this.ctx = new AudioCtx();
+      }
+      if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
+    },
+    click() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
+      try {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(520, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.04);
+        gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.04);
+      } catch(e) {}
+    }
+  };
+  window.toggleAudio = function() {
+    soundEngine.enabled = !soundEngine.enabled;
+    document.getElementById('audio-icon').innerText = soundEngine.enabled ? '🔊' : '🔇';
+    document.getElementById('audio-label').innerText = soundEngine.enabled ? 'الصوت نشط' : 'مكتوم';
+  };
+</script>
+</body>
+</html>

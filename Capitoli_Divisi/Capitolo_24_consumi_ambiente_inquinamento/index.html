@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capitolo 24 - Limitazione dei consumi e rispetto ambiente | ترشيد استهلاك الوقود وحماية البيئة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-base: #09090b;
+    --bg-surface: rgba(24, 24, 27, 0.75);
+    --bg-surface-elevated: rgba(39, 39, 42, 0.85);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(255, 255, 255, 0.16);
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --emerald-primary: #10b981;
+    --emerald-dark: #059669;
+    --emerald-glow: rgba(16, 185, 129, 0.25);
+    --rose-primary: #f43f5e;
+    --rose-glow: rgba(244, 63, 94, 0.25);
+    --amber-primary: #f59e0b;
+    --indigo-primary: #6366f1;
+    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    background-image: 
+      radial-gradient(ellipse at 50% -10%, rgba(99, 102, 241, 0.08), transparent 60%),
+      radial-gradient(circle at 90% 90%, rgba(16, 185, 129, 0.04), transparent 40%);
+  }
+
+  /* Top Navigation */
+  .unified-portal-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: rgba(9, 9, 11, 0.85);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    direction: rtl;
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .nav-tabs-wrapper {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .nav-tab {
+    text-decoration: none;
+    color: var(--text-secondary);
+    padding: 7px 14px;
+    border-radius: 9px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-tab:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-subtle);
+  }
+  .nav-tab.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: var(--border-highlight);
+  }
+  .nav-audio-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s;
+  }
+  .nav-audio-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+
+  .container {
+    max-width: 1040px;
+    margin: 24px auto;
+    padding: 0 16px 50px;
+  }
+
+  /* Chapter Header Card */
+  .ch-header-card {
+    background: var(--bg-surface);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06), 0 12px 30px -10px rgba(0,0,0,0.6);
+    border-radius: 18px;
+    padding: 26px 30px;
+    margin-bottom: 20px;
+  }
+  .ch-top-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .btn-back-portal {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.84rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s;
+    direction: rtl;
+  }
+  .btn-back-portal:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+  .btn-back-portal:active { transform: scale(0.97); }
+
+  .ch-main-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .ch-ar-title {
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #38bdf8;
+    direction: rtl;
+    text-align: right;
+    margin-bottom: 18px;
+  }
+
+  /* Score Strip */
+  .score-strip {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 16px;
+    margin-top: 14px;
+    align-items: center;
+  }
+  .score-cell {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-subtle);
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 0.84rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .score-cell strong {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Sticky Controls Bar */
+  .controls-bar {
+    position: sticky;
+    top: 60px;
+    z-index: 90;
+    background: rgba(15, 15, 18, 0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 12px 18px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .search-box {
+    flex: 1;
+    min-width: 220px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-highlight);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-family: inherit;
+    outline: none;
+  }
+  .search-box:focus {
+    border-color: var(--emerald-primary);
+    box-shadow: 0 0 0 2px var(--emerald-glow);
+  }
+
+  .filter-btns-wrap {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .f-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .f-btn:hover { background: rgba(255, 255, 255, 0.07); color: #fff; }
+  .f-btn.active { background: rgba(255, 255, 255, 0.14); color: #fff; border-color: var(--border-highlight); }
+  .f-btn:active { transform: scale(0.96); }
+
+  .study-toggle-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.84rem;
+    color: #cbd5e1;
+    cursor: pointer;
+    user-select: none;
+    direction: rtl;
+  }
+  .study-toggle-label input[type="checkbox"] {
+    accent-color: var(--emerald-primary);
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+  }
+
+  /* Question Card */
+  .q-card {
+    background: var(--bg-surface);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-subtle);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04), 0 8px 24px -6px rgba(0,0,0,0.5);
+    border-radius: 16px;
+    padding: 22px 26px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .q-card:hover {
+    border-color: var(--border-highlight);
+  }
+  .q-card.answered-correct {
+    border-left: 4px solid var(--emerald-primary);
+  }
+  .q-card.answered-wrong {
+    border-left: 4px solid var(--rose-primary);
+  }
+
+  .q-img-wrap {
+    width: 110px;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .q-img-wrap img {
+    max-width: 100%;
+    max-height: 95px;
+    object-fit: contain;
+    cursor: zoom-in;
+    transition: transform 0.2s;
+  }
+  .q-img-wrap img:hover { transform: scale(1.06); }
+
+  .q-body { flex: 1; }
+
+  .q-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .q-id-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--border-subtle);
+  }
+  .q-sub-badge {
+    font-size: 0.76rem;
+    color: #a5b4fc;
+    background: rgba(99, 102, 241, 0.12);
+    border: 1px solid rgba(99, 102, 241, 0.25);
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+
+  .q-text-content {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.55;
+    letter-spacing: -0.015em;
+    margin-bottom: 16px;
+  }
+
+  .q-actions-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .btn-ans {
+    padding: 8px 20px;
+    border-radius: 9px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s var(--ease-spring);
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    user-select: none;
+  }
+  .btn-ans:active { transform: scale(0.96); }
+
+  .btn-ans-v {
+    background: rgba(16, 185, 129, 0.15);
+    border-color: rgba(16, 185, 129, 0.35);
+    color: #6ee7b7;
+  }
+  .btn-ans-v:hover {
+    background: var(--emerald-primary);
+    color: #042f2e;
+    box-shadow: 0 4px 14px -2px var(--emerald-glow);
+  }
+  .btn-ans-f {
+    background: rgba(244, 63, 94, 0.15);
+    border-color: rgba(244, 63, 94, 0.35);
+    color: #fda4af;
+  }
+  .btn-ans-f:hover {
+    background: var(--rose-primary);
+    color: #fff;
+    box-shadow: 0 4px 14px -2px var(--rose-glow);
+  }
+
+  .status-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    display: none;
+  }
+  .status-tag.ok {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.18);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+  }
+  .status-tag.err {
+    display: inline-block;
+    background: rgba(244, 63, 94, 0.18);
+    color: #f87171;
+    border: 1px solid rgba(244, 63, 94, 0.35);
+  }
+
+  .btn-explain-toggle {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    padding: 8px 14px;
+    border-radius: 9px;
+    font-size: 0.83rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-explain-toggle:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--border-highlight);
+  }
+  .btn-explain-toggle:active { transform: scale(0.97); }
+
+  /* Drawer */
+  .explain-drawer {
+    display: none;
+    margin-top: 16px;
+    padding: 18px 22px;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    direction: rtl;
+    text-align: right;
+    animation: fadeIn 0.2s var(--ease-spring);
+  }
+  .explain-drawer.open { display: block; }
+  .ex-item {
+    margin-bottom: 10px;
+    font-size: 0.94rem;
+    line-height: 1.6;
+    color: #e4e4e7;
+  }
+  .ex-item strong { color: #fff; }
+  .trap-banner {
+    background: rgba(244, 63, 94, 0.1);
+    border: 1px solid rgba(244, 63, 94, 0.25);
+    color: #fda4af;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+  .kw-strip {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    direction: ltr;
+    justify-content: flex-end;
+  }
+  .kw-pill {
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: #a5b4fc;
+    font-size: 0.76rem;
+    padding: 2px 7px;
+    border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .study-badge-direct {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    display: none;
+  }
+  .study-badge-direct.show { display: inline-block; }
+  .study-badge-direct.is-v { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+  .study-badge-direct.is-f { background: rgba(244, 63, 94, 0.2); color: #f87171; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Unified Top Navigation -->
+<div class="unified-portal-nav">
+  <div class="nav-brand">
+    <span style="font-size:1.2rem;">🚦</span>
+    <span>Patente B Pro</span>
+  </div>
+  <div class="nav-tabs-wrapper">
+    <a href="../index.html" class="nav-tab">📚 مذاكرة الأبواب المقسمة (25 باب)</a>
+    <a href="../../Simulatore_Esame.html" class="nav-tab">⏱️ محاكي الامتحان الرسمي (20 دقيقة)</a>
+    <a href="../../المكتبة_الشاملة_المعتمدة/index.html" class="nav-tab">📖 المكتبة الشاملة المعتمدة (A2)</a>
+  </div>
+  <div>
+    <button class="nav-audio-btn" id="audio-toggle-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
+      <span id="audio-icon">🔊</span>
+      <span id="audio-label">الصوت نشط</span>
+    </button>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Chapter Header Card -->
+  <div class="ch-header-card">
+    <div class="ch-top-meta">
+      <a href="../index.html" class="btn-back-portal">
+        <span>⬅ العودة إلى فهرس الـ 25 باباً</span>
+      </a>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:var(--text-muted);">
+        CAPITOLO 24 • 103 QUESITI
+      </div>
+    </div>
+    <div class="ch-main-title">Capitolo 24 - Limitazione dei consumi e rispetto ambiente</div>
+    <div class="ch-ar-title">ترشيد استهلاك الوقود وحماية البيئة</div>
+
+    <!-- Live Score Strip -->
+    <div class="score-strip">
+      <div class="score-cell">
+        <span style="color:var(--emerald-primary);">✅ صحيح:</span>
+        <strong id="stat-correct">0</strong>
+      </div>
+      <div class="score-cell">
+        <span style="color:var(--rose-primary);">❌ خطأ:</span>
+        <strong id="stat-wrong">0</strong>
+      </div>
+      <div class="score-cell">
+        <span style="color:var(--text-muted);">⏳ المتبقي:</span>
+        <strong id="stat-remaining">103</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Controls Bar -->
+  <div class="controls-bar">
+    <input type="text" id="q-search" class="search-box" placeholder="🔍 بحث في أسئلة هذا الباب (إيطالي أو عربي)..." oninput="filterQuestions()">
+
+    <div class="filter-btns-wrap">
+      <button class="f-btn active" data-f="all" onclick="setFilter('all')">الكل (103)</button>
+      <button class="f-btn" data-f="true" onclick="setFilter('true')">VERO فقط</button>
+      <button class="f-btn" data-f="false" onclick="setFilter('false')">FALSO فقط</button>
+    </div>
+
+    <label class="study-toggle-label">
+      <input type="checkbox" id="study-mode-toggle" onchange="toggleStudyMode()">
+      <span>وضع الحفظ السريع (إظهار الحل فوراً)</span>
+    </label>
+  </div>
+
+  <!-- Questions Container -->
+  <div id="questions-list"></div>
+
+</div>
+
+<script>
+  // Tactical Web Audio API
+  const soundEngine = {
+    ctx: null,
+    enabled: true,
+    init() {
+      if (!this.ctx) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) this.ctx = new AudioCtx();
+      }
+      if (this.ctx && this.ctx.state === 'suspended') {
+        this.ctx.resume();
+      }
+    },
+    click() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
+      try {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(520, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.04);
+        gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.04);
+      } catch(e) {}
+    },
+    correct() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
+      try {
+        const now = this.ctx.currentTime;
+        [523.25, 659.25, 783.99].forEach((freq, i) => {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(freq, now + i * 0.06);
+          gain.gain.setValueAtTime(0.06, now + i * 0.06);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.06 + 0.18);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(now + i * 0.06);
+          osc.stop(now + i * 0.06 + 0.18);
+        });
+      } catch(e) {}
+    },
+    wrong() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
+      try {
+        const now = this.ctx.currentTime;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(170, now);
+        osc.frequency.exponentialRampToValueAtTime(90, now + 0.16);
+        gain.gain.setValueAtTime(0.06, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.16);
+      } catch(e) {}
+    }
+  };
+
+  window.toggleAudio = function() {
+    soundEngine.enabled = !soundEngine.enabled;
+    document.getElementById('audio-icon').innerText = soundEngine.enabled ? '🔊' : '🔇';
+    document.getElementById('audio-label').innerText = soundEngine.enabled ? 'الصوت نشط' : 'مكتوم';
+  };
+
+  const DATA = {"capitolo_id": "consumi-ambiente-inquinamento", "numero": 24, "titolo_it": "Capitolo 24 - Limitazione dei consumi e rispetto ambiente", "titolo_ar": "ترشيد استهلاك الوقود وحماية البيئة", "totale_domande": 103, "totale_immagini": 0, "domande": [{"id": 1, "sotto_argomento": "Consumi carburante", "domanda": "Gli apparecchi e i dispositivi che funzionano a corrente elettrica (radio, luci, lunotto termico, ecc.) fanno aumentare i consumi di carburante del veicolo", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Consumi carburante) بخصوص: Gli apparecchi e i dispositivi che funzionano a corrente elettrica (radio, luci, lunotto termico, ecc.) fanno aumentare i consumi di carburante del veicolo.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 2, "sotto_argomento": "Consumi carburante", "domanda": "Mantenendo il più possibile costante la velocità, si riduce il consumo di carburante", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Consumi carburante) بخصوص: Mantenendo il più possibile costante la velocità, si riduce il consumo di carburante.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 3, "sotto_argomento": "Consumi carburante", "domanda": "Il consumo di carburante aumenta con l’aumentare del peso del veicolo", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Consumi carburante) بخصوص: Il consumo di carburante aumenta con l’aumentare del peso del veicolo.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 4, "sotto_argomento": "Consumi carburante", "domanda": "Diminuendo opportunamente la velocità diminuisce il consumo di carburante", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Consumi carburante) بخصوص: Diminuendo opportunamente la velocità diminuisce il consumo di carburante.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 5, "sotto_argomento": "Consumi carburante", "domanda": "Per consumare meno carburante è opportuno tenere i finestrini chiusi, specie quando si viaggia ad alta velocità", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Consumi carburante) بخصوص: Per consumare meno carburante è opportuno tenere i finestrini chiusi, specie quando si viaggia ad alta velocità.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 6, "sotto_argomento": "Consumi carburante", "domanda": "Per consumare meno carburante conviene scegliere, per quanto possibile, strade pianeggianti e più scorrevoli", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Consumi carburante) بخصوص: Per consumare meno carburante conviene scegliere, per quanto possibile, strade pianeggianti e più scorrevoli.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 7, "sotto_argomento": "Consumi carburante", "domanda": "L'insufficiente pressione di gonfiaggio degli pneumatici comporta un maggior consumo di carburante", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Consumi carburante) بخصوص: L'insufficiente pressione di gonfiaggio degli pneumatici comporta un maggior consumo di carburante.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 8, "sotto_argomento": "Consumi carburante", "domanda": "Collocare i bagagli sul tetto del veicolo comporta un maggior consumo di carburante", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Consumi carburante) بخصوص: Collocare i bagagli sul tetto del veicolo comporta un maggior consumo di carburante.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 9, "sotto_argomento": "Consumi carburante", "domanda": "Tenere aperto il tettuccio scorrevole del veicolo comporta un minor consumo di carburante", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Consumi carburante) بخصوص: Tenere aperto il tettuccio scorrevole del veicolo comporta un minor consumo di carburante.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 10, "sotto_argomento": "Consumi carburante", "domanda": "L'uso del climatizzatore comporta minor consumo di carburante", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Consumi carburante) بخصوص: L'uso del climatizzatore comporta minor consumo di carburante.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 11, "sotto_argomento": "Consumi carburante", "domanda": "I veicoli ibridi (con due motori, a scoppio ed elettrico) inquinano di più perché azionati da due motori", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Consumi carburante) بخصوص: I veicoli ibridi (con due motori, a scoppio ed elettrico) inquinano di più perché azionati da due motori.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 12, "sotto_argomento": "Consumi carburante", "domanda": "Per consumare meno carburante è opportuno collocare i bagagli sul tetto del veicolo", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Consumi carburante) بخصوص: Per consumare meno carburante è opportuno collocare i bagagli sul tetto del veicolo.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 13, "sotto_argomento": "Consumi carburante", "domanda": "Per consumare meno carburante conviene accelerare e frenare energicamente", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Consumi carburante) بخصوص: Per consumare meno carburante conviene accelerare e frenare energicamente.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 14, "sotto_argomento": "Rumori fastidiosi", "domanda": "Per evitare rumori fastidiosi durante la guida, occorre far controllare che il dispositivo silenziatore (marmitta) sia in buone condizioni di efficienza", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Rumori fastidiosi) بخصوص: Per evitare rumori fastidiosi durante la guida, occorre far controllare che il dispositivo silenziatore (marmitta) sia in buone condizioni di efficienza.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 15, "sotto_argomento": "Rumori fastidiosi", "domanda": "L'inquinamento acustico aumenta se si usano in modo eccessivo i dispositivi di segnalazione acustica (clacson, trombe)", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Rumori fastidiosi) بخصوص: L'inquinamento acustico aumenta se si usano in modo eccessivo i dispositivi di segnalazione acustica (clacson, trombe).", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 16, "sotto_argomento": "Rumori fastidiosi", "domanda": "Per evitare rumori fastidiosi durante la guida non si deve frenare bruscamente, se non è strettamente necessario", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Rumori fastidiosi) بخصوص: Per evitare rumori fastidiosi durante la guida non si deve frenare bruscamente, se non è strettamente necessario.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 17, "sotto_argomento": "Rumori fastidiosi", "domanda": "Per evitare rumori fastidiosi non bisogna accelerare inutilmente e ripetutamente se il veicolo è fermo", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Rumori fastidiosi) بخصوص: Per evitare rumori fastidiosi non bisogna accelerare inutilmente e ripetutamente se il veicolo è fermo.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 18, "sotto_argomento": "Rumori fastidiosi", "domanda": "Per evitare rumori fastidiosi durante la guida, si deve usare il clacson solamente per motivi di sicurezza stradale (trasporto feriti o ammalati, pericolo immediato)", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Rumori fastidiosi) بخصوص: Per evitare rumori fastidiosi durante la guida, si deve usare il clacson solamente per motivi di sicurezza stradale (trasporto feriti o ammalati, pericolo immediato).", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق. حيث أن إشارة مثلثة الرأس لأعلى، توضع عادة قبل الخطر بـ 150 متراً.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": ["Segnale di pericolo (إشارة خطر)"]}, {"id": 19, "sotto_argomento": "Rumori fastidiosi", "domanda": "Per evitare rumori fastidiosi durante le fermate dovute al traffico, occorre mantenere il motore acceso, accelerando ripetutamente", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Rumori fastidiosi) بخصوص: Per evitare rumori fastidiosi durante le fermate dovute al traffico, occorre mantenere il motore acceso, accelerando ripetutamente.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 20, "sotto_argomento": "Rumori fastidiosi", "domanda": "Per evitare rumori fastidiosi, occorre chiudere con forza le portiere dell'autovettura, in modo da non doverle richiudere", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Rumori fastidiosi) بخصوص: Per evitare rumori fastidiosi, occorre chiudere con forza le portiere dell'autovettura, in modo da non doverle richiudere.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "⚠️ فخ أداة النفي (Non): وضع أداة النفي قبل الفعل لعكس حكم قانوني صحيح.", "parole_chiave": []}, {"id": 21, "sotto_argomento": "Rumori fastidiosi", "domanda": "Per evitare rumori fastidiosi durante la guida, occorre sostituire il clacson con le luci ad intermittenza, ma solamente di notte", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Rumori fastidiosi) بخصوص: Per evitare rumori fastidiosi durante la guida, occorre sostituire il clacson con le luci ad intermittenza, ma solamente di notte.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية. السبب في جعلها خاطئة هو استخدام صيغة جزم غير صحيحة (sostituire).", "trabocchetto": "⚠️ فخ شهير جداً: لاحظ استخدام كلمة (SOSTITUIRE)! هذه الكلمة تجعل السؤال خاطئاً في أكثر من 85% من امتحانات الوزارة لأنها تعميم باطل.", "parole_chiave": []}, {"id": 22, "sotto_argomento": "Rumore veicoli motore", "domanda": "Il rumore prodotto dai veicoli a motore aumenta man mano che si va rovinando il silenziatore (marmitta)", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Rumore veicoli motore) بخصوص: Il rumore prodotto dai veicoli a motore aumenta man mano che si va rovinando il silenziatore (marmitta).", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 23, "sotto_argomento": "Rumore veicoli motore", "domanda": "Il rumore prodotto dai veicoli a motore si può diminuire con una guida corretta, che eviti brusche frenate o forti accelerazioni", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Rumore veicoli motore) بخصوص: Il rumore prodotto dai veicoli a motore si può diminuire con una guida corretta, che eviti brusche frenate o forti accelerazioni.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 24, "sotto_argomento": "Rumore veicoli motore", "domanda": "Il rumore prodotto dai veicoli a motore è causato solo dal motore", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Rumore veicoli motore) بخصوص: Il rumore prodotto dai veicoli a motore è causato solo dal motore.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية. السبب في جعلها خاطئة هو استخدام صيغة جزم غير صحيحة (solo).", "trabocchetto": "⚠️ فخ شهير جداً: لاحظ استخدام كلمة (SOLO)! هذه الكلمة تجعل السؤال خاطئاً في أكثر من 85% من امتحانات الوزارة لأنها تعميم باطل.", "parole_chiave": []}, {"id": 25, "sotto_argomento": "Diminuire rumore", "domanda": "Per diminuire il rumore emesso dai veicoli a motore è necessario che il dispositivo silenziatore (marmitta) sia efficiente e di tipo approvato", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Diminuire rumore) بخصوص: Per diminuire il rumore emesso dai veicoli a motore è necessario che il dispositivo silenziatore (marmitta) sia efficiente e di tipo approvato.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 26, "sotto_argomento": "Diminuire rumore", "domanda": "Per diminuire il rumore è necessario far sostituire la marmitta rovinata con una approvata per quel tipo di veicolo", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Diminuire rumore) بخصوص: Per diminuire il rumore è necessario far sostituire la marmitta rovinata con una approvata per quel tipo di veicolo.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 27, "sotto_argomento": "Diminuire rumore", "domanda": "Per diminuire il rumore non si deve accelerare quando il veicolo è fermo", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Diminuire rumore) بخصوص: Per diminuire il rumore non si deve accelerare quando il veicolo è fermo.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 28, "sotto_argomento": "Diminuire rumore", "domanda": "Per diminuire il rumore prodotto dai veicoli a motore è necessario far controllare i freni se emettono rumore durante le frenate, sostituendoli se necessario", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Diminuire rumore) بخصوص: Per diminuire il rumore prodotto dai veicoli a motore è necessario far controllare i freni se emettono rumore durante le frenate, sostituendoli se necessario.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 29, "sotto_argomento": "Diminuire rumore", "domanda": "Il controllo dei freni che producono rumore, oltre ad aumentare la sicurezza può ridurre la rumorosità del veicolo", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Diminuire rumore) بخصوص: Il controllo dei freni che producono rumore, oltre ad aumentare la sicurezza può ridurre la rumorosità del veicolo.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 30, "sotto_argomento": "Diminuire rumore", "domanda": "Per diminuire il rumore emesso dai veicoli a motore si deve suonare il clacson il meno possibile", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Diminuire rumore) بخصوص: Per diminuire il rumore emesso dai veicoli a motore si deve suonare il clacson il meno possibile.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 31, "sotto_argomento": "Diminuire rumore", "domanda": "Per diminuire il rumore emesso dai veicoli a motore è opportuno praticare dei fori nel dispositivo silenziatore (marmitta)", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Diminuire rumore) بخصوص: Per diminuire il rumore emesso dai veicoli a motore è opportuno praticare dei fori nel dispositivo silenziatore (marmitta).", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 32, "sotto_argomento": "Diminuire rumore", "domanda": "Per diminuire il rumore emesso dai veicoli a motore si deve sostituire il tubo di scarico, usandone uno di diametro più piccolo", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Diminuire rumore) بخصوص: Per diminuire il rumore emesso dai veicoli a motore si deve sostituire il tubo di scarico, usandone uno di diametro più piccolo.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية. السبب في جعلها خاطئة هو استخدام صيغة جزم غير صحيحة (sostituire).", "trabocchetto": "⚠️ فخ شهير جداً: لاحظ استخدام كلمة (SOSTITUIRE)! هذه الكلمة تجعل السؤال خاطئاً في أكثر من 85% من امتحانات الوزارة لأنها تعميم باطل.", "parole_chiave": []}, {"id": 33, "sotto_argomento": "Diminuire rumore", "domanda": "Per diminuire il rumore emesso dai veicoli a motore basta eliminare la parte finale della marmitta", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Diminuire rumore) بخصوص: Per diminuire il rumore emesso dai veicoli a motore basta eliminare la parte finale della marmitta.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 34, "sotto_argomento": "Rimorchi pneumatici", "domanda": "Nelle curve percorse a forte velocità, lo strisciamento dei pneumatici aumenta la rumorosità del veicolo", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Rimorchi pneumatici) بخصوص: Nelle curve percorse a forte velocità, lo strisciamento dei pneumatici aumenta la rumorosità del veicolo.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 35, "sotto_argomento": "Rimorchi pneumatici", "domanda": "I rimorchi vuoti, che sobbalzano eccessivamente, possono essere causa di rumore", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Rimorchi pneumatici) بخصوص: I rimorchi vuoti, che sobbalzano eccessivamente, possono essere causa di rumore.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 36, "sotto_argomento": "Inquinamento aria", "domanda": "Per diminuire l'inquinamento provocato dai veicoli non bisogna accelerare bruscamente durante le partenze", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Inquinamento aria) بخصوص: Per diminuire l'inquinamento provocato dai veicoli non bisogna accelerare bruscamente durante le partenze.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 37, "sotto_argomento": "Inquinamento aria", "domanda": "Per diminuire l'inquinamento, bisogna evitare di tenere inserita per troppo tempo una marcia bassa, se non è necessaria", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Inquinamento aria) بخصوص: Per diminuire l'inquinamento, bisogna evitare di tenere inserita per troppo tempo una marcia bassa, se non è necessaria.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 38, "sotto_argomento": "Inquinamento aria", "domanda": "Per diminuire l’inquinamento dell’aria provocato dai veicoli con motore a scoppio, bisogna sostituire la marmitta catalitica quando la stessa è deteriorata o esausta", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Inquinamento aria) بخصوص: Per diminuire l’inquinamento dell’aria provocato dai veicoli con motore a scoppio, bisogna sostituire la marmitta catalitica quando la stessa è deteriorata o esausta.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 39, "sotto_argomento": "Inquinamento aria", "domanda": "Per diminuire l'inquinamento dell'aria provocato dai veicoli, bisogna controllare spesso la frizione e il differenziale", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Inquinamento aria) بخصوص: Per diminuire l'inquinamento dell'aria provocato dai veicoli, bisogna controllare spesso la frizione e il differenziale.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 40, "sotto_argomento": "Inquinamento aria", "domanda": "Per diminuire l'inquinamento dell'aria provocato dai veicoli, bisogna controllare spesso gli organi di sospensione (ammortizzatori)", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Inquinamento aria) بخصوص: Per diminuire l'inquinamento dell'aria provocato dai veicoli, bisogna controllare spesso gli organi di sospensione (ammortizzatori).", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 41, "sotto_argomento": "Inquinamento aria", "domanda": "Per diminuire l'inquinamento dell'aria provocato dai veicoli, bisogna ridurre la pressione di gonfiaggio dei pneumatici", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Inquinamento aria) بخصوص: Per diminuire l'inquinamento dell'aria provocato dai veicoli, bisogna ridurre la pressione di gonfiaggio dei pneumatici.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 42, "sotto_argomento": "Inquinamento aria", "domanda": "Per diminuire l'inquinamento dell'aria provocato dai veicoli, bisogna accelerare ripetutamente da fermo, per tenere caldo il motore e migliorarne il rendimento", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Inquinamento aria) بخصوص: Per diminuire l'inquinamento dell'aria provocato dai veicoli, bisogna accelerare ripetutamente da fermo, per tenere caldo il motore e migliorarne il rendimento.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 43, "sotto_argomento": "Inquinamento aria", "domanda": "Nei veicoli dotati di marmitta catalitica, l'inquinamento dell'aria è minore subito dopo l'accensione del motore, quando la temperatura è ancora bassa", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Inquinamento aria) بخصوص: Nei veicoli dotati di marmitta catalitica, l'inquinamento dell'aria è minore subito dopo l'accensione del motore, quando la temperatura è ancora bassa.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 44, "sotto_argomento": "Inquinamento atmosferico", "domanda": "L'inquinamento dell'aria prodotto dai veicoli può dipendere da un funzionamento irregolare del motore", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Inquinamento atmosferico) بخصوص: L'inquinamento dell'aria prodotto dai veicoli può dipendere da un funzionamento irregolare del motore.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 45, "sotto_argomento": "Inquinamento atmosferico", "domanda": "L'inquinamento dell'aria può essere ridotto, controllando che il veicolo sia sempre nelle condizioni ottimali di consumo e rendimento", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Inquinamento atmosferico) بخصوص: L'inquinamento dell'aria può essere ridotto, controllando che il veicolo sia sempre nelle condizioni ottimali di consumo e rendimento.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 46, "sotto_argomento": "Inquinamento atmosferico", "domanda": "Adottando uno stile di guida che limiti i consumi di carburante, è possibile ridurre l'inquinamento dell'aria", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Inquinamento atmosferico) بخصوص: Adottando uno stile di guida che limiti i consumi di carburante, è possibile ridurre l'inquinamento dell'aria.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 47, "sotto_argomento": "Inquinamento atmosferico", "domanda": "L'inquinamento atmosferico prodotto dai veicoli può essere ridotto, controllando che il filtro dell'aria non sia sporco o intasato", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Inquinamento atmosferico) بخصوص: L'inquinamento atmosferico prodotto dai veicoli può essere ridotto, controllando che il filtro dell'aria non sia sporco o intasato.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 48, "sotto_argomento": "Inquinamento atmosferico", "domanda": "L'inquinamento atmosferico prodotto dai veicoli scompare del tutto accelerando a fondo, perché l'alta temperatura fa consumare in fretta il carburante", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Inquinamento atmosferico) بخصوص: L'inquinamento atmosferico prodotto dai veicoli scompare del tutto accelerando a fondo, perché l'alta temperatura fa consumare in fretta il carburante.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 49, "sotto_argomento": "Inquinamento atmosferico", "domanda": "L'inquinamento dell'aria prodotto dai veicoli diminuisce se si lascia acceso il climatizzatore", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Inquinamento atmosferico) بخصوص: L'inquinamento dell'aria prodotto dai veicoli diminuisce se si lascia acceso il climatizzatore.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 50, "sotto_argomento": "Inquinamento atmosferico", "domanda": "L'inquinamento atmosferico è nullo nei veicoli che rispettano la normativa antinquinamento \"Euro 0\"", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Inquinamento atmosferico) بخصوص: L'inquinamento atmosferico è nullo nei veicoli che rispettano la normativa antinquinamento \"Euro 0\".", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 51, "sotto_argomento": "Iniettori fumi scarico", "domanda": "L'inquinamento dell'aria prodotto dai veicoli aumenta se gli iniettori sono difettosi", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Iniettori fumi scarico) بخصوص: L'inquinamento dell'aria prodotto dai veicoli aumenta se gli iniettori sono difettosi.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 52, "sotto_argomento": "Iniettori fumi scarico", "domanda": "Una maggiore emissione di fumo dallo scarico è sintomo di maggior inquinamento causato dal motore", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Iniettori fumi scarico) بخصوص: Una maggiore emissione di fumo dallo scarico è sintomo di maggior inquinamento causato dal motore.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 53, "sotto_argomento": "Iniettori fumi scarico", "domanda": "L'inquinamento dell'aria prodotto dai veicoli è maggiore se il fumo di scarico presenta colore scuro", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Iniettori fumi scarico) بخصوص: L'inquinamento dell'aria prodotto dai veicoli è maggiore se il fumo di scarico presenta colore scuro.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 54, "sotto_argomento": "Iniettori fumi scarico", "domanda": "L'inquinamento dell'aria prodotto dai veicoli può causare danni alle vie respiratorie e irritazione agli occhi", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Iniettori fumi scarico) بخصوص: L'inquinamento dell'aria prodotto dai veicoli può causare danni alle vie respiratorie e irritazione agli occhi.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 55, "sotto_argomento": "Iniettori fumi scarico", "domanda": "L'inquinamento dell'aria prodotto dai veicoli fa aumentare lo smog, le piogge acide e l'effetto serra", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Iniettori fumi scarico) بخصوص: L'inquinamento dell'aria prodotto dai veicoli fa aumentare lo smog, le piogge acide e l'effetto serra.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 56, "sotto_argomento": "Iniettori fumi scarico", "domanda": "L'inquinamento dell'aria prodotto dai veicoli è dovuto per la maggior parte ai gas di scarico, generati dalla combustione all'interno del motore", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Iniettori fumi scarico) بخصوص: L'inquinamento dell'aria prodotto dai veicoli è dovuto per la maggior parte ai gas di scarico, generati dalla combustione all'interno del motore.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 57, "sotto_argomento": "Iniettori fumi scarico", "domanda": "L'inquinamento atmosferico prodotto dai veicoli dipende principalmente dall'umidità presente nell'aria", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Iniettori fumi scarico) بخصوص: L'inquinamento atmosferico prodotto dai veicoli dipende principalmente dall'umidità presente nell'aria.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 58, "sotto_argomento": "Accorgimenti ridurre inquinamento", "domanda": "L'inquinamento dell'aria prodotto dai veicoli a motore può diminuire se si alleggerisce il peso del veicolo", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Accorgimenti ridurre inquinamento) بخصوص: L'inquinamento dell'aria prodotto dai veicoli a motore può diminuire se si alleggerisce il peso del veicolo.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 59, "sotto_argomento": "Accorgimenti ridurre inquinamento", "domanda": "L'inquinamento dell'aria prodotto dai veicoli a motore può essere ridotto, scegliendo veicoli con alimentazione elettrica, a metano o GPL", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Accorgimenti ridurre inquinamento) بخصوص: L'inquinamento dell'aria prodotto dai veicoli a motore può essere ridotto, scegliendo veicoli con alimentazione elettrica, a metano o GPL.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 60, "sotto_argomento": "Accorgimenti ridurre inquinamento", "domanda": "L'inquinamento dell'aria prodotto dai veicoli a motore può diminuire se si spegne il motore, in caso di arresto prolungato", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Accorgimenti ridurre inquinamento) بخصوص: L'inquinamento dell'aria prodotto dai veicoli a motore può diminuire se si spegne il motore, in caso di arresto prolungato.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 61, "sotto_argomento": "Accorgimenti ridurre inquinamento", "domanda": "L'inquinamento dell'aria prodotto dai veicoli a motore può essere ridotto, evitando di usare il veicolo per brevi percorsi", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Accorgimenti ridurre inquinamento) بخصوص: L'inquinamento dell'aria prodotto dai veicoli a motore può essere ridotto, evitando di usare il veicolo per brevi percorsi.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 62, "sotto_argomento": "Accorgimenti ridurre inquinamento", "domanda": "Guidando un veicolo che emette troppi gas di scarico inquinanti si può essere puniti con una sanzione amministrativa e il ritiro della carta di circolazione", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Accorgimenti ridurre inquinamento) بخصوص: Guidando un veicolo che emette troppi gas di scarico inquinanti si può essere puniti con una sanzione amministrativa e il ritiro della carta di circolazione.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 63, "sotto_argomento": "Accorgimenti ridurre inquinamento", "domanda": "L'inquinamento dell'aria prodotto dai veicoli a motore può diminuire se si sistemano i bagagli sul tetto dell'autovettura", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Accorgimenti ridurre inquinamento) بخصوص: L'inquinamento dell'aria prodotto dai veicoli a motore può diminuire se si sistemano i bagagli sul tetto dell'autovettura.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 64, "sotto_argomento": "Accorgimenti ridurre inquinamento", "domanda": "L'inquinamento dell'aria prodotto dai veicoli a motore può diminuire se si circola sempre con marce basse", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Accorgimenti ridurre inquinamento) بخصوص: L'inquinamento dell'aria prodotto dai veicoli a motore può diminuire se si circola sempre con marce basse.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية. السبب في جعلها خاطئة هو استخدام صيغة جزم غير صحيحة (sempre).", "trabocchetto": "⚠️ فخ شهير جداً: لاحظ استخدام كلمة (SEMPRE)! هذه الكلمة تجعل السؤال خاطئاً في أكثر من 85% من امتحانات الوزارة لأنها تعميم باطل.", "parole_chiave": []}, {"id": 65, "sotto_argomento": "Accorgimenti ridurre inquinamento", "domanda": "L'inquinamento dell'aria prodotto dai veicoli a motore può diminuire se si accelera tenendo premuto il pedale della frizione", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Accorgimenti ridurre inquinamento) بخصوص: L'inquinamento dell'aria prodotto dai veicoli a motore può diminuire se si accelera tenendo premuto il pedale della frizione.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 66, "sotto_argomento": "Accorgimenti ridurre inquinamento", "domanda": "L'inquinamento dell'aria prodotto dai veicoli a motore può diminuire se si accelera con il cambio in folle", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Accorgimenti ridurre inquinamento) بخصوص: L'inquinamento dell'aria prodotto dai veicoli a motore può diminuire se si accelera con il cambio in folle.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 67, "sotto_argomento": "Sostituzione filtri", "domanda": "Per diminuire l'inquinamento atmosferico provocato dai veicoli, bisogna far sostituire periodicamente il filtro dell'aria", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Sostituzione filtri) بخصوص: Per diminuire l'inquinamento atmosferico provocato dai veicoli, bisogna far sostituire periodicamente il filtro dell'aria.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 68, "sotto_argomento": "Sostituzione filtri", "domanda": "Per diminuire l'inquinamento dell'aria provocato dai veicoli con motore diesel, bisogna far controllare periodicamente il sistema di alimentazione (pompa di iniezione ed iniettori)", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Sostituzione filtri) بخصوص: Per diminuire l'inquinamento dell'aria provocato dai veicoli con motore diesel, bisogna far controllare periodicamente il sistema di alimentazione (pompa di iniezione ed iniettori).", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 69, "sotto_argomento": "Sostituzione filtri", "domanda": "Per diminuire l'inquinamento dell'aria provocato dai veicoli, bisogna far controllare il motore, se il fumo dello scarico risulta troppo scuro", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Sostituzione filtri) بخصوص: Per diminuire l'inquinamento dell'aria provocato dai veicoli, bisogna far controllare il motore, se il fumo dello scarico risulta troppo scuro.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 70, "sotto_argomento": "Sostituzione filtri", "domanda": "Per diminuire l'inquinamento dell'aria non bisogna accelerare e frenare spesso durante la marcia del veicolo", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Sostituzione filtri) بخصوص: Per diminuire l'inquinamento dell'aria non bisogna accelerare e frenare spesso durante la marcia del veicolo.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 71, "sotto_argomento": "Sostituzione filtri", "domanda": "Per diminuire l'inquinamento dell'aria provocato dai veicoli, bisogna dare un breve colpo di acceleratore, prima di abbassare la frizione per cambiare marcia", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Sostituzione filtri) بخصوص: Per diminuire l'inquinamento dell'aria provocato dai veicoli, bisogna dare un breve colpo di acceleratore, prima di abbassare la frizione per cambiare marcia.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 72, "sotto_argomento": "Sostituzione filtri", "domanda": "Per diminuire l'inquinamento atmosferico provocato dai veicoli, bisogna utilizzare il motore al massimo numero di giri", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Sostituzione filtri) بخصوص: Per diminuire l'inquinamento atmosferico provocato dai veicoli, bisogna utilizzare il motore al massimo numero di giri.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 73, "sotto_argomento": "Sostituzione filtri", "domanda": "Per diminuire l'inquinamento dell'aria provocato dai gas di scarico del veicolo, bisogna sostituire periodicamente il filtro antipolline", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Sostituzione filtri) بخصوص: Per diminuire l'inquinamento dell'aria provocato dai gas di scarico del veicolo, bisogna sostituire periodicamente il filtro antipolline.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية. السبب في جعلها خاطئة هو استخدام صيغة جزم غير صحيحة (sostituire).", "trabocchetto": "⚠️ فخ شهير جداً: لاحظ استخدام كلمة (SOSTITUIRE)! هذه الكلمة تجعل السؤال خاطئاً في أكثر من 85% من امتحانات الوزارة لأنها تعميم باطل.", "parole_chiave": []}, {"id": 74, "sotto_argomento": "Sostituzione filtri", "domanda": "Per diminuire l'inquinamento dell'aria provocato dai veicoli, bisogna sostituire il filtro dell'olio ad ogni cambio di stagione", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Sostituzione filtri) بخصوص: Per diminuire l'inquinamento dell'aria provocato dai veicoli, bisogna sostituire il filtro dell'olio ad ogni cambio di stagione.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية. السبب في جعلها خاطئة هو استخدام صيغة جزم غير صحيحة (sostituire).", "trabocchetto": "⚠️ فخ شهير جداً: لاحظ استخدام كلمة (SOSTITUIRE)! هذه الكلمة تجعل السؤال خاطئاً في أكثر من 85% من امتحانات الوزارة لأنها تعميم باطل.", "parole_chiave": []}, {"id": 75, "sotto_argomento": "Salvaguardare ambiente", "domanda": "Per risparmiare carburante e salvaguardare l'ambiente dall'inquinamento atmosferico, è consigliabile azionare il climatizzatore il meno possibile e soltanto quando serve effettivamente", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Salvaguardare ambiente) بخصوص: Per risparmiare carburante e salvaguardare l'ambiente dall'inquinamento atmosferico, è consigliabile azionare il climatizzatore il meno possibile e soltanto quando serve effettivamente.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 76, "sotto_argomento": "Salvaguardare ambiente", "domanda": "Per salvaguardare l'ambiente dall'inquinamento atmosferico, bisogna premere più volte il pedale dell'acceleratore quando il veicolo è freddo", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Salvaguardare ambiente) بخصوص: Per salvaguardare l'ambiente dall'inquinamento atmosferico, bisogna premere più volte il pedale dell'acceleratore quando il veicolo è freddo.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 77, "sotto_argomento": "Salvaguardare ambiente", "domanda": "Per salvaguardare l'ambiente dall'inquinamento atmosferico, bisogna premere diverse volte e a fondo il pedale dell'acceleratore, affinché il veicolo raggiunga in fretta la temperatura di esercizio", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Salvaguardare ambiente) بخصوص: Per salvaguardare l'ambiente dall'inquinamento atmosferico, bisogna premere diverse volte e a fondo il pedale dell'acceleratore, affinché il veicolo raggiunga in fretta la temperatura di esercizio.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 78, "sotto_argomento": "Salvaguardare ambiente", "domanda": "Per salvaguardare l'ambiente dall'inquinamento atmosferico e acustico, quando si cambia marcia bisogna premere a fondo il pedale dell'acceleratore", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Salvaguardare ambiente) بخصوص: Per salvaguardare l'ambiente dall'inquinamento atmosferico e acustico, quando si cambia marcia bisogna premere a fondo il pedale dell'acceleratore.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 79, "sotto_argomento": "Aumento limitazione consumi", "domanda": "Per limitare i consumi di carburante, conviene chiudere i finestrini se si viaggia a velocità medio alte, perché le turbolenze all'interno dell'abitacolo possono frenare la marcia del veicolo", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Aumento limitazione consumi) بخصوص: Per limitare i consumi di carburante, conviene chiudere i finestrini se si viaggia a velocità medio alte, perché le turbolenze all'interno dell'abitacolo possono frenare la marcia del veicolo.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 80, "sotto_argomento": "Aumento limitazione consumi", "domanda": "Per limitare i consumi di carburante non conviene fare uso del portapacchi, ma sistemare i bagagli all'interno del veicolo", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Aumento limitazione consumi) بخصوص: Per limitare i consumi di carburante non conviene fare uso del portapacchi, ma sistemare i bagagli all'interno del veicolo.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 81, "sotto_argomento": "Aumento limitazione consumi", "domanda": "Viaggiare con uno spesso strato di neve sul tetto del veicolo, comporta un aumento dei consumi di carburante", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Aumento limitazione consumi) بخصوص: Viaggiare con uno spesso strato di neve sul tetto del veicolo, comporta un aumento dei consumi di carburante.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 82, "sotto_argomento": "Aumento limitazione consumi", "domanda": "Viaggiare a forte velocità con il tettuccio del veicolo aperto comporta un aumento dei consumi di carburante", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Aumento limitazione consumi) بخصوص: Viaggiare a forte velocità con il tettuccio del veicolo aperto comporta un aumento dei consumi di carburante.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 83, "sotto_argomento": "Aumento limitazione consumi", "domanda": "In caso di arresto prolungato in galleria, per la formazione di una fila di veicoli, è dannoso per la salute azionare il comando del ricircolo dell'aria all'interno del veicolo", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Aumento limitazione consumi) بخصوص: In caso di arresto prolungato in galleria, per la formazione di una fila di veicoli, è dannoso per la salute azionare il comando del ricircolo dell'aria all'interno del veicolo.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 84, "sotto_argomento": "Aumento limitazione consumi", "domanda": "I veicoli che rispettano la normativa antinquinamento \"Euro 4\" emettono una quantità di gas inquinanti maggiore di quelli omologati secondo la normativa \"Euro 0\"", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Aumento limitazione consumi) بخصوص: I veicoli che rispettano la normativa antinquinamento \"Euro 4\" emettono una quantità di gas inquinanti maggiore di quelli omologati secondo la normativa \"Euro 0\".", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 85, "sotto_argomento": "Aumento limitazione consumi", "domanda": "Trainare un rimorchio non comporta un aumento dei consumi di carburante", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Aumento limitazione consumi) بخصوص: Trainare un rimorchio non comporta un aumento dei consumi di carburante.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "⚠️ فخ أداة النفي (Non): وضع أداة النفي قبل الفعل لعكس حكم قانوني صحيح.", "parole_chiave": []}, {"id": 86, "sotto_argomento": "Veicoli modificati", "domanda": "Guidando un veicolo a cui sono stati modificati il motore e la marmitta, si può incorrere in pesanti sanzioni amministrative", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Veicoli modificati) بخصوص: Guidando un veicolo a cui sono stati modificati il motore e la marmitta, si può incorrere in pesanti sanzioni amministrative.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 87, "sotto_argomento": "Veicoli modificati", "domanda": "E' consentito modificare liberamente il motore e la marmitta di un veicolo per diminuire l'inquinamento atmosferico", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Veicoli modificati) بخصوص: E' consentito modificare liberamente il motore e la marmitta di un veicolo per diminuire l'inquinamento atmosferico.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 88, "sotto_argomento": "Scarico smaltimento", "domanda": "E' vietato scaricare nella fognatura il liquido antigelo del circuito di raffreddamento del veicolo, poiché potrebbe non essere biodegradabile", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Scarico smaltimento) بخصوص: E' vietato scaricare nella fognatura il liquido antigelo del circuito di raffreddamento del veicolo, poiché potrebbe non essere biodegradabile.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 89, "sotto_argomento": "Scarico smaltimento", "domanda": "L'abbandono di una batteria per auto, sulla strada o sul terreno, può arrecare gravi danni all'ambiente e alle falde acquifere sottostanti", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Scarico smaltimento) بخصوص: L'abbandono di una batteria per auto, sulla strada o sul terreno, può arrecare gravi danni all'ambiente e alle falde acquifere sottostanti.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 90, "sotto_argomento": "Scarico smaltimento", "domanda": "Se si acquista una batteria per auto si può consegnare quella esausta (usata) al rivenditore, che provvederà a ritirarla, senza ulteriori costi aggiuntivi", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Scarico smaltimento) بخصوص: Se si acquista una batteria per auto si può consegnare quella esausta (usata) al rivenditore, che provvederà a ritirarla, senza ulteriori costi aggiuntivi.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 91, "sotto_argomento": "Scarico smaltimento", "domanda": "Il proprietario di un veicolo che intende demolirlo o rottamarlo, deve consegnarlo ad un centro di raccolta per la messa in sicurezza (autodemolitore autorizzato)", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Scarico smaltimento) بخصوص: Il proprietario di un veicolo che intende demolirlo o rottamarlo, deve consegnarlo ad un centro di raccolta per la messa in sicurezza (autodemolitore autorizzato).", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 92, "sotto_argomento": "Scarico smaltimento", "domanda": "Al momento dello smaltimento dell'olio del motore, bisogna evitare che venga a contatto con la pelle per un tempo prolungato", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Scarico smaltimento) بخصوص: Al momento dello smaltimento dell'olio del motore, bisogna evitare che venga a contatto con la pelle per un tempo prolungato.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 93, "sotto_argomento": "Scarico smaltimento", "domanda": "Lo scarico dei residui organici e delle acque sporche delle autocaravan deve avvenire negli appositi impianti di smaltimento igienico-sanitari", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Scarico smaltimento) بخصوص: Lo scarico dei residui organici e delle acque sporche delle autocaravan deve avvenire negli appositi impianti di smaltimento igienico-sanitari.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 94, "sotto_argomento": "Scarico smaltimento", "domanda": "L'abbandono sul terreno di rifiuti pericolosi o tossici (olii, liquidi, residui di riparazioni o di sostituzioni) non viene sanzionato", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Scarico smaltimento) بخصوص: L'abbandono sul terreno di rifiuti pericolosi o tossici (olii, liquidi, residui di riparazioni o di sostituzioni) non viene sanzionato.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية. والصحيح أن إشارة مثلثة الرأس لأعلى، توضع عادة قبل الخطر بـ 150 متراً.", "trabocchetto": "⚠️ فخ أداة النفي (Non): وضع أداة النفي قبل الفعل لعكس حكم قانوني صحيح.", "parole_chiave": ["Segnale di pericolo (إشارة خطر)"]}, {"id": 95, "sotto_argomento": "Scarico smaltimento", "domanda": "Per demolire o rottamare un veicolo, lo si deve consegnare esclusivamente al concessionario della casa costruttrice", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Scarico smaltimento) بخصوص: Per demolire o rottamare un veicolo, lo si deve consegnare esclusivamente al concessionario della casa costruttrice.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية. السبب في جعلها خاطئة هو استخدام صيغة جزم غير صحيحة (esclusivamente).", "trabocchetto": "⚠️ فخ شهير جداً: لاحظ استخدام كلمة (ESCLUSIVAMENTE)! هذه الكلمة تجعل السؤال خاطئاً في أكثر من 85% من امتحانات الوزارة لأنها تعميم باطل.", "parole_chiave": []}, {"id": 96, "sotto_argomento": "Divieti generici", "domanda": "E' vietato danneggiare le opere e gli impianti stradali", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Divieti generici) بخصوص: E' vietato danneggiare le opere e gli impianti stradali.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 97, "sotto_argomento": "Divieti generici", "domanda": "E' vietato gettare oggetti e rifiuti dai veicoli in movimento", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Divieti generici) بخصوص: E' vietato gettare oggetti e rifiuti dai veicoli in movimento.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 98, "sotto_argomento": "Divieti generici", "domanda": "E' vietato sporcare la carreggiata depositando rifiuti", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Divieti generici) بخصوص: E' vietato sporcare la carreggiata depositando rifiuti.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق. حيث أن الجزء من الطريق المخصص لحركة وسير المركبات، وقد تتكون من مسار واحد أو عدة مسارات.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": ["Carreggiata (حيز سير المركبات)"]}, {"id": 99, "sotto_argomento": "Divieti generici", "domanda": "E' vietato immettersi sulle strade con le ruote del veicolo sporche di fango", "risposta": true, "immagine": "", "traduzione": "سؤال يتناول موضوع (Divieti generici) بخصوص: E' vietato immettersi sulle strade con le ruote del veicolo sporche di fango.", "spiegazione": "العبارة صحيحة (VERO) ومطابقة تماماً لنصوص كود السير الإيطالي وقواعد السلامة على الطرق.", "trabocchetto": "✅ سؤال مباشر وموثوق؛ تأكد من حفظ المصطلح الإيطالي كما ورد دون تأويل زائد.", "parole_chiave": []}, {"id": 100, "sotto_argomento": "Divieti generici", "domanda": "Su tutte le strade è vietato esercitarsi alla guida", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Divieti generici) بخصوص: Su tutte le strade è vietato esercitarsi alla guida.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 101, "sotto_argomento": "Divieti generici", "domanda": "Su tutte le strade sono vietati gli avvisatori acustici (clacson, trombe)", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Divieti generici) بخصوص: Su tutte le strade sono vietati gli avvisatori acustici (clacson, trombe).", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 102, "sotto_argomento": "Divieti generici", "domanda": "Su tutte le strade è vietato il transito dei veicoli che superano 10 m di lunghezza", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Divieti generici) بخصوص: Su tutte le strade è vietato il transito dei veicoli che superano 10 m di lunghezza.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}, {"id": 103, "sotto_argomento": "Divieti generici", "domanda": "E' vietato parcheggiare nelle zone residenziali", "risposta": false, "immagine": "", "traduzione": "سؤال يتناول موضوع (Divieti generici) بخصوص: E' vietato parcheggiare nelle zone residenziali.", "spiegazione": "العبارة خاطئة (FALSO) وتتعارض مع القواعد المرورية الرسمية.", "trabocchetto": "", "parole_chiave": []}]};
+
+  let userStats = { correct: 0, wrong: 0 };
+  let currentFilter = 'all';
+  let isStudyMode = false;
+
+  function renderQuestions() {
+    const container = document.getElementById('questions-list');
+    container.innerHTML = '';
+    const query = document.getElementById('q-search').value.toLowerCase().trim();
+
+    DATA.domande.forEach((q, idx) => {
+      // Filters
+      if (currentFilter === 'true' && !q.risposta) return;
+      if (currentFilter === 'false' && q.risposta) return;
+
+      const qTextLower = q.domanda.toLowerCase();
+      const subLower = (q.sotto_argomento || '').toLowerCase();
+      const trLower = (q.traduzione || '').toLowerCase();
+
+      if (query !== '' && !qTextLower.includes(query) && !subLower.includes(query) && !trLower.includes(query)) {
+        return;
+      }
+
+      const card = document.createElement('div');
+      card.className = 'q-card';
+      card.id = `q-card-${q.id}`;
+
+      let imgHtml = '';
+      if (q.immagine && q.immagine.trim() !== '') {
+        imgHtml = `
+          <div class="q-img-wrap">
+            <img src="${q.immagine}" alt="Segnale" onclick="window.open(this.src, '_blank')">
+          </div>
+        `;
+      }
+
+      card.innerHTML = `
+        ${imgHtml}
+        <div class="q-body">
+          <div class="q-card-top">
+            <span class="q-id-pill">#${q.id}</span>
+            <span class="q-sub-badge">${q.sotto_argomento || ''}</span>
+          </div>
+
+          <div class="q-text-content">${q.domanda}</div>
+
+          <div class="q-actions-row">
+            <button class="btn-ans btn-ans-v" onclick="answerQuestion(${q.id}, true)">
+              <span>VERO</span>
+            </button>
+            <button class="btn-ans btn-ans-f" onclick="answerQuestion(${q.id}, false)">
+              <span>FALSO</span>
+            </button>
+
+            <span class="status-tag" id="status-${q.id}"></span>
+            <span class="study-badge-direct ${isStudyMode ? 'show' : ''} ${q.risposta ? 'is-v' : 'is-f'}" id="study-badge-${q.id}">
+              ${q.risposta ? 'VERO ✅' : 'FALSO ❌'}
+            </span>
+
+            <button class="btn-explain-toggle" onclick="toggleDrawer(${q.id})">
+              <span>💡 الترجمة والشرح وكشف الفخ</span>
+            </button>
+          </div>
+
+          <div class="explain-drawer" id="drawer-${q.id}">
+            <div class="ex-item"><strong>📖 الترجمة السياقية:</strong> ${q.traduzione || 'سؤال وزاري مباشر.'}</div>
+            <div class="ex-item"><strong>💡 الشرح والقاعدة المرورية:</strong> ${q.spiegazione || 'مطابق لنصوص كود السير.'}</div>
+            ${q.trabocchetto ? `<div class="trap-banner">${q.trabocchetto}</div>` : ''}
+            ${q.parole_chiave && q.parole_chiave.length > 0 ? `
+              <div class="kw-strip">
+                ${q.parole_chiave.map(k => `<span class="kw-pill">${k}</span>`).join('')}
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+
+    updateScoreDisplay();
+  }
+
+  window.answerQuestion = function(id, userChoice) {
+    const q = DATA.domande.find(item => item.id === id);
+    if (!q) return;
+
+    const card = document.getElementById(`q-card-${id}`);
+    const tag = document.getElementById(`status-${id}`);
+    const isCorrect = (userChoice === q.risposta);
+
+    if (isCorrect) {
+      soundEngine.correct();
+      tag.className = 'status-tag ok';
+      tag.innerText = '✅ إجابة صحيحة';
+      card.className = 'q-card answered-correct';
+      userStats.correct++;
+    } else {
+      soundEngine.wrong();
+      tag.className = 'status-tag err';
+      tag.innerText = `❌ خطأ (الصحيح: ${q.risposta ? 'VERO' : 'FALSO'})`;
+      card.className = 'q-card answered-wrong';
+      userStats.wrong++;
+      // Auto open explanation on mistake
+      const drawer = document.getElementById(`drawer-${id}`);
+      if (drawer) drawer.classList.add('open');
+    }
+
+    updateScoreDisplay();
+  };
+
+  window.toggleDrawer = function(id) {
+    soundEngine.click();
+    const drawer = document.getElementById(`drawer-${id}`);
+    if (drawer) drawer.classList.toggle('open');
+  };
+
+  window.setFilter = function(f) {
+    soundEngine.click();
+    currentFilter = f;
+    document.querySelectorAll('.f-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.f === f);
+    });
+    renderQuestions();
+  };
+
+  window.filterQuestions = function() {
+    renderQuestions();
+  };
+
+  window.toggleStudyMode = function() {
+    soundEngine.click();
+    isStudyMode = document.getElementById('study-mode-toggle').checked;
+    document.querySelectorAll('.study-badge-direct').forEach(b => {
+      b.classList.toggle('show', isStudyMode);
+    });
+  };
+
+  function updateScoreDisplay() {
+    document.getElementById('stat-correct').innerText = userStats.correct;
+    document.getElementById('stat-wrong').innerText = userStats.wrong;
+    const remaining = Math.max(0, DATA.domande.length - (userStats.correct + userStats.wrong));
+    document.getElementById('stat-remaining').innerText = remaining;
+  }
+
+  // Keyboard shortcut M for audio
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'm' || e.key === 'M') toggleAudio();
+  });
+
+  // Initial render
+  renderQuestions();
+</script>
+</body>
+</html>
