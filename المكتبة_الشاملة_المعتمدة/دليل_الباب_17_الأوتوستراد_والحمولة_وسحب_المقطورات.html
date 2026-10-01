@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>دليل الباب 17: الأوتوستراد، تنظيم الحمولة، وسحب المقطورات — Patente B Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-base: #09090b;
+    --bg-surface: rgba(24, 24, 27, 0.75);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(255, 255, 255, 0.16);
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --emerald-primary: #10b981;
+    --rose-primary: #f43f5e;
+    --amber-primary: #f59e0b;
+    --sky-primary: #38bdf8;
+    --indigo-primary: #818cf8;
+    --orange-primary: #f97316;
+    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    --nav-base-height: 54px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image: 
+      radial-gradient(ellipse at 50% -10%, rgba(249, 115, 22, 0.08), transparent 60%),
+      radial-gradient(circle at 10% 90%, rgba(56, 189, 248, 0.04), transparent 40%);
+  }
+
+  body.nav-scroll-lock {
+    overflow: hidden !important;
+    touch-action: none !important;
+    -webkit-overflow-scrolling: auto !important;
+  }
+
+  /* Apple HIG Responsive Top Navigation */
+  .unified-portal-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
+    max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
+    background: rgba(9, 9, 11, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    padding-top: env(safe-area-inset-top, 0px);
+    box-sizing: border-box;
+    direction: rtl;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .nav-brand .badge-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    padding: 2px 7px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #a1a1aa;
+  }
+
+  .nav-desktop-tabs {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-tab-desktop {
+    text-decoration: none;
+    color: #a1a1aa;
+    padding: 7px 13px;
+    border-radius: 9px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .nav-tab-desktop:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  .nav-tab-desktop.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.15), 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  .nav-desktop-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-audio-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e4e4e7;
+    border-radius: 9px;
+    padding: 7px 12px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s;
+  }
+  .nav-audio-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+  .nav-audio-btn:active { transform: scale(0.96); }
+
+  .nav-hamburger-btn {
+    display: none;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #f4f4f5;
+    border-radius: 9px;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .hamburger-box { width: 18px; height: 12px; position: relative; }
+  .hamburger-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #f4f4f5;
+    border-radius: 2px;
+    transition: all 0.25s var(--ease-spring);
+  }
+  .line-top { top: 0; }
+  .line-mid { top: 5px; }
+  .line-bot { top: 10px; }
+  .nav-hamburger-btn.is-active .line-top { transform: translateY(5px) rotate(45deg); }
+  .nav-hamburger-btn.is-active .line-mid { opacity: 0; }
+  .nav-hamburger-btn.is-active .line-bot { transform: translateY(-5px) rotate(-45deg); }
+
+  .mobile-drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .mobile-drawer-overlay.is-active { opacity: 1; pointer-events: auto; }
+
+  .mobile-drawer-panel {
+    position: fixed;
+    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
+    left: 0;
+    right: 0;
+    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
+    background: rgba(15, 15, 18, 0.94);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    z-index: 999;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.32s var(--ease-spring), opacity 0.25s ease;
+    overflow-y: auto;
+    direction: rtl;
+  }
+  .mobile-drawer-panel.is-active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-nav-list { padding: 12px 16px; display: flex; flex-direction: column; gap: 4px; }
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #e4e4e7;
+    font-size: 0.92rem;
+    font-weight: 600;
+    min-height: 48px;
+    transition: background 0.15s;
+  }
+  .mobile-nav-link:hover { background: rgba(255, 255, 255, 0.06); color: #fff; }
+  .mobile-nav-link.active {
+    background: rgba(249, 115, 22, 0.15);
+    color: #ffedd5;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+  }
+  .mobile-drawer-footer {
+    padding: 12px 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Layout Container */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+  }
+
+  /* Hero Section */
+  .hero-card {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.08), rgba(24, 24, 27, 0.7));
+    border: 1px solid rgba(249, 115, 22, 0.25);
+    border-radius: 20px;
+    padding: 36px 30px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.2), transparent 70%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #fed7aa;
+    background: rgba(249, 115, 22, 0.15);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    padding: 4px 12px;
+    border-radius: 30px;
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    color: #fb923c;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .hero-desc {
+    color: #d4d4d8;
+    font-size: 0.96rem;
+    line-height: 1.7;
+    max-width: 900px;
+  }
+
+  /* Stats Grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 24px 0 32px;
+  }
+  .stat-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  .stat-card:hover { transform: translateY(-2px); border-color: var(--border-highlight); }
+  .stat-val {
+    font-size: 2rem;
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+    background: linear-gradient(135deg, #fdba74, #f97316);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+    font-weight: 600;
+  }
+
+  /* Section Title */
+  .section-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 40px 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 10px;
+  }
+  .section-title span.badge {
+    font-size: 0.78rem;
+    padding: 2px 10px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #a1a1aa;
+  }
+
+  /* Content Cards */
+  .rule-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+  }
+  .rule-card.highlight { border-right: 4px solid var(--orange-primary); }
+  .rule-card.warning { border-right: 4px solid var(--rose-primary); }
+  .rule-card.info { border-right: 4px solid var(--sky-primary); }
+  .rule-card.success { border-right: 4px solid var(--emerald-primary); }
+  .rule-card.amber { border-right: 4px solid var(--amber-primary); }
+
+  .rule-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .rule-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .it-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #cbd5e1;
+  }
+
+  /* Grid of symbols / signs */
+  .symbols-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .symbol-box {
+    background: rgba(18, 18, 22, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .symbol-box:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  .symbol-img-wrap {
+    width: 68px;
+    height: 68px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 6px;
+  }
+  .symbol-img-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  .symbol-info { flex: 1; }
+  .symbol-name { font-size: 0.96rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .symbol-it { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: #fdba74; margin-bottom: 6px; }
+  .symbol-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+  /* Dictionary & Tables */
+  .dict-table-wrap {
+    overflow-x: auto;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    margin: 20px 0;
+  }
+  .dict-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    text-align: right;
+  }
+  .dict-table th {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 14px 18px;
+    font-weight: 700;
+    color: #e4e4e7;
+    border-bottom: 1px solid var(--border-subtle);
+    white-space: nowrap;
+  }
+  .dict-table td {
+    padding: 13px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: #d4d4d8;
+  }
+  .dict-table tr:hover td { background: rgba(255, 255, 255, 0.02); }
+
+  .audio-speak-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+    border-radius: 6px;
+    padding: 3px 8px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    margin-right: 6px;
+    transition: all 0.15s;
+  }
+  .audio-speak-btn:hover { background: rgba(249, 115, 22, 0.2); color: #ffedd5; }
+
+  /* Interactive Quiz */
+  .quiz-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 22px;
+    margin-bottom: 16px;
+  }
+  .quiz-q-num {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--orange-primary);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .quiz-text-it {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 6px;
+    direction: ltr;
+    text-align: left;
+    font-family: system-ui, sans-serif;
+  }
+  .quiz-text-ar {
+    font-size: 0.92rem;
+    color: #a1a1aa;
+    margin-bottom: 16px;
+  }
+  .quiz-btn-group { display: flex; gap: 12px; }
+  .quiz-opt-btn {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: 1px solid var(--border-subtle);
+    background: rgba(255, 255, 255, 0.05);
+    color: #e4e4e7;
+    transition: all 0.15s;
+  }
+  .quiz-opt-btn:hover { background: rgba(255, 255, 255, 0.1); }
+  .quiz-feedback {
+    margin-top: 14px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    display: none;
+  }
+  .quiz-card.answered-correct .quiz-feedback {
+    display: block;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #6ee7b7;
+  }
+  .quiz-card.answered-wrong .quiz-feedback {
+    display: block;
+    background: rgba(244, 63, 94, 0.12);
+    border: 1px solid rgba(244, 63, 94, 0.3);
+    color: #fca5a5;
+  }
+
+  @media (max-width: 900px) {
+    .nav-desktop-tabs { display: none !important; }
+    .nav-desktop-actions { display: none !important; }
+    .nav-hamburger-btn { display: flex !important; }
+  }
+  @media (max-width: 600px) {
+    .hero-title { font-size: 1.45rem; }
+    .hero-card { padding: 24px 18px; }
+    .rule-card { padding: 18px 14px; }
+    .symbols-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Unified Apple HIG Navigation Bar -->
+<nav class="unified-portal-nav" aria-label="شريط التنقل الرئيسي">
+  <a href="index.html" class="nav-brand">
+    <span>Patente B Pro</span>
+    <span class="badge-tag">الباب 17</span>
+  </a>
+
+  <div class="nav-desktop-tabs">
+    <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 الأبواب المقسمة (25 باب)</a>
+    <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
+    <a href="index.html" class="nav-tab-desktop">📑 فهرس المكتبة</a>
+    <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-tab-desktop active">📖 الباب 17 (الأوتوستراد والمقطورات)</a>
+    <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-tab-desktop">📖 الباب 18 (الأضواء والتابلوه)</a>
+    <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-tab-desktop">📖 الباب 19 (الأحزمة والخوذة)</a>
+    <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-tab-desktop">📖 الباب 20 (الرخص والنقاط)</a>
+  </div>
+
+  <div class="nav-desktop-actions">
+    <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
+      <span class="audio-icon-span">🔊</span>
+      <span class="audio-label-span">الصوت نشط</span>
+    </button>
+  </div>
+
+  <button class="nav-hamburger-btn" id="nav-hamburger-btn" onclick="toggleMobileNav()" aria-label="قائمة التنقل">
+    <div class="hamburger-box">
+      <span class="hamburger-line line-top"></span>
+      <span class="hamburger-line line-mid"></span>
+      <span class="hamburger-line line-bot"></span>
+    </div>
+  </button>
+</nav>
+
+<!-- Backdrop Blur Overlay -->
+<div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
+
+<!-- Slide-Down Glassmorphic Drawer Panel -->
+<div class="mobile-drawer-panel" id="mobile-drawer-panel">
+  <div class="mobile-nav-list">
+    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📚</span>
+      <span>مذاكرة الأبواب المقسمة (25 باب)</span>
+    </a>
+    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">⏱️</span>
+      <span>محاكي الامتحان الوزاري (20 دقيقة)</span>
+    </a>
+    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📑</span>
+      <span>فهرس المكتبة الشاملة المعتمدة</span>
+    </a>
+    <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="mobile-nav-link active" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 17 (الأوتوستراد، الحمولة والمقطورات)</span>
+    </a>
+    <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 18 (الأضواء والتابلوه والعواكس)</span>
+    </a>
+    <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 19 (الأحزمة والخوذة والمقاعد)</span>
+    </a>
+    <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 20 (الرخص والنقاط والعقوبات)</span>
+    </a>
+    <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 21 (حوادث السير والطقس الصعب)</span>
+    </a>
+    <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 22 (الكحول والمخدرات والإسعافات)</span>
+    </a>
+    <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 23 (المسؤولية والتأمين RCA)</span>
+    </a>
+    <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 24 (البيئة واستهلاك الوقود)</span>
+    </a>
+    <a href="دليل_الباب_الأخير.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل وقاموس الباب 25 (الميكانيكا والصيانة)</span>
+    </a>
+  </div>
+  <div class="mobile-drawer-footer">
+    <button class="nav-audio-btn" onclick="toggleAudio()">
+      <span class="audio-icon-span">🔊</span>
+      <span class="audio-label-span">الصوت نشط</span>
+    </button>
+  </div>
+</div>
+
+<main class="container">
+
+  <!-- Hero Card -->
+  <section class="hero-card">
+    <div class="hero-tag">🛣️ الدليل الاستراتيجي الوزاري المعتمد — A2</div>
+    <h1 class="hero-title">دليل وقاموس الباب 17: الأوتوستراد، تنظيم الحمولة، وسحب المقطورات</h1>
+    <div class="hero-subtitle">Capitolo 17: Norme varie, autostrade, carico dei veicoli, rimorchi e traino</div>
+    <p class="hero-desc">
+      أحد أضخم أبواب بنك الأسئلة الوزاري (332 سؤالاً): تفصيل شروط دخول الأوتوستراد والسرعة الدنيا (80 كم/س)، قاعدة الحارتين للأطوال فوق 7 أمتار، ضوابط حارة الطوارئ ومحطات الاستراحة، القواعد الدقيقة للبروز (اللوحة العاكسة وفخ اللوحتين)، وفيزياء سحب المقطورات وتوزيع الأوزان على المحور لتفادي الانقلاب والانحراف.
+    </p>
+  </section>
+
+  <!-- Stats Grid -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-val">332</div>
+      <div class="stat-label">سؤالاً رسمياً في بنك الوزارة</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">40</div>
+      <div class="stat-label">موضوعاً فرعياً معتمداً</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">89</div>
+      <div class="stat-label">سؤالاً عن المقطورات والكارافان</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">3/10</div>
+      <div class="stat-label">حد أقصى للبروز الخلفي غير القابل للتجزئة</div>
+    </div>
+  </div>
+
+  <!-- Module 1: Autostrade Rules -->
+  <h2 class="section-title">
+    <span>🛣️</span>
+    <span>المحور الأول: القواعد التشغيلية للأوتوستراد والمحظورات الصارمة</span>
+    <span class="badge">Circolazione in Autostrada</span>
+  </h2>
+
+  <div class="rule-card warning">
+    <div class="rule-card-header">
+      <div class="rule-card-title">
+        <span>🚫 من يُمنع منعاً باتاً من دخول الأوتوستراد والطرق السريعة الرئيسية؟</span>
+      </div>
+      <span class="it-tag">Divieti Assoluti</span>
+    </div>
+    <ul style="color:#d4d4d8; padding-right:20px; line-height:1.8; font-size:0.92rem;">
+      <li>المشاة والحيوانات (ممنوعون في كل مسارات الأوتوستراد، <span style="color:#fbbf24;">ويُسمح بهم فقط في ساحات الخدمة ومواقف الاستراحة</span> Aree di servizio بشرط حراسة الحيوانات).</li>
+      <li>الدراجات الهوائية (Velocipedi / Biciclette) والسكوتر الخفيف (Ciclomotori).</li>
+      <li><strong style="color:#f87171;">الدراجات النارية:</strong>
+        <ul>
+          <li>ذات المحرك الحراري بسعة <span style="color:#fff; text-decoration:underline;">أقل من 150 سم³</span> (125cc ممنوعة قطيعاً!).</li>
+          <li>الكهربائية بقوة <span style="color:#fff; text-decoration:underline;">أقل من 11 kW</span>.</li>
+          <li>الدراجات النارية ذات المقعد الجانبي (Sidecar) بسعة <span style="color:#fff; text-decoration:underline;">أقل من 250 سم³</span>.</li>
+        </ul>
+      </li>
+      <li>المركبات التي لا تستطيع بلوغ سرعة <strong style="color:#fde047;">80 كم/س</strong> على الطرق المنبسطة.</li>
+      <li>الآلات الزراعية (Macchine agricole) والآلات الإنشائية.</li>
+      <li>المركبات غير المزودة بإطارات مطاطية، أو التي تحمل حمولات غير مستقرة أو بارزة تتجاوز الحدود القانونية.</li>
+    </ul>
+  </div>
+
+  <div class="rule-card highlight">
+    <div class="rule-card-header">
+      <div class="rule-card-title">
+        <span>🚘 قواعد الحارات والمسارات (Corsie e Limiti di Corsia)</span>
+      </div>
+      <span class="it-tag">Regola dei 7 Metri</span>
+    </div>
+    <ul style="color:#d4d4d8; padding-right:20px; line-height:1.8; font-size:0.92rem;">
+      <li><strong>التزام الحارة اليمنى:</strong> يجب السير دائماً في الحارة الحرة بأقصى اليمين؛ والحارات اليسرى مخصصة للتجاوز فقط.</li>
+      <li><strong style="color:#f97316;">⚠️ قاعدة المركبات فوق 7 أمتار (Veicoli oltre 7 metri):</strong>
+        على الطرق السريعة المكونة من <strong style="color:#fff;">3 حارات أو أكثر</strong> في نفس الاتجاه، يُحظر على المركبات أو مجموعات المركبات (سيارة تسحب مقطورة / كارافان) التي يتجاوز طولها <strong style="color:#fde047;">7 أمتار</strong>، وكذلك الشاحنات بحمولة كاملة تفوق 5 أطنان، استخدام الحارة الثالثة أو الرابعة! <span style="color:#34d399; font-weight:700;">ويجب عليها الالتزام بالحارتين الأقرب إلى اليمين فقط</span>.
+      </li>
+      <li><strong>بوابات الرسوم (Casello):</strong> ممنوع منعاً باتاً الرجوع للخلف (Retromarcia) أو تغيير المسار المفاجئ أو دوران الحذوة (Inversione di marcia).</li>
+      <li><strong>الأنوار:</strong> تشغيل <strong style="color:#fff;">الضوء المنخفض (Anabbaglianti) إلزامي نهاراً وليلاً</strong> لجميع المركبات ذات المحرك على الأوتوستراد.</li>
+    </ul>
+  </div>
+
+  <div class="rule-card info">
+    <div class="rule-card-header">
+      <div class="rule-card-title">
+        <span>🆘 حارة الطوارئ ومحطات الخدمة (Corsia di Emergenza & Aree di Servizio)</span>
+      </div>
+      <span class="it-tag">Massimo 3 Ore</span>
+    </div>
+    <ul style="color:#d4d4d8; padding-right:20px; line-height:1.8; font-size:0.92rem;">
+      <li><strong>حالات الوقوف المصرح بها في حارة الطوارئ:</strong> فقط في حالتين قسريتين:
+        <span style="color:#38bdf8;">عطل ميكانيكي بالمركبة (Avaria)</span>، أو <span style="color:#38bdf8;">وعكة صحية شديدة ومفاجئة للسائق أو أحد الركاب (Malessere fisico)</span>.
+      </li>
+      <li><strong style="color:#f87171;">⚠️ فخ مدة التوقف في حارة الطوارئ:</strong> الحد الأقصى المسموح به للتوقف الاضطراري في حارة الطوارئ هو <strong style="color:#fff; text-decoration:underline;">3 ساعات فقط (massimo 3 ore)</strong>! (وليس 6 أو 24 ساعة كما يظن البعض).</li>
+      <li><strong>مدة التوقف في ساحات ومحطات الخدمة (Aree di servizio e sosta):</strong> مسموح بالتوقف حتى <strong style="color:#fff;">24 ساعة كحد أقصى</strong>.</li>
+      <li><strong>الاستثناء الوحيد للسير في حارة الطوارئ:</strong> في حال وجود زحام شديد (Ingorgo)، يُسمح فقط للسائقين المتجهين إلى مخرج الأوتوستراد (Svincolo) باستخدام حارة الطوارئ <strong style="color:#fde047;">ابتداءً من مسافة 500 متر قبل المخرج فقط</strong>!</li>
+    </ul>
+  </div>
+
+  <!-- Module 2: Carico & Sporgenza -->
+  <h2 class="section-title">
+    <span>📦</span>
+    <span>المحور الثاني: ترتيب الحمولة وقواعد البروز وألواح الإشارة المعتمدة</span>
+    <span class="badge">Sistemazione del Carico & Sporgenza</span>
+  </h2>
+
+  <div class="dict-table-wrap">
+    <table class="dict-table">
+      <thead>
+        <tr>
+          <th>اتجاه البروز</th>
+          <th>الحد القانوني المسموح</th>
+          <th>شروط السلامة واللوحات التحذيرية</th>
+          <th>الفخ الوزاري المتكرر</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color:#f87171;">البروز الأمامي (Anteriore)</strong></td>
+          <td><span style="color:#f87171; font-weight:700;">0% (ممنوع طولياً)</span></td>
+          <td>لا يجوز لأي حمولة على السيارات أن تبرز للأمام خارج حدود الصدام الأمامي للسيارة.</td>
+          <td>البروز الأمامي الطولي ممنوع تماماً على سيارات الركوب حتى لو كانت الحمولة خفيفة!</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#34d399;">البروز الخلفي (Posteriore)</strong></td>
+          <td>حتى <strong style="color:#fff;">3/10 من طول المركبة (30%)</strong></td>
+          <td>مسموح <span style="color:#fde047;">فقط للحمولات غير القابلة للتجزئة (Cose indivisibili)</span>، مع وضع اللوحة المربعة العاكسة ذات الخطوط البيضاء والحمراء.</td>
+          <td><strong style="color:#fbbf24;">فخ اللوحتين:</strong> إذا كان البروز يغطي عرض مؤخرة السيارة بالكامل، <span style="color:#fff; text-decoration:underline;">يجب وضع لوحتين عاكستين</span> (واحدة على اليمين وواحدة على اليسار).</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#38bdf8;">البروز الجانبي (Laterale)</strong></td>
+          <td>حتى <strong style="color:#fff;">30 سم</strong> من أضواء الموضعة</td>
+          <td>يُقاس من أضواء الموضعة الأمامية والخلفية، بشرط عدم تجاوز العرض الأقصى القانوني للمركبات (2.55 متر).</td>
+          <td>لا يجوز أن يعيق البروز الجانبي رؤية السائق في المرايا الجانبية.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Official Signs for Chapter 17 -->
+  <div class="symbols-grid">
+
+    <!-- 302: Pannello carichi sporgenti -->
+    <div class="symbol-box">
+      <div class="symbol-img-wrap">
+        <img src="../Capitoli_Divisi/Capitolo_17_norme_varie_autostrade_pannelli/immagini/302.png" alt="Pannello carichi sporgenti">
+      </div>
+      <div class="symbol-info">
+        <div class="symbol-name">لوحة البروز الخلفي المربعة</div>
+        <div class="symbol-it">Pannello per carichi sporgenti</div>
+        <div class="symbol-desc">لوحة مربعة بخطوط مائلة بيضاء وحمراء عاكسة. توضع عند بروز أي حمولة للخلف حتى 3/10.</div>
+      </div>
+    </div>
+
+    <!-- 305: Due pannelli carichi sporgenti -->
+    <div class="symbol-box">
+      <div class="symbol-img-wrap">
+        <img src="../Capitoli_Divisi/Capitolo_17_norme_varie_autostrade_pannelli/immagini/305.png" alt="Due pannelli carichi sporgenti">
+      </div>
+      <div class="symbol-info">
+        <div class="symbol-name">لوحتان للبروز الكامل</div>
+        <div class="symbol-it">Due pannelli a V rovesciata</div>
+        <div class="symbol-desc">توضعان عند بروز الحمولة بعرض مؤخرة السيارة بالكامل، وتلتقي خطوطهما على شكل V مقلوبة.</div>
+      </div>
+    </div>
+
+    <!-- 303: Merci pericolose -->
+    <div class="symbol-box">
+      <div class="symbol-img-wrap">
+        <img src="../Capitoli_Divisi/Capitolo_17_norme_varie_autostrade_pannelli/immagini/303.png" alt="Pannello merci pericolose">
+      </div>
+      <div class="symbol-info">
+        <div class="symbol-name">لوحة المواد الخطرة البرتقالية</div>
+        <div class="symbol-it">Merci pericolose (Arancione)</div>
+        <div class="symbol-desc">لوحة برتقالية عاكسة مستطيلة توضع على الشاحنات التي تنقل مواد أو محروقات خطرة.</div>
+      </div>
+    </div>
+
+    <!-- 279: Segnalazione carichi -->
+    <div class="symbol-box">
+      <div class="symbol-img-wrap">
+        <img src="../Capitoli_Divisi/Capitolo_17_norme_varie_autostrade_pannelli/immagini/279.png" alt="Pannello posteriore">
+      </div>
+      <div class="symbol-info">
+        <div class="symbol-name">عاكس مؤخرة الحمولة</div>
+        <div class="symbol-it">Segnalazione posteriore carico</div>
+        <div class="symbol-desc">يجب أن تكون اللوحة واضحة ونظيفة دائماً ومثبتة بإحكام في نهاية البروز من الخلف.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Module 3: Rimorchi & Traino -->
+  <h2 class="section-title">
+    <span>🚐</span>
+    <span>المحور الثالث: سحب المركبات وقيادة المقطورات والكارافان — 89 سؤالاً</span>
+    <span class="badge">Traino Veicoli, Rimorchi & Caravan</span>
+  </h2>
+
+  <div class="rule-card amber">
+    <div class="rule-card-header">
+      <div class="rule-card-title">
+        <span>1. فيزياء وقواعد قيادة المقطورة والكارافان (Guida del Rimorchio)</span>
+      </div>
+      <span class="it-tag">Dinamica di Guida</span>
+    </div>
+    <ul style="color:#d4d4d8; padding-right:20px; line-height:1.8; font-size:0.92rem;">
+      <li><strong style="color:#fbbf24;">توزيع الحمولة داخل المقطورة:</strong> يجب وضع الأوزان الثقيلة <strong style="color:#fff;">فوق محور المقطورة مباشرة أو قريباً منه قدر الإمكان (vicino al suo asse)</strong> وفي الأسفل، لتفادي إجهاد خطاف الجر أو تخفيف ضغط العجلات الخلفية للسيارة.</li>
+      <li><strong style="color:#fbbf24;">مسار الانعطاف في المنحنيات (Traiettoria in curva):</strong> تميل عجلات المقطورة الخلفية إلى تضييق زاوية المنعطف نحو الداخل (<span style="color:#fde047;">stringe la traiettoria verso l'interno</span>)؛ لذلك يجب على السائق توسيع قوس الانعطاف لمنع صعود عجلات المقطورة على الرصيف أو الاصطدام بالمارة!</li>
+      <li><strong style="color:#fbbf24;">الرياح الجانبية وقوى الانقلاب:</strong> المقطورات المرتفعة كالكارافان تكون شديدة التأثر بقوة الرياح الجانبية (<span style="color:#f87171;">forza ribaltante del vento</span>)، خصوصاً عند الخروج من الأنفاق أو عبور الجسور أو عند تجاوز شاحنات كبرى.</li>
+      <li><strong style="color:#fbbf24;">مسافة الفرملة والمحرك:</strong> وجود مقطورة يزيد من مسافة الفرملة (Aumenta lo spazio di frenatura)، ويرفع درجة حرارة سائل تبريد المحرك في المرتفعات القوية.</li>
+      <li><strong style="color:#fbbf24;">كابل الأمان (Cavo di sicurezza):</strong> يربط فرامل الطوارئ بالسيارة، بحيث إذا انفصلت المقطورة عن السيارة أثناء السير، يشد الكابل فرامل المقطورة تلقائياً لإيقافها.</li>
+    </ul>
+  </div>
+
+  <div class="rule-card warning">
+    <div class="rule-card-header">
+      <div class="rule-card-title">
+        <span>2. سحب المركبات المعطلة (Traino di veicoli in avaria)</span>
+      </div>
+      <span class="it-tag">Regole di Traino</span>
+    </div>
+    <ul style="color:#d4d4d8; padding-right:20px; line-height:1.8; font-size:0.92rem;">
+      <li><strong>على الطرق العادية:</strong> مسموح لسيارة خاصة أن تسحب سيارة معطلة واحدة فقط، بشرط استخدام قضيب صلب (Barra rigida) أو حبل متين (Fune/Cavo) مع تمييزه بوضوح، وتشغيل أضواء الخطر الرباعية (4 frecce) في السيارة المسحوبة أو وضع مثلث الخطر خلفها.</li>
+      <li><strong style="color:#f87171;">🚫 في الأوتوستراد:</strong> يمنع منعاً باتاً السحب الخاص بين السيارات في جميع أجزاء الأوتوستراد وروافده؛ ويقتصر السحب حصراً على شاحنات الإنقاذ المرخصة (Soccorso stradale autorizzato).</li>
+      <li><strong style="color:#f87171;">⚠️ فخ السيرفو (Servosterzo e Servofreno):</strong> عندما يتم سحب سيارة معطلة ومحركها مطفأ، يتعطل نظام مساعد التوجيه (Servosterzo) ومساعد الفرامل (Servofreno)، مما يجعل <span style="color:#fff; text-decoration:underline;">المقود ثقيلاً جداً في المناورة ودواسة الفرامل قاسية تتطلب جهداً عضلياً مضاعفاً</span>!</li>
+    </ul>
+  </div>
+
+  <!-- Bilingual Dictionary -->
+  <h2 class="section-title">
+    <span>📖</span>
+    <span>القاموس التقني المبوب ثنائي اللغة (A2)</span>
+    <span class="badge">Glossario Ufficiale</span>
+  </h2>
+
+  <div class="dict-table-wrap">
+    <table class="dict-table">
+      <thead>
+        <tr>
+          <th>المصطلح بالإيطالية</th>
+          <th>الترجمة بالعربية</th>
+          <th>ملاحظات وفخاخ الامتحان</th>
+          <th>استماع</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color:#fff;">Autostrada</strong></td>
+          <td>طريق سريع (أوتوستراد)</td>
+          <td>خالٍ من التقاطعات السطحية، والحد الأدنى للسرعة 80 كم/س للمركبات.</td>
+          <td><button class="audio-speak-btn" onclick="speakText('Autostrada')">🔊 نطق</button></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff;">Corsia di emergenza</strong></td>
+          <td>حارة الطوارئ</td>
+          <td>لأعطال المركبة والوعكات الصحية، وبحد أقصى 3 ساعات فقط.</td>
+          <td><button class="audio-speak-btn" onclick="speakText('Corsia di emergenza')">🔊 نطق</button></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff;">Pannello carichi sporgenti</strong></td>
+          <td>لوحة البروز الخلفي المربعة</td>
+          <td>مربعة بخطوط مائلة بيضاء وحمراء، عاكسة للضوء.</td>
+          <td><button class="audio-speak-btn" onclick="speakText('Pannello carichi sporgenti')">🔊 نطق</button></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff;">Cose indivisibili</strong></td>
+          <td>أشياء غير قابلة للتجزئة</td>
+          <td>الشرط الحصري للسماح بالبروز الخلفي حتى 3/10 من طول السيارة.</td>
+          <td><button class="audio-speak-btn" onclick="speakText('Cose indivisibili')">🔊 نطق</button></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff;">Gancio di traino</strong></td>
+          <td>خطاف السحب والجر</td>
+          <td>يجب ألا يحمل وزناً عمودياً زائداً بسبب سوء توزيع حمولة المقطورة.</td>
+          <td><button class="audio-speak-btn" onclick="speakText('Gancio di traino')">🔊 نطق</button></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff;">Cavo di sicurezza</strong></td>
+          <td>كابل أمان المقطورة</td>
+          <td>يفعل فرامل الطوارئ تلقائياً في حال انفصال المقطورة أثناء السير.</td>
+          <td><button class="audio-speak-btn" onclick="speakText('Cavo di sicurezza')">🔊 نطق</button></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff;">Stringe la traiettoria</strong></td>
+          <td>تضيّق مسار الانعطاف للداخل</td>
+          <td>خاصية حركة عجلات المقطورة في المنعطفات وتتطلب توسيع القوس.</td>
+          <td><button class="audio-speak-btn" onclick="speakText('Stringe la traiettoria')">🔊 نطق</button></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff;">Forza ribaltante del vento</strong></td>
+          <td>قوة الرياح المسببة للانقلاب</td>
+          <td>تزداد خطورتها على الكارافان والمقطورات الخفيفة عند الجسور والأنفاق.</td>
+          <td><button class="audio-speak-btn" onclick="speakText('Forza ribaltante del vento')">🔊 نطق</button></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff;">Svincolo autostradale</strong></td>
+          <td>مخرج / تقاطع الأوتوستراد</td>
+          <td>يسمح باستخدام حارة الطوارئ في الزحام ابتداءً من 500 متر قبله فقط.</td>
+          <td><button class="audio-speak-btn" onclick="speakText('Svincolo autostradale')">🔊 نطق</button></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff;">Merci pericolose</strong></td>
+          <td>المواد والبضائع الخطرة</td>
+          <td>تميز بلوحة برتقالية مستطيلة عاكسة للضوء.</td>
+          <td><button class="audio-speak-btn" onclick="speakText('Merci pericolose')">🔊 نطق</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Trappole dei Quiz -->
+  <h2 class="section-title">
+    <span>🎯</span>
+    <span>جدول الفخاخ الوزارية المقارنة (Vero / Falso)</span>
+    <span class="badge">Trappole dei Quiz</span>
+  </h2>
+
+  <div class="rule-card" style="border-right: 4px solid var(--rose-primary);">
+    <div style="display:flex; flex-direction:column; gap:16px;">
+      
+      <div style="border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom:12px;">
+        <div style="color:#f87171; font-weight:700; margin-bottom:4px;">❌ عبارة Falsa شهيرة:</div>
+        <p style="color:#fff; direction:ltr; text-align:left; font-family:system-ui; font-size:0.92rem;">"La sosta di emergenza sulla corsia di emergenza in autostrada non può superare il tempo massimo di 24 ore."</p>
+        <p style="color:#a1a1aa; font-size:0.86rem; margin-top:4px;"><strong>التعليل الصحيح:</strong> خطأ؛ التوقف في حارة الطوارئ لا يجوز أن يتجاوز <strong>3 ساعات فقط (3 ore)</strong>؛ أما 24 ساعة فهي الحد الأقصى للتوقف في محطات وساحات الخدمة (Aree di servizio).</p>
+      </div>
+
+      <div style="border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom:12px;">
+        <div style="color:#f87171; font-weight:700; margin-bottom:4px;">❌ عبارة Falsa شهيرة:</div>
+        <p style="color:#fff; direction:ltr; text-align:left; font-family:system-ui; font-size:0.92rem;">"Sulle autostrade a tre o più corsie, i complessi di veicoli di lunghezza superiore a 7 metri possono percorrere qualunque corsia."</p>
+        <p style="color:#a1a1aa; font-size:0.86rem; margin-top:4px;"><strong>التعليل الصحيح:</strong> خطأ؛ إذا تجاوز طول مجموعة المركبات 7 أمتار، يحظر عليها استخدام الحارة الثالثة أو الرابعة، ويجب الالتزام بالحارتين الأقرب لليمين فقط.</p>
+      </div>
+
+      <div style="border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom:12px;">
+        <div style="color:#f87171; font-weight:700; margin-bottom:4px;">❌ عبارة Falsa شهيرة:</div>
+        <p style="color:#fff; direction:ltr; text-align:left; font-family:system-ui; font-size:0.92rem;">"In caso di foratura di un pneumatico, è consentito trainare il veicolo guasto con un altro veicolo privato in autostrada."</p>
+        <p style="color:#a1a1aa; font-size:0.86rem; margin-top:4px;"><strong>التعليل الصحيح:</strong> خطأ؛ السحب الخاص بين السيارات في الأوتوستراد ممنوع منعاً باتاً؛ ويقتصر حصرياً على شاحنات الإنقاذ المرخصة.</p>
+      </div>
+
+      <div>
+        <div style="color:#34d399; font-weight:700; margin-bottom:4px;">✅ عبارة Vera حاسمة:</div>
+        <p style="color:#fff; direction:ltr; text-align:left; font-family:system-ui; font-size:0.92rem;">"Se il carico sporge longitudinalmente per l'intera larghezza della parte posteriore del veicolo, si devono applicare due pannelli retroriflettenti."</p>
+        <p style="color:#a1a1aa; font-size:0.86rem; margin-top:4px;"><strong>التعليل الصحيح:</strong> صحيح؛ إذا كانت الحمولة تبرز بعرض مؤخرة السيارة بالكامل، يلزم قانوناً وضع لوحتين عاكستين على الطرفين.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Interactive Quiz -->
+  <h2 class="section-title">
+    <span>📝</span>
+    <span>كويز تفاعلي رسمي لاختبار الفهم (5 أسئلة وزارية)</span>
+    <span class="badge">Quiz Ufficiale</span>
+  </h2>
+
+  <!-- Q1 -->
+  <div class="quiz-card" id="q-card-1">
+    <div class="quiz-q-num">السؤال 1 من 5 • كود وزاري 1701</div>
+    <div class="quiz-text-it">"Sugli autoveicoli, il carico non può sporgere longitudinalmente dalla parte anteriore."</div>
+    <div class="quiz-text-ar">على السيارات، لا يمكن للحمولة أن تبرز طولياً من الجهة الأمامية.</div>
+    <div class="quiz-btn-group">
+      <button class="quiz-opt-btn" onclick="checkAnswer(1, true, true, 'إجابة صحيحة (Vero)! البروز الأمامي الطولي ممنوع تماماً على سيارات الركوب.')">Vero (صحيح)</button>
+      <button class="quiz-opt-btn" onclick="checkAnswer(1, false, true, 'خطأ! العبارة صحيحة تماماً (Vero)؛ لا يسمح بأي بروز طولي من الأمام.')">Falso (خطأ)</button>
+    </div>
+    <div class="quiz-feedback" id="q-fb-1"></div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-card" id="q-card-2">
+    <div class="quiz-q-num">السؤال 2 من 5 • كود وزاري 1702</div>
+    <div class="quiz-text-it">"La sosta di emergenza sulla corsia per la sosta di emergenza in autostrada è consentita fino ad un massimo di tre ore."</div>
+    <div class="quiz-text-ar">الوقوف الاضطراري في حارة الطوارئ بالأوتوستراد مسموح به بحد أقصى ثلاث ساعات.</div>
+    <div class="quiz-btn-group">
+      <button class="quiz-opt-btn" onclick="checkAnswer(2, true, true, 'إجابة صحيحة (Vero)! الحد الأقصى القانوني للتوقف الاضطراري في حارة الطوارئ هو 3 ساعات فقط.')">Vero (صحيح)</button>
+      <button class="quiz-opt-btn" onclick="checkAnswer(2, false, true, 'خطأ! العبارة صحيحة تماماً (Vero)؛ مدة التوقف في حارة الطوارئ 3 ساعات كحد أقصى.')">Falso (خطأ)</button>
+    </div>
+    <div class="quiz-feedback" id="q-fb-2"></div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-card" id="q-card-3">
+    <div class="quiz-q-num">السؤال 3 من 5 • كود وزاري 1703</div>
+    <div class="quiz-text-it">"Alla guida di un veicolo con rimorchio, nello svoltare a destra, bisogna fare particolare attenzione a non salire con la ruota posteriore sul marciapiede."</div>
+    <div class="quiz-text-ar">عند قيادة مركبة بمقطورة وأثناء الانعطاف يميناً، يجب الانتباه بشكل خاص لعدم صعود العجلة الخلفية على الرصيف.</div>
+    <div class="quiz-btn-group">
+      <button class="quiz-opt-btn" onclick="checkAnswer(3, true, true, 'إجابة صحيحة (Vero)! المقطورة تضيق المسار نحو الداخل في المنعطفات، مما قد يجعل عجلاتها تصعد الرصيف.')">Vero (صحيح)</button>
+      <button class="quiz-opt-btn" onclick="checkAnswer(3, false, true, 'خطأ! العبارة صحيحة (Vero)؛ عجلات المقطورة تأخذ مساراً أضيق في المنعطف وتتطلب الحذر.')">Falso (خطأ)</button>
+    </div>
+    <div class="quiz-feedback" id="q-fb-3"></div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-card" id="q-card-4">
+    <div class="quiz-q-num">السؤال 4 من 5 • كود وزاري 1704</div>
+    <div class="quiz-text-it">"In autostrada, il traino di veicoli in avaria è consentito solo ai veicoli di soccorso autorizzati."</div>
+    <div class="quiz-text-ar">في الأوتوستراد، يُسمح بسحب المركبات المعطلة فقط لمركبات الإنقاذ والإغاثة المرخصة.</div>
+    <div class="quiz-btn-group">
+      <button class="quiz-opt-btn" onclick="checkAnswer(4, true, true, 'إجابة صحيحة (Vero)! يمنع منعاً باتاً السحب الخاص بين المركبات على الأوتوستراد.')">Vero (صحيح)</button>
+      <button class="quiz-opt-btn" onclick="checkAnswer(4, false, true, 'خطأ! العبارة صحيحة (Vero)؛ السحب في الأوتوستراد مقتصر حصراً على Soccorso stradale.')">Falso (خطأ)</button>
+    </div>
+    <div class="quiz-feedback" id="q-fb-4"></div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-card" id="q-card-5">
+    <div class="quiz-q-num">السؤال 5 من 5 • كود وزاري 1705</div>
+    <div class="quiz-text-it">"Sulle autostrade a tre corsie per senso di marcia, ai complessi di veicoli di lunghezza superiore a 7 metri è vietato impegnare la terza corsia da destra."</div>
+    <div class="quiz-text-ar">على الطرق السريعة ذات الثلاث حارات لكل اتجاه، يُحظر على مجموعات المركبات التي يزيد طولها عن 7 أمتار استخدام الحارة الثالثة من اليمين.</div>
+    <div class="quiz-btn-group">
+      <button class="quiz-opt-btn" onclick="checkAnswer(5, true, true, 'إجابة صحيحة (Vero)! المركبات التي يزيد طولها عن 7 أمتار تلزم بالحارتين الأقرب إلى اليمين فقط ويحظر عليها الحارة الثالثة.')">Vero (صحيح)</button>
+      <button class="quiz-opt-btn" onclick="checkAnswer(5, false, true, 'خطأ! العبارة صحيحة تماماً (Vero)؛ قاعدة الـ 7 أمتار تمنع استخدام الحارة الثالثة واليسرى.')">Falso (خطأ)</button>
+    </div>
+    <div class="quiz-feedback" id="q-fb-5"></div>
+  </div>
+
+</main>
+
+<script>
+// Mobile Drawer Controller
+function toggleMobileNav() {
+  const btn = document.getElementById('nav-hamburger-btn');
+  const panel = document.getElementById('mobile-drawer-panel');
+  const overlay = document.getElementById('mobile-drawer-overlay');
+  if (!btn || !panel) return;
+  const isOpening = !panel.classList.contains('is-active');
+  if (isOpening) {
+    btn.classList.add('is-active');
+    btn.setAttribute('aria-expanded', 'true');
+    panel.classList.add('is-active');
+    if (overlay) overlay.classList.add('is-active');
+    document.body.classList.add('nav-scroll-lock');
+  } else {
+    closeMobileNav();
+  }
+  if (window.soundEngine && typeof window.soundEngine.click === 'function') {
+    window.soundEngine.click();
+  }
+}
+
+function closeMobileNav() {
+  const btn = document.getElementById('nav-hamburger-btn');
+  const panel = document.getElementById('mobile-drawer-panel');
+  const overlay = document.getElementById('mobile-drawer-overlay');
+  if (btn) {
+    btn.classList.remove('is-active');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+  if (panel) panel.classList.remove('is-active');
+  if (overlay) overlay.classList.remove('is-active');
+  document.body.classList.remove('nav-scroll-lock');
+}
+
+// Audio Engine
+window.soundEngine = window.soundEngine || {
+  ctx: null,
+  enabled: true,
+  init() {
+    if (!this.ctx) {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (AudioCtx) this.ctx = new AudioCtx();
+    }
+    if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
+  },
+  click() {
+    if (!this.enabled) return;
+    this.init();
+    if (!this.ctx) return;
+    try {
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(520, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.04);
+      gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.04);
+    } catch(e) {}
+  },
+  success() {
+    if (!this.enabled) return;
+    this.init();
+    if (!this.ctx) return;
+    try {
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(440, now);
+      osc.frequency.exponentialRampToValueAtTime(880, now + 0.12);
+      gain.gain.setValueAtTime(0.1, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.25);
+    } catch(e) {}
+  },
+  error() {
+    if (!this.enabled) return;
+    this.init();
+    if (!this.ctx) return;
+    try {
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(220, now);
+      osc.frequency.linearRampToValueAtTime(110, now + 0.15);
+      gain.gain.setValueAtTime(0.1, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.25);
+    } catch(e) {}
+  }
+};
+
+function toggleAudio() {
+  window.soundEngine.enabled = !window.soundEngine.enabled;
+  const icons = document.querySelectorAll('.audio-icon-span');
+  const labels = document.querySelectorAll('.audio-label-span');
+  icons.forEach(el => el.textContent = window.soundEngine.enabled ? '🔊' : '🔇');
+  labels.forEach(el => el.textContent = window.soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم');
+  if (window.soundEngine.enabled) window.soundEngine.click();
+}
+
+// Web Speech API for Italian pronunciation
+function speakText(italianText) {
+  if (!('speechSynthesis' in window)) {
+    alert('خاصية النطق غير مدعومة في متصفحك.');
+    return;
+  }
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(italianText);
+  utterance.lang = 'it-IT';
+  utterance.rate = 0.85;
+  window.speechSynthesis.speak(utterance);
+}
+
+// Quiz validation
+function checkAnswer(qId, userChoice, correctChoice, explanation) {
+  const card = document.getElementById(`q-card-${qId}`);
+  const fb = document.getElementById(`q-fb-${qId}`);
+  if (!card || !fb) return;
+
+  const isCorrect = (userChoice === correctChoice);
+  fb.textContent = explanation;
+
+  if (isCorrect) {
+    card.className = 'quiz-card answered-correct';
+    if (window.soundEngine) window.soundEngine.success();
+  } else {
+    card.className = 'quiz-card answered-wrong';
+    if (window.soundEngine) window.soundEngine.error();
+  }
+}
+</script>
+
+</body>
+</html>
