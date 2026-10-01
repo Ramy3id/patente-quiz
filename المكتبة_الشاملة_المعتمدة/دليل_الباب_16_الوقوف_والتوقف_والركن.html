@@ -626,6 +626,123 @@
     .nav-brand .badge-tag { display: none; }
   }
 
+
+  /* Procedure Grid for Pre-Driving Checks */
+  .procedure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .procedure-card {
+    background: rgba(24, 24, 27, 0.7);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .procedure-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-highlight);
+  }
+  .procedure-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .procedure-icon {
+    font-size: 1.5rem;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .procedure-title-it {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .procedure-title-ar {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+  .procedure-desc {
+    font-size: 0.88rem;
+    color: #d4d4d8;
+    line-height: 1.6;
+  }
+  .procedure-falso-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(244, 63, 94, 0.12);
+    border: 1px solid rgba(244, 63, 94, 0.25);
+    color: #fb7185;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 6px;
+  }
+
+  /* Points Deduction Alert Box */
+  .points-box {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(244, 63, 94, 0.05));
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 24px 0;
+  }
+  .points-box-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #f87171;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .points-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+  }
+  .points-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.92rem;
+    color: #e4e4e7;
+    line-height: 1.5;
+  }
+  .points-item-icon {
+    color: #ef4444;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .trap-warning-inline {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-top: 14px;
+    color: #fbbf24;
+    font-size: 0.88rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
 </style>
 </head>
 <body>
@@ -750,117 +867,236 @@
   <article class="content-sheet">
     <header class="header-card">
       <div class="badge-tag">CAPITOLO 16 • CODICE DELLA STRADA 2026</div>
-      <h1 class="main-title">دليل وقاموس الباب السادس عشر: الوقوف والتوقف والركن</h1>
-      <p class="sub-lead">Fermata, Sosta, Arresto, Sosta di Emergenza — الدليل الشامل لمسافات الأمان القانونية، أحكام المنحدرات، وقواعد قرص الساعات مع تفكيك الفخاخ الوزارية لمستوى A2.</p>
+      <h1 class="main-title">دليل وقاموس الباب السادس عشر: الوقوف والتوقف والركن وبدء السير</h1>
+      <p class="sub-lead">Fermata, Sosta, Arresto, Sosta di Emergenza e Partenza — الدليل المعتمد الشامل لمسافات الأمان القانونية، أحكام المنحدرات، فحص ما قبل القيادة، النزول الآمن، وقواعد سحب النقاط مع تفكيك الفخاخ الوزارية لمستوى A2.</p>
     </header>
 
     <div class="callout-box">
-      <strong>📊 إحصائيات الباب في بنك أسئلة الوزارة:</strong> يضم الباب السادس عشر قرابة <strong>320 سؤالاً</strong> في بنك الوزارة الرسمي. تتمحور 35% من أخطاء الطلاب حول الخلط بين شروط الـ <code>Fermata</code> والـ <code>Sosta</code> أو التردد في مسافات الـ <strong>5 أمتار والـ 15 متراً</strong>.
+      <strong>📊 إحصائيات الباب الرسمية في بنك الوزارة:</strong> يضم الباب السادس عشر بالضبط <strong>191 سؤالاً وزارياً</strong> (وليس 300-350 كما يشاع) موزعة عبر <strong>21 موضوعاً فرعياً دقيقاً</strong>. ترتكز 35% من الأخطاء الامتحانية على الخلط بين التوقف المؤقت (Fermata) والركن (Sosta)، وفخاخ سحب النقاط، ومدة حارة الطوارئ (3 ساعات كحد أقصى).
     </div>
 
     <!-- Section 1 -->
-    <h2 class="section-title">أولاً: الحالات الأربع لثبات المركبة على الطريق</h2>
-    <p style="color:var(--text-secondary); margin-bottom:16px;">يعتمد القانون الإيطالي في التمييز بين هذه الحالات على: <strong>نية السائق، مدة البقاء، حالة المحرك، وموقع السائق من المركبة</strong>:</p>
+    <h2 class="section-title">أولاً: المفاهيم الأربعة لثبات المركبة على الطريق (I 4 Stati del Veicolo)</h2>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">يحدد قانون السير الإيطالي (Codice della Strada) بدقة الفارق بين حالات توقف المركبة بناءً على: <strong>نية السائق، المدة الزمنية، حالة المحرك، وحضور السائق خلف المقود</strong>:</p>
 
     <div class="comparison-grid">
       <!-- Fermata -->
-      <div class="compare-card sky">
+      <div class="compare-card emerald">
         <div class="card-header-row">
           <span class="card-it-title">Fermata</span>
-          <span class="card-ar-title">التوقف المؤقت القصير</span>
+          <span class="card-ar-title">التوقف المؤقت السريع</span>
         </div>
         <ul class="card-points-list">
-          <li><span>⏱️</span> <strong>الهدف:</strong> صعود أو نزول ركاب لفترة وجيزة جداً (بضع ثوانٍ).</li>
-          <li><span>👤</span> <strong>مكان السائق:</strong> يجب أن يكون <strong>حاضراً وجاهزاً للتحرك فوراً</strong> (<code>Pronto a ripartire</code>).</li>
-          <li><span>🚫</span> <strong>فخ حاسم:</strong> ممنوع الابتعاد نهائياً عن المركبة (<code>Non ci si può allontanare</code>).</li>
-          <li><span>🟢</span> <strong>المحرك:</strong> يمكن أن يظل مشتعلاً دون إطفائه.</li>
-          <li><span>⚠️</span> <strong>الشرط:</strong> عدم التسبب في أي عرقلة لحركة المرور (<code>Nessun intralcio</code>).</li>
+          <li><span>⏱️</span> <strong>المدة والهدف:</strong> تعليق مؤقت جداً للسير (صعود أو نزول ركاب، أو طلب معلومة سريعة من شرطي المرور).</li>
+          <li><span>🔑</span> <strong>المحرك والجاهزية:</strong> المحرك يعمل، والسائق <strong>حاضر وجاهز للانطلاق فوراً</strong> (<code>Pronto a ripartire</code>).</li>
+          <li><span>🚫</span> <strong>المحظور:</strong> يُمنع تماماً على السائق مغادرة السيارة أو الابتعاد عنها، ويمنع إعاقة السيولة المرورية.</li>
+          <li><span>✅</span> <strong>الأماكن المسموحة:</strong> مسموح أمام مداخل الجراجات المرخصة (<code>Passo carrabile</code>) وأمام حاويات القمامة.</li>
         </ul>
       </div>
 
       <!-- Sosta -->
-      <div class="compare-card emerald">
+      <div class="compare-card amber">
         <div class="card-header-row">
           <span class="card-it-title">Sosta</span>
-          <span class="card-ar-title">الركن والانتظار الممتد</span>
+          <span class="card-ar-title">الركن والانتظار</span>
         </div>
         <ul class="card-points-list">
-          <li><span>⏳</span> <strong>الهدف:</strong> توقف ممتد بدون حد زمني محدد لإنهاء أعمال أو مغادرة المركبة.</li>
-          <li><span>🚶</span> <strong>مكان السائق:</strong> <strong>يجوز للسائق الابتعاد</strong> عن المركبة (<code>Può allontanarsi</code>).</li>
-          <li><span>🛑</span> <strong>المحرك:</strong> إلزامي إطفاء المحرك (<code>Motore spento</code>).</li>
-          <li><span>🔒</span> <strong>إلزاميات الأمان:</strong> شد فرامل اليد، وتعشيق الغيار المناسب في المنحدرات.</li>
-          <li><span>🛡️</span> <strong>منع السرقة:</strong> اتخاذ الحيطة لمنع استخدام المركبة دون موافقة المالك.</li>
+          <li><span>⏱️</span> <strong>المدة والهدف:</strong> إيقاف المركبة لفترة زمنية ممتدة مع إمكانية ابتعاد السائق عنها (<code>Allontanarsi</code>).</li>
+          <li><span>🔑</span> <strong>المحرك والسلامة:</strong> المحرك مطفأ إجبارياً، مع تعشيق الغيار المناسب وشد فرامل اليد.</li>
+          <li><span>🛡️</span> <strong>احتياطات إجبارية:</strong> اتخاذ التدابير لمنع استخدام المركبة دون إذن مالكها (قفل النوافذ والأبواب).</li>
+          <li><span>🚫</span> <strong>المحظور:</strong> ممنوع أمام مداخل الجراجات، أمام حاويات القمامة، وفي محطات الأتوبيس.</li>
         </ul>
       </div>
 
       <!-- Arresto -->
-      <div class="compare-card amber">
+      <div class="compare-card indigo">
         <div class="card-header-row">
           <span class="card-it-title">Arresto</span>
-          <span class="card-ar-title">التوقف المفروض بحكم السير</span>
+          <span class="card-ar-title">التوقف المروري الإجباري</span>
         </div>
         <ul class="card-points-list">
-          <li><span>🚦</span> <strong>السبب:</strong> أمر تفرضه قواعد المرور وليس اختيار السائق.</li>
-          <li><span>🛑</span> <strong>أمثلة:</strong> التوقف عند الإشارة الحمراء، لوحة STOP، أو إشارة الشرطي.</li>
-          <li><span>🚗</span> <strong>الازدحام:</strong> التوقف التام في طابور السير أو أمام مزلقان القطار.</li>
-          <li><span>⚠️</span> <strong>ملاحظة:</strong> لا تنطبق عليه قواعد الركن ولا يسمى Fermata.</li>
+          <li><span>🚦</span> <strong>السبب الحصري:</strong> تفرضه متطلبات حركة المرور (<code>Esigenze della circolazione</code>).</li>
+          <li><span>🛑</span> <strong>أمثلة حصرية:</strong> إشارة مرور حمراء، لوحة قف (<code>STOP</code>)، زحام مروري، أو أمر شرطي.</li>
+          <li><span>⚠️</span> <strong>ملاحظة هامة:</strong> لا يعتبر ركناً ولا توقفاً مؤقتاً، ولا تطبق عليه لوحات منع الانتظار.</li>
+          <li><span>❌</span> <strong>فخ كويز:</strong> الادعاء بأن الـ Arresto لإنزال راكب أو لقضاء حاجة شخصية (FALSO قطعاً).</li>
         </ul>
       </div>
 
       <!-- Sosta di emergenza -->
       <div class="compare-card rose">
         <div class="card-header-row">
-          <span class="card-it-title">Sosta Emergenza</span>
+          <span class="card-it-title">Sosta di Emergenza</span>
           <span class="card-ar-title">الوقوف الاضطراري</span>
         </div>
         <ul class="card-points-list">
-          <li><span>🔧</span> <strong>السبب الأول:</strong> عطل ميكانيكي أو فني لا يسمح بمواصلة السير (<code>Avaria</code>).</li>
-          <li><span>🚑</span> <strong>السبب الثاني:</strong> وعكة صحية مفاجئة للسائق أو أحد الركاب (<code>Malessere</code>).</li>
-          <li><span>🛣️</span> <strong>في الأوتوستراد:</strong> الحد الأقصى في حارة الطوارئ هو <strong>6 ساعات فقط</strong>.</li>
-          <li><span>⚠️</span> <strong>السلامة:</strong> تشغيل أضواء الطوارئ وارتداء السترة العاكسة عند النزول.</li>
+          <li><span>🔧</span> <strong>السبب الأول:</strong> عطل فني لا يسمح بمواصلة السير بسلامة (<code>Avaria del veicolo</code>).</li>
+          <li><span>🚑</span> <strong>السبب الثاني:</strong> وعكة صحية مفاجئة للسائق أو لأحد الركاب (<code>Malessere fisico</code>).</li>
+          <li><span>⏱️</span> <strong>الحد الأقصى في الأوتوستراد:</strong> <strong>3 ساعات فقط (Massimo 3 ore)</strong> بحارة الطوارئ طبقاً للمادة 176!</li>
+          <li><span>⚠️</span> <strong>بروتوكول الأمان:</strong> تشغيل أضواء الطوارئ (4 Frecce)، وارتداء السترة العاكسة، ونصب مثلث الخطر.</li>
         </ul>
       </div>
     </div>
 
     <!-- Section 2 -->
-    <h2 class="section-title">ثانياً: الأرقام الذهبية والمسافات القانونية (Misure Legali)</h2>
-    <p style="color:var(--text-secondary); margin-bottom:16px;">هذه الأرقام ثابتة في قانون السير الإيطالي وتتكرر في عشرات الأسئلة، احفظها دون تردد:</p>
+    <h2 class="section-title">ثانياً: الإجراءات الإلزامية قبل القيادة والانطلاق (Prima di Iniziare a Guidare — 14 سؤالاً)</h2>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">يركز بنك الوزارة على التحقق من جاهزية السائق والمركبة قبل تدوير المحرك وبدء السير لضمان أقصى درجات السلامة:</p>
 
-    <div class="metrics-grid">
-      <div class="metric-card">
-        <div class="metric-number">5m</div>
-        <div class="metric-unit">أمتار قبل المعبر</div>
-        <div class="metric-desc">يمنع الركن لمسافة 5 أمتار <strong>قبل</strong> معبر المشاة والدراجات، ومسموح بعده مباشرة.</div>
+    <div class="procedure-grid">
+      <!-- 1 -->
+      <div class="procedure-card">
+        <div class="procedure-header">
+          <span class="procedure-icon">💺</span>
+          <div>
+            <div class="procedure-title-it">Sedile e Poggiatesta</div>
+            <div class="procedure-title-ar">المقعد ومسند الرأس</div>
+          </div>
+        </div>
+        <div class="procedure-desc">ضبط المسافة المناسبة للدواسات مع ضبط مسند الرأس بحيث تكون حافته العلوية بمحاذاة قمة الرأس لمنع ارتداد الرقبة (Colpo di frusta).</div>
       </div>
-      <div class="metric-card">
-        <div class="metric-number">5m</div>
-        <div class="metric-unit">أمتار عند التقاطعات</div>
-        <div class="metric-desc">يمنع التوقف والركن داخل المدن على مسافة تقل عن 5 أمتار من حد التقاطع.</div>
+
+      <!-- 2 -->
+      <div class="procedure-card">
+        <div class="procedure-header">
+          <span class="procedure-icon">🪞</span>
+          <div>
+            <div class="procedure-title-it">Specchi Retrovisori</div>
+            <div class="procedure-title-ar">المرايا الداخلية والخارجية</div>
+          </div>
+        </div>
+        <div class="procedure-desc">ضبط المرآة الداخلية والجانبيتين بدقة وفقاً لطول قامة السائق للقضاء على الزوايا الميتة (Angoli ciechi) قدر الإمكان. في الدراجات النارية تضبط أيضاً حسب القامة.</div>
       </div>
-      <div class="metric-card">
-        <div class="metric-number">15m</div>
-        <div class="metric-unit">محطات الأتوبيس والترام</div>
-        <div class="metric-desc">يمنع <strong>الركن (Sosta)</strong> لمسافة 15 متراً قبل وبعد اللوحة إذا لم توجد خطوط صفراء.</div>
+
+      <!-- 3 -->
+      <div class="procedure-card">
+        <div class="procedure-header">
+          <span class="procedure-icon">📄</span>
+          <div>
+            <div class="procedure-title-it">Documenti Obbligatori</div>
+            <div class="procedure-title-ar">المستندات القانونية السارية</div>
+          </div>
+        </div>
+        <div class="procedure-desc">حمل رخصة القيادة (Patente)، رخصة السير (Carta di circolazione)، وشهادة التأمين (Certificato di assicurazione)، والتأكد من أنها سارية المفعول (In corso di validità).</div>
       </div>
-      <div class="metric-card">
-        <div class="metric-number">3m</div>
-        <div class="metric-unit">عرض المسار المتبقي</div>
-        <div class="metric-desc">عند الركن، يجب ترك 3 أمتار على الأقل بين سيارتك والخط المتصل لمرور السيارات.</div>
+
+      <!-- 4 -->
+      <div class="procedure-card">
+        <div class="procedure-header">
+          <span class="procedure-icon">🪪</span>
+          <div>
+            <div class="procedure-title-it">Categoria di Patente</div>
+            <div class="procedure-title-ar">مطابقة فئة الرخصة</div>
+          </div>
+        </div>
+        <div class="procedure-desc">التأكد التام من أن فئة الرخصة التي يحملها السائق تسمح بقيادة هذا النوع من المركبات بناءً على الوزن والقدرة الحصانية وعدد الركاب.</div>
       </div>
-      <div class="metric-card">
-        <div class="metric-number">1m</div>
-        <div class="metric-unit">مساحة مرور المشاة</div>
-        <div class="metric-desc">في الشوارع التي ليس بها رصيف مرتفع، يجب ترك متر واحد على الأقل لمرور المشاة.</div>
+
+      <!-- 5 -->
+      <div class="procedure-card">
+        <div class="procedure-header">
+          <span class="procedure-icon">📦</span>
+          <div>
+            <div class="procedure-title-it">Carico e Visibilità</div>
+            <div class="procedure-title-ar">تثبيت الحمولة والرؤية</div>
+          </div>
+        </div>
+        <div class="procedure-desc">التأكد من تثبيت الأمتعة والمنقولات بإحكام لمنع سقوطها أو تطايرها، والتحقق من عدم حجب الرؤية الخلفية أو الجانبية بحمولة مفرطة أو ركاب.</div>
       </div>
-      <div class="metric-card">
-        <div class="metric-number">6h</div>
-        <div class="metric-unit">ساعات حد أقصى</div>
-        <div class="metric-desc">الحد الأقصى المسموح به للبقاء في حارة طوارئ الطريق السريع (Autostrada).</div>
+
+      <!-- 6 -->
+      <div class="procedure-card">
+        <div class="procedure-header">
+          <span class="procedure-icon">🔒</span>
+          <div>
+            <div class="procedure-title-it">Cinture e Comandi</div>
+            <div class="procedure-title-ar">الأحزمة ومفاتيح التحكم</div>
+          </div>
+        </div>
+        <div class="procedure-desc">التحقق من ربط جميع الركاب لأحزمة الأمان، والتعرف المسبق على جميع مفاتيح وأزرار القيادة (Leve e pulsanti) قبل الانطلاق على الطريق.</div>
+        <div class="procedure-falso-tag">❌ فخ: لا يلزم ضبط عداد الكيلومترات ولا فصل الوسادة الهوائية!</div>
       </div>
     </div>
 
     <!-- Section 3 -->
-    <h2 class="section-title">ثالثاً: الركن في المنحدرات والمرتفعات (Sosta in Pendenza)</h2>
+    <h2 class="section-title">ثالثاً: النزول الآمن من المركبة وفتح الأبواب (Discesa e Apertura Portiere — 16 سؤالاً)</h2>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">تعتبر لحظة فتح الأبواب والنزول من أخطر المواقف المسببة للحوادث المميتة مع الدراجات والموتوسيكلات والمشاة:</p>
+
+    <div class="comparison-grid">
+      <div class="compare-card rose">
+        <div class="card-header-row">
+          <span class="card-it-title">Lato Centro Strada</span>
+          <span class="card-ar-title">فتح الباب جهة حركة المرور</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>👀</span> <strong>النظر في المرآة:</strong> النظر الدقيق في المرآة العاكسة والالتفات بالكتف قبل لمس مقبض الباب.</li>
+          <li><span>🏍️</span> <strong>خطر الاصطدام:</strong> الانتباه الشديد للدراجات العادية والنارية القادمة من الخلف (Ciclisti e motocicli).</li>
+          <li><span>⚠️</span> <strong>القاعدة:</strong> فتح الباب ليس ممنوعاً، ولكنه مشروط بعدم تشكيل أي خطر أو إعاقة للغير.</li>
+          <li><span>❌</span> <strong>فخ كويز:</strong> لا يشترط تشغيل إشارة الاتجاه (Freccia) لفتح الباب!</li>
+        </ul>
+      </div>
+
+      <div class="compare-card amber">
+        <div class="card-header-row">
+          <span class="card-it-title">Lato Marciapiede & Passeggeri</span>
+          <span class="card-ar-title">فتح الباب جهة الرصيف والركاب</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>🚶</span> <strong>جهة الرصيف:</strong> التأكد التام من عدم قدوم مشاة عابرين قبل فتح الأبواب اليمنى.</li>
+          <li><span>📢</span> <strong>مسؤولية السائق:</strong> يجب على السائق تذكير وتنبيه الركاب بفحص الطريق قبل فتح الأبواب.</li>
+          <li><span>🔑</span> <strong>إطفاء المحرك:</strong> يجب إطفاء المحرك إجبارياً قبل النزول من السيارة.</li>
+          <li><span>❄️</span> <strong>فخ التكييف:</strong> يُمنع تماماً ترك المحرك يعمل من أجل تشغيل مكيف الهواء أثناء الركن!</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <h2 class="section-title">رابعاً: الأرقام الذهبية والمسافات القانونية (Misure Legali e Distanze d'Oro)</h2>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">هذه المقاييس والمدد القانونية ثابتة بنص كود السير، وتتكرر نصاً في عشرات الأسئلة الامتحانية:</p>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-number">5m</div>
+        <div class="metric-unit">أمتار قبل المعابر</div>
+        <div class="metric-desc">يُمنع الركن لمسافة 5 أمتار <strong>قبل</strong> معبر المشاة أو الدراجات، بينما يُسمح بعده مباشرة.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">5m</div>
+        <div class="metric-unit">أمتار عند التقاطعات داخل المدن</div>
+        <div class="metric-desc">يُمنع التوقف والركن داخل المدن على بعد يقل عن 5 أمتار من حد التقاطع؛ أما خارج المدن فيُمنع كلياً.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">5m</div>
+        <div class="metric-unit">أمتار بمحطات الوقود</div>
+        <div class="metric-desc">يُمنع الركن 5 أمتار قبل وبعد المضخات <strong>أثناء ساعات العمل فقط</strong> (ويجوز خارجها).</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">15m</div>
+        <div class="metric-unit">محطات الأتوبيس والترام</div>
+        <div class="metric-desc">يُمنع الركن 15 متراً قبل وبعد اللوحة إذا لم توجد خطوط صفراء؛ والتوقف السريع مسموح إن لم يعق الحافلة.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">3m</div>
+        <div class="metric-unit">عرض مسار السير المتبقي</div>
+        <div class="metric-desc">عند الركن بالشارع باتجاه واحد، يجب ترك 3 أمتار على الأقل بين سيارتك والجانب الآخر لمرور صف سيارات.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">1m</div>
+        <div class="metric-unit">مساحة مرور المشاة الإلزامية</div>
+        <div class="metric-desc">في الشوارع التي ليس بها رصيف مرتفع، يجب ترك مساحة لا تقل عن متر واحد لمرور المشاة بسلامة.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">3h</div>
+        <div class="metric-unit">ساعات حد أقصى للطوارئ</div>
+        <div class="metric-desc">الحد الأقصى القانوني للتوقف الاضطراري بحارة طوارئ الأوتوستراد هو <strong>3 ساعات فقط</strong> (المادة 176).</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">24h</div>
+        <div class="metric-unit">ساعات استراحات الأوتوستراد</div>
+        <div class="metric-desc">الحد الأقصى للركن في ساحات الخدمة والاستراحة على الأوتوستراد (Aree di servizio o parcheggio).</div>
+      </div>
+    </div>
+
+    <!-- Section 5 -->
+    <h2 class="section-title">خامساً: الركن في المنحدرات والمرتفعات (Sosta in Pendenza)</h2>
     <div class="slope-container">
       <!-- In Discesa -->
       <div class="slope-card">
@@ -873,12 +1109,12 @@
             <span>تعشيق الغيار الخلفي (<strong>Retromarcia - R</strong>) لمنع دوران المحرك للأمام.</span>
           </div>
           <div class="slope-step-item">
-            <span class="slope-step-badge" style="background:rgba(56,189,248,0.15); color:#38bdf8;">نحو الرصيف</span>
-            <span>توجيه العجلات الأمامية <strong>نحو حافة الرصيف</strong> (Verso il marciapiede) لتصطدم به إن تحركت.</span>
+            <span class="slope-step-badge" style="background:rgba(244,63,94,0.15); color:#fb7185;">عجلات</span>
+            <span>توجيه العجلات نحو الرصيف (<strong>Verso il marciapiede</strong>) لتصطدم به إن تحركت.</span>
           </div>
           <div class="slope-step-item">
-            <span class="slope-step-badge" style="background:rgba(16,185,129,0.15); color:#34d399;">فرامل اليد</span>
-            <span>شد فرامل التوقف (Freno di stazionamento) بإحكام تام.</span>
+            <span class="slope-step-badge" style="background:rgba(244,63,94,0.15); color:#fb7185;">فرامل اليد</span>
+            <span>شد فرامل التثبيت (<strong>Freno di stazionamento</strong>) بإحكام تام.</span>
           </div>
         </div>
       </div>
@@ -891,152 +1127,245 @@
         <div class="slope-steps">
           <div class="slope-step-item">
             <span class="slope-step-badge" style="background:rgba(16,185,129,0.15); color:#34d399;">الغيار الأول</span>
-            <span>تعشيق الغيار الأول (<strong>Prima Marcia - 1</strong>) للاستفادة من ضغط المحرك العكسي.</span>
+            <span>تعشيق الغيار الأول (<strong>Prima marcia - 1</strong>) لمنع دوران المحرك للخلف.</span>
           </div>
           <div class="slope-step-item">
-            <span class="slope-step-badge" style="background:rgba(56,189,248,0.15); color:#38bdf8;">عكس الرصيف</span>
-            <span>توجيه العجلات نحو منتصف الطريق / عكس الرصيف حتى ترتكز مؤخرة الإطار على حافة الرصيف.</span>
+            <span class="slope-step-badge" style="background:rgba(16,185,129,0.15); color:#34d399;">عجلات</span>
+            <span>توجيه العجلات نحو منتصف الشارع (عكس الرصيف) أو نحو حافة الطريق إذا لم يوجد رصيف مرتفع.</span>
           </div>
           <div class="slope-step-item">
             <span class="slope-step-badge" style="background:rgba(16,185,129,0.15); color:#34d399;">فرامل اليد</span>
-            <span>شد فرامل التوقف (Freno di stazionamento) بإحكام تام.</span>
+            <span>شد فرامل التثبيت بإحكام تام (إلزامية في الصعود كما في الهبوط).</span>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="callout-box amber">
-      <strong>⚠️ قاعدة الشاحنات والمقطورات (Autocarri e Rimorchi):</strong> في المنحدرات الشديدة، يجب على سائقي المركبات الثقيلة والمقطورات استخدام <strong>أسافين ومصدات العجلات (Cunei fermaruota)</strong> تحت الإطارات كإجراء وقائي إلزامي.
-    </div>
-
-    <!-- Section 4 -->
-    <h2 class="section-title">رابعاً: مصفوفة أماكن الحظر (مقارنة شاملة)</h2>
-    <div class="table-wrap">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>الموقع على الطريق</th>
-            <th>الركن (Sosta)</th>
-            <th>التوقف المؤقت (Fermata)</th>
-            <th>السبب والقاعدة القانونية</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>الأنفاق والكباري العلوية (Gallerie e Ponti)</strong></td>
-            <td>❌ ممنوع قطعي</td>
-            <td>❌ ممنوع قطعي</td>
-            <td>خطر شديد لحصر الرؤية وصعوبة الإخلاء في حال الحريق.</td>
-          </tr>
-          <tr>
-            <td><strong>المنعطفات ومرتفعات الطريق خارج المدن (Curve e Dossi)</strong></td>
-            <td>❌ ممنوع قطعي</td>
-            <td>❌ ممنوع قطعي</td>
-            <td>انعدام الرؤية ومفاجأة السائقين القادمين بسرعة.</td>
-          </tr>
-          <tr>
-            <td><strong>فوق معابر المشاة والدراجات مباشرة</strong></td>
-            <td>❌ ممنوع قطعي</td>
-            <td>❌ ممنوع قطعي</td>
-            <td>إلزامية ترك المسار خالياً للمشاة وذوي الاحتياجات.</td>
-          </tr>
-          <tr>
-            <td><strong>مدخل الجراج المعتمد (Passo Carrabile)</strong></td>
-            <td>❌ ممنوع</td>
-            <td>✅ مسموح</td>
-            <td>يسمح بالوقوف المؤقت السريع لإنزال راكب دون ترك السيارة.</td>
-          </tr>
-          <tr>
-            <td><strong>محطات الحافلات والترام (Fermata Bus)</strong></td>
-            <td>❌ ممنوع (15 متراً)</td>
-            <td>✅ مسموح</td>
-            <td>يسمح بإنزال راكب سريعاً بشرط عدم إعاقة وصول الأتوبيس.</td>
-          </tr>
-          <tr>
-            <td><strong>أمام صناديق القمامة (Cassonetti dei rifiuti)</strong></td>
-            <td>❌ ممنوع</td>
-            <td>✅ مسموح</td>
-            <td>يمنع الركن لضمان وصول شاحنات النظافة، ويسمح بالـ Fermata.</td>
-          </tr>
-          <tr>
-            <td><strong>الصف الثاني (In seconda fila)</strong></td>
-            <td>❌ ممنوع للسيارات</td>
-            <td>❌ ممنوع</td>
-            <td>يُسمح بالركن صف ثانٍ <strong>للموتوسيكلات ذات العجلتين فقط</strong>.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Section 5 -->
-    <h2 class="section-title">خامساً: قرص الساعات والمواقف الخاضعة للتوقيت (Disco Orario)</h2>
-    <div class="callout-box emerald">
-      <strong>⏱️ القواعد الذهبية لقرص الساعات:</strong>
-      <ul style="margin:8px 20px; line-height:1.8;">
-        <li>في المناطق التي توجد بها لوحة ركن محدد بوقت (<code>Sosta a tempo</code>)، يجب إظهار <strong>Disco orario</strong> على الزجاج الأمامي بوضوح.</li>
-        <li>يجب ضبط مؤشر القرص على <strong>ساعة الوصول الفعلية (Ora di arrivo)</strong> وليس ساعة الانتهاء!</li>
-        <li><strong>فخ الامتحان:</strong> تحريك القرص للأمام لتجديد الوقت دون تحريك السيارة من مكانها يُعد مخالفة مرورية تستوجب الغرامة وسحب النقاط.</li>
-      </ul>
+    <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border-subtle); border-radius:12px; padding:14px 18px; margin-top:14px; font-size:0.9rem; color:#a1a1aa;">
+      🚚 <strong>المركبات الثقيلة والمقطورات (Oltre 3.5t):</strong> يُلزم القانون السائق باستخدام أسافين إيقاف العجلات (<code>Cunei fermaruota</code>) عند الركن في المنحدرات الشديدة لضمان ثباتها.
     </div>
 
     <!-- Section 6 -->
-    <h2 class="section-title">سادساً: القاموس التقني ومصطلحات الفخاخ (Glossario Tecnico)</h2>
+    <h2 class="section-title">سادساً: عقوبة سحب النقاط في مخالفات الركن (Sosta e Sottrazione Punti — 10 أسئلة)</h2>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">لا تؤدي جميع مخالفات الركن إلى سحب نقاط من الرخصة! لقد حصر المشرّع الإيطالي سحب النقاط في حالات تهدد الفئات الضعيفة أو تشل النقل العام:</p>
+
+    <div class="points-box">
+      <div class="points-box-title">
+        <span>⚠️ الحالات الأربع الحصرية لسحب نقاط من الرخصة عند الركن المخالف:</span>
+      </div>
+      <ul class="points-list">
+        <li class="points-item">
+          <span class="points-item-icon">1.</span>
+          <span><strong>محطات الأتوبيس والترام:</strong> الركن في المساحات المخصصة لوقوف وتوقف حافلات النقل العام وعربات الترام، أو على بعد يقل عن 15 متراً من لوحة المحطة إن لم تكن المساحة مخططة.</span>
+        </li>
+        <li class="points-item">
+          <span class="points-item-icon">2.</span>
+          <span><strong>مواقف ذوي الاحتياجات الخاصة:</strong> الركن غير المصرح به في الأماكن المخصصة لتوقف أو ركن مركبات المعاقين (<code>Stalli disabili</code>).</span>
+        </li>
+        <li class="points-item">
+          <span class="points-item-icon">3.</span>
+          <span><strong>منحدرات وفواصل الأرصفة:</strong> الركن أمام أو فوق المنحدرات وفواصل الأرصفة (<code>Scivoli e raccordi</code>) المخصصة لصعود ونزول الكراسي المتحركة لذوي الاحتياجات الخاصة.</span>
+        </li>
+        <li class="points-item">
+          <span class="points-item-icon">4.</span>
+          <span><strong>مسارات النقل العام:</strong> الركن في الحارات أو المسارات المخصصة لمرور وسائل النقل العام (<code>Corsie preferenziali</code>).</span>
+        </li>
+      </ul>
+      <div class="trap-warning-inline">
+        <span>🎯</span>
+        <div><strong>الفخ الأكبر في كويزات الوزارة:</strong> الركن أمام مدخل الجراج المرخص (Passo carrabile) أو في صف ثانٍ (Doppia fila) يستوجب الغرامة وسحب السيارة بالونش (Rimozione forzata) ولكنه <strong>لا يسحب أي نقاط إطلاقاً (Nessuna decurtazione punti)</strong>!</div>
+      </div>
+    </div>
+
+    <!-- Section 7 -->
+    <h2 class="section-title">سابعاً: مصفوفة أماكن الحظر والمقارنة الشاملة (Fermata vs Sosta)</h2>
     <div class="table-wrap">
       <table class="data-table">
         <thead>
           <tr>
-            <th>المصطلح بالإيطالية</th>
-            <th>الترجمة العربية</th>
-            <th>فخ الكويز والامتحان الوزاري ⚠️</th>
+            <th>المكان أو الحالة</th>
+            <th>التوقف المؤقت (Fermata)</th>
+            <th>الركن (Sosta)</th>
+            <th>القاعدة والتفاصيل القانونية</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong style="color:#fff;">Pronto a ripartire</strong></td>
-            <td>جاهز للتحرك فوراً</td>
-            <td>شرط إلزامي للـ Fermata؛ غياب السائق يحولها فوراً لمخالفة Sosta.</td>
+            <td>معابر المشاة والدراجات</td>
+            <td>❌ ممنوع دائماً</td>
+            <td>❌ ممنوع دائماً</td>
+            <td>ممنوع كلاهما فوق المعبر، والركن ممنوع 5 أمتار قبله فقط.</td>
           </tr>
           <tr>
-            <td><strong style="color:#fff;">Allontanarsi dal veicolo</strong></td>
-            <td>الابتعاد عن المركبة</td>
-            <td>مسموح فقط في الـ Sosta، وممنوع قطعياً في الـ Fermata.</td>
+            <td>المنحنيات ومطبات الرؤية (Dossi)</td>
+            <td>❌ ممنوع</td>
+            <td>❌ ممنوع</td>
+            <td>ممنوع فوقها دائماً، وخارج المدن يمنع حتى في الاقتراب منها.</td>
           </tr>
           <tr>
-            <td><strong style="color:#fff;">Nessun intralcio</strong></td>
-            <td>دون إحداث عرقلة</td>
-            <td>يجب ألا تسبب الـ Fermata أي عائق ولو طفيف لمركبات النقل العام.</td>
+            <td>الأنفاق والجسور والتحويلات</td>
+            <td>❌ ممنوع</td>
+            <td>❌ ممنوع</td>
+            <td>Gallerie, sottovia, sovrapassaggi يمنع فيها كلاهما إلا بإشارة.</td>
           </tr>
           <tr>
-            <td><strong style="color:#fff;">Avaria</strong></td>
-            <td>عطل فني في السيارة</td>
-            <td>مبرر قانوني للوقوف الاضطراري (Sosta di emergenza).</td>
+            <td>حجب الإشارات المرورية أو الضوئية</td>
+            <td>❌ ممنوع</td>
+            <td>❌ ممنوع</td>
+            <td>يمنع التوقف أو الركن إذا حجب المركبة رؤية الشواخص أو إشارة المرور.</td>
           </tr>
           <tr>
-            <td><strong style="color:#fff;">Malessere</strong></td>
-            <td>وعكة صحية طارئة</td>
-            <td>تشمل السائق أو أحد الركاب وتتيح الوقوف في حارة الطوارئ.</td>
+            <td>مدخل جراج مرخص (Passo Carrabile)</td>
+            <td>✅ مسموح</td>
+            <td>❌ ممنوع</td>
+            <td>الـ Fermata مسموحة شرط عدم إعاقة السيارات؛ الـ Sosta ممنوعة مع سحب بالونش.</td>
           </tr>
           <tr>
-            <td><strong style="color:#fff;">Passo carrabile</strong></td>
-            <td>مدخل جراج مرخص</td>
-            <td>يمنع الركن (Sosta) ويسمح بالتوقف السريع (Fermata).</td>
+            <td>أمام حاويات القمامة (Cassonetti)</td>
+            <td>✅ مسموح</td>
+            <td>❌ ممنوع</td>
+            <td>مسموح التوقف لإنزال راكب؛ ويمنع الركن لإتاحة تفريغ الحاويات للشاحنات.</td>
           </tr>
           <tr>
-            <td><strong style="color:#fff;">Cunei fermaruota</strong></td>
-            <td>أسافين تثبيت العجلات</td>
-            <td>إلزامية للمركبات الثقيلة والمقطورات في المنحدرات الشديدة.</td>
+            <td>محطات الوقود (Distributori)</td>
+            <td>✅ مسموح دائماً</td>
+            <td>❌ ممنوع (أثناء العمل)</td>
+            <td>يمنع الركن 5 أمتار قبل وبعد أثناء العمل فقط؛ وخارج العمل مسموح.</td>
           </tr>
           <tr>
-            <td><strong style="color:#fff;">In seconda fila</strong></td>
-            <td>في صف ثانٍ (مزدوج)</td>
-            <td>ممنوع لجميع السيارات؛ مسموح فقط للدراجات النارية ذات العجلتين.</td>
+            <td>محطات الأتوبيس والترام</td>
+            <td>✅ مسموح (بشرط)</td>
+            <td>❌ ممنوع (15 متراً)</td>
+            <td>مسموح توقف مؤقت سريع جداً إن لم يعق الحافلة؛ والركن يسحب نقاطاً.</td>
+          </tr>
+          <tr>
+            <td>في صف ثانٍ (In Seconda Fila)</td>
+            <td>✅ مسموح (سريع)</td>
+            <td>❌ ممنوع (للسيارات)</td>
+            <td>الركن ممنوع للسيارات ومسموح للدراجات النارية ذات العجلتين فقط.</td>
+          </tr>
+          <tr>
+            <td>على الأرصفة والحواشي (Marciapiedi)</td>
+            <td>❌ ممنوع</td>
+            <td>❌ ممنوع</td>
+            <td>ممنوع كلاهما على الرصيف والبانكينا إلا بوجود خطوط وإشارات تسمح.</td>
+          </tr>
+          <tr>
+            <td>مقطورة مفصولة (Rimorchio staccato)</td>
+            <td>—</td>
+            <td>❌ ممنوع بالمدن</td>
+            <td>يمنع ركن مقطورة مفصولة عن قاطرتها في شوارع المدن إلا بأماكن مخصصة.</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- Section 7 -->
-    <h2 class="section-title">سابعاً: بنك الفخاخ الوزارية المباشرة (10 أسئلة حاسمة)</h2>
+    <!-- Section 8 -->
+    <h2 class="section-title">ثامناً: قرص الساعات والمواقف الخاضعة للتوقيت (Disco Orario & Parchimetro)</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin:20px 0;">
+      <div style="background:rgba(24,24,27,0.7); border:1px solid var(--border-subtle); border-radius:14px; padding:18px;">
+        <h4 style="color:#38bdf8; margin-bottom:10px; font-size:1.05rem;">🅿️ قرص الساعات (Disco Orario):</h4>
+        <ul style="color:#d4d4d8; font-size:0.9rem; line-height:1.7; padding-right:18px; margin:0;">
+          <li>يجب ضبط القرص على <strong>ساعة الوصول الفعلية (Ora di arrivo/inizio)</strong> وليس ساعة المغادرة المتوقعة.</li>
+          <li>يجب وضع القرص في مكان مرئي بوضوح خلف الزجاج الأمامي للمركبة.</li>
+          <li>إذا لم يتوفر القرص، يجوز قانوناً وضع ورقة مكتوبة بخط واضح تسجل <strong>ساعة الوصول والدقائق</strong>.</li>
+          <li><strong>محظور قطيعاً:</strong> تحريك عقارب القرص لتمديد الوقت دون تحريك السيارة ومغادرة الموقف فعلياً!</li>
+        </ul>
+      </div>
+
+      <div style="background:rgba(24,24,27,0.7); border:1px solid var(--border-subtle); border-radius:14px; padding:18px;">
+        <h4 style="color:#fbbf24; margin-bottom:10px; font-size:1.05rem;">🎫 عداد ومواقف الركن بالدفع (Parchimetro):</h4>
+        <ul style="color:#d4d4d8; font-size:0.9rem; line-height:1.7; padding-right:18px; margin:0;">
+          <li>في المناطق المحددة بخطوط زرقاء (Strisce blu)، يجب الدفع عبر الماكينة واستخراج التذكرة (Tagliando).</li>
+          <li>يجب تثبيت تذكرة الدفع خلف الزجاج الأمامي بشكل ظاهر يتيح للشرطة قراءتها بسهولة.</li>
+          <li><strong>فخ كويز:</strong> لا يجوز التهرب من الدفع بدعوى أن الركن لفترة قصيرة جداً (FALSO)!</li>
+          <li>يجب الالتزام بحدود الموقف المرسومة (Stallo) وعدم التعدي على المساحات المجاورة.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 9 -->
+    <h2 class="section-title">تاسعاً: القاموس التقني ومصطلحات الفخاخ (Glossario Tecnico A2)</h2>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>المصطلح الإيطالي</th>
+            <th>المعنى بالعربية</th>
+            <th>الفخ الامتحاني وقاعدة الحل السريع</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Fermata</strong></td>
+            <td>توقف مؤقت قصير</td>
+            <td>السائق حاضر وجاهز للتحرك (Pronto a ripartire)؛ لا تبتعد عن المقود أبداً.</td>
+          </tr>
+          <tr>
+            <td><strong>Sosta</strong></td>
+            <td>ركن وانتظار ممتد</td>
+            <td>إطفاء المحرك إجباري، شد فرامل اليد، تعشيق غيار، ومنع استخدام الغير للمركبة.</td>
+          </tr>
+          <tr>
+            <td><strong>Arresto</strong></td>
+            <td>توقف مروري حتمي</td>
+            <td>تفرضه ظروف السير (إشارة حمراء، زحام)، وليس رغبة السائق أو نزول الركاب.</td>
+          </tr>
+          <tr>
+            <td><strong>Sosta di emergenza</strong></td>
+            <td>وقوف اضطراري</td>
+            <td>سببه حصراً عطل فني (Avaria) أو وعكة صحية (Malessere)؛ حدها 3 ساعات بالأوتوستراد.</td>
+          </tr>
+          <tr>
+            <td><strong>Passo carrabile</strong></td>
+            <td>مدخل جراج مرخص</td>
+            <td>الـ Fermata مسموحة؛ الـ Sosta ممنوعة ولكنها <strong>لا تخصم أي نقاط</strong>.</td>
+          </tr>
+          <tr>
+            <td><strong>Cassonetti dei rifiuti</strong></td>
+            <td>حاويات القمامة</td>
+            <td>الـ Fermata مسموحة؛ الـ Sosta ممنوعة لمنع إعاقة شاحنات النظافة.</td>
+          </tr>
+          <tr>
+            <td><strong>Stalli disabili</strong></td>
+            <td>مواقف المعاقين</td>
+            <td>الركن فيها أو على منحدراتهم (Scivoli) <strong>يخصم نقاطاً من الرخصة</strong>.</td>
+          </tr>
+          <tr>
+            <td><strong>Disco orario</strong></td>
+            <td>قرص تسجيل الوقت</td>
+            <td>نسجل ساعة الوصول (Arrivo) وليس المغادرة؛ وممنوع تدوير العقارب دون تحريك السيارة.</td>
+          </tr>
+          <tr>
+            <td><strong>Poggiatesta</strong></td>
+            <td>مسند الرأس</td>
+            <td>يضبط بمحاذاة أعلى الرأس لمنع ارتداد الرقبة العنيف عند التصادم.</td>
+          </tr>
+          <tr>
+            <td><strong>Retromarcia</strong></td>
+            <td>غيار الرجوع للخلف</td>
+            <td>يعشق إجبارياً عند الركن في منحدر نزول (In discesa) مع توجيه العجلات للرصيف.</td>
+          </tr>
+          <tr>
+            <td><strong>Prima marcia</strong></td>
+            <td>الغيار الأول</td>
+            <td>يعشق إجبارياً عند الركن في مرتفع صعود (In salita) مع شد فرامل اليد.</td>
+          </tr>
+          <tr>
+            <td><strong>Cunei fermaruota</strong></td>
+            <td>أسافين العجلات</td>
+            <td>إلزامية للمركبات الثقيلة والمقطورات عند الركن في المنحدرات الحادة.</td>
+          </tr>
+          <tr>
+            <td><strong>Ore di esercizio</strong></td>
+            <td>ساعات العمل بمحطات الوقود</td>
+            <td>منع الركن لمسافة 5 أمتار سارٍ <strong>خلال ساعات عمل المحطة فقط</strong>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Section 10 -->
+    <h2 class="section-title">عاشراً: بنك الفخاخ الوزارية المباشرة (15 سؤالاً حاسماً من الامتحانات الرسمية)</h2>
     <div class="quiz-stack">
       <!-- Q1 -->
       <div class="quiz-card">
@@ -1054,17 +1383,17 @@
         <div class="quiz-q-ar">أثناء الركن (Sosta) يُسمح بالابتعاد عن المركبة بعد اتخاذ احتياطات الأمان المناسبة.</div>
         <div class="quiz-meta-row">
           <span class="ans-badge ans-vero">VERO ✅</span>
-          <span class="quiz-explain">صحيح؛ يشترط شد فرامل اليد، تعشيق الغيار، وقفل الأبواب لمنع الاستخدام غير المصرح به.</span>
+          <span class="quiz-explain">صحيح؛ يشترط شد فرامل اليد، إطفاء المحرك، تعشيق الغيار، وقفل الأبواب لمنع الاستخدام غير المصرح به.</span>
         </div>
       </div>
 
       <!-- Q3 -->
       <div class="quiz-card">
         <div class="quiz-q-it">3. In una fermata dell'autobus è consentita la fermata per far scendere un passeggero, se non si intralcia il bus.</div>
-        <div class="quiz-q-ar">في محطة الحافلات يسمح بالتوقف المؤقت لإنزال راكب بشرط عدم إعاقة الحافلة.</div>
+        <div class="quiz-q-ar">في محطة الحافلات يسمح بالتوقف المؤقت السريع لإنزال راكب بشرط عدم إعاقة الحافلة.</div>
         <div class="quiz-meta-row">
           <span class="ans-badge ans-vero">VERO ✅</span>
-          <span class="quiz-explain">صحيح؛ الممنوع هو الركن الطويل (Sosta)، أما التوقف المؤقت السريع (Fermata) فمسموح.</span>
+          <span class="quiz-explain">صحيح؛ الممنوع هو الركن الطويل (Sosta)، أما التوقف المؤقت السريع (Fermata) فمسموح إن لم يعق الحافلة.</span>
         </div>
       </div>
 
@@ -1080,65 +1409,116 @@
 
       <!-- Q5 -->
       <div class="quiz-card">
-        <div class="quiz-q-it">5. In caso di sosta in discesa è obbligatorio inserire la prima marcia del cambio.</div>
-        <div class="quiz-q-ar">في حال الركن في نزول (In discesa) يجب تعشيق الغيار الأول في ناقل الحركة.</div>
+        <div class="quiz-q-it">5. In caso di sosta in discesa è opportuno inserire la retromarcia e sterzare le ruote verso il marciapiede.</div>
+        <div class="quiz-q-ar">في حال الركن في نزول (In discesa) يستحسن تعشيق المارشيدير وتوجيه العجلات نحو الرصيف.</div>
         <div class="quiz-meta-row">
-          <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">فخ عكسي: في النزول نعشق الغيار الخلفي (Retromarcia - R)، بينما الغيار الأول يوضع في الصعود (In salita).</span>
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ Retromarcia تمنع دوران المحرك للأمام، والعجلات نحو الرصيف توقف السيارة فوراً إن تحركت.</span>
         </div>
       </div>
 
       <!-- Q6 -->
       <div class="quiz-card">
-        <div class="quiz-q-it">6. La sosta è consentita in seconda fila per i ciclomotori e i motocicli a due ruote.</div>
-        <div class="quiz-q-ar">يُسمح بالركن في صف ثانٍ للدراجات الآلية والنارية ذات العجلتين.</div>
+        <div class="quiz-q-it">6. La sosta di emergenza sulla corsia di emergenza in autostrada può durare al massimo 6 ore consecutive.</div>
+        <div class="quiz-q-ar">الوقوف الاضطراري في حارة طوارئ الطريق السريع يمكن أن يستمر كحد أقصى 6 ساعات متواصلة.</div>
         <div class="quiz-meta-row">
-          <span class="ans-badge ans-vero">VERO ✅</span>
-          <span class="quiz-explain">صحيح؛ هذا استثناء قانوني صريح للمركبات ذات العجلتين فقط بشرط عدم إعاقة الصف الأول.</span>
+          <span class="ans-badge ans-falso">FALSO ❌</span>
+          <span class="quiz-explain">فخ أرقام خطير: الحد الأقصى القانوني بحارة الطوارئ هو <strong>3 ساعات فقط (3 ore)</strong> طبقاً للمادة 176، بينما 24 ساعة مخصصة لساحات الاستراحة.</span>
         </div>
       </div>
 
       <!-- Q7 -->
       <div class="quiz-card">
-        <div class="quiz-q-it">7. La sosta di emergenza in autostrada può durare al massimo 24 ore consecutive.</div>
-        <div class="quiz-q-ar">الوقوف الاضطراري في الطريق السريع يمكن أن يستمر كحد أقصى 24 ساعة متواصلة.</div>
+        <div class="quiz-q-it">7. La sosta allo sbocco dei passi carrabili comporta, tra l'altro, la sottrazione di punti dalla patente.</div>
+        <div class="quiz-q-ar">الركن أمام مداخل الجراجات المرخصة (Passo carrabile) يستوجب، من بين أمور أخرى، سحب نقاط من الرخصة.</div>
         <div class="quiz-meta-row">
           <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">فخ الأرقام: الحد الأقصى القانوني في حارة الطوارئ هو <strong>6 ساعات فقط</strong>، وبعدها يتم قطر السيارة.</span>
+          <span class="quiz-explain">فخ الكويزات الذهبي: الركن أمام الجراج يوجب الغرامة المالية وسحب السيارة (Rimozione)، ولكنه <strong>لا يسحب أي نقاط إطلاقاً</strong>!</span>
         </div>
       </div>
 
       <!-- Q8 -->
       <div class="quiz-card">
-        <div class="quiz-q-it">8. Nei centri urbani la sosta è vietata a meno di 5 metri dagli incroci.</div>
-        <div class="quiz-q-ar">داخل المناطق السكنية يمنع الركن على مسافة تقل عن 5 أمتار من التقاطعات.</div>
+        <div class="quiz-q-it">8. La sosta negli spazi riservati alla fermata e alla sosta dei veicoli per persone invalide comporta la sottrazione di punti dalla patente.</div>
+        <div class="quiz-q-ar">الركن في الأماكن المخصصة لتوقف وركن مركبات ذوي الاحتياجات الخاصة يستوجب سحب نقاط من الرخصة.</div>
         <div class="quiz-meta-row">
           <span class="ans-badge ans-vero">VERO ✅</span>
-          <span class="quiz-explain">صحيح؛ داخل المدن تطبق قاعدة الـ 5 أمتار لتأمين زوايا الرؤية، بينما خارج المدن يمنع الركن كلياً على التقاطع.</span>
+          <span class="quiz-explain">صحيح؛ مواقف المعاقين ومنحدراتهم ومحطات الأتوبيس ومسارات النقل العام هي الحالات الحصرية لسحب النقاط في الركن.</span>
         </div>
       </div>
 
       <!-- Q9 -->
       <div class="quiz-card">
-        <div class="quiz-q-it">9. In una zona a tempo con disco orario bisogna indicare l'ora in cui si prevede di partire.</div>
-        <div class="quiz-q-ar">في منطقة الركن الموقوت بقرص الساعات يجب تسجيل ساعة المغادرة المتوقعة.</div>
+        <div class="quiz-q-it">9. La sosta è vietata in corrispondenza dei distributori di carburante sino a 5 metri prima e dopo, anche quando sono chiusi.</div>
+        <div class="quiz-q-ar">الركن ممنوع أمام محطات الوقود وحتى 5 أمتار قبلها وبعدها، حتى عندما تكون المحطات مغلقة.</div>
         <div class="quiz-meta-row">
           <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">فخ الإشارة: يجب ضبط القرص على <strong>ساعة الوصول الفعلية (Ora di inizio sosta)</strong> وليس ساعة المغادرة.</span>
+          <span class="quiz-explain">فخ الاستثناء: منع الركن مشروط بكون المحطة تعمل (Limitatamente alle ore di esercizio)؛ أما خارج أوقات العمل فالركن مسموح.</span>
         </div>
       </div>
 
       <!-- Q10 -->
       <div class="quiz-card">
-        <div class="quiz-q-it">10. Il passo carrabile consente la fermata ma vieta la sosta.</div>
-        <div class="quiz-q-ar">مدخل الجراج المرخص (Passo carrabile) يسمح بالتوقف المؤقت ويمنع الركن.</div>
+        <div class="quiz-q-it">10. La fermata è consentita davanti ai cassonetti dei rifiuti urbani.</div>
+        <div class="quiz-q-ar">التوقف المؤقت السريع (Fermata) مسموح به أمام حاويات القمامة البلدية.</div>
         <div class="quiz-meta-row">
           <span class="ans-badge ans-vero">VERO ✅</span>
-          <span class="quiz-explain">صحيح 100%؛ التوقف السريع لإنزال راكب مسموح طالما لم يعق دخول أو خروج سيارة من الجراج.</span>
+          <span class="quiz-explain">صحيح 100%؛ الركن (Sosta) هو الممنوع أمام حاويات القمامة، أما التوقف السريع لإنزال راكب فمسموح تماماً.</span>
+        </div>
+      </div>
+
+      <!-- Q11 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">11. Prima di aprire lo sportello dell'autoveicolo dal lato verso il centro della strada bisogna assicurarsi che non sopraggiungano altri veicoli.</div>
+        <div class="quiz-q-ar">قبل فتح باب السيارة من الجهة المواجهة لمنتصف الشارع، يجب التأكد من عدم قدوم مركبات أخرى.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ الالتفات والنظر في المرآة إلزامي لتفادي الاصطدام بالموتوسيكلات والدراجات الهوائية العابرة.</span>
+        </div>
+      </div>
+
+      <!-- Q12 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">12. Il conducente può lasciare il veicolo in sosta con il motore acceso per consentire il funzionamento dell'aria condizionata.</div>
+        <div class="quiz-q-ar">يجوز للسائق ترك المركبة في حالة ركن مع بقاء المحرك يعمل لتشغيل مكيف الهواء.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-falso">FALSO ❌</span>
+          <span class="quiz-explain">خطأ قطعي: يمنع كود السير وحماية البيئة ترك المحرك يعمل أثناء الركن بغرض التكييف أو التدفئة.</span>
+        </div>
+      </div>
+
+      <!-- Q13 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">13. Prima di iniziare a guidare un autoveicolo è opportuno regolare il sedile e il poggiatesta, secondo la propria statura.</div>
+        <div class="quiz-q-ar">قبل البدء في قيادة السيارة، يجب ضبط المقعد ومسند الرأس بما يناسب قامة السائق.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ إجراء جوهري للسلامة الجسدية والتحكم التام في أدوات التوجيه والدواسات.</span>
+        </div>
+      </div>
+
+      <!-- Q14 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">14. In una zona regolamentata con disco orario, prima che scada il tempo è consentito aggiornare l'orario senza spostare il veicolo.</div>
+        <div class="quiz-q-ar">في منطقة خاضعة لقرص الساعات، يجوز تعديل الوقت وتقديم العقارب قبل انتهاء المدة دون تحريك السيارة.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-falso">FALSO ❌</span>
+          <span class="quiz-explain">فخ التلاعب: تمديد وقت الركن بتحريك القرص دون مغادرة الموقف مخالفة صريحة تستوجب الغرامة.</span>
+        </div>
+      </div>
+
+      <!-- Q15 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">15. La sosta in seconda fila è consentita per i ciclomotori e i motocicli a due ruote.</div>
+        <div class="quiz-q-ar">يُسمح بالركن في صف ثانٍ للدراجات الآلية الخفيفة والنارية ذات العجلتين.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ استثناء قانوني حصري للمركبات ذات العجلتين فقط، بشرط ألا تعيق تحرك المركبات الأخرى.</span>
         </div>
       </div>
     </div>
   </article>
+</main>
 </main>
 
 <script>
