@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>دليل الباب 16: الوقوف والتوقف والركن (Fermata e Sosta) — Patente B Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-base: #09090b;
+    --bg-surface: rgba(24, 24, 27, 0.75);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(255, 255, 255, 0.16);
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --emerald-primary: #10b981;
+    --rose-primary: #f43f5e;
+    --amber-primary: #f59e0b;
+    --indigo-primary: #6366f1;
+    --sky-primary: #38bdf8;
+    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
+    line-height: 1.75;
+    min-height: 100vh;
+    padding-bottom: 70px;
+    background-image: 
+      radial-gradient(ellipse at 50% -10%, rgba(56, 189, 248, 0.08), transparent 60%),
+      radial-gradient(circle at 90% 90%, rgba(16, 185, 129, 0.03), transparent 40%);
+  }
+
+  .container {
+    max-width: 980px;
+    margin: 28px auto;
+    padding: 0 16px;
+  }
+  .content-sheet {
+    background: var(--bg-surface);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 36px 32px;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Header Card */
+  .header-card {
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 24px;
+    margin-bottom: 30px;
+  }
+  .badge-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--sky-primary);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    padding: 4px 12px;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .main-title {
+    font-size: 1.95rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .sub-lead {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Callout boxes */
+  .callout-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-right: 4px solid var(--sky-primary);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 0.95rem;
+    color: #d4d4d8;
+  }
+  .callout-box.amber {
+    border-right-color: var(--amber-primary);
+    background: rgba(245, 158, 11, 0.04);
+  }
+  .callout-box.emerald {
+    border-right-color: var(--emerald-primary);
+    background: rgba(16, 185, 129, 0.04);
+  }
+  .callout-box.rose {
+    border-right-color: var(--rose-primary);
+    background: rgba(244, 63, 94, 0.04);
+  }
+
+  /* Section Title */
+  .section-title {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 36px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 22px;
+    background: var(--sky-primary);
+    border-radius: 3px;
+  }
+
+  /* Responsive Comparison Grid */
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .compare-card {
+    background: rgba(24, 24, 27, 0.85);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 22px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.2s var(--ease-spring), border-color 0.2s;
+  }
+  .compare-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-highlight);
+  }
+  .compare-card.sky {
+    border-color: rgba(56, 189, 248, 0.35);
+    background: linear-gradient(180deg, rgba(56, 189, 248, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
+  }
+  .compare-card.emerald {
+    border-color: rgba(16, 185, 129, 0.35);
+    background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
+  }
+  .compare-card.amber {
+    border-color: rgba(245, 158, 11, 0.35);
+    background: linear-gradient(180deg, rgba(245, 158, 11, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
+  }
+  .compare-card.rose {
+    border-color: rgba(244, 63, 94, 0.35);
+    background: linear-gradient(180deg, rgba(244, 63, 94, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
+  }
+
+  .card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-it-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .card-ar-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+  }
+  .card-points-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .card-points-list li {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: #d4d4d8;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  /* Distance Metrics Grid */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+  }
+  .metric-card {
+    background: rgba(24, 24, 27, 0.9);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 18px 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    transition: transform 0.15s;
+  }
+  .metric-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(56, 189, 248, 0.4);
+  }
+  .metric-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--sky-primary);
+    line-height: 1;
+  }
+  .metric-unit {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  .metric-desc {
+    font-size: 0.88rem;
+    color: #e4e4e7;
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  /* Slope Parking Visualizer */
+  .slope-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 22px 0;
+  }
+  @media (max-width: 640px) {
+    .slope-container { grid-template-columns: 1fr; }
+  }
+  .slope-card {
+    background: rgba(24, 24, 27, 0.8);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 22px 18px;
+  }
+  .slope-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slope-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .slope-step-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .slope-step-badge {
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    white-space: nowrap;
+  }
+
+  /* Interactive Data Table */
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 14px;
+    border: 1px solid var(--border-subtle);
+    margin: 24px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: right;
+    font-size: 0.92rem;
+  }
+  .data-table th {
+    background: rgba(39, 39, 42, 0.8);
+    color: #fff;
+    padding: 14px 16px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--border-subtle);
+    white-space: nowrap;
+  }
+  .data-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: #d4d4d8;
+  }
+  .data-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  /* Quiz Accordion */
+  .quiz-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .quiz-card {
+    background: rgba(24, 24, 27, 0.7);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 18px 20px;
+    transition: border-color 0.15s;
+  }
+  .quiz-card:hover { border-color: var(--border-highlight); }
+  .quiz-q-it {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .quiz-q-ar {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+  }
+  .quiz-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .ans-badge {
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .ans-vero { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+  .ans-falso { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+  .quiz-explain {
+    font-size: 0.88rem;
+    color: #a1a1aa;
+    flex: 1;
+    min-width: 200px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Unified Portal Navigation (Apple HIG Compliant) -->
+<nav class="unified-portal-nav" id="portal-nav">
+  <!-- Brand (Minimal on mobile, full on desktop) -->
+  <a href="index.html" class="nav-brand">
+    <span style="font-size:1.25rem;">🚦</span>
+    <span>Patente B Pro</span>
+    <span class="badge-tag">A2</span>
+  </a>
+
+  <!-- Desktop Tabs Menu (Strictly hidden on mobile < 768px) -->
+  <div class="nav-desktop-tabs">
+    <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 الأبواب المقسمة (25 باب)</a>
+    <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان (20 دقيقة)</a>
+    <a href="index.html" class="nav-tab-desktop">📑 فهرس المكتبة</a>
+    <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-tab-desktop active">📖 الباب 16 (الركن والوقوف)</a>
+    <a href="دليل_الأبواب_11_إلى_15_قواعد_السير_والسرعة_ومسافة_الأمان.html" class="nav-tab-desktop">📖 الأبواب 11-15 (السير والسرعة)</a>
+    <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-tab-desktop">📖 الباب 23 (التأمين RCA)</a>
+    <a href="دليل_الباب_الأخير.html" class="nav-tab-desktop">📖 الباب 25 (الميكانيكا)</a>
+  </div>
+
+  <!-- Desktop Audio Control -->
+  <div class="nav-desktop-actions">
+    <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
+      <span class="audio-icon-span">🔊</span>
+      <span class="audio-label-span">الصوت نشط</span>
+    </button>
+  </div>
+
+  <!-- Animated Hamburger Button (Apple HIG - Only visible on Mobile < 768px) -->
+  <button class="nav-hamburger-btn" id="nav-hamburger-btn" onclick="toggleMobileNav()" aria-label="قائمة التنقل" aria-expanded="false">
+    <div class="hamburger-box">
+      <span class="hamburger-line line-top"></span>
+      <span class="hamburger-line line-mid"></span>
+      <span class="hamburger-line line-bot"></span>
+    </div>
+  </button>
+</nav>
+
+<!-- Backdrop Blur Overlay -->
+<div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
+
+<!-- Slide-Down Glassmorphic Drawer Panel (Apple HIG - Touch Targets >= 48px) -->
+<div class="mobile-drawer-panel" id="mobile-drawer-panel">
+  <div class="mobile-nav-list">
+    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📚</span>
+      <span>مذاكرة الأبواب المقسمة (25 باب)</span>
+    </a>
+    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">⏱️</span>
+      <span>محاكي الامتحان الوزاري (20 دقيقة)</span>
+    </a>
+    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📑</span>
+      <span>فهرس المكتبة الشاملة المعتمدة</span>
+    </a>
+    <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="mobile-nav-link active" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 16 (الوقوف والتوقف والركن)</span>
+    </a>
+    <a href="دليل_الأبواب_11_إلى_15_قواعد_السير_والسرعة_ومسافة_الأمان.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الأبواب 11-15 (حركة السير، السرعة، ومسافة الأمان)</span>
+    </a>
+    <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 23 (المسؤولية والتأمين RCA)</span>
+    </a>
+    <a href="دليل_الباب_الأخير.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل وقاموس الباب 25 (الميكانيكا والصيانة)</span>
+    </a>
+  </div>
+
+  <div class="mobile-drawer-footer">
+    <button class="mobile-control-btn" onclick="toggleAudio()">
+      <span class="audio-icon-span">🔊</span>
+      <span class="audio-label-span">الصوت نشط</span>
+    </button>
+    <div class="mobile-control-btn" style="cursor: default; opacity: 0.85;">
+      <span>🇮🇹 ⬅️ 🇸🇦 Patente B</span>
+    </div>
+  </div>
+</div>
+</div>
+
+<main class="container">
+  <article class="content-sheet">
+    <header class="header-card">
+      <div class="badge-tag">CAPITOLO 16 • CODICE DELLA STRADA 2026</div>
+      <h1 class="main-title">دليل وقاموس الباب السادس عشر: الوقوف والتوقف والركن</h1>
+      <p class="sub-lead">Fermata, Sosta, Arresto, Sosta di Emergenza — الدليل الشامل لمسافات الأمان القانونية، أحكام المنحدرات، وقواعد قرص الساعات مع تفكيك الفخاخ الوزارية لمستوى A2.</p>
+    </header>
+
+    <div class="callout-box">
+      <strong>📊 إحصائيات الباب في بنك أسئلة الوزارة:</strong> يضم الباب السادس عشر قرابة <strong>320 سؤالاً</strong> في بنك الوزارة الرسمي. تتمحور 35% من أخطاء الطلاب حول الخلط بين شروط الـ <code>Fermata</code> والـ <code>Sosta</code> أو التردد في مسافات الـ <strong>5 أمتار والـ 15 متراً</strong>.
+    </div>
+
+    <!-- Section 1 -->
+    <h2 class="section-title">أولاً: الحالات الأربع لثبات المركبة على الطريق</h2>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">يعتمد القانون الإيطالي في التمييز بين هذه الحالات على: <strong>نية السائق، مدة البقاء، حالة المحرك، وموقع السائق من المركبة</strong>:</p>
+
+    <div class="comparison-grid">
+      <!-- Fermata -->
+      <div class="compare-card sky">
+        <div class="card-header-row">
+          <span class="card-it-title">Fermata</span>
+          <span class="card-ar-title">التوقف المؤقت القصير</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>⏱️</span> <strong>الهدف:</strong> صعود أو نزول ركاب لفترة وجيزة جداً (بضع ثوانٍ).</li>
+          <li><span>👤</span> <strong>مكان السائق:</strong> يجب أن يكون <strong>حاضراً وجاهزاً للتحرك فوراً</strong> (<code>Pronto a ripartire</code>).</li>
+          <li><span>🚫</span> <strong>فخ حاسم:</strong> ممنوع الابتعاد نهائياً عن المركبة (<code>Non ci si può allontanare</code>).</li>
+          <li><span>🟢</span> <strong>المحرك:</strong> يمكن أن يظل مشتعلاً دون إطفائه.</li>
+          <li><span>⚠️</span> <strong>الشرط:</strong> عدم التسبب في أي عرقلة لحركة المرور (<code>Nessun intralcio</code>).</li>
+        </ul>
+      </div>
+
+      <!-- Sosta -->
+      <div class="compare-card emerald">
+        <div class="card-header-row">
+          <span class="card-it-title">Sosta</span>
+          <span class="card-ar-title">الركن والانتظار الممتد</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>⏳</span> <strong>الهدف:</strong> توقف ممتد بدون حد زمني محدد لإنهاء أعمال أو مغادرة المركبة.</li>
+          <li><span>🚶</span> <strong>مكان السائق:</strong> <strong>يجوز للسائق الابتعاد</strong> عن المركبة (<code>Può allontanarsi</code>).</li>
+          <li><span>🛑</span> <strong>المحرك:</strong> إلزامي إطفاء المحرك (<code>Motore spento</code>).</li>
+          <li><span>🔒</span> <strong>إلزاميات الأمان:</strong> شد فرامل اليد، وتعشيق الغيار المناسب في المنحدرات.</li>
+          <li><span>🛡️</span> <strong>منع السرقة:</strong> اتخاذ الحيطة لمنع استخدام المركبة دون موافقة المالك.</li>
+        </ul>
+      </div>
+
+      <!-- Arresto -->
+      <div class="compare-card amber">
+        <div class="card-header-row">
+          <span class="card-it-title">Arresto</span>
+          <span class="card-ar-title">التوقف المفروض بحكم السير</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>🚦</span> <strong>السبب:</strong> أمر تفرضه قواعد المرور وليس اختيار السائق.</li>
+          <li><span>🛑</span> <strong>أمثلة:</strong> التوقف عند الإشارة الحمراء، لوحة STOP، أو إشارة الشرطي.</li>
+          <li><span>🚗</span> <strong>الازدحام:</strong> التوقف التام في طابور السير أو أمام مزلقان القطار.</li>
+          <li><span>⚠️</span> <strong>ملاحظة:</strong> لا تنطبق عليه قواعد الركن ولا يسمى Fermata.</li>
+        </ul>
+      </div>
+
+      <!-- Sosta di emergenza -->
+      <div class="compare-card rose">
+        <div class="card-header-row">
+          <span class="card-it-title">Sosta Emergenza</span>
+          <span class="card-ar-title">الوقوف الاضطراري</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>🔧</span> <strong>السبب الأول:</strong> عطل ميكانيكي أو فني لا يسمح بمواصلة السير (<code>Avaria</code>).</li>
+          <li><span>🚑</span> <strong>السبب الثاني:</strong> وعكة صحية مفاجئة للسائق أو أحد الركاب (<code>Malessere</code>).</li>
+          <li><span>🛣️</span> <strong>في الأوتوستراد:</strong> الحد الأقصى في حارة الطوارئ هو <strong>6 ساعات فقط</strong>.</li>
+          <li><span>⚠️</span> <strong>السلامة:</strong> تشغيل أضواء الطوارئ وارتداء السترة العاكسة عند النزول.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <h2 class="section-title">ثانياً: الأرقام الذهبية والمسافات القانونية (Misure Legali)</h2>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">هذه الأرقام ثابتة في قانون السير الإيطالي وتتكرر في عشرات الأسئلة، احفظها دون تردد:</p>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-number">5m</div>
+        <div class="metric-unit">أمتار قبل المعبر</div>
+        <div class="metric-desc">يمنع الركن لمسافة 5 أمتار <strong>قبل</strong> معبر المشاة والدراجات، ومسموح بعده مباشرة.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">5m</div>
+        <div class="metric-unit">أمتار عند التقاطعات</div>
+        <div class="metric-desc">يمنع التوقف والركن داخل المدن على مسافة تقل عن 5 أمتار من حد التقاطع.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">15m</div>
+        <div class="metric-unit">محطات الأتوبيس والترام</div>
+        <div class="metric-desc">يمنع <strong>الركن (Sosta)</strong> لمسافة 15 متراً قبل وبعد اللوحة إذا لم توجد خطوط صفراء.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">3m</div>
+        <div class="metric-unit">عرض المسار المتبقي</div>
+        <div class="metric-desc">عند الركن، يجب ترك 3 أمتار على الأقل بين سيارتك والخط المتصل لمرور السيارات.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">1m</div>
+        <div class="metric-unit">مساحة مرور المشاة</div>
+        <div class="metric-desc">في الشوارع التي ليس بها رصيف مرتفع، يجب ترك متر واحد على الأقل لمرور المشاة.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">6h</div>
+        <div class="metric-unit">ساعات حد أقصى</div>
+        <div class="metric-desc">الحد الأقصى المسموح به للبقاء في حارة طوارئ الطريق السريع (Autostrada).</div>
+      </div>
+    </div>
+
+    <!-- Section 3 -->
+    <h2 class="section-title">ثالثاً: الركن في المنحدرات والمرتفعات (Sosta in Pendenza)</h2>
+    <div class="slope-container">
+      <!-- In Discesa -->
+      <div class="slope-card">
+        <div class="slope-title" style="color:var(--rose-primary);">
+          <span>📉 في النزول (In Discesa)</span>
+        </div>
+        <div class="slope-steps">
+          <div class="slope-step-item">
+            <span class="slope-step-badge" style="background:rgba(244,63,94,0.15); color:#fb7185;">مارشيدير</span>
+            <span>تعشيق الغيار الخلفي (<strong>Retromarcia - R</strong>) لمنع دوران المحرك للأمام.</span>
+          </div>
+          <div class="slope-step-item">
+            <span class="slope-step-badge" style="background:rgba(56,189,248,0.15); color:#38bdf8;">نحو الرصيف</span>
+            <span>توجيه العجلات الأمامية <strong>نحو حافة الرصيف</strong> (Verso il marciapiede) لتصطدم به إن تحركت.</span>
+          </div>
+          <div class="slope-step-item">
+            <span class="slope-step-badge" style="background:rgba(16,185,129,0.15); color:#34d399;">فرامل اليد</span>
+            <span>شد فرامل التوقف (Freno di stazionamento) بإحكام تام.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- In Salita -->
+      <div class="slope-card">
+        <div class="slope-title" style="color:var(--emerald-primary);">
+          <span>📈 في الصعود (In Salita)</span>
+        </div>
+        <div class="slope-steps">
+          <div class="slope-step-item">
+            <span class="slope-step-badge" style="background:rgba(16,185,129,0.15); color:#34d399;">الغيار الأول</span>
+            <span>تعشيق الغيار الأول (<strong>Prima Marcia - 1</strong>) للاستفادة من ضغط المحرك العكسي.</span>
+          </div>
+          <div class="slope-step-item">
+            <span class="slope-step-badge" style="background:rgba(56,189,248,0.15); color:#38bdf8;">عكس الرصيف</span>
+            <span>توجيه العجلات نحو منتصف الطريق / عكس الرصيف حتى ترتكز مؤخرة الإطار على حافة الرصيف.</span>
+          </div>
+          <div class="slope-step-item">
+            <span class="slope-step-badge" style="background:rgba(16,185,129,0.15); color:#34d399;">فرامل اليد</span>
+            <span>شد فرامل التوقف (Freno di stazionamento) بإحكام تام.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-box amber">
+      <strong>⚠️ قاعدة الشاحنات والمقطورات (Autocarri e Rimorchi):</strong> في المنحدرات الشديدة، يجب على سائقي المركبات الثقيلة والمقطورات استخدام <strong>أسافين ومصدات العجلات (Cunei fermaruota)</strong> تحت الإطارات كإجراء وقائي إلزامي.
+    </div>
+
+    <!-- Section 4 -->
+    <h2 class="section-title">رابعاً: مصفوفة أماكن الحظر (مقارنة شاملة)</h2>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>الموقع على الطريق</th>
+            <th>الركن (Sosta)</th>
+            <th>التوقف المؤقت (Fermata)</th>
+            <th>السبب والقاعدة القانونية</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>الأنفاق والكباري العلوية (Gallerie e Ponti)</strong></td>
+            <td>❌ ممنوع قطعي</td>
+            <td>❌ ممنوع قطعي</td>
+            <td>خطر شديد لحصر الرؤية وصعوبة الإخلاء في حال الحريق.</td>
+          </tr>
+          <tr>
+            <td><strong>المنعطفات ومرتفعات الطريق خارج المدن (Curve e Dossi)</strong></td>
+            <td>❌ ممنوع قطعي</td>
+            <td>❌ ممنوع قطعي</td>
+            <td>انعدام الرؤية ومفاجأة السائقين القادمين بسرعة.</td>
+          </tr>
+          <tr>
+            <td><strong>فوق معابر المشاة والدراجات مباشرة</strong></td>
+            <td>❌ ممنوع قطعي</td>
+            <td>❌ ممنوع قطعي</td>
+            <td>إلزامية ترك المسار خالياً للمشاة وذوي الاحتياجات.</td>
+          </tr>
+          <tr>
+            <td><strong>مدخل الجراج المعتمد (Passo Carrabile)</strong></td>
+            <td>❌ ممنوع</td>
+            <td>✅ مسموح</td>
+            <td>يسمح بالوقوف المؤقت السريع لإنزال راكب دون ترك السيارة.</td>
+          </tr>
+          <tr>
+            <td><strong>محطات الحافلات والترام (Fermata Bus)</strong></td>
+            <td>❌ ممنوع (15 متراً)</td>
+            <td>✅ مسموح</td>
+            <td>يسمح بإنزال راكب سريعاً بشرط عدم إعاقة وصول الأتوبيس.</td>
+          </tr>
+          <tr>
+            <td><strong>أمام صناديق القمامة (Cassonetti dei rifiuti)</strong></td>
+            <td>❌ ممنوع</td>
+            <td>✅ مسموح</td>
+            <td>يمنع الركن لضمان وصول شاحنات النظافة، ويسمح بالـ Fermata.</td>
+          </tr>
+          <tr>
+            <td><strong>الصف الثاني (In seconda fila)</strong></td>
+            <td>❌ ممنوع للسيارات</td>
+            <td>❌ ممنوع</td>
+            <td>يُسمح بالركن صف ثانٍ <strong>للموتوسيكلات ذات العجلتين فقط</strong>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Section 5 -->
+    <h2 class="section-title">خامساً: قرص الساعات والمواقف الخاضعة للتوقيت (Disco Orario)</h2>
+    <div class="callout-box emerald">
+      <strong>⏱️ القواعد الذهبية لقرص الساعات:</strong>
+      <ul style="margin:8px 20px; line-height:1.8;">
+        <li>في المناطق التي توجد بها لوحة ركن محدد بوقت (<code>Sosta a tempo</code>)، يجب إظهار <strong>Disco orario</strong> على الزجاج الأمامي بوضوح.</li>
+        <li>يجب ضبط مؤشر القرص على <strong>ساعة الوصول الفعلية (Ora di arrivo)</strong> وليس ساعة الانتهاء!</li>
+        <li><strong>فخ الامتحان:</strong> تحريك القرص للأمام لتجديد الوقت دون تحريك السيارة من مكانها يُعد مخالفة مرورية تستوجب الغرامة وسحب النقاط.</li>
+      </ul>
+    </div>
+
+    <!-- Section 6 -->
+    <h2 class="section-title">سادساً: القاموس التقني ومصطلحات الفخاخ (Glossario Tecnico)</h2>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>المصطلح بالإيطالية</th>
+            <th>الترجمة العربية</th>
+            <th>فخ الكويز والامتحان الوزاري ⚠️</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:#fff;">Pronto a ripartire</strong></td>
+            <td>جاهز للتحرك فوراً</td>
+            <td>شرط إلزامي للـ Fermata؛ غياب السائق يحولها فوراً لمخالفة Sosta.</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#fff;">Allontanarsi dal veicolo</strong></td>
+            <td>الابتعاد عن المركبة</td>
+            <td>مسموح فقط في الـ Sosta، وممنوع قطعياً في الـ Fermata.</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#fff;">Nessun intralcio</strong></td>
+            <td>دون إحداث عرقلة</td>
+            <td>يجب ألا تسبب الـ Fermata أي عائق ولو طفيف لمركبات النقل العام.</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#fff;">Avaria</strong></td>
+            <td>عطل فني في السيارة</td>
+            <td>مبرر قانوني للوقوف الاضطراري (Sosta di emergenza).</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#fff;">Malessere</strong></td>
+            <td>وعكة صحية طارئة</td>
+            <td>تشمل السائق أو أحد الركاب وتتيح الوقوف في حارة الطوارئ.</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#fff;">Passo carrabile</strong></td>
+            <td>مدخل جراج مرخص</td>
+            <td>يمنع الركن (Sosta) ويسمح بالتوقف السريع (Fermata).</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#fff;">Cunei fermaruota</strong></td>
+            <td>أسافين تثبيت العجلات</td>
+            <td>إلزامية للمركبات الثقيلة والمقطورات في المنحدرات الشديدة.</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#fff;">In seconda fila</strong></td>
+            <td>في صف ثانٍ (مزدوج)</td>
+            <td>ممنوع لجميع السيارات؛ مسموح فقط للدراجات النارية ذات العجلتين.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Section 7 -->
+    <h2 class="section-title">سابعاً: بنك الفخاخ الوزارية المباشرة (10 أسئلة حاسمة)</h2>
+    <div class="quiz-stack">
+      <!-- Q1 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">1. Durante la fermata il conducente deve essere presente e pronto a riprendere la marcia.</div>
+        <div class="quiz-q-ar">أثناء التوقف المؤقت (Fermata) يجب أن يكون السائق حاضراً وجاهزاً لمواصلة السير فوراً.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح 100%؛ هذا هو التعريف القانوني الجوهري للـ Fermata لمنع تعطيل حركة السير.</span>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">2. Durante la sosta è consentito allontanarsi dal veicolo dopo aver adottato le opportune cautele.</div>
+        <div class="quiz-q-ar">أثناء الركن (Sosta) يُسمح بالابتعاد عن المركبة بعد اتخاذ احتياطات الأمان المناسبة.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ يشترط شد فرامل اليد، تعشيق الغيار، وقفل الأبواب لمنع الاستخدام غير المصرح به.</span>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">3. In una fermata dell'autobus è consentita la fermata per far scendere un passeggero, se non si intralcia il bus.</div>
+        <div class="quiz-q-ar">في محطة الحافلات يسمح بالتوقف المؤقت لإنزال راكب بشرط عدم إعاقة الحافلة.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ الممنوع هو الركن الطويل (Sosta)، أما التوقف المؤقت السريع (Fermata) فمسموح.</span>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">4. La sosta è vietata a meno di 5 metri prima e dopo gli attraversamenti pedonali.</div>
+        <div class="quiz-q-ar">الركن ممنوع على مسافة تقل عن 5 أمتار قبل وبعد معابر المشاة معاً.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-falso">FALSO ❌</span>
+          <span class="quiz-explain">فخ شهير: المنع لمسافة 5 أمتار هو <strong>قبل المعبر فقط (Prima)</strong>؛ أما بعده مباشرة فالركن مسموح.</span>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">5. In caso di sosta in discesa è obbligatorio inserire la prima marcia del cambio.</div>
+        <div class="quiz-q-ar">في حال الركن في نزول (In discesa) يجب تعشيق الغيار الأول في ناقل الحركة.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-falso">FALSO ❌</span>
+          <span class="quiz-explain">فخ عكسي: في النزول نعشق الغيار الخلفي (Retromarcia - R)، بينما الغيار الأول يوضع في الصعود (In salita).</span>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">6. La sosta è consentita in seconda fila per i ciclomotori e i motocicli a due ruote.</div>
+        <div class="quiz-q-ar">يُسمح بالركن في صف ثانٍ للدراجات الآلية والنارية ذات العجلتين.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ هذا استثناء قانوني صريح للمركبات ذات العجلتين فقط بشرط عدم إعاقة الصف الأول.</span>
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">7. La sosta di emergenza in autostrada può durare al massimo 24 ore consecutive.</div>
+        <div class="quiz-q-ar">الوقوف الاضطراري في الطريق السريع يمكن أن يستمر كحد أقصى 24 ساعة متواصلة.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-falso">FALSO ❌</span>
+          <span class="quiz-explain">فخ الأرقام: الحد الأقصى القانوني في حارة الطوارئ هو <strong>6 ساعات فقط</strong>، وبعدها يتم قطر السيارة.</span>
+        </div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">8. Nei centri urbani la sosta è vietata a meno di 5 metri dagli incroci.</div>
+        <div class="quiz-q-ar">داخل المناطق السكنية يمنع الركن على مسافة تقل عن 5 أمتار من التقاطعات.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ داخل المدن تطبق قاعدة الـ 5 أمتار لتأمين زوايا الرؤية، بينما خارج المدن يمنع الركن كلياً على التقاطع.</span>
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">9. In una zona a tempo con disco orario bisogna indicare l'ora in cui si prevede di partire.</div>
+        <div class="quiz-q-ar">في منطقة الركن الموقوت بقرص الساعات يجب تسجيل ساعة المغادرة المتوقعة.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-falso">FALSO ❌</span>
+          <span class="quiz-explain">فخ الإشارة: يجب ضبط القرص على <strong>ساعة الوصول الفعلية (Ora di inizio sosta)</strong> وليس ساعة المغادرة.</span>
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">10. Il passo carrabile consente la fermata ma vieta la sosta.</div>
+        <div class="quiz-q-ar">مدخل الجراج المرخص (Passo carrabile) يسمح بالتوقف المؤقت ويمنع الركن.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح 100%؛ التوقف السريع لإنزال راكب مسموح طالما لم يعق دخول أو خروج سيارة من الجراج.</span>
+        </div>
+      </div>
+    </div>
+  </article>
+</main>
+
+<script>
+  // Unified Sound Engine
+  const soundEngine = window.soundEngine || {
+    ctx: null,
+    enabled: true,
+    init() {
+      if (!this.ctx) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) this.ctx = new AudioCtx();
+      }
+      if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
+    },
+    click() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
+      try {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(520, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.04);
+        gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.04);
+      } catch(e) {}
+    }
+  };
+
+  // Toggle Mobile Navigation Drawer (Apple HIG Compliant with Body Scroll Lock)
+  function toggleMobileNav() {
+    const btn = document.getElementById('nav-hamburger-btn');
+    const panel = document.getElementById('mobile-drawer-panel');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    if (!btn || !panel) return;
+    
+    const isOpening = !panel.classList.contains('is-active');
+    
+    if (isOpening) {
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-expanded', 'true');
+      panel.classList.add('is-active');
+      if (overlay) overlay.classList.add('is-active');
+      document.body.classList.add('nav-scroll-lock');
+    } else {
+      closeMobileNav();
+    }
+    
+    if (soundEngine.click) soundEngine.click();
+  }
+
+  function closeMobileNav() {
+    const btn = document.getElementById('nav-hamburger-btn');
+    const panel = document.getElementById('mobile-drawer-panel');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    if (btn) {
+      btn.classList.remove('is-active');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    if (panel) panel.classList.remove('is-active');
+    if (overlay) overlay.classList.remove('is-active');
+    document.body.classList.remove('nav-scroll-lock');
+  }
+
+  window.toggleAudio = function() {
+    soundEngine.enabled = !soundEngine.enabled;
+    const icons = document.querySelectorAll('.audio-icon-span, #audio-icon');
+    const labels = document.querySelectorAll('.audio-label-span, .audio-label');
+    icons.forEach(el => el.textContent = soundEngine.enabled ? '🔊' : '🔇');
+    labels.forEach(el => el.textContent = soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم');
+    if (soundEngine.enabled && soundEngine.click) soundEngine.click();
+  };
+</script>
+
+</body>
+</html>
