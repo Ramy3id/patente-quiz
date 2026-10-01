@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>دليل وقاموس الباب الحادي عشر: حدود السرعة ومخاطرها — Patente B Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-base: #09090b;
+    --bg-surface: rgba(24, 24, 27, 0.75);
+    --bg-surface-elevated: rgba(39, 39, 42, 0.85);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(255, 255, 255, 0.16);
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --emerald-primary: #10b981;
+    --emerald-glow: rgba(16, 185, 129, 0.25);
+    --amber-primary: #f59e0b;
+    --indigo-primary: #6366f1;
+    --sky-primary: #38bdf8;
+    --rose-primary: #f43f5e;
+    --purple-primary: #a855f7;
+    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    --nav-base-height: 54px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    background-image: 
+      radial-gradient(ellipse at 50% -10%, rgba(99, 102, 241, 0.12), transparent 60%),
+      radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.05), transparent 40%);
+  }
+
+  body.nav-scroll-lock {
+    overflow: hidden !important;
+    touch-action: none !important;
+  }
+
+  /* Top Navigation */
+  .unified-portal-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
+    max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
+    background: rgba(9, 9, 11, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    padding-top: env(safe-area-inset-top, 0px);
+    box-sizing: border-box;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .nav-brand .badge-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    padding: 2px 7px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    color: var(--text-secondary);
+  }
+
+  .nav-desktop-tabs {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-tab-desktop {
+    text-decoration: none;
+    color: var(--text-secondary);
+    padding: 7px 13px;
+    border-radius: 9px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .nav-tab-desktop:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-subtle);
+  }
+  .nav-tab-desktop.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: var(--border-highlight);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), 0 2px 8px rgba(0,0,0,0.4);
+  }
+
+  .nav-desktop-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .nav-audio-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    border-radius: 9px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .nav-audio-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+  .nav-audio-btn:active { transform: scale(0.96); }
+
+  /* Desktop Chapters Dropdown */
+  .nav-dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  .nav-dropdown-btn {
+    height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: #e4e4e7;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+  .nav-dropdown-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.22);
+    color: #fff;
+  }
+  .nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 290px;
+    max-height: 440px;
+    overflow-y: auto;
+    background: #121215;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 1100;
+    direction: rtl;
+  }
+  .nav-dropdown-menu.active { display: flex; }
+  .nav-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #d4d4d8;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: all 0.12s ease;
+  }
+  .nav-dropdown-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+  }
+  .nav-dropdown-item.active {
+    background: rgba(56, 189, 248, 0.12);
+    color: #38bdf8;
+    font-weight: 700;
+  }
+
+  /* Animated Hamburger Button */
+  .nav-hamburger-btn {
+    display: none;
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    z-index: 1002;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .nav-hamburger-btn:active { transform: scale(0.92); }
+  .hamburger-box {
+    width: 20px;
+    height: 14px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: transform 0.28s var(--ease-spring), opacity 0.2s, background-color 0.2s;
+  }
+  .nav-hamburger-btn.is-active .line-top { transform: translateY(6px) rotate(45deg); background-color: #38bdf8; }
+  .nav-hamburger-btn.is-active .line-mid { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger-btn.is-active .line-bot { transform: translateY(-6px) rotate(-45deg); background-color: #38bdf8; }
+
+  /* Mobile Drawer Overlay & Panel */
+  .mobile-drawer-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s var(--ease-spring);
+  }
+  .mobile-drawer-overlay.is-active { display: block; opacity: 1; pointer-events: auto; }
+
+  .mobile-drawer-panel {
+    display: none;
+    position: fixed;
+    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
+    left: 0; right: 0;
+    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
+    background: rgba(15, 15, 18, 0.94);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
+    z-index: 999;
+    padding: 16px;
+    padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.32s var(--ease-spring), opacity 0.22s ease;
+  }
+  .mobile-drawer-panel.is-active { display: block; transform: translateY(0); opacity: 1; pointer-events: auto; }
+
+  .mobile-nav-list { display: flex; flex-direction: column; gap: 8px; list-style: none; }
+  .mobile-nav-link {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    color: #e4e4e7;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+  .mobile-nav-link.active {
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.3);
+    color: #fff;
+  }
+  .mobile-drawer-footer {
+    display: flex; gap: 10px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border-subtle);
+  }
+  .mobile-control-btn {
+    min-height: 48px; flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
+    background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-subtle); border-radius: 12px;
+    color: #fff; font-size: 0.88rem; font-weight: 600; cursor: pointer;
+  }
+
+  /* Main Container */
+  .container {
+    max-width: 1240px;
+    margin: 32px auto;
+    padding: 0 24px 60px;
+  }
+
+  .content-sheet {
+    background: var(--bg-surface);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+  }
+
+  .header-card {
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 24px;
+    margin-bottom: 30px;
+  }
+  .header-card .badge-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    padding: 4px 10px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 14px;
+  }
+  .main-title {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .sub-lead {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .callout-box {
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 34px;
+    font-size: 0.95rem;
+    color: #e0e7ff;
+    line-height: 1.7;
+  }
+
+  .section-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 36px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 12px;
+  }
+
+  /* Comparison Grid & Cards (Fixed Typography Standard) */
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 18px;
+    margin: 20px 0;
+  }
+
+  .compare-card {
+    background: rgba(24, 24, 27, 0.7);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 22px 20px;
+    backdrop-filter: blur(12px);
+    transition: transform 0.2s var(--ease-spring), border-color 0.2s;
+  }
+  .compare-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-highlight);
+  }
+  .compare-card.emerald { border-top: 3px solid var(--emerald-primary); }
+  .compare-card.amber { border-top: 3px solid var(--amber-primary); }
+  .compare-card.sky { border-top: 3px solid var(--sky-primary); }
+  .compare-card.rose { border-top: 3px solid var(--rose-primary); }
+  .compare-card.purple { border-top: 3px solid var(--purple-primary); }
+
+  /* Fixed Vertical Hierarchy in Card Headers */
+  .card-header-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 10px;
+  }
+  .card-ar-title {
+    order: 1;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .card-it-title {
+    order: 2;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #38bdf8;
+    direction: ltr;
+    text-align: right;
+  }
+
+  /* Fixed Natural Block Text Flow in Lists (No flex word slicing!) */
+  .card-points-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 0.92rem;
+    color: #d4d4d8;
+  }
+  .card-points-list li {
+    position: relative;
+    padding-right: 28px;
+    line-height: 1.7;
+    display: block;
+    text-align: right;
+  }
+  .card-points-list li > span:first-child {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    font-size: 1.05rem;
+    line-height: 1;
+  }
+
+  /* Tables */
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 14px;
+    border: 1px solid var(--border-subtle);
+    margin: 24px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: right;
+    font-size: 0.92rem;
+  }
+  .data-table th {
+    background: rgba(39, 39, 42, 0.8);
+    color: #fff;
+    padding: 14px 16px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--border-subtle);
+    white-space: nowrap;
+  }
+  .data-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: #d4d4d8;
+  }
+  .data-table tr:hover td { background: rgba(255, 255, 255, 0.02); }
+
+  /* Info / Alert Boxes */
+  .highlight-box {
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin: 18px 0;
+    font-size: 0.92rem;
+    color: #fef3c7;
+    line-height: 1.7;
+  }
+  .danger-box {
+    background: rgba(244, 63, 94, 0.08);
+    border: 1px solid rgba(244, 63, 94, 0.2);
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin: 18px 0;
+    font-size: 0.92rem;
+    color: #ffe4e6;
+    line-height: 1.7;
+  }
+
+  /* Quiz Trap Cards */
+  .quiz-traps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .trap-card {
+    background: rgba(24, 24, 27, 0.7);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .trap-card.falso { border-left: 4px solid var(--rose-primary); }
+  .trap-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 10px;
+    width: fit-content;
+  }
+  .trap-badge.falso {
+    background: rgba(244, 63, 94, 0.15);
+    border: 1px solid rgba(244, 63, 94, 0.3);
+    color: #fda4af;
+  }
+  .trap-title {
+    font-size: 0.96rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  .trap-reason {
+    font-size: 0.88rem;
+    color: #a1a1aa;
+    line-height: 1.6;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px 14px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+
+  /* Chapter Pagination */
+  .chapter-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 40px 0 20px;
+    padding: 16px 20px;
+    background: rgba(24, 24, 27, 0.7);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    flex-wrap: wrap;
+  }
+  .pagination-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    color: #f4f4f5;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: all 0.15s ease;
+  }
+  .pagination-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--border-highlight);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+  .pagination-btn.index-btn {
+    background: rgba(56, 189, 248, 0.08);
+    border-color: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+  }
+  .pagination-btn.disabled {
+    opacity: 0.35;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  /* Responsive Rules */
+  @media (max-width: 768px) {
+    .nav-desktop-tabs, .nav-desktop-actions { display: none !important; }
+    .nav-hamburger-btn { display: flex; }
+    .nav-brand .badge-tag { display: none; }
+  }
+
+  @media (max-width: 640px) {
+    .container { padding: 0 12px 40px; margin: 12px auto; }
+    .content-sheet { padding: 22px 16px !important; border-radius: 18px !important; }
+    .main-title { font-size: 1.45rem !important; }
+    .sub-lead { font-size: 0.95rem !important; }
+    .comparison-grid, .quiz-traps-grid { grid-template-columns: 1fr !important; }
+    .chapter-pagination { flex-direction: column; gap: 10px; align-items: stretch; }
+    .pagination-btn { justify-content: center; }
+  }
+
+  @media (max-width: 1023px) {
+    .nav-dropdown-wrapper { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Unified Portal Navigation -->
+<header class="unified-portal-nav" id="portal-nav">
+  <a href="index.html" class="nav-brand" onclick="soundEngine.click()">
+    <span style="font-size:1.25rem;">🚦</span>
+    <span>Patente B Pro</span>
+    <span class="badge-tag">Capitolo 11</span>
+  </a>
+
+  <!-- Desktop Tabs Menu -->
+  <nav class="nav-desktop-tabs">
+    <a href="index.html" class="nav-tab-desktop">🏛️ فهرس المكتبة</a>
+    <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 الأبواب المقسمة</a>
+    <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
+
+    <!-- Desktop Chapters Dropdown -->
+    <div class="nav-dropdown-wrapper">
+      <button class="nav-dropdown-btn" onclick="toggleNavDropdown(event)">
+        <span>📖 تصفح الأدلة (1-25)</span>
+        <span style="font-size:0.7rem; margin-right:4px;">▾</span>
+      </button>
+      <div class="nav-dropdown-menu" id="navDropdownMenu">
+        <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="nav-dropdown-item active">📖 الباب 11: حدود السرعة</a>
+        <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item">📖 الباب 12: مسافة الأمان</a>
+        <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item">📖 الباب 13: قواعد السير والمسارات</a>
+        <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item">📖 الباب 14: أسبقية التقاطعات</a>
+        <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item">📖 الباب 15: التجاوز والتخطي</a>
+        <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item">📖 الباب 16: الوقوف والركن</a>
+        <a href="دليل_الأبواب_11_إلى_15_قواعد_السير_والسرعة_ومسافة_الأمان.html" class="nav-dropdown-item">📖 الأبواب 11-15: مجمع السير</a>
+        <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item">📖 الباب 17: الأوتوستراد والمقطورات</a>
+        <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item">📖 الباب 18: الأضواء والتابلوه</a>
+        <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item">📖 الباب 19: الأحزمة والخوذة والمقاعد</a>
+        <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item">📖 الباب 20: الرخص والنقاط والعقوبات</a>
+        <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item">📖 الباب 21: حوادث السير والطقس</a>
+        <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item">📖 الباب 22: الكحول والإسعافات</a>
+        <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item">📖 الباب 23: المسؤولية والتأمين</a>
+        <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item">📖 الباب 24: استهلاك الوقود والبيئة</a>
+        <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item">📖 الباب 25: الميكانيكا والصيانة</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Desktop Actions -->
+  <div class="nav-desktop-actions">
+    <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
+      <span class="audio-icon-span">🔊</span>
+      <span class="audio-label-span">الصوت نشط</span>
+    </button>
+  </div>
+
+  <!-- Mobile Hamburger Button -->
+  <button class="nav-hamburger-btn" id="nav-hamburger-btn" onclick="toggleMobileNav()" aria-label="قائمة التنقل" aria-expanded="false">
+    <div class="hamburger-box">
+      <span class="hamburger-line line-top"></span>
+      <span class="hamburger-line line-mid"></span>
+      <span class="hamburger-line line-bot"></span>
+    </div>
+  </button>
+</header>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
+<div class="mobile-drawer-panel" id="mobile-drawer-panel">
+  <div class="mobile-nav-list">
+    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📚</span><span>مذاكرة الأبواب المقسمة (25 باب)</span>
+    </a>
+    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>⏱️</span><span>محاكي الامتحان الوزاري (20 دقيقة)</span>
+    </a>
+    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📑</span><span>فهرس المكتبة الشاملة المعتمدة</span>
+    </a>
+    <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="mobile-nav-link active" onclick="closeMobileNav()">
+      <span>📖</span><span>دليل الباب 11 (حدود السرعة ومخاطرها)</span>
+    </a>
+    <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📖</span><span>دليل الباب 12 (مسافة الأمان والتوقف)</span>
+    </a>
+    <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📖</span><span>دليل الباب 13 (قواعد السير والمسارات)</span>
+    </a>
+    <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📖</span><span>دليل الباب 14 (أسبقية التقاطعات)</span>
+    </a>
+    <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📖</span><span>دليل الباب 15 (مناورة التجاوز والتخطي)</span>
+    </a>
+    <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📖</span><span>دليل الباب 16 (الوقوف والتوقف والركن)</span>
+    </a>
+    <a href="دليل_الأبواب_11_إلى_15_قواعد_السير_والسرعة_ومسافة_الأمان.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📖</span><span>دليل الأبواب 11-15 (حركة السير، السرعة، ومسافة الأمان)</span>
+    </a>
+    <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📖</span><span>دليل الباب 17 (الأوتوستراد والحمولة والمقطورات)</span>
+    </a>
+    <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📖</span><span>دليل الباب 18 (الأضواء والتابلوه والعواكس)</span>
+    </a>
+    <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📖</span><span>دليل الباب 19 (الأحزمة والخوذة والمقاعد)</span>
+    </a>
+    <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📖</span><span>دليل الباب 20 (الرخص والنقاط والعقوبات)</span>
+    </a>
+    <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📖</span><span>دليل الباب 21 (حوادث السير والظروف الجوية)</span>
+    </a>
+    <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📖</span><span>دليل الباب 22 (الكحول والمخدرات والإسعافات)</span>
+    </a>
+    <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📖</span><span>دليل الباب 23 (المسؤولية والتأمين RCA)</span>
+    </a>
+    <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📖</span><span>دليل الباب 24 (استهلاك الوقود وحماية البيئة)</span>
+    </a>
+    <a href="دليل_الباب_الأخير.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📖</span><span>دليل وقاموس الباب 25 (الميكانيكا والصيانة)</span>
+    </a>
+  </div>
+  <div class="mobile-drawer-footer">
+    <button class="mobile-control-btn" onclick="toggleAudio()">
+      <span class="audio-icon-span">🔊</span>
+      <span class="audio-label-span">الصوت نشط</span>
+    </button>
+  </div>
+</div>
+
+<main class="container">
+  <article class="content-sheet">
+    <header class="header-card">
+      <div class="badge-tag">CAPITOLO 11 • CODICE DELLA STRADA 2026</div>
+      <h1 class="main-title">دليل وقاموس الباب الحادي عشر: حدود السرعة ومخاطرها</h1>
+      <p class="sub-lead">Limiti generali di velocità, Neopatentati, Categorie di veicoli e Regolazione — الدليل الشامل لفهم مصفوفة السرعات الإلزامية، قيود الطقس والمطر، فئات المركبات الخاصة، وحالات التخفيض الإجباري لمستوى A2-B1.</p>
+    </header>
+
+    <div class="callout-box">
+      <strong>📊 إحصائيات الباب الرسمية في بنك الوزارة:</strong> يضم الباب الحادي عشر ما بين <strong>200 إلى 250 سؤالاً وزارياً</strong>، مع نسبة تشابه وتكرار تصل إلى <strong>35%</strong>. تعتمد الوزارة على صياغة نفس المعلومة بطرق مضللة أو تبديل الأرقام بين أنواع الطرق وفئات السائقين لتحويل الإجابة من صحيحة إلى خاطئة.
+    </div>
+
+    <!-- ======================== SECTION 1 ======================== -->
+    <h2 class="section-title">⚡ أولاً: الحدود العامة والقصوى للسرعة (Limiti Generali di Velocità)</h2>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">تُحدد السرعة القصوى القانونية بناءً على تصنيف الطريق الهندسي وظروف الطقس وحالة السطح الإسفلتي:</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>نوع الطريق (Tipo di Strada)</th>
+            <th>السرعة العادية (km/h)</th>
+            <th>السرعة عند هطول المطر (In caso di pioggia)</th>
+            <th>ملاحظات وقواعد خاصة بالامتحان الوزاري</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>المناطق الحضرية</strong><br><span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#38bdf8;">Strade urbane</span></td>
+            <td><strong style="color:#10b981; font-size:1.1rem;">50 km/h</strong></td>
+            <td><strong>50 km/h</strong> (لا تتغير)</td>
+            <td>يمكن رفعها إلى <strong>70 km/h</strong> في الطرق الحضرية السريعة ذات المسارات المنفصلة بوجود لوحات خاصة تسمح بذلك.</td>
+          </tr>
+          <tr>
+            <td><strong>الطرق الخارجية الثانوية</strong><br><span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#38bdf8;">Extraurbane secondarie</span></td>
+            <td><strong style="color:#10b981; font-size:1.1rem;">90 km/h</strong></td>
+            <td><strong>90 km/h</strong> (لا تتغير في المطر!)</td>
+            <td>تشمل الطرق الإقليمية التي تربط بين المدن والبلدات. ⚠️ فخ شائع: يزعم أنها تنخفض إلى 80 عند المطر ← <strong>FALSO</strong>.</td>
+          </tr>
+          <tr>
+            <td><strong>الطرق الخارجية الرئيسية</strong><br><span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#38bdf8;">Extraurbane principali</span></td>
+            <td><strong style="color:#10b981; font-size:1.1rem;">110 km/h</strong></td>
+            <td><strong style="color:#f59e0b; font-size:1.1rem;">90 km/h</strong> (تخفيض إجباري)</td>
+            <td>طرق سريعة ذات مسارات مفصولة بحاجز (Spartitraffico)، تبدأ بعلامة زرقاء. تنخفض إجبارياً بمقدار 20 كم/س عند المطر أو الثلج.</td>
+          </tr>
+          <tr>
+            <td><strong>الطرق السريعة / الأوتوستراد</strong><br><span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#38bdf8;">Autostrade</span></td>
+            <td><strong style="color:#10b981; font-size:1.1rem;">130 km/h</strong></td>
+            <td><strong style="color:#f43f5e; font-size:1.1rem;">110 km/h</strong> (تخفيض إجباري)</td>
+            <td>الطرق السريعة الخضراء. تنخفض إجبارياً إلى 110 كم/س في حال المطر أو سوء الطقس. يمكن رفعها إلى 150 كم/س في قطاعات معينة مجهزة بـ 3 حارات و Tutor.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ======================== SECTION 2 ======================== -->
+    <h2 class="section-title">🔰 ثانياً: قيود السائقين الجدد (Neopatentati — أول 3 سنوات)</h2>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">يفرض قانون السير الإيطالي (Codice della Strada) قيوداً صارمة على الحاصلين حديثاً على رخصة القيادة من الفئة B خلال السنوات الثلاث الأولى من تاريخ استلام الرخصة:</p>
+
+    <div class="comparison-grid">
+      <div class="compare-card emerald">
+        <div class="card-header-row">
+          <span class="card-ar-title">الطرق الخارجية الرئيسية</span>
+          <span class="card-it-title">Strade Extraurbane Principali</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>🛑</span> <strong>الحد الأقصى المطلق:</strong> لا يجوز للسائق الجديد تجاوز <strong>90 كم/س</strong> (بدلاً من 110 كم/س المقررة لباقي السائقين).</li>
+          <li><span>⚠️</span> <strong>فخ كويز:</strong> يزعم الكويز أنه يسمح للسائق الجديد بقيادة 100 كم/س على الطرق الخارجية الرئيسية ← <strong>FALSO</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="compare-card sky">
+        <div class="card-header-row">
+          <span class="card-ar-title">الطرق السريعة (الأوتوستراد)</span>
+          <span class="card-it-title">Autostrade</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>🛑</span> <strong>الحد الأقصى المطلق:</strong> لا يجوز للسائق الجديد تجاوز <strong>100 كم/س</strong> (بدلاً من 130 كم/س المقررة لباقي السائقين).</li>
+          <li><span>🔄</span> <strong>فخ متكرر جداً:</strong> يقول السؤال: يسمح للسائق الجديد بالقيادة حتى 110 كم/س في الأوتوستراد في الظروف المثالية ← <strong>FALSO</strong> (الحد الأقصى 100 كم/س فقط).</li>
+        </ul>
+      </div>
+
+      <div class="compare-card amber">
+        <div class="card-header-row">
+          <span class="card-ar-title">داخل المدن والثانوية</span>
+          <span class="card-it-title">Strade Urbane e Secondarie</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> <strong>نفس الحدود العامة:</strong> يلتزم السائق الجديد بنفس السرعات العادية: <strong>50 كم/س</strong> داخل المدن، و <strong>90 كم/س</strong> في الطرق الخارجية الثانوية.</li>
+          <li><span>⚠️</span> <strong>مضاعفة خصم النقاط:</strong> في حال ارتكاب مخالفة سرعة، تُضاعف نقاط الخصم للسائقين الجدد (Doppia decurtazione punti).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ======================== SECTION 3 ======================== -->
+    <h2 class="section-title">🚜 ثالثاً: قيود السرعة حسب تصنيف المركبة (Limiti per Categoria di Veicolo)</h2>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">لا تطبق حدود السرعة العامة على جميع المركبات بالتساوي؛ بل تخضع بعض الفئات لقيود فنية وصناعية ثابتة:</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>فئة المركبة (Categoria Veicolo)</th>
+            <th>السرعة القصوى المسموحة</th>
+            <th>النطاق والموقع الجغرافي</th>
+            <th>الفخاخ الامتحانية والتحذيرات</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>الموتوسيكل الصغير والفيسبا</strong><br><span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#38bdf8;">Ciclomotori (2 o 3 ruote)</span></td>
+            <td><strong style="color:#f43f5e; font-size:1.1rem;">45 km/h</strong></td>
+            <td>في جميع الطرق المسموح له بها</td>
+            <td>حد تصنيعي مطلق (Costruzione). ممنوع منعاً باتاً من دخول الأوتوستراد والطرق الرئيسية.</td>
+          </tr>
+          <tr>
+            <td><strong>الرباعيات الخفيفة</strong><br><span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#38bdf8;">Quadricicli leggeri (Minicar)</span></td>
+            <td><strong style="color:#f43f5e; font-size:1.1rem;">45 km/h</strong></td>
+            <td>في جميع الطرق</td>
+            <td>تُعامل تماماً معاملة الموتوسيكل الصغير (Ciclomotori).</td>
+          </tr>
+          <tr>
+            <td><strong>الرباعيات غير الخفيفة (الكواد)</strong><br><span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#38bdf8;">Quadricicli non leggeri (Quad)</span></td>
+            <td><strong style="color:#10b981; font-size:1.1rem;">80 km/h</strong></td>
+            <td>خارج المناطق الحضرية (Fuori dei centri urbani)</td>
+            <td>⚠️ <strong>فخ كلاسيكي:</strong> يزعم أن حدها الأقصى 70 كم/س أو 90 كم/س ← <strong>FALSO</strong> (الحد القانوني المعتمد هو 80 كم/س).</td>
+          </tr>
+          <tr>
+            <td><strong>الآلات الزراعية والإنشائية (إطارات مطاطية)</strong><br><span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#38bdf8;">Macchine agricole/operatrici gommate</span></td>
+            <td><strong style="color:#f59e0b; font-size:1.1rem;">40 km/h</strong></td>
+            <td>على الطرق العامة المفتوحة</td>
+            <td>إذا كانت مزودة بإطارات هوائية مطاطية (Pneumatici).</td>
+          </tr>
+          <tr>
+            <td><strong>الآلات الزراعية والإنشائية (مجنزرة)</strong><br><span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#38bdf8;">Macchine agricole/operatrici a cingoli</span></td>
+            <td><strong style="color:#f43f5e; font-size:1.1rem;">15 km/h</strong></td>
+            <td>على الطرق العامة المفتوحة</td>
+            <td>نظراً لثقل الجنازير المعدنية وتأثيرها على الأسفلت (A cingoli = 15 km/h).</td>
+          </tr>
+          <tr>
+            <td><strong>السيارات الساحبة للمقطورات والكرفان</strong><br><span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#38bdf8;">Autovettura con rimorchio / Caravan</span></td>
+            <td><strong style="color:#38bdf8; font-size:1.1rem;">70 / 80 km/h</strong></td>
+            <td>70 خارج المدن • 80 في الأوتوستراد</td>
+            <td>⚠️ فخ خطير: تنخفض سرعة السيارة بمجرد سحب مقطورة إلى 70 كم/س خارج المدن و 80 كم/س على الأوتوستراد.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ======================== SECTION 4 ======================== -->
+    <h2 class="section-title">🛑 رابعاً: حالات تخفيض السرعة الإجبارية والإعاقة (Regolazione della Velocità)</h2>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">لا تعني لوحة السرعة القصوى أنه يجب القيادة بها دائماً؛ بل يجب على السائق تكييف وضبط سرعته (Regolare la velocità) وفقاً لمقتضيات السلامة:</p>
+
+    <div class="comparison-grid">
+      <div class="compare-card rose">
+        <div class="card-header-row">
+          <span class="card-ar-title">مواضع التخفيض الإجباري للسرعة</span>
+          <span class="card-it-title">Casi di Forte Rallentamento</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>🌫️</span> <strong>ضعف الرؤية (Scarsa visibilità):</strong> عند وجود ضباب كثيف، أمطار غزيرة، غبار، أو في أوقات الليل.</li>
+          <li><span>🔄</span> <strong>المنعطفات والمنحدرات (Curve e discese):</strong> قبل الدخول في المنعطف، وفي المنحدرات الشديدة لتفادي إجهاد الفرامل.</li>
+          <li><span>🏫</span> <strong>أماكن المشاة والمدارس:</strong> قرب المدارس، أماكن تجمع الأطفال، مواقف الحافلات، ومعابر المشاة.</li>
+          <li><span>📐</span> <strong>التقاطعات والممرات الضيقة:</strong> عند الاقتراب من التقاطعات حتى لو كانت لك الأسبقية، وفي الأجزاء الضيقة من الطريق (Strettoie).</li>
+          <li><span>🛑</span> <strong>الانبهار بالضوء (Abbagliamento):</strong> إذا تعرضت لانبهار من أضواء سيارة قادمة بالاتجاه المعاكس، يجب التباطؤ تدريجياً حتى التوقف دون فرملة مفاجئة.</li>
+        </ul>
+      </div>
+
+      <div class="compare-card amber">
+        <div class="card-header-row">
+          <span class="card-ar-title">جريمة الإعاقة المرورية</span>
+          <span class="card-it-title">Intralcio alla Circolazione</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>🐢</span> <strong>حظر السرعة شديدة البطء:</strong> يُحظر تماماً السير ببطء مفرط بدون مبرر مقنع (Velocità eccessivamente ridotta).</li>
+          <li><span>💥</span> <strong>خطر الاصطدام الخلفي:</strong> السرعة البطيئة غير المبررة تشكل خطراً جسيماً وتسبب إعاقة لحركة السير (Intralcio) وتزيد من خطر حوادث الاصطدام الخلفي (Tamponamento).</li>
+          <li><span>⚠️</span> <strong>فخ كويز:</strong> السرعة البطيئة مسموحة دائماً لكونها تضمن الأمان ← <strong>FALSO</strong> (تسبب إعاقة وحوادث).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ======================== SECTION 5 ======================== -->
+    <h2 class="section-title">📖 خامساً: قاموس المصطلحات الفنية (إيطالي - عربي) — مستوى A2</h2>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">أهم المفردات الوزارية التي تتكرر في بنك أسئلة الباب الحادي عشر:</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>المصطلح بالإيطالية</th>
+            <th>الترجمة الدقيقة بالعربية</th>
+            <th>السياق الامتحاني والفخ الوزاري</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="font-family:'JetBrains Mono'; color:#38bdf8;">Limiti di velocità</strong></td>
+            <td>حدود السرعة القانونية</td>
+            <td>تنقسم إلى حدود عامة للطريق، وحدود خاصة بالمركبة، وحدود للسائق الجديد.</td>
+          </tr>
+          <tr>
+            <td><strong style="font-family:'JetBrains Mono'; color:#f43f5e;">Intralcio alla circolazione</strong></td>
+            <td>إعاقة / عرقلة حركة السير</td>
+            <td>تحدث عند القيادة بسرعة بطيئة مفرطة بدون سبب، وهي ممنوعة قانونياً.</td>
+          </tr>
+          <tr>
+            <td><strong style="font-family:'JetBrains Mono'; color:#10b981;">Neopatentati</strong></td>
+            <td>السائقون الجدد (أول 3 سنوات)</td>
+            <td>تطبق عليهم قيود: 100 كم/س في الأوتوستراد و 90 كم/س في الطرق الخارجية الرئيسية.</td>
+          </tr>
+          <tr>
+            <td><strong style="font-family:'JetBrains Mono'; color:#f59e0b;">In caso di pioggia</strong></td>
+            <td>في حالة هطول المطر</td>
+            <td>تخفض السرعة في الأوتوستراد إلى 110 كم/س وفي الرئيسي إلى 90 كم/س (الثانوي لا يتغير).</td>
+          </tr>
+          <tr>
+            <td><strong style="font-family:'JetBrains Mono'; color:#a855f7;">Regolare la velocità</strong></td>
+            <td>تعديل وضبط السرعة</td>
+            <td>تخفيض السرعة بما يتناسب مع حالة الطريق، الحمولة، الطقس، ومدى الرؤية.</td>
+          </tr>
+          <tr>
+            <td><strong style="font-family:'JetBrains Mono'; color:#38bdf8;">Quadricicli non leggeri</strong></td>
+            <td>الرباعيات غير الخفيفة (الكواد)</td>
+            <td>حدها الأقصى خارج المدن 80 كم/س (فخ: يكتب 70 كم/س).</td>
+          </tr>
+          <tr>
+            <td><strong style="font-family:'JetBrains Mono'; color:#10b981;">Macchine operatrici</strong></td>
+            <td>الآلات الإنشائية / العاملة</td>
+            <td>حدها 40 كم/س بالمطاط، و 15 كم/س إذا كانت مجنزرة (A cingoli).</td>
+          </tr>
+          <tr>
+            <td><strong style="font-family:'JetBrains Mono'; color:#f43f5e;">Spazio di visibilità</strong></td>
+            <td>مدى الرؤية المتاحة</td>
+            <td>يجب أن تكون السرعة مضبوطة بحيث تمكن من إيقاف المركبة ضمن مسافة الرؤية المتاحة.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ======================== SECTION 6 ======================== -->
+    <h2 class="section-title">🎯 سادساً: بنك فخاخ الكويزات الوزارية (Trappole dei Quiz)</h2>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">أشهر الفخاخ التي يسقط فيها الطلاب في امتحانات الباب الحادي عشر الرسمية:</p>
+
+    <div class="quiz-traps-grid">
+      <div class="trap-card falso">
+        <div>
+          <span class="trap-badge falso">FALSO ❌</span>
+          <div class="trap-title">الفخ 1: يزعم السؤال أن الحد الأقصى للسرعة للرباعيات غير الخفيفة (Quadricicli non leggeri) هو 70 كم/س خارج المدن.</div>
+        </div>
+        <div class="trap-reason">
+          <strong>التعليل الوزاري:</strong> FALSO ❌ — الحد القانوني المعتمد للرباعيات غير الخفيفة خارج المناطق الحضرية هو <strong>80 كم/س</strong>، ورقم 70 هو الفخ الشائع.
+        </div>
+      </div>
+
+      <div class="trap-card falso">
+        <div>
+          <span class="trap-badge falso">FALSO ❌</span>
+          <div class="trap-title">الفخ 2: يُسمح للسائق الجديد (Neopatentato) بالقيادة بسرعة 110 كم/س على الأوتوستراد في الأيام المشمسة والظروف الجيدة.</div>
+        </div>
+        <div class="trap-reason">
+          <strong>التعليل الوزاري:</strong> FALSO ❌ — الحد الأقصى المطلق للسائق الجديد في أول 3 سنوات على الأوتوستراد هو <strong>100 كم/س فقط</strong>، ولا يرتفع أبداً مهما كانت الظروف الجوية ممتازة.
+        </div>
+      </div>
+
+      <div class="trap-card falso">
+        <div>
+          <span class="trap-badge falso">FALSO ❌</span>
+          <div class="trap-title">الفخ 3: في حالة المطر، تنخفض السرعة القصوى في الطرق الخارجية الثانوية (Extraurbane secondarie) إلى 80 كم/س.</div>
+        </div>
+        <div class="trap-reason">
+          <strong>التعليل الوزاري:</strong> FALSO ❌ — التخفيض الإجباري بسبب المطر ينطبق فقط على <strong>الأوتوستراد (إلى 110)</strong> و <strong>الطرق الخارجية الرئيسية (إلى 90)</strong>. أما الثانوية فحدها 90 كم/س ولا يوجد نص بتخفيضها قانونياً لـ 80.
+        </div>
+      </div>
+
+      <div class="trap-card falso">
+        <div>
+          <span class="trap-badge falso">FALSO ❌</span>
+          <div class="trap-title">الفخ 4: السرعة البطيئة جداً (Velocità eccessivamente bassa) مسموحة دائماً في كل الحالات لكونها تضمن السلامة التامة.</div>
+        </div>
+        <div class="trap-reason">
+          <strong>التعليل الوزاري:</strong> FALSO ❌ — القيادة ببطء مفرط بدون مبرر مقنع تسبب إعاقة خطيرة لحركة المرور (Intralcio) وتزيد من خطر حوادث الاصطدام الخلفي المفاجئ.
+        </div>
+      </div>
+
+      <div class="trap-card falso">
+        <div>
+          <span class="trap-badge falso">FALSO ❌</span>
+          <div class="trap-title">الفخ 5: الحد الأقصى للسرعة داخل المناطق الحضرية (Centri urbani) هو 50 كم/س بشكل مطلق ولا يمكن رفعه أبداً.</div>
+        </div>
+        <div class="trap-reason">
+          <strong>التعليل الوزاري:</strong> FALSO ❌ — يمكن رفع الحد الأقصى داخل المدن إلى <strong>70 كم/س</strong> في الطرق الحضرية العريضة ذات المسارات المفصولة والمجهزة بإشارات تسمح بذلك.
+        </div>
+      </div>
+
+      <div class="trap-card falso">
+        <div>
+          <span class="trap-badge falso">FALSO ❌</span>
+          <div class="trap-title">الفخ 6: سيارة تسحب كرفان أو مقطورة يمكنها السير بسرعة 130 كم/س على الأوتوستراد ما دامت المقطورة خفيفة.</div>
+        </div>
+        <div class="trap-reason">
+          <strong>التعليل الوزاري:</strong> FALSO ❌ — أي سيارة تسحب مقطورة أو كرفان ينخفض حد سرعتها على الأوتوستراد إجبارياً إلى <strong>80 كم/س فقط</strong>، وإلى <strong>70 كم/س</strong> خارج المدن.
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter Pagination -->
+    <div class="chapter-pagination">
+      <div class="pagination-btn disabled">
+        <span>⏮️ الباب السابق: غير متاح</span>
+      </div>
+      <a href="index.html" class="pagination-btn index-btn" onclick="soundEngine.click()">
+        <span>🏛️ فهرس المكتبة الشاملة</span>
+      </a>
+      <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="pagination-btn" onclick="soundEngine.click()">
+        <span>الباب 12: مسافة الأمان ⏭️</span>
+      </a>
+    </div>
+
+  </article>
+</main>
+
+<script>
+  // Unified Sound Engine (Web Audio API Synthesizer)
+  const soundEngine = window.soundEngine || {
+    ctx: null,
+    enabled: true,
+    init() {
+      if (!this.ctx) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) this.ctx = new AudioCtx();
+      }
+      if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
+    },
+    click() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
+      try {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(520, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.04);
+        gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.04);
+      } catch(e) {}
+    }
+  };
+
+  // Toggle Audio Sound
+  window.toggleAudio = function() {
+    soundEngine.enabled = !soundEngine.enabled;
+    const icons = document.querySelectorAll('.audio-icon-span');
+    const labels = document.querySelectorAll('.audio-label-span');
+    icons.forEach(el => el.textContent = soundEngine.enabled ? '🔊' : '🔇');
+    labels.forEach(el => el.textContent = soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم');
+    if (soundEngine.enabled) soundEngine.click();
+  };
+
+  // Desktop Chapters Dropdown Toggle & Outside Click
+  function toggleNavDropdown(e) {
+    if (e) e.stopPropagation();
+    const menu = document.getElementById('navDropdownMenu');
+    if (menu) menu.classList.toggle('active');
+  }
+  document.addEventListener('click', function(e) {
+    const wrapper = document.querySelector('.nav-dropdown-wrapper');
+    const menu = document.getElementById('navDropdownMenu');
+    if (menu && menu.classList.contains('active')) {
+      if (wrapper && !wrapper.contains(e.target)) menu.classList.remove('active');
+    }
+  });
+
+  // Mobile Navigation Drawer Controller (Apple HIG Compliant)
+  function toggleMobileNav() {
+    const btn = document.getElementById('nav-hamburger-btn');
+    const panel = document.getElementById('mobile-drawer-panel');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    if (!btn || !panel) return;
+    const isOpening = !panel.classList.contains('is-active');
+    if (isOpening) {
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-expanded', 'true');
+      panel.classList.add('is-active');
+      if (overlay) overlay.classList.add('is-active');
+      document.body.classList.add('nav-scroll-lock');
+    } else {
+      closeMobileNav();
+    }
+    if (soundEngine.click) soundEngine.click();
+  }
+
+  function closeMobileNav() {
+    const btn = document.getElementById('nav-hamburger-btn');
+    const panel = document.getElementById('mobile-drawer-panel');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    if (btn) {
+      btn.classList.remove('is-active');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    if (panel) panel.classList.remove('is-active');
+    if (overlay) overlay.classList.remove('is-active');
+    document.body.classList.remove('nav-scroll-lock');
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMobileNav();
+  });
+</script>
+
+</body>
+</html>
