@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>دليل وقاموس الباب 12: مسافة الأمان والفرملة والتوقف | رخصة القيادة الإيطالية</title>
+
+  <!-- Apple System Fonts & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Kufi+Arabic:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+  /* ==========================================================================
+     Design System Tokens & Dark Modern Theme
+     ========================================================================== */
+  :root {
+    --bg-base: #09090b;
+    --bg-surface: #121215;
+    --bg-elevated: #18181b;
+    --bg-glass: rgba(18, 18, 21, 0.75);
+
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(255, 255, 255, 0.16);
+    --border-card: rgba(255, 255, 255, 0.05);
+
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-tertiary: #71717a;
+
+    --sky-primary: #38bdf8;
+    --sky-glow: rgba(56, 189, 248, 0.15);
+    --emerald-primary: #10b981;
+    --amber-primary: #f59e0b;
+    --rose-primary: #f43f5e;
+    --purple-primary: #a855f7;
+    --blue-primary: #3b82f6;
+
+    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    --nav-base-height: 54px;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    padding-bottom: 80px;
+    background-image:
+      radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.04), transparent 40%),
+      radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.03), transparent 40%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Noto Kufi Arabic', -apple-system, sans-serif;
+    font-weight: 700;
+  }
+
+  .container {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 24px 16px;
+  }
+
+  .header-card {
+    background: linear-gradient(135deg, rgba(24, 24, 27, 0.8), rgba(18, 18, 21, 0.9));
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 32px 28px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .badge-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(56, 189, 248, 0.12);
+    color: var(--sky-primary);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+  }
+
+  .main-title {
+    font-size: 2.1rem;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+
+  .sub-lead {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .callout-box {
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin-bottom: 28px;
+    font-size: 0.95rem;
+    color: #e0f2fe;
+    line-height: 1.7;
+  }
+
+  .section-title {
+    font-size: 1.45rem;
+    margin: 40px 0 18px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 12px;
+  }
+
+  /* Comparison Grid */
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+
+  .compare-card {
+    background: rgba(24, 24, 27, 0.7);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 22px 20px;
+    backdrop-filter: blur(12px);
+    transition: transform 0.2s var(--ease-spring), border-color 0.2s;
+  }
+  .compare-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-highlight);
+  }
+  .compare-card.emerald { border-top: 3px solid var(--emerald-primary); }
+  .compare-card.amber { border-top: 3px solid var(--amber-primary); }
+  .compare-card.indigo { border-top: 3px solid #6366f1; }
+  .compare-card.rose { border-top: 3px solid var(--rose-primary); }
+  .compare-card.purple { border-top: 3px solid var(--purple-primary); }
+  .compare-card.sky { border-top: 3px solid var(--sky-primary); }
+
+  .card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 10px;
+  }
+  .card-it-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    direction: ltr;
+  }
+  .card-ar-title {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+
+  .card-points-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #d4d4d8;
+  }
+  .card-points-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.6;
+  }
+
+  /* Data Table */
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 14px;
+    border: 1px solid var(--border-subtle);
+    margin: 24px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: right;
+    font-size: 0.92rem;
+  }
+  .data-table th {
+    background: rgba(39, 39, 42, 0.8);
+    color: #fff;
+    padding: 14px 16px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--border-subtle);
+    white-space: nowrap;
+  }
+  .data-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: #d4d4d8;
+  }
+  .data-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  /* Highlight & Danger Boxes */
+  .highlight-box {
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin: 18px 0;
+    font-size: 0.92rem;
+    color: #fef3c7;
+    line-height: 1.7;
+  }
+
+  .danger-box {
+    background: rgba(244, 63, 94, 0.08);
+    border: 1px solid rgba(244, 63, 94, 0.2);
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin: 18px 0;
+    font-size: 0.92rem;
+    color: #ffe4e6;
+    line-height: 1.7;
+  }
+
+  /* Quiz Accordion & Cards */
+  .quiz-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 24px 0;
+  }
+  .quiz-card {
+    background: rgba(24, 24, 27, 0.7);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px 22px;
+    transition: border-color 0.15s;
+  }
+  .quiz-card:hover { border-color: var(--border-highlight); }
+  .quiz-q-it {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    direction: ltr;
+    text-align: left;
+    line-height: 1.5;
+  }
+  .quiz-q-ar {
+    font-size: 0.95rem;
+    color: #38bdf8;
+    margin-bottom: 14px;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+  .quiz-meta-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .ans-badge {
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+    flex-shrink: 0;
+  }
+  .ans-vero { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+  .ans-falso { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+  .quiz-explain {
+    font-size: 0.9rem;
+    color: #d4d4d8;
+    flex: 1;
+    min-width: 220px;
+    line-height: 1.6;
+  }
+
+  /* Platform Navigation (Unified) */
+  .unified-portal-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
+    max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
+    background: rgba(9, 9, 11, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    padding-top: env(safe-area-inset-top, 0px);
+    box-sizing: border-box;
+    direction: rtl;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .nav-desktop-tabs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 16px;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .nav-tab-desktop {
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #a1a1aa;
+    text-decoration: none;
+    white-space: nowrap;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+  }
+  .nav-tab-desktop:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .nav-tab-desktop.active {
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.3);
+    color: var(--sky-primary);
+  }
+
+  .nav-desktop-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .nav-dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  .nav-dropdown-btn {
+    height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: #e4e4e7;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+  .nav-dropdown-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.22);
+    color: #fff;
+  }
+  .nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 290px;
+    max-height: 440px;
+    overflow-y: auto;
+    background: #121215;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 1100;
+    direction: rtl;
+  }
+  .nav-dropdown-menu.active {
+    display: flex;
+  }
+  .nav-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #d4d4d8;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: all 0.12s ease;
+  }
+  .nav-dropdown-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+  }
+  .nav-dropdown-item.active {
+    background: rgba(56, 189, 248, 0.12);
+    color: #38bdf8;
+    font-weight: 700;
+  }
+
+  .nav-audio-btn {
+    height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #e4e4e7;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .nav-audio-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+
+  .nav-hamburger-btn {
+    display: none;
+    width: 38px;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0;
+  }
+  .hamburger-box {
+    width: 18px;
+    height: 14px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .hamburger-line {
+    width: 100%;
+    height: 2px;
+    background-color: #f4f4f5;
+    border-radius: 2px;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  /* Mobile Drawer */
+  .mobile-drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+  .mobile-drawer-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .mobile-drawer-panel {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: min(85vw, 360px);
+    background: #121215;
+    border-left: 1px solid var(--border-subtle);
+    z-index: 2000;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    direction: rtl;
+    box-sizing: border-box;
+  }
+  .mobile-drawer-overlay.active .mobile-drawer-panel {
+    transform: translateX(0);
+  }
+  .mobile-drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .mobile-drawer-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .mobile-drawer-close {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    color: #a1a1aa;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  .mobile-drawer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+    flex: 1;
+  }
+  .mobile-nav-link {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    color: #e4e4e7;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+  .mobile-nav-link.active {
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.3);
+    color: var(--sky-primary);
+  }
+
+  /* Chapter Pagination */
+  .chapter-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 40px 0 20px;
+    padding: 16px 20px;
+    background: rgba(24, 24, 27, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    flex-wrap: wrap;
+  }
+  .pagination-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #f4f4f5;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: all 0.15s ease;
+  }
+  .pagination-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.16);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+  .pagination-btn.index-btn {
+    background: rgba(56, 189, 248, 0.08);
+    border-color: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+  }
+  .pagination-info {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+  .pagination-label {
+    font-size: 0.72rem;
+    color: #a1a1aa;
+    font-weight: 500;
+  }
+  .pagination-title {
+    font-size: 0.85rem;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  @media (max-width: 1023px) {
+    .unified-portal-nav {
+      height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
+      max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
+      padding: 0 16px;
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+    .nav-desktop-tabs,
+    .nav-dropdown-wrapper,
+    .nav-desktop-actions { display: none !important; }
+    .nav-hamburger-btn { display: flex; }
+    .main-title { font-size: 1.55rem; }
+    .comparison-grid { grid-template-columns: 1fr; }
+  }
+  </style>
+</head>
+<body>
+
+<!-- Unified Top Navigation Bar (Decluttered Desktop Architecture) -->
+<header class="unified-portal-nav">
+  <a href="index.html" class="nav-brand" onclick="soundEngine.click()">
+    <span class="brand-icon">📚</span>
+    <span>المكتبة الشاملة</span>
+    <span class="badge-tag" style="margin:0; padding:2px 8px; font-size:0.75rem;">Capitolo 12</span>
+  </a>
+
+  <!-- Core 3 Desktop Navigation Tabs -->
+  <nav class="nav-desktop-tabs">
+    <a href="index.html" class="nav-tab-desktop">🏛️ فهرس المكتبة</a>
+    <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 الأبواب المقسمة</a>
+    <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
+  </nav>
+
+  <!-- Desktop Actions & Chapters Dropdown -->
+  <div class="nav-desktop-actions">
+        <!-- Desktop Chapters Dropdown -->
+    <div class="nav-dropdown-wrapper">
+      <button class="nav-dropdown-btn" onclick="toggleNavDropdown(event)">
+        <span>تصفح الأبواب (1-25)</span>
+        <span style="font-size:0.75rem;">▾</span>
+      </button>
+      <div class="nav-dropdown-menu" id="navDropdownMenu">
+      <a href="../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
+      <a href="../Capitoli_Divisi/Capitolo_02_segnali_pericolo/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
+      <a href="../Capitoli_Divisi/Capitolo_03_segnali_divieto/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
+      <a href="../Capitoli_Divisi/Capitolo_04_segnali_obbligo/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
+      <a href="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
+      <a href="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأفقية والمطبات</span></a>
+      <a href="../Capitoli_Divisi/Capitolo_07_semafori_vigili/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
+      <a href="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
+      <a href="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: إشارات الورش والتحويلات</span></a>
+      <a href="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات التكميلية</span></a>
+      <a href="../Capitoli_Divisi/Capitolo_11_limiti_di_velocita/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة</span></a>
+      <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
+      <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
+      <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
+      <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
+      <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
+      <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
+      <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
+      <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
+      <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
+      <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: حوادث السير والطقس</span></a>
+      <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
+      <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 23: المسؤولية والتأمين RCA</span></a>
+      <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 24: استهلاك الوقود والبيئة</span></a>
+      <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
+      </div>
+    </div>
+
+    <!-- Audio Control -->
+    <button class="nav-audio-btn" onclick="toggleAudio()">
+      <span class="audio-icon-span">🔊</span>
+      <span class="audio-label-span">الصوت: نشط</span>
+    </button>
+  </div>
+
+  <!-- Mobile Hamburger Button (Strict Mobile Freeze) -->
+  <button class="nav-hamburger-btn" onclick="openMobileNav()">
+    <div class="hamburger-box">
+      <span class="hamburger-line line-top"></span>
+      <span class="hamburger-line line-mid"></span>
+      <span class="hamburger-line line-bot"></span>
+    </div>
+  </button>
+</header>
+
+<!-- Mobile Navigation Drawer (Preserved Intact) -->
+<div id="mobileDrawerOverlay" class="mobile-drawer-overlay" onclick="closeMobileNav()">
+  <div class="mobile-drawer-panel" onclick="event.stopPropagation()">
+    <div class="mobile-drawer-header">
+      <div class="mobile-drawer-title">فهرس المكتبة الشاملة</div>
+      <button class="mobile-drawer-close" onclick="closeMobileNav()">✕</button>
+    </div>
+    <div class="mobile-drawer-list">
+      <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📁 فهرس الأبواب الـ 25</span>
+      </a>
+      <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>⚡ محاكي الامتحان الوزاري</span>
+      </a>
+      <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📚 فهرس المكتبة المعتمدة</span>
+      </a>
+      <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="mobile-nav-link active" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 12 (مسافة الأمان)</span>
+      </a>
+      <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 13 (قواعد السير والمسارات)</span>
+      </a>
+      <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 14 (أسبقية التقاطعات)</span>
+      </a>
+      <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 15 (التجاوز والتخطي)</span>
+      </a>
+      <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 16 (الوقوف والتوقف والركن)</span>
+      </a>
+      <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 17 (الأوتوستراد والمقطورات)</span>
+      </a>
+      <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 18 (الأضواء وأجهزة الإنذار)</span>
+      </a>
+      <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 19 (الأمان والخوذة والمقاعد)</span>
+      </a>
+      <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 20 (الرخص والنقاط والعقوبات)</span>
+      </a>
+      <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 21 (حوادث السير والطقس)</span>
+      </a>
+      <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 22 (الكحول والمخدرات والإسعافات)</span>
+      </a>
+      <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 23 (التأمين والمسؤولية)</span>
+      </a>
+      <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 24 (البيئة وترشيد الوقود)</span>
+      </a>
+      <a href="دليل_الباب_الأخير.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 25 (الميكانيكا والصيانة)</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<main class="container">
+  <article class="content-sheet">
+    <header class="header-card">
+      <div class="badge-tag">CAPITOLO 12 • CODICE DELLA STRADA 2026</div>
+      <h1 class="main-title">دليل وقاموس الباب الثاني عشر: مسافة الأمان والفرملة والتوقف</h1>
+      <p class="sub-lead">Distanza di Sicurezza, Spazio di Reazione e Spazio di Arresto — الدليل الشامل لفهم المعادلات الرياضية، العلاقة التربيعية للفرملة، والأرقام الإلزامية الثابتة وفك الفخاخ الحسابية لمستوى A2-B1.</p>
+    </header>
+
+    <div class="callout-box">
+      <strong>📊 إحصائيات الباب الرسمية في بنك الوزارة:</strong> يضم الباب الثاني عشر بالضبط <strong>135 سؤالاً وزارياً رسمياً</strong> موزعة على <strong>15 موضوعاً فرعياً</strong> مع <strong>0 صور</strong> لكونه باباً فيزيائياً وحسابياً وتشريعياً خالصاً. تدور حوالي <strong>40% من الأسئلة</strong> حول ثنائية حاسمة: (ما يؤثر في مسافة الأمان وما لا يؤثر إطلاقاً).
+    </div>
+
+    <!-- ======================== SECTION 1 ======================== -->
+    <h2 class="section-title">🛡️ أولاً: مفهوم مسافة الأمان والغرض الحصري منها (Distanza di Sicurezza)</h2>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">مسافة الأمان هي المسافة الفاصلة الدنيا التي يجب الحفاظ عليها دائماً بين مركبتك والمركبة التي تسير أمامك في نفس الحارة لتجنب الحوادث.</p>
+
+    <div class="comparison-grid">
+      <div class="compare-card emerald">
+        <div class="card-header-row">
+          <span class="card-it-title">Scopo Principale</span>
+          <span class="card-ar-title">الغرض الأساسي</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>🎯</span> <strong>الهدف الحصري:</strong> تجنب الاصطدام الخلفي (<code>Evitare il tamponamento</code>) بالمركبة المتقدمة.</li>
+          <li><span>🛑</span> <strong>الفرملة المفاجئة:</strong> يجب أن تضمن توقف سيارتك بأمان تام حتى لو فرملت المركبة التي أمامك فجأة وبأقصى قوة.</li>
+          <li><span>⚠️</span> <strong>فخ:</strong> زعم أن مسافة الأمان تهدف لمنع خروج السيارة عن المسار أو الانقلاب ← <strong>FALSO</strong> (هدفها حصراً منع الاصطدام الخلفي).</li>
+        </ul>
+      </div>
+
+      <div class="compare-card sky">
+        <div class="card-header-row">
+          <span class="card-it-title">Veicolo che Precede</span>
+          <span class="card-ar-title">المركبة التي أمامك</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>👀</span> <strong>اتجاه التقدير:</strong> تُقاس وتُضبط مسافة الأمان دائماً بالنسبة للمركبة التي <strong>أمامك</strong> (<code>Veicolo che precede</code>).</li>
+          <li><span>🚗</span> <strong>المركبة الخلفية:</strong> لا تقاس مسافة الأمان بالمركبة الخلفية، ولكن:</li>
+          <li><span>💡</span> <strong>قاعدة حاسمة (سؤال ذكي):</strong> إذا كانت السيارة التي خلفك تلتصق بك بشدة (<code>Troppo vicino</code>)، يجب عليك <strong>زيادة مسافة الأمان مع المركبة التي أمامك</strong> لتتفادى الفرملة الحادة وتعطي من خلفك وقتاً للوقوف!</li>
+        </ul>
+      </div>
+
+      <div class="compare-card amber">
+        <div class="card-header-row">
+          <span class="card-it-title">Valore Variabile</span>
+          <span class="card-ar-title">قيمة متغيرة</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>📈</span> <strong>ليست قيمة ثابتة:</strong> مسافة الأمان ليست رقماً ثابتاً في الظروف العادية، بل تتغير باستمرار بتغير السرعة والطقس.</li>
+          <li><span>🌧️</span> <strong>تزيد حتماً:</strong> مع زيادة السرعة، عند هطول الأمطار، تساقط الثلوج، وجود الجليد، أو في المنحدرات (<code>In discesa</code>).</li>
+          <li><span>📉</span> <strong>لا تقل أبداً:</strong> عن المسافة المقطوعة خلال زمن رد الفعل في أي حال من الأحوال.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ======================== SECTION 2 ======================== -->
+    <h2 class="section-title">⏱️ ثانياً: مسافة زمن رد الفعل (Spazio di Reazione — 1 Secondo)</h2>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">المسافة التي تقطعها المركبة من لحظة رؤية السائق للخطر بعينيه حتى لحظة بدء الضغط الفعلي بقدمه على دواسة الفرامل.</p>
+
+    <div class="highlight-box">
+      <strong>🧠 المعادلة الذهبية السريعة لحساب مسافة رد الفعل في ثانية واحدة:</strong><br>
+      <span style="font-family:'JetBrains Mono', monospace; font-size:1.1rem; color:#fff; font-weight:700;">مسافة زمن رد الفعل (بالمتر) ≈ (السرعة بالكيلومتر/ساعة ÷ 10) × 3</span><br>
+      <em>مثال: عند سرعة 100 كم/س: (100 ÷ 10) = 10 ← ثم 10 × 3 = <strong>30 متراً تقريباً</strong> (بالدقة الفيزيائية 27.77 م).</em>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>السرعة (km/h)</th>
+            <th>المعادلة الذهبية السريعة</th>
+            <th>المسافة المقطوعة في ثانية واحدة (رد الفعل)</th>
+            <th>نطاق الأرقام المقبولة في الامتحان الوزاري</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>50 km/h</strong> (داخل المدينة)</td>
+            <td><code>(50 ÷ 10) × 3 = 15</code></td>
+            <td><strong>13.88 متر</strong> (حوالي 14 - 15 متراً)</td>
+            <td>VERO إذا قال: حوالي 14 أو 15 متراً</td>
+          </tr>
+          <tr>
+            <td><strong>100 km/h</strong> (طرق سريعة عادية)</td>
+            <td><code>(100 ÷ 10) × 3 = 30</code></td>
+            <td><strong>27.77 متر</strong> (حوالي 28 - 30 متراً)</td>
+            <td>VERO إذا قال: حوالي 28 أو 30 متراً</td>
+          </tr>
+          <tr>
+            <td><strong>130 km/h</strong> (أوتوستراد عادي)</td>
+            <td><code>(130 ÷ 10) × 3 = 39</code></td>
+            <td><strong>36.11 متر</strong> (حوالي 36 - 39 متراً)</td>
+            <td>VERO إذا قال: حوالي 36 أو 39 متراً</td>
+          </tr>
+          <tr>
+            <td><strong>150 km/h</strong> (أوتوستراد 3 حارات)</td>
+            <td><code>(150 ÷ 10) × 3 = 45</code></td>
+            <td><strong>41.66 متر</strong> (حوالي 42 - 45 متراً)</td>
+            <td>VERO إذا قال: حوالي 42 أو 45 متراً</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="danger-box">
+      <strong>⚠️ ما يطيل زمن رد الفعل ويزيد مسافة الخطر:</strong>
+      <ul style="margin-top:8px; padding-right:20px; list-style:disc; color:#ffe4e6; line-height:1.7;">
+        <li>تناول الكحول والمخدرات (حتى الكميات البسيطة تزيد زمن رد الفعل من 1 ثانية إلى ثانيتين أو أكثر).</li>
+        <li>تناول الأدوية المهدئة ومضادات الحساسية التي تسبب النعاس (Farmaci sedativi).</li>
+        <li>التشتت واستخدام الهاتف المحمول أثناء القيادة (Distrazione).</li>
+        <li>الإرهاق البدني والتعب وتناول وجبات دسمة وثقيلة قبل القيادة.</li>
+      </ul>
+    </div>
+
+    <!-- ======================== SECTION 3 ======================== -->
+    <h2 class="section-title">⚡ ثالثاً: مسافة الفرملة والعلاقة التربيعية مع السرعة (Spazio di Frenatura)</h2>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">المسافة التي تقطعها المركبة من لحظة بدء الضغط الفعلي على دواسة الفرامل حتى السكون التام للمركبة.</p>
+
+    <div class="comparison-grid">
+      <div class="compare-card rose">
+        <div class="card-header-row">
+          <span class="card-it-title">Legge Quadratica</span>
+          <span class="card-ar-title">قاعدة التناسب التربيعي</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>📐</span> <strong>العلاقة ليست خطية:</strong> مسافة الفرملة تتناسب مع <strong>مربع السرعة</strong> (<code>Quadratica</code>):</li>
+          <li><span>2️⃣</span> <strong>مضاعفة السرعة مرتين (2x):</strong> تزداد مسافة الفرملة <strong>4 أضعاف</strong> (<code>Si quadruplica / 2² = 4</code>).</li>
+          <li><span>3️⃣</span> <strong>مضاعفة السرعة 3 مرات (3x):</strong> تزداد مسافة الفرملة <strong>9 أضعاف</strong> (<code>3² = 9</code>).</li>
+          <li><span>4️⃣</span> <strong>مضاعفة السرعة 4 مرات (4x):</strong> تزداد مسافة الفرملة <strong>16 ضعفاً</strong> (<code>Sedici volte maggiore / 4² = 16</code>).</li>
+        </ul>
+      </div>
+
+      <div class="compare-card amber">
+        <div class="card-header-row">
+          <span class="card-it-title">Condizioni Stradali</span>
+          <span class="card-ar-title">عوامل تطيل الفرملة</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>🌧️</span> <strong>الأسفلت المبلل (Bagnato):</strong> يقلل الالتصاق ويزيد مسافة الفرملة.</li>
+          <li><span>❄️</span> <strong>الجليد (Ghiaccio):</strong> تنعدم قوة التماسك وتزيد مسافة الفرملة حتى <strong>10 أضعاف</strong>!</li>
+          <li><span>⛰️</span> <strong>المنحدرات (In discesa):</strong> تزيد مسافة الفرملة لأن قوة الجاذبية تدفع وزن المركبة لأسفل.</li>
+          <li><span>🚗</span> <strong>حالة السيارة:</strong> تآكل بطانات وتيل الفرامل، أو تآكل وتلف الإطارات وانخفاض ضغطها.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ======================== SECTION 4 ======================== -->
+    <h2 class="section-title">🛑 رابعاً: مسافة التوقف الكلية (Spazio Totale di Arresto)</h2>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">المسافة الإجمالية الشاملة التي تقطعها المركبة من لحظة إبصار الخطر بالعين حتى الوقوف الكامل والسكون التام للمركبة.</p>
+
+    <div class="highlight-box" style="text-align:center;">
+      <span style="font-size:1.15rem; color:#fff; font-weight:800; font-family:'Noto Kufi Arabic', sans-serif;">
+        [ مسافة التوقف الكلية = مسافة زمن رد الفعل + مسافة الفرملة الفعلية ]
+      </span><br>
+      <span style="font-family:'JetBrains Mono', monospace; font-size:0.95rem; color:var(--sky-primary); margin-top:6px; display:inline-block;">
+        Spazio Totale di Arresto = Spazio di Reazione + Spazio di Frenatura
+      </span>
+    </div>
+
+    <!-- ======================== SECTION 5 ======================== -->
+    <h2 class="section-title">📏 خامساً: الأرقام الإلزامية الثابتة ومصفوفة ما يؤثر وما لا يؤثر</h2>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">القاعدة العامة أن مسافة الأمان متغيرة؛ ولكن القانون الإيطالي يفرض <strong>رقمين ثابتين حصراً</strong> يجب حفظهما دون تردد:</p>
+
+    <div class="comparison-grid">
+      <div class="compare-card emerald">
+        <div class="card-header-row">
+          <span class="card-it-title">20 Metri Fissi</span>
+          <span class="card-ar-title">مسافة 20 متراً الثابتة</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>🚜</span> <strong>كاسحة الثلوج (Macchina sgombraneve):</strong> أثناء العمل يجب ترك مسافة لا تقل عن <strong>20 متراً</strong> خلفها.</li>
+          <li><span>🧂</span> <strong>شاحنة نثر الملح (Spanditrice di sale):</strong> أثناء عملها يجب ترك مسافة لا تقل عن <strong>20 متراً</strong> خلفها لتفادي تطاير الحصى والملح.</li>
+          <li><span>⚠️</span> <strong>فخ:</strong> زعم وجوب ترك 10 أمتار أو 50 متراً أو 100 متر خلف كاسحة الثلج ← <strong>FALSO</strong> (20 متراً فقط!).</li>
+        </ul>
+      </div>
+
+      <div class="compare-card purple">
+        <div class="card-header-row">
+          <span class="card-it-title">100 Metri Fissi</span>
+          <span class="card-ar-title">مسافة 100 متر الثابتة</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>🚛</span> <strong>بين شاحنات البضائع > 3.5 طن:</strong> على الطرق خارج المدن ذات الحارة الواحدة لكل اتجاه عند وجود شاخصة حظر التجاوز للشاحنات.</li>
+          <li><span>🎯</span> <strong>الهدف:</strong> ترك فجوة واسعة تمكن السيارات السريعة من تجاوز الشاحنة الأولى والدخول بأمان بين الشاحنتين.</li>
+          <li><span>⚠️</span> <strong>فخ:</strong> زعم أن مسافة 100 متر تطبق بين السيارات العادية في المطر أو المنحدرات ← <strong>FALSO</strong> (فقط للشاحنات المذكورة).</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="color:var(--sky-primary); margin:28px 0 14px; font-size:1.15rem;">⚖️ مصفوفة الحسم: ما يؤثر وما لا يؤثر إطلاقاً على مسافة الأمان</h3>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="color:#34d399;">عوامل تؤثر وتغير مسافة الأمان (VERO ✅)</th>
+            <th style="color:#fb7185;">عوامل لا علاقة لها ولا تؤثر نهائياً (FALSO ❌)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>السرعة (Velocità):</strong> كلما زادت السرعة زادت مسافة الأمان حتماً.</td>
+            <td><strong>سعة المحرك (Cilindrata):</strong> حجم المحرك أو قوته لا يحدد مسافة الأمان.</td>
+          </tr>
+          <tr>
+            <td><strong>زمن رد الفعل وحالة السائق:</strong> التعب، الكحول، المخدرات، الأدوية، التشتت.</td>
+            <td><strong>نوع الوقود (Tipo di carburante):</strong> بنزين، ديزل، غاز، أو كهرباء.</td>
+          </tr>
+          <tr>
+            <td><strong>حالة الطريق والطقس:</strong> أسفلت مبلل بالمطر، جليد، ثلوج، وحل، زيت، حصى.</td>
+            <td><strong>عرض المركبة (Larghezza del veicolo):</strong> عرض سيارتك أو التي أمامك.</td>
+          </tr>
+          <tr>
+            <td><strong>انحدار الطريق (In discesa):</strong> المنحدرات تزيد مسافة الفرملة بفعل الجاذبية.</td>
+            <td><strong>قوة الحصان (Potenza / Cavalli):</strong> قوة المحرك لا علاقة لها بالأمان.</td>
+          </tr>
+          <tr>
+            <td><strong>كفاءة فرامل الخدمة بالقدم (Freno di servizio):</strong> وحالة تيل الفرامل.</td>
+            <td><strong>فرامل اليد (Freno di stazionamento):</strong> مخصصة فقط لتثبيت السيارة وهي واقفة.</td>
+          </tr>
+          <tr>
+            <td><strong>حالة وتآكل الإطارات (Pneumatici usurati):</strong> وضغط الهواء فيها.</td>
+            <td><strong>الغيار المعشق (Marcia inserita):</strong> رقم النقلة بناقل الحركة.</td>
+          </tr>
+          <tr>
+            <td><strong>حمولة المركبة (Massa / Carico):</strong> زيادة الوزن تزيد مسافة التوقف.</td>
+            <td><strong>عدد حارات الطريق (Numero di corsie):</strong> لا يغير مسافة التتابع الطولية.</td>
+          </tr>
+          <tr>
+            <td><strong>اقتراب سيارة خلفية بشدة:</strong> نزيد المسافة مع من أمامنا لتفادي الاصطدام.</td>
+            <td><strong>حجم أو طول الشاحنة التي أمامنا:</strong> لا نزيد المسافة لمجرد ضخامتها.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ======================== SECTION 6 ======================== -->
+    <h2 class="section-title">📖 سادساً: القاموس التقني المبوب ثنائي اللغة (Glossario A2-B1)</h2>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>المصطلح بالإيطالية</th>
+            <th>الترجمة بالعربية</th>
+            <th>السياق الامتحاني ومفتاح الحل</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Distanza di sicurezza</strong></td>
+            <td>مسافة الأمان</td>
+            <td>متغيرة وليست قيمة ثابتة، تقاس بالنسبة للمركبة الأمامية لمنع الاصطدام الخلفي.</td>
+          </tr>
+          <tr>
+            <td><strong>Tamponamento</strong></td>
+            <td>اصطدام خلفي</td>
+            <td>الهدف الحصري والوحيد لمسافة الأمان هو منع وقوع هذا النوع من الحوادث.</td>
+          </tr>
+          <tr>
+            <td><strong>Tempo di reazione</strong></td>
+            <td>زمن رد الفعل</td>
+            <td>يقدر بحوالي 1 ثانية في الحالة الطبيعية للسائق الواعي السليم.</td>
+          </tr>
+          <tr>
+            <td><strong>Spazio di frenatura</strong></td>
+            <td>مسافة الفرملة</td>
+            <td>تتناسب طردياً مع مربع السرعة (تضاعف السرعة 2x يزيد الفرملة 4 أضعاف).</td>
+          </tr>
+          <tr>
+            <td><strong>Spazio totale di arresto</strong></td>
+            <td>مسافة التوقف الكلية</td>
+            <td>مجموع مسافة رد الفعل + مسافة الفرملة الفعلية.</td>
+          </tr>
+          <tr>
+            <td><strong>In discesa</strong></td>
+            <td>في المنحدر (الهبوط)</td>
+            <td>يزيد مسافة الفرملة والتوقف حتماً بسبب اندفاع الجاذبية الأرضية.</td>
+          </tr>
+          <tr>
+            <td><strong>Macchina sgombraneve</strong></td>
+            <td>كاسحة الثلوج</td>
+            <td>رقم إلزامي ثابت: يجب ترك مسافة لا تقل عن 20 متراً خلفها أثناء العمل.</td>
+          </tr>
+          <tr>
+            <td><strong>Spanditrice di sale</strong></td>
+            <td>شاحنة نثر الملح</td>
+            <td>رقم إلزامي ثابت: يجب ترك مسافة لا تقل عن 20 متراً خلفها أثناء العمل.</td>
+          </tr>
+          <tr>
+            <td><strong>Aderenza</strong></td>
+            <td>الالتصاق / قوة التماسك</td>
+            <td>تقل في المطر والجليد والزيت مما يطيل مسافة الفرملة حتى 10 أضعاف.</td>
+          </tr>
+          <tr>
+            <td><strong>Veicolo che precede</strong></td>
+            <td>المركبة التي أمامك (السابقة لك)</td>
+            <td>المركبة المرجعية التي تضبط مسافة أمانك بناءً عليها.</td>
+          </tr>
+          <tr>
+            <td><strong>Freno di servizio</strong></td>
+            <td>فرامل الخدمة (فرامل القدم)</td>
+            <td>الفرامل الوحيدة المسؤولة عن مسافة الفرملة والأمان أثناء السير.</td>
+          </tr>
+          <tr>
+            <td><strong>Freno di stazionamento</strong></td>
+            <td>فرامل التثبيت (فرامل اليد)</td>
+            <td>فخ متكرر: لا تؤثر على مسافة الأمان أثناء السير نهائياً.</td>
+          </tr>
+          <tr>
+            <td><strong>Cilindrata</strong></td>
+            <td>سعة المحرك</td>
+            <td>فخ متكرر: لا تؤثر إطلاقاً على مسافة الأمان في أي كويز وزاري.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ======================== SECTION 7 ======================== -->
+    <h2 class="section-title">⚡ سابعاً: بنك الفخاخ الوزارية المباشرة (15 سؤالاً حاسماً من الامتحانات الرسمية)</h2>
+    <p style="color:var(--text-secondary); margin-bottom:14px;">تم انتقاء أصعب 15 سؤالاً وزارياً من بنك الأسئلة الرسمي مع الترجمة البشرية الدقيقة والشرح القانوني والفيزيائي المباشر:</p>
+
+    <div class="quiz-stack">
+      <!-- Trap 1 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">1. Lo spazio di frenatura si quadruplica se la velocità si raddoppia.</div>
+        <div class="quiz-q-ar">تتضاعف مسافة الفرملة أربع مرات (4 أضعاف) إذا تضاعفت السرعة مرتين.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح 100%؛ العلاقة بين السرعة ومسافة الفرملة علاقة تربيعية (Quadratica) وليست خطية؛ مضاعفة السرعة مرتين تجعل مسافة الفرملة (2² = 4 أضعاف).</span>
+        </div>
+      </div>
+      <!-- Trap 2 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">2. Lo spazio di frenatura diventa sedici volte maggiore se la velocità si quadruplica.</div>
+        <div class="quiz-q-ar">تصبح مسافة الفرملة أكبر بـ 16 ضعفاً إذا زادت السرعة بمقدار 4 أضعاف.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ تطبيقاً للقاعدة الفيزيائية التربيعية؛ عند ضرب السرعة في 4 تزداد مسافة الفرملة بمقدار (4² = 16 ضعفاً).</span>
+        </div>
+      </div>
+      <!-- Trap 3 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">3. La distanza di sicurezza deve essere di almeno 100 metri quando si viaggia alla velocità di 100 km/h.</div>
+        <div class="quiz-q-ar">يجب أن تكون مسافة الأمان 100 متر على الأقل عند السير بسرعة 100 كم/س.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-falso">FALSO ❌</span>
+          <span class="quiz-explain">فخ الأرقام المبالغ فيها؛ عند سرعة 100 كم/س تكون مسافة رد الفعل في ثانية حوالي 30 متراً، ومسافة الأمان الآمنة تتراوح بين 40 إلى 50 متراً تقريباً، أما 100 متر فرقم خاطئ تماماً ومبالغ فيه.</span>
+        </div>
+      </div>
+      <!-- Trap 4 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">4. Il valore della distanza di sicurezza da mantenere da una macchina sgombraneve in azione è di 20 metri.</div>
+        <div class="quiz-q-ar">قيمة مسافة الأمان الواجب تركها خلف كاسحة الثلوج أثناء عملها هي 20 متراً.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ هذا أحد الرقمين الثابتين الإلزاميين في القانون الإيطالي (20 متراً خلف كاسحة الثلوج أو شاحنة نثر الملح أثناء العمل).</span>
+        </div>
+      </div>
+      <!-- Trap 5 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">5. Il valore della distanza di sicurezza da mantenere da una macchina sgombraneve in azione è di 10 metri.</div>
+        <div class="quiz-q-ar">قيمة مسافة الأمان الواجب تركها خلف كاسحة الثلوج أثناء عملها هي 10 أمتار.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-falso">FALSO ❌</span>
+          <span class="quiz-explain">فخ تبديل الأرقام؛ الرقم القانوني الإلزامي هو 20 متراً وليس 10 أمتار أو 50 متراً.</span>
+        </div>
+      </div>
+      <!-- Trap 6 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">6. Su strada extraurbana a una corsia per senso di marcia, la distanza fra veicoli adibiti al trasporto di merci di massa complessiva superiore a 3,5 tonnellate, cui sia stato imposto il divieto di sorpasso, deve essere di almeno 100 metri.</div>
+        <div class="quiz-q-ar">على الطرق خارج المدن ذات الحارة الواحدة لكل اتجاه، يجب أن تكون المسافة بين مركبات نقل البضائع التي تزيد كتلتها عن 3.5 طن الخاضعة لمنع التجاوز 100 متر على الأقل.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ الرقم الثابت الإلزامي الثاني في كود السير؛ لتمكين المركبات الخفيفة والسريعة من التجاوز والعودة بين الشاحنات بأمان.</span>
+        </div>
+      </div>
+      <!-- Trap 7 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">7. Il valore della distanza di sicurezza deve essere stabilito anche in base alla cilindrata del veicolo.</div>
+        <div class="quiz-q-ar">يجب تحديد قيمة مسافة الأمان أيضاً بناءً على سعة محرك المركبة (Cilindrata).</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-falso">FALSO ❌</span>
+          <span class="quiz-explain">فخ متكرر جداً؛ سعة المحرك أو حجم السلندرات لا علاقة له إطلاقاً بمسافة الأمان أو كفاءة الفرامل وقدرة التوقف.</span>
+        </div>
+      </div>
+      <!-- Trap 8 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">8. Il conducente deve stabilire il valore della distanza di sicurezza anche in base alla larghezza del veicolo di cui è alla guida.</div>
+        <div class="quiz-q-ar">يجب على السائق تحديد مسافة الأمان بناءً على عرض المركبة التي يقودها أو عرض المركبة التي أمامه.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-falso">FALSO ❌</span>
+          <span class="quiz-explain">عرض المركبة (Larghezza) لا يغير مسافة الأمان الطولية بين المركبات؛ مسافة الأمان مسافة طولية تعتمد على السرعة والفرامل وحالة الطريق.</span>
+        </div>
+      </div>
+      <!-- Trap 9 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">9. La distanza di sicurezza dipende dall'efficienza del freno di stazionamento.</div>
+        <div class="quiz-q-ar">تعتمد مسافة الأمان على كفاءة فرامل اليد والتثبيت (Freno di stazionamento).</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-falso">FALSO ❌</span>
+          <span class="quiz-explain">فخ شهير؛ مسافة الأمان والفرملة أثناء السير تعتمد حصراً على فرامل الخدمة بالقدم (Freno di servizio) ولا علاقة لها بفرامل اليد المخصصة للتثبيت عند التوقف.</span>
+        </div>
+      </div>
+      <!-- Trap 10 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">10. La distanza di sicurezza deve essere aumentata se il veicolo che segue è troppo vicino.</div>
+        <div class="quiz-q-ar">يجب زيادة مسافة الأمان (مع المركبة التي أمامنا) إذا كانت المركبة التي تسير خلفنا قريبة منا جداً وتلتصق بنا.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">سؤال ذكي وحاسم؛ إذا كان السائق خلفك يلتصق بك، يجب أن تزيد أنت مسافة الأمان مع المركبة التي أمامك لتتمكن من التباطؤ بنعومة ودون فرملة مفاجئة، وتمنح من خلفك وقتاً للتوقف دون أن يصدمك!</span>
+        </div>
+      </div>
+      <!-- Trap 11 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">11. La distanza di sicurezza deve essere aumentata nelle forti discese.</div>
+        <div class="quiz-q-ar">يجب زيادة مسافة الأمان في المنحدرات الشديدة (In discesa).</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ في المنحدرات تدفع قوة الجاذبية الأرضية وزن السيارة للأسفل مما يضعف كفاءة التباطؤ ويطيل مسافة الفرملة والتوقف.</span>
+        </div>
+      </div>
+      <!-- Trap 12 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">12. La distanza di sicurezza deve essere stabilita in base al tipo di carburante utilizzato dal motore.</div>
+        <div class="quiz-q-ar">تُحدد مسافة الأمان بناءً على نوع الوقود المستخدم في المحرك (بنزين أو ديزل أو غاز).</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-falso">FALSO ❌</span>
+          <span class="quiz-explain">فخ مضحك ومتكرر؛ نوع الوقود لا يؤثر نهائياً على قدرة السيارة على التوقف أو مسافة الأمان.</span>
+        </div>
+      </div>
+      <!-- Trap 13 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">13. Lo spazio totale di arresto è pari alla somma dello spazio percorso nel tempo di reazione e dello spazio di frenatura.</div>
+        <div class="quiz-q-ar">مسافة التوقف الكلية تساوي مجموع المسافة المقطوعة في زمن رد الفعل ومسافة الفرملة.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ المعادلة الرياضية الأساسية في الباب: [مسافة التوقف الكلية = مسافة زمن رد الفعل + مسافة الفرملة].</span>
+        </div>
+      </div>
+      <!-- Trap 14 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">14. La distanza di sicurezza deve essere aumentata quando si marcia con una marcia bassa.</div>
+        <div class="quiz-q-ar">يجب زيادة مسافة الأمان عند القيادة بغيار ناقل حركة منخفض (Marcia bassa).</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-falso">FALSO ❌</span>
+          <span class="quiz-explain">الغيار المعشق بناقل الحركة لا يحدد مسافة الأمان، بل السرعة الحقيقية بالكيلومتر/ساعة هي المعيار الأساسي.</span>
+        </div>
+      </div>
+      <!-- Trap 15 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">15. Viaggiando a 130 km/h, la distanza minima di sicurezza deve essere di circa 20 metri.</div>
+        <div class="quiz-q-ar">عند السير بسرعة 130 كم/س، يجب أن تكون مسافة الأمان الدنيا حوالي 20 متراً.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-falso">FALSO ❌</span>
+          <span class="quiz-explain">فخ رقمي خطير؛ عند سرعة 130 كم/س تقطع السيارة في ثانية واحدة فقط (زمن رد الفعل) حوالي 36-39 متراً، فكيف تكون مسافة الأمان 20 متراً فقط؟! هذا انتحار مروري وفالسو قطعي.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Smart Chapter Pagination -->
+    <nav class="chapter-pagination" aria-label="التنقل بين الأبواب">
+      <a href="../Capitoli_Divisi/Capitolo_11_limiti_di_velocita/index.html" class="pagination-btn prev-btn">
+        <span class="pagination-arrow">←</span>
+        <div class="pagination-info">
+          <span class="pagination-label">الباب السابق</span>
+          <span class="pagination-title">الباب 11: حدود السرعة</span>
+        </div>
+      </a>
+
+      <a href="index.html" class="pagination-btn index-btn" title="العودة لفهرس المكتبة">
+        <span>📑 الفهرس الرئيسي</span>
+      </a>
+
+      <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="pagination-btn next-btn">
+        <div class="pagination-info">
+          <span class="pagination-label">الباب التالي</span>
+          <span class="pagination-title">الباب 13: قواعد السير والمسارات</span>
+        </div>
+        <span class="pagination-arrow">→</span>
+      </a>
+    </nav>
+  </article>
+</main>
+
+<script>
+  // Unified Web Audio API Sound Engine
+  const soundEngine = window.soundEngine || {
+    ctx: null,
+    enabled: true,
+    init() {
+      if (!this.ctx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        this.ctx = new AudioContext();
+      }
+    },
+    click() {
+      if (!this.enabled) return;
+      this.init();
+      if (this.ctx.state === 'suspended') this.ctx.resume();
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(800, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(400, this.ctx.currentTime + 0.04);
+      gain.gain.setValueAtTime(0.08, this.ctx.currentTime);
+      gain.gain.linearRampToValueAtTime(0.01, this.ctx.currentTime + 0.04);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.04);
+    }
+  };
+
+  function toggleAudio() {
+    soundEngine.enabled = !soundEngine.enabled;
+    const label = document.querySelector('.audio-label-span');
+    const icon = document.querySelector('.audio-icon-span');
+    if (label && icon) {
+      label.textContent = soundEngine.enabled ? 'الصوت: نشط' : 'الصوت: معطل';
+      icon.textContent = soundEngine.enabled ? '🔊' : '🔇';
+    }
+  }
+
+  function openMobileNav() {
+    const overlay = document.getElementById('mobileDrawerOverlay');
+    if (overlay) {
+      overlay.classList.add('active');
+      document.body.classList.add('nav-scroll-lock');
+    }
+  }
+
+  function closeMobileNav() {
+    const overlay = document.getElementById('mobileDrawerOverlay');
+    if (overlay) {
+      overlay.classList.remove('active');
+      document.body.classList.remove('nav-scroll-lock');
+    }
+  }
+
+  // Desktop Chapters Dropdown Toggle & Outside Click
+  function toggleNavDropdown(e) {
+    if (e) e.stopPropagation();
+    const menu = document.getElementById('navDropdownMenu');
+    if (menu) menu.classList.toggle('active');
+  }
+  document.addEventListener('click', function(e) {
+    const wrapper = document.querySelector('.nav-dropdown-wrapper');
+    const menu = document.getElementById('navDropdownMenu');
+    if (menu && menu.classList.contains('active')) {
+      if (wrapper && !wrapper.contains(e.target)) {
+        menu.classList.remove('active');
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
