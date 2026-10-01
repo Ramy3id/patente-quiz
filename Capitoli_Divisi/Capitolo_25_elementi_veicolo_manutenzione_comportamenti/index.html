@@ -726,6 +726,147 @@
     from { opacity: 0; transform: translateY(-4px); }
     to { opacity: 1; transform: translateY(0); }
   }
+
+  /* ==========================================================================
+     Desktop Chapters Dropdown & Pagination (Declutter Architecture)
+     ========================================================================== */
+  .nav-dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  .nav-dropdown-btn {
+    height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: #e4e4e7;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+  .nav-dropdown-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.22);
+    color: #fff;
+  }
+  .nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 290px;
+    max-height: 440px;
+    overflow-y: auto;
+    background: #121215;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 1100;
+    direction: rtl;
+  }
+  .nav-dropdown-menu.active {
+    display: flex;
+  }
+  .nav-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #d4d4d8;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: all 0.12s ease;
+  }
+  .nav-dropdown-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+  }
+  .nav-dropdown-item.active {
+    background: rgba(56, 189, 248, 0.12);
+    color: #38bdf8;
+    font-weight: 700;
+  }
+
+  /* Chapter Pagination */
+  .chapter-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 40px 0 20px;
+    padding: 16px 20px;
+    background: rgba(24, 24, 27, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    flex-wrap: wrap;
+  }
+  .pagination-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #f4f4f5;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: all 0.15s ease;
+  }
+  .pagination-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.16);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+  .pagination-btn.index-btn {
+    background: rgba(56, 189, 248, 0.08);
+    border-color: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+  }
+  .pagination-btn.disabled {
+    opacity: 0.35;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+  .pagination-info {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+  .pagination-label {
+    font-size: 0.72rem;
+    color: #a1a1aa;
+    font-weight: 500;
+  }
+  .pagination-title {
+    font-size: 0.85rem;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  @media (max-width: 1023px) {
+    .nav-dropdown-wrapper {
+      display: none !important;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -740,25 +881,12 @@
   </a>
 
   <!-- Desktop Tabs Menu -->
-  <div class="nav-desktop-tabs">
-    <a href="../index.html" class="nav-tab-desktop">📚 الأبواب المقسمة (25 باب)</a>
-    <a href="../../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان (20 دقيقة)</a>
-    <a href="../../المكتبة_الشاملة_المعتمدة/index.html" class="nav-tab-desktop">📑 فهرس المكتبة</a>
-    <a href="../../المكتبة_الشاملة_المعتمدة/دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-tab-desktop">📖 الباب 13 (قواعد السير)</a>
-    <a href="../../المكتبة_الشاملة_المعتمدة/دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-tab-desktop">📖 الباب 14 (أسبقية التقاطعات)</a>
-    <a href="../../المكتبة_الشاملة_المعتمدة/دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-tab-desktop">📖 الباب 15 (التجاوز)</a>
-    <a href="../../المكتبة_الشاملة_المعتمدة/دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-tab-desktop">📖 الباب 16 (الركن والوقوف)</a>
-    <a href="../../المكتبة_الشاملة_المعتمدة/دليل_الأبواب_11_إلى_15_قواعد_السير_والسرعة_ومسافة_الأمان.html" class="nav-tab-desktop">📖 الأبواب 11-15 (السير والسرعة)</a>
-    <a href="../../المكتبة_الشاملة_المعتمدة/دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-tab-desktop">📖 الباب 17 (الأوتوستراد والمقطورات)</a>
-    <a href="../../المكتبة_الشاملة_المعتمدة/دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-tab-desktop">📖 الباب 18 (الأضواء والتابلوه)</a>
-    <a href="../../المكتبة_الشاملة_المعتمدة/دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-tab-desktop">📖 الباب 19 (الأحزمة والخوذة)</a>
-    <a href="../../المكتبة_الشاملة_المعتمدة/دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-tab-desktop">📖 الباب 20 (الرخص والنقاط)</a>
-    <a href="../../المكتبة_الشاملة_المعتمدة/دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-tab-desktop">📖 الباب 21 (الحوادث والطقس)</a>
-    <a href="../../المكتبة_الشاملة_المعتمدة/دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-tab-desktop">📖 الباب 22 (الكحول والإسعافات)</a>
-    <a href="../../المكتبة_الشاملة_المعتمدة/دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-tab-desktop">📖 الباب 23 (التأمين RCA)</a>
-    <a href="../../المكتبة_الشاملة_المعتمدة/دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-tab-desktop">📖 الباب 24 (البيئة والوقود)</a>
-    <a href="../../المكتبة_الشاملة_المعتمدة/دليل_الباب_الأخير.html" class="nav-tab-desktop active">📖 الباب 25 (الميكانيكا)</a>
-  </div>
+    <!-- Core 3 Desktop Navigation Tabs -->
+  <nav class="nav-desktop-tabs">
+    <a href="../../المكتبة_الشاملة_المعتمدة/index.html" class="nav-tab-desktop">🏛️ فهرس المكتبة</a>
+    <a href="../index.html" class="nav-tab-desktop">📚 الأبواب المقسمة</a>
+    <a href="../../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
+  </nav>
 
   <!-- Desktop Audio Control -->
   <div class="nav-desktop-actions">
@@ -1187,6 +1315,23 @@
 
   // Initial render
   renderQuestions();
+
+  // Desktop Chapters Dropdown Toggle & Outside Click
+  function toggleNavDropdown(e) {
+    if (e) e.stopPropagation();
+    const menu = document.getElementById('navDropdownMenu');
+    if (menu) menu.classList.toggle('active');
+  }
+  document.addEventListener('click', function(e) {
+    const wrapper = document.querySelector('.nav-dropdown-wrapper');
+    const menu = document.getElementById('navDropdownMenu');
+    if (menu && menu.classList.contains('active')) {
+      if (wrapper && !wrapper.contains(e.target)) {
+        menu.classList.remove('active');
+      }
+    }
+  });
+
 </script>
 </body>
 </html>
