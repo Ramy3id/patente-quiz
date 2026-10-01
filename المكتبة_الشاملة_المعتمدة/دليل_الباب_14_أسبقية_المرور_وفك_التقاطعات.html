@@ -1,0 +1,2249 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>دليل وقاموس الباب 14: أسبقية المرور وفك التقاطعات والمفترقات | رخصة القيادة الإيطالية</title>
+  
+  <!-- Apple System Fonts & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Kufi+Arabic:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+  /* ==========================================================================
+     Design System Tokens & Dark Modern Theme
+     ========================================================================== */
+  :root {
+    --bg-base: #09090b;
+    --bg-surface: #121215;
+    --bg-elevated: #18181b;
+    --bg-glass: rgba(18, 18, 21, 0.75);
+    
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(255, 255, 255, 0.16);
+    --border-card: rgba(255, 255, 255, 0.05);
+
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-tertiary: #71717a;
+
+    --sky-primary: #38bdf8;
+    --sky-glow: rgba(56, 189, 248, 0.15);
+    --emerald-primary: #10b981;
+    --amber-primary: #f59e0b;
+    --rose-primary: #f43f5e;
+    --purple-primary: #a855f7;
+    --blue-primary: #3b82f6;
+
+    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    --nav-base-height: 54px;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    padding-bottom: 80px;
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.04), transparent 40%),
+      radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.03), transparent 40%);
+    background-attachment: fixed;
+  }
+
+  /* Typography Polish */
+  h1, h2, h3, h4 {
+    font-family: 'Noto Kufi Arabic', -apple-system, sans-serif;
+    font-weight: 700;
+  }
+
+  .container {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 24px 16px;
+  }
+
+  /* Header & Breadcrumb */
+  .header-card {
+    background: linear-gradient(135deg, rgba(24, 24, 27, 0.8), rgba(18, 18, 21, 0.9));
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 32px 28px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .badge-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(56, 189, 248, 0.12);
+    color: var(--sky-primary);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+  }
+
+  .main-title {
+    font-size: 2.1rem;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+
+  .sub-lead {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .callout-box {
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+    font-size: 0.95rem;
+    color: #e0f2fe;
+    line-height: 1.6;
+  }
+
+  .section-title {
+    font-size: 1.45rem;
+    margin: 36px 0 16px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 10px;
+  }
+
+  /* Comparison Grid */
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+
+  .compare-card {
+    background: rgba(24, 24, 27, 0.7);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 22px 20px;
+    backdrop-filter: blur(12px);
+    transition: transform 0.2s var(--ease-spring), border-color 0.2s;
+  }
+  .compare-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-highlight);
+  }
+  .compare-card.emerald { border-top: 3px solid var(--emerald-primary); }
+  .compare-card.amber { border-top: 3px solid var(--amber-primary); }
+  .compare-card.indigo { border-top: 3px solid #6366f1; }
+  .compare-card.rose { border-top: 3px solid var(--rose-primary); }
+  .compare-card.purple { border-top: 3px solid var(--purple-primary); }
+
+  .card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 10px;
+  }
+  .card-it-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .card-ar-title {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+
+  .card-points-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #d4d4d8;
+  }
+  .card-points-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.5;
+  }
+
+  /* Interactive Data Table */
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 14px;
+    border: 1px solid var(--border-subtle);
+    margin: 24px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: right;
+    font-size: 0.92rem;
+  }
+  .data-table th {
+    background: rgba(39, 39, 42, 0.8);
+    color: #fff;
+    padding: 14px 16px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--border-subtle);
+    white-space: nowrap;
+  }
+  .data-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: #d4d4d8;
+  }
+  .data-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  /* Figures Catalog Grid */
+  .fig-search-bar {
+    margin: 20px 0;
+    display: flex;
+    gap: 12px;
+  }
+  .fig-search-input {
+    flex: 1;
+    min-height: 48px;
+    background: rgba(24, 24, 27, 0.8);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 0 16px;
+    color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .fig-search-input:focus {
+    border-color: var(--sky-primary);
+  }
+
+  .intersection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 18px;
+    margin: 20px 0;
+  }
+
+  .intersection-card {
+    background: rgba(24, 24, 27, 0.75);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.2s var(--ease-spring), border-color 0.2s;
+  }
+  .intersection-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-highlight);
+  }
+  .intersection-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .fig-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--sky-primary);
+    background: rgba(56, 189, 248, 0.12);
+    padding: 4px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+  }
+  .fig-count {
+    font-size: 0.78rem;
+    color: var(--text-tertiary);
+  }
+  .fig-img-container {
+    width: 100%;
+    min-height: 180px;
+    background: #000;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .fig-img {
+    max-width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+  }
+  .order-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .order-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--amber-primary);
+  }
+  .order-seq {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #fff;
+    direction: ltr;
+    text-align: left;
+  }
+  .order-desc {
+    font-size: 0.84rem;
+    color: #a1a1aa;
+    line-height: 1.5;
+  }
+  .fig-sample-qa {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 8px;
+  }
+  .sample-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    line-height: 1.4;
+  }
+  .sample-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .sample-tag.vero { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+  .sample-tag.falso { background: rgba(244, 63, 94, 0.15); color: #fb7185; }
+  .sample-text {
+    color: #d4d4d8;
+    direction: ltr;
+    text-align: left;
+  }
+
+  /* Quiz Accordion */
+  .quiz-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .quiz-card {
+    background: rgba(24, 24, 27, 0.7);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 18px 20px;
+    transition: border-color 0.15s;
+  }
+  .quiz-card:hover { border-color: var(--border-highlight); }
+  .quiz-q-it {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    direction: ltr;
+    text-align: left;
+  }
+  .quiz-q-ar {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+  }
+  .quiz-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .ans-badge {
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .ans-vero { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+  .ans-falso { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+  .quiz-explain {
+    font-size: 0.88rem;
+    color: #a1a1aa;
+    flex: 1;
+    min-width: 200px;
+  }
+
+  /* Platform Navigation (Unified) */
+  .unified-portal-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
+    max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
+    background: rgba(9, 9, 11, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    padding-top: env(safe-area-inset-top, 0px);
+    box-sizing: border-box;
+    direction: rtl;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .nav-desktop-tabs {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 4px 8px;
+    margin: 0 16px;
+    flex: 1;
+    justify-content: center;
+  }
+  .nav-desktop-tabs::-webkit-scrollbar { display: none; }
+
+  .nav-tab-desktop {
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #a1a1aa;
+    text-decoration: none;
+    white-space: nowrap;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+  }
+  .nav-tab-desktop:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .nav-tab-desktop.active {
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.3);
+    color: var(--sky-primary);
+  }
+
+  .nav-desktop-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .nav-audio-btn {
+    height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #e4e4e7;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .nav-audio-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+
+  .nav-hamburger-btn {
+    display: none;
+    width: 38px;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0;
+  }
+  .hamburger-box {
+    width: 18px;
+    height: 14px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .hamburger-line {
+    width: 100%;
+    height: 2px;
+    background-color: #f4f4f5;
+    border-radius: 2px;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  /* Mobile Drawer */
+  .mobile-drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+  .mobile-drawer-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .mobile-drawer-panel {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: min(85vw, 360px);
+    background: #121215;
+    border-left: 1px solid var(--border-subtle);
+    z-index: 2000;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    direction: rtl;
+    box-sizing: border-box;
+  }
+  .mobile-drawer-overlay.active .mobile-drawer-panel {
+    transform: translateX(0);
+  }
+  .mobile-drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .mobile-drawer-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .mobile-drawer-close {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    color: #a1a1aa;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  .mobile-drawer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+    flex: 1;
+  }
+  .mobile-nav-link {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    color: #e4e4e7;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+  .mobile-nav-link.active {
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.3);
+    color: var(--sky-primary);
+  }
+
+  @media (max-width: 768px) {
+    .unified-portal-nav {
+      height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
+      max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
+      padding: 0 16px;
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+    .nav-desktop-tabs, .nav-desktop-actions { display: none !important; }
+    .nav-hamburger-btn { display: flex; }
+  }
+  </style>
+</head>
+<body>
+
+<!-- Unified Top Navigation Bar -->
+<header class="unified-portal-nav">
+  <a href="index.html" class="nav-brand" onclick="soundEngine.click()">
+    <span class="brand-icon">📚</span>
+    <span>المكتبة الشاملة</span>
+    <span class="badge-tag" style="margin:0; padding:2px 8px; font-size:0.75rem;">Capitolo 14</span>
+  </a>
+
+  <!-- Desktop Tabs -->
+  <nav class="nav-desktop-tabs">
+    <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop" onclick="soundEngine.click()">📁 فهرس الأبواب</a>
+    <a href="index.html" class="nav-tab-desktop" onclick="soundEngine.click()">📚 المكتبة المعتمدة</a>
+    <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-tab-desktop active" onclick="soundEngine.click()">📖 الباب 14 (أسبقية التقاطعات)</a>
+    <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-tab-desktop" onclick="soundEngine.click()">📖 الباب 15 (التجاوز)</a>
+    <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-tab-desktop" onclick="soundEngine.click()">📖 الباب 16 (الركن والوقوف)</a>
+    <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-tab-desktop" onclick="soundEngine.click()">📖 الباب 17 (الأوتوستراد)</a>
+    <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-tab-desktop" onclick="soundEngine.click()">📖 الباب 18 (الأضواء)</a>
+    <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-tab-desktop" onclick="soundEngine.click()">📖 الباب 19 (الأمان)</a>
+    <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-tab-desktop" onclick="soundEngine.click()">📖 الباب 20 (الرخص)</a>
+  </nav>
+
+  <!-- Desktop Actions -->
+  <div class="nav-desktop-actions">
+    <button class="nav-audio-btn" onclick="toggleAudio()">
+      <span class="audio-icon-span">🔊</span>
+      <span class="audio-label-span">الصوت: نشط</span>
+    </button>
+  </div>
+
+  <!-- Mobile Hamburger Button -->
+  <button class="nav-hamburger-btn" onclick="openMobileNav()">
+    <div class="hamburger-box">
+      <span class="hamburger-line line-top"></span>
+      <span class="hamburger-line line-mid"></span>
+      <span class="hamburger-line line-bot"></span>
+    </div>
+  </button>
+</header>
+
+<!-- Mobile Navigation Drawer -->
+<div id="mobileDrawerOverlay" class="mobile-drawer-overlay" onclick="closeMobileNav()">
+  <div class="mobile-drawer-panel" onclick="event.stopPropagation()">
+    <div class="mobile-drawer-header">
+      <div class="mobile-drawer-title">فهرس المكتبة الشاملة</div>
+      <button class="mobile-drawer-close" onclick="closeMobileNav()">✕</button>
+    </div>
+    <div class="mobile-drawer-list">
+      <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📁 فهرس الأبواب الـ 25</span>
+      </a>
+      <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>⚡ محاكي الامتحان الوزاري</span>
+      </a>
+      <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📚 فهرس المكتبة المعتمدة</span>
+      </a>
+      <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="mobile-nav-link active" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 14 (أسبقية التقاطعات)</span>
+      </a>
+      <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 15 (التجاوز والتخطي)</span>
+      </a>
+      <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 16 (الوقوف والتوقف والركن)</span>
+      </a>
+      <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 17 (الأوتوستراد والمقطورات)</span>
+      </a>
+      <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 18 (الأضواء وأجهزة الإنذار)</span>
+      </a>
+      <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 19 (الأمان والخوذة والمقاعد)</span>
+      </a>
+      <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 20 (الرخص والنقاط والعقوبات)</span>
+      </a>
+      <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 21 (حوادث السير والطقس)</span>
+      </a>
+      <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 22 (الكحول والمخدرات والإسعافات)</span>
+      </a>
+      <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 23 (التأمين والمسؤولية)</span>
+      </a>
+      <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 24 (البيئة وترشيد الوقود)</span>
+      </a>
+      <a href="دليل_الباب_الأخير.html" class="mobile-nav-link" onclick="closeMobileNav()">
+        <span>📖 دليل الباب 25 (الميكانيكا والصيانة)</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<main class="container">
+  <article class="content-sheet">
+    <header class="header-card">
+      <div class="badge-tag">CAPITOLO 14 • CODICE DELLA STRADA 2026</div>
+      <h1 class="main-title">دليل وقاموس الباب الرابع عشر: أسبقية المرور وفك التقاطعات والمفترقات</h1>
+      <p class="sub-lead">Precedenza agli incroci — الدليل التفاعلي الشامل لفك كافة المخططات الوزارية الـ 43 بنظام اليمين الحر، إشغال التقاطع، العبور المتزامن، وشواخص الأسبقية مع تفكيك الفخاخ لمستوى A2-B1.</p>
+    </header>
+
+    <div class="callout-box">
+      <strong>📊 إحصائيات الباب الرسمية في بنك الوزارة:</strong> يضم الباب الرابع عشر بالضبط <strong>415 سؤالاً وزارياً</strong> موزعة على <strong>43 مخطط تقاطع رسمي (Figure Ministeriali من 608 إلى 669)</strong>. إن فك أي تقاطع في الامتحان ليس مسألة حظ، بل يخضع لـ <strong>خوارزمية ثابتة من 4 خطوات ذهبية</strong> تجعلك تحل أصعب الأسئلة بثقة تامة.
+    </div>
+
+    <!-- Section 1 -->
+    <h2 class="section-title">أولاً: الخوارزمية الذهبية لحل أي تقاطع في الامتحان (4 خطوات حاسمة)</h2>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">عندما يظهر أمامك أي سؤال تقاطع في شاشة الامتحان، اتبع هذا الترتيب المنطقي الصارم:</p>
+
+    <div class="comparison-grid">
+      <div class="compare-card rose">
+        <div class="card-header-row">
+          <span class="card-it-title">1. Tram & Emergenza</span>
+          <span class="card-ar-title">الخطوة 1: الترام والطوارئ</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>🚋</span> <strong>الترام (Il Tram):</strong> يمر أولاً من اليمين ومن اليسار في التقاطعات العادية غير المنظمة بإشارات.</li>
+          <li><span>🚑</span> <strong>مركبات الطوارئ:</strong> الإسعاف، الشرطة، والمطافئ لها الأولوية المطلقة <strong>بشرط تشغيل الصافرة (Sirena) والأضواء الزرقاء (Lampeggiante blu)</strong>.</li>
+          <li><span>⚠️</span> <strong>فخ كويز:</strong> الترام لا يملك أولوية مطلقة دائماً؛ إذا كانت أمامه إشارة قف STOP أو إعطاء أسبقية أو ضوء أحمر، يقف إجبارياً!</li>
+        </ul>
+      </div>
+
+      <div class="compare-card amber">
+        <div class="card-header-row">
+          <span class="card-it-title">2. Segnali di Precedenza</span>
+          <span class="card-ar-title">الخطوة 2: فحص الإشارات</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>🟡</span> <strong>طريق ذو أسبقية:</strong> المركبات على الطريق الرئيسي (الخط العريض باللوحة التكميلية) تمر أولاً.</li>
+          <li><span>🔻</span> <strong>STOP & DARE PRECEDENZA:</strong> المركبات التي تواجه هذه اللوحات تقف وتنتظر خلو الشارع ذي الأولوية.</li>
+          <li><span>🤝</span> <strong>اليمين الحر بين الشركاء:</strong> يطبق مبدأ اليمين الحر بين المركبات التي على الطريق الرئيسي أولاً، ثم بين المركبات على الطرق الفرعية ثانياً!</li>
+        </ul>
+      </div>
+
+      <div class="compare-card emerald">
+        <div class="card-header-row">
+          <span class="card-it-title">3. Destra Libera</span>
+          <span class="card-ar-title">الخطوة 3: البحث عن اليمين الحر</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>👀</span> <strong>من يمنه خالٍ؟</strong> انظر إلى مسار كل مركبة؛ المركبة التي لا يأتي من يمينها أي مركبة تقطع خط سيرها هي التي <strong>تمر أولاً (Passa per primo)</strong>.</li>
+          <li><span>🔄</span> <strong>الدوران التسلسلي:</strong> بمجرد خروج المركبة الأولى، يصبح يمين المركبة المجاورة لها خالياً فتعبر هي الأخرى، وهكذا باتجاه عقارب الساعة.</li>
+        </ul>
+      </div>
+
+      <div class="compare-card indigo">
+        <div class="card-header-row">
+          <span class="card-it-title">4. Centro & Svolta</span>
+          <span class="card-ar-title">الخطوة 4: الانعطاف والوسط</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>↩️</span> <strong>الانعطاف يساراً (Svolta a sinistra):</strong> يجب إعطاء الأسبقية للقادمين من الأمام (من المقابل).</li>
+          <li><span>🛑</span> <strong>التقدم لوسط التقاطع:</strong> إذا كان اليمين مشغولاً للجميع، تتقدم السيارة المنعطفة لليسار لوسط التقاطع (Impegna il centro) وتنتظر، فيفرغ يمين السيارة التي خلفها!</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <h2 class="section-title">ثانياً: الأنماط الخمسة الشاملة للتقاطعات في بنك الوزارة</h2>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>النمط التقني</th>
+            <th>الخصائص والشروط القانونية</th>
+            <th>أبرز المخططات الوزارية</th>
+            <th>القاعدة الذهبية للحل</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. التقاطع البسيط الكلاسيكي</strong></td>
+            <td>غياب أي شواخص؛ مركبة واحدة فقط يمينها خالٍ تماماً.</td>
+            <td>Figura 608, 613, 615, 618, 632, 646, 659, 662</td>
+            <td>ابحث عن اليمين الحر، ثم أدر عقارب الساعة بالتتابع.</td>
+          </tr>
+          <tr>
+            <td><strong>2. تقاطع الترام</strong></td>
+            <td>وجود ترام يتحرك على قضبان وسط الشارع.</td>
+            <td>Figura 642, 639, 648, 651</td>
+            <td>الترام يمر أولاً (أو ومعه سيارة لا تقاطعه)، ثم يستأنف اليمين الحر بين باقي السيارات.</td>
+          </tr>
+          <tr>
+            <td><strong>3. إشغال الوسط والتوقف</strong></td>
+            <td>تقاطع فيه دوران كامل أو انعطاف يسار يقطع المسار.</td>
+            <td>Figura 638, 617, 634</td>
+            <td>السيارة تتقدم للوسط وتتوقف، لتحرير يمين سيارة أخرى تعبر بالكامل، ثم تكمل الأولى مسارها!</td>
+          </tr>
+          <tr>
+            <td><strong>4. العبور المتزامن (Contemporaneamente)</strong></td>
+            <td>مركبتان في التقاطع مساراهما لا يتقاطعان إطلاقاً.</td>
+            <td>Figura 648 (P و D معاً), Figura 650 (L و D معاً), Figura 610</td>
+            <td>تعبران معاً في نفس اللحظة؛ وأي سؤال يزعم أسبقية إحداهما على الأخرى فهو Falso!</td>
+          </tr>
+          <tr>
+            <td><strong>5. تقاطع الخط العريض والأسبقية</strong></td>
+            <td>وجود لوحة طريق ذي أسبقية مع لوحة الخط العريض المنحني.</td>
+            <td>Figura 652, 647, 654, 655, 665, 669</td>
+            <td>أصحاب الخط العريض يمرون أولاً (مع تطبيق اليمين بينهم)، ثم أصحاب الطرق الفرعية ثانياً.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Section 3 -->
+    <h2 class="section-title">ثالثاً: التحليل العميق لميكانيكية إشغال الوسط (Figura 638 النموذجية)</h2>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">المخطط <strong>Figura 638</strong> هو أشهر مخطط في تاريخ امتحان الباتنتي، ويتكرر في 19 سؤالاً وزارياً. إليك تفكيكه العلمي خطوة بخطوة:</p>
+
+    <div style="background:rgba(24, 24, 27, 0.7); border:1px solid var(--border-subtle); border-radius:16px; padding:22px; margin:20px 0;">
+      <div style="display:flex; flex-wrap:wrap; gap:20px; align-items:center;">
+        <div style="flex:1; min-width:260px;">
+          <h4 style="color:var(--sky-primary); margin-bottom:12px; font-size:1.15rem;">🚗 تسلسل العبور في Figura 638:</h4>
+          <ol style="color:#d4d4d8; font-size:0.95rem; line-height:1.8; padding-right:20px;">
+            <li><strong>المركبة B تتقدم لمنتصف التقاطع (Impegna l'incrocio e si ferma al centro):</strong> لأن يمينها خالٍ بالنسبة للشارع، ولكنها تقف بالوسط لأنها تنعطف يساراً ويجب أن تعطي الأسبقية للمركبة N القادمة من الأمام.</li>
+            <li><strong>المركبة R تعبر بالكامل (Passa per prima completando):</strong> بتقدم المركبة B لمنتصف التقاطع، أصبح يمين المركبة R خالياً تماماً، فتعبر أولاً!</li>
+            <li><strong>المركبتان D و N تعبران معاً (Passano contemporaneamente):</strong> بعد خروج R، يخلو يمين D، والمركبة N يمينها خالٍ أيضاً ولا تتقاطع مع D، فيعبران معاً!</li>
+            <li><strong>المركبة B تكمل مسارها أخيراً (Conclude la svolta per ultima):</strong> بعد خلو التقاطع من N، تكمل B دورانها وتغادر.</li>
+          </ol>
+        </div>
+        <div style="width:240px; text-align:center;">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/638.png" alt="Figura 638" style="max-width:100%; border-radius:12px; border:1px solid rgba(255,255,255,0.1);">
+          <div style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; color:var(--amber-primary); margin-top:8px;">B(impegna) → R → D e N → B</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <h2 class="section-title">رابعاً: الكتالوج الوزاري الشامل لكافة المخططات الرسمية الـ 43 (Figure Ministeriali)</h2>
+    <p style="color:var(--text-secondary); margin-bottom:12px;">ابحث عن رقم المخطط أو اسم السيارة لتصفية المخطط ومعرفة ترتيب العبور المعتمد وأهم الأسئلة الوزارية:</p>
+
+    <div class="fig-search-bar">
+      <input type="text" id="figSearchInput" class="fig-search-input" placeholder="🔍 اكتب رقم المخطط (مثلاً: 608 أو 638 أو Tram أو الخط العريض)..." oninput="filterFigures()">
+    </div>
+
+    <div class="intersection-grid" id="intersectionGrid">
+      <!-- Figure 604 -->
+      <div class="intersection-card" data-fig="604" data-search="Figura 604 604 R → D → A">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 604</span>
+          <span class="fig-count">📊 5 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/604.png" alt="Figura 604" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">R → D → A</div>
+          <div class="order-desc">يمين R خالٍ فتمر أولاً، ثم يخلو يمين D فتمر ثانياً، وأخيراً تمر A.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nell'incrocio rappresentato in figura il veicolo R passa per primo</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nell'incrocio rappresentato in figura il veicolo D passa prima del veicolo R</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 606 -->
+      <div class="intersection-card" data-fig="606" data-search="Figura 606 606 E → C → M">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 606</span>
+          <span class="fig-count">📊 6 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/606.png" alt="Figura 606" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">E → C → M</div>
+          <div class="order-desc">يمين E خالٍ فتمر أولاً، ثم تمر C، وأخيراً تمر M.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Dovendo attraversare l'incrocio rappresentato in figura il veicolo E transita per primo</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Dovendo attraversare l'incrocio rappresentato in figura il veicolo M transita per primo</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 607 -->
+      <div class="intersection-card" data-fig="607" data-search="Figura 607 607 T → P → M">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 607</span>
+          <span class="fig-count">📊 6 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/607.png" alt="Figura 607" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">T → P → M</div>
+          <div class="order-desc">يمين T خالٍ فتمر أولاً، ثم P، وأخيراً M.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nell'intersezione in figura il veicolo T transita per primo</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nell'intersezione in figura il veicolo M ha la precedenza perché è in servizio pubblico</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 608 -->
+      <div class="intersection-card" data-fig="608" data-search="Figura 608 608 B → H → C">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 608</span>
+          <span class="fig-count">📊 10 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/608.png" alt="Figura 608" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">B → H → C</div>
+          <div class="order-desc">يمين B خالٍ فتمر أولاً دون إعطاء أسبقية، ثم تمر H، وأخيراً C.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nella situazione rappresentata in figura il veicolo B non deve dare la precedenza agli altri due veicoli</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nella situazione rappresentata in figura il veicolo H passa per primo</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 610 -->
+      <div class="intersection-card" data-fig="610" data-search="Figura 610 610 T → (L و A معاً) → C">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 610</span>
+          <span class="fig-count">📊 2 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/610.png" alt="Figura 610" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">T → (L و A معاً) → C</div>
+          <div class="order-desc">يمين T خالٍ فتمر أولاً، ثم يمر L و A في نفس الوقت لعدم تداخل مساريهما، وأخيراً C.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nell'incrocio rappresentato nella figura il veicolo T transita per primo</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text"></span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 613 -->
+      <div class="intersection-card" data-fig="613" data-search="Figura 613 613 T → O → A">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 613</span>
+          <span class="fig-count">📊 10 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/613.png" alt="Figura 613" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">T → O → A</div>
+          <div class="order-desc">يمين T خالٍ فتمر أولاً، ثم O، وأخيراً تمر A.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Secondo le norme di precedenza nell'incrocio rappresentato in figura il veicolo T transita per primo</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Secondo le norme di precedenza nell'incrocio rappresentato in figura il veicolo T deve attendere il transito del veicolo O</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 614 -->
+      <div class="intersection-card" data-fig="614" data-search="Figura 614 614 R → A → T">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 614</span>
+          <span class="fig-count">📊 9 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/614.png" alt="Figura 614" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">R → A → T</div>
+          <div class="order-desc">يمين R خالٍ فتمر أولاً، ثم A، وأخيراً T.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nell'incrocio rappresentato nella figura il veicolo T passa per ultimo</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nell'incrocio rappresentato nella figura il veicolo T transita prima del veicolo R</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 615 -->
+      <div class="intersection-card" data-fig="615" data-search="Figura 615 615 R → A → C">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 615</span>
+          <span class="fig-count">📊 12 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/615.png" alt="Figura 615" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">R → A → C</div>
+          <div class="order-desc">يمين R خالٍ فتمر أولاً، ثم يخلو يمين A فتمر ثانياً، وأخيراً C تمر أخيراً.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Secondo le norme di precedenza nell'incrocio rappresentato in figura il veicolo R passa per primo</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Secondo le norme di precedenza nell'incrocio rappresentato in figura il veicolo A passa per primo</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 616 -->
+      <div class="intersection-card" data-fig="616" data-search="Figura 616 616 B → T → S">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 616</span>
+          <span class="fig-count">📊 7 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/616.png" alt="Figura 616" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">B → T → S</div>
+          <div class="order-desc">يمين B خالٍ فتمر أولاً، ثم T، وأخيراً تمر S.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nell'incrocio rappresentato in figura il veicolo B transita per primo</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nell'incrocio rappresentato in figura i veicoli transitano nel seguente ordine: S, B, T</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 617 -->
+      <div class="intersection-card" data-fig="617" data-search="Figura 617 617 R (تكمل أولاً) → A → C">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 617</span>
+          <span class="fig-count">📊 19 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/617.png" alt="Figura 617" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">R (تكمل أولاً) → A → C</div>
+          <div class="order-desc">R تنعطف يميناً ويمينها خالٍ فتعبر أولاً، ثم A، وأخيراً C.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nell'incrocio rappresentato nella figura il conducente del veicolo N conclude per ultimo l'attraversamento dell'incrocio</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nell'incrocio rappresentato nella figura il veicolo N attraversa per primo</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 618 -->
+      <div class="intersection-card" data-fig="618" data-search="Figura 618 618 L → C → H">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 618</span>
+          <span class="fig-count">📊 9 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/618.png" alt="Figura 618" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">L → C → H</div>
+          <div class="order-desc">يمين L خالٍ فتمر أولاً، ثم تمر C، وأخيراً تمر H.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nella situazione rappresentata in figura il veicolo L attraversa l'incrocio per primo</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">E' consentito attraversare l'incrocio in figura secondo l'ordine il veicolo L contemporaneamente al veicolo C, poi il veicolo H</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 620 -->
+      <div class="intersection-card" data-fig="620" data-search="Figura 620 620 P → B → C">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 620</span>
+          <span class="fig-count">📊 8 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/620.png" alt="Figura 620" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">P → B → C</div>
+          <div class="order-desc">يمين P خالٍ فتمر أولاً، ثم B، وأخيراً تمر C.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Secondo le norme di precedenza nell'incrocio rappresentato in figura il veicolo B deve attendere il transito del veicolo P</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Secondo le norme di precedenza nell'incrocio rappresentato in figura il veicolo B transita per ultimo</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 631 -->
+      <div class="intersection-card" data-fig="631" data-search="Figura 631 631 R → D → F">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 631</span>
+          <span class="fig-count">📊 4 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/631.png" alt="Figura 631" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">R → D → F</div>
+          <div class="order-desc">يمين R خالٍ فتمر أولاً، ثم D، وأخيراً تمر F.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nell'intersezione di figura il veicolo D transita prima del veicolo F</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nell'intersezione di figura il filobus passa per primo perché vincolato alla linea elettrica aerea</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 632 -->
+      <div class="intersection-card" data-fig="632" data-search="Figura 632 632 D → P → B → N">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 632</span>
+          <span class="fig-count">📊 13 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/632.png" alt="Figura 632" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">D → P → B → N</div>
+          <div class="order-desc">يمين D خالٍ فتمر أولاً، ثم يخلو يمين P فتمر، ثم B، وأخيراً N تمر كآخر مركبة.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Secondo le norme di precedenza nell'incrocio rappresentato in figura i veicoli passano nel seguente ordine: D, P, B, N</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Secondo le norme di precedenza nell'incrocio rappresentato in figura i veicoli passano nel seguente ordine: D, B, N, P</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 633 -->
+      <div class="intersection-card" data-fig="633" data-search="Figura 633 633 N → A → R">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 633</span>
+          <span class="fig-count">📊 5 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/633.png" alt="Figura 633" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">N → A → R</div>
+          <div class="order-desc">يمين N خالٍ فتمر أولاً، ثم A، وأخيراً تمر R.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nell'intersezione di figura l'ordine di transito dei veicoli è: N, A, R</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nell'intersezione di figura l'ordine di transito dei veicoli è: A, N, R</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 634 -->
+      <div class="intersection-card" data-fig="634" data-search="Figura 634 634 A → C → L">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 634</span>
+          <span class="fig-count">📊 8 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/634.png" alt="Figura 634" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">A → C → L</div>
+          <div class="order-desc">A تنعطف يميناً ويمينها خالٍ فتبدأ أولاً، ثم تمر C، وأخيراً L.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Giungendo all'incrocio rappresentato in figura il veicolo A passa per primo</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Giungendo all'incrocio rappresentato in figura il veicolo A deve attendere che siano transitati i veicoli L e C</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 636 -->
+      <div class="intersection-card" data-fig="636" data-search="Figura 636 636 T → A → S">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 636</span>
+          <span class="fig-count">📊 8 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/636.png" alt="Figura 636" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">T → A → S</div>
+          <div class="order-desc">يمين T خالٍ فتمر أولاً، ثم تمر A، وأخيراً تمر S.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Dovendo attraversare l'incrocio rappresentato in figura il veicolo T transita per primo</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Dovendo attraversare l'incrocio rappresentato in figura il veicolo A transita per primo</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 637 -->
+      <div class="intersection-card" data-fig="637" data-search="Figura 637 637 L → E → D">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 637</span>
+          <span class="fig-count">📊 14 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/637.png" alt="Figura 637" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">L → E → D</div>
+          <div class="order-desc">يمين L خالٍ فتمر أولاً، ثم تمر E، وأخيراً تمر D.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nell'attraversare l'incrocio in figura il veicolo L passa per primo</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nell'attraversare l'incrocio in figura passa per primo il veicolo più veloce</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 638 -->
+      <div class="intersection-card" data-fig="638" data-search="Figura 638 638 B (يتقدم للوسط) → R → (D و N معاً) → B (يكمل)">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 638</span>
+          <span class="fig-count">📊 19 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/638.png" alt="Figura 638" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">B (يتقدم للوسط) → R → (D و N معاً) → B (يكمل)</div>
+          <div class="order-desc">B يتقدم للوسط ويفرغ يمين R فتعبر بالكامل، ثم D و N معاً، وأخيراً تكمل B انعطافها.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Secondo le norme di precedenza nell'incrocio rappresentato in figura il veicolo N passa dopo il veicolo R</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Secondo le norme di precedenza nell'incrocio rappresentato in figura il veicolo R impegna l'incrocio e si ferma al centro di esso</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 639 -->
+      <div class="intersection-card" data-fig="639" data-search="Figura 639 639 (الترام T و B معاً) → A → C">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 639</span>
+          <span class="fig-count">📊 10 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/639.png" alt="Figura 639" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">(الترام T و B معاً) → A → C</div>
+          <div class="order-desc">الترام T يمر أولاً ومعه B في نفس الوقت لعدم تداخلهما، ثم A، وأخيراً C.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nell'incrocio rappresentato nella figura il veicolo A deve dare la precedenza al tram e al veicolo B</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nell'incrocio rappresentato nella figura i veicoli T e C transitano contemporaneamente</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 640 -->
+      <div class="intersection-card" data-fig="640" data-search="Figura 640 640 R → D → B">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 640</span>
+          <span class="fig-count">📊 8 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/640.png" alt="Figura 640" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">R → D → B</div>
+          <div class="order-desc">R يمينها خالٍ فتمر أولاً، ثم يخلو يمين D فتمر ثانياً، وأخيراً B تمر بعد عبور الجميع.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Secondo le norme di precedenza possono impegnare l'incrocio rappresentato in figura il veicolo D dopo l'attraversamento del veicolo R</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Secondo le norme di precedenza possono impegnare l'incrocio rappresentato in figura il veicolo B contemporaneamente al veicolo R e prima di quello D</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 642 -->
+      <div class="intersection-card" data-fig="642" data-search="Figura 642 642 الترام Tram أولاً → D → P → M">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 642</span>
+          <span class="fig-count">📊 11 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/642.png" alt="Figura 642" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">الترام Tram أولاً → D → P → M</div>
+          <div class="order-desc">الترام يمر أولاً دائماً، ثم يخلو يمين D فتعبر، تليها P، وأخيراً M.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nella situazione rappresentata in figura il tram ha la precedenza rispetto agli altri veicoli</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nella situazione rappresentata in figura il veicolo M attraversa l'incrocio insieme al tram</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 643 -->
+      <div class="intersection-card" data-fig="643" data-search="Figura 643 643 H → D → B → L">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 643</span>
+          <span class="fig-count">📊 13 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/643.png" alt="Figura 643" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">H → D → B → L</div>
+          <div class="order-desc">يمين H خالٍ فتمر أولاً، ثم D، ثم B، وأخيراً تمر L.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Giungendo all'incrocio rappresentato in figura i veicoli passano nel seguente ordine: H, D, B, L</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Giungendo all'incrocio rappresentato in figura il veicolo B deve attendere il transito degli altri tre veicoli</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 644 -->
+      <div class="intersection-card" data-fig="644" data-search="Figura 644 644 P → D → B → L">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 644</span>
+          <span class="fig-count">📊 9 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/644.png" alt="Figura 644" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">P → D → B → L</div>
+          <div class="order-desc">يمين P خالٍ فتمر أولاً، ثم D، ثم B، وأخيراً تمر L.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Giungendo all'incrocio rappresentato in figura il veicolo P può passare per primo</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Giungendo all'incrocio rappresentato in figura il veicolo B deve dare la precedenza al veicolo L</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 646 -->
+      <div class="intersection-card" data-fig="646" data-search="Figura 646 646 D → C → A → H">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 646</span>
+          <span class="fig-count">📊 11 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/646.png" alt="Figura 646" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">D → C → A → H</div>
+          <div class="order-desc">يمين D خالٍ فتمر أولاً، ثم C، ثم A، وأخيراً تمر H.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nell'incrocio rappresentato in figura i veicoli passano nel seguente ordine: D, C, A, H.</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nell'incrocio rappresentato in figura il veicolo D deve dare la precedenza a quello C</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 647 -->
+      <div class="intersection-card" data-fig="647" data-search="Figura 647 647 (L و H معاً) → B → O">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 647</span>
+          <span class="fig-count">📊 12 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/647.png" alt="Figura 647" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">(L و H معاً) → B → O</div>
+          <div class="order-desc">L و H على الشارع الرئيسي ذي الأسبقية ويمران معاً، ثم B، وأخيراً O من الشارع الفرعي.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Secondo le norme di precedenza nell'incrocio rappresentato in figura i veicoli L e H passano contemporaneamente per primi</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Secondo le norme di precedenza nell'incrocio rappresentato in figura il veicolo O transita prima del veicolo H, ma dopo il veicolo L</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 648 -->
+      <div class="intersection-card" data-fig="648" data-search="Figura 648 648 T (الترام) → G → (P و D معاً) → B">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 648</span>
+          <span class="fig-count">📊 18 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/648.png" alt="Figura 648" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">T (الترام) → G → (P و D معاً) → B</div>
+          <div class="order-desc">الترام T أولاً، ثم G لخلو يمينه، ثم P و D معاً لعدم تداخلهما، وأخيراً B.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nella situazione rappresentata in figura il veicolo B deve dare la precedenza a tutti gli altri veicoli</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nella situazione rappresentata in figura il veicolo T deve attendere il transito del veicolo G</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 650 -->
+      <div class="intersection-card" data-fig="650" data-search="Figura 650 650 (L و D معاً) → E → N → R">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 650</span>
+          <span class="fig-count">📊 18 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/650.png" alt="Figura 650" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">(L و D معاً) → E → N → R</div>
+          <div class="order-desc">L و D يعبران معاً لعدم تداخل مساريهما، ثم E، ثم N، وأخيراً R.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Secondo le norme di precedenza nell'incrocio rappresentato in figura il veicolo N deve attendere il transito del veicolo E</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Secondo le norme di precedenza nell'incrocio rappresentato in figura il veicolo R (filobus) ha la precedenza sugli altri veicoli</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 651 -->
+      <div class="intersection-card" data-fig="651" data-search="Figura 651 651 T (الترام) → A → O">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 651</span>
+          <span class="fig-count">📊 13 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/651.png" alt="Figura 651" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">T (الترام) → A → O</div>
+          <div class="order-desc">الترام يمر أولاً، ثم A بعد انتظار الترام، وأخيراً O.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nell'incrocio rappresentato nella figura il conducente del veicolo D passa per primo</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nell'incrocio rappresentato nella figura il conducente del veicolo D passa per terzo</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 652 -->
+      <div class="intersection-card" data-fig="652" data-search="Figura 652 652 H → A → F → L">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 652</span>
+          <span class="fig-count">📊 11 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/652.png" alt="Figura 652" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">H → A → F → L</div>
+          <div class="order-desc">H و A على الخط العريض ويمين H خالٍ فتعبر ثم A، يليهما F ثم L على الطريق الفرعي.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Secondo le norme di precedenza nell'incrocio in figura il veicolo F deve attendere il transito del veicolo A</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Secondo le norme di precedenza nell'incrocio in figura i veicoli devono transitare nell'ordine: A, F, L, H</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 654 -->
+      <div class="intersection-card" data-fig="654" data-search="Figura 654 654 C → R → A → H">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 654</span>
+          <span class="fig-count">📊 12 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/654.png" alt="Figura 654" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">C → R → A → H</div>
+          <div class="order-desc">C و R على الخط العريض ويمين C خالٍ فتعبر أولاً ثم R، يليهما A ثم H.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nella situazione rappresentata in figura il veicolo A deve attendere il transito dei veicoli C ed R</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nella situazione rappresentata in figura i veicoli transitano nell'ordine: C, R, H, A</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 655 -->
+      <div class="intersection-card" data-fig="655" data-search="Figura 655 655 S → A → E → R">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 655</span>
+          <span class="fig-count">📊 11 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/655.png" alt="Figura 655" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">S → A → E → R</div>
+          <div class="order-desc">S و A على الخط العريض الرئيسي، ثم E و R على الشارع الفرعي.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Secondo le norme di precedenza nell'incrocio rappresentato in figura il veicolo S transita prima del veicolo R</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Secondo le norme di precedenza nell'incrocio rappresentato in figura il veicolo E deve attendere il transito del veicolo R</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 657 -->
+      <div class="intersection-card" data-fig="657" data-search="Figura 657 657 R → A → C">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 657</span>
+          <span class="fig-count">📊 8 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/657.png" alt="Figura 657" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">R → A → C</div>
+          <div class="order-desc">يمين R خالٍ فتمر أولاً، ثم تمر A، وأخيراً تمر C.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Secondo le norme di precedenza nell'incrocio rappresentato in figura il veicolo A transita dopo il veicolo R</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Secondo le norme di precedenza nell'incrocio rappresentato in figura il veicolo C non deve dare la precedenza ad alcun veicolo</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 659 -->
+      <div class="intersection-card" data-fig="659" data-search="Figura 659 659 R → A → C">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 659</span>
+          <span class="fig-count">📊 8 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/659.png" alt="Figura 659" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">R → A → C</div>
+          <div class="order-desc">يمين R خالٍ فتمر أولاً، ثم يخلو يمين A فتمر، وأخيراً C.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nell'incrocio rappresentato in figura, il veicolo A passa dopo il veicolo R e il veicolo C passa dopo il veicolo A</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Secondo le norme di precedenza nell'incrocio rappresentato in figura il veicolo C non deve dare la precedenza ad alcun veicolo</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 660 -->
+      <div class="intersection-card" data-fig="660" data-search="Figura 660 660 H → D → B">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 660</span>
+          <span class="fig-count">📊 8 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/660.png" alt="Figura 660" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">H → D → B</div>
+          <div class="order-desc">يمين H خالٍ فتمر أولاً، ثم يخلو يمين D فتمر، وأخيراً B.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nell'incrocio rappresentato in figura i veicoli disimpegnano l'incrocio nel seguente ordine: H, D, B</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nell'incrocio rappresentato in figura il veicolo D deve attendere che il veicolo B sia transitato</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 661 -->
+      <div class="intersection-card" data-fig="661" data-search="Figura 661 661 E → C → L">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 661</span>
+          <span class="fig-count">📊 8 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/661.png" alt="Figura 661" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">E → C → L</div>
+          <div class="order-desc">يمين E خالٍ فتمر أولاً، ثم يخلو يمين C فتمر، وأخيراً L.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nell'incrocio rappresentato in figura il veicolo E non deve dare la precedenza ad alcun veicolo</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nell'incrocio rappresentato in figura il veicolo C deve attendere il transito del veicolo L</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 662 -->
+      <div class="intersection-card" data-fig="662" data-search="Figura 662 662 A → E → B">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 662</span>
+          <span class="fig-count">📊 10 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/662.png" alt="Figura 662" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">A → E → B</div>
+          <div class="order-desc">A تنعطف يميناً ويمينها خالٍ فتمر أولاً، ثم E، وأخيراً B.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nell'incrocio rappresentato in figura, il veicolo E passa dopo il veicolo A e il veicolo B passa dopo il veicolo E</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nell'incrocio rappresentato in figura il veicolo B non deve dare la precedenza ad alcun veicolo</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 663 -->
+      <div class="intersection-card" data-fig="663" data-search="Figura 663 663 R → B → D → T">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 663</span>
+          <span class="fig-count">📊 3 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/663.png" alt="Figura 663" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">R → B → D → T</div>
+          <div class="order-desc">يمين R خالٍ فتمر أولاً، ثم B، ثم D، وأخيراً تمر T.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nell'intersezione di figura il veicolo T passa per ultimo</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nell'intersezione di figura il veicolo D transita prima del veicolo B</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 664 -->
+      <div class="intersection-card" data-fig="664" data-search="Figura 664 664 S → B → L → D">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 664</span>
+          <span class="fig-count">📊 4 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/664.png" alt="Figura 664" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">S → B → L → D</div>
+          <div class="order-desc">يمين S خالٍ فتمر أولاً، ثم B، ثم L، وأخيراً تمر D.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nell'intersezione di figura il veicolo B deve dare la precedenza al veicolo S</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nell'intersezione di figura l'ordine di transito dei veicoli è: S, B, D e L contemporaneamente</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 665 -->
+      <div class="intersection-card" data-fig="665" data-search="Figura 665 665 A → E → V → H → C">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 665</span>
+          <span class="fig-count">📊 11 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/665.png" alt="Figura 665" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">A → E → V → H → C</div>
+          <div class="order-desc">المركبات A و E على الطريق الرئيسي، ثم V و H و C على الطرق الفرعية.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nell'incrocio rappresentato in figura i veicoli disimpegnano l'incrocio nel seguente ordine: A, E, V, H, C</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nell'incrocio rappresentato in figura i veicoli disimpegnano l'incrocio nel seguente ordine: A, H, C, E, V</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 667 -->
+      <div class="intersection-card" data-fig="667" data-search="Figura 667 667 C → A → P">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 667</span>
+          <span class="fig-count">📊 6 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/667.png" alt="Figura 667" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">C → A → P</div>
+          <div class="order-desc">يمين C خالٍ فتمر أولاً، ثم A، وأخيراً P.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nell'incrocio rappresentato in figura i veicoli passano nel seguente ordine: C, A, P</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nell'incrocio rappresentato in figura i veicoli passano nel seguente ordine: P, C, A</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 668 -->
+      <div class="intersection-card" data-fig="668" data-search="Figura 668 668 S → N → C">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 668</span>
+          <span class="fig-count">📊 6 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/668.png" alt="Figura 668" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">S → N → C</div>
+          <div class="order-desc">يمين S خالٍ فتمر أولاً، ثم N، وأخيراً C.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Nell'incrocio rappresentato nella figura i veicoli passano nel seguente ordine: S, N, C</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Nell'incrocio rappresentato nella figura i veicoli passano nel seguente ordine: C, N, S</span>
+          </div>
+        </div>
+      </div>
+      <!-- Figure 669 -->
+      <div class="intersection-card" data-fig="669" data-search="Figura 669 669 C → A → L → R → E">
+        <div class="intersection-header">
+          <span class="fig-badge">Figura 669</span>
+          <span class="fig-count">📊 12 أسئلة وزارية</span>
+        </div>
+        <div class="fig-img-container">
+          <img src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/669.png" alt="Figura 669" class="fig-img" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="order-box">
+          <div class="order-label">🚦 ترتيب المرور الرسمي:</div>
+          <div class="order-seq">C → A → L → R → E</div>
+          <div class="order-desc">C و A على طريق الأسبقية الرئيسي، ثم L و R و E على الطرق الفرعية.</div>
+        </div>
+        <div class="fig-sample-qa">
+          <div class="sample-row vero">
+            <span class="sample-tag vero">VERO ✅</span>
+            <span class="sample-text">Dovendo attraversare l'incrocio rappresentato in figura i veicoli devono transitare nel seguente ordine: C, A, L, R, E</span>
+          </div>
+          <div class="sample-row falso">
+            <span class="sample-tag falso">FALSO ❌</span>
+            <span class="sample-text">Dovendo attraversare l'incrocio rappresentato in figura il veicolo E deve dare la precedenza al veicolo A</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5 -->
+    <h2 class="section-title">خامساً: القاموس التقني المبوب ثنائي اللغة (Glossario Tecnico A2-B1)</h2>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>المصطلح بالإيطالية</th>
+            <th>الترجمة بالعربية</th>
+            <th>الفخ الامتحاني وقاعدة الحل السريع</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Precedenza</strong></td>
+            <td>حق الأسبقية / الأولوية</td>
+            <td>تأكد هل السؤال يقول "يمتلك الأسبقية" (Ha la precedenza) أم "يعطي الأسبقية" (Deve dare la precedenza).</td>
+          </tr>
+          <tr>
+            <td><strong>Destra libera</strong></td>
+            <td>اليمين خالٍ / حر</td>
+            <td>مفتاح الباب بالكامل؛ المركبة ذات اليمين الحر تبدأ بالمرور أولاً ما لم توجد إشارات.</td>
+          </tr>
+          <tr>
+            <td><strong>Impegnare l'incrocio</strong></td>
+            <td>دخول / إشغال التقاطع</td>
+            <td>التقدم لوسط التقاطع والوقوف فيه لتحرير مسار المركبات الأخرى؛ ليست خروجاً نهائياً.</td>
+          </tr>
+          <tr>
+            <td><strong>Passano contemporaneamente</strong></td>
+            <td>يعبران معاً في نفس الوقت</td>
+            <td>تحدث حصراً عندما لا تتقاطع خطوط سير المركبتين (Traiettorie non interferenti).</td>
+          </tr>
+          <tr>
+            <td><strong>Svolta a sinistra</strong></td>
+            <td>الانعطاف لليسار</td>
+            <td>تفرض إعطاء الأسبقية للقادمين من الأمام (من المقابل)، وتؤدي للوقوف في منتصف التقاطع.</td>
+          </tr>
+          <tr>
+            <td><strong>Traiettoria</strong></td>
+            <td>مسار / خط سير المركبة</td>
+            <td>الخط المنحني أو المستقيم الذي ترسمه السيارة عند عبور التقاطع.</td>
+          </tr>
+          <tr>
+            <td><strong>Diritto di precedenza</strong></td>
+            <td>حق الأولوية (الشارع الرئيسي)</td>
+            <td>لوحة المعين الأصفر؛ أصحاب هذا الطريق يمرون قبل الطرق الفرعية مهما كان اتجاههم.</td>
+          </tr>
+          <tr>
+            <td><strong>Pannello integrativo</strong></td>
+            <td>اللوحة التكميلية ذات الخط العريض</td>
+            <td>توضح مسار الطريق الرئيسي؛ من يسير فوق الخط العريض يملك الأسبقية على الخطوط الرفيعة.</td>
+          </tr>
+          <tr>
+            <td><strong>Previa intesa</strong></td>
+            <td>باتفاق وتفاهم مسبق</td>
+            <td>تستخدم فقط إذا كانت كل السيارات الأربع يمينها مشغول وتوقفت تماماً عن الحركة.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Section 6 -->
+    <h2 class="section-title">سادساً: بنك الفخاخ الوزارية المباشرة (15 سؤالاً حاسماً من الامتحانات الرسمية)</h2>
+    <div class="quiz-stack">
+      <!-- Q1 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">1. Nella situazione rappresentata in figura il tram ha la precedenza rispetto agli altri veicoli.</div>
+        <div class="quiz-q-ar">في الحالة الموضحة في المخطط، يمتلك الترام حق الأسبقية بالنسبة لباقي المركبات.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ في غياب الإشارات التي تلزمه بغير ذلك، يمر الترام أولاً دائماً من اليمين واليسار.</span>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">2. Il tram deve sempre dare la precedenza ai veicoli che provengono da destra.</div>
+        <div class="quiz-q-ar">يجب على الترام دائماً إعطاء الأسبقية للمركبات القادمة من جهة يمينه.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-falso">FALSO ❌</span>
+          <span class="quiz-explain">خطأ قطعي؛ الترام لا يعطي الأسبقية لليمين في التقاطعات العادية، بل السيارات هي التي تعطيه الأسبقية.</span>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">3. Nella figura 638, il veicolo B nell'impegnare l'incrocio deve fermarsi al centro di esso.</div>
+        <div class="quiz-q-ar">في المخطط 638، يجب على المركبة B عند إشغال التقاطع أن تقف في منتصفه.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح 100%؛ تقف B في المنتصف لانتظار N القادمة من الأمام، وبذلك يفرغ يمين المركبة R فتمر.</span>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">4. Nella figura 638, i veicoli D e N passano contemporaneamente dopo che è passato il veicolo R.</div>
+        <div class="quiz-q-ar">في المخطط 638، تمر المركبتان D و N معاً في نفس الوقت بعد عبور المركبة R.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ بعد مرور R، لا تتقاطع مسارات D و N، فيمران معاً في نفس اللحظة (Contemporaneamente).</span>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">5. Nella figura 648, i veicoli P e D possono transitare contemporaneamente.</div>
+        <div class="quiz-q-ar">في المخطط 648، يمكن للمركبتين P و D العبور معاً في نفس الوقت.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ لعدم تقاطع خطي سيرهما، يمر P و D متزامنين بعد عبور الترام وخلو يمينهما.</span>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">6. Nell'attraversare l'incrocio passa per primo il veicolo più veloce o di maggiore cilindrata.</div>
+        <div class="quiz-q-ar">عند عبور التقاطع، تمر أولاً المركبة الأكثر سرعة أو ذات المحرك الأكبر حجماً.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-falso">FALSO ❌</span>
+          <span class="quiz-explain">فخ مضحك ومتكرر؛ لا علاقة للسرعة أو قوة المحرك بالأسبقية، العبرة باليمين الحر والإشارات فقط!</span>
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">7. Nella figura 652, l'ordine di transito dei veicoli è: H, A, F, L.</div>
+        <div class="quiz-q-ar">في المخطط 652، ترتيب عبور المركبات هو: H ثم A ثم F ثم L.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ H و A على الخط العريض ويمين H خالٍ فتمر أولاً ثم A، يليهما F ثم L على الطريق الفرعي.</span>
+        </div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">8. Nella figura 608, il veicolo B passa per primo perché non ha la destra occupata.</div>
+        <div class="quiz-q-ar">في المخطط 608، تمر المركبة B أولاً لأن يمينها غير مشغول بأي مركبة.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح 100%؛ يمين B خالٍ تماماً فتعبر دون انتظار أي سيارة.</span>
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">9. I veicoli della polizia hanno sempre la precedenza, anche se non hanno la sirena accesa.</div>
+        <div class="quiz-q-ar">مركبات الشرطة لها دائماً الأسبقية، حتى لو لم تكن صافرة الإنذار قيد التشغيل.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-falso">FALSO ❌</span>
+          <span class="quiz-explain">خطأ قطعي؛ بدون الصافرة والأضواء الزرقاء الوامضة تعامل سيارة الشرطة أو الإسعاف كأي مركبة عادية.</span>
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">10. Nella figura 662, il veicolo B deve passare per ultimo.</div>
+        <div class="quiz-q-ar">في المخطط 662، يجب أن تمر المركبة B كآخر مركبة في التقاطع.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ A تنعطف يميناً ويمينها خالٍ فتمر أولاً، ثم E، وأخيراً B بعد خلو يمينها.</span>
+        </div>
+      </div>
+
+      <!-- Q11 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">11. Chi esce da una proprietà privata (garage o passo carrabile) deve dare la precedenza solo a chi viene da destra.</div>
+        <div class="quiz-q-ar">من يخرج من ملكية خاصة (جراج أو مدخل مرخص) يجب أن يعطي الأسبقية فقط للقادمين من اليمين.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-falso">FALSO ❌</span>
+          <span class="quiz-explain">فخ شهير: الخارج من ملكية خاصة يجب أن يعطي الأسبقية للجميع من اليمين واليسار (Tutti i veicoli).</span>
+        </div>
+      </div>
+
+      <!-- Q12 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">12. Nella figura 647, i veicoli L ed H possono transitare contemporaneamente.</div>
+        <div class="quiz-q-ar">في المخطط 647، يمكن للمركبتين L و H العبور معاً في نفس الوقت.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ L و H كلاهما على الشارع الرئيسي ذي الأسبقية ومساراهما لا يتقاطعان إطلاقاً.</span>
+        </div>
+      </div>
+
+      <!-- Q13 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">13. Nelle rotatorie prive di segnaletica l'obbligo di dare la precedenza è per chi è già inserito nell'anello.</div>
+        <div class="quiz-q-ar">في الدوارات الخالية من الشواخص المرورية، يكون واجب إعطاء الأسبقية على من هم داخل الدوار بالفعل.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-falso">FALSO ❌</span>
+          <span class="quiz-explain">فخ الدوار: في الدوارات القديمة الخالية من الإشارات تطبق قاعدة اليمين الحر (الأسبقية للقادم من خارج الدوار).</span>
+        </div>
+      </div>
+
+      <!-- Q14 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">14. Nella figura 632, l'ordine di transito è: D, P, B, N.</div>
+        <div class="quiz-q-ar">في المخطط 632، ترتيب العبور هو: D ثم P ثم B ثم N.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح 100%؛ D يمينها خالٍ فتمر أولاً، ثم P، ثم B، وأخيراً تمر N بعد عبور الجميع.</span>
+        </div>
+      </div>
+
+      <!-- Q15 -->
+      <div class="quiz-card">
+        <div class="quiz-q-it">15. Nella figura 669, il veicolo C passa prima del veicolo A e prima del veicolo L.</div>
+        <div class="quiz-q-ar">في المخطط 669، تمر المركبة C قبل المركبة A وقبل المركبة L.</div>
+        <div class="quiz-meta-row">
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ C على الطريق الرئيسي ويمينها خالٍ فتبدأ بالمرور أولاً قبل جميع المركبات.</span>
+        </div>
+      </div>
+    </div>
+  </article>
+</main>
+
+<script>
+  // Unified Web Audio API Sound Engine
+  const soundEngine = window.soundEngine || {
+    ctx: null,
+    enabled: true,
+    init() {
+      if (!this.ctx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        this.ctx = new AudioContext();
+      }
+    },
+    click() {
+      if (!this.enabled) return;
+      this.init();
+      if (this.ctx.state === 'suspended') this.ctx.resume();
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(800, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(400, this.ctx.currentTime + 0.04);
+      gain.gain.setValueAtTime(0.08, this.ctx.currentTime);
+      gain.gain.linearRampToValueAtTime(0.01, this.ctx.currentTime + 0.04);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.04);
+    }
+  };
+
+  function toggleAudio() {
+    soundEngine.enabled = !soundEngine.enabled;
+    const label = document.querySelector('.audio-label-span');
+    const icon = document.querySelector('.audio-icon-span');
+    if (label && icon) {
+      label.textContent = soundEngine.enabled ? 'الصوت: نشط' : 'الصوت: معطل';
+      icon.textContent = soundEngine.enabled ? '🔊' : '🔇';
+    }
+  }
+
+  function openMobileNav() {
+    const overlay = document.getElementById('mobileDrawerOverlay');
+    if (overlay) {
+      overlay.classList.add('active');
+      document.body.classList.add('nav-scroll-lock');
+    }
+  }
+
+  function closeMobileNav() {
+    const overlay = document.getElementById('mobileDrawerOverlay');
+    if (overlay) {
+      overlay.classList.remove('active');
+      document.body.classList.remove('nav-scroll-lock');
+    }
+  }
+
+  function filterFigures() {
+    const val = document.getElementById('figSearchInput').value.trim().toLowerCase();
+    const cards = document.querySelectorAll('.intersection-card');
+    cards.forEach(card => {
+      const searchData = card.getAttribute('data-search').toLowerCase();
+      if (!val || searchData.includes(val)) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
