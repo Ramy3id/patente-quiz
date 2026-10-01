@@ -169,35 +169,51 @@
 
   .card-header-row {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .card-it-title {
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: #fff;
-    font-family: 'JetBrains Mono', monospace;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 10px;
   }
   .card-ar-title {
-    font-size: 0.95rem;
+    order: 1;
+    font-size: 1.05rem;
     font-weight: 700;
-    color: var(--text-secondary);
+    color: #fff;
   }
+  .card-it-title {
+    order: 2;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #38bdf8;
+    direction: ltr;
+    text-align: right;
+  }
+
   .card-points-list {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
   }
-  .card-points-list li {
+  .card-points-list li, .card-points li {
+    position: relative;
+    padding-right: 28px;
+    line-height: 1.7;
+    display: block;
+    text-align: right;
     font-size: 0.92rem;
-    line-height: 1.55;
     color: #d4d4d8;
-    display: flex;
-    gap: 8px;
-    align-items: flex-start;
+  }
+  .card-points-list li > span:first-child, .card-points li > span:first-child {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    font-size: 1.05rem;
+    line-height: 1;
   }
 
   /* Distance Metrics Grid */
@@ -718,17 +734,22 @@
     padding: 0;
   }
   .points-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
+    position: relative;
+    padding-right: 28px;
+    line-height: 1.7;
+    display: block;
+    text-align: right;
     font-size: 0.92rem;
     color: #e4e4e7;
-    line-height: 1.5;
   }
-  .points-item-icon {
+  .points-item .points-item-icon {
+    position: absolute;
+    right: 0;
+    top: 2px;
     color: #ef4444;
     font-weight: 800;
-    flex-shrink: 0;
+    font-size: 1.05rem;
+    line-height: 1;
   }
   .trap-warning-inline {
     background: rgba(245, 158, 11, 0.1);

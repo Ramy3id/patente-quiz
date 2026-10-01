@@ -200,38 +200,51 @@
 
   .card-header-row {
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+    flex-direction: column;
+    gap: 4px;
     margin-bottom: 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     padding-bottom: 10px;
   }
-  .card-it-title {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1.1rem;
+  .card-ar-title {
+    order: 1;
+    font-size: 1.05rem;
     font-weight: 700;
     color: #fff;
-    direction: ltr;
   }
-  .card-ar-title {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
+  .card-it-title {
+    order: 2;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
     font-weight: 600;
+    color: #38bdf8;
+    direction: ltr;
+    text-align: right;
   }
 
   .card-points-list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    font-size: 0.9rem;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+  }
+  .card-points-list li, .card-points li {
+    position: relative;
+    padding-right: 28px;
+    line-height: 1.7;
+    display: block;
+    text-align: right;
+    font-size: 0.92rem;
     color: #d4d4d8;
   }
-  .card-points-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    line-height: 1.6;
+  .card-points-list li > span:first-child, .card-points li > span:first-child {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    font-size: 1.05rem;
+    line-height: 1;
   }
 
   /* Data Table */
