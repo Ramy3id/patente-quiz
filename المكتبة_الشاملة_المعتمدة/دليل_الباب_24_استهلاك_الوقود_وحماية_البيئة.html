@@ -299,11 +299,265 @@
     flex: 1;
     min-width: 200px;
   }
+
+  /* ==========================================================================
+     Apple HIG Responsive Top Navigation (< 768px Strict Rules)
+     ========================================================================== */
+  :root {
+    --nav-base-height: 54px;
+  }
+
+  body.nav-scroll-lock {
+    overflow: hidden !important;
+    touch-action: none !important;
+    -webkit-overflow-scrolling: auto !important;
+  }
+
+  .unified-portal-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
+    max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
+    background: rgba(9, 9, 11, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    padding-top: env(safe-area-inset-top, 0px);
+    box-sizing: border-box;
+    direction: rtl;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .nav-brand .badge-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    padding: 2px 7px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #a1a1aa;
+  }
+
+  .nav-desktop-tabs {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-tab-desktop {
+    text-decoration: none;
+    color: #a1a1aa;
+    padding: 7px 13px;
+    border-radius: 9px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .nav-tab-desktop:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  .nav-tab-desktop.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.15), 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  .nav-desktop-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-audio-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e4e4e7;
+    border-radius: 9px;
+    padding: 7px 12px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s;
+  }
+  .nav-audio-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+  .nav-audio-btn:active { transform: scale(0.96); }
+
+  /* Animated Hamburger Icon */
+  .nav-hamburger-btn {
+    display: none;
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0;
+    z-index: 1002;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .nav-hamburger-btn:active { transform: scale(0.92); }
+  .hamburger-box {
+    width: 20px;
+    height: 14px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: transform 0.28s var(--ease-spring), opacity 0.2s, background-color 0.2s;
+  }
+  .nav-hamburger-btn.is-active .line-top {
+    transform: translateY(6px) rotate(45deg);
+    background-color: #38bdf8;
+  }
+  .nav-hamburger-btn.is-active .line-mid { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger-btn.is-active .line-bot {
+    transform: translateY(-6px) rotate(-45deg);
+    background-color: #38bdf8;
+  }
+
+  /* Slide-down Drawer Panel */
+  .mobile-drawer-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+  .mobile-drawer-overlay.is-active {
+    display: block; opacity: 1; pointer-events: auto;
+  }
+
+  .mobile-drawer-panel {
+    display: none;
+    position: fixed;
+    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
+    left: 0; right: 0;
+    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
+    background: rgba(15, 15, 18, 0.94);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
+    z-index: 999;
+    padding: 16px;
+    padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.32s var(--ease-spring), opacity 0.22s ease;
+    direction: rtl;
+  }
+  .mobile-drawer-panel.is-active {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+  }
+  .mobile-nav-link {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    color: #e4e4e7;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+  .mobile-nav-link.active {
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.3);
+    color: #38bdf8;
+  }
+  .mobile-nav-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 8px 0;
+  }
+  .mobile-nav-control-btn {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #e4e4e7;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .unified-portal-nav {
+      height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
+      max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
+      padding: 0 16px;
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+    .nav-desktop-tabs, .nav-desktop-actions { display: none !important; }
+    .nav-hamburger-btn { display: flex; }
+    .nav-brand .badge-tag { display: none; }
+  }
+
 </style>
 </head>
 <body>
 
-<!-- Unified Portal Navigation (Apple HIG Compliant) -->
+<!-- Apple HIG Responsive Navigation -->
 <nav class="unified-portal-nav" id="portal-nav">
   <a href="index.html" class="nav-brand">
     <span style="font-size:1.25rem;">🚦</span>
@@ -353,7 +607,7 @@
     </a>
     <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
       <span class="nav-icon">📑</span>
-      <span>فهرس المكتبة الشاملة المعتمدة</span>
+      <span>فهرس المكتبة الشاملة</span>
     </a>
     <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="mobile-nav-link" onclick="closeMobileNav()">
       <span class="nav-icon">📖</span>
@@ -361,7 +615,7 @@
     </a>
     <a href="دليل_الأبواب_11_إلى_15_قواعد_السير_والسرعة_ومسافة_الأمان.html" class="mobile-nav-link" onclick="closeMobileNav()">
       <span class="nav-icon">📖</span>
-      <span>دليل الأبواب 11-15 (حركة السير، السرعة، ومسافة الأمان)</span>
+      <span>دليل الأبواب 11-15 (السير والسرعة)</span>
     </a>
     <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="mobile-nav-link" onclick="closeMobileNav()">
       <span class="nav-icon">📖</span>
@@ -369,27 +623,23 @@
     </a>
     <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="mobile-nav-link" onclick="closeMobileNav()">
       <span class="nav-icon">📖</span>
-      <span>دليل الباب 23 (المسؤولية والتأمين RCA)</span>
+      <span>دليل الباب 23 (التأمين والمسؤولية)</span>
     </a>
     <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="mobile-nav-link active" onclick="closeMobileNav()">
       <span class="nav-icon">📖</span>
-      <span>دليل الباب 24 (استهلاك الوقود وحماية البيئة)</span>
+      <span>دليل الباب 24 (البيئة والوقود)</span>
     </a>
     <a href="دليل_الباب_الأخير.html" class="mobile-nav-link" onclick="closeMobileNav()">
       <span class="nav-icon">📖</span>
-      <span>دليل وقاموس الباب 25 (الميكانيكا والصيانة)</span>
+      <span>دليل الباب 25 (الميكانيكا والصيانة)</span>
     </a>
-  </div>
-
-  <div class="mobile-drawer-footer">
-    <button class="mobile-control-btn" onclick="toggleAudio()">
+    <div class="mobile-nav-divider"></div>
+    <button class="mobile-nav-control-btn" onclick="toggleAudio(); closeMobileNav();">
       <span class="audio-icon-span">🔊</span>
-      <span class="audio-label-span">الصوت نشط</span>
+      <span class="audio-label-span">المؤثرات الصوتية: نشطة</span>
     </button>
-    <div class="mobile-control-btn" style="cursor: default; opacity: 0.85;">
-      <span>🇮🇹 ⬅️ 🇸🇦 Patente B</span>
-    </div>
   </div>
+</div>
 </div>
 
 <main class="container">
