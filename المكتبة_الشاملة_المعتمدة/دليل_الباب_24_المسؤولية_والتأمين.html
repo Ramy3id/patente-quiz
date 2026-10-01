@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl" class="dark">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>دليل الباب 24: المسؤولية والتأمين — Patente B Pro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -306,26 +306,500 @@
     margin-top: 2px;
   }
 
+
+  
+  /* ==========================================================================
+     Apple HIG & Design Engineering Responsive Navigation System
+     ========================================================================== */
+  :root {
+    --nav-base-height: 54px;
+    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    margin: 0;
+    padding: 0;
+  }
+  body.nav-scroll-lock {
+    overflow: hidden !important;
+    touch-action: none !important;
+    -webkit-overflow-scrolling: auto !important;
+  }
+
+  .unified-portal-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
+    max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
+    background: rgba(9, 9, 11, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    box-sizing: border-box;
+    transition: background 0.25s var(--ease-spring), border-color 0.25s;
+  }
+
+  /* Desktop Brand */
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .nav-brand .badge-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    padding: 2px 7px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #a1a1aa;
+  }
+
+  /* Desktop Tabs Menu */
+  .nav-desktop-tabs {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-tab-desktop {
+    text-decoration: none;
+    color: #a1a1aa;
+    padding: 7px 13px;
+    border-radius: 9px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .nav-tab-desktop:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  .nav-tab-desktop.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), 0 2px 8px rgba(0,0,0,0.4);
+  }
+
+  /* Desktop Audio Button */
+  .nav-desktop-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .nav-audio-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #a1a1aa;
+    border-radius: 9px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .nav-audio-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+  .nav-audio-btn:active { transform: scale(0.96); }
+
+  /* Animated Hamburger Icon (Apple HIG & Design Engineer) */
+  .nav-hamburger-btn {
+    display: none;
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0;
+    z-index: 1002;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .nav-hamburger-btn:active {
+    transform: scale(0.92);
+  }
+  .hamburger-box {
+    width: 20px;
+    height: 14px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: transform 0.28s var(--ease-spring), opacity 0.2s, background-color 0.2s;
+  }
+  .nav-hamburger-btn.is-active .line-top {
+    transform: translateY(6px) rotate(45deg);
+    background-color: #38bdf8;
+  }
+  .nav-hamburger-btn.is-active .line-mid {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .nav-hamburger-btn.is-active .line-bot {
+    transform: translateY(-6px) rotate(-45deg);
+    background-color: #38bdf8;
+  }
+
+  /* Glassmorphic Slide-Down Panel & Backdrop Drawer (< 768px) */
+  .mobile-drawer-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s var(--ease-spring);
+  }
+  .mobile-drawer-overlay.is-active {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-drawer-panel {
+    display: none;
+    position: fixed;
+    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
+    left: 0;
+    right: 0;
+    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
+    background: rgba(15, 15, 18, 0.92);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
+    z-index: 999;
+    padding: 16px;
+    padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.32s var(--ease-spring), opacity 0.22s ease;
+  }
+  .mobile-drawer-panel.is-active {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .mobile-nav-link {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    color: #e4e4e7;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  }
+  .mobile-nav-link:active {
+    transform: scale(0.98);
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .mobile-nav-link.active {
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.3);
+    color: #fff;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  .mobile-nav-link .nav-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  /* Drawer Footer Controls (Sound & Info) */
+  .mobile-drawer-footer {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .mobile-control-btn {
+    min-height: 48px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .mobile-control-btn:active {
+    transform: scale(0.98);
+    background: rgba(255, 255, 255, 0.09);
+  }
+
+  /* ==========================================================================
+     Breakpoint (< 768px): Strict Mobile Rules
+     ========================================================================== */
+  @media (max-width: 768px) {
+    .unified-portal-nav {
+      height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
+      max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
+      padding: 0 16px;
+      padding-top: env(safe-area-inset-top, 0px);
+      box-sizing: border-box;
+    }
+    .nav-desktop-tabs,
+    .nav-desktop-actions {
+      display: none !important;
+    }
+    .nav-hamburger-btn {
+      display: flex;
+    }
+    .nav-brand .badge-tag {
+      display: none;
+    }
+  }
+
+  /* ==========================================================================
+     Content Safe-Area and Responsive Polish
+     ========================================================================== */
+  @media (max-width: 640px) {
+    body {
+      padding-bottom: max(40px, env(safe-area-inset-bottom, 0px));
+    }
+    .container {
+      margin: 10px auto;
+      padding: 0 max(10px, env(safe-area-inset-left, 0px));
+      padding-right: max(10px, env(safe-area-inset-right, 0px));
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .content-sheet {
+      padding: 20px 14px !important;
+      border-radius: 16px !important;
+    }
+    .main-title {
+      font-size: 1.35rem !important;
+      line-height: 1.35 !important;
+    }
+    .sub-lead {
+      font-size: 0.98rem !important;
+      margin-bottom: 16px !important;
+    }
+    .section-title {
+      font-size: 1.15rem !important;
+      margin: 24px 0 12px !important;
+    }
+    .callout-box {
+      padding: 12px 14px !important;
+      font-size: 0.92rem !important;
+      line-height: 1.6 !important;
+    }
+    .diagram-wrapper {
+      padding: 16px 12px !important;
+      margin: 18px 0 !important;
+      border-radius: 14px !important;
+    }
+    .comparison-grid {
+      grid-template-columns: 1fr !important;
+      gap: 12px !important;
+    }
+    .compare-card {
+      padding: 16px 14px !important;
+    }
+    .table-wrap {
+      margin: 14px 0 !important;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+    }
+    .data-table th, .data-table td {
+      padding: 10px 8px !important;
+      font-size: 0.84rem !important;
+    }
+    .formula-banner {
+      flex-direction: column !important;
+      gap: 8px !important;
+      padding: 14px 12px !important;
+    }
+    .formula-op {
+      transform: rotate(90deg);
+    }
+    .bar-chart-container {
+      padding: 14px 10px !important;
+    }
+    .bar-row-head {
+      flex-direction: column !important;
+      gap: 3px !important;
+      font-size: 0.8rem !important;
+    }
+    .spie-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 10px !important;
+    }
+    .spia-card {
+      padding: 14px 8px !important;
+    }
+    .tri-metric-grid {
+      grid-template-columns: 1fr !important;
+      gap: 10px !important;
+    }
+    .guides-grid {
+      grid-template-columns: 1fr !important;
+      gap: 14px !important;
+    }
+    .guide-card {
+      padding: 18px 16px !important;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .spie-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
 </style>
 </head>
 <body>
 
-<div class="unified-portal-nav">
-  <div class="nav-brand">
-    <span style="font-size:1.2rem;">🚦</span>
+<!-- Unified Portal Navigation (Apple HIG Compliant) -->
+<nav class="unified-portal-nav" id="portal-nav">
+  <!-- Brand (Minimal on mobile, full on desktop) -->
+  <a href="index.html" class="nav-brand">
+    <span style="font-size:1.25rem;">🚦</span>
     <span>Patente B Pro</span>
-  </div>
-    <div class="nav-tabs-wrapper">
-    <a href="../Capitoli_Divisi/index.html" class="nav-tab">📚 مذاكرة الأبواب المقسمة (25 باب)</a>
-    <a href="../Simulatore_Esame.html" class="nav-tab">⏱️ محاكي الامتحان الرسمي (20 دقيقة)</a>
-    <a href="index.html" class="nav-tab">📑 فهرس المكتبة</a>
-    <a href="دليل_الباب_23_السرعة_ومسافة_الأمان_والتجاوز.html" class="nav-tab">📖 دليل الباب 23 (السرعة والتجاوز)</a>
-    <a href="دليل_الباب_24_المسؤولية_والتأمين.html" class="nav-tab active">📖 دليل الباب 24 (المسؤولية والتأمين)</a>
-    <a href="دليل_الباب_الأخير.html" class="nav-tab">📖 دليل الباب الأخير (الميكانيكا)</a>
-  </div>
-</div>
+    <span class="badge-tag">A2</span>
+  </a>
 
-<div class="container">
+  <!-- Desktop Tabs Menu (Strictly hidden on mobile < 768px) -->
+  <div class="nav-desktop-tabs">
+    <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 الأبواب المقسمة (25 باب)</a>
+    <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان (20 دقيقة)</a>
+    <a href="index.html" class="nav-tab-desktop">📑 فهرس المكتبة</a>
+    <a href="دليل_الباب_23_السرعة_ومسافة_الأمان_والتجاوز.html" class="nav-tab-desktop">📖 الباب 23 (السرعة)</a>
+    <a href="دليل_الباب_24_المسؤولية_والتأمين.html" class="nav-tab-desktop active">📖 الباب 24 (التأمين)</a>
+    <a href="دليل_الباب_الأخير.html" class="nav-tab-desktop">📖 الباب الأخير (الميكانيكا)</a>
+  </div>
+
+  <!-- Desktop Audio Control -->
+  <div class="nav-desktop-actions">
+    <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
+      <span class="audio-icon-span">🔊</span>
+      <span class="audio-label-span">الصوت نشط</span>
+    </button>
+  </div>
+
+  <!-- Animated Hamburger Button (Apple HIG - Only visible on Mobile < 768px) -->
+  <button class="nav-hamburger-btn" id="nav-hamburger-btn" onclick="toggleMobileNav()" aria-label="قائمة التنقل" aria-expanded="false">
+    <div class="hamburger-box">
+      <span class="hamburger-line line-top"></span>
+      <span class="hamburger-line line-mid"></span>
+      <span class="hamburger-line line-bot"></span>
+    </div>
+  </button>
+</nav>
+
+<!-- Backdrop Blur Overlay -->
+<div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
+
+<!-- Slide-Down Glassmorphic Drawer Panel (Apple HIG - Touch Targets >= 48px) -->
+<div class="mobile-drawer-panel" id="mobile-drawer-panel">
+  <div class="mobile-nav-list">
+    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📚</span>
+      <span>مذاكرة الأبواب المقسمة (25 باب)</span>
+    </a>
+    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">⏱️</span>
+      <span>محاكي الامتحان الوزاري (20 دقيقة)</span>
+    </a>
+    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📑</span>
+      <span>فهرس المكتبة الشاملة المعتمدة</span>
+    </a>
+    <a href="دليل_الباب_23_السرعة_ومسافة_الأمان_والتجاوز.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 23 (السرعة ومسافة الأمان والتجاوز)</span>
+    </a>
+    <a href="دليل_الباب_24_المسؤولية_والتأمين.html" class="mobile-nav-link active" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 24 (المسؤولية والتأمين RCA)</span>
+    </a>
+    <a href="دليل_الباب_الأخير.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل وقاموس الباب الأخير (الميكانيكا والصيانة)</span>
+    </a>
+  </div>
+
+  <div class="mobile-drawer-footer">
+    <button class="mobile-control-btn" onclick="toggleAudio()">
+      <span class="audio-icon-span">🔊</span>
+      <span class="audio-label-span">الصوت نشط</span>
+    </button>
+    <div class="mobile-control-btn" style="cursor: default; opacity: 0.85;">
+      <span>🇮🇹 ⬅️ 🇸🇦 Patente B</span>
+    </div>
+  </div>
+</div><div class="container">
 <div class="content-sheet">
     <h1 class="main-title">دليل الدراسة الشامل: الباب الرابع والعشرون - المسؤولية والتأمين (Capitolo 24)</h1><h3 class="sub-lead">دليل ثنائي اللغة (إيطالي/عربي) معتمد ومكتمل بنسبة 100%</h3><div class="callout-box">📌 **نظرة عامة وإحصائيات الباب:**</div><div class="callout-box">يُعد هذا الباب من أهم الأبواب النظرية للحصول على رخصة القيادة الإيطالية، حيث يتناول الجوانب القانونية والمالية المترتبة على حوادث الطرق.</div><div class="callout-box">* **عدد الأسئلة:** يتراوح بين 220 إلى 250 سؤالاً في قاعدة البيانات الوزارية.</div><div class="callout-box">* **نسبة التكرار:** تصل إلى حوالي 35%، مما يجعله باباً محورياً في الامتحان.</div><div class="callout-box">* **المواضيع الرئيسية:** المسؤولية المدنية والجنائية والإدارية، تأمين RCA، وصندوق ضحايا حوادث الطرق.</div><hr class="divider">
 <div class="diagram-wrapper">
@@ -473,6 +947,191 @@
 <h2 class="section-title">ثالثاً: النقاط الـ 5 الذهبية لتقفيل الباب 🏆</h2><p class="para">تعتبر هذه النقاط هي "الفخاخ" الأكثر دقة وتكراراً في الامتحانات الحديثة لعام 2026:</p><div class="table-wrap"><table class="data-table"><tr><th>م</th><th>الموضوع</th><th>التفاصيل القانونية والفخاخ المعتمدة</th></tr><tr><td>**1**</td><td>**عقوبات السير بدون تأمين**</td><td>حجز ومصادرة السيارة فوراً (*Sequestro del veicolo*)، غرامة مالية باهظة (من 866 إلى 3,464 يورو)، وخصم **5 نقاط** من رخصة القيادة.</td></tr><tr><td>**2**</td><td>**الوثائق المطلوبة**</td><td>**الملصق الزجاجي (Contrassegno):** لم يعد إجبارياً على الزجاج لأن الفحص يتم إلكترونياً بقراءة اللوحة.<br>**شهادة التأمين (Certificato):** إجبارية 100% ويجب حملها بالسيارة.</td></tr><tr><td>**3**</td><td>**التعويض المباشر (Risarcimento Diretto)**</td><td>يحق لك طلب التعويض مباشرة من **شركة تأمينك أنت** (*La propria compagnia*) بشرط: الحادث بين سيارتين فقط، مسجلتين ومؤمنتين بإيطاليا، وبأضرار مادية أو إصابات طفيفة (أقل من 9%).</td></tr><tr><td>**4**</td><td>**إعفاء المالك من المسؤولية التضامنية**</td><td>يُعفى مالك السيارة من دفع التعويض المدني في حالة واحدة فقط: أن تكون السيارة قد سُيرت **رغماً عن إرادته** (*Circolazione avvenuta contro la sua volontà*) مع تقديم بلاغ سرقة رسمي فوراً (*Denuncia di furto*).</td></tr><tr><td>**5**</td><td>**تأمين المقطورة (Rischio Statico)**</td><td>عند فصل المقطورة عن السيارة وركنها في طريق عام، يجب أن يتوفر لها تأمين خاص ومستقل يُسمى **تأمين المخاطر الثابتة** (*Assicurazione per il rischio statico*).</td></tr></table></div><hr class="divider"><h2 class="section-title">رابعاً: أنظمة التأمين وحقوق الشركات</h2><h3 class="sub-lead">نظام المكافأة والخصم (Bonus / Malus)</h3><div class="bullet-item">• نظام ذكي لتقييم السائقين واحتساب قسط التأمين السنوي.</div><div class="bullet-item">• يضم <strong>18 فئة جدارة (Classi di merito)</strong> تبدأ من الفئة 1 (الأفضل والأرخص) حتى الفئة 18 (الأسوأ والأغلى).</div><div class="bullet-item">• <strong>المكافأة (Bonus):</strong> إذا مرت السنة بدون حوادث مسؤولة، تنخفض فئتك درجة واحدة (*Si scende di 1 classe*) ويقل سعر التأمين.</div><div class="bullet-item">• <strong>العقوبة (Malus):</strong> إذا تسببت في حادث مسؤول عنه، ترتفع فئتك **درجتين (Si sale di 2 classi)** ويزيد سعر القسط.</div><h3 class="sub-lead">حق الرجوع لشركة التأمين (Diritto di Rivalsa)</h3><div class="bullet-item">• هو حق شركة التأمين في تعويض الضحية المتضررة أولاً، ثم <strong>مطالبة السائق المؤمن لديه برد كافة المبالغ المدفوعة</strong> في حالات الإهمال الجسيم:</div><div class="num-item"><strong>1. </strong> القيادة تحت تأثير الكحول أو المخدرات (*Guida in stato di ebbrezza o droghe*).</div><div class="num-item"><strong>2. </strong> قيادة مركبة بدون فحص فني دوري سارٍ (*Veicolo senza revisione*).</div><div class="num-item"><strong>3. </strong> القيادة برخصة ملغاة أو بدون رخصة قيادة (*Patente revocata o mai conseguita*).</div><h3 class="sub-lead">صندوق ضمان ضحايا حوادث الطرق (Fondo di Garanzia per le Vittime della Strada)</h3><p class="para">صندوق وطني مخصص لتعويض المتضررين في الحالات التي تغيب فيها التغطية التأمينية العادية:</p><div class="num-item"><strong>1. </strong> **سيارة مجهولة هرب سائقها (Pirata della strada):** يعوض الأضرار الجسدية الواقعة على الأشخاص.</div><div class="num-item"><strong>2. </strong> **سيارة معلومة ولكن غير مؤمن عليها (Veicolo non assicurato):** يعوض الأضرار الجسدية، والأضرار المادية بشروط محددة.</div><div class="num-item"><strong>3. </strong> **إفلاس شركة التأمين المتسببة في الحادث:** يتدخل الصندوق لضمان سداد التعويض للمتضررين.</div><hr class="divider"><h2 class="section-title">خامساً: جدول فخاخ Vero و Falso المباشرة في الامتحان ⚠️</h2><div class="table-wrap"><table class="data-table"><tr><th>نص السؤال في الامتحان</th><th>الحكم</th><th>التحليل وسبب الإجابة</th></tr><tr><td>La responsabilità penale grava sul proprietario in solido col conducente</td><td>**FALSO ❌**</td><td>المسؤولية الجنائية شخصية بحتة للسائق فقط ولا يتحملها المالك.</td></tr><tr><td>L'assicurazione RCA copre solo i danni alle cose</td><td>**FALSO ❌**</td><td>تغطي الأضرار المادية للأشياء والجسدية للأشخاص والحيوانات.</td></tr><tr><td>I terzi trasportati parenti del conducente sono esclusi dall'RCA</td><td>**FALSO ❌**</td><td>الركاب مشمولون دائماً بالتأمين حتى لو كانوا زوجة أو أبناء السائق.</td></tr><tr><td>Il rimorchio staccato dalla motrice deve avere assicurazione per il rischio statico</td><td>**VERO ✅**</td><td>نعم، المقطورة المفصولة يجب أن تملك تأمين مخاطر ثابتة.</td></tr><tr><td>La responsabilità civile è limitata al solo valore della franchigia</td><td>**FALSO ❌**</td><td>المسؤولية المدنية غير محدودة بالفرانشيز بل تلزم بتعويض كامل الضرر.</td></tr><tr><td>Il fondo di garanzia risarcisce i danni causati da veicolo non identificato</td><td>**VERO ✅**</td><td>نعم، يغطي الأضرار الجسدية الناتجة عن سيارة مجهولة هربت.</td></tr><tr><td>L'assicurazione RCA copre i danni causati con dolo (volontariamente)</td><td>**FALSO ❌**</td><td>التأمين لا يغطي الأضرار المتعمدة عن قصد وترصد.</td></tr><tr><td>Dopo la scadenza annuale, la copertura resta valida per 15 giorni</td><td>**VERO ✅**</td><td>صحيح، تظل سارية لمدة 15 يوماً داخل الأراضي الإيطالية.</td></tr></table></div><hr class="divider"><div class="callout-box">💡 **خلاصة ذهبية:** الفارق الجوهري الذي يحسم 80% من أسئلة هذا الباب:</div><div class="callout-box">* **المدنية (Civile) = مال وتأمين وتضامن.**</div><div class="callout-box">* **الجنائية (Penale) = سجن وجريمة وشخصية للسائق فقط ولا يغطيها التأمين.**</div>
   </div>
 </div>
+
+
+<script>
+  // Unified Sound Engine
+  const soundEngine = window.soundEngine || {
+    ctx: null,
+    enabled: true,
+    init() {
+      if (!this.ctx) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) this.ctx = new AudioCtx();
+      }
+      if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
+    },
+    click() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
+      try {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(520, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.04);
+        gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.04);
+      } catch(e) {}
+    }
+  };
+
+  // Toggle Mobile Navigation Drawer
+  function toggleMobileNav() {
+    const menu = document.getElementById('nav-tabs-menu');
+    const btn = document.getElementById('nav-hamburger-btn');
+    if (!menu || !btn) return;
+    const isOpen = menu.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    
+    const iconOpen = btn.querySelector('.hamburger-icon-open');
+    const iconClose = btn.querySelector('.hamburger-icon-close');
+    if (iconOpen && iconClose) {
+      iconOpen.style.display = isOpen ? 'none' : 'block';
+      iconClose.style.display = isOpen ? 'block' : 'none';
+    }
+    if (soundEngine.click) {
+      soundEngine.click();
+    }
+  }
+
+  // Close mobile drawer when clicking outside
+  document.addEventListener('click', function(e) {
+    const nav = document.getElementById('portal-nav');
+    const menu = document.getElementById('nav-tabs-menu');
+    const btn = document.getElementById('nav-hamburger-btn');
+    if (menu && menu.classList.contains('is-open') && nav && !nav.contains(e.target)) {
+      menu.classList.remove('is-open');
+      if (btn) {
+        btn.setAttribute('aria-expanded', 'false');
+        const iconOpen = btn.querySelector('.hamburger-icon-open');
+        const iconClose = btn.querySelector('.hamburger-icon-close');
+        if (iconOpen && iconClose) {
+          iconOpen.style.display = 'block';
+          iconClose.style.display = 'none';
+        }
+      }
+    }
+  });
+
+  // Toggle Audio Sound
+  window.toggleAudio = function() {
+    soundEngine.enabled = !soundEngine.enabled;
+    const icon = document.getElementById('audio-icon');
+    const label = document.querySelector('.audio-label');
+    if (icon) icon.textContent = soundEngine.enabled ? '🔊' : '🔇';
+    if (label) label.textContent = soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم';
+    if (soundEngine.enabled) soundEngine.click();
+  };
+</script>
+
+
+<script>
+  // Mobile Navigation Drawer Controller (Apple HIG Compliant & Spring Micro-UX)
+  (function() {
+    function toggleMobileNav() {
+      const btn = document.getElementById('nav-hamburger-btn');
+      const panel = document.getElementById('mobile-drawer-panel');
+      const overlay = document.getElementById('mobile-drawer-overlay');
+      if (!btn || !panel) return;
+      
+      const isOpening = !panel.classList.contains('is-active');
+      
+      if (isOpening) {
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-expanded', 'true');
+        panel.classList.add('is-active');
+        if (overlay) overlay.classList.add('is-active');
+        document.body.classList.add('nav-scroll-lock');
+      } else {
+        closeMobileNav();
+      }
+      
+      if (window.soundEngine && typeof window.soundEngine.click === 'function') {
+        window.soundEngine.click();
+      }
+    }
+
+    function closeMobileNav() {
+      const btn = document.getElementById('nav-hamburger-btn');
+      const panel = document.getElementById('mobile-drawer-panel');
+      const overlay = document.getElementById('mobile-drawer-overlay');
+      if (btn) {
+        btn.classList.remove('is-active');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+      if (panel) panel.classList.remove('is-active');
+      if (overlay) overlay.classList.remove('is-active');
+      document.body.classList.remove('nav-scroll-lock');
+    }
+
+    window.toggleMobileNav = toggleMobileNav;
+    window.closeMobileNav = closeMobileNav;
+
+    // Close on Escape key press
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeMobileNav();
+    });
+
+    // Audio Engine synchronization
+    if (typeof window.toggleAudio !== 'function') {
+      window.soundEngine = window.soundEngine || {
+        ctx: null,
+        enabled: true,
+        init() {
+          if (!this.ctx) {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (AudioCtx) this.ctx = new AudioCtx();
+          }
+          if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
+        },
+        click() {
+          if (!this.enabled) return;
+          this.init();
+          if (!this.ctx) return;
+          try {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(520, this.ctx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.04);
+            gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.start();
+            osc.stop(this.ctx.currentTime + 0.04);
+          } catch(e) {}
+        }
+      };
+
+      window.toggleAudio = function() {
+        if (!window.soundEngine) return;
+        window.soundEngine.enabled = !window.soundEngine.enabled;
+        const icons = document.querySelectorAll('.audio-icon-span, #audio-icon');
+        const labels = document.querySelectorAll('.audio-label-span, #audio-label, .audio-label');
+        icons.forEach(el => el.textContent = window.soundEngine.enabled ? '🔊' : '🔇');
+        labels.forEach(el => el.textContent = window.soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم');
+        if (window.soundEngine.enabled && window.soundEngine.click) window.soundEngine.click();
+      };
+    } else {
+      const _orig = window.toggleAudio;
+      window.toggleAudio = function() {
+        _orig();
+        const isEnabled = window.soundEngine ? window.soundEngine.enabled : true;
+        const icons = document.querySelectorAll('.audio-icon-span');
+        const labels = document.querySelectorAll('.audio-label-span');
+        icons.forEach(el => el.textContent = isEnabled ? '🔊' : '🔇');
+        labels.forEach(el => el.textContent = isEnabled ? 'الصوت نشط' : 'الصوت مكتوم');
+      };
+    }
+  })();
+</script>
 
 </body>
 </html>
