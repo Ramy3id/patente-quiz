@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>دليل وقاموس الباب 13: قواعد السير ومسارات الطريق | رخصة القيادة الإيطالية</title>
+  <title>دليل وقاموس الباب 13: قواعد حركة السير وتموضع المركبات | رخصة القيادة الإيطالية</title>
 
   <!-- Apple System Fonts & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -113,22 +113,62 @@
     background: rgba(56, 189, 248, 0.08);
     border: 1px solid rgba(56, 189, 248, 0.2);
     border-radius: 14px;
-    padding: 16px 20px;
+    padding: 18px 22px;
     margin-bottom: 28px;
     font-size: 0.95rem;
     color: #e0f2fe;
-    line-height: 1.6;
+    line-height: 1.7;
   }
 
   .section-title {
     font-size: 1.45rem;
-    margin: 36px 0 16px;
+    margin: 40px 0 18px;
     color: #fff;
     display: flex;
     align-items: center;
     gap: 10px;
     border-bottom: 1px solid var(--border-subtle);
-    padding-bottom: 10px;
+    padding-bottom: 12px;
+  }
+
+  /* Visual Figure Box */
+  .fig-visual-box {
+    background: rgba(24, 24, 27, 0.7);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px;
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+  }
+  .fig-visual-box .fig-preview {
+    flex: 0 0 240px;
+    background: #000;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+  }
+  .fig-visual-box .fig-preview img {
+    max-width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  .fig-visual-box .fig-preview .fig-caption {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--amber-primary);
+    margin-top: 8px;
+  }
+  .fig-visual-box .fig-info {
+    flex: 1;
+    min-width: 260px;
   }
 
   /* Comparison Grid */
@@ -168,9 +208,10 @@
   }
   .card-it-title {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: #fff;
+    direction: ltr;
   }
   .card-ar-title {
     font-size: 0.95rem;
@@ -190,7 +231,7 @@
     display: flex;
     align-items: flex-start;
     gap: 8px;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   /* Data Table */
@@ -259,38 +300,22 @@
     font-size: 0.82rem;
     color: var(--text-tertiary);
     margin-top: 4px;
+    direction: ltr;
+    text-align: left;
   }
 
-  /* Image figure card */
-  .fig-inline {
-    background: #000;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 12px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    margin: 12px 0;
-    max-width: 320px;
-  }
-  .fig-inline img {
-    max-width: 100%;
-    max-height: 220px;
-    object-fit: contain;
-  }
-
-  /* Quiz Accordion */
+  /* Quiz Accordion & Cards */
   .quiz-stack {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin: 20px 0;
+    gap: 14px;
+    margin: 24px 0;
   }
   .quiz-card {
     background: rgba(24, 24, 27, 0.7);
     border: 1px solid var(--border-subtle);
-    border-radius: 14px;
-    padding: 18px 20px;
+    border-radius: 16px;
+    padding: 20px 22px;
     transition: border-color 0.15s;
   }
   .quiz-card:hover { border-color: var(--border-highlight); }
@@ -302,19 +327,22 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
     direction: ltr;
     text-align: left;
+    line-height: 1.5;
   }
   .quiz-q-ar {
-    font-size: 0.92rem;
-    color: var(--text-secondary);
+    font-size: 0.95rem;
+    color: #38bdf8;
     margin-bottom: 14px;
+    line-height: 1.6;
+    font-weight: 500;
   }
   .quiz-meta-row {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 12px;
+    gap: 14px;
     flex-wrap: wrap;
-    padding-top: 10px;
+    padding-top: 12px;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
   }
   .ans-badge {
@@ -323,14 +351,16 @@
     font-size: 0.85rem;
     font-weight: 800;
     font-family: 'JetBrains Mono', monospace;
+    flex-shrink: 0;
   }
   .ans-vero { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
   .ans-falso { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
   .quiz-explain {
-    font-size: 0.88rem;
-    color: #a1a1aa;
+    font-size: 0.9rem;
+    color: #d4d4d8;
     flex: 1;
-    min-width: 200px;
+    min-width: 220px;
+    line-height: 1.6;
   }
 
   /* Platform Navigation (Unified) */
@@ -547,44 +577,27 @@
     color: var(--sky-primary);
   }
 
-  /* Inline bullet list */
-  .rule-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: 0.92rem;
-    color: #d4d4d8;
-    margin: 16px 0;
-    padding: 0;
-  }
-  .rule-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    line-height: 1.6;
-  }
-
+  /* Highlight Boxes */
   .highlight-box {
     background: rgba(245, 158, 11, 0.08);
     border: 1px solid rgba(245, 158, 11, 0.2);
     border-radius: 14px;
     padding: 16px 20px;
-    margin: 16px 0;
+    margin: 18px 0;
     font-size: 0.92rem;
     color: #fef3c7;
-    line-height: 1.6;
+    line-height: 1.7;
   }
 
   .danger-box {
     background: rgba(244, 63, 94, 0.08);
     border: 1px solid rgba(244, 63, 94, 0.2);
     border-radius: 14px;
-    padding: 16px 20px;
-    margin: 16px 0;
+    padding: 18px 22px;
+    margin: 18px 0;
     font-size: 0.92rem;
     color: #ffe4e6;
-    line-height: 1.6;
+    line-height: 1.7;
   }
 
   @media (max-width: 768px) {
@@ -596,9 +609,11 @@
     }
     .nav-desktop-tabs, .nav-desktop-actions { display: none !important; }
     .nav-hamburger-btn { display: flex; }
-    .main-title { font-size: 1.5rem; }
+    .main-title { font-size: 1.55rem; }
     .comparison-grid { grid-template-columns: 1fr; }
     .prohibition-grid { grid-template-columns: 1fr; }
+    .fig-visual-box { flex-direction: column; align-items: stretch; }
+    .fig-visual-box .fig-preview { width: 100%; }
   }
   </style>
 </head>
@@ -718,7 +733,35 @@
 
     <!-- ======================== SECTION 1 ======================== -->
     <h2 class="section-title">🚗 أولاً: تموضع المركبات والسير في صفوف متوازية (Posizione e File Parallele)</h2>
-    <p style="color:var(--text-secondary); margin-bottom:16px;">يحدد كود السير الإيطالي قواعد صارمة لمكان تواجد المركبة على عرض الطريق، خاصة في الطرق ذات الاتجاهين والطرق الحضرية.</p>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">يحدد كود السير الإيطالي بدقة متناهية مكان تواجد المركبة على نهر الطريق (Carreggiata) وفقاً لعدد الحارات واتجاهات السير.</p>
+
+    <!-- Visual Box 1 -->
+    <div class="fig-visual-box">
+      <div class="fig-preview">
+        <img src="../Capitoli_Divisi/Capitolo_13_norme_di_circolazione/immagini/502.png" alt="Figura 502" loading="lazy">
+        <span class="fig-caption">Figura 502: حارتان باتجاهين</span>
+      </div>
+      <div class="fig-info">
+        <h4 style="color:#fff; margin-bottom:8px; font-size:1.05rem;">قاعدة الحافة اليمنى الإلزامية (Margine Destro)</h4>
+        <p style="color:#d4d4d8; font-size:0.92rem; line-height:1.7;">
+          في الطرق ذات الاتجاهين والمقسمة لحارتين (Figura 502)، يجب السير دائماً في الحارة اليمنى بالقرب من الحافة اليمنى لنهر الطريق (<code>Margine destro</code>)، وتزداد هذه الصرامة عند المنحنيات (<code>Curve</code>) ومطبات الرؤية (<code>Dossi</code>). يُحظر السير في المنتصف حتى لو كان الطريق خالياً تماماً!
+        </p>
+      </div>
+    </div>
+
+    <!-- Visual Box 2 -->
+    <div class="fig-visual-box">
+      <div class="fig-preview">
+        <img src="../Capitoli_Divisi/Capitolo_13_norme_di_circolazione/immagini/554.png" alt="Figura 554" loading="lazy">
+        <span class="fig-caption">Figura 554: 3 حارات باتجاهين</span>
+      </div>
+      <div class="fig-info">
+        <h4 style="color:#fff; margin-bottom:8px; font-size:1.05rem;">طريق بثلاث حارات واتجاهين (Corsia Centrale di Sorpasso)</h4>
+        <p style="color:#d4d4d8; font-size:0.92rem; line-height:1.7;">
+          في الطريق الموضح في (Figura 554): الحارة اليمنى لكل اتجاه مخصصة للسير العادي، أما <strong>الحارة الوسطى المشتركة</strong> فتُستخدم حصراً لـ <strong>التجاوز فقط لكلا الاتجاهين</strong> (<code>Riservata al sorpasso</code>). يُحظر السير العادي المستمر فيها قطعياً!
+        </p>
+      </div>
+    </div>
 
     <div class="comparison-grid">
       <div class="compare-card emerald">
@@ -727,21 +770,21 @@
           <span class="card-ar-title">الحافة اليمنى</span>
         </div>
         <ul class="card-points-list">
-          <li><span>🔑</span> <strong>القاعدة الأساسية:</strong> يجب السير بأقصى قرب ممكن من الحافة اليمنى للطريق (<code>Stringere il più possibile il margine destro</code>).</li>
-          <li><span>🏔️</span> <strong>المنحنيات والتلال:</strong> في المنحنيات (<code>Curve</code>) ومطبات الرؤية (<code>Dossi</code>)، يُلزم السائق بالتمسك أكثر بالحافة اليمنى.</li>
-          <li><span>⚠️</span> <strong>فخ شائع:</strong> يُحظر السير في منتصف الطريق (<code>Centro della carreggiata</code>) حتى لو كان الطريق واسعاً أو فارغاً!</li>
+          <li><span>🔑</span> <strong>القاعدة الأساسية:</strong> السير بأقصى قرب ممكن من الحافة اليمنى (<code>Stringere il più possibile il margine destro</code>).</li>
+          <li><span>🏔️</span> <strong>المنحنيات والتلال:</strong> في المنحنيات ومطبات الرؤية يُلزم السائق بالتمسك التام باليمين لمنع الاصطدام بالمقابل.</li>
+          <li><span>⚠️</span> <strong>فخ:</strong> السير في منتصف الشارع بحجة أنه واسع خطأ كلياً ويعتبر Falso!</li>
         </ul>
       </div>
 
       <div class="compare-card amber">
         <div class="card-header-row">
-          <span class="card-it-title">Strada a 3 Corsie</span>
-          <span class="card-ar-title">طريق بـ 3 حارات</span>
+          <span class="card-it-title">Carreggiate Separate</span>
+          <span class="card-ar-title">أنهار سير منفصلة</span>
         </div>
         <ul class="card-points-list">
-          <li><span>🛣️</span> <strong>الطريق ذو 3 حارات واتجاهين:</strong> الحارة الوسطى مشتركة لكلا الاتجاهين وتُستخدم <strong>فقط للتجاوز</strong> (<code>Solo per il sorpasso</code>).</li>
-          <li><span>🚫</span> <strong>محظور قطعياً:</strong> السير العادي المستمر في الحارة الوسطى أو اليسرى دون وجود عملية تجاوز فعلية.</li>
-          <li><span>📊</span> <strong>26 سؤالاً وزارياً</strong> تتناول قواعد السير في صفوف متوازية.</li>
+          <li><span>🛣️</span> <strong>نهران منفصلان (Figura 558):</strong> يسير كل اتجاه في نهره الخاص المخصص له.</li>
+          <li><span>🛣️</span> <strong>3 أنهار سير (Figura 562):</strong> النهر الأوسط يكون عادة باتجاهين، والجانبيان باتجاه واحد.</li>
+          <li><span>3️⃣</span> <strong>3 حارات لكل اتجاه (Figura 552):</strong> الحارة اليمنى للسير العادي، والوسطى واليسرى للتجاوز.</li>
         </ul>
       </div>
 
@@ -751,17 +794,34 @@
           <span class="card-ar-title">الصفوف المتوازية</span>
         </div>
         <ul class="card-points-list">
-          <li><span>🚦</span> <strong>الحالتان الحصريتان</strong> اللتان يُسمح فيهما بالسير في صفوف متوازية (<code>Marcia per file parallele</code>):</li>
-          <li><span>1️⃣</span> <strong>الازدحام الشديد:</strong> (<code>Traffico intenso</code>) حيث تسير المركبات في جميع الحارات معاً.</li>
-          <li><span>2️⃣</span> <strong>التقاطعات المنظمة:</strong> بإشارات ضوئية أو شرطي مرور يوجه المركبات لاستخدام كل الحارات.</li>
-          <li><span>🏍️</span> <strong>فخ:</strong> حظر سير الدراجات النارية بين السيارات (<code>Tra le file</code>) حتى في الازدحام!</li>
+          <li><span>🚦</span> <strong>الحالتان الحصريتان</strong> للسير في صفوف متوازية (<code>Marcia per file parallele</code>):</li>
+          <li><span>1️⃣</span> <strong>الازدحام الشديد:</strong> (<code>Traffico intenso</code>) بتوجيه حركة السير في كافة الحارات.</li>
+          <li><span>2️⃣</span> <strong>التقاطعات المنظمة:</strong> بإشارات ضوئية أو شرطي المرور.</li>
+          <li><span>🏍️</span> <strong>فخ خطير:</strong> حظر مرور الدراجات النارية بين خطوط السيارات في الازدحام!</li>
         </ul>
       </div>
     </div>
 
     <!-- ======================== SECTION 2 ======================== -->
     <h2 class="section-title">↩️ ثانياً: هندسة الانعطاف وتغيير المسار (Svolte e Inversione di Marcia)</h2>
-    <p style="color:var(--text-secondary); margin-bottom:16px;">يُحدد كود السير الإيطالي قواعد تموضع دقيقة لكل نوع من أنواع الانعطاف، مع عقوبات مشددة على المخالفين.</p>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">تخضع مناورات الانعطاف لقواعد هندسية صارمة لتفادي قطع مسارات الآخرين أو التسبب في حوادث دهس.</p>
+
+    <!-- Visual Box 3 -->
+    <div class="fig-visual-box">
+      <div class="fig-preview">
+        <img src="../Capitoli_Divisi/Capitolo_13_norme_di_circolazione/immagini/599.png" alt="Figura 599" loading="lazy">
+        <span class="fig-caption">Figura 599: الانعطاف يساراً</span>
+      </div>
+      <div class="fig-info">
+        <h4 style="color:#fff; margin-bottom:8px; font-size:1.05rem;">الانعطاف لليسار في طريق باتجاهين (Svolta a Sinistra)</h4>
+        <p style="color:#d4d4d8; font-size:0.92rem; line-height:1.7;">
+          عند الانعطاف يساراً في طريق باتجاهين (Figura 599 و 601 و 602):<br>
+          1. الاقتراب من خط منتصف الطريق (<code>Asse della carreggiata</code>) دون اجتيازه.<br>
+          2. ترك <strong>مركز التقاطع على يمينك</strong> (<code>Lasciare il centro dell'incrocio alla propria destra</code>).<br>
+          3. إعطاء الأسبقية للقادمين من الاتجاه المقابل المعاكس قبل إتمام الدوران.
+        </p>
+      </div>
+    </div>
 
     <div class="comparison-grid">
       <div class="compare-card emerald">
@@ -770,130 +830,132 @@
           <span class="card-ar-title">الانعطاف لليمين</span>
         </div>
         <ul class="card-points-list">
-          <li><span>➡️</span> <strong>التموضع:</strong> الالتزام بأقصى الحافة اليمنى (<code>Margine destro</code>) قبل وأثناء الانعطاف.</li>
-          <li><span>👀</span> <strong>التحقق:</strong> فحص المرايا + الالتفات للتأكد من عدم وجود دراجات أو مشاة على اليمين.</li>
-          <li><span>🔔</span> <strong>الغماز:</strong> تشغيل الغماز الأيمن (<code>Indicatore destro</code>) بوقت كافٍ قبل المناورة.</li>
-        </ul>
-      </div>
-
-      <div class="compare-card amber">
-        <div class="card-header-row">
-          <span class="card-it-title">Svolta a Sinistra (2 Sensi)</span>
-          <span class="card-ar-title">الانعطاف لليسار — طريق باتجاهين</span>
-        </div>
-        <ul class="card-points-list">
-          <li><span>⬅️</span> <strong>التموضع:</strong> الاقتراب من خط منتصف الطريق (<code>Asse della carreggiata</code>) دون تجاوزه.</li>
-          <li><span>🔄</span> <strong>مركز التقاطع:</strong> ترك مركز التقاطع على يمينك (<code>Lasciare il centro dell'incrocio alla propria destra</code>).</li>
-          <li><span>⏳</span> <strong>الأسبقية:</strong> إعطاء الأسبقية للقادمين من الاتجاه المعاكس (المقابل).</li>
+          <li><span>➡️</span> <strong>التموضع:</strong> الالتزام التام بأقصى الحافة اليمنى (<code>Margine destro</code>) قبل وأثناء الانعطاف.</li>
+          <li><span>👀</span> <strong>الانتباه للدراجات والمشاة:</strong> فحص المرايا والتأكد من خلو المسار الأيمن من أي مشاة أو دراجات.</li>
+          <li><span>🔔</span> <strong>الغماز:</strong> تشغيل مؤشر الاتجاه الأيمن بوقت كافٍ قبل بدء التباطؤ والانعطاف.</li>
         </ul>
       </div>
 
       <div class="compare-card rose">
         <div class="card-header-row">
-          <span class="card-it-title">Svolta a Sinistra (Senso Unico)</span>
-          <span class="card-ar-title">الانعطاف لليسار — طريق باتجاه واحد</span>
+          <span class="card-it-title">Svolta (Senso Unico)</span>
+          <span class="card-ar-title">الانعطاف يساراً — اتجاه واحد</span>
         </div>
         <ul class="card-points-list">
           <li><span>⬅️</span> <strong>التموضع:</strong> الانتقال لأقصى الحافة اليسرى تماماً (<code>Margine sinistro</code>).</li>
-          <li><span>⚠️</span> <strong>فخ الكويز:</strong> في الطريق ذي الاتجاه الواحد، التموضع مختلف تماماً عن الطريق ذي الاتجاهين!</li>
-          <li><span>🔔</span> <strong>ملاحظة:</strong> الغماز الأيسر يجب أن يعمل طوال مدة المناورة كاملةً.</li>
+          <li><span>⚠️</span> <strong>فخ كويز متكرر:</strong> في طريق الاتجاه الواحد لا نأخذ خط المنتصف بل نلتصق بأقصى الحافة اليسرى!</li>
+          <li><span>🔔</span> <strong>السبب القانوني:</strong> لعدم وجود مركبات مقابلة، ولإفساح الحارة اليمنى لمن يرغب بالاستمرار للأمام.</li>
+        </ul>
+      </div>
+
+      <div class="compare-card amber">
+        <div class="card-header-row">
+          <span class="card-it-title">Corsie di Canalizzazione</span>
+          <span class="card-ar-title">حارات التوجيه (Fig. 570)</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>↔️</span> <strong>الخط المتقطع:</strong> يسمح بالانتقال بين حارات التوجيه قبل التقاطع بحذر مع تشغيل الغماز.</li>
+          <li><span>🚫</span> <strong>الخط المتصل:</strong> بمجرد بدء الخط المتصل يُحظر قطعياً تغيير الحارة ويجب الالتزام بالاتجاه المحدد.</li>
+          <li><span>⚠️</span> <strong>فخ:</strong> سؤال يزعم جواز تغيير الحارة عند الخط المتصل بالتقاطع إذا كان فارغاً ← Falso!</li>
         </ul>
       </div>
     </div>
 
     <h3 style="color:var(--sky-primary); margin:28px 0 12px; font-size:1.15rem;">🚫 مصفوفة الحالات الست لحظر الدوران للخلف (Inversione di marcia)</h3>
-    <p style="color:var(--text-secondary); margin-bottom:12px;">يُحظر الدوران الكامل للخلف (U-turn) قطعياً في الحالات التالية (10 أسئلة وزارية):</p>
+    <p style="color:var(--text-secondary); margin-bottom:12px;">يُحظر الدوران الكامل للخلف (U-turn) قطعياً وبشكل مشدد في الحالات الست التالية (10 أسئلة وزارية):</p>
 
     <div class="prohibition-grid">
       <div class="prohibition-item">
         <span class="p-num">1</span>
         <div>
-          <div class="p-text"><strong>طرق الاتجاه الواحد</strong> — يستحيل فيزيائياً وقانونياً الدوران عكس اتجاه السير.</div>
+          <div class="p-text"><strong>طرق الاتجاه الواحد</strong> — يستحيل قانونياً السير عكس اتجاه الحركة المعتمد.</div>
           <div class="p-it">Strade a senso unico</div>
         </div>
       </div>
       <div class="prohibition-item">
         <span class="p-num">2</span>
         <div>
-          <div class="p-text"><strong>المنحنيات ومطبات الرؤية</strong> — انعدام الرؤية يجعل المناورة قاتلة.</div>
+          <div class="p-text"><strong>المنحنيات ومطبات الرؤية</strong> — انعدام مسافة الرؤية يجعل المناورة مميتة.</div>
           <div class="p-it">Curve e dossi (visibilità limitata)</div>
         </div>
       </div>
       <div class="prohibition-item">
         <span class="p-num">3</span>
         <div>
-          <div class="p-text"><strong>التقاطعات وبالقرب منها</strong> — خطر اصطدام بالقادمين من الشوارع المتقاطعة.</div>
+          <div class="p-text"><strong>التقاطعات وبالقرب منها</strong> — خطر الاصطدام بالمركبات القادمة من الطرق المتقاطعة.</div>
           <div class="p-it">Incroci e nelle loro vicinanze</div>
         </div>
       </div>
       <div class="prohibition-item">
         <span class="p-num">4</span>
         <div>
-          <div class="p-text"><strong>الضباب وانعدام الرؤية</strong> — أي ظرف يقلل الرؤية بشكل خطير.</div>
+          <div class="p-text"><strong>الضباب وانعدام الرؤية</strong> — أي ظرف مناخي يقلل مسافة الأمان البصرية.</div>
           <div class="p-it">Condizioni di scarsa visibilità (nebbia)</div>
         </div>
       </div>
       <div class="prohibition-item">
         <span class="p-num">5</span>
         <div>
-          <div class="p-text"><strong>وجود خط طولي متصل</strong> — يحظر تجاوز الخط المتصل لأي سبب.</div>
+          <div class="p-text"><strong>وجود خط طولي متصل</strong> — لا يجوز دوس أو دهس الخط المتصل لأي سبب.</div>
           <div class="p-it">In presenza di striscia continua</div>
         </div>
       </div>
       <div class="prohibition-item">
         <span class="p-num">6</span>
         <div>
-          <div class="p-text"><strong>الأوتوستراد والطرق السريعة الرئيسية</strong> — السرعات العالية تجعلها مميتة.</div>
+          <div class="p-text"><strong>الأوتوستراد والطرق السريعة</strong> — السرعات العالية تجعل الرجوع أو الدوران خطراً جسيماً.</div>
           <div class="p-it">Autostrade e strade extraurbane principali</div>
         </div>
       </div>
     </div>
 
-    <div class="highlight-box">
-      <strong>💡 ملاحظة امتحانية:</strong> عند تنفيذ الدوران للخلف حيثما يُسمح، يجب تشغيل الغماز طوال المناورة بالكامل (<code>Indicatore di direzione per tutta la durata della manovra</code>) وإعطاء الأسبقية لجميع المركبات من كلا الاتجاهين.
-    </div>
-
     <!-- ======================== SECTION 3 ======================== -->
     <h2 class="section-title">🔙 ثالثاً: مناورة الرجوع للخلف الآمن (Retromarcia — 17 سؤالاً وزارياً)</h2>
-    <p style="color:var(--text-secondary); margin-bottom:16px;">تُعد مناورة الرجوع للخلف من أخطر المناورات لأن مجال الرؤية يكون محدوداً جداً. كانت هذه المناورة <strong>مفقودة تماماً</strong> من المسودة الأصلية رغم أنها تشكل 17 سؤالاً وزارياً.</p>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">تعتبر مناورة الرجوع للخلف من أكثر المناورات خطورة بسبب محدودية الرؤية، وتظهر بكثافة عبر المخطط الوزاري الرسمي 676.</p>
 
-    <div class="fig-inline">
-      <img src="../Capitoli_Divisi/Capitolo_13_norme_di_circolazione/immagini/676.png" alt="Figura 676 - Retromarcia" loading="lazy" onerror="this.style.display='none'">
+    <!-- Visual Box 4 -->
+    <div class="fig-visual-box">
+      <div class="fig-preview">
+        <img src="../Capitoli_Divisi/Capitolo_13_norme_di_circolazione/immagini/676.png" alt="Figura 676: Retromarcia" loading="lazy">
+        <span class="fig-caption">Figura 676: رجوع المركبة S للخلف</span>
+      </div>
+      <div class="fig-info">
+        <h4 style="color:#fff; margin-bottom:8px; font-size:1.05rem;">واجبات السائق عند الرجوع للخلف (Manovra di Retromarcia)</h4>
+        <p style="color:#d4d4d8; font-size:0.92rem; line-height:1.7;">
+          في المخطط (Figura 676)، المركبة S التي تتحرك للخلف للاندماج في السير عليها الالتزامات القانونية التالية:<br>
+          ✅ إعطاء الأسبقية لجميع المركبات القادمة من <strong>اليمين واليسار</strong>.<br>
+          ✅ الانتباه الشديد لـ <strong>المشاة</strong> العابرين خلف السيارة وإعطاؤهم الأسبقية.<br>
+          ✅ تشغيل <strong>مؤشر الاتجاه (الغماز)</strong> فقط.<br>
+          ✅ الاستعانة بـ <strong>شخص خارج السيارة</strong> (<code>Farsi aiutare da persona a terra</code>) عند ضعف الرؤية.
+        </p>
+      </div>
     </div>
 
-    <ul class="rule-list">
-      <li><span>✅</span> <strong>الأسبقية للجميع:</strong> يجب إعطاء الأسبقية لجميع المركبات القادمة من <strong>اليمين واليسار</strong> وكذلك <strong>المشاة</strong> خلف السيارة (<code>Dare la precedenza ai veicoli provenienti sia da destra che da sinistra</code>).</li>
-      <li><span>✅</span> <strong>تشغيل الغماز:</strong> يجب تشغيل مؤشرات الاتجاه (<code>Azionare gli indicatori di direzione</code>) قبل وأثناء المناورة.</li>
-      <li><span>✅</span> <strong>التأكد من خلو الطريق:</strong> فحص المرايا والالتفات بالكتف والنظر من الزجاج الخلفي (<code>Assicurarsi che la strada sia libera</code>).</li>
-      <li><span>✅</span> <strong>الاستعانة بمساعد:</strong> عند انعدام الرؤية الخلفية، يجب الاستعانة بشخص يقف خارج السيارة يرشدك (<code>Farsi aiutare da persona a terra</code>).</li>
-      <li><span>✅</span> <strong>الحذر الشديد:</strong> المناورة تتم ببطء وحذر خاص (<code>Particolare prudenza</code>).</li>
-    </ul>
-
     <div class="danger-box">
-      <strong>❌ فخاخ الرجوع للخلف (FALSO):</strong>
-      <ul style="margin-top:8px; padding-right:20px; list-style:disc; color:#ffe4e6;">
-        <li>يجب تشغيل أضواء الطوارئ الأربعة أثناء الرجوع ← <strong>FALSO</strong> (يكفي تشغيل الغماز فقط).</li>
-        <li>يجب تشغيل ضوء الضباب الخلفي ← <strong>FALSO</strong> (لا علاقة له بالمناورة).</li>
-        <li>يجب إعطاء الأسبقية فقط للقادمين من نفس اتجاه سيرك ← <strong>FALSO</strong> (للجميع من كلا الاتجاهين!).</li>
-        <li>يجب المناورة بسرعة لإخلاء مكان الوقوف ← <strong>FALSO</strong> (ببطء وحذر شديد).</li>
-        <li>يجب استخدام الكلاكس بشكل متكرر أثناء المناورة ← <strong>FALSO</strong> (غير مطلوب ومحظور التكرار).</li>
+      <strong>⚠️ أشهر الفخاخ الوزارية في أسئلة الرجوع للخلف (FALSO):</strong>
+      <ul style="margin-top:8px; padding-right:20px; list-style:disc; color:#ffe4e6; line-height:1.8;">
+        <li><strong>أضواء الطوارئ (4 Frecce):</strong> زعم وجوب تشغيل أضواء الطوارئ الأربعة أثناء الرجوع للخلف ← <strong>FALSO</strong> (الغماز فقط).</li>
+        <li><strong>أضواء الضباب (Luce posteriore nebbia):</strong> زعم تشغيل ضوء الضباب الخلفي أثناء المناورة ← <strong>FALSO</strong>.</li>
+        <li><strong>أسبقية مقيدة (Solo nel senso di marcia):</strong> زعم إعطاء الأسبقية فقط للمركبات التي في نفس اتجاه السير ← <strong>FALSO</strong> (للجميع من اليمين واليسار).</li>
+        <li><strong>السرعة في الإخلاء:</strong> زعم وجوب الرجوع بسرعة لإخلاء مكان الركن ← <strong>FALSO</strong> (المناورة تتم ببطء شديد وبحذر).</li>
+        <li><strong>الكلاكس المتكرر:</strong> زعم وجوب الضغط المتكرر على المنبه الصوتي أثناء الرجوع ← <strong>FALSO</strong>.</li>
       </ul>
     </div>
 
     <!-- ======================== SECTION 4 ======================== -->
     <h2 class="section-title">🪞 رابعاً: فيزياء المرايا العاكسة والزوايا الميتة (Specchi e Angoli Ciechi — 41 سؤالاً)</h2>
-    <p style="color:var(--text-secondary); margin-bottom:16px;">هذا المحور هو <strong>أكبر كتلة أسئلة</strong> في الباب الثالث عشر بواقع 41 سؤالاً وزارياً. يجب فهم خصائص كل نوع من المرايا وحدودها.</p>
+    <p style="color:var(--text-secondary); margin-bottom:16px;">المرايا تشكل <strong>أكبر كتلة أسئلة</strong> في هذا الباب. إليك القواعد الفيزيائية والقانونية المعتمدة لضبطها واستخدامها:</p>
 
     <div class="comparison-grid">
       <div class="compare-card sky">
         <div class="card-header-row">
-          <span class="card-it-title">Specchio Retrovisore</span>
-          <span class="card-ar-title">المرآة العاكسة الخلفية</span>
+          <span class="card-it-title">Angoli Ciechi</span>
+          <span class="card-ar-title">الزوايا الميتة</span>
         </div>
         <ul class="card-points-list">
-          <li><span>🔍</span> <strong>الزوايا الميتة:</strong> المرايا <strong>لا تلغي</strong> الزوايا الميتة كلياً (<code>Non eliminano completamente gli angoli ciechi</code>) — سؤال يتكرر بكثافة!</li>
-          <li><span>👀</span> <strong>ضرورة الالتفات:</strong> يجب دائماً التحقق بإدارة الرأس قبل تغيير الحارة أو الانعطاف لأن المرايا لا تكفي وحدها.</li>
-          <li><span>📋</span> <strong>متى تُستخدم:</strong> قبل التجاوز، تغيير الحارة، الانعطاف، التوقف، فتح الباب، والرجوع للخلف.</li>
+          <li><span>🔍</span> <strong>عدم الإلغاء الكامل:</strong> المرايا <strong>لا تلغي الزوايا الميتة كلياً</strong> (<code>Non eliminano completamente gli angoli ciechi</code>) — قاعدة ذهبية!</li>
+          <li><span>👀</span> <strong>الالتفات بالرأس:</strong> السائق ملزم بإدارة رأسه والنظر المباشر للتأكد قبل تغيير الحارة أو الانعطاف.</li>
+          <li><span>🚗</span> <strong>المناطق المحجوبة:</strong> بجوار القوائم الخلفية للسيارة وعلى الجانبين في مستوى الكتف.</li>
         </ul>
       </div>
 
@@ -903,27 +965,23 @@
           <span class="card-ar-title">المرآة المحدبة الخارجية</span>
         </div>
         <ul class="card-points-list">
-          <li><span>🔎</span> <strong>خدعة المسافات:</strong> المرآة المحدبة تجعل الأجسام تبدو <strong>أصغر وأبعد</strong> مما هي عليه في الواقع (<code>Più piccoli e più lontani</code>).</li>
-          <li><span>📐</span> <strong>مجال رؤية أوسع:</strong> تمنح زاوية رؤية أعرض من المرآة المسطحة، لكن على حساب دقة تقدير المسافات.</li>
-          <li><span>⚠️</span> <strong>فخ متكرر:</strong> سؤال يقول إن المرآة المحدبة تظهر الأجسام أقرب ← <strong>FALSO</strong> (الصحيح: أبعد!).</li>
+          <li><span>🔎</span> <strong>الأبعاد الخادعة:</strong> المرآة المحدبة تظهر الأجسام <strong>أصغر وأبعد</strong> مما هي عليه في الواقع (<code>Più piccoli e più lontani</code>).</li>
+          <li><span>📐</span> <strong>مجال رؤية أوسع:</strong> توفر زاوية رؤية بانورامية أوسع، لكن تقدير المسافة يتطلب حذراً.</li>
+          <li><span>⚠️</span> <strong>فخ:</strong> زعم أن المرآة المحدبة تقرب الأجسام وتجعلها تبدو أقرب ← <strong>FALSO</strong> (بل أبعد!).</li>
         </ul>
       </div>
 
       <div class="compare-card rose">
         <div class="card-header-row">
-          <span class="card-it-title">Posizione Antiriflesso</span>
+          <span class="card-it-title">Antiriflesso</span>
           <span class="card-ar-title">وضعية منع الإبهار</span>
         </div>
         <ul class="card-points-list">
-          <li><span>🌙</span> <strong>الاستخدام الليلي:</strong> المرآة المركزية تملك وضعية خاصة لمنع الإبهار من أضواء السيارات الخلفية ليلاً (<code>Antiriflesso</code>).</li>
-          <li><span>🔀</span> <strong>كيف تعمل:</strong> تُعدّل زاوية انعكاس الضوء لتقليل شدة وهج المصابيح الأمامية للسيارات خلفك.</li>
-          <li><span>📌</span> <strong>قاعدة ذهبية:</strong> لا تؤثر على وظيفة المرآة الأساسية في إظهار ما خلف السيارة.</li>
+          <li><span>🌙</span> <strong>المرآة المركزية الداخلية:</strong> مزودة بوضعية منع الإبهار الليلي (<code>Posizione antiriflesso</code>).</li>
+          <li><span>🔀</span> <strong>آلية العمل:</strong> تكسر شدة وهج مصابيح السيارات الخلفية دون حجب صورة ما يدور خلفك.</li>
+          <li><span>⚙️</span> <strong>ترتيب الضبط:</strong> يجب دائماً <strong>ضبط المقعد أولاً</strong> (<code>Regolare il sedile</code>) ثم ضبط المرايا ثانياً!</li>
         </ul>
       </div>
-    </div>
-
-    <div class="highlight-box">
-      <strong>⚙️ الترتيب الإلزامي (قاعدة ذهبية):</strong> قبل بدء القيادة، يجب أولاً ضبط المقعد (<code>Sedile</code>) ثم ضبط المرايا (<code>Specchi</code>) — وليس العكس! لأن تغيير وضعية المقعد يُغير زاوية الرؤية في المرايا.
     </div>
 
     <!-- ======================== SECTION 5 ======================== -->
@@ -936,10 +994,9 @@
           <span class="card-ar-title">المواكب الرسمية والجنائزية</span>
         </div>
         <ul class="card-points-list">
-          <li><span>🚫</span> <strong>حظر قطع الموكب:</strong> يُحظر قطعياً اختراق أو شق أي موكب رسمي أو جنائزي (<code>Tagliare un corteo</code>).</li>
-          <li><span>🔇</span> <strong>حظر الكلاكس:</strong> يُمنع استخدام المنبه الصوتي أمام أو بجوار الموكب.</li>
-          <li><span>🅿️</span> <strong>ماذا تفعل:</strong> التوقف على الجانب الأيمن وانتظار مرور الموكب بالكامل، أو الانعطاف في شارع فرعي جانبي.</li>
-          <li><span>⚠️</span> <strong>فخ:</strong> لا يُسمح بالتجاوز أو المرور من خلال فجوات الموكب حتى لو بدت كبيرة!</li>
+          <li><span>🚫</span> <strong>حظر قطع الموكب:</strong> يُحظر قطعياً اختراق أو شق أي موكب رسمي أو جنائزي (<code>Vietato tagliare un corteo</code>).</li>
+          <li><span>🔇</span> <strong>حظر الكلاكس:</strong> يُمنع استخدام المنبه الصوتي بجوار الموكب منعاً للإزعاج أو التشتيت.</li>
+          <li><span>🅿️</span> <strong>السلوك السليم:</strong> التوقف على الجانب الأيمن وانتظار مروره بالكامل، أو الانعطاف في شارع فرعي بديل.</li>
         </ul>
       </div>
 
@@ -949,9 +1006,9 @@
           <span class="card-ar-title">انعطاف الشاحنات والمقطورات</span>
         </div>
         <ul class="card-points-list">
-          <li><span>🚛</span> <strong>الانحراف التمهيدي:</strong> الشاحنات الطويلة والمقطورات تنحرف يساراً أولاً (<code>Allargarsi a sinistra</code>) لتتمكن من الانعطاف يميناً في الشوارع الضيقة.</li>
-          <li><span>🚫</span> <strong>خطر التجاوز:</strong> يُحظر على السيارات الصغيرة التجاوز من اليمين عندما تلاحظ انحراف الشاحنة لليسار — فهي تستعد للانعطاف!</li>
-          <li><span>📐</span> <strong>مساحة الانعطاف:</strong> المسافة بين المحور الأمامي والخلفي كبيرة، مما يجعل ذيل المركبة ينحرف بعكس اتجاه الانعطاف.</li>
+          <li><span>🚛</span> <strong>الانحراف التمهيدي:</strong> تنحرف الشاحنات الكبيرة يساراً أولاً (<code>Allargarsi a sinistra</code>) لتتمكن من الانعطاف يميناً في الشوارع الضيقة.</li>
+          <li><span>🚫</span> <strong>خطر التجاوز من اليمين:</strong> يُحظر على السيارات الصغيرة محاولة التجاوز من اليمين عندما ترى الشاحنة تنحرف يساراً!</li>
+          <li><span>📐</span> <strong>العلة الهندسية:</strong> كبر المسافة بين المحاور الأمامية والخلفية يجعل ذيل المقطورة يضيق نحو الرصيف.</li>
         </ul>
       </div>
 
@@ -961,9 +1018,9 @@
           <span class="card-ar-title">قواعد الدوار الحديث</span>
         </div>
         <ul class="card-points-list">
-          <li><span>🔄</span> <strong>الدوار بشاخصة:</strong> عند وجود شاخصة <code>Dare precedenza</code>، الأسبقية لمن هم <strong>داخل الدوار</strong> بالفعل.</li>
-          <li><span>⚠️</span> <strong>الدوار القديم بدون شاخصة:</strong> تُطبق قاعدة اليمين الحر العادية (الأسبقية للقادم من الخارج!).</li>
-          <li><span>🔔</span> <strong>الخروج:</strong> تشغيل الغماز الأيمن (<code>Freccia destra</code>) عند الاقتراب من المخرج المطلوب.</li>
+          <li><span>🔄</span> <strong>مع شاخصة إعطاء الأسبقية:</strong> عند وجود شاخصة <code>Dare precedenza</code>، الأسبقية حصراً لمن بداخل الدوار.</li>
+          <li><span>⚠️</span> <strong>بدون شواخص (الدوار القديم):</strong> تُطبق قاعدة اليمين الحر العادية (الأسبقية للقادم من خارج الدوار).</li>
+          <li><span>🔔</span> <strong>مؤشر الخروج:</strong> تشغيل الغماز الأيمن عند الاقتراب من المخرج الذي تنوي الخروج منه.</li>
         </ul>
       </div>
     </div>
@@ -982,88 +1039,58 @@
         <tbody>
           <tr>
             <td><strong>Margine destro</strong></td>
-            <td>الحافة اليمنى للطريق</td>
-            <td>القاعدة الأساسية: كل مركبة تلتزم بأقصى اليمين ما لم يكن هناك سبب للتموضع غير ذلك.</td>
+            <td>الحافة اليمنى لنهر الطريق</td>
+            <td>القاعدة العامة الإلزامية: السير بأقصى اليمين، خاصة في المنحنيات ومطبات الرؤية.</td>
           </tr>
           <tr>
             <td><strong>Asse della carreggiata</strong></td>
             <td>خط منتصف نهر الطريق</td>
-            <td>عند الانعطاف لليسار في طريق باتجاهين — اقترب منه دون تجاوزه.</td>
+            <td>عند الانعطاف يساراً في طريق باتجاهين: اقترب من خط المنتصف دون تجاوزه.</td>
           </tr>
           <tr>
             <td><strong>Margine sinistro</strong></td>
-            <td>الحافة اليسرى للطريق</td>
-            <td>يُستخدم فقط للتموضع في طريق ذي اتجاه واحد للانعطاف يساراً.</td>
+            <td>الحافة اليسرى لنهر الطريق</td>
+            <td>تُستخدم للتموضع حصراً عند الانعطاف يساراً في طريق ذي اتجاه واحد (Senso unico).</td>
           </tr>
           <tr>
-            <td><strong>File parallele</strong></td>
-            <td>صفوف متوازية</td>
-            <td>فقط في حالتين: ازدحام أو تقاطع منظم. حظر الزجزاج بين الحارات.</td>
+            <td><strong>Marcia per file parallele</strong></td>
+            <td>السير في صفوف متوازية</td>
+            <td>مسموح به حصراً في حالتين: الازدحام الشديد، أو التقاطعات المنظمة بإشارات أو شرطي.</td>
           </tr>
           <tr>
-            <td><strong>Retromarcia</strong></td>
-            <td>الرجوع للخلف</td>
-            <td>أسبقية للجميع (يمين + يسار + مشاة). حظر أضواء الطوارئ.</td>
+            <td><strong>Manovra di retromarcia</strong></td>
+            <td>مناورة الرجوع للخلف</td>
+            <td>أسبقية لجميع المركبات من اليمين واليسار وللمشاة، مع تشغيل الغماز فقط والاستعانة بمساعد عند اللزوم.</td>
           </tr>
           <tr>
             <td><strong>Inversione di marcia</strong></td>
-            <td>الدوران للخلف (U-turn)</td>
-            <td>6 حالات حظر. الغماز طوال المناورة. أسبقية لكلا الاتجاهين.</td>
+            <td>الدوران الكامل للخلف (U-turn)</td>
+            <td>محظور في 6 حالات رئيسية: الاتجاه الواحد، المنحنيات، التقاطعات، الضباب، الخط المتصل، والأوتوستراد.</td>
           </tr>
           <tr>
-            <td><strong>Specchio retrovisore</strong></td>
-            <td>المرآة الخلفية العاكسة</td>
-            <td>لا تلغي الزوايا الميتة كلياً. فحصها قبل أي تغيير مسار.</td>
+            <td><strong>Specchio retrovisore convesso</strong></td>
+            <td>المرآة العاكسة المحدبة</td>
+            <td>تظهر الأجسام أصغر وأبعد (Più lontani)، ولا تلغي الزوايا الميتة كلياً.</td>
           </tr>
           <tr>
-            <td><strong>Angolo cieco / morto</strong></td>
-            <td>الزاوية الميتة / العمياء</td>
-            <td>المنطقة التي لا تراها في المرايا — يُلزم الالتفات بالرأس.</td>
-          </tr>
-          <tr>
-            <td><strong>Specchio convesso</strong></td>
-            <td>المرآة المحدبة</td>
-            <td>الأجسام تبدو أصغر وأبعد (Più lontani). مجال رؤية أوسع لكن مسافات مخادعة.</td>
-          </tr>
-          <tr>
-            <td><strong>Antiriflesso</strong></td>
+            <td><strong>Posizione antiriflesso</strong></td>
             <td>وضعية منع الإبهار</td>
-            <td>في المرآة المركزية ليلاً لتقليل وهج أضواء السيارات الخلفية.</td>
+            <td>في المرآة المركزية الداخلية لمنع إعماء السائق بأضواء السيارات الخلفية ليلاً.</td>
           </tr>
           <tr>
-            <td><strong>Corteo</strong></td>
-            <td>موكب رسمي أو جنائزي</td>
-            <td>حظر القطع والكلاكس. التوقف يميناً أو الانعطاف في شارع جانبي.</td>
+            <td><strong>Tagliare un corteo</strong></td>
+            <td>قطع أو شق موكب رسمي</td>
+            <td>محظور قطعياً؛ ويُمنع استخدام المنبه الصوتي بجواره.</td>
           </tr>
           <tr>
-            <td><strong>Autotreno / Autoarticolato</strong></td>
-            <td>شاحنة مع مقطورة / مركبة مفصلية</td>
-            <td>تنحرف يساراً أولاً لتنعطف يميناً. حظر التجاوز من اليمين.</td>
-          </tr>
-          <tr>
-            <td><strong>Rotatoria</strong></td>
-            <td>الدوار / الميدان الدائري</td>
-            <td>مع شاخصة: أسبقية لمن بالداخل. بدون شاخصة: يمين حر.</td>
-          </tr>
-          <tr>
-            <td><strong>Indicatore di direzione</strong></td>
-            <td>الغماز / مؤشر الاتجاه</td>
-            <td>يُشغّل قبل أي انعطاف أو تغيير حارة أو رجوع للخلف أو U-turn.</td>
-          </tr>
-          <tr>
-            <td><strong>Carico</strong></td>
-            <td>حمولة المركبة</td>
-            <td>لا تبرز خلفياً أكثر من 3/10 طول المركبة. حظر البروز الجانبي. تثبيت محكم.</td>
-          </tr>
-          <tr>
-            <td><strong>Pericolo o intralcio</strong></td>
-            <td>خطر أو عرقلة للمرور</td>
-            <td>يُحظر أي سلوك يشكل خطراً أو يعرقل السير: السباق، البطء بلا مبرر، عدم الإشارة.</td>
+            <td><strong>Allargarsi a sinistra</strong></td>
+            <td>الانحراف نحو اليسار</td>
+            <td>تقوم به الشاحنات الطويلة قبل الانعطاف يميناً؛ ويُحظر تجاوزهما من اليمين.</td>
           </tr>
           <tr>
             <td><strong>Farsi aiutare da persona a terra</strong></td>
             <td>الاستعانة بمساعد خارج السيارة</td>
-            <td>عند الرجوع للخلف بانعدام الرؤية — شخص يقف خارج السيارة يُرشدك.</td>
+            <td>واجب عند الرجوع للخلف إذا كانت الرؤية الخلفية غير كافية لضمان الأمان.</td>
           </tr>
         </tbody>
       </table>
@@ -1071,125 +1098,142 @@
 
     <!-- ======================== SECTION 7 ======================== -->
     <h2 class="section-title">⚡ سابعاً: بنك الفخاخ الوزارية المباشرة (15 سؤالاً حاسماً من الامتحانات الرسمية)</h2>
+    <p style="color:var(--text-secondary); margin-bottom:14px;">تم انتقاء أصعب 15 سؤالاً وزارياً من بنك الأسئلة الرسمي مع الترجمة البشرية الدقيقة والشرح القانوني المباشر:</p>
+
     <div class="quiz-stack">
+      <!-- Trap 1 -->
       <div class="quiz-card">
-        <div class="quiz-q-it">1. Il veicolo S, muovendosi in retromarcia per immettersi nella circolazione, deve dare la precedenza solo ai veicoli che transitano nel suo senso di marcia</div>
-        <div class="quiz-q-ar">سؤال يتناول موضوع (Manovra retromarcia) بخصوص: Il veicolo S, muovendosi in retromarcia per immettersi nella circolazione, deve dare la precedenza solo ai veicoli che transitano nel suo senso di marcia.</div>
+        <div class="quiz-q-it">1. Il veicolo S, muovendosi in retromarcia per immettersi nella circolazione, deve azionare la segnalazione luminosa di pericolo.</div>
+        <div class="quiz-q-ar">يجب على المركبة S، عند تحركها للخلف للاندماج في حركة السير، تشغيل أضواء الطوارئ الرباعية (أضواء الخطر).</div>
         <div class="quiz-meta-row">
           <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">⚠️ فخ شهير جداً: لاحظ استخدام كلمة (SOLO)! هذه الكلمة تجعل السؤال خاطئاً في أكثر من 85% من امتحانات الوزارة لأنها تعميم باطل.</span>
+          <span class="quiz-explain">فخ شهير في الامتحان؛ السائق ملزم فقط بتشغيل مؤشر الاتجاه (الغماز)، ولا يطلب كود السير إطلاقاً تشغيل أضواء الطوارئ الأربعة (4 Frecce) لمجرد الرجوع للخلف.</span>
         </div>
       </div>
+      <!-- Trap 2 -->
       <div class="quiz-card">
-        <div class="quiz-q-it">2. Chi guida un veicolo deve guidare sempre al centro della strada, però senza superare la striscia di corsia</div>
-        <div class="quiz-q-ar">سؤال يتناول موضوع (Guida veicolo) بخصوص: Chi guida un veicolo deve guidare sempre al centro della strada, però senza superare la striscia di corsia.</div>
+        <div class="quiz-q-it">2. Il veicolo S, muovendosi in retromarcia per immettersi nella circolazione, deve dare la precedenza solo ai veicoli che transitano nel suo senso di marcia.</div>
+        <div class="quiz-q-ar">يجب على المركبة S، أثناء رجوعها للخلف للاندماج في السير، إعطاء الأسبقية فقط للمركبات التي تسير في نفس اتجاه سيرها.</div>
         <div class="quiz-meta-row">
           <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">⚠️ فخ شهير جداً: لاحظ استخدام كلمة (SEMPRE)! هذه الكلمة تجعل السؤال خاطئاً في أكثر من 85% من امتحانات الوزارة لأنها تعميم باطل.</span>
+          <span class="quiz-explain">فخ كلمة (SOLO)؛ قائد المركبة عند الرجوع للخلف ملزم بإعطاء الأسبقية لجميع المركبات القادمة من كلا الاتجاهين (يمين ويسار) وللمشاة أيضاً خلف السيارة دون استثناء.</span>
         </div>
       </div>
+      <!-- Trap 3 -->
       <div class="quiz-card">
-        <div class="quiz-q-it">3. Chi guida un veicolo può sorpassare in ogni condizione di traffico, purché non ci sia il segnale di divieto</div>
-        <div class="quiz-q-ar">سؤال يتناول موضوع (Guida veicolo) بخصوص: Chi guida un veicolo può sorpassare in ogni condizione di traffico, purché non ci sia il segnale di divieto.</div>
+        <div class="quiz-q-it">3. Chi guida un veicolo deve guidare sempre al centro della strada, però senza superare la striscia di corsia.</div>
+        <div class="quiz-q-ar">يجب على سائق المركبة أن يقود دائماً في منتصف الشارع، ولكن دون تجاوز خط الحارة.</div>
         <div class="quiz-meta-row">
           <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">⚠️ فخ أداة النفي (Non): وضع أداة النفي قبل الفعل لعكس حكم قانوني صحيح.</span>
+          <span class="quiz-explain">فخ كلمة (SEMPRE)؛ القاعدة الأساسية الملزمة في كود السير هي الالتزام بأقصى قرب من الحافة اليمنى لنهر الطريق (Margine destro)، وليس القيادة في المنتصف.</span>
         </div>
       </div>
+      <!-- Trap 4 -->
       <div class="quiz-card">
-        <div class="quiz-q-it">4. Chi guida un veicolo può montare trombe bitonali per essere sentito più agevolmente, usandole però solo fuori dei centri abitati</div>
-        <div class="quiz-q-ar">سؤال يتناول موضوع (Guida veicolo) بخصوص: Chi guida un veicolo può montare trombe bitonali per essere sentito più agevolmente, usandole però solo fuori dei centri abitati.</div>
+        <div class="quiz-q-it">4. Chi guida un veicolo può sorpassare in ogni condizione di traffico, purché non ci sia il segnale di divieto.</div>
+        <div class="quiz-q-ar">يجوز لسائق المركبة التجاوز في أي ظرف من ظروف المرور، ما دام لا توجد إشارة منع التجاوز.</div>
         <div class="quiz-meta-row">
           <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">⚠️ فخ شهير جداً: لاحظ استخدام كلمة (SOLO)! هذه الكلمة تجعل السؤال خاطئاً في أكثر من 85% من امتحانات الوزارة لأنها تعميم باطل.</span>
+          <span class="quiz-explain">فخ شائع؛ عدم وجود شاخصة منع لا يعني إباحة التجاوز دائماً؛ إذ يُشترط خلو مسار التجاوز ومسافة رؤية كافية وأمان تام وعدم وجود عوائق أو خط متصل أو مطبات.</span>
         </div>
       </div>
+      <!-- Trap 5 -->
       <div class="quiz-card">
-        <div class="quiz-q-it">5. Il carico deve essere sistemato sugli autoveicoli in modo da non superare di oltre il 10% l'altezza massima prevista dalla carta di circolazione, ma entro 4 metri</div>
-        <div class="quiz-q-ar">سؤال يتناول موضوع (Carico veicoli) بخصوص: Il carico deve essere sistemato sugli autoveicoli in modo da non superare di oltre il 10% l'altezza massima prevista dalla carta di circolazione, ma entro 4 metri.</div>
+        <div class="quiz-q-it">5. Gli specchi retrovisori montati sul veicolo eliminano completamente gli angoli ciechi.</div>
+        <div class="quiz-q-ar">المرايا العاكسة المثبتة على المركبة تلغي الزوايا الميتة (العمياء) تماماً.</div>
         <div class="quiz-meta-row">
           <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">⚠️ فخ أداة النفي (Non): وضع أداة النفي قبل الفعل لعكس حكم قانوني صحيح.</span>
+          <span class="quiz-explain">قاعدة فيزياء المرايا؛ المرايا لا تلغي الزوايا الميتة كلياً (Non eliminano completamente gli angoli ciechi)؛ لذلك يجب دائماً الالتفات المباشر بالرأس قبل تغيير الحارة.</span>
         </div>
       </div>
+      <!-- Trap 6 -->
       <div class="quiz-card">
-        <div class="quiz-q-it">6. Il carico deve essere sistemato sugli autoveicoli in modo da non superare di oltre il 10% la portata utile indicata sul documento di circolazione</div>
-        <div class="quiz-q-ar">سؤال يتناول موضوع (Carico veicoli) بخصوص: Il carico deve essere sistemato sugli autoveicoli in modo da non superare di oltre il 10% la portata utile indicata sul documento di circolazione.</div>
+        <div class="quiz-q-it">6. Lo specchio retrovisore esterno a superficie convessa fa apparire i veicoli più vicini di quanto lo siano in realtà.</div>
+        <div class="quiz-q-ar">المرآة الخارجية ذات السطح المحدب تجعل المركبات تبدو أقرب مما هي عليه في الواقع.</div>
         <div class="quiz-meta-row">
           <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">⚠️ فخ أداة النفي (Non): وضع أداة النفي قبل الفعل لعكس حكم قانوني صحيح.</span>
+          <span class="quiz-explain">المرآة المحدبة توفر مجال رؤية أوسع ولكنها تصغر الأجسام فيبدو ما خلفك أبعد (Più lontani) مما هو عليه في الحقيقة، وليس أقرب.</span>
         </div>
       </div>
+      <!-- Trap 7 -->
       <div class="quiz-card">
-        <div class="quiz-q-it">7. Sui motocicli è consentito trasportare sacchetti con la spesa anche se non saldamente assicurati</div>
-        <div class="quiz-q-ar">سؤال يتناول موضوع (Carico veicoli) بخصوص: Sui motocicli è consentito trasportare sacchetti con la spesa anche se non saldamente assicurati.</div>
+        <div class="quiz-q-it">7. E' vietato tagliare la strada a cortei o colonne di veicoli delle forze armate o cortei funebri.</div>
+        <div class="quiz-q-ar">يُحظر قطع الطريق أو اختراق مواكب القوات المسلحة أو الجنائز أو شق صفوفها.</div>
         <div class="quiz-meta-row">
-          <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">⚠️ فخ أداة النفي (Non): وضع أداة النفي قبل الفعل لعكس حكم قانوني صحيح.</span>
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح 100%؛ يُمنع منعاً باتاً قطع أي موكب رسمي أو جنائزي أو السير وسطه، والواجب هو التوقف أقصى اليمين لمرورهم أو الدخول في شارع فرعي جانبي.</span>
         </div>
       </div>
+      <!-- Trap 8 -->
       <div class="quiz-card">
-        <div class="quiz-q-it">8. L'uso corretto della strada comporta che i veicoli impegnino sempre la carreggiata il più rapidamente possibile</div>
-        <div class="quiz-q-ar">سؤال يتناول موضوع (Uso corretto strada) بخصوص: L'uso corretto della strada comporta che i veicoli impegnino sempre la carreggiata il più rapidamente possibile.</div>
+        <div class="quiz-q-it">8. Su una strada a tre corsie a doppio senso di marcia, in figura, la corsia centrale è riservata al sorpasso per entrambi i sensi di marcia.</div>
+        <div class="quiz-q-ar">في طريق ذي ثلاث حارات واتجاهين للسير (كما في الشكل 554)، تكون الحارة الوسطى مخصصة للتجاوز لكلا الاتجاهين.</div>
         <div class="quiz-meta-row">
-          <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">⚠️ فخ شهير جداً: لاحظ استخدام كلمة (SEMPRE)! هذه الكلمة تجعل السؤال خاطئاً في أكثر من 85% من امتحانات الوزارة لأنها تعميم باطل.</span>
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ الحارة اليمنى لكل اتجاه مخصصة للسير العادي، والحارة الوسطى المشتركة تُستخدم حصراً للتجاوز فقط ولا يجوز السير فيها بشكل مستمر.</span>
         </div>
       </div>
+      <!-- Trap 9 -->
       <div class="quiz-card">
-        <div class="quiz-q-it">9. L'uso corretto della strada comporta che ci si arresti sempre ai passaggi pedonali ripartendo solo se non sopraggiungono pedoni</div>
-        <div class="quiz-q-ar">سؤال يتناول موضوع (Uso corretto strada) بخصوص: L'uso corretto della strada comporta che ci si arresti sempre ai passaggi pedonali ripartendo solo se non sopraggiungono pedoni.</div>
+        <div class="quiz-q-it">9. Nella marcia per file parallele è consentito ai motocicli di circolare passando tra i veicoli incolonnati.</div>
+        <div class="quiz-q-ar">أثناء السير في صفوف متوازية، يُسمح للدراجات النارية بالمرور بين السيارات المتراصة في الصفوف.</div>
         <div class="quiz-meta-row">
           <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">⚠️ فخ شهير جداً: لاحظ استخدام كلمة (SEMPRE)! هذه الكلمة تجعل السؤال خاطئاً في أكثر من 85% من امتحانات الوزارة لأنها تعميم باطل.</span>
+          <span class="quiz-explain">حظر الزجزاج بين السيارات؛ يُمنع قطعياً على الدراجات النارية السير بين مسارات السيارات حتى في حالات الازدحام الشديد، وعليها التزام مسار كامل كسائر المركبات.</span>
         </div>
       </div>
+      <!-- Trap 10 -->
       <div class="quiz-card">
-        <div class="quiz-q-it">10. L'uso corretto della strada comporta che si usino in ogni caso i proiettori a luce abbagliante</div>
-        <div class="quiz-q-ar">سؤال يتناول موضوع (Uso corretto strada) بخصوص: L'uso corretto della strada comporta che si usino in ogni caso i proiettori a luce abbagliante.</div>
+        <div class="quiz-q-it">10. Nella manovra di retromarcia, se la visuale è ostacolata, è opportuno farsi aiutare da una persona a terra.</div>
+        <div class="quiz-q-ar">في مناورة الرجوع للخلف، إذا كانت الرؤية محجوبة أو غير كافية، يجب الاستعانة بشخص يقف على الأرض خارج المركبة لتوجيه السائق.</div>
         <div class="quiz-meta-row">
-          <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">⚠️ فخ شهير جداً: لاحظ استخدام كلمة (IN OGNI CASO)! هذه الكلمة تجعل السؤال خاطئاً في أكثر من 85% من امتحانات الوزارة لأنها تعميم باطل.</span>
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">نص قانوني صريح؛ عندما يعجز السائق عن الرؤية الخلفية الكاملة والمطمئنة، يُلزمه القانون بالاستعانة بمساعد خارجي (Farsi aiutare) لتفادي دهس المارة أو الاصطدام.</span>
         </div>
       </div>
+      <!-- Trap 11 -->
       <div class="quiz-card">
-        <div class="quiz-q-it">11. L'uso corretto della strada comporta che ci si arresti in ogni caso in presenza del segnale in figura</div>
-        <div class="quiz-q-ar">سؤال يتناول موضوع (Uso corretto strada) بخصوص: L'uso corretto della strada comporta che ci si arresti in ogni caso in presenza del segnale in figura.</div>
+        <div class="quiz-q-it">11. Il carico può sporgere longitudinalmente dalla parte anteriore dell'autoveicolo per non più di tre decimi della sua lunghezza.</div>
+        <div class="quiz-q-ar">يجوز للحمولة أن تبرز طولياً من الجهة الأمامية للسيارة بما لا يتجاوز ثلاثة أعشار (3/10) طول المركبة.</div>
         <div class="quiz-meta-row">
           <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">⚠️ فخ شهير جداً: لاحظ استخدام كلمة (IN OGNI CASO)! هذه الكلمة تجعل السؤال خاطئاً في أكثر من 85% من امتحانات الوزارة لأنها تعميم باطل.</span>
+          <span class="quiz-explain">فخ خطير ومكرر؛ البروز الطولي بمقدار 3/10 مسموح به حصراً من الجهة الخلفية (Parte posteriore) مع وضع اللوحة العاكسة، بينما يُحظر تماماً أي بروز من الجهة الأمامية.</span>
         </div>
       </div>
+      <!-- Trap 12 -->
       <div class="quiz-card">
-        <div class="quiz-q-it">12. L'uso corretto della strada comporta che si proceda a velocità elevata per non creare intralcio</div>
-        <div class="quiz-q-ar">سؤال يتناول موضوع (Uso corretto strada) بخصوص: L'uso corretto della strada comporta che si proceda a velocità elevata per non creare intralcio.</div>
+        <div class="quiz-q-it">12. Il conducente di un autotreno, per svoltare a destra in una strada stretta, deve allargarsi preventivamente a sinistra.</div>
+        <div class="quiz-q-ar">سائق الشاحنة المزودة بمقطورة (Autotreno)، لكي ينعطف يميناً في شارع ضيق، ينحرف مسبقاً نحو اليسار.</div>
         <div class="quiz-meta-row">
-          <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">⚠️ فخ أداة النفي (Non): وضع أداة النفي قبل الفعل لعكس حكم قانوني صحيح.</span>
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ نظراً لكبر طول الشاحنة وتباعد محاورها، تنحرف لليسار لتفادي صعود عجلاتها الخلفية على الرصيف، ويُحظر على السيارات خلفها التجاوز من جهة اليمين.</span>
         </div>
       </div>
+      <!-- Trap 13 -->
       <div class="quiz-card">
-        <div class="quiz-q-it">13. Giungendo ad un incrocio, se non si è in grado di capire subito chi ha la precedenza, si può proseguire senza rallentare, se si sceglie di andare diritto</div>
-        <div class="quiz-q-ar">سؤال يتناول موضوع (Prossimita incrocio) بخصوص: Giungendo ad un incrocio, se non si è in grado di capire subito chi ha la precedenza, si può proseguire senza rallentare, se si sceglie di andare diritto.</div>
+        <div class="quiz-q-it">13. L'inversione di marcia è consentita in prossimità o in corrispondenza delle curve purché si azioni l'indicatore di direzione.</div>
+        <div class="quiz-q-ar">يُسمح بالدوران للخلف (U-turn) بالقرب من المنحنيات أو عندها بشرط تشغيل مؤشر الاتجاه (الغماز).</div>
         <div class="quiz-meta-row">
           <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">⚠️ فخ أداة النفي (Non): وضع أداة النفي قبل الفعل لعكس حكم قانوني صحيح.</span>
+          <span class="quiz-explain">الدوران للخلف في المنحنيات ومطبات الرؤية محظور قطعياً ومصنف كجريمة خطرة لانعدام الرؤية، وتشغيل الغماز لا يبيح ارتكاب مخالفة محظورة قانوناً.</span>
         </div>
       </div>
+      <!-- Trap 14 -->
       <div class="quiz-card">
-        <div class="quiz-q-it">14. Quando, giunti in prossimità di un incrocio, ci accorgiamo di aver sbagliato la corsia di preselezione dobbiamo accostarci sulla destra e fermarci finché non sia passata la colonna dei veicoli che seguono</div>
-        <div class="quiz-q-ar">سؤال يتناول موضوع (Prossimita incrocio) بخصوص: Quando, giunti in prossimità di un incrocio, ci accorgiamo di aver sbagliato la corsia di preselezione dobbiamo accostarci sulla destra e fermarci finché non sia passata la colonna dei veicoli che seguono.</div>
+        <div class="quiz-q-it">14. Per svoltare a sinistra da una carreggiata a senso unico, bisogna tenersi il più possibile sul margine sinistro della carreggiata.</div>
+        <div class="quiz-q-ar">للانعطاف يساراً من طريق ذي اتجاه واحد للسير (Senso unico)، يجب التموضع بأقصى ما يمكن على الحافة اليسرى لنهر الطريق.</div>
         <div class="quiz-meta-row">
-          <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">⚠️ فخ أداة النفي (Non): وضع أداة النفي قبل الفعل لعكس حكم قانوني صحيح.</span>
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ في طريق الاتجاه الواحد لا تأتي مركبات من الاتجاه المعاكس، لذا يُلزم السائق بأخذ أقصى اليسار تماماً، ليترك الجهة اليمنى لمرور بقية السائقين.</span>
         </div>
       </div>
+      <!-- Trap 15 -->
       <div class="quiz-card">
-        <div class="quiz-q-it">15. In un centro abitato, quando un pedone, fuori delle strisce di attraversamento, non accenni a darci la precedenza, è opportuno nelle ore notturne, procedere con gli abbaglianti accesi così che possa accorgersi di noi</div>
-        <div class="quiz-q-ar">سؤال يتناول موضوع (Centro abitato pedone) بخصوص: In un centro abitato, quando un pedone, fuori delle strisce di attraversamento, non accenni a darci la precedenza, è opportuno nelle ore notturne, procedere con gli abbaglianti accesi così che possa accorgersi di noi.</div>
+        <div class="quiz-q-it">15. La posizione antiriflesso dello specchietto retrovisore interno riduce l'abbagliamento provocato dai fari dei veicoli che seguono.</div>
+        <div class="quiz-q-ar">وضعية منع الإبهار (Antiriflesso) في المرآة العاكسة الداخلية تقلل من وهج الإبهار الناتج عن أضواء المركبات التي تسير في الخلف.</div>
         <div class="quiz-meta-row">
-          <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">⚠️ فخ أداة النفي (Non): وضع أداة النفي قبل الفعل لعكس حكم قانوني صحيح.</span>
+          <span class="ans-badge ans-vero">VERO ✅</span>
+          <span class="quiz-explain">صحيح؛ ميزة ميكانيكية أو كهرومغناطيسية بالمرآة الداخلية الوسطى تكسر انعكاس الضوء ليلاً لكي لا يُعمى بصر السائق مع بقاء الرؤية الخلفية واضحة.</span>
         </div>
       </div>
     </div>
