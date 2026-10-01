@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>دليل الباب 15: مناورة التجاوز والتخطي — Patente B Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-base: #09090b;
+    --bg-surface: rgba(24, 24, 27, 0.75);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(255, 255, 255, 0.16);
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --emerald-primary: #10b981;
+    --rose-primary: #f43f5e;
+    --amber-primary: #f59e0b;
+    --sky-primary: #38bdf8;
+    --indigo-primary: #818cf8;
+    --cyan-primary: #06b6d4;
+    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    --nav-base-height: 54px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image: 
+      radial-gradient(ellipse at 50% -10%, rgba(6, 182, 212, 0.08), transparent 60%),
+      radial-gradient(circle at 10% 90%, rgba(129, 140, 248, 0.04), transparent 40%);
+  }
+
+  body.nav-scroll-lock {
+    overflow: hidden !important;
+    touch-action: none !important;
+    -webkit-overflow-scrolling: auto !important;
+  }
+
+  /* Apple HIG Responsive Top Navigation */
+  .unified-portal-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
+    max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
+    background: rgba(9, 9, 11, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    padding-top: env(safe-area-inset-top, 0px);
+    box-sizing: border-box;
+    direction: rtl;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .nav-brand .badge-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    padding: 2px 7px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #a1a1aa;
+  }
+
+  .nav-desktop-tabs {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-tab-desktop {
+    text-decoration: none;
+    color: #a1a1aa;
+    padding: 7px 13px;
+    border-radius: 9px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .nav-tab-desktop:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  .nav-tab-desktop.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.15), 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  .nav-desktop-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-audio-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e4e4e7;
+    border-radius: 9px;
+    padding: 7px 12px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s;
+  }
+  .nav-audio-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+  .nav-audio-btn:active { transform: scale(0.96); }
+
+  .nav-hamburger-btn {
+    display: none;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #f4f4f5;
+    border-radius: 9px;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .hamburger-box { width: 18px; height: 12px; position: relative; }
+  .hamburger-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #f4f4f5;
+    border-radius: 2px;
+    transition: all 0.25s var(--ease-spring);
+  }
+  .line-top { top: 0; }
+  .line-mid { top: 5px; }
+  .line-bot { top: 10px; }
+  .nav-hamburger-btn.is-active .line-top { transform: translateY(5px) rotate(45deg); }
+  .nav-hamburger-btn.is-active .line-mid { opacity: 0; }
+  .nav-hamburger-btn.is-active .line-bot { transform: translateY(-5px) rotate(-45deg); }
+
+  .mobile-drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .mobile-drawer-overlay.is-active { opacity: 1; pointer-events: auto; }
+
+  .mobile-drawer-panel {
+    position: fixed;
+    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
+    left: 0;
+    right: 0;
+    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
+    background: rgba(15, 15, 18, 0.94);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    z-index: 999;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.32s var(--ease-spring), opacity 0.25s ease;
+    overflow-y: auto;
+    direction: rtl;
+  }
+  .mobile-drawer-panel.is-active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-nav-list { padding: 12px 16px; display: flex; flex-direction: column; gap: 4px; }
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #e4e4e7;
+    font-size: 0.92rem;
+    font-weight: 600;
+    min-height: 48px;
+    transition: background 0.15s;
+  }
+  .mobile-nav-link:hover { background: rgba(255, 255, 255, 0.06); color: #fff; }
+  .mobile-nav-link.active {
+    background: rgba(6, 182, 212, 0.15);
+    color: #cffafe;
+    border: 1px solid rgba(6, 182, 212, 0.3);
+  }
+  .mobile-drawer-footer {
+    padding: 12px 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Layout Container */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+  }
+
+  /* Hero Section */
+  .hero-card {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(24, 24, 27, 0.7));
+    border: 1px solid rgba(6, 182, 212, 0.25);
+    border-radius: 20px;
+    padding: 36px 30px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.2), transparent 70%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #cffafe;
+    background: rgba(6, 182, 212, 0.15);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    padding: 4px 12px;
+    border-radius: 30px;
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    color: #22d3ee;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .hero-desc {
+    color: #d4d4d8;
+    font-size: 0.96rem;
+    line-height: 1.7;
+    max-width: 900px;
+  }
+
+  /* Stats Grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 24px 0 32px;
+  }
+  .stat-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  .stat-card:hover { transform: translateY(-2px); border-color: var(--border-highlight); }
+  .stat-val {
+    font-size: 2rem;
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+    background: linear-gradient(135deg, #a5f3fc, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+    font-weight: 600;
+  }
+
+  /* Section Title */
+  .section-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 40px 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 10px;
+  }
+  .section-title span.badge {
+    font-size: 0.78rem;
+    padding: 2px 10px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #a1a1aa;
+  }
+
+  /* Content Cards */
+  .rule-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+  }
+  .rule-card.highlight { border-right: 4px solid var(--cyan-primary); }
+  .rule-card.warning { border-right: 4px solid var(--rose-primary); }
+  .rule-card.info { border-right: 4px solid var(--sky-primary); }
+  .rule-card.success { border-right: 4px solid var(--emerald-primary); }
+  .rule-card.amber { border-right: 4px solid var(--amber-primary); }
+
+  .rule-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .rule-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .it-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #cbd5e1;
+  }
+
+  /* Dictionary & Tables */
+  .dict-table-wrap {
+    overflow-x: auto;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    margin: 20px 0;
+  }
+  .dict-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    text-align: right;
+  }
+  .dict-table th {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 14px 18px;
+    font-weight: 700;
+    color: #e4e4e7;
+    border-bottom: 1px solid var(--border-subtle);
+    white-space: nowrap;
+  }
+  .dict-table td {
+    padding: 13px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: #d4d4d8;
+  }
+  .dict-table tr:hover td { background: rgba(255, 255, 255, 0.02); }
+
+  .audio-speak-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+    border-radius: 6px;
+    padding: 3px 8px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    margin-right: 6px;
+    transition: all 0.15s;
+  }
+  .audio-speak-btn:hover { background: rgba(6, 182, 212, 0.2); color: #cffafe; }
+
+  /* Interactive Quiz */
+  .quiz-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 22px;
+    margin-bottom: 16px;
+  }
+  .quiz-q-num {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--cyan-primary);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .quiz-text-it {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 6px;
+    direction: ltr;
+    text-align: left;
+    font-family: system-ui, sans-serif;
+  }
+  .quiz-text-ar {
+    font-size: 0.92rem;
+    color: #a1a1aa;
+    margin-bottom: 16px;
+  }
+  .quiz-btn-group { display: flex; gap: 12px; }
+  .quiz-opt-btn {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: 1px solid var(--border-subtle);
+    background: rgba(255, 255, 255, 0.05);
+    color: #e4e4e7;
+    transition: all 0.15s;
+  }
+  .quiz-opt-btn:hover { background: rgba(255, 255, 255, 0.1); }
+  .quiz-feedback {
+    margin-top: 14px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    display: none;
+  }
+  .quiz-card.answered-correct .quiz-feedback {
+    display: block;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #6ee7b7;
+  }
+  .quiz-card.answered-wrong .quiz-feedback {
+    display: block;
+    background: rgba(244, 63, 94, 0.12);
+    border: 1px solid rgba(244, 63, 94, 0.3);
+    color: #fca5a5;
+  }
+
+  @media (max-width: 900px) {
+    .nav-desktop-tabs { display: none !important; }
+    .nav-desktop-actions { display: none !important; }
+    .nav-hamburger-btn { display: flex !important; }
+  }
+  @media (max-width: 600px) {
+    .hero-title { font-size: 1.45rem; }
+    .hero-card { padding: 24px 18px; }
+    .rule-card { padding: 18px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Unified Apple HIG Navigation Bar -->
+<nav class="unified-portal-nav" aria-label="شريط التنقل الرئيسي">
+  <a href="index.html" class="nav-brand">
+    <span>Patente B Pro</span>
+    <span class="badge-tag">الباب 15</span>
+  </a>
+
+  <div class="nav-desktop-tabs">
+    <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 الأبواب المقسمة (25 باب)</a>
+    <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
+    <a href="index.html" class="nav-tab-desktop">📑 فهرس المكتبة</a>
+    <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-tab-desktop active">📖 الباب 15 (التجاوز)</a>
+    <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-tab-desktop">📖 الباب 16 (الوقوف والركن)</a>
+    <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-tab-desktop">📖 الباب 17 (الأوتوستراد)</a>
+    <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-tab-desktop">📖 الباب 18 (الأضواء والتابلوه)</a>
+  </div>
+
+  <div class="nav-desktop-actions">
+    <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
+      <span class="audio-icon-span">🔊</span>
+      <span class="audio-label-span">الصوت نشط</span>
+    </button>
+  </div>
+
+  <button class="nav-hamburger-btn" id="nav-hamburger-btn" onclick="toggleMobileNav()" aria-label="قائمة التنقل">
+    <div class="hamburger-box">
+      <span class="hamburger-line line-top"></span>
+      <span class="hamburger-line line-mid"></span>
+      <span class="hamburger-line line-bot"></span>
+    </div>
+  </button>
+</nav>
+
+<!-- Backdrop Blur Overlay -->
+<div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
+
+<!-- Slide-Down Glassmorphic Drawer Panel -->
+<div class="mobile-drawer-panel" id="mobile-drawer-panel">
+  <div class="mobile-nav-list">
+    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📚</span>
+      <span>مذاكرة الأبواب المقسمة (25 باب)</span>
+    </a>
+    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">⏱️</span>
+      <span>محاكي الامتحان الوزاري (20 دقيقة)</span>
+    </a>
+    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📑</span>
+      <span>فهرس المكتبة الشاملة المعتمدة</span>
+    </a>
+    <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="mobile-nav-link active" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 15 (مناورة التجاوز والتخطي)</span>
+    </a>
+    <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 16 (الوقوف والتوقف والركن)</span>
+    </a>
+    <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 17 (الأوتوستراد والحمولة والمقطورات)</span>
+    </a>
+    <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 18 (الأضواء والتابلوه والعواكس)</span>
+    </a>
+    <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 19 (الأحزمة والخوذة والمقاعد)</span>
+    </a>
+    <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 20 (الرخص والنقاط والعقوبات)</span>
+    </a>
+    <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 21 (حوادث السير والطقس الصعب)</span>
+    </a>
+    <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 22 (الكحول والمخدرات والإسعافات)</span>
+    </a>
+    <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 23 (المسؤولية والتأمين RCA)</span>
+    </a>
+    <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 24 (البيئة واستهلاك الوقود)</span>
+    </a>
+    <a href="دليل_الباب_الأخير.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل وقاموس الباب 25 (الميكانيكا والصيانة)</span>
+    </a>
+  </div>
+  <div class="mobile-drawer-footer">
+    <button class="nav-audio-btn" onclick="toggleAudio()">
+      <span class="audio-icon-span">🔊</span>
+      <span class="audio-label-span">الصوت نشط</span>
+    </button>
+  </div>
+</div>
+
+<main class="container">
+
+  <!-- Hero Card -->
+  <section class="hero-card">
+    <div class="hero-tag">⚡ الدليل الاستراتيجي الوزاري المعتمد — A2</div>
+    <h1 class="hero-title">دليل وقاموس الباب 15: مناورة التجاوز والتخطي (Il Sorpasso)</h1>
+    <div class="hero-subtitle">Capitolo 15: Manovra di sorpasso, spazio necessario, divieti ed eccezioni</div>
+    <p class="hero-desc">
+      تُعد مناورة التجاوز من أخطر مناورات القيادة وأكثرها تعرضاً للحوادث القاتلة: تفصيل العوامل المؤثرة على المسافة اللازمة للتجاوز (فارق السرعة وأطوال المركبات - 50 سؤالاً)، شروط التجاوز من اليمين (الترام ودوران اليسار)، الأماكن المحظورة واستثناءاتها الصارمة عند التقاطعات والمرتفعات والمنحنيات، والتجاوز المتعدد المتتالي دون العودة لليمين.
+    </p>
+  </section>
+
+  <!-- Stats Grid -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-val">156</div>
+      <div class="stat-label">سؤالاً رسمياً في بنك الوزارة</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">50</div>
+      <div class="stat-label">سؤالاً عن المسافة اللازمة للتجاوز</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">3</div>
+      <div class="stat-label">حالات قانونية حصرياً للتجاوز من اليمين</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">~35%</div>
+      <div class="stat-label">نسبة تشابه صيغ الأسئلة</div>
+    </div>
+  </div>
+
+  <!-- Module 1: Spazio Necessario -->
+  <h2 class="section-title">
+    <span>📐</span>
+    <span>المحور الأول: المسافة اللازمة للتجاوز والعوامل المؤثرة — 50 سؤالاً</span>
+    <span class="badge">Lo Spazio Necessario</span>
+  </h2>
+
+  <div class="rule-card highlight">
+    <div class="rule-card-header">
+      <div class="rule-card-title">
+        <span>العوامل الفيزيائية المؤثرة على مسافة التجاوز (Lo Spazio di Sorpasso)</span>
+      </div>
+      <span class="it-tag">50 Domande</span>
+    </div>
+    <p style="color:#d4d4d8; margin-bottom:12px; font-size:0.95rem;">
+      التجاوز ليس مجرد زيادة سرعة، بل معادلة فيزيائية بين المسافة والزمن. المسافة اللازمة للتجاوز تزداد بشكل كبير في الحالات التالية:
+    </p>
+    <ul style="color:#a1a1aa; padding-right:20px; line-height:1.8; font-size:0.92rem;">
+      <li><strong style="color:#22d3ee;">1. قلة فارق السرعة (Poca differenza di velocità):</strong>
+        كلما كان فارق السرعة بينك وبين المركبة الأمامية صغيراً (مثلاً أنت 90 كم/س وهو 88 كم/س)، <strong style="color:#fff;">زادت المسافة والوقت المطلوبان لإتمام المناورة</strong>، مما يضاعف من خطر البقاء في المسار المقابل! والعكس صحيح: كلما كان فارق السرعة كبيراً قلت المسافة اللازمة للتجاوز.
+      </li>
+      <li><strong style="color:#22d3ee;">2. زيادة طول المركبة التي تتجاوزها (Maggiore lunghezza del veicolo da sorpassare):</strong>
+        تجاوز شاحنة طويلة (Autotreno) أو حافلة يتطلب مسافة أطول بكثير من تجاوز سيارة صغيرة عادية.
+      </li>
+      <li><strong style="color:#22d3ee;">3. زيادة طول مركبتك أنت (Maggiore lunghezza del proprio veicolo):</strong>
+        إذا كنت تقود مركبة طويلة أو تسحب مقطورة، ستحتاج لمسافة أطول قبل أن تتمكن من العودة بأمان إلى مسارك الأيمن.
+      </li>
+      <li><strong style="color:#22d3ee;">4. السرعة العالية للمركبتين (Velocità elevata dei veicoli):</strong>
+        حتى مع ثبات فارق السرعة (مثلاً 20 كم/س)، التجاوز عند سرعة 120 كم/س يحتاج مسافة جغرافية على الأسفلت أكبر بكثير من التجاوز عند سرعة 40 كم/س!
+      </li>
+      <li><strong style="color:#f87171;">⚠️ قاعدة ذهبية قطعية:</strong> إذا لم تكن المسافة المرئية الخالية أمامك كافية تماماً لإتمام التجاوز والعودة لليمين بأمان دون إرباك القادمين أو المارين، <span style="color:#fff; text-decoration:underline;">يُمنع البدء بالمناورة قطعياً</span>.</li>
+    </ul>
+  </div>
+
+  <!-- Module 2: Sorpasso a Destra -->
+  <h2 class="section-title">
+    <span>➡️</span>
+    <span>المحور الثاني: الحالات الثلاث الحصرية للتجاوز من اليمين (Sorpasso a Destra)</span>
+    <span class="badge">3 Casi Esclusivi</span>
+  </h2>
+
+  <div class="rule-card amber">
+    <div class="rule-card-header">
+      <div class="rule-card-title">
+        <span>القاعدة العامة: التجاوز دائماً من اليسار. متى يُسمح استثنائياً من اليمين؟</span>
+      </div>
+      <span class="it-tag">Eccezioni Legali</span>
+    </div>
+    <div class="dict-table-wrap">
+      <table class="dict-table">
+        <thead>
+          <tr>
+            <th>الحالة المسموحة</th>
+            <th>الشروط القانونية الدقيقة</th>
+            <th>الفخ الوزاري المتكرر</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:#fbbf24;">1. دوران المركبة الأمامية لليسار</strong></td>
+            <td>عندما يُعطي السائق الأمامي إشارة الانعطاف لليسار (Indicatore sinistro) ويبدأ بالتموضع نحو المنتصف/اليسار، وتتوفر مساحة كافية على اليمين.</td>
+            <td>لا يجوز التجاوز من اليمين إلا بعد أن يُشير ويبدأ فعلياً بالمناورة؛ البطء وحده ليس مبرراً!</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#fbbf24;">2. التوقف على اليسار في طريق اتجاه واحد</strong></td>
+            <td>في الطرق ذات الاتجاه الواحد (Senso unico)، إذا أعطى السائق الأمامي إشارة لرغبته في الوقوف أو الركن على الحافة اليسرى (Accostarsi a sinistra).</td>
+            <td>خاصة فقط بالطرق ذات الاتجاه الواحد (Senso unico).</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#fbbf24;">3. تجاوز الترام المتحرك أو المتوقف</strong></td>
+            <td>
+              • إذا كان الترام <span style="color:#34d399; font-weight:700;">متحركاً (In movimento)</span>: يُسمح بتجاوزه من اليمين إذا كانت المساحة كافية.<br>
+              • إذا كان الترام <span style="color:#f87171; font-weight:700;">متوقفاً لنزول الركاب (Fermo)</span>: <span style="color:#fff; text-decoration:underline;">يُشترط إجبارياً وجود رصيف أمان للمشاة (Salvagente)</span>.
+            </td>
+            <td><strong style="color:#f87171;">فخ Salvagente:</strong> إذا كان الترام متوقفاً لنزول وصعود الركاب ولا يوجد Salvagente، يُمنع التجاوز من اليمين منعاً باتاً لحماية الركاب!</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Module 3: Divieti Assoluti -->
+  <h2 class="section-title">
+    <span>🚫</span>
+    <span>المحور الثالث: الأماكن التي يُحظر فيها التجاوز والاستثناءات الرسمية</span>
+    <span class="badge">Divieti ed Eccezioni</span>
+  </h2>
+
+  <div class="rule-card warning">
+    <div class="rule-card-header">
+      <div class="rule-card-title">
+        <span>أين يُمنع التجاوز تماماً؟ (Divieto di Sorpasso)</span>
+      </div>
+      <span class="it-tag">Regole d'Esame</span>
+    </div>
+    <ul style="color:#d4d4d8; padding-right:20px; line-height:1.8; font-size:0.92rem;">
+      <li><strong style="color:#f87171;">1. في المنعطفات (Curve) والمرتفعات (Dossi):</strong>
+        في الطرق ذات الاتجاهين بمسار واحد لكل اتجاه (due corsie a doppio senso).
+        <br><span style="color:#34d399;">متى يُسمح فيها استثناءً؟</span> يُسمح بالتجاوز في المنعطف أو المرتفع إذا كان الطريق <strong style="color:#fff;">باتجاه واحد (Senso unico)</strong> أو مفصولاً بجزيرة وسطية بمسارين أو أكثر لكل اتجاه (ad almeno due corsie per senso di marcia).
+      </li>
+      <li><strong style="color:#f87171;">2. عند التقاطعات (Incroci):</strong>
+        القاعدة العامة هي حظر التجاوز عند التقاطعات أو بالقرب منها، <span style="color:#fde047;">إلا في 4 حالات استثنائية معتمدة:</span>
+        <ol style="padding-right:20px; margin-top:6px;">
+          <li>تجاوز مركبة ذات عجلتين غير بمحرك (دراجات هوائية Velocipedi) دون اجتياز الخط الفاصل.</li>
+          <li>إذا كان التقاطع محكوماً بإشارة ضوئية خضراء (Semaforo verde) أو شرطي مرور.</li>
+          <li>إذا كان الطريق ذا حق أسبقية رئيسي معلن (Strada con diritto di precedenza) وله مساران على الأقل.</li>
+          <li>تجاوز مركبة من اليمين بدأت بالدوران يساراً.</li>
+        </ol>
+      </li>
+      <li><strong style="color:#f87171;">3. ممرات المشاة والدراجات (Passaggi pedonali e ciclabili):</strong>
+        يُمنع منعاً باتاً تجاوز أي مركبة <span style="color:#fff; text-decoration:underline;">أبطأت أو توقفت لإفساح المجال لعبور المشاة أو الدراجات</span> (فخ قاتل ومخالفة جسيمة!).
+      </li>
+      <li><strong style="color:#f87171;">4. عند المزلقانات (Passaggi a livello):</strong>
+        يُمنع تجاوز مركبة توقفت أمام المزلقان انتظاراً للقطار، ويُمنع تخطي الخط المتصل.
+      </li>
+      <li><strong style="color:#f87171;">5. مركبة تقوم بالتجاوز بالفعل:</strong>
+        يُمنع تجاوز مركبة تقوم هي نفسها بتجاوز مركبة أخرى، إذا كان ذلك يقتضي الخروج إلى المسار المقابل المعاكس!
+      </li>
+    </ul>
+  </div>
+
+  <!-- Module 4: Fasi del Sorpasso & Sorpasso Multiplo -->
+  <h2 class="section-title">
+    <span>🔄</span>
+    <span>المحور الرابع: مراحل التنفيذ والتجاوز المتعدد المتتالي</span>
+    <span class="badge">Fasi & Sorpasso Multiplo</span>
+  </h2>
+
+  <div class="rule-card success">
+    <div class="rule-card-header">
+      <div class="rule-card-title">
+        <span>1. المراحل الثلاث للتجاوز السليم والمسافة الجانبية</span>
+      </div>
+      <span class="it-tag">Fasi di Manovra</span>
+    </div>
+    <ul style="color:#d4d4d8; padding-right:20px; line-height:1.8; font-size:0.92rem;">
+      <li><strong>مرحلة ما قبل التجاوز:</strong> التحقق من المرايا والنقطة العمياء، التأكد من أن السيارة الخلفية لم تبدأ بالتجاوز، وأن السيارة الأمامية لم تُشر برغبتها في التجاوز، وتشغيل الغماز الأيسر (Freccia sinistra).</li>
+      <li><strong>مرحلة التجاوز:</strong> ترك <strong style="color:#fff;">مسافة أمان جانبية كافية (Adeguata distanza laterale)</strong> مع المركبة المتجاوزة لتفادي الاحتكاك أو مفاجأة الهواء.</li>
+      <li><strong>مرحلة العودة لليمين:</strong> تشغيل الغماز الأيمن، والنظر في المرآة العاكسة للتأكد من رؤية مقدمة السيارة المتجاوزة بالكامل، ثم العودة تدريجياً لليمين دون مضايقتها أو قطع المسار عليها (Rientro non brusco).</li>
+    </ul>
+  </div>
+
+  <div class="rule-card info">
+    <div class="rule-card-header">
+      <div class="rule-card-title">
+        <span>2. التجاوز المتعدد المتتالي دون العودة لليمين (Sorpasso di più veicoli)</span>
+      </div>
+      <span class="it-tag">Autostrada e Corsie Multiple</span>
+    </div>
+    <p style="color:#d4d4d8; font-size:0.92rem; line-height:1.7;">
+      هل يجوز تجاوز مركبتين أو أكثر على التوالي دون العودة للمسار الأيمن بينهما؟
+      <br>
+      <strong style="color:#38bdf8;">نعم (Vero)، بشرطين قانونيين:</strong>
+      <br>1. أن يكون الطريق مزوداً بـ <strong style="color:#fff;">مسارين على الأقل في نفس اتجاه السير (ad almeno due corsie per senso di marcia)</strong> كالأوتوستراد والطرق السريعة.
+      <br>2. ألا يتسبب البقاء في مسار التجاوز في <strong style="color:#fff;">إعاقة المركبات الأسرع القادمة من الخلف (se non si crea intralcio)</strong>.
+    </p>
+  </div>
+
+  <!-- Module 5: Obblighi del sorpassato -->
+  <h2 class="section-title">
+    <span>🛡️</span>
+    <span>المحور الخامس: التزامات السائق الذي يتم تخطيه ومخاطر المناورة</span>
+    <span class="badge">Veicolo Sorpassato & Pericoli</span>
+  </h2>
+
+  <div class="rule-card highlight">
+    <div class="rule-card-title" style="margin-bottom:10px;">🚗 التزامات السائق الذي يتم تجاوزه (Il veicolo sorpassato) — 9 أسئلة:</div>
+    <ul style="color:#d4d4d8; padding-right:20px; line-height:1.8; font-size:0.92rem;">
+      <li><strong style="color:#f87171;">عدم زيادة السرعة (Non accelerare):</strong> يُمنع منعاً باتاً زيادة السرعة أثناء قيام مركبة أخرى بتجاوزك.</li>
+      <li><strong>التسهيل والالتزام بأقصى اليمين:</strong> في الطرق ذات المسار الواحد لكل اتجاه، يجب الاقتراب قدر الإمكان من الحافة اليمنى للطريق لتسهيل المناورة.</li>
+      <li>إذا كان يقود مركبة بطيئة وثقيلة ووراءه طابور من السيارات، يلزمه التمهل أو التوقف في مكان مناسب لفسح المجال للمرور.</li>
+    </ul>
+  </div>
+
+  <!-- Bilingual Dictionary -->
+  <h2 class="section-title">
+    <span>📖</span>
+    <span>القاموس التقني المبوب ثنائي اللغة (A2)</span>
+    <span class="badge">Glossario Ufficiale</span>
+  </h2>
+
+  <div class="dict-table-wrap">
+    <table class="dict-table">
+      <thead>
+        <tr>
+          <th>المصطلح بالإيطالية</th>
+          <th>الترجمة بالعربية</th>
+          <th>ملاحظات وفخاخ الامتحان</th>
+          <th>استماع</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color:#fff;">Manovra di sorpasso</strong></td>
+          <td>مناورة التجاوز / التخطي</td>
+          <td>تتطلب التحقق المسبق وترك مسافة أمان جانبية كافية.</td>
+          <td><button class="audio-speak-btn" onclick="speakText('Manovra di sorpasso')">🔊 نطق</button></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff;">Differenza di velocità</strong></td>
+          <td>فارق السرعة بين المركبتين</td>
+          <td>قلة الفارق تزيد من المسافة والزمن اللازمين للتجاوز.</td>
+          <td><button class="audio-speak-btn" onclick="speakText('Differenza di velocità')">🔊 نطق</button></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff;">Lunghezza del veicolo</strong></td>
+          <td>طول المركبة</td>
+          <td>زيادة طول أي من المركبتين تزيد المسافة المطلوبة للتجاوز.</td>
+          <td><button class="audio-speak-btn" onclick="speakText('Lunghezza del veicolo')">🔊 نطق</button></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff;">Salvagente</strong></td>
+          <td>رصيف أمان للمشاة</td>
+          <td>شرط إلزامي لتجاوز الترام المتوقف لنزول الركاب من اليمين.</td>
+          <td><button class="audio-speak-btn" onclick="speakText('Salvagente')">🔊 نطق</button></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff;">Distanza laterale</strong></td>
+          <td>مسافة الأمان الجانبية</td>
+          <td>يجب الحفاظ عليها أثناء محاذاة وتخطي المركبة الأخرى.</td>
+          <td><button class="audio-speak-btn" onclick="speakText('Distanza laterale')">🔊 نطق</button></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff;">Non accelerare</strong></td>
+          <td>عدم زيادة السرعة</td>
+          <td>واجب قطعي على السائق الذي يتم تخطيه.</td>
+          <td><button class="audio-speak-btn" onclick="speakText('Non accelerare')">🔊 نطق</button></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff;">Dosso e curva</strong></td>
+          <td>المرتفع والمنعطف</td>
+          <td>ممنوع التجاوز في المسار الواحد؛ ومسموح إذا كان باتجاه واحد.</td>
+          <td><button class="audio-speak-btn" onclick="speakText('Dosso e curva')">🔊 نطق</button></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff;">Scontro frontale</strong></td>
+          <td>اصطدام مواجه وجهاً لوجه</td>
+          <td>أخطر مخاطر التجاوز الخاطئ في الطرق ذات الاتجاهين.</td>
+          <td><button class="audio-speak-btn" onclick="speakText('Scontro frontale')">🔊 نطق</button></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff;">Intralcio alla circolazione</strong></td>
+          <td>إعاقة حركة المرور</td>
+          <td>ممنوع البقاء في مسار التجاوز إذا كان يسبب عائقاً للخلف.</td>
+          <td><button class="audio-speak-btn" onclick="speakText('Intralcio alla circolazione')">🔊 نطق</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Trappole dei Quiz -->
+  <h2 class="section-title">
+    <span>🎯</span>
+    <span>جدول الفخاخ الوزارية المقارنة (Vero / Falso)</span>
+    <span class="badge">Trappole dei Quiz</span>
+  </h2>
+
+  <div class="rule-card" style="border-right: 4px solid var(--rose-primary);">
+    <div style="display:flex; flex-direction:column; gap:16px;">
+      
+      <div style="border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom:12px;">
+        <div style="color:#f87171; font-weight:700; margin-bottom:4px;">❌ عبارة Falsa شهيرة:</div>
+        <p style="color:#fff; direction:ltr; text-align:left; font-family:system-ui; font-size:0.92rem;">"Lo spazio necessario per il sorpasso è indipendente dalla lunghezza dei veicoli."</p>
+        <p style="color:#a1a1aa; font-size:0.86rem; margin-top:4px;"><strong>التعليل الصحيح:</strong> خطأ؛ مسافة التجاوز تعتمد اعتماداً وثيقاً ومباشراً على طول كلتا المركبتين وتزداد بزيادتهما.</p>
+      </div>
+
+      <div style="border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom:12px;">
+        <div style="color:#f87171; font-weight:700; margin-bottom:4px;">❌ عبارة Falsa شهيرة:</div>
+        <p style="color:#fff; direction:ltr; text-align:left; font-family:system-ui; font-size:0.92rem;">"E' consentito il sorpasso di un veicolo che si è fermato per far attraversare i pedoni, purché a velocità moderata."</p>
+        <p style="color:#a1a1aa; font-size:0.86rem; margin-top:4px;"><strong>التعليل الصحيح:</strong> خطأ؛ يُحظر تماماً وبشكل قاطع تجاوز أي مركبة توقفت لإتاحة عبور المشاة، ومهما كانت السرعة بطيئة.</p>
+      </div>
+
+      <div style="border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom:12px;">
+        <div style="color:#f87171; font-weight:700; margin-bottom:4px;">❌ عبارة Falsa شهيرة:</div>
+        <p style="color:#fff; direction:ltr; text-align:left; font-family:system-ui; font-size:0.92rem;">"In autostrada si può sorpassare indifferentemente sia a destra che a sinistra."</p>
+        <p style="color:#a1a1aa; font-size:0.86rem; margin-top:4px;"><strong>التعليل الصحيح:</strong> خطأ؛ التجاوز في الأوتوستراد يكون من اليسار دائماً كالقاعدة العامة، ولا يجوز التجاوز من اليمين بمجرد الرغبة.</p>
+      </div>
+
+      <div>
+        <div style="color:#34d399; font-weight:700; margin-bottom:4px;">✅ عبارة Vera حاسمة:</div>
+        <p style="color:#fff; direction:ltr; text-align:left; font-family:system-ui; font-size:0.92rem;">"Dopo aver eseguito una prima manovra di sorpasso, in strade ad almeno due corsie per senso di marcia, è possibile eseguirne un'altra senza rientrare a destra, se non si crea intralcio."</p>
+        <p style="color:#a1a1aa; font-size:0.86rem; margin-top:4px;"><strong>التعليل الصحيح:</strong> صحيح؛ التجاوز المتعدد المتتالي مسموح في الطرق متعددة المسارات بشرط عدم إعاقة السائقين الأسرع في الخلف.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Interactive Quiz -->
+  <h2 class="section-title">
+    <span>📝</span>
+    <span>كويز تفاعلي رسمي لاختبار الفهم (5 أسئلة وزارية)</span>
+    <span class="badge">Quiz Ufficiale</span>
+  </h2>
+
+  <!-- Q1 -->
+  <div class="quiz-card" id="q-card-1">
+    <div class="quiz-q-num">السؤال 1 من 5 • كود وزاري 1501</div>
+    <div class="quiz-text-it">"Il conducente che intende sorpassare deve valutare lo spazio necessario per la manovra anche in relazione alla differenza di velocità tra il proprio veicolo e quello da sorpassare."</div>
+    <div class="quiz-text-ar">يجب على السائق الذي ينوي التجاوز تقدير المساحة اللازمة للمناورة أيضاً بالارتباط مع فارق السرعة بين مركبته والمركبة المراد تجاوزها.</div>
+    <div class="quiz-btn-group">
+      <button class="quiz-opt-btn" onclick="checkAnswer(1, true, true, 'إجابة صحيحة (Vero)! فارق السرعة عنصر جوهري لتقدير المسافة؛ فكلما قل الفارق زادت المسافة والوقت المطلوبان.')">Vero (صحيح)</button>
+      <button class="quiz-opt-btn" onclick="checkAnswer(1, false, true, 'خطأ! العبارة صحيحة تماماً (Vero)؛ فارق السرعة يتحكم مباشرة في المسافة المطلوبة للتجاوز.')">Falso (خطأ)</button>
+    </div>
+    <div class="quiz-feedback" id="q-fb-1"></div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-card" id="q-card-2">
+    <div class="quiz-q-num">السؤال 2 من 5 • كود وزاري 1502</div>
+    <div class="quiz-text-it">"Se il tram o il filobus sono fermi la manovra di sorpasso può effettuarsi a destra se esiste il salvagente."</div>
+    <div class="quiz-text-ar">إذا كان الترام أو الأوتوبيس الكهربائي متوقفاً، يمكن إجراء مناورة التجاوز من اليمين إذا كانت هناك جزيرة أمان (Salvagente).</div>
+    <div class="quiz-btn-group">
+      <button class="quiz-opt-btn" onclick="checkAnswer(2, true, true, 'إجابة صحيحة (Vero)! وجود الـ Salvagente شرط إلزامي لتجاوز الترام المتوقف من اليمين لحماية الركاب والمشاة.')">Vero (صحيح)</button>
+      <button class="quiz-opt-btn" onclick="checkAnswer(2, false, true, 'خطأ! العبارة صحيحة تماماً (Vero)؛ وجود رصيف الأمان Salvagente يسمح بالتجاوز بأمان من اليمين.')">Falso (خطأ)</button>
+    </div>
+    <div class="quiz-feedback" id="q-fb-2"></div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-card" id="q-card-3">
+    <div class="quiz-q-num">السؤال 3 من 5 • كود وزاري 1503</div>
+    <div class="quiz-text-it">"Il sorpasso è consentito su dossi se la strada è a due carreggiate separate e a due corsie per senso di marcia."</div>
+    <div class="quiz-text-ar">يُسمح بالتجاوز عند المرتفعات (Dossi) إذا كان الطريق ذا مسارين منفصلين ومسارين لكل اتجاه سير.</div>
+    <div class="quiz-btn-group">
+      <button class="quiz-opt-btn" onclick="checkAnswer(3, true, true, 'إجابة صحيحة (Vero)! وجود طريق منفصل ومسارات متعددة يمنع خطر الاصطدام بالمواجه، مما يسمح بالتجاوز.')">Vero (صحيح)</button>
+      <button class="quiz-opt-btn" onclick="checkAnswer(3, false, true, 'خطأ! العبارة صحيحة (Vero)؛ التجاوز في المرتفعات مسموح إذا كانت المسارات متعددة أو الطريق باتجاه واحد.')">Falso (خطأ)</button>
+    </div>
+    <div class="quiz-feedback" id="q-fb-3"></div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-card" id="q-card-4">
+    <div class="quiz-q-num">السؤال 4 من 5 • كود وزاري 1504</div>
+    <div class="quiz-text-it">"Lo spazio necessario alla manovra di sorpasso aumenta in relazione alla maggiore lunghezza del veicolo che sorpassa."</div>
+    <div class="quiz-text-ar">المسافة اللازمة لمناورة التجاوز تزداد بالارتباط مع زيادة طول المركبة التي تقوم بالتجاوز.</div>
+    <div class="quiz-btn-group">
+      <button class="quiz-opt-btn" onclick="checkAnswer(4, true, true, 'إجابة صحيحة (Vero)! زيادة طول مركبة المتجاوز تتطلب مسافة أكبر لتخطي المركبة والعودة للمسار بأمان.')">Vero (صحيح)</button>
+      <button class="quiz-opt-btn" onclick="checkAnswer(4, false, true, 'خطأ! العبارة صحيحة تماماً (Vero)؛ طول المركبة المتجاوزة يؤثر طردياً على مسافة التجاوز.')">Falso (خطأ)</button>
+    </div>
+    <div class="quiz-feedback" id="q-fb-4"></div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-card" id="q-card-5">
+    <div class="quiz-q-num">السؤال 5 من 5 • كود وزاري 1505</div>
+    <div class="quiz-text-it">"Durante la manovra di sorpasso il conducente deve mantenere una distanza laterale di sicurezza dal veicolo sorpassato solo se questo è un motociclo."</div>
+    <div class="quiz-text-ar">أثناء مناورة التجاوز، يجب على السائق الحفاظ على مسافة أمان جانبية من المركبة المتجاوزة فقط إذا كانت دراجة نارية.</div>
+    <div class="quiz-btn-group">
+      <button class="quiz-opt-btn" onclick="checkAnswer(5, true, false, 'خطأ! العبارة خاطئة (Falso)؛ ترك مسافة أمان جانبية واجب تجاه جميع المركبات دون استثناء وليس فقط الدراجات.')">Vero (صحيح)</button>
+      <button class="quiz-opt-btn" onclick="checkAnswer(5, false, false, 'إجابة صحيحة (Falso)! ترك المسافة الجانبية إلزامي عند تجاوز أي نوع من المركبات.')">Falso (خطأ)</button>
+    </div>
+    <div class="quiz-feedback" id="q-fb-5"></div>
+  </div>
+
+</main>
+
+<script>
+// Mobile Drawer Controller
+function toggleMobileNav() {
+  const btn = document.getElementById('nav-hamburger-btn');
+  const panel = document.getElementById('mobile-drawer-panel');
+  const overlay = document.getElementById('mobile-drawer-overlay');
+  if (!btn || !panel) return;
+  const isOpening = !panel.classList.contains('is-active');
+  if (isOpening) {
+    btn.classList.add('is-active');
+    btn.setAttribute('aria-expanded', 'true');
+    panel.classList.add('is-active');
+    if (overlay) overlay.classList.add('is-active');
+    document.body.classList.add('nav-scroll-lock');
+  } else {
+    closeMobileNav();
+  }
+  if (window.soundEngine && typeof window.soundEngine.click === 'function') {
+    window.soundEngine.click();
+  }
+}
+
+function closeMobileNav() {
+  const btn = document.getElementById('nav-hamburger-btn');
+  const panel = document.getElementById('mobile-drawer-panel');
+  const overlay = document.getElementById('mobile-drawer-overlay');
+  if (btn) {
+    btn.classList.remove('is-active');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+  if (panel) panel.classList.remove('is-active');
+  if (overlay) overlay.classList.remove('is-active');
+  document.body.classList.remove('nav-scroll-lock');
+}
+
+// Audio Engine
+window.soundEngine = window.soundEngine || {
+  ctx: null,
+  enabled: true,
+  init() {
+    if (!this.ctx) {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (AudioCtx) this.ctx = new AudioCtx();
+    }
+    if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
+  },
+  click() {
+    if (!this.enabled) return;
+    this.init();
+    if (!this.ctx) return;
+    try {
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(520, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.04);
+      gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.04);
+    } catch(e) {}
+  },
+  success() {
+    if (!this.enabled) return;
+    this.init();
+    if (!this.ctx) return;
+    try {
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(440, now);
+      osc.frequency.exponentialRampToValueAtTime(880, now + 0.12);
+      gain.gain.setValueAtTime(0.1, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.25);
+    } catch(e) {}
+  },
+  error() {
+    if (!this.enabled) return;
+    this.init();
+    if (!this.ctx) return;
+    try {
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(220, now);
+      osc.frequency.linearRampToValueAtTime(110, now + 0.15);
+      gain.gain.setValueAtTime(0.1, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.25);
+    } catch(e) {}
+  }
+};
+
+function toggleAudio() {
+  window.soundEngine.enabled = !window.soundEngine.enabled;
+  const icons = document.querySelectorAll('.audio-icon-span');
+  const labels = document.querySelectorAll('.audio-label-span');
+  icons.forEach(el => el.textContent = window.soundEngine.enabled ? '🔊' : '🔇');
+  labels.forEach(el => el.textContent = window.soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم');
+  if (window.soundEngine.enabled) window.soundEngine.click();
+}
+
+// Web Speech API for Italian pronunciation
+function speakText(italianText) {
+  if (!('speechSynthesis' in window)) {
+    alert('خاصية النطق غير مدعومة في متصفحك.');
+    return;
+  }
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(italianText);
+  utterance.lang = 'it-IT';
+  utterance.rate = 0.85;
+  window.speechSynthesis.speak(utterance);
+}
+
+// Quiz validation
+function checkAnswer(qId, userChoice, correctChoice, explanation) {
+  const card = document.getElementById(`q-card-${qId}`);
+  const fb = document.getElementById(`q-fb-${qId}`);
+  if (!card || !fb) return;
+
+  const isCorrect = (userChoice === correctChoice);
+  fb.textContent = explanation;
+
+  if (isCorrect) {
+    card.className = 'quiz-card answered-correct';
+    if (window.soundEngine) window.soundEngine.success();
+  } else {
+    card.className = 'quiz-card answered-wrong';
+    if (window.soundEngine) window.soundEngine.error();
+  }
+}
+</script>
+
+</body>
+</html>
