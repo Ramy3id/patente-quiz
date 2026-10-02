@@ -3,731 +3,147 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>دليل الباب 23: المسؤولية والتأمين RCA — Patente B Pro</title>
+<title>دليل وقاموس الباب 23: المسؤولية القانونية والتأمين الإجباري RCA | Patente B Pro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 
   :root {
     --bg-base: #09090b;
     --bg-surface: rgba(24, 24, 27, 0.75);
+    --bg-surface-elevated: rgba(39, 39, 42, 0.85);
     --border-subtle: rgba(255, 255, 255, 0.08);
     --border-highlight: rgba(255, 255, 255, 0.16);
     --text-primary: #f4f4f5;
     --text-secondary: #a1a1aa;
     --text-muted: #71717a;
     --emerald-primary: #10b981;
+    --emerald-dark: #059669;
+    --emerald-glow: rgba(16, 185, 129, 0.25);
     --rose-primary: #f43f5e;
+    --rose-glow: rgba(244, 63, 94, 0.25);
     --amber-primary: #f59e0b;
+    --amber-glow: rgba(245, 158, 11, 0.25);
+    --sky-primary: #38bdf8;
+    --sky-glow: rgba(56, 189, 248, 0.25);
     --indigo-primary: #6366f1;
-    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    --nav-base-height: 54px;
+    --font-sans: 'Cairo', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
+  html, body {
     background-color: var(--bg-base);
     color: var(--text-primary);
-    font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
-    line-height: 1.75;
-    min-height: 100vh;
-    padding-bottom: 70px;
-    background-image: 
-      radial-gradient(ellipse at 50% -10%, rgba(99, 102, 241, 0.08), transparent 60%),
-      radial-gradient(circle at 90% 90%, rgba(16, 185, 129, 0.03), transparent 40%);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
   }
 
-  .unified-portal-nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    background: rgba(9, 9, 11, 0.85);
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 12px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
+  body.nav-scroll-lock {
+    overflow: hidden !important;
+    touch-action: none;
   }
+
+  /* Portal Nav Header (Strict 54px, Apple HIG) */
+  .unified-portal-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-base-height);
+    background: rgba(15, 15, 18, 0.82);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
   .nav-brand {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--text-primary);
-  }
-  .nav-tabs-wrapper {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-  }
-  .nav-tab {
+    gap: 8px;
     text-decoration: none;
-    color: var(--text-secondary);
-    padding: 7px 14px;
-    border-radius: 9px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: all 0.15s;
-    border: 1px solid transparent;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.05rem;
+  }
+
+  .badge-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--amber-primary);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    padding: 2px 7px;
+    border-radius: 6px;
+  }
+
+  .desktop-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .desktop-nav-link {
     display: flex;
     align-items: center;
     gap: 6px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 600;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
   }
-  .nav-tab:hover {
+  .desktop-nav-link:hover {
     color: #fff;
     background: rgba(255, 255, 255, 0.05);
     border-color: var(--border-subtle);
   }
-  .nav-tab.active {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border-color: var(--border-highlight);
+  .desktop-nav-link.active {
+    color: var(--amber-primary);
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.25);
   }
 
-  .container {
-    max-width: 980px;
-    margin: 28px auto;
-    padding: 0 16px;
-  }
-  .content-sheet {
-    background: var(--bg-surface);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--border-subtle);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06), 0 20px 40px -15px rgba(0,0,0,0.7);
-    border-radius: 20px;
-    padding: 42px 48px;
-  }
-  @media (max-width: 700px) {
-    .content-sheet { padding: 26px 20px; }
-  }
-
-  .main-title {
-    font-size: 1.85rem;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 8px;
-    letter-spacing: -0.025em;
-  }
-  .sub-lead {
-    font-size: 1.12rem;
-    color: #38bdf8;
-    margin-bottom: 20px;
-    font-weight: 600;
-  }
-  .section-title {
-    font-size: 1.35rem;
-    font-weight: 800;
-    color: #fff;
-    margin: 36px 0 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border-subtle);
-  }
-
-  .callout-box {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border-subtle);
-    border-right: 4px solid #38bdf8;
-    padding: 16px 20px;
-    border-radius: 12px;
-    color: #e4e4e7;
-    margin-bottom: 16px;
-    line-height: 1.7;
-  }
-
-  .table-wrap {
-    overflow-x: auto;
-    margin: 22px 0 26px;
-    border: 1px solid var(--border-subtle);
-    border-radius: 12px;
-  }
-  .data-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.95rem;
-    text-align: right;
-  }
-  .data-table th {
-    background: rgba(39, 39, 42, 0.9);
-    padding: 14px 16px;
-    border: 1px solid var(--border-subtle);
-    font-weight: 700;
-    color: #fff;
-  }
-  .data-table td {
-    padding: 13px 16px;
-    border: 1px solid var(--border-subtle);
-    color: #d4d4d8;
-  }
-  .data-table tr:nth-child(even) {
-    background: rgba(255, 255, 255, 0.02);
-  }
-
-  .bullet-item { margin: 8px 0; font-size: 1.02rem; color: #e4e4e7; }
-  .num-item { margin: 10px 0; font-size: 1.02rem; color: #e4e4e7; }
-  .para { margin: 10px 0; font-size: 1.02rem; color: #e4e4e7; }
-  .divider { border: 0; height: 1px; background: var(--border-subtle); margin: 30px 0; }
-  strong { color: #fff; }
-  a { color: #38bdf8; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-
-
-  /* ==========================================================================
-     Infographics & Visual Comparison Grid (RTL-Native, Zero-Overflow)
-     ========================================================================== */
-  .diagram-wrapper {
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid var(--border-subtle);
-    border-radius: 18px;
-    padding: 24px;
-    margin: 28px 0;
-  }
-  .diagram-wrapper-title {
-    font-weight: 800;
-    font-size: 1.15rem;
-    color: #fff;
-    margin-bottom: 20px;
+  .desktop-nav-controls {
     display: flex;
     align-items: center;
     gap: 10px;
   }
-  .incident-root-badge {
-    background: #27272a;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #fff;
-    padding: 8px 20px;
-    border-radius: 9999px;
-    font-weight: 700;
-    font-size: 0.95rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  }
-  .comparison-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 18px;
-  }
-  .compare-card {
-    background: #18181b;
-    border-radius: 14px;
-    padding: 22px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    border: 1px solid var(--border-subtle);
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s, box-shadow 0.2s;
-  }
-  .compare-card:hover {
-    transform: translateY(-2px);
-  }
-  .compare-card.civile {
-    border-color: rgba(56, 189, 248, 0.35);
-    background: linear-gradient(180deg, rgba(56, 189, 248, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
-    box-shadow: 0 8px 24px -6px rgba(56, 189, 248, 0.08);
-  }
-  .compare-card.penale {
-    border-color: rgba(244, 63, 94, 0.35);
-    background: linear-gradient(180deg, rgba(244, 63, 94, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
-    box-shadow: 0 8px 24px -6px rgba(244, 63, 94, 0.08);
-  }
-  .compare-card.emerald {
-    border-color: rgba(16, 185, 129, 0.35);
-    background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
-  }
-  .compare-card.zinc-muted {
-    border-color: rgba(113, 113, 122, 0.35);
-    background: linear-gradient(180deg, rgba(113, 113, 122, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
-  }
-  .compare-card.amber {
-    border-color: rgba(245, 158, 11, 0.35);
-    background: linear-gradient(180deg, rgba(245, 158, 11, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
-  }
-  .card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  .card-badge {
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    font-weight: 700;
-  }
-  .badge-sky { background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
-  .badge-rose { background: rgba(244, 63, 94, 0.12); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
-  .badge-emerald { background: rgba(16, 185, 129, 0.12); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
-  .badge-zinc { background: rgba(113, 113, 122, 0.15); color: #a1a1aa; border: 1px solid rgba(113, 113, 122, 0.3); }
-  .badge-amber { background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
 
-  .card-title-text {
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: #fff;
-  }
-  .card-subtitle-text {
-    font-size: 0.92rem;
-    font-weight: 600;
-    line-height: 1.5;
-  }
-  .card-rule {
-    height: 1px;
-    background: rgba(255, 255, 255, 0.08);
-    margin: 2px 0;
-  }
-  .card-points {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .card-points li {
-    position: relative;
-    padding-right: 28px;
-    line-height: 1.7;
-    display: block;
-    text-align: right;
-    font-size: 0.92rem;
-    color: #d4d4d8;
-  }
-  .card-points li > span:first-child,
-  .card-points li > .p-icon {
-    position: absolute;
-    right: 0;
-    top: 2px;
-    font-size: 1.05rem;
-    line-height: 1;
-  }
-  .card-points li > div {
-    display: inline;
-  }
-
-
-  
-  /* ==========================================================================
-     Apple HIG & Design Engineering Responsive Navigation System
-     ========================================================================== */
-  :root {
-    --nav-base-height: 54px;
-    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  html, body {
-    overflow-x: hidden !important;
-    width: 100% !important;
-    margin: 0;
-    padding: 0;
-  }
-  body.nav-scroll-lock {
-    overflow: hidden !important;
-    touch-action: none !important;
-    -webkit-overflow-scrolling: auto !important;
-  }
-
-  .unified-portal-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
-    max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
-    background: rgba(9, 9, 11, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 24px;
-    padding-top: env(safe-area-inset-top, 0px);
-    padding-right: max(20px, env(safe-area-inset-right, 0px));
-    padding-left: max(20px, env(safe-area-inset-left, 0px));
-    box-sizing: border-box;
-    transition: background 0.25s var(--ease-spring), border-color 0.25s;
-  }
-
-  /* Desktop Brand */
-  .nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #fff;
-    white-space: nowrap;
-    text-decoration: none;
-    flex-shrink: 0;
-  }
-  .nav-brand .badge-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    padding: 2px 7px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
-    color: #a1a1aa;
-  }
-
-  /* Desktop Tabs Menu */
-  .nav-desktop-tabs {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .nav-tab-desktop {
-    text-decoration: none;
-    color: #a1a1aa;
-    padding: 7px 13px;
-    border-radius: 9px;
-    font-size: 0.84rem;
-    font-weight: 600;
-    transition: all 0.15s;
-    border: 1px solid transparent;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    white-space: nowrap;
-  }
-  .nav-tab-desktop:hover {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.08);
-  }
-  .nav-tab-desktop.active {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.16);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), 0 2px 8px rgba(0,0,0,0.4);
-  }
-
-  /* Desktop Audio Button */
-  .nav-desktop-actions {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-  }
   .nav-audio-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #a1a1aa;
-    border-radius: 9px;
-    padding: 6px 12px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
+    height: 34px;
     display: flex;
     align-items: center;
     gap: 6px;
-    transition: all 0.15s;
-    white-space: nowrap;
-  }
-  .nav-audio-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
-  .nav-audio-btn:active { transform: scale(0.96); }
-
-  /* Animated Hamburger Icon (Apple HIG & Design Engineer) */
-  .nav-hamburger-btn {
-    display: none;
-    width: 42px;
-    height: 42px;
+    padding: 0 12px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 0;
-    z-index: 1002;
-    transition: background 0.15s, transform 0.15s;
-  }
-  .nav-hamburger-btn:active {
-    transform: scale(0.92);
-  }
-  .hamburger-box {
-    width: 20px;
-    height: 14px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .hamburger-line {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: #fff;
-    border-radius: 2px;
-    transition: transform 0.28s var(--ease-spring), opacity 0.2s, background-color 0.2s;
-  }
-  .nav-hamburger-btn.is-active .line-top {
-    transform: translateY(6px) rotate(45deg);
-    background-color: #38bdf8;
-  }
-  .nav-hamburger-btn.is-active .line-mid {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-  .nav-hamburger-btn.is-active .line-bot {
-    transform: translateY(-6px) rotate(-45deg);
-    background-color: #38bdf8;
-  }
-
-  /* Glassmorphic Slide-Down Panel & Backdrop Drawer (< 768px) */
-  .mobile-drawer-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 998;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s var(--ease-spring);
-  }
-  .mobile-drawer-overlay.is-active {
-    display: block;
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .mobile-drawer-panel {
-    display: none;
-    position: fixed;
-    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
-    left: 0;
-    right: 0;
-    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
-    background: rgba(15, 15, 18, 0.92);
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
-    z-index: 999;
-    padding: 16px;
-    padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
-    padding-right: max(16px, env(safe-area-inset-right, 0px));
-    padding-left: max(16px, env(safe-area-inset-left, 0px));
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.32s var(--ease-spring), opacity 0.22s ease;
-  }
-  .mobile-drawer-panel.is-active {
-    display: block;
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .mobile-nav-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .mobile-nav-link {
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 0 16px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
+    border-radius: 8px;
     color: #e4e4e7;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: background 0.15s, border-color 0.15s, transform 0.1s;
-  }
-  .mobile-nav-link:active {
-    transform: scale(0.98);
-    background: rgba(255, 255, 255, 0.08);
-  }
-  .mobile-nav-link.active {
-    background: rgba(56, 189, 248, 0.12);
-    border-color: rgba(56, 189, 248, 0.3);
-    color: #fff;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  }
-  .mobile-nav-link .nav-icon {
-    font-size: 1.2rem;
-    flex-shrink: 0;
-  }
-
-  /* Drawer Footer Controls (Sound & Info) */
-  .mobile-drawer-footer {
-    display: flex;
-    gap: 10px;
-    margin-top: 14px;
-    padding-top: 14px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-  }
-  .mobile-control-btn {
-    min-height: 48px;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    color: #fff;
-    font-size: 0.88rem;
+    font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.15s;
+    transition: all 0.15s ease;
+    font-family: inherit;
   }
-  .mobile-control-btn:active {
-    transform: scale(0.98);
+  .nav-audio-btn:hover {
     background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.2);
   }
 
-  /* ==========================================================================
-     Breakpoint (< 768px): Strict Mobile Rules
-     ========================================================================== */
-  @media (max-width: 768px) {
-    .unified-portal-nav {
-      height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
-      max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
-      padding: 0 16px;
-      padding-top: env(safe-area-inset-top, 0px);
-      box-sizing: border-box;
-    }
-    .nav-desktop-tabs,
-    .nav-desktop-actions {
-      display: none !important;
-    }
-    .nav-hamburger-btn {
-      display: flex;
-    }
-    .nav-brand .badge-tag {
-      display: none;
-    }
-  }
-
-  /* ==========================================================================
-     Content Safe-Area and Responsive Polish
-     ========================================================================== */
-  @media (max-width: 640px) {
-    body {
-      padding-bottom: max(40px, env(safe-area-inset-bottom, 0px));
-    }
-    .container {
-      margin: 10px auto;
-      padding: 0 max(10px, env(safe-area-inset-left, 0px));
-      padding-right: max(10px, env(safe-area-inset-right, 0px));
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .content-sheet {
-      padding: 20px 14px !important;
-      border-radius: 16px !important;
-    }
-    .main-title {
-      font-size: 1.35rem !important;
-      line-height: 1.35 !important;
-    }
-    .sub-lead {
-      font-size: 0.98rem !important;
-      margin-bottom: 16px !important;
-    }
-    .section-title {
-      font-size: 1.15rem !important;
-      margin: 24px 0 12px !important;
-    }
-    .callout-box {
-      padding: 12px 14px !important;
-      font-size: 0.92rem !important;
-      line-height: 1.6 !important;
-    }
-    .diagram-wrapper {
-      padding: 16px 12px !important;
-      margin: 18px 0 !important;
-      border-radius: 14px !important;
-    }
-    .comparison-grid {
-      grid-template-columns: 1fr !important;
-      gap: 12px !important;
-    }
-    .compare-card {
-      padding: 16px 14px !important;
-    }
-    .table-wrap {
-      margin: 14px 0 !important;
-      overflow-x: auto !important;
-      -webkit-overflow-scrolling: touch !important;
-    }
-    .data-table th, .data-table td {
-      padding: 10px 8px !important;
-      font-size: 0.84rem !important;
-    }
-    .formula-banner {
-      flex-direction: column !important;
-      gap: 8px !important;
-      padding: 14px 12px !important;
-    }
-    .formula-op {
-      transform: rotate(90deg);
-    }
-    .bar-chart-container {
-      padding: 14px 10px !important;
-    }
-    .bar-row-head {
-      flex-direction: column !important;
-      gap: 3px !important;
-      font-size: 0.8rem !important;
-    }
-    .spie-grid {
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 10px !important;
-    }
-    .spia-card {
-      padding: 14px 8px !important;
-    }
-    .tri-metric-grid {
-      grid-template-columns: 1fr !important;
-      gap: 10px !important;
-    }
-    .guides-grid {
-      grid-template-columns: 1fr !important;
-      gap: 14px !important;
-    }
-    .guide-card {
-      padding: 18px 16px !important;
-    }
-  }
-
-  @media (max-width: 380px) {
-    .spie-grid {
-      grid-template-columns: 1fr !important;
-    }
-  }
-
-
-  /* ==========================================================================
-     Desktop Chapters Dropdown & Pagination (Declutter Architecture)
-     ========================================================================== */
   .nav-dropdown-wrapper {
     position: relative;
     display: inline-block;
@@ -774,9 +190,7 @@
     z-index: 1100;
     direction: rtl;
   }
-  .nav-dropdown-menu.active {
-    display: flex;
-  }
+  .nav-dropdown-menu.active { display: flex; }
   .nav-dropdown-item {
     display: flex;
     align-items: center;
@@ -794,142 +208,749 @@
     color: #fff;
   }
   .nav-dropdown-item.active {
-    background: rgba(56, 189, 248, 0.12);
-    color: #38bdf8;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--amber-primary);
     font-weight: 700;
   }
 
-  /* Chapter Pagination */
+  /* Hamburger Button (< 768px) */
+  .nav-hamburger-btn {
+    display: none;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .hamburger-box { width: 20px; height: 14px; position: relative; }
+  .hamburger-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #f4f4f5;
+    border-radius: 2px;
+    transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  }
+  .line-top { top: 0; }
+  .line-mid { top: 6px; }
+  .line-bot { top: 12px; }
+
+  .nav-hamburger-btn.is-active .line-top { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger-btn.is-active .line-mid { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger-btn.is-active .line-bot { transform: translateY(-6px) rotate(-45deg); }
+
+  /* Mobile Drawer Panel */
+  .mobile-drawer-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .mobile-drawer-overlay.is-active { display: block; opacity: 1; }
+  .mobile-drawer-panel {
+    display: none;
+    position: fixed;
+    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
+    left: 0; right: 0;
+    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
+    background: rgba(15, 15, 18, 0.94);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
+    z-index: 999;
+    padding: 16px;
+    padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  }
+  .mobile-drawer-panel.is-active { display: block; transform: translateY(0); opacity: 1; }
+  .mobile-nav-list { display: flex; flex-direction: column; gap: 8px; list-style: none; }
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    min-height: 48px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: #e4e4e7;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+  .mobile-nav-link.active {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.35);
+    color: var(--amber-primary);
+  }
+
+  /* Main Container */
+  .guide-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: calc(var(--nav-base-height) + 28px) 20px 80px 20px;
+  }
+
+  /* Hero Section */
+  .chapter-hero {
+    background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12), transparent 70%),
+                linear-gradient(180deg, rgba(24, 24, 27, 0.7) 0%, rgba(18, 18, 20, 0.9) 100%);
+    border: 1px solid var(--border-subtle);
+    border-radius: 24px;
+    padding: 40px 32px;
+    margin-bottom: 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), transparent);
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--sky-primary);
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .hero-subtitle {
+    font-family: var(--font-mono);
+    color: var(--sky-primary);
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+    direction: ltr;
+  }
+  .hero-desc {
+    max-width: 860px;
+    margin: 0 auto 24px auto;
+    color: var(--text-secondary);
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+  .hero-badges-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .hero-stat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: #d4d4d8;
+  }
+
+  /* Golden Rules Banner */
+  .golden-rules-banner {
+    background: rgba(56, 189, 248, 0.06);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 36px;
+  }
+  .golden-rules-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--sky-primary);
+    margin-bottom: 16px;
+  }
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .rule-box {
+    background: rgba(24, 24, 27, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .rule-box h4 {
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .rule-box p {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Filter Pills */
+  .filter-pills-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    margin-bottom: 28px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filter-pill {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .filter-pill:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+  }
+  .filter-pill.active {
+    background: var(--sky-primary);
+    border-color: var(--sky-primary);
+    color: #000;
+    font-weight: 700;
+  }
+
+  /* Rotatoria Simulator Box */
+  .simulator-box {
+    background: linear-gradient(180deg, rgba(24, 24, 27, 0.8) 0%, rgba(18, 18, 20, 0.95) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .sim-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--sky-primary);
+    margin-bottom: 6px;
+  }
+  .sim-subtitle {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+  }
+  .sim-controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .sim-btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sim-btn:hover { background: rgba(255, 255, 255, 0.1); }
+  .sim-btn.active {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: var(--sky-primary);
+    color: var(--sky-primary);
+  }
+  .sim-output-card {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .sim-img-wrapper img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+  }
+  .sim-details { flex: 1; text-align: right; }
+  .sim-state-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .state-normal { background: rgba(245, 158, 11, 0.2); color: var(--amber-primary); }
+  .state-rot-precedence { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .sim-legal-text {
+    font-size: 0.92rem;
+    color: #e4e4e7;
+    line-height: 1.7;
+  }
+
+  /* Comparison Section: Paths */
+  .comp-section {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .comp-header { margin-bottom: 20px; text-align: right; }
+  .comp-header h3 { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+  .comp-header p { font-size: 0.9rem; color: var(--text-secondary); }
+  .comp-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .comp-card-path {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .comp-card-path img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 12px;
+  }
+  .comp-card-path h4 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .comp-card-path .path-it {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--sky-primary);
+    margin-bottom: 10px;
+  }
+  .comp-card-path p {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    text-align: right;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  /* Grid of Signals Cards */
+  .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .section-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-badge {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: var(--sky-primary);
+    background: rgba(56, 189, 248, 0.1);
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+  }
+
+  .signals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .signal-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .signal-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-highlight);
+  }
+
+  .signal-img-container {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    padding: 12px;
+  }
+  .signal-img-container img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+  }
+
+  /* Card Header Vertical Hierarchy */
+  .card-header-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+  .card-ar-title {
+    order: 1;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  .card-it-title {
+    order: 2;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--sky-primary);
+    direction: ltr;
+    text-align: right;
+  }
+
+  .card-desc-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  /* ZERO FLEX ON LISTS (STRICT TYPOGRAPHY) */
+  .card-points-group { margin-bottom: 14px; }
+  .points-group-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .points-group-title.vero-title { color: var(--emerald-primary); }
+  .points-group-title.falso-title { color: var(--rose-primary); }
+
+  .card-points-list { list-style: none; margin: 0; padding: 0; }
+  .card-points-list li {
+    display: block;
+    position: relative;
+    padding-right: 28px;
+    line-height: 1.7;
+    text-align: right;
+    font-size: 0.88rem;
+    color: #d4d4d8;
+    margin-bottom: 6px;
+  }
+  .card-points-list li > span:first-child {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .card-trap-alert {
+    background: rgba(244, 63, 94, 0.08);
+    border: 1px solid rgba(244, 63, 94, 0.22);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    color: #fca5a5;
+    line-height: 1.6;
+    margin-top: auto;
+  }
+  .card-trap-alert strong { color: var(--rose-primary); }
+
+  /* Glossary Section */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .glossary-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+  .term-it {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--sky-primary);
+    margin-bottom: 4px;
+    direction: ltr;
+    text-align: right;
+  }
+  .term-ar {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .term-def {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Quiz Traps Interactive Section */
+  .traps-section { margin-bottom: 50px; }
+  .traps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+  }
+  .trap-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .trap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card-tag-pill {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  .tag-vero { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .tag-falso { background: rgba(244, 63, 94, 0.2); color: var(--rose-primary); }
+
+  .trap-q-it {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: #e4e4e7;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 8px;
+    padding: 10px;
+    direction: ltr;
+    text-align: left;
+    line-height: 1.5;
+  }
+  .trap-reason {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .trap-reason strong { color: #fff; }
+
+  /* Pagination Bar */
   .chapter-pagination {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    margin: 40px 0 20px;
-    padding: 16px 20px;
-    background: rgba(24, 24, 27, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    backdrop-filter: blur(12px);
-    flex-wrap: wrap;
+    gap: 16px;
+    padding: 24px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    margin-top: 40px;
   }
   .pagination-btn {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 18px;
-    border-radius: 12px;
+    padding: 12px 20px;
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #f4f4f5;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    color: #fff;
     text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 0.9rem;
     transition: all 0.15s ease;
   }
   .pagination-btn:hover {
     background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.16);
-    color: #fff;
-    transform: translateY(-1px);
+    border-color: var(--border-highlight);
   }
-  .pagination-btn.index-btn {
-    background: rgba(56, 189, 248, 0.08);
-    border-color: rgba(56, 189, 248, 0.2);
-    color: #38bdf8;
-  }
-  .pagination-btn.disabled {
-    opacity: 0.35;
-    pointer-events: none;
-    cursor: not-allowed;
-  }
-  .pagination-info {
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-  }
-  .pagination-label {
-    font-size: 0.72rem;
-    color: #a1a1aa;
-    font-weight: 500;
-  }
-  .pagination-title {
-    font-size: 0.85rem;
-    color: #fff;
-    font-weight: 700;
+  .pagination-info { display: flex; flex-direction: column; text-align: right; }
+  .pagination-label { font-size: 0.75rem; color: var(--text-muted); }
+  .pagination-title { font-size: 0.92rem; color: #fff; }
+
+  /* Responsive Rules (< 768px) */
+  @media (max-width: 768px) {
+    .desktop-nav-links, .desktop-nav-controls { display: none !important; }
+    .nav-hamburger-btn { display: flex !important; }
+    .guide-container { padding-top: calc(var(--nav-base-height) + 16px); padding-left: 14px; padding-right: 14px; }
+    .hero-title { font-size: 1.6rem; }
+    .signals-grid { grid-template-columns: 1fr; }
+    .sim-output-card { flex-direction: column; text-align: center; }
+    .sim-details { text-align: center; }
+    .chapter-pagination { flex-direction: column; align-items: stretch; }
   }
 
-  @media (max-width: 1023px) {
-    .nav-dropdown-wrapper {
-      display: none !important;
-    }
-  }
 
+.badge-visual-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.badge-visual-icon {
+  font-size: 3.5rem;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+}
+.badge-visual-code {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--amber-primary);
+  background: rgba(245, 158, 11, 0.12);
+  padding: 2px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
 </style>
 </head>
 <body>
 
-<!-- Unified Portal Navigation (Apple HIG Compliant) -->
-<nav class="unified-portal-nav" id="portal-nav">
-  <!-- Brand (Minimal on mobile, full on desktop) -->
-  <a href="index.html" class="nav-brand">
-    <span style="font-size:1.25rem;">🚦</span>
-    <span>Patente B Pro</span>
-    <span class="badge-tag">A2</span>
-  </a>
+<!-- Unified Top Navigation (54px) -->
+<nav class="unified-portal-nav" aria-label="شريط التنقل الموحد">
+  <div style="display:flex; align-items:center; gap:12px;">
+    <a href="index.html" class="nav-brand">
+      <span>🚦 Patente B Pro</span>
+      <span class="badge-tag" style="background:rgba(56, 189, 248, 0.15); color:var(--sky-primary); border-color:rgba(56, 189, 248, 0.35);">الباب 23</span>
+    </a>
+  </div>
 
-  <!-- Desktop Tabs Menu (Strictly hidden on mobile < 768px) -->
-    <!-- Core 3 Desktop Navigation Tabs -->
-  <nav class="nav-desktop-tabs">
-    <a href="index.html" class="nav-tab-desktop">🏛️ فهرس المكتبة</a>
-    <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 الأبواب المقسمة</a>
-    <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
-  </nav>
+  <div class="desktop-nav-links">
+    <a href="index.html" class="desktop-nav-link">
+      <span>🏛️</span>
+      <span>فهرس المكتبة الشاملة</span>
+    </a>
+    <a href="../Capitoli_Divisi/index.html" class="desktop-nav-link">
+      <span>📚</span>
+      <span>الأبواب المقسمة (25)</span>
+    </a>
+    <a href="../Simulatore_Esame.html" class="desktop-nav-link">
+      <span>⏱️</span>
+      <span>محاكي الامتحان</span>
+    </a>
+  </div>
 
-  <!-- Desktop Audio Control -->
-  <div class="nav-desktop-actions">
-    <!-- Desktop Chapters Dropdown -->
+  <div class="desktop-nav-controls">
     <div class="nav-dropdown-wrapper">
       <button class="nav-dropdown-btn" onclick="toggleNavDropdown(event)">
         <span>تصفح الأبواب (1-25)</span>
         <span style="font-size:0.75rem;">▾</span>
       </button>
       <div class="nav-dropdown-menu" id="navDropdownMenu">
-      <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
-      <a href="دليل_الباب_02_إشارات_الخطر.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_03_segnali_divieto/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
-      <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
-      <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأفقية والمطبات</span></a>
-      <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
-      <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: الإشارات التكميلية وورش العمل</span></a>
-      <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_11_limiti_di_velocita/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة</span></a>
-      <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
-      <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
-      <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
-      <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
-      <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
-      <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
-      <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
-      <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
-      <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
-      <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: حوادث السير والطقس</span></a>
-      <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
-      <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 23: المسؤولية والتأمين RCA</span></a>
-      <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 24: استهلاك الوقود والبيئة</span></a>
-      <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
+        <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
+        <a href="دليل_الباب_02_إشارات_الخطر.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
+        <a href="دليل_الباب_03_إشارات_المنع.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
+        <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
+        <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
+        <a href="دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأرضية والعوائق</span></a>
+        <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
+        <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
+        <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: الإشارات التكميلية وورش العمل</span></a>
+        <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
+        <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة ومخاطرها</span></a>
+        <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
+        <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
+        <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
+        <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
+        <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
+        <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
+        <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
+        <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
+        <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
+        <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: حوادث السير والطقس</span></a>
+        <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
+        <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 23: المسؤولية والتأمين RCA</span></a>
+        <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 24: استهلاك الوقود والبيئة</span></a>
+        <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
       </div>
     </div>
-
     <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
       <span class="audio-icon-span">🔊</span>
       <span class="audio-label-span">الصوت نشط</span>
     </button>
   </div>
 
-  <!-- Animated Hamburger Button (Apple HIG - Only visible on Mobile < 768px) -->
   <button class="nav-hamburger-btn" id="nav-hamburger-btn" onclick="toggleMobileNav()" aria-label="قائمة التنقل" aria-expanded="false">
     <div class="hamburger-box">
       <span class="hamburger-line line-top"></span>
@@ -939,282 +960,1224 @@
   </button>
 </nav>
 
-<!-- Backdrop Blur Overlay -->
+<!-- Mobile Overlay & Drawer -->
 <div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
-
-<!-- Slide-Down Glassmorphic Drawer Panel (Apple HIG - Touch Targets >= 48px) -->
 <div class="mobile-drawer-panel" id="mobile-drawer-panel">
   <div class="mobile-nav-list">
-    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📚</span>
-      <span>مذاكرة الأبواب المقسمة (25 باب)</span>
-    </a>
-    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">⏱️</span>
-      <span>محاكي الامتحان الوزاري (20 دقيقة)</span>
-    </a>
-    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📑</span>
-      <span>فهرس المكتبة الشاملة المعتمدة</span>
-    </a>
-    <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 13 (قواعد السير والمسارات)</span>
-    </a>
-    <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 14 (أسبقية التقاطعات)</span>
-    </a>
-    <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 15 (مناورة التجاوز والتخطي)</span>
-    </a>
-    <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 16 (الوقوف والتوقف والركن)</span>
-    </a>
-    <a href="دليل_الأبواب_11_إلى_15_قواعد_السير_والسرعة_ومسافة_الأمان.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الأبواب 11-15 (حركة السير، السرعة، ومسافة الأمان)</span>
-    </a>
-    <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 17 (الأوتوستراد والحمولة والمقطورات)</span>
-    </a>
-    <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 18 (الأضواء والتابلوه والعواكس)</span>
-    </a>
-    <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 19 (الأحزمة والخوذة والمقاعد)</span>
-    </a>
-    <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 20 (الرخص والنقاط والعقوبات)</span>
-    </a>
-    <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 21 (حوادث السير والظروف الجوية)</span>
-    </a>
-    <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 22 (الكحول والمخدرات والإسعافات)</span>
-    </a>
-    <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="mobile-nav-link active" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 23 (المسؤولية والتأمين RCA)</span>
-    </a>
-    <a href="دليل_الباب_الأخير.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل وقاموس الباب 25 (الميكانيكا والصيانة)</span>
-    </a>
-  </div>
-
-  <div class="mobile-drawer-footer">
-    <button class="mobile-control-btn" onclick="toggleAudio()">
-      <span class="audio-icon-span">🔊</span>
-      <span class="audio-label-span">الصوت نشط</span>
-    </button>
-    <div class="mobile-control-btn" style="cursor: default; opacity: 0.85;">
-      <span>🇮🇹 ⬅️ 🇸🇦 Patente B</span>
-    </div>
+    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📚</span><span>مذاكرة الأبواب المقسمة (25 باب)</span></a>
+    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">⏱️</span><span>محاكي الامتحان الوزاري</span></a>
+    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📑</span><span>فهرس المكتبة الشاملة</span></a>
+    <div class="mobile-nav-divider"></div>
+    <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 21: حوادث السير والطقس</span></a>
+    <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
+    <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="mobile-nav-link active" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 23: المسؤولية والتأمين RCA</span></a>
+    <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 24: استهلاك الوقود والبيئة</span></a>
+    <a href="دليل_الباب_الأخير.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
   </div>
 </div>
 
-<!-- Backdrop Blur Overlay -->
-<div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
+<main class="guide-container">
 
-<!-- Slide-Down Glassmorphic Drawer Panel (Apple HIG - Touch Targets >= 48px) -->
-<div class="mobile-drawer-panel" id="mobile-drawer-panel">
-  <div class="mobile-nav-list">
-    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📚</span>
-      <span>مذاكرة الأبواب المقسمة (25 باب)</span>
-    </a>
-    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">⏱️</span>
-      <span>محاكي الامتحان الوزاري (20 دقيقة)</span>
-    </a>
-    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📑</span>
-      <span>فهرس المكتبة الشاملة المعتمدة</span>
-    </a>
-    <a href="دليل_الباب_23_السرعة_ومسافة_الأمان_والتجاوز.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 23 (السرعة ومسافة الأمان والتجاوز)</span>
-    </a>
-    <a href="دليل_الباب_24_المسؤولية_والتأمين.html" class="mobile-nav-link active" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 24 (المسؤولية والتأمين RCA)</span>
-    </a>
-    <a href="دليل_الباب_الأخير.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل وقاموس الباب الأخير (الميكانيكا والصيانة)</span>
-    </a>
-  </div>
+  <!-- HERO SECTION -->
+  <section class="chapter-hero">
+    <div class="hero-tag">⚖️ 🛡️ المرجع المعتمد للدراسة والامتحان الوزاري</div>
+    <h1 class="hero-title">الباب 23: المسؤولية المدنية والجنائية والتأمين الإجباري RCA</h1>
+    <div class="hero-subtitle">Capitolo 23: Responsabilità civile, penale, amministrativa e assicurazione R.C.A.</div>
+    <p class="hero-desc">
+      الدليل التشريعي والقانوني الكامل لأنواع المسؤوليات الثلاث المستقلة عند وقوع حوادث السير: المسؤولية المدنية (تعويض الأضرار والتضامن بين السائق والمالك)، المسؤولية الجنائية (الشخصية الحصرية للسائق عند القتل أو الإصابة والهروب)، والمسؤولية الإدارية؛ وثيقة التأمين الإجباري للسيارات (R.C.A)، الحد الأقصى للتعويض (Massimale)، نظام المكافأة والجزاء (Bonus-Malus)، فترة السماح الـ 15 يوماً، صندوق ضمان ضحايا الطريق (Fondo di Garanzia)، والتعويض المباشر بنموذج CAI/CID، وسيكولوجيا المرور.
+    </p>
 
-  <div class="mobile-drawer-footer">
-    <button class="mobile-control-btn" onclick="toggleAudio()">
-      <span class="audio-icon-span">🔊</span>
-      <span class="audio-label-span">الصوت نشط</span>
-    </button>
-    <div class="mobile-control-btn" style="cursor: default; opacity: 0.85;">
-      <span>🇮🇹 ⬅️ 🇸🇦 Patente B</span>
-    </div>
-  </div>
-</div><div class="container">
-<div class="content-sheet">
-    <h1 class="main-title">دليل الدراسة الشامل: الباب الرابع والعشرون - المسؤولية والتأمين (Capitolo 23)</h1><h3 class="sub-lead">دليل ثنائي اللغة (إيطالي/عربي) معتمد ومكتمل بنسبة 100%</h3><div class="callout-box">📌 **نظرة عامة وإحصائيات الباب:**</div><div class="callout-box">يُعد هذا الباب من أهم الأبواب النظرية للحصول على رخصة القيادة الإيطالية، حيث يتناول الجوانب القانونية والمالية المترتبة على حوادث الطرق.</div><div class="callout-box">* **عدد الأسئلة:** يتراوح بين 220 إلى 250 سؤالاً في قاعدة البيانات الوزارية.</div><div class="callout-box">* **نسبة التكرار:** تصل إلى حوالي 35%، مما يجعله باباً محورياً في الامتحان.</div><div class="callout-box">* **المواضيع الرئيسية:** المسؤولية المدنية والجنائية والإدارية، تأمين RCA، وصندوق ضحايا حوادث الطرق.</div><hr class="divider">
-<div class="diagram-wrapper">
-  <div class="diagram-wrapper-title">
-    <span>⚖️</span>
-    <span>مخطط المقارنة الجوهري: المسؤولية المدنية مقابل الجنائية (Civile vs Penale)</span>
-  </div>
-  
-  <div style="text-align: center; margin-bottom: 22px;">
-    <div class="incident-root-badge">
-      <span>💥</span>
-      <span>وقوع حادث مروري (Incidente Stradale)</span>
-    </div>
-  </div>
-
-  <div class="comparison-grid">
-    <!-- Civile Card -->
-    <div class="compare-card civile">
-      <div class="card-top">
-        <div class="card-title-text" style="color: #38bdf8;">المسؤولية المدنية (Civile)</div>
-        <span class="card-badge badge-sky">تعويض مالي</span>
+    <div class="hero-stats-banner">
+      <div class="stat-badge">
+        <span class="stat-num">149</span>
+        <span class="stat-label">سؤالاً وزارياً رسمياً</span>
       </div>
-      <div class="card-subtitle-text" style="color: #bae6fd;">الهدف الأساسي: إصلاح الضرر الاقتصادي (Risarcimento dei danni)</div>
-      <div class="card-rule"></div>
-      <ul class="card-points">
-        <li>
-          <span class="p-icon">👥</span>
-          <div><strong>بالتضامن (In solido):</strong> تقع على السائق والمالك معاً (المالك ملزم بدفع التعويض حتى لو لم يكن هو من يقود).</div>
-        </li>
-        <li>
-          <span class="p-icon">🛡️</span>
-          <div><strong>تغطية كاملة:</strong> تغطيها وتدفعها بوليصة تأمين السيارات الإجباري (RCA) للمتضررين.</div>
-        </li>
-        <li>
-          <span class="p-icon">✅</span>
-          <div style="color: #6ee7b7; font-weight: 600;">تبرأ ذمة السائق من المسؤولية المدنية بمجرد دفع شركة التأمين التعويض للضحايا.</div>
-        </li>
-      </ul>
+      <div class="stat-badge">
+        <span class="stat-num">12</span>
+        <span class="stat-label">فخاً وزارياً دقيقاً</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-num">15</span>
+        <span class="stat-label">بطاقة تشريعية متكاملة</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">مطابقة معايير كود السير 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOLDEN RULES BANNER -->
+  <section class="golden-rules-banner">
+    <div class="golden-rules-title">
+      <span>⭐</span>
+      <span>القواعد الذهبية الأربع للباب 23 (Regole d'Oro)</span>
+    </div>
+    <div class="rules-grid">
+      <div class="rule-box">
+        <h4><span>1️⃣</span> استقلالية المسؤوليات الثلاث (Civile, Penale, Amministrativa)</h4>
+        <p>المسؤولية المدنية (تعويض مالي) والمسؤولية الجنائية (حبس وجرائم) والمسؤولية الإدارية (غرامة ونقاط) مستقلة تماماً عن بعضها. المسؤولية المدنية تضامنية بين السائق ومالك المركبة؛ بينما المسؤولية الجنائية شخصية بحتة تقع على السائق فقط!</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>2️⃣</span> تأمين RCA الإجباري والأطراف المشمولة</h4>
+        <p>إلزامي لكافة المركبات على الطرق العامة. يغطي الأضرار للأشياء والأشخاص والحيوانات، ويغطي دائماً الركاب المنقولين (Terzi trasportati). ولكنه لا يعوض الأضرار الجسدية أو المادية للسائق المتسبب في الحادث (Conducente responsabile)!</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>3️⃣</span> قاعدة الـ 15 يوماً وسريان الوثيقة</h4>
+        <p>عند انتهاء العقد السنوي للتأمين، تمنح الشركة فترة سماح قانونية مدتها 15 يوماً (Periodo di tolleranza) تظل خلالها التغطية التأمينية سارية لحماية الغير. بعد الـ 15 يوماً يصبح السير بدون تأمين جريمة تستوجب حجز السيارة ومصادرتها وغرامة باهظة.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>4️⃣</span> صندوق ضمان ضحايا الطريق والتعويض المباشر CAI</h4>
+        <p>صندوق الضمان (Fondo di Garanzia) يعوض ضحايا الحوادث التي سببتها مركبات هاربة مجهولة الهوية أو غير مؤمنة. ونموذج المعاينة الودية CAI/CID بتوقيع الطرفين يتيح التعويض المباشر السريع من شركة التأمين الخاصة بكل طرف.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR 1: Bonus-Malus Calculator -->
+  <section class="simulator-box" id="sim-bonus-malus">
+    <div class="sim-title">
+      <span>📈 📉</span>
+      <span>المحاكي التفاعلي 1: حاسبة نظام المكافأة والجزاء التأميني (Formula Bonus-Malus)</span>
+    </div>
+    <div class="sim-subtitle">حدد فئة التأمين الحالية وعدد الحوادث المتسببة خلال السنة لمشاهدة الترقية أو الهبوط في الدرجة وسعر القسط:</div>
+    <div class="sim-controls" style="margin-bottom:12px;">
+      <span style="font-size:0.88rem; color:var(--text-muted); margin-left:8px; align-self:center;">الفئة الحالية (CU):</span>
+      <button class="sim-btn" id="btnCu1" onclick="setCuBase(1)">فئة 1 (ممتازة)</button>
+      <button class="sim-btn active" id="btnCu14" onclick="setCuBase(14)">فئة 14 (دخول المبتدئ)</button>
+      <button class="sim-btn" id="btnCu17" onclick="setCuBase(17)">فئة 17 (خطيرة)</button>
+    </div>
+    <div class="sim-controls">
+      <span style="font-size:0.88rem; color:var(--text-muted); margin-left:8px; align-self:center;">الحوادث المتسببة:</span>
+      <button class="sim-btn active" id="btnAcc0" onclick="simAccidents(0)">0 حوادث (التزام تام)</button>
+      <button class="sim-btn" id="btnAcc1" onclick="simAccidents(1)">حادث واحد (مخطئ)</button>
+      <button class="sim-btn" id="btnAcc2" onclick="simAccidents(2)">حادثان أو أكثر</button>
+    </div>
+    <div class="sim-output-card" id="bmOutput" style="margin-top:14px;">
+      <div class="sim-badge" id="bmBadge" style="background:rgba(16,185,129,0.15); color:var(--emerald-primary); border:1px solid rgba(16,185,129,0.35);">
+        ترقية الفئة: CU 13 (Bonus)
+      </div>
+      <div class="sim-details">
+        <h4 id="bmTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">سنة كاملة بدون التسبب في أي حادث مروري</h4>
+        <p id="bmDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
+          <strong>تطبيق المكافأة (Bonus):</strong> ترتقي الفئة التأمينية درجة واحدة للأفضل (من CU 14 إلى CU 13).<br>
+          <strong>الأثر المالي:</strong> ينخفض قسط التأمين السنوي (Premio assicurativo) الذي يدفعه السائق للشركة.<br>
+          <strong>شهادة المخاطر (Attestato di rischio):</strong> تسجل هذا السجل النظيف رقمياً في قاعدة بيانات هيئة الرقابة على التأمين (IVASS).
+        </p>
+        <div class="sim-warning-box" id="bmWarning" style="margin-top:10px; padding:10px 14px; background:rgba(16,185,129,0.1); border-right:3px solid var(--emerald-primary); border-radius:8px; font-size:0.86rem; color:#bbf7d0;">
+          💡 <strong>معلومة ذهبية:</strong> نظام Bonus-Malus يربط تكلفة التأمين مباشرة بسلوك وسجل السائق في القيادة!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR 2: Responsabilità Types -->
+  <section class="simulator-box" id="sim-responsabilita">
+    <div class="sim-title">
+      <span>⚖️</span>
+      <span>المحاكي التفاعلي 2: مصفوفة المسؤوليات الثلاث المستقلة (Civile, Penale, Amministrativa)</span>
+    </div>
+    <div class="sim-subtitle">اضغط على سيناريو الحادث لمعرفة نوع المسؤولية المطبقة ومن يتحمل العقوبة والتعويض:</div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnScenDanni" onclick="simScenario('danni')">1. صدم سيارة متوقفة (أضرار مادية فقط)</button>
+      <button class="sim-btn" id="btnScenLesioni" onclick="simScenario('lesioni')">2. حادث دهس مشاة وإصابة بدنية</button>
+      <button class="sim-btn" id="btnScenFuga" onclick="simScenario('fuga')">3. حادث به مصابون مع هروب السائق</button>
+      <button class="sim-btn" id="btnScenInfrazione" onclick="simScenario('infrazione')">4. تجاوز السرعة دون وقوع حادث</button>
+    </div>
+    <div class="sim-output-card" id="respOutput">
+      <div class="sim-badge" id="respBadge" style="background:rgba(56,189,248,0.15); color:var(--sky-primary); border:1px solid rgba(56,189,248,0.35);">
+        مسؤولية مدنية + إدارية
+      </div>
+      <div class="sim-details">
+        <h4 id="respTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">صدم سيارة متوقفة وإلحاق أضرار بالهيكل (Danni a cose)</h4>
+        <p id="respDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
+          <strong>المسؤولية المدنية (Civile):</strong> قائمة حتماً؛ تلزم بتعويض مالك السيارة المتضررة لإصلاح الأضرار، وتتحملها شركة تأمين RCA بالتضامن مع السائق والمالك.<br>
+          <strong>المسؤولية الجنائية (Penale):</strong> <strong>منعدمة تماماً</strong>؛ لعدم وجود قتلى أو مصابين أو جرائم جنائية.<br>
+          <strong>المسؤولية الإدارية (Amministrativa):</strong> غرامة مالية لمخالفة قواعد المناورة أو مسافة الأمان.
+        </p>
+        <div class="sim-warning-box" id="respWarning" style="margin-top:10px; padding:10px 14px; background:rgba(56,189,248,0.1); border-right:3px solid var(--sky-primary); border-radius:8px; font-size:0.86rem; color:#bae6fd;">
+          💡 <strong>قاعدة دستورية:</strong> المسؤولية الجنائية لا تنشأ إلا إذا كان هناك قتلى أو جرحى أو ارتكاب جريمة جنائية صريحة كالسكر البين أو الهروب!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR 3: Insurance Coverages & Victims Fund -->
+  <section class="simulator-box" id="sim-coperture">
+    <div class="sim-title">
+      <span>🛡️ 🚗</span>
+      <span>المحاكي التفاعلي 3: مستكشف تغطيات RCA وصندوق الضحايا (Chi Paga i Danni?)</span>
+    </div>
+    <div class="sim-subtitle">اختر الطرف المتضرر أو حالة المركبة لمعرفة من يتولى دفع التعويض وفق القانون الإيطالي:</div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnCopTerzi" onclick="simCopertura('terzi')">1. ركاب السيارة المنقولين (Terzi trasportati)</button>
+      <button class="sim-btn" id="btnCopColpevole" onclick="simCopertura('colpevole')">2. السائق المتسبب في الحادث (Colpevole)</button>
+      <button class="sim-btn" id="btnCopPirata" onclick="simCopertura('pirata')">3. سيارة مجهولة هربت من الموقع (Auto pirata)</button>
+      <button class="sim-btn" id="btnCopNonAssicurata" onclick="simCopertura('non_assicurata')">4. سيارة غير مؤمنة إطلاقاً</button>
+    </div>
+    <div class="sim-output-card" id="copOutput">
+      <div class="sim-badge" id="copBadge" style="background:rgba(16,185,129,0.15); color:var(--emerald-primary); border:1px solid rgba(16,185,129,0.35);">
+        تغطية تامة ومضمونة 100%
+      </div>
+      <div class="sim-details">
+        <h4 id="copTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">تعويض الركاب المنقولين على متن المركبة (Terzi trasportati)</h4>
+        <p id="copDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
+          <strong>الحكم القانوني:</strong> الركاب المنقولون في السيارة معفون تماماً من أي مسؤولية ويعوضون دائماً وبشكل كامل عن أي أضرار بدنية تلحق بهم.<br>
+          <strong>الجهة الدافعة:</strong> شركة تأمين RCA الخاصة بالسيارة التي كانوا يركبونها مباشرة، بغض النظر عما إذا كان سائقهم هو المخطئ أو الطرف الآخر (Risarcimento diretto per il terzo trasportato).
+        </p>
+        <div class="sim-warning-box" id="copWarning" style="margin-top:10px; padding:10px 14px; background:rgba(16,185,129,0.1); border-right:3px solid var(--emerald-primary); border-radius:8px; font-size:0.86rem; color:#bbf7d0;">
+          ✅ <strong>قاعدة ذهبية:</strong> تأمين RCA يغطي الركاب حتى لو كانوا أقارب السائق (ما عدا استثناءات محدودة للزوج في الأضرار المادية فقط)!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON SECTION -->
+  <section class="comp-section" id="comp-assicurazione">
+    <div class="comp-header">
+      <h3>المقارنة البصرية الحاسمة: المسؤوليات القانونية وعقود التأمين ونماذج الحوادث</h3>
+      <p>الفروق الدقيقة التي يركز عليها واضع الامتحان الوزاري للتمييز بين الالتزامات والضمانات</p>
+    </div>
+    <div class="comp-grid-4">
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">🏛️ ⚖️</div>
+        <h4>المسؤولية المدنية vs الجنائية</h4>
+        <div class="comp-tag" style="background:rgba(56,189,248,0.15); color:var(--sky-primary);">طبيعة المسؤولية</div>
+        <p>• <strong>المدنية (Civile):</strong> تهدف لتعويض المتضررين مادياً، وهي تضامنية (In solido) بين السائق ومالك المركبة، وتغطيها شركة التأمين.<br>• <strong>الجنائية (Penale):</strong> شخصية بحتة (Personale) لا تقع إلا على السائق مرتكب الجرم، ولا تغطيها شركات التأمين أبداً!</p>
+      </div>
+
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">🛡️ 🚙</div>
+        <h4>تأمين RCA vs تأمين Kasko</h4>
+        <div class="comp-tag" style="background:rgba(16,185,129,0.15); color:var(--emerald-primary);">نوع البوليصة</div>
+        <p>• <strong>تأمين RCA:</strong> إجباري قانوناً، يعوض الغير فقط (Terzi) ولا يعوض السائق المخطئ عن سيارته.<br>• <strong>تأمين Kasko:</strong> تأمين تكميلي اختياري يغطي الأضرار التي تلحق بسيارة السائق نفسه حتى لو كان هو المخطئ في الحادث أو اصطدم بجدار.</p>
+      </div>
+
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">📅 ⏳</div>
+        <h4>فترة السماح (15 يوماً) vs بدون تأمين</h4>
+        <div class="comp-tag" style="background:rgba(245,158,11,0.15); color:var(--amber-primary);">صلاحية العقد</div>
+        <p>• <strong>الـ 15 يوماً (Tolleranza):</strong> بعد انتهاء العقد السنوي، يظل التأمين سارياً لمدة 15 يوماً في إيطاليا.<br>• <strong>بعد انقضاء الـ 15 يوماً:</strong> تسقط التغطية تماماً؛ والقيادة بدون تأمين تستوجب حجز السيارة ومصادرتها وغرامة باهظة تصل لآلاف اليوروهات.</p>
+      </div>
+
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">📝 ✍️</div>
+        <h4>استمارة CAI: توقيعان vs توقيع واحد</h4>
+        <div class="comp-tag" style="background:rgba(244,63,94,0.15); color:var(--rose-primary);">المعاينة الودية</div>
+        <p>• <strong>توقيع الطرفين (Doppia firma):</strong> يعتبر اعترافاً مشتركاً بوقائع الحادث ويسرع صرف التعويض المباشر (Risarcimento diretto) خلال أيام.<br>• <strong>توقيع طرف واحد:</strong> يعتبر مجرد بلاغ فردي بالحادث يتطلب تحريات أطول لتقدير المسؤولية.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER PILLS BAR -->
+  <div class="filter-pills-bar">
+    <button class="filter-pill active" onclick="filterCards('all', this)">جميع البطاقات (15)</button>
+    <button class="filter-pill" onclick="filterCards('responsabilita', this)">المسؤولية المدنية والجنائية</button>
+    <button class="filter-pill" onclick="filterCards('rca-base', this)">تأمين RCA والحد الأقصى (Massimali)</button>
+    <button class="filter-pill" onclick="filterCards('bonus-malus', this)">نظام Bonus-Malus وشهادة المخاطر</button>
+    <button class="filter-pill" onclick="filterCards('fondo-cai', this)">صندوق الضحايا ونموذج CAI/CID</button>
+    <button class="filter-pill" onclick="filterCards('psicologia', this)">سيكولوجيا المرور وسلوكيات السائق</button>
+  </div>
+
+  <!-- SIGNALS GRID (15 DETAILED CARDS) -->
+  <div class="section-heading">
+    <div class="section-badge">الشرح التفصيلي لبطاقات الباب 23</div>
+    <h2 class="section-title">البطاقات المعرفية المعتمدة للمسؤولية والتأمين وسلوكيات الطريق</h2>
+  </div>
+
+  <div class="signals-grid">
+
+    <!-- CARD: Responsabilità Civile -->
+    <div class="signal-card" data-category="responsabilita">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">⚖️ 💶</div>
+          <div class="badge-visual-code">Responsabilità Civile</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">المسؤولية المدنية والتضامن بين السائق والمالك (Responsabilità Civile)</h3>
+        <span class="card-it-title">Responsabilità civile verso terzi e risarcimento del danno</span>
+      </div>
+      <p class="card-desc-text">
+        المسؤولية القانونية الهادفة لتعويض الأضرار المادية والبدنية التي تلحق بالغير جراء حادث سير؛ تتميز بأنها تضامنية بين السائق ومالك السيارة، وتتكفل بها شركة تأمين RCA.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تلزم المسؤولية المدنية بتعويض كافة الأضرار التي لحقت بالأشخاص والحيوانات والممتلكات جراء الحادث (Risarcimento dei danni a cose e persone)</li>
+          <li><span>✅</span> المسؤولية المدنية تقع بالتضامن (In solido) على سائق المركبة وعلى مالكها المسجل، ما لم يثبت المالك أن تسيير المركبة تم دون إذنه ورغماً عنه (مثل سرقة السيارة)</li>
+          <li><span>✅</span> يمكن تغطية وتخفيف عبء المسؤولية المدنية من خلال إبرام عقد تأمين إجباري R.C.A مع إحدى شركات التأمين المعتمدة</li>
+          <li><span>✅</span> المسؤولية المدنية مستقلة تماماً عن المسؤولية الجنائية والمسؤولية الإدارية (Indipendente dalle altre responsabilità)</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تسقط المسؤولية المدنية عن السائق إذا سدد الغرامة الإدارية لشرطة المرور في مكان الحادث ❌</li>
+          <li><span>❌</span> المسؤولية المدنية تعاقب السائق بالسجن لمدة لا تقل عن 3 سنوات ❌</li>
+          <li><span>❌</span> إذا كان السائق لا يملك مالاً، يحبس مالك السيارة بدلاً منه في قضايا التعويض المدني ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> المسؤولية المدنية تعويض مالي فقط ولا تتضمن حبساً أبداً! وتقع على السائق والمالك معاً (Solidale)!
+      </div>
     </div>
 
-    <!-- Penale Card -->
-    <div class="compare-card penale">
-      <div class="card-top">
-        <div class="card-title-text" style="color: #f43f5e;">المسؤولية الجنائية (Penale)</div>
-        <span class="card-badge badge-rose">عقوبة شخصية</span>
+    <!-- CARD: Responsabilità Penale -->
+    <div class="signal-card" data-category="responsabilita">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">⚖️ ⛓️</div>
+          <div class="badge-visual-code">Responsabilità Penale</div>
+        </div>
       </div>
-      <div class="card-subtitle-text" style="color: #fecdd3;">تنشأ فقط في الجرائم (قتل، إصابات بالغة، هروب، كحول ومخدرات)</div>
-      <div class="card-rule"></div>
-      <ul class="card-points">
-        <li>
-          <span class="p-icon">👤</span>
-          <div><strong>مسؤولية شخصية بحتة (Personale):</strong> تقع حصراً على عاتق من كان يقود المركبة لحظة الحادث.</div>
-        </li>
-        <li>
-          <span class="p-icon">🚫</span>
-          <div style="color: #fda4af;"><strong>لا يغطيها التأمين:</strong> لا يتحملها المالك ولا تدفع شركة التأمين أي غرامات أو عقوبات جنائية إطلاقاً.</div>
-        </li>
-        <li>
-          <span class="p-icon">⚠️</span>
-          <div style="color: #fca5a5; font-weight: 600;">فخ امتحاني ❌: الأضرار المادية فقط (Danni solo alle cose) لا تنشئ أبداً مسؤولية جنائية.</div>
-        </li>
-      </ul>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">المسؤولية الجنائية الشخصية وعقوبات القتل والإصابة (Responsabilità Penale)</h3>
+        <span class="card-it-title">Responsabilità penale per reati stradali e lesioni</span>
+      </div>
+      <p class="card-desc-text">
+        المسؤولية الناشئة عن ارتكاب جرائم مرورية تخالف قانون العقوبات؛ شخصية حصرية على السائق، ولا تتحملها شركة التأمين، وتستوجب عقوبات الحبس والغرامات الجنائية.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تنشأ المسؤولية الجنائية عندما يترتب على الحادث موت شخص (Omicidio stradale) أو إصابته بجروح بالغة أو خطيرة (Lesioni colpose)</li>
+          <li><span>✅</span> تنشأ المسؤولية الجنائية أيضاً عند ارتكاب جرائم كبرى مثل القيادة تحت تأثير الكحول الشديد أو المخدرات أو الهروب دون تقديم المساعدة للمصابين</li>
+          <li><span>✅</span> المسؤولية الجنائية شخصية بحتة (La responsabilità penale è personale)؛ وتقع حصرياً على السائق الفعلي الذي كان يقود المركبة وقت وقوع الجرم</li>
+          <li><span>✅</span> لا يمكن بأي حال من الأحوال لشركة التأمين أو أي جهة أخرى أن تحل محل السائق في تحمل العقوبة الجنائية</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تتحمل شركة التأمين عقوبة الحبس الصادرة ضد السائق بدفع كفالة مالية ❌</li>
+          <li><span>❌</span> يتحمل مالك السيارة المسؤولية الجنائية بدلاً من ابنه إذا كان الابن يقود سيارة الأب ❌</li>
+          <li><span>❌</span> تنشأ المسؤولية الجنائية في كل حادث سير حتى لو نتجت عنه مجرد خدوش طفيفة في الطلاء ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> المسؤولية الجنائية شخصية حصراً (Personale)؛ فلا يعاقب مالك السيارة جنائياً عن جريمة ارتكبها السائق!
+      </div>
+    </div>
+
+    <!-- CARD: Responsabilità Amministrativa -->
+    <div class="signal-card" data-category="responsabilita">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🛑 📋</div>
+          <div class="badge-visual-code">Responsabilità Amministrativa</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">المسؤولية الإدارية والعقوبات التبعية (Responsabilità Amministrativa)</h3>
+        <span class="card-it-title">Responsabilità amministrativa, sanzioni pecuniarie e accessorie</span>
+      </div>
+      <p class="card-desc-text">
+        المسؤولية المترتبة على مخالفة نصوص كود السير دون اشتراط وقوع أضرار بالغير؛ وتتمثل في دفع غرامات مالية وعقوبات إضافية على الرخصة والمركبة.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تترتب المسؤولية الإدارية على مجرد مخالفة قواعد كود السير، مثل تجاوز السرعة المقررة أو عدم احترام إشارة المرور الضوئية الحمراء</li>
+          <li><span>✅</span> تتضمن المسؤولية الإدارية أداء غرامة مالية (Sanzione pecuniaria) بالإضافة إلى عقوبات تبعية ملحقة (Sanzioni accessorie)</li>
+          <li><span>✅</span> العقوبات التبعية تشمل: خصم نقاط من رخصة القيادة، سحب الرخصة، تعليقها، أو الحجز الإداري على المركبة</li>
+          <li><span>✅</span> دفع الغرامة الإدارية لا يعفي السائق من تعويض المتضررين مدنياً ولا يسقط عنه الملاحقة الجنائية إذا وجد جرم</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> المسؤولية الإدارية تلغي تلقائياً المسؤولية المدنية والجنائية وتسوي كافة الخلافات ❌</li>
+          <li><span>❌</span> تسقط المسؤولية الإدارية إذا كان السائق يحمل تأميناً شاملاً من نوع كاسكو ❌</li>
+          <li><span>❌</span> تطبق العقوبة الإدارية فقط إذا أسفرت المخالفة عن وفاة أحد المارة ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> المسؤوليات الثلاث (مدنية، جنائية، إدارية) مستقلة وتتراكم؛ فقد يعاقب السائق بالثلاث معاً في حادث واحد!
+      </div>
+    </div>
+
+    <!-- CARD: Assicurazione RCA -->
+    <div class="signal-card" data-category="rca-base">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🛡️ 📄</div>
+          <div class="badge-visual-code">Assicurazione RCA</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">عقد تأمين المسؤولية المدنية الإجباري للسيارات (Polizza R.C.A.)</h3>
+        <span class="card-it-title">Assicurazione obbligatoria per la responsabilità civile auto (R.C.A.)</span>
+      </div>
+      <p class="card-desc-text">
+        العقد القانوني الإلزامي الذي يفرضه القانون الإيطالي على كل مركبة تسير على الطرق العامة؛ لضمان تعويض المتضررين من الحوادث عن الأضرار المادية والبدنية.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> عقد تأمين R.C.A إلزامي لكافة المركبات ذات المحرك والمقطورات المخصصة للسير على الطرق العامة (Obbligatoria per legge)</li>
+          <li><span>✅</span> يغطي عقد التأمين تعويض الأضرار اللاحقة بالأشخاص والحيوانات والممتلكات الناجمة عن حركة سير المركبة حتى حدود المبالغ القصوى المحددة (Massimali)</li>
+          <li><span>✅</span> يشمل التأمين تعويض الركاب المنقولين في المركبة (Terzi trasportati) حتى لو كان سائقهم هو المخطئ في الحادث</li>
+          <li><span>✅</span> لا يغطي تأمين RCA الأضرار المادية التي تلحق بسيارة السائق المخطئ ولا أضراره الجسدية الشخصية</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تأمين RCA إلزامي فقط للمركبات التي يتجاوز وزنها 3.5 طن ❌</li>
+          <li><span>❌</span> يعوض تأمين RCA السائق المتسبب في الحادث عن تكلفة إصلاح سيارته بالكامل ❌</li>
+          <li><span>❌</span> يجوز استخدام السيارة على الطرق العامة بدون تأمين إذا كان السائق يقود بحذر شديد ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> RCA يعوض الغير (Terzi) والركاب المنقولين، لكنه لا يعوض أبداً السائق المتسبب في الحادث (Conducente responsabile)!
+      </div>
+    </div>
+
+    <!-- CARD: Massimali RCA -->
+    <div class="signal-card" data-category="rca-base">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">💶 📈</div>
+          <div class="badge-visual-code">Massimali RCA</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الحدود القصوى للتعويض في بوليصة التأمين (I Massimali)</h3>
+        <span class="card-it-title">I massimali della polizza di assicurazione R.C.A.</span>
+      </div>
+      <p class="card-desc-text">
+        المبالغ المالية القصوى التي تلتزم شركة التأمين بدفعها لتعويض أضرار الحادث الواحد؛ يحدد القانون حدوداً دنيا إلزامية لا يجوز النقصان عنها.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> الحد الأقصى (Massimale) هو أقصى مبلغ تلتزم شركة التأمين بسداده لتعويض المتضررين عن الحادث الواحد</li>
+          <li><span>✅</span> تحدد الدولة حدوداً دنيا قانونية للمبالغ القصوى (Minimi di legge) لا يجوز لأي شركة تأمين تخفيضها في العقد</li>
+          <li><span>✅</span> يحق للمؤمن له بالاتفاق مع شركة التأمين ودفع قسط إضافي رفع الحد الأقصى للتعويض إلى مبالغ أعلى لحماية نفسه من المخاطر الكبرى</li>
+          <li><span>✅</span> إذا تجاوزت قيمة أضرار الحادث الحد الأقصى المؤمن عليه، فإن الفارق الإضافي يتحمله السائق والمالك من أموالهما الخاصة</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يجوز الاتفاق مع شركة التأمين على تخفيض الحد الأقصى للتعويض إلى ما دون الحد الأدنى القانوني لتوفير المال ❌</li>
+          <li><span>❌</span> الحد الأقصى للتأمين يعني المبلغ الذي تدفعه الدولة لكل مواطن يشتري سيارة جديدة ❌</li>
+          <li><span>❌</span> إذا كانت الأضرار تفوق الحد الأقصى، تتكفل المحكمة بدفع الفارق نيابة عن السائق ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> الحد الأدنى للحد الأقصى إلزامي بنص القانون ولا يجوز أبداً النزول تحته؛ ولكن يجوز رفعه للأعلى!
+      </div>
+    </div>
+
+    <!-- CARD: Periodo di Tolleranza -->
+    <div class="signal-card" data-category="rca-base">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">⏳ 📅</div>
+          <div class="badge-visual-code">Periodo di Tolleranza</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">فترة السماح القانونية (15 يوماً) ومخاطر انتهاء التأمين</h3>
+        <span class="card-it-title">Periodo di tolleranza di 15 giorni dopo la scadenza della polizza</span>
+      </div>
+      <p class="card-desc-text">
+        المهلة الزمنية التي يلزم بها القانون شركة التأمين بالاستمرار في التغطية بعد تاريخ انتهاء العقد السنوي، والعواقب الوخيمة للسير بدون تأمين نهائياً.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> عند انتهاء صلاحية عقد تأمين R.C.A السنوي، تظل التغطية التأمينية سارية المفعول تلقائياً لمدة 15 يوماً إضافية لحماية المتضررين (Periodo di tolleranza)</li>
+          <li><span>✅</span> تسري فترة الـ 15 يوماً على الأراضي الإيطالية فقط، ولا تسري في الدول الأجنبية</li>
+          <li><span>✅</span> القيادة بعد انقضاء فترة الـ 15 يوماً دون تجديد التأمين تعتبر قيادة بدون تغطية تأمينية وتستوجب الحجز الإداري والمصادرة وغرامة باهظة</li>
+          <li><span>✅</span> في حال ارتكاب حادث خلال فترة الـ 15 يوماً، تكون الشركة ملزمة بتعويض المتضررين وفق بنود العقد المنتهي</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> فترة السماح تمنح السائق حق قيادة السيارة لمدة 6 أشهر كاملة بعد انتهاء التأمين دون دفع القسط ❌</li>
+          <li><span>❌</span> فترة الـ 15 يوماً تلغي التزام السائق بتجديد وثيقة التأمين ❌</li>
+          <li><span>❌</span> القيادة بدون تأمين لا يعاقب عليها القانون إذا كانت السيارة مركونة أمام المنزل ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> مهلة السماح 15 يوماً فقط وفوق الأراضي الإيطالية فقط؛ واليوم السادس عشر يعتبر قيادة غير مؤمنة بدون رحمة!
+      </div>
+    </div>
+
+    <!-- CARD: Formula Bonus Malus -->
+    <div class="signal-card" data-category="bonus-malus">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">📊 🏆</div>
+          <div class="badge-visual-code">Formula Bonus Malus</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">نظام الفئات التأمينية والمكافأة والجزاء (Bonus-Malus)</h3>
+        <span class="card-it-title">La formula tariffaria Bonus-Malus e classi di merito</span>
+      </div>
+      <p class="card-desc-text">
+        النظام التسعيري المعتمد في عقود التأمين؛ يربط تكلفة القسط السنوي بسجل السائق، فترتقي فئته عند خلو سجله من الحوادث وتهبط عند التسبب في حوادث.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> نظام Bonus-Malus يعتمد على تصنيف السائق في درجات وفئات استحقاق (Classi di merito - CU من 1 إلى 18)</li>
+          <li><span>✅</span> إذا لم يتسبب السائق في أي حادث مروري خلال سنة المراقبة، يتحسن تصنيفه بالارتقاء درجة واحدة للأفضل (Bonus) وينخفض قسط التأمين</li>
+          <li><span>✅</span> إذا تسبب السائق في حادث مروري وكان هو المخطئ، يتراجع تصنيفه بهبوط درجتين للأسوأ (Malus) ويرتفع قسط التأمين السنوي</li>
+          <li><span>✅</span> يبدأ السائق الجديد لأول مرة في الفئة المرجعية 14 (ما لم يستفد من قانون بيرساني لنقل فئة أحد أفراد الأسرة)</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> عند التسبب في حادث مروري واحد، تهبط فئة السائق بمقدار 5 درجات فوراً في نظام Bonus-Malus ❌</li>
+          <li><span>❌</span> السائق في الفئة الأولى (CU 1) يدفع أعلى قسط تأميني في إيطاليا ❌</li>
+          <li><span>❌</span> نظام Bonus-Malus يلزم السائق بدفع تكلفة إصلاح سيارة الطرف الآخر نقداً من جيبه الخاص ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> القاعدة الحسابية: سنة بدون حوادث = ارتقاء درجة واحدة (Bonus -1 CU)؛ حادث واحد خاطئ = هبوط درجتين للأسوأ (Malus +2 CU)!
+      </div>
+    </div>
+
+    <!-- CARD: Attestato di Rischio -->
+    <div class="signal-card" data-category="bonus-malus">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">📑 📱</div>
+          <div class="badge-visual-code">Attestato di Rischio</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">شهادة المخاطر التأمينية الرقمية (Attestato di Rischio)</h3>
+        <span class="card-it-title">Attestato di rischio elettronico e banca dati IVASS</span>
+      </div>
+      <p class="card-desc-text">
+        السجل التاريخي المعتمد الذي يوثق تاريخ الحوادث وفئة الاستحقاق للسائق خلال السنوات الخمس الأخيرة؛ أصبح رقمياً ومتاحاً في قاعدة بيانات هيئة الرقابة.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> شهادة المخاطر وثيقة رسمية تسجل تاريخ الحوادث التي تسبب فيها السائق خلال السنوات الـ 5 الأخيرة وفئة الاستحقاق Bonus-Malus المكتسبة</li>
+          <li><span>✅</span> أصبحت شهادة المخاطر إلكترونية ورقمية بالكامل وتودع في قاعدة البيانات المركزية لهيئة الرقابة على التأمين (IVASS)</li>
+          <li><span>✅</span> تتيح شهادة المخاطر الرقمية للمؤمن له الانتقال بحرية إلى أي شركة تأمين أخرى مع الاحتفاظ بفئته المكتسبة دون فقدانها</li>
+          <li><span>✅</span> يجب على شركة التأمين تحديث الشهادة رقمياً وإتاحتها للمؤمن له على موقعها الإلكتروني قبل موعد التجديد بثلاثين يوماً على الأقل</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> شهادة المخاطر وثيقة ورقية سرية لا يحق للمؤمن له الاطلاع عليها ❌</li>
+          <li><span>❌</span> تعتبر شهادة المخاطر لاغية وتفقد السائق فئته إذا غير شركة التأمين التابع لها ❌</li>
+          <li><span>❌</span> تمنح شهادة المخاطر فقط للسائقين الذين ارتكبوا أكثر من 10 حوادث سنوياً ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> شهادة المخاطر أصبحت رقمية (Dematerializzato) وتحفظ فئة السائق حتى لو غير شركة التأمين بالكامل!
+      </div>
+    </div>
+
+    <!-- CARD: Fondo Garanzia Vittime -->
+    <div class="signal-card" data-category="fondo-cai">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🏛️ 🤝</div>
+          <div class="badge-visual-code">Fondo Garanzia Vittime</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">صندوق ضمان ضحايا الطريق (Fondo di Garanzia per le Vittime della Strada)</h3>
+        <span class="card-it-title">Fondo di garanzia per le vittime della strada (CONSAP)</span>
+      </div>
+      <p class="card-desc-text">
+        صندوق وطني ممول من اشتراكات التأمين؛ يتدخل لحماية وتعويض الضحايا عند وقوع حوادث سببتها سيارات مجهولة هاربة أو غير مؤمنة إطلاقاً.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يتدخل صندوق ضمان ضحايا الطريق لتعويض الأضرار البدنية والجسدية عندما يفر السائق المتسبب وتبقى مركبته مجهولة الهوية (Veicolo non identificato)</li>
+          <li><span>✅</span> يتدخل الصندوق لتعويض الأضرار البدنية والمادية عندما تكون المركبة المتسببة في الحادث غير مؤمنة إطلاقاً (Veicolo non coperto da assicurazione)</li>
+          <li><span>✅</span> يتدخل الصندوق لتعويض المتضررين إذا كانت شركة التأمين المؤمنة للمركبة المتسببة في حالة إفلاس أو تصفية قضائية</li>
+          <li><span>✅</span> يمول الصندوق من خلال نسبة مئوية مقتطعة إلزامياً من كل قسط تأمين RCA يدفعه المواطنون</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> صندوق الضمان يدفع غرامات المرور نيابة عن السائقين الفقراء ❌</li>
+          <li><span>❌</span> يعوض الصندوق السائق المخطئ عن الأضرار التي لحقت بسيارته هو شخصياً ❌</li>
+          <li><span>❌</span> يتدخل الصندوق فقط إذا كان السائق يحمل رخصة قيادة دولية ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> صندوق الضمان يغطي الضحايا في حالتين رئيسيتين: سيارة مجهولة هاربة (أضرار جسدية) أو سيارة بدون تأمين (أضرار جسدية ومادية)!
+      </div>
+    </div>
+
+    <!-- CARD: Modulo CAI / CID -->
+    <div class="signal-card" data-category="fondo-cai">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">📝 ✍️</div>
+          <div class="badge-visual-code">Modulo CAI / CID</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">استمارة المعاينة الودية للحادث (Modulo CAI / CID) والتعويض المباشر</h3>
+        <span class="card-it-title">Modulo di constatazione amichevole di incidente (C.A.I.) e risarcimento diretto</span>
+      </div>
+      <p class="card-desc-text">
+        النموذج الأزرق الموحد لتوثيق وقائع الحادث وديناميكية الاصطدام؛ وتوقيعه المشترك يسرع الحصول على التعويض المباشر من شركة التأمين.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> استمارة المعاينة الودية (Modulo CAI) تتيح توثيق بيانات المركبات والسائقين والشهود وديناميكية الحادث بصورة متفق عليها</li>
+          <li><span>✅</span> التوقيع المشترك للطرفين على الاستمارة (Doppia firma) يفترض صحة الوقائع ويسرع إجراءات صرف التعويض المباشر (Risarcimento diretto)</li>
+          <li><span>✅</span> في نظام التعويض المباشر، يتلقى المتضرر غير المخطئ تعويضه مباشرة من شركة تأمينه الخاصة التي تطالب لاحقاً شركة الطرف الآخر</li>
+          <li><span>✅</span> إذا وقع طرف واحد فقط على الاستمارة، فإنها تعامل كبلاغ فردي بالحادث ولا تلزم الطرف الآخر بمحتواها</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> توقيع استمارة CAI يلزم السائق بالتنازل عن كافة حقوقه القضائية والتعويضية ❌</li>
+          <li><span>❌</span> يجب حضور ضابط شرطة معتمد ليوقع كطرف ثالث على استمارة CAI لتكون صالحة ❌</li>
+          <li><span>❌</span> استمارة CAI تستخدم فقط في الحوادث التي تسفر عن وفيات متعددة ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> توقيع الطرفين (Doppia firma) يفتح باب التعويض المباشر السريع؛ ولا يشترط أبداً حضور الشرطة لتوقيعها!
+      </div>
+    </div>
+
+    <!-- CARD: Polizze Accessorie -->
+    <div class="signal-card" data-category="rca-base">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🔥 🌪️</div>
+          <div class="badge-visual-code">Polizze Accessorie</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">التأمينات التكميلية الاختيارية: السرقة والحريق وكاسكو (Polizze accessorie)</h3>
+        <span class="card-it-title">Assicurazioni accessorie: Furto, Incendio, Kasko e Cristalli</span>
+      </div>
+      <p class="card-desc-text">
+        التغطيات التأمينية غير الإلزامية التي يختار السائق إضافتها لحماية مركبته من المخاطر الخاصة كالكوارث الطبيعية والسرقة وأضراره الذاتية.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تأمين الحريق والسرقة (Furto e Incendio) وثيقة اختيارية تعوض مالك السيارة عن قيمتها التجارية في حال احتراقها أو سرقتها بالكامل أو سرقة أجزاء منها</li>
+          <li><span>✅</span> تأمين كاسكو (Polizza Kasko) تغطية شاملة تعوض أضرار سيارة المؤمن له الناتجة عن الاصطدام أو الانقلاب حتى لو كان هو المتسبب في الحادث</li>
+          <li><span>✅</span> تأمين كسر الزجاج (Polizza Cristalli) يغطي نفقات إصلاح أو استبدال الزجاج الأمامي والنوافذ المتضررة</li>
+          <li><span>✅</span> هذه التأمينات إضافية واختيارية (Facoltative) ولا تغني إطلاقاً عن عقد تأمين المسؤولية المدنية الإجباري RCA</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تأمين كاسكو يعتبر بديلاً قانونياً يغني عن شراء تأمين المسؤولية المدنية RCA ❌</li>
+          <li><span>❌</span> تأمين الحريق والسرقة إلزامي لكافة السيارات التي يتجاوز عمرها 10 سنوات ❌</li>
+          <li><span>❌</span> تأمين كاسكو يمنع الشرطة من سحب رخصة السائق عند تجاوزه السرعة ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> تأمين كاسكو يغطي سيارة السائق المخطئ نفسه، لكنه لا يعوض عن تأمين RCA الإجباري تجاه الغير!
+      </div>
+    </div>
+
+    <!-- CARD: Psicologia del Traffico -->
+    <div class="signal-card" data-category="psicologia">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🧠 🚗</div>
+          <div class="badge-visual-code">Psicologia del Traffico</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">سيكولوجيا المرور: التسامح والتعاون وضبط الانفعالات</h3>
+        <span class="card-it-title">Psicologia del traffico: tolleranza, collaborazione e convivenza civile</span>
+      </div>
+      <p class="card-desc-text">
+        الأسس السلوكية للسلامة المرورية؛ نبذ العدوانية، التسامح مع أخطاء الآخرين، وتجنب استخدام السيارة كوسيلة لإثبات الذات أو الانتقام.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> القيادة الآمنة تتطلب الهدوء النفسي، وضبط الانفعالات، والتسامح مع هفوات وأخطاء مستخدمي الطريق الآخرين دون استفزاز</li>
+          <li><span>✅</span> يجب على السائق ألا يعتبر الطريق حلبة للتنافس أو مكاناً لتفريغ الضغوط النفسية والغضب أو إثبات التفوق الشخصي</li>
+          <li><span>✅</span> عند مواجهة سائق عدواني، يجب الحفاظ على مسافة أمان أكبر وإفساح الطريق له وتجنب مجاراته أو الدخول في مشاحنات معه</li>
+          <li><span>✅</span> التعاون المتبادل بين السائقين يعزز انسيابية حركة المرور ويقلل من الضغوط العصبية ومعدلات الحوادث</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> الرد على السائق المخطئ بملاحقته واستخدام المنبه الصوتي باستمرار يعتبر تصرفاً حضارياً مطلوباً ❌</li>
+          <li><span>❌</span> يجب على السائق التنافس مع السيارات الأخرى في كل إشارة مرور لإثبات كفاءة سيارته ❌</li>
+          <li><span>❌</span> الهدوء والتسامح في المرور يعتبر دليلاً على ضعف السائق وعدم إلمامه بكود السير ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> الامتحان الوزاري يركز على الهدوء والتسامح؛ أي خيار يشير للتنافس أو الانتقام أو العدوانية هو حتماً FALSO!
+      </div>
+    </div>
+
+    <!-- CARD: Utenti Vulnerabili -->
+    <div class="signal-card" data-category="psicologia">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🧓 🚶</div>
+          <div class="badge-visual-code">Utenti Vulnerabili</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">مراعاة الفئات الضعيفة: المشاة والأطفال وكبار السن</h3>
+        <span class="card-it-title">Attenzione verso gli utenti deboli della strada: anziani, bambini e disabili</span>
+      </div>
+      <p class="card-desc-text">
+        الواجب الأخلاقي والقانوني المشدد لحماية الفئات الهشة في الطريق؛ التنبؤ بتصرفاتهم المفاجئة وإعطاؤهم الأولوية دائماً.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يجب توخي الحذر الشديد عند الاقتراب من الأطفال لأنهم لا يدركون المخاطر جيداً وقد يركضون فجأة خلف كرة في الشارع</li>
+          <li><span>✅</span> يجب الصبر على كبار السن وذوي الإعاقة عند عبورهم الطريق لأن حركتهم بطيئة وقد يعانون من ضعف السمع أو الرؤية</li>
+          <li><span>✅</span> يحظر الضغط على آلة التنبيه (Clacson) بالقرب من المشاة الضعفاء لتفادي إرباكهم أو تسببهم في ردود فعل فجائية خطيرة</li>
+          <li><span>✅</span> يجب خفض السرعة والتوقف التام عند ممرات عبور المشاة لإتاحة العبور الآمن لكافة المشاة</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يجب إطلاق المنبه الصوتي بعنف لحث كبار السن على الإسراع في عبور الشارع ❌</li>
+          <li><span>❌</span> إذا كان ممر المشاة شاغراً يسمح بزيادة السرعة إلى 100 كم/س داخل المدينة ❌</li>
+          <li><span>❌</span> الأطفال في الشارع يتصرفون دائماً بوعي تام كالسائقين المحترفين ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> ممنوع استخدام المنبه الصوتي لإرباك كبار السن أو الأطفال؛ والواجب هو التباطؤ والصبر التام!
+      </div>
+    </div>
+
+    <!-- CARD: Distrazione alla Guida -->
+    <div class="signal-card" data-category="psicologia">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">📱 🎧</div>
+          <div class="badge-visual-code">Distrazione alla Guida</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">التشتت الذهني واستخدام الهاتف المحمول أثناء القيادة</h3>
+        <span class="card-it-title">Distrazione alla guida, uso dello smartphone e tempi di reazione</span>
+      </div>
+      <p class="card-desc-text">
+        أخطر مسببات الحوادث القاتلة في كود السير الحديث؛ كتابة الرسائل واستخدام الهاتف وتأثيرها المدمر على الانتباه البصري والذهني.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> استخدام الهاتف المحمول أثناء القيادة بدون نظام التحدث الحر (Viva-voce) أو سماعة الأذن الواحدة يعتبر مخالفة مرورية جسيمة</li>
+          <li><span>✅</span> كتابة أو قراءة الرسائل النصية واستخدام وسائل التواصل أثناء القيادة يشتت الانتباه البصري والذهني لعدة ثوانٍ تقطع خلالها السيارة مئات الأمتار كأنها عمياء</li>
+          <li><span>✅</span> تكرار مخالفة استخدام الهاتف المحمول أثناء القيادة خلال سنتين (Recidiva) يؤدي إلى تعليق رخصة القيادة فوراً</li>
+          <li><span>✅</span> يجب استخدام الأوامر الصوتية أو ضبط نظام الملاحة GPS قبل الانطلاق بالمركبة وليس أثناء السير</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يسمح بكتابة الرسائل النصية على الهاتف إذا كانت السيارة متوقفة مؤقتاً في إشارة المرور الحمراء ❌</li>
+          <li><span>❌</span> استخدام الهاتف باليدين معاً مسموح طالما كان السائق يقود بسرعة لا تتجاوز 30 كم/س ❌</li>
+          <li><span>❌</span> سماعات الرأس المغلقة بكلتا الأذنين مسموحة وموصى بها لتقليل ضوضاء الشارع ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> سماعات الأذنين: يسمح فقط بسماعة في أذن واحدة (Auricolare singolo)، واستخدام الهاتف باليدين في إشارة المرور الحمراء ممنوع أيضاً!
+      </div>
+    </div>
+
+    <!-- CARD: Mancata Copertura RCA -->
+    <div class="signal-card" data-category="responsabilita">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🚗 💰</div>
+          <div class="badge-visual-code">Mancata Copertura RCA</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">العقوبات الصارمة للقيادة بدون تأمين سارٍ (Guida senza assicurazione)</h3>
+        <span class="card-it-title">Sanzioni per circolazione con veicolo privo di copertura assicurativa</span>
+      </div>
+      <p class="card-desc-text">
+        العقوبات المشددة التي يفرضها كود السير على المركبات غير المغطاة بتأمين سارٍ؛ الحجز الإداري، الغرامات الباهظة، والمصادرة النهائية.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> القيادة بمركبة بدون تأمين RCA سارٍ تستوجب غرامة مالية باهظة تبدأ من 866 إلى أكثر من 3.400 يورو</li>
+          <li><span>✅</span> يتم الحجز الإداري الفوري على المركبة (Sequestro del veicolo) ونقلها إلى مستودع حجز مخصص على نفقة المخالف</li>
+          <li><span>✅</span> تتم مصادرة المركبة نهائياً وبيعها لحساب الدولة إذا لم يتم سداد الغرامة واستخراج عقد تأمين سارٍ لمدة 6 أشهر على الأقل خلال المهلة المحددة</li>
+          <li><span>✅</span> في حال ارتكاب حادث سير بدون تأمين، يتحمل السائق والمالك شخصياً سداد كافة التعويضات التي قد تصل لملايين اليوروهات</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> القيادة بدون تأمين لا تستوجب أي غرامة إذا تعهد السائق بعدم إحداث أي حادث ❌</li>
+          <li><span>❌</span> يكفي الاعتذار لضابط الشرطة ووعده بشراء التأمين في الشهر التالي ❌</li>
+          <li><span>❌</span> تقتصر عقوبة عدم التأمين على خصم نقطة واحدة فقط من رخصة القيادة ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> القيادة بدون تأمين تترتب عليها مصادرة السيارة فوراً (Sequestro) وغرامة آلاف اليوروهات؛ والتأمين حماية للمجتمع!
+      </div>
+    </div>
+  </div><!-- /signals-grid -->
+
+  <!-- GLOSSARY SECTION -->
+  <div class="section-heading" id="glossary-section">
+    <div class="section-badge">المعجم التشريعي والقانوني للباب 23</div>
+    <h2 class="section-title">قاموس المصطلحات الإيطالية للمسؤولية والتأمين وسيكولوجيا المرور</h2>
+  </div>
+
+  <div class="glossary-grid">
+    <div class="glossary-card">
+      <div class="term-it">Responsabilità civile</div>
+      <div class="term-ar">المسؤولية المدنية</div>
+      <div class="term-def">الالتزام القانوني بتعويض الأضرار المادية والبدنية التي لحقت بالغير، وهي تضامنية بين السائق ومالك المركبة وتغطيها بوليصة RCA.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Responsabilità penale</div>
+      <div class="term-ar">المسؤولية الجنائية</div>
+      <div class="term-def">المسؤولية الناتجة عن ارتكاب جرائم مرورية (كالقتل الخطأ أو الإصابة البالغة والهروب)، وهي شخصية بحتة تقع حصراً على السائق الفعلي.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Responsabilità solidale</div>
+      <div class="term-ar">المسؤولية التضامنية المشتركة</div>
+      <div class="term-def">التزام السائق ومالك السيارة معاً بتعويض المتضررين مدنياً، بحيث يحق للمتضرر مطالبة أي منهما أو شركة التأمين بكامل المبلغ.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Assicurazione R.C.A.</div>
+      <div class="term-ar">تأمين المسؤولية المدنية الإجباري للسيارات</div>
+      <div class="term-def">التأمين الإلزامي بقوة القانون لكافة المركبات على الطرق العامة لتأمين تعويض الغير عن أضرار حوادث السير.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Massimale di garanzia</div>
+      <div class="term-ar">الحد الأقصى لمبلغ التعويض</div>
+      <div class="term-def">المبلغ المالي الأقصى الذي تدفعه شركة التأمين عن الحادث الواحد؛ يحدد القانون حداً أدنى له ويجوز رفعه للأعلى بدفع قسط إضافي.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Periodo di tolleranza</div>
+      <div class="term-ar">فترة السماح التأمينية (15 يوماً)</div>
+      <div class="term-def">مهلة قانونية مدتها 15 يوماً بعد انتهاء العقد السنوي تظل خلالها شركة التأمين ملزمة بتغطية أضرار الحوادث داخل إيطاليا.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Formula Bonus-Malus</div>
+      <div class="term-ar">صيغة المكافأة والجزاء التأمينية</div>
+      <div class="term-def">نظام ترقية وهبوط الفئات التأمينية (CU)؛ ترتقي درجة عند خلو السنة من الحوادث وتهبط درجتين للأسوأ عند التسبب في حادث مروري.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Classe di merito (CU)</div>
+      <div class="term-ar">درجة الاستحقاق التأمينية الموحدة</div>
+      <div class="term-def">فئة التقييم الرقمية في نظام Bonus-Malus من 1 (الأفضل والأرخص) إلى 18 (الأسوأ والأغلى)، والمبتدئ يبدأ من الفئة 14.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Attestato di rischio</div>
+      <div class="term-ar">شهادة المخاطر التأمينية الرقمية</div>
+      <div class="term-def">سجل رقمي بقاعدة بيانات IVASS يوثق حوادث السائق في آخر 5 سنوات وفئته التأمينية للتمكن من الانتقال بين الشركات.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Fondo di Garanzia Vittime</div>
+      <div class="term-ar">صندوق ضمان ضحايا الطريق</div>
+      <div class="term-def">صندوق وطني يعوض المتضررين من حوادث السيارات المجهولة الهوية الهاربة، أو السيارات غير المغطاة بتأمين إطلاقاً.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Risarcimento diretto</div>
+      <div class="term-ar">التعويض المباشر من شركة التأمين</div>
+      <div class="term-def">إجراء يتيح للمتضرر غير المخطئ الحصول على تعويضه مباشرة من شركة تأمينه الخاصة دون الحاجة لمراجعة شركة الطرف الآخر.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Modulo CAI / CID</div>
+      <div class="term-ar">استمارة المعاينة الودية للحادث</div>
+      <div class="term-def">نموذج أزرق مشترك يملؤه السائقان لوصف الحادث، وتوقيعهما معاً يسرع صرف التعويض المباشر دون نزاعات قضائية.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Polizza Kasko</div>
+      <div class="term-ar">تأمين كاسكو الشامل الاختياري</div>
+      <div class="term-def">تغطية تكميلية اختيارية تعوض مالك السيارة عن أضرار سيارته الذاتية حتى لو كان هو المخطئ أو انزلقت سيارته دون طرف آخر.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Terzi trasportati</div>
+      <div class="term-ar">الركاب المنقولون على متن المركبة</div>
+      <div class="term-def">الأشخاص المرافقون في السيارة؛ يغطيهم تأمين RCA دائماً ويعوض أضرارهم الجسدية بالكامل بغض النظر عن مسؤولية السائق.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Utenti deboli della strada</div>
+      <div class="term-ar">مستخدمو الطريق الضعفاء</div>
+      <div class="term-def">المشاة والأطفال وكبار السن وذوو الإعاقة وركاب الدراجات؛ تفرض حمايتهم والصبر عليهم والحذر الشديد عند الاقتراب منهم.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Sequestro del veicolo</div>
+      <div class="term-ar">التحفظ ومصادرة المركبة</div>
+      <div class="term-def">عقوبة قضائية وأمنية بحجز المركبة وسحبها من التداول تمهيداً لمصادرتها عند ارتكاب مخالفات كبرى كالقيادة بدون تأمين.</div>
     </div>
   </div>
-</div>
 
-<h2 class="section-title">أولاً: أنواع المسؤولية القانونية عند وقوع حادث (Tipi di Responsabilità)</h2><p class="para">يفرق القانون الإيطالي بدقة حاسمة بين نوعين أساسيين من المسؤولية:</p><h3 class="sub-lead">1. المسؤولية المدنية (Responsabilità Civile)</h3><div class="bullet-item">• <strong>التعريف:</strong> هي الالتزام القانوني بدفع تعويض مالي عن الأضرار المادية والجسدية الناتجة عن الحادث (*Risarcimento dei danni*).</div><div class="bullet-item">• <strong>التغطية:</strong> تغطيها وتدفعها بالكامل بوليصة التأمين الإجباري على السيارات (*Polizza R.C.A*).</div><div class="bullet-item">• <strong>التشارك التضامني:</strong> تكون **بالتضامن** (*In solido*) بين السائق ومالك السيارة؛ مما يعني أن المالك مسؤول عن دفع التعويض للضحايا بالتضامن مع السائق حتى لو لم يكن المالك يقود بنفسه (إلا في حالة واحدة استثنائية).</div><div class="bullet-item">• <strong>هدفها:</strong> تعويض المتضررين وإصلاح الضرر المالي وليس العقاب الجنائي.</div><h3 class="sub-lead">2. المسؤولية الجنائية (Responsabilità Penale)</h3><div class="bullet-item">• <strong>التعريف:</strong> تنشأ عند ارتكاب فعل يشكل جريمة يعاقب عليها قانون العقوبات الجنائي الإيطالي (*Violazione di norme penali*).</div><div class="bullet-item">• <strong>الطبيعة:</strong> **مسؤولية شخصية بحتة (È strettamente personale)**؛ تقع حصراً على عاتق من كان يقود السيارة لحظة ارتكاب الجريمة، ولا يتحملها مالك السيارة، كما أن شركة التأمين **لا تغطيها ولا تدفع العقوبات الجنائية أو الغرامات**.</div><div class="bullet-item">• <strong>متى تنشأ المسؤولية الجنائية؟ (حالات VERO الإلزامية):</strong></div><div class="num-item"><strong>1. </strong> ⚰️ القتل المروري الخطأ (*Omicidio stradale*).</div><div class="num-item"><strong>2. </strong> 🚑 إحداث إصابات جسدية خطيرة أو بالغة جداً (*Lesioni personali gravi o gravissime*).</div><div class="num-item"><strong>3. </strong> 🏃 الهروب من موقع الحادث وعدم إسعاف المصابين (*Omissione di soccorso*).</div><div class="num-item"><strong>4. </strong> 🍷 القيادة تحت تأثير الكحول أو المخدرات بنسب خطيرة (*Guida in stato di ebbrezza o sotto effetto di droghe*).</div><div class="callout-box">⚠️ **فخ امتحاني حاسم (FALSO ❌):**</div><div class="callout-box">الأضرار المادية فقط (*Danni solo alle cose* - كصدم عمود أو سيارة دون إصابة أحد) **لا تنشئ أبداً مسؤولية جنائية** بل تقتصر على المسؤولية المدنية والتعويض المالي فقط.</div><hr class="divider"><h2 class="section-title">ثانياً: تأمين المسؤولية المدنية الإجباري (R.C.A - Responsabilità Civile Auto)</h2><h3 class="sub-lead">التغطية والمستفيدون:</h3><div class="bullet-item">• <strong>المشمولون بالتغطية (Terzi):</strong> يشمل التأمين الأضرار التي تلحق بـ "الغير"، ويشمل ذلك حتماً **الركاب في سيارتك (Terzi trasportati)** حتى لو كانوا أفراد عائلتك أو أقاربك.</div><div class="bullet-item">• <strong>غير المشمولين:</strong> لا يغطي التأمين الإجباري **السائق المتسبب في الحادث نفسه (Conducente responsabile)** فيما يتعلق بإصاباته أو سيارته (لتغطية ذلك يلزم تأمين اختياري منفصل مثل الكاسكو *Kasko*).</div><h3 class="sub-lead">فترات الصلاحية والوثائق:</h3><div class="bullet-item">• <strong>مهلة الـ 15 يوماً (Periodo di tolleranza):</strong> بعد انتهاء وثيقة التأمين السنوية، يمنح القانون مهلة **15 يوماً إضافية** تظل فيها التغطية سارية المفعول قانونياً لتجديد الوثيقة دون عقوبة.</div><div class="bullet-item">• <strong>إثبات التأمين:</strong> يجب دائماً حمل **شهادة التأمين (Certificato di assicurazione)** سواء بصيغة ورقية أو رقمية على الهاتف (PDF).</div><div class="bullet-item">• ⚠️ <strong>فخ امتحاني (FALSO ❌):</strong> إيصال الدفع البنكي (*Ricevuta di pagamento*) لا يعد وثيقة رسمية كافية لإثبات وجود التأمين أثناء الفحص المروري؛ الوثيقة القانونية الوحيدة هي *Certificato di assicurazione*.</div><hr class="divider">
-<div class="diagram-wrapper">
-  <div class="diagram-wrapper-title">
-    <span>📋</span>
-    <span>وثائق التأمين الإلزامية وتأمين المقطورة (Documenti e Rimorchio)</span>
-  </div>
-
-  <div class="comparison-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
-    <!-- Certificato -->
-    <div class="compare-card emerald">
-      <div class="card-top">
-        <div class="card-title-text" style="color: #34d399;">📄 شهادة التأمين (Certificato)</div>
-        <span class="card-badge badge-emerald">إجبارية 100%</span>
-      </div>
-      <div class="card-subtitle-text" style="color: #a7f3d0;">الإثبات القانوني الوحيد للتأمين أثناء السير</div>
-      <div class="card-rule"></div>
-      <ul class="card-points">
-        <li>
-          <span class="p-icon">🚔</span>
-          <div>يجب حملها دائماً بالسيارة وإبرازها لرجال الشرطة عند التفتيش.</div>
-        </li>
-        <li>
-          <span class="p-icon">📱</span>
-          <div>مسموح رسمياً وقانونياً إبرازها كملف رقمي (PDF) على الهاتف الذكي.</div>
-        </li>
-        <li>
-          <span class="p-icon">⚠️</span>
-          <div>إيصال الدفع البنكي (Ricevuta) لا يعد بديلاً عنها ولا يثبت التأمين ❌.</div>
-        </li>
-      </ul>
+  <!-- TRAPS SECTION -->
+  <div class="traps-section" id="traps-section">
+    <div class="section-heading">
+      <div class="section-badge">الفخاخ الامتحانية الوزارية الرسمية</div>
+      <h2 class="section-title">أخطر 12 فخاً وزارياً في الباب 23 يقع فيها الطلاب</h2>
     </div>
 
-    <!-- Contrassegno -->
-    <div class="compare-card zinc-muted">
-      <div class="card-top">
-        <div class="card-title-text" style="color: #f87171;">❌ الملصق الزجاجي (Contrassegno)</div>
-        <span class="card-badge badge-zinc">ملغي تماماً</span>
+    <div class="traps-grid">
+      <!-- Trap 1 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ تعويض السائق المخطئ بتأمين RCA</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"L'assicurazione obbligatoria R.C.A. risarcisce i danni subiti dal conducente responsabile del sinistro"</p>
+        <p class="trap-quiz-trans">«عقد تأمين RCA الإجباري يعوض الأضرار التي لحقت بالسائق المتسبب في الحادث»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة تماماً (FALSO). تأمين RCA يغطي حصراً الأضرار اللاحقة بالغير (Terzi) والركاب المنقولين؛ ولا يعوض أبداً السائق المتسبب في الحادث عن أضراره الشخصية أو أضرار سيارته، والتي تتطلب بوليصة كاسكو أو تأميناً تكميلياً للحوادث الشخصية.
+        </div>
       </div>
-      <div class="card-subtitle-text" style="color: #d4d4d8;">الملصق الورقي الذي كان يُوضع على الزجاج</div>
-      <div class="card-rule"></div>
-      <ul class="card-points">
-        <li>
-          <span class="p-icon">🛑</span>
-          <div>لم يعد إجبارياً وضعه على الزجاج الأمامي (NON più obbligatorio).</div>
-        </li>
-        <li>
-          <span class="p-icon">📡</span>
-          <div>أصبح فحص التأمين إلكترونياً وتلقائياً عبر قراءة لوحة الترخيص.</div>
-        </li>
-        <li>
-          <span class="p-icon">❌</span>
-          <div style="color: #fca5a5; font-weight: 600;">فخ شهير: أي سؤال يزعم إلزامية تعليقه على الزجاج إجابته FALSO فوراً.</div>
-        </li>
-      </ul>
-    </div>
 
-    <!-- Rimorchio -->
-    <div class="compare-card amber">
-      <div class="card-top">
-        <div class="card-title-text" style="color: #fbbf24;">🚛 تأمين المقطورة (Rischio Statico)</div>
-        <span class="card-badge badge-amber">مخاطر ثابتة</span>
+      <!-- Trap 2 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ المسؤولية الجنائية للمالك</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Il proprietario del veicolo è penalmente responsabile per i reati commessi dal conducente alla guida"</p>
+        <p class="trap-quiz-trans">«مالك المركبة مسؤول جنائياً عن الجرائم التي يرتكبها السائق أثناء القيادة»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). المسؤولية الجنائية شخصية بحتة (Personale) بنص الدستور والقانون؛ وتقع حصرياً على السائق الفعلي الذي كان يقود وارتكب الجرم (كالقتل الخطأ أو الهروب)، ولا يحاسب المالك جنائياً إطلاقاً بل يتحمل فقط المسؤولية المدنية التضامنية.
+        </div>
       </div>
-      <div class="card-subtitle-text" style="color: #fde68a;">عند فصل المقطورة وركنها في طريق عام</div>
-      <div class="card-rule"></div>
-      <ul class="card-points">
-        <li>
-          <span class="p-icon">🅿️</span>
-          <div>إذا فُصلت المقطورة عن السيارة ورُكنت على طريق عام، يجب أن تملك تأمين مخاطر ثابتة مستقل (Rischio statico).</div>
-        </li>
-        <li>
-          <span class="p-icon">🔗</span>
-          <div>أما أثناء توصيلها وسحبها بالسيارة، فتغطيها بوليصة السيارة القاطرة (Rischio dinamico).</div>
-        </li>
-      </ul>
+
+      <!-- Trap 3 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ تعويض الركاب المنقولين (Terzi trasportati)</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"L'assicurazione R.C.A. copre anche i danni subiti dalle persone trasportate a bordo del veicolo"</p>
+        <p class="trap-quiz-trans">«تأمين RCA يغطي أيضاً الأضرار التي تلحق بالأشخاص المنقولين على متن المركبة»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة تماماً (VERO). الركاب المنقولون في السيارة (Terzi trasportati) معفون من مسؤولية الحادث وتتكفل شركة تأمين المركبة بتعويض كافة أضرارهم الجسدية بالكامل بغض النظر عن الطرف المتسبب في الاصطدام.
+        </div>
+      </div>
+
+      <!-- Trap 4 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ تخفيض الحد الأقصى للتعويض</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"I massimali della polizza di assicurazione R.C.A. possono essere ridotti di comune accordo tra le parti sotto i minimi di legge"</p>
+        <p class="trap-quiz-trans">«يجوز تخفيض الحدود القصوى لبوليصة تأمين RCA باتفاق الطرفين إلى ما دون الحدود الدنيا المقررة قانوناً»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). الحدود الدنيا للحد الأقصى (Minimi di legge) مقررة بنصوص قانونية آمرة لحماية المجتمع ولا يجوز لأي شركة أو مواطن النزول عنها أو تخفيضها؛ بينما يجوز فقط الاتفاق على رفعها للأعلى مقابل زيادة القسط.
+        </div>
+      </div>
+
+      <!-- Trap 5 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ سريان فترة السماح 15 يوماً</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"L'assicurazione R.C.A. rimane valida ed efficace per i 15 giorni successivi alla scadenza del contratto"</p>
+        <p class="trap-quiz-trans">«يظل تأمين RCA سارياً وفعالاً لمدة 15 يوماً تالية لتاريخ انتهاء العقد»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة تماماً (VERO). هذه فترة السماح القانونية (Periodo di tolleranza) التي تضمن استمرار حماية الغير على الأراضي الإيطالية حتى يتمكن المؤمن له من تجديد البوليصة دون انقطاع الغطاء التأميني.
+        </div>
+      </div>
+
+      <!-- Trap 6 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ هبوط فئات Bonus-Malus بالحادث</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Con la formula Bonus-Malus, chi provoca un sinistro retrocede di cinque classi di merito"</p>
+        <p class="trap-quiz-trans">«في نظام Bonus-Malus، من يتسبب في حادث مروري يهبط بمقدار خمس درجات في فئة الاستحقاق»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). القاعدة الرسمية المعتمدة لنظام Bonus-Malus تنص على أن التسبب في حادث مروري خاطئ واحد يؤدي إلى تراجع الفئة بمقدار درجتين فقط (Due classi di merito)، وليس خمس درجات.
+        </div>
+      </div>
+
+      <!-- Trap 7 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ تدخل صندوق ضمان ضحايا الطريق</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"Il Fondo di garanzia per le vittime della strada risarcisce i danni alla persona causati da veicoli non identificati"</p>
+        <p class="trap-quiz-trans">«يعوض صندوق ضمان ضحايا الطريق الأضرار الجسدية التي سببتها مركبات مجهولة الهوية فرت من المكان»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة تماماً (VERO). هذه إحدى المهام الأساسية لصندوق الضمان لضمان عدم ضياع حقوق المصابين عند فرار السائق الجاني وعدم التمكن من تحديد لوحة مركبته.
+        </div>
+      </div>
+
+      <!-- Trap 8 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ توقيع طرف واحد على استمارة CAI</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Il modulo C.A.I. firmato da un solo conducente impegna legalmente l'altro conducente ad accettare la dinamica"</p>
+        <p class="trap-quiz-trans">«استمارة CAI الموقعة من سائق واحد فقط تلزم السائق الآخر قانونياً بقبول ديناميكية الحادث المكتوبة»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). استمارة CAI تلزم الطرفين فقط إذا تم التوقيع عليها معاً (Doppia firma)؛ أما إذا وقع عليها طرف واحد فإنها تعامل كبلاغ فردي من طرف واحد وتخضع للتحقيق من قبل شركات التأمين لإثبات الوقائع.
+        </div>
+      </div>
+
+      <!-- Trap 9 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ إلغاء تأمين RCA بواسطة كاسكو</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Chi stipula una polizza Kasko è esonerato dall'obbligo di sottoscrivere l'assicurazione R.C.A."</p>
+        <p class="trap-quiz-trans">«من يبرم بوليصة تأمين كاسكو يعفى من الالتزام بإبرام عقد تأمين المسؤولية المدنية RCA»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة قطوعاً (FALSO). تأمين كاسكو هو تأمين إضافي اختياري يغطي الأضرار الذاتية للسيارة ولا يعوض الغير؛ وبالتالي لا يغني أبداً عن تأمين RCA الإجباري المنصوص عليه في القانون.
+        </div>
+      </div>
+
+      <!-- Trap 10 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ استقلالية المسؤولية المدنية عن الجنائية</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"La responsabilità civile connessa al sinistro stradale è indipendente dalla responsabilità penale"</p>
+        <p class="trap-quiz-trans">«المسؤولية المدنية المرتبطة بحادث السير مستقلة عن المسؤولية الجنائية»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة تماماً (VERO). استقلالية المسؤوليات مبدأ دستوري وقانوني؛ فقد تثبت المسؤولية المدنية للتعويض المالي دون وجود أي جريمة جنائية (مثل الأضرار المادية البسيطة)، والعكس صحيح.
+        </div>
+      </div>
+
+      <!-- Trap 11 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ المنبه الصوتي في سيكولوجيا المرور</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"L'uso insistente del clacson verso un veicolo lento favorisce la sicurezza e riduce l'aggressività nel traffico"</p>
+        <p class="trap-quiz-trans">«استخدام المنبه الصوتي بإلحاح ضد مركبة بطيئة يعزز الأمان ويقلل العدوانية في المرور»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة وسلوكية مرفوضة (FALSO). الاستخدام المفرط لآلة التنبيه يربك السائقين ويزيد من التوتر العصبي والمشاحنات على الطريق؛ وسيكولوجيا المرور تفرض الصبر والهدوء والتسامح.
+        </div>
+      </div>
+
+      <!-- Trap 12 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ عقوبة عدم التأمين</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Chi circola senza assicurazione R.C.A. è soggetto soltanto alla perdita di 2 punti dalla patente"</p>
+        <p class="trap-quiz-trans">«من يقود سيارة بدون تأمين RCA يتعرض فقط لخصم نقطتين من رخصة قيادته»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). القيادة بدون تأمين من أخطر المخالفات؛ وتستوجب غرامة مالية باهظة تصل لآلاف اليوروهات وحجز المركبة إدارياً (Sequestro) فوراً وسحبها إلى المستودع تمهيداً لمصادرتها.
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<h2 class="section-title">ثالثاً: النقاط الـ 5 الذهبية لتقفيل الباب 🏆</h2><p class="para">تعتبر هذه النقاط هي "الفخاخ" الأكثر دقة وتكراراً في الامتحانات الحديثة لعام 2026:</p><div class="table-wrap"><table class="data-table"><tr><th>م</th><th>الموضوع</th><th>التفاصيل القانونية والفخاخ المعتمدة</th></tr><tr><td>**1**</td><td>**عقوبات السير بدون تأمين**</td><td>حجز ومصادرة السيارة فوراً (*Sequestro del veicolo*)، غرامة مالية باهظة (من 866 إلى 3,464 يورو)، وخصم **5 نقاط** من رخصة القيادة.</td></tr><tr><td>**2**</td><td>**الوثائق المطلوبة**</td><td>**الملصق الزجاجي (Contrassegno):** لم يعد إجبارياً على الزجاج لأن الفحص يتم إلكترونياً بقراءة اللوحة.<br>**شهادة التأمين (Certificato):** إجبارية 100% ويجب حملها بالسيارة.</td></tr><tr><td>**3**</td><td>**التعويض المباشر (Risarcimento Diretto)**</td><td>يحق لك طلب التعويض مباشرة من **شركة تأمينك أنت** (*La propria compagnia*) بشرط: الحادث بين سيارتين فقط، مسجلتين ومؤمنتين بإيطاليا، وبأضرار مادية أو إصابات طفيفة (أقل من 9%).</td></tr><tr><td>**4**</td><td>**إعفاء المالك من المسؤولية التضامنية**</td><td>يُعفى مالك السيارة من دفع التعويض المدني في حالة واحدة فقط: أن تكون السيارة قد سُيرت **رغماً عن إرادته** (*Circolazione avvenuta contro la sua volontà*) مع تقديم بلاغ سرقة رسمي فوراً (*Denuncia di furto*).</td></tr><tr><td>**5**</td><td>**تأمين المقطورة (Rischio Statico)**</td><td>عند فصل المقطورة عن السيارة وركنها في طريق عام، يجب أن يتوفر لها تأمين خاص ومستقل يُسمى **تأمين المخاطر الثابتة** (*Assicurazione per il rischio statico*).</td></tr></table></div><hr class="divider"><h2 class="section-title">رابعاً: أنظمة التأمين وحقوق الشركات</h2><h3 class="sub-lead">نظام المكافأة والخصم (Bonus / Malus)</h3><div class="bullet-item">• نظام ذكي لتقييم السائقين واحتساب قسط التأمين السنوي.</div><div class="bullet-item">• يضم <strong>18 فئة جدارة (Classi di merito)</strong> تبدأ من الفئة 1 (الأفضل والأرخص) حتى الفئة 18 (الأسوأ والأغلى).</div><div class="bullet-item">• <strong>المكافأة (Bonus):</strong> إذا مرت السنة بدون حوادث مسؤولة، تنخفض فئتك درجة واحدة (*Si scende di 1 classe*) ويقل سعر التأمين.</div><div class="bullet-item">• <strong>العقوبة (Malus):</strong> إذا تسببت في حادث مسؤول عنه، ترتفع فئتك **درجتين (Si sale di 2 classi)** ويزيد سعر القسط.</div><h3 class="sub-lead">حق الرجوع لشركة التأمين (Diritto di Rivalsa)</h3><div class="bullet-item">• هو حق شركة التأمين في تعويض الضحية المتضررة أولاً، ثم <strong>مطالبة السائق المؤمن لديه برد كافة المبالغ المدفوعة</strong> في حالات الإهمال الجسيم:</div><div class="num-item"><strong>1. </strong> القيادة تحت تأثير الكحول أو المخدرات (*Guida in stato di ebbrezza o droghe*).</div><div class="num-item"><strong>2. </strong> قيادة مركبة بدون فحص فني دوري سارٍ (*Veicolo senza revisione*).</div><div class="num-item"><strong>3. </strong> القيادة برخصة ملغاة أو بدون رخصة قيادة (*Patente revocata o mai conseguita*).</div><h3 class="sub-lead">صندوق ضمان ضحايا حوادث الطرق (Fondo di Garanzia per le Vittime della Strada)</h3><p class="para">صندوق وطني مخصص لتعويض المتضررين في الحالات التي تغيب فيها التغطية التأمينية العادية:</p><div class="num-item"><strong>1. </strong> **سيارة مجهولة هرب سائقها (Pirata della strada):** يعوض الأضرار الجسدية الواقعة على الأشخاص.</div><div class="num-item"><strong>2. </strong> **سيارة معلومة ولكن غير مؤمن عليها (Veicolo non assicurato):** يعوض الأضرار الجسدية، والأضرار المادية بشروط محددة.</div><div class="num-item"><strong>3. </strong> **إفلاس شركة التأمين المتسببة في الحادث:** يتدخل الصندوق لضمان سداد التعويض للمتضررين.</div><hr class="divider"><h2 class="section-title">خامساً: جدول فخاخ Vero و Falso المباشرة في الامتحان ⚠️</h2><div class="table-wrap"><table class="data-table"><tr><th>نص السؤال في الامتحان</th><th>الحكم</th><th>التحليل وسبب الإجابة</th></tr><tr><td>La responsabilità penale grava sul proprietario in solido col conducente</td><td>**FALSO ❌**</td><td>المسؤولية الجنائية شخصية بحتة للسائق فقط ولا يتحملها المالك.</td></tr><tr><td>L'assicurazione RCA copre solo i danni alle cose</td><td>**FALSO ❌**</td><td>تغطي الأضرار المادية للأشياء والجسدية للأشخاص والحيوانات.</td></tr><tr><td>I terzi trasportati parenti del conducente sono esclusi dall'RCA</td><td>**FALSO ❌**</td><td>الركاب مشمولون دائماً بالتأمين حتى لو كانوا زوجة أو أبناء السائق.</td></tr><tr><td>Il rimorchio staccato dalla motrice deve avere assicurazione per il rischio statico</td><td>**VERO ✅**</td><td>نعم، المقطورة المفصولة يجب أن تملك تأمين مخاطر ثابتة.</td></tr><tr><td>La responsabilità civile è limitata al solo valore della franchigia</td><td>**FALSO ❌**</td><td>المسؤولية المدنية غير محدودة بالفرانشيز بل تلزم بتعويض كامل الضرر.</td></tr><tr><td>Il fondo di garanzia risarcisce i danni causati da veicolo non identificato</td><td>**VERO ✅**</td><td>نعم، يغطي الأضرار الجسدية الناتجة عن سيارة مجهولة هربت.</td></tr><tr><td>L'assicurazione RCA copre i danni causati con dolo (volontariamente)</td><td>**FALSO ❌**</td><td>التأمين لا يغطي الأضرار المتعمدة عن قصد وترصد.</td></tr><tr><td>Dopo la scadenza annuale, la copertura resta valida per 15 giorni</td><td>**VERO ✅**</td><td>صحيح، تظل سارية لمدة 15 يوماً داخل الأراضي الإيطالية.</td></tr></table></div><hr class="divider"><div class="callout-box">💡 **خلاصة ذهبية:** الفارق الجوهري الذي يحسم 80% من أسئلة هذا الباب:</div><div class="callout-box">* **المدنية (Civile) = مال وتأمين وتضامن.**</div><div class="callout-box">* **الجنائية (Penale) = سجن وجريمة وشخصية للسائق فقط ولا يغطيها التأمين.**</div>
-  </div>
-</div>
+  <!-- CHAPTER PAGINATION -->
+  <nav class="chapter-pagination">
+    <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="pagination-btn prev-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">→</span>
+      <div class="pagination-info">
+        <span class="pagination-label">الباب السابق</span>
+        <span class="pagination-title">الباب 22: الكحول والمخدرات والإسعافات</span>
+      </div>
+    </a>
 
+    <a href="index.html" class="pagination-btn index-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">🏛️</span>
+      <div class="pagination-info">
+        <span class="pagination-label">العودة</span>
+        <span class="pagination-title">فهرس المكتبة الشاملة</span>
+      </div>
+    </a>
 
+    <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="pagination-btn next-btn" onclick="soundEngine.click()">
+      <div class="pagination-info" style="text-align:left;">
+        <span class="pagination-label">الباب التالي</span>
+        <span class="pagination-title">الباب 24: استهلاك الوقود والبيئة</span>
+      </div>
+      <span class="pagination-icon">←</span>
+    </a>
+  </nav>
+
+</main>
+
+<!-- JAVASCRIPT & SOUND ENGINE -->
 <script>
-  // Unified Sound Engine
   const soundEngine = window.soundEngine || {
     ctx: null,
     enabled: true,
@@ -1223,198 +2186,239 @@
         const AudioCtx = window.AudioContext || window.webkitAudioContext;
         if (AudioCtx) this.ctx = new AudioCtx();
       }
-      if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
     },
     click() {
       if (!this.enabled) return;
       this.init();
       if (!this.ctx) return;
-      try {
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(520, this.ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.04);
-        gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
-        osc.start();
-        osc.stop(this.ctx.currentTime + 0.04);
-      } catch(e) {}
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(600, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(800, this.ctx.currentTime + 0.05);
+      gain.gain.setValueAtTime(0.15, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.05);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.05);
+    },
+    toggle() {
+      this.enabled = !this.enabled;
+      return this.enabled;
     }
   };
 
-  // Toggle Mobile Navigation Drawer
-  function toggleMobileNav() {
-    const menu = document.getElementById('nav-tabs-menu');
-    const btn = document.getElementById('nav-hamburger-btn');
-    if (!menu || !btn) return;
-    const isOpen = menu.classList.toggle('is-open');
-    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    
-    const iconOpen = btn.querySelector('.hamburger-icon-open');
-    const iconClose = btn.querySelector('.hamburger-icon-close');
-    if (iconOpen && iconClose) {
-      iconOpen.style.display = isOpen ? 'none' : 'block';
-      iconClose.style.display = isOpen ? 'block' : 'none';
-    }
-    if (soundEngine.click) {
+  function toggleAudio() {
+    const isEnabled = soundEngine.toggle();
+    const btn = document.querySelector('.nav-audio-btn');
+    const label = btn.querySelector('.audio-label-span');
+    const icon = btn.querySelector('.audio-icon-span');
+    if (isEnabled) {
       soundEngine.click();
+      label.textContent = 'الصوت نشط';
+      icon.textContent = '🔊';
+      btn.style.borderColor = 'rgba(255, 255, 255, 0.16)';
+      btn.style.color = '#f4f4f5';
+    } else {
+      label.textContent = 'مكتوم';
+      icon.textContent = '🔇';
+      btn.style.borderColor = 'rgba(244, 63, 94, 0.4)';
+      btn.style.color = '#f43f5e';
     }
   }
 
-  // Close mobile drawer when clicking outside
-  document.addEventListener('click', function(e) {
-    const nav = document.getElementById('portal-nav');
-    const menu = document.getElementById('nav-tabs-menu');
+  function toggleMobileNav() {
+    soundEngine.click();
+    const drawer = document.getElementById('mobile-drawer-panel');
+    const overlay = document.getElementById('mobile-drawer-overlay');
     const btn = document.getElementById('nav-hamburger-btn');
-    if (menu && menu.classList.contains('is-open') && nav && !nav.contains(e.target)) {
-      menu.classList.remove('is-open');
-      if (btn) {
-        btn.setAttribute('aria-expanded', 'false');
-        const iconOpen = btn.querySelector('.hamburger-icon-open');
-        const iconClose = btn.querySelector('.hamburger-icon-close');
-        if (iconOpen && iconClose) {
-          iconOpen.style.display = 'block';
-          iconClose.style.display = 'none';
-        }
-      }
+    const isOpen = drawer.classList.contains('is-open');
+    if (isOpen) {
+      closeMobileNav();
+    } else {
+      drawer.classList.add('is-open');
+      overlay.classList.add('is-open');
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeMobileNav() {
+    const drawer = document.getElementById('mobile-drawer-panel');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    const btn = document.getElementById('nav-hamburger-btn');
+    if (drawer) drawer.classList.remove('is-open');
+    if (overlay) overlay.classList.remove('is-open');
+    if (btn) {
+      btn.classList.remove('is-active');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    document.body.style.overflow = '';
+  }
+
+  function toggleNavDropdown(e) {
+    e.stopPropagation();
+    soundEngine.click();
+    const menu = document.getElementById('navDropdownMenu');
+    menu.classList.toggle('show');
+  }
+
+  window.addEventListener('click', function(e) {
+    const menu = document.getElementById('navDropdownMenu');
+    if (menu && menu.classList.contains('show')) {
+      menu.classList.remove('show');
     }
   });
 
-  // Toggle Audio Sound
-  window.toggleAudio = function() {
-    soundEngine.enabled = !soundEngine.enabled;
-    const icon = document.getElementById('audio-icon');
-    const label = document.querySelector('.audio-label');
-    if (icon) icon.textContent = soundEngine.enabled ? '🔊' : '🔇';
-    if (label) label.textContent = soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم';
-    if (soundEngine.enabled) soundEngine.click();
+  function filterCards(category, btn) {
+    soundEngine.click();
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cards = document.querySelectorAll('.signals-grid .signal-card');
+    cards.forEach(card => {
+      if (category === 'all' || card.getAttribute('data-category') === category) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // SIMULATOR 1: Bonus-Malus
+  let currentCuBase = 14;
+  let currentAccidents = 0;
+
+  function setCuBase(base) {
+    soundEngine.click();
+    currentCuBase = base;
+    document.getElementById('btnCu1').classList.toggle('active', base === 1);
+    document.getElementById('btnCu14').classList.toggle('active', base === 14);
+    document.getElementById('btnCu17').classList.toggle('active', base === 17);
+    updateBonusMalusSim();
+  }
+
+  function simAccidents(acc) {
+    soundEngine.click();
+    currentAccidents = acc;
+    document.getElementById('btnAcc0').classList.toggle('active', acc === 0);
+    document.getElementById('btnAcc1').classList.toggle('active', acc === 1);
+    document.getElementById('btnAcc2').classList.toggle('active', acc === 2);
+    updateBonusMalusSim();
+  }
+
+  function updateBonusMalusSim() {
+    let newCu = currentCuBase;
+    let badgeText = '';
+    let badgeColor = '';
+    let titleText = '';
+    let descText = '';
+
+    if (currentAccidents === 0) {
+      newCu = Math.max(1, currentCuBase - 1);
+      badgeText = `ترقية الفئة: CU ${newCu} (Bonus -1)`;
+      badgeColor = 'var(--emerald-primary)';
+      titleText = 'سنة كاملة بدون التسبب في أي حادث مروري';
+      descText = `<strong>تطبيق المكافأة (Bonus):</strong> ترتقي الفئة التأمينية درجة واحدة للأفضل (من CU ${currentCuBase} إلى CU ${newCu}).<br><strong>الأثر المالي:</strong> ينخفض قسط التأمين السنوي (Premio assicurativo) الذي يدفعه السائق للشركة.<br><strong>شهادة المخاطر (Attestato di rischio):</strong> تسجل هذا السجل النظيف رقمياً في قاعدة بيانات هيئة الرقابة على التأمين (IVASS).`;
+    } else if (currentAccidents === 1) {
+      newCu = Math.min(18, currentCuBase + 2);
+      badgeText = `تراجع الفئة: CU ${newCu} (Malus +2)`;
+      badgeColor = 'var(--rose-primary)';
+      titleText = 'التسبب في حادث مروري خاطئ واحد خلال السنة';
+      descText = `<strong>تطبيق الجزاء (Malus):</strong> تتراجع الفئة التأمينية درجتين للأسوأ (من CU ${currentCuBase} إلى CU ${newCu}).<br><strong>الأثر المالي:</strong> يرتفع قسط التأمين السنوي بشكل ملحوظ عند موعد التجديد القادم.<br><strong>قاعدة الامتحان:</strong> التسبب في حادث واحد يهبط بالدرجة درجتين فقط وليس 5 درجات!`;
+    } else {
+      newCu = Math.min(18, currentCuBase + 5);
+      badgeText = `تراجع حاد: CU ${newCu} (Malus +5)`;
+      badgeColor = 'var(--rose-primary)';
+      titleText = 'التسبب في حادثين مروريين أو أكثر خلال نفس السنة';
+      descText = `<strong>عقوبة مضاعفة:</strong> التسبب في أكثر من حادث يهبط بالسائق 5 درجات للأسوأ وصولاً لأقصى فئة CU 18.<br><strong>الأثر المالي:</strong> قسط التأمين قد يتضاعف عدة مرات ليصبح باهظ التكلفة جداً.`;
+    }
+
+    document.getElementById('bmBadge').textContent = badgeText;
+    document.getElementById('bmBadge').style.color = badgeColor;
+    document.getElementById('bmBadge').style.borderColor = badgeColor;
+    document.getElementById('bmTitle').textContent = titleText;
+    document.getElementById('bmDesc').innerHTML = descText;
+  }
+
+  // SIMULATOR 2: Responsabilita
+  const respData = {
+    'danni': {
+      badge: 'مسؤولية مدنية + إدارية فقط',
+      title: 'صدم سيارة متوقفة وإلحاق أضرار بالهيكل (Danni a cose)',
+      desc: '<strong>المسؤولية المدنية (Civile):</strong> قائمة حتماً؛ تلزم بتعويض مالك السيارة المتضررة لإصلاح الأضرار، وتتحملها شركة تأمين RCA بالتضامن مع السائق والمالك.<br><strong>المسؤولية الجنائية (Penale):</strong> <strong>منعدمة تماماً</strong>؛ لعدم وجود قتلى أو مصابين أو جرائم جنائية.<br><strong>المسؤولية الإدارية (Amministrativa):</strong> غرامة مالية لمخالفة قواعد المناورة أو مسافة الأمان.',
+      warning: '💡 لا تنشأ مسؤولية جنائية أبداً إذا اقتصرت الأضرار على صدم الأشياء أو السيارات دون إصابات!'
+    },
+    'lesioni': {
+      badge: 'مسؤولية جنائية + مدنية + إدارية',
+      title: 'حادث دهس أسفر عن إصابة شخص بجروح بالغة (Lesioni personali colpose)',
+      desc: '<strong>المسؤولية الجنائية (Penale):</strong> تنشأ فوراً ضد السائق كجريمة إصابة بالخطأ؛ وتستوجب محاكمة جنائية وعقوبة الحبس.<br><strong>المسؤولية المدنية (Civile):</strong> تعويض المصاب عن العلاج والأضرار البيولوجية بالتضامن بين السائق والمالك وشركة التأمين.<br><strong>المسؤولية الإدارية:</strong> سحب الرخصة فورياً (Ritiro) من قبل الشرطة.',
+      warning: '⚖️ المسؤولية الجنائية شخصية بحتة لا يتحملها سوى السائق؛ بينما التعويض المالي مدني يغطيه التأمين.'
+    },
+    'fuga': {
+      badge: 'جناية كبرى وعقوبات مشددة',
+      title: 'حادث به مصابون مع هروب السائق وعدم تقديم الإغاثة (Fuga e omissione)',
+      desc: '<strong>المسؤولية الجنائية (Penale):</strong> جناية كبرى تستوجب الحبس الإلزامي من سنة إلى ثلاث سنوات للهروب، ومن ستة أشهر إلى ثلاث سنوات لعدم تقديم المساعدة.<br><strong>عقوبة الرخصة:</strong> تعليق الرخصة من سنة ونصف إلى خمس سنوات، مع إمكانية الإلغاء النهائي (Revoca).<br><strong>المصادرة:</strong> مصادرة المركبة فوراً.',
+      warning: '🚨 الهروب يضاعف العقوبة الجنائية أضعافاً ولا يسقط المسؤولية المدنية!'
+    },
+    'infrazione': {
+      badge: 'مسؤولية إدارية بحتة',
+      title: 'تجاوز السرعة المقررة دون وقوع أي حادث أو أضرار',
+      desc: '<strong>المسؤولية الإدارية (Amministrativa):</strong> غرامة مالية وخصم نقاط من رخصة القيادة.<br><strong>المسؤولية المدنية:</strong> منعدمة تماماً لعدم وقوع أي ضرر بأي شخص أو ملكية.<br><strong>المسؤولية الجنائية:</strong> منعدمة تماماً طالما لم ترتكب جريمة سباق غير مشروع أو تعاطي كحول.',
+      warning: '✅ مخالفة المرور بمفردها تمثل مسؤولية إدارية فقط دون مدنية أو جنائية.'
+    }
   };
 
-  // Desktop Chapters Dropdown Toggle & Outside Click
-  function toggleNavDropdown(e) {
-    if (e) e.stopPropagation();
-    const menu = document.getElementById('navDropdownMenu');
-    if (menu) menu.classList.toggle('active');
+  function simScenario(type) {
+    soundEngine.click();
+    document.querySelectorAll('#sim-responsabilita .sim-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('btnScen' + type.charAt(0).toUpperCase() + type.slice(1)).classList.add('active');
+    const data = respData[type];
+    document.getElementById('respBadge').textContent = data.badge;
+    document.getElementById('respTitle').textContent = data.title;
+    document.getElementById('respDesc').innerHTML = data.desc;
+    document.getElementById('respWarning').innerHTML = data.warning;
   }
-  document.addEventListener('click', function(e) {
-    const wrapper = document.querySelector('.nav-dropdown-wrapper');
-    const menu = document.getElementById('navDropdownMenu');
-    if (menu && menu.classList.contains('active')) {
-      if (wrapper && !wrapper.contains(e.target)) {
-        menu.classList.remove('active');
-      }
-    }
-  });
 
+  // SIMULATOR 3: Coperture
+  const copData = {
+    'terzi': {
+      badge: 'تغطية تامة ومضمونة 100%',
+      title: 'تعويض الركاب المنقولين على متن المركبة (Terzi trasportati)',
+      desc: '<strong>الحكم القانوني:</strong> الركاب المنقولون في السيارة معفون تماماً من أي مسؤولية ويعوضون دائماً وبشكل كامل عن أي أضرار بدنية تلحق بهم.<br><strong>الجهة الدافعة:</strong> شركة تأمين RCA الخاصة بالسيارة التي كانوا يركبونها مباشرة، بغض النظر عما إذا كان سائقهم هو المخطئ أو الطرف الآخر (Risarcimento diretto per il terzo trasportato).',
+      warning: '✅ تأمين RCA يغطي الركاب حتى لو كانوا أقارب السائق (ما عدا استثناءات للأضرار المادية للزوج)!'
+    },
+    'colpevole': {
+      badge: 'لا تعويض من تأمين RCA',
+      title: 'السائق المتسبب في الحادث (Conducente responsabile)',
+      desc: '<strong>الحكم القانوني:</strong> تأمين RCA الإجباري لا يعوض إطلاقاً السائق المخطئ عن أضرار سيارته ولا عن إصاباته الجسدية الشخصية.<br><strong>الحل البديل:</strong> للحصول على تعويض، يجب أن يكون السائق مشتركاً في بوليصة كاسكو (Kasko) لأضرار السيارة، وبوليصة حوادث السائق الشخصية (Infortuni conducente).',
+      warning: '❌ RCA يغطي الغير فقط؛ السائق المخطئ يتحمل تكلفة إصلاح سيارته إذا لم يكن لديه كاسكو!'
+    },
+    'pirata': {
+      badge: 'صندوق ضمان ضحايا الطريق',
+      title: 'سيارة مجهولة هربت من موقع الحادث (Veicolo non identificato)',
+      desc: '<strong>الحكم القانوني:</strong> يتدخل <strong>صندوق ضمان ضحايا الطريق (Fondo di Garanzia per le Vittime della Strada)</strong> لتعويض الأضرار البدنية والجسدية التي لحقت بالمصابين جراء هذا الحادث.<br><strong>الأضرار المادية:</strong> تعوض في حالات محددة إذا اقترنت بأضرار جسدية خطيرة جداً مع تحمل نسبة إعفاء.',
+      warning: '🏛️ الصندوق يضمن عدم ضياع حقوق الضحايا عند فرار السائق الجاني مجهول الهوية!'
+    },
+    'non_assicurata': {
+      badge: 'صندوق الضمان + الرجوع على المخطئ',
+      title: 'سيارة متسببة في الحادث غير مغطاة بتأمين سارٍ',
+      desc: '<strong>الحكم القانوني:</strong> يتدخل صندوق الضمان (Fondo di Garanzia) لتعويض المتضررين عن الأضرار البدنية والمادية بالكامل.<br><strong>حق الرجوع (Rivalsa):</strong> يقوم الصندوق لاحقاً بملاحقة مالك وسائق السيارة غير المؤمنة ومطالبتهم قضائياً باسترداد كافة المبالغ والتعويضات التي تم دفعها للمتضررين!',
+      warning: '⚖️ السير بدون تأمين يدمر صاحب السيارة مالياً لأن الصندوق يسترد منه كل سنت تم دفعه!'
+    }
+  };
+
+  function simCopertura(type) {
+    soundEngine.click();
+    document.querySelectorAll('#sim-coperture .sim-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('btnCop' + type.charAt(0).toUpperCase() + type.slice(1)).classList.add('active');
+    const data = copData[type];
+    document.getElementById('copBadge').textContent = data.badge;
+    document.getElementById('copTitle').textContent = data.title;
+    document.getElementById('copDesc').innerHTML = data.desc;
+    document.getElementById('copWarning').innerHTML = data.warning;
+  }
 </script>
-
-
-<script>
-  // Mobile Navigation Drawer Controller (Apple HIG Compliant & Spring Micro-UX)
-  (function() {
-    function toggleMobileNav() {
-      const btn = document.getElementById('nav-hamburger-btn');
-      const panel = document.getElementById('mobile-drawer-panel');
-      const overlay = document.getElementById('mobile-drawer-overlay');
-      if (!btn || !panel) return;
-      
-      const isOpening = !panel.classList.contains('is-active');
-      
-      if (isOpening) {
-        btn.classList.add('is-active');
-        btn.setAttribute('aria-expanded', 'true');
-        panel.classList.add('is-active');
-        if (overlay) overlay.classList.add('is-active');
-        document.body.classList.add('nav-scroll-lock');
-      } else {
-        closeMobileNav();
-      }
-      
-      if (window.soundEngine && typeof window.soundEngine.click === 'function') {
-        window.soundEngine.click();
-      }
-    }
-
-    function closeMobileNav() {
-      const btn = document.getElementById('nav-hamburger-btn');
-      const panel = document.getElementById('mobile-drawer-panel');
-      const overlay = document.getElementById('mobile-drawer-overlay');
-      if (btn) {
-        btn.classList.remove('is-active');
-        btn.setAttribute('aria-expanded', 'false');
-      }
-      if (panel) panel.classList.remove('is-active');
-      if (overlay) overlay.classList.remove('is-active');
-      document.body.classList.remove('nav-scroll-lock');
-    }
-
-    window.toggleMobileNav = toggleMobileNav;
-    window.closeMobileNav = closeMobileNav;
-
-    // Close on Escape key press
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeMobileNav();
-    });
-
-    // Audio Engine synchronization
-    if (typeof window.toggleAudio !== 'function') {
-      window.soundEngine = window.soundEngine || {
-        ctx: null,
-        enabled: true,
-        init() {
-          if (!this.ctx) {
-            const AudioCtx = window.AudioContext || window.webkitAudioContext;
-            if (AudioCtx) this.ctx = new AudioCtx();
-          }
-          if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
-        },
-        click() {
-          if (!this.enabled) return;
-          this.init();
-          if (!this.ctx) return;
-          try {
-            const osc = this.ctx.createOscillator();
-            const gain = this.ctx.createGain();
-            osc.type = 'sine';
-            osc.frequency.setValueAtTime(520, this.ctx.currentTime);
-            osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.04);
-            gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
-            osc.connect(gain);
-            gain.connect(this.ctx.destination);
-            osc.start();
-            osc.stop(this.ctx.currentTime + 0.04);
-          } catch(e) {}
-        }
-      };
-
-      window.toggleAudio = function() {
-        if (!window.soundEngine) return;
-        window.soundEngine.enabled = !window.soundEngine.enabled;
-        const icons = document.querySelectorAll('.audio-icon-span, #audio-icon');
-        const labels = document.querySelectorAll('.audio-label-span, #audio-label, .audio-label');
-        icons.forEach(el => el.textContent = window.soundEngine.enabled ? '🔊' : '🔇');
-        labels.forEach(el => el.textContent = window.soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم');
-        if (window.soundEngine.enabled && window.soundEngine.click) window.soundEngine.click();
-      };
-    } else {
-      const _orig = window.toggleAudio;
-      window.toggleAudio = function() {
-        _orig();
-        const isEnabled = window.soundEngine ? window.soundEngine.enabled : true;
-        const icons = document.querySelectorAll('.audio-icon-span');
-        const labels = document.querySelectorAll('.audio-label-span');
-        icons.forEach(el => el.textContent = isEnabled ? '🔊' : '🔇');
-        labels.forEach(el => el.textContent = isEnabled ? 'الصوت نشط' : 'الصوت مكتوم');
-      };
-    }
-  })();
-</script>
-
 </body>
 </html>
-
-

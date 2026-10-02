@@ -3,632 +3,147 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>دليل الباب 22: الكحول والمخدرات والإسعافات الأولية — Patente B Pro</title>
+<title>دليل وقاموس الباب 22: الكحول والمخدرات والإسعافات الأولية | Patente B Pro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+
   :root {
     --bg-base: #09090b;
     --bg-surface: rgba(24, 24, 27, 0.75);
+    --bg-surface-elevated: rgba(39, 39, 42, 0.85);
     --border-subtle: rgba(255, 255, 255, 0.08);
     --border-highlight: rgba(255, 255, 255, 0.16);
     --text-primary: #f4f4f5;
     --text-secondary: #a1a1aa;
     --text-muted: #71717a;
     --emerald-primary: #10b981;
+    --emerald-dark: #059669;
+    --emerald-glow: rgba(16, 185, 129, 0.25);
     --rose-primary: #f43f5e;
+    --rose-glow: rgba(244, 63, 94, 0.25);
     --amber-primary: #f59e0b;
+    --amber-glow: rgba(245, 158, 11, 0.25);
     --sky-primary: #38bdf8;
-    --indigo-primary: #818cf8;
-    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    --sky-glow: rgba(56, 189, 248, 0.25);
+    --indigo-primary: #6366f1;
     --nav-base-height: 54px;
+    --font-sans: 'Cairo', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
+  html, body {
     background-color: var(--bg-base);
     color: var(--text-primary);
-    font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-sans);
     line-height: 1.6;
-    min-height: 100vh;
     overflow-x: hidden;
-    background-image: 
-      radial-gradient(ellipse at 50% -10%, rgba(244, 63, 94, 0.08), transparent 60%),
-      radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.04), transparent 40%);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
   }
 
   body.nav-scroll-lock {
     overflow: hidden !important;
-    touch-action: none !important;
-    -webkit-overflow-scrolling: auto !important;
+    touch-action: none;
   }
 
-  /* Apple HIG Responsive Navbar */
+  /* Portal Nav Header (Strict 54px, Apple HIG) */
   .unified-portal-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
-    max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
-    background: rgba(9, 9, 11, 0.85);
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-base-height);
+    background: rgba(15, 15, 18, 0.82);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid var(--border-subtle);
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
+    padding: 0 16px;
     padding-top: env(safe-area-inset-top, 0px);
-    box-sizing: border-box;
-    direction: rtl;
   }
 
   .nav-brand {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #fff;
-    white-space: nowrap;
+    gap: 8px;
     text-decoration: none;
-    flex-shrink: 0;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.05rem;
   }
-  .nav-brand .badge-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
+
+  .badge-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--amber-primary);
+    border: 1px solid rgba(245, 158, 11, 0.3);
     padding: 2px 7px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 6px;
-    color: #a1a1aa;
   }
 
-  .nav-desktop-tabs {
+  .desktop-nav-links {
     display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .nav-tab-desktop {
-    text-decoration: none;
-    color: #a1a1aa;
-    padding: 7px 13px;
-    border-radius: 9px;
-    font-size: 0.84rem;
-    font-weight: 600;
-    transition: all 0.15s;
-    border: 1px solid transparent;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    white-space: nowrap;
-  }
-  .nav-tab-desktop:hover {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  .nav-tab-desktop.active {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.16);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.15), 0 2px 8px rgba(0,0,0,0.3);
-  }
-
-  .nav-desktop-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .nav-audio-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #e4e4e7;
-    border-radius: 9px;
-    padding: 7px 12px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.15s;
-  }
-  .nav-audio-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
-  .nav-audio-btn:active { transform: scale(0.96); }
-
-  /* Animated Hamburger Icon */
-  .nav-hamburger-btn {
-    display: none;
-    width: 42px;
-    height: 42px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 0;
-    z-index: 1002;
-    transition: background 0.15s, transform 0.15s;
-  }
-  .nav-hamburger-btn:active { transform: scale(0.92); }
-  .hamburger-box {
-    width: 20px;
-    height: 14px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .hamburger-line {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: #fff;
-    border-radius: 2px;
-    transition: transform 0.28s var(--ease-spring), opacity 0.2s, background-color 0.2s;
-  }
-  .nav-hamburger-btn.is-active .line-top {
-    transform: translateY(6px) rotate(45deg);
-    background-color: #38bdf8;
-  }
-  .nav-hamburger-btn.is-active .line-mid { opacity: 0; transform: scaleX(0); }
-  .nav-hamburger-btn.is-active .line-bot {
-    transform: translateY(-6px) rotate(-45deg);
-    background-color: #38bdf8;
-  }
-
-  /* Slide-down Drawer Panel */
-  .mobile-drawer-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 998;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s ease;
-  }
-  .mobile-drawer-overlay.is-active {
-    display: block; opacity: 1; pointer-events: auto;
-  }
-
-  .mobile-drawer-panel {
-    display: none;
-    position: fixed;
-    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
-    left: 0; right: 0;
-    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
-    background: rgba(15, 15, 18, 0.94);
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
-    z-index: 999;
-    padding: 16px;
-    padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.32s var(--ease-spring), opacity 0.22s ease;
-    direction: rtl;
-  }
-  .mobile-drawer-panel.is-active {
-    display: block;
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .mobile-nav-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    list-style: none;
-  }
-  .mobile-nav-link {
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 0 16px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
-    color: #e4e4e7;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 600;
-  }
-  .mobile-nav-link.active {
-    background: rgba(56, 189, 248, 0.12);
-    border-color: rgba(56, 189, 248, 0.3);
-    color: #38bdf8;
-  }
-  .mobile-nav-divider {
-    height: 1px;
-    background: rgba(255, 255, 255, 0.08);
-    margin: 8px 0;
-  }
-  .mobile-nav-control-btn {
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    color: #e4e4e7;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-  }
-
-  @media (max-width: 768px) {
-    .unified-portal-nav {
-      height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
-      max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
-      padding: 0 16px;
-      padding-top: env(safe-area-inset-top, 0px);
-    }
-    .nav-desktop-tabs, .nav-desktop-actions { display: none !important; }
-    .nav-hamburger-btn { display: flex; }
-    .nav-brand .badge-tag { display: none; }
-  }
-
-  /* Page Layout */
-  .container {
-    max-width: 1060px;
-    margin: 28px auto;
-    padding: 0 18px 60px;
-  }
-
-  .hero-card {
-    background: var(--bg-surface);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--border-subtle);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06), 0 16px 36px -10px rgba(0,0,0,0.6);
-    border-radius: 20px;
-    padding: 32px 36px;
-    margin-bottom: 28px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-card::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0; left: 0; height: 3px;
-    background: linear-gradient(90deg, var(--rose-primary), var(--amber-primary), var(--emerald-primary));
-  }
-
-  .chapter-pill {
-    display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    padding: 4px 12px;
-    border-radius: 20px;
-    background: rgba(244, 63, 94, 0.12);
-    border: 1px solid rgba(244, 63, 94, 0.3);
-    color: #fda4af;
-    margin-bottom: 14px;
   }
-
-  h1.page-title {
-    font-size: 1.85rem;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 8px;
-    letter-spacing: -0.02em;
-  }
-  .page-subtitle-it {
-    font-size: 1.05rem;
-    color: var(--text-secondary);
-    direction: ltr;
-    text-align: right;
-    font-weight: 500;
-    margin-bottom: 18px;
-  }
-  .stats-banner {
+  .desktop-nav-link {
     display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    padding-top: 14px;
-    border-top: 1px solid var(--border-subtle);
-  }
-  .stat-badge {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border-subtle);
+    align-items: center;
+    gap: 6px;
     padding: 6px 14px;
-    border-radius: 10px;
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .stat-badge strong { color: #fff; font-family: 'JetBrains Mono', monospace; }
-
-  /* Content Cards & Sections */
-  .section-block {
-    background: var(--bg-surface);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    padding: 26px 30px;
-    margin-bottom: 24px;
-    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.4);
-  }
-  .section-block h2 {
-    font-size: 1.35rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  /* Comparison Grid */
-  .limits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
-    margin-top: 16px;
-  }
-  .limit-card {
-    background: rgba(255, 255, 255, 0.025);
-    border: 1px solid var(--border-subtle);
-    border-radius: 14px;
-    padding: 20px;
-    position: relative;
-  }
-  .limit-card.zero {
-    border-color: rgba(244, 63, 94, 0.35);
-    background: rgba(244, 63, 94, 0.04);
-  }
-  .limit-card.half {
-    border-color: rgba(56, 189, 248, 0.35);
-    background: rgba(56, 189, 248, 0.04);
-  }
-  .limit-value {
-    font-size: 2.2rem;
-    font-weight: 800;
-    font-family: 'JetBrains Mono', monospace;
-    margin-bottom: 6px;
-  }
-  .limit-card.zero .limit-value { color: var(--rose-primary); }
-  .limit-card.half .limit-value { color: var(--sky-primary); }
-  .limit-title {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 10px;
-  }
-  .limit-list {
-    list-style: none;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .limit-list li {
-    position: relative;
-    padding-right: 28px;
-    line-height: 1.7;
-    display: block;
-    text-align: right;
-    font-size: 0.92rem;
-    color: #d4d4d8;
-  }
-  .limit-list li > span:first-child {
-    position: absolute;
-    right: 0;
-    top: 2px;
-    font-size: 1.05rem;
-    line-height: 1;
-  }
-
-  /* Warning Callout Box */
-  .trap-callout {
-    background: rgba(244, 63, 94, 0.08);
-    border: 1px solid rgba(244, 63, 94, 0.25);
-    border-right: 4px solid var(--rose-primary);
-    border-radius: 12px;
-    padding: 18px 22px;
-    margin: 18px 0;
-  }
-  .trap-callout-header {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #fda4af;
-    margin-bottom: 6px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .trap-callout p {
-    font-size: 0.92rem;
-    color: #e4e4e7;
-    line-height: 1.6;
-  }
-
-  /* Table Styling */
-  .table-responsive {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    border-radius: 12px;
-    border: 1px solid var(--border-subtle);
-    margin-top: 14px;
-  }
-  table.content-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.9rem;
-    text-align: right;
-  }
-  table.content-table th {
-    background: rgba(255, 255, 255, 0.04);
-    color: #fff;
-    padding: 12px 16px;
-    font-weight: 700;
-    border-bottom: 1px solid var(--border-highlight);
-  }
-  table.content-table td {
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border-subtle);
-    color: var(--text-secondary);
-  }
-  table.content-table tr:hover td {
-    background: rgba(255, 255, 255, 0.02);
-  }
-
-  /* First Aid Steps Grid */
-  .aid-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 14px;
-    margin-top: 16px;
-  }
-  .aid-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border-subtle);
-    border-radius: 12px;
-    padding: 18px;
-    transition: transform 0.2s;
-  }
-  .aid-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(255, 255, 255, 0.16);
-  }
-  .aid-icon {
-    font-size: 1.6rem;
-    margin-bottom: 8px;
-  }
-  .aid-card h3 {
-    font-size: 0.98rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 6px;
-  }
-  .aid-card p {
-    font-size: 0.86rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-  }
-
-  /* Interactive Quiz Cards */
-  .quiz-section {
-    margin-top: 36px;
-  }
-  .quiz-card {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: 14px;
-    padding: 20px 24px;
-    margin-bottom: 14px;
-    transition: all 0.2s;
-  }
-  .quiz-card.answered-correct {
-    border-color: rgba(16, 185, 129, 0.4);
-    background: rgba(16, 185, 129, 0.04);
-  }
-  .quiz-card.answered-wrong {
-    border-color: rgba(244, 63, 94, 0.4);
-    background: rgba(244, 63, 94, 0.04);
-  }
-  .quiz-q-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    margin-bottom: 4px;
-  }
-  .quiz-text-it {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #fff;
-    direction: ltr;
-    text-align: left;
-    margin-bottom: 8px;
-  }
-  .quiz-text-ar {
-    font-size: 0.92rem;
-    color: var(--text-secondary);
-    margin-bottom: 16px;
-  }
-  .quiz-btns {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  .btn-v, .btn-f {
-    padding: 7px 20px;
     border-radius: 8px;
-    font-weight: 700;
-    font-size: 0.85rem;
-    cursor: pointer;
-    border: 1px solid transparent;
-    transition: all 0.15s;
-    font-family: 'JetBrains Mono', monospace;
-  }
-  .btn-v { background: rgba(16, 185, 129, 0.15); color: #34d399; border-color: rgba(16, 185, 129, 0.3); }
-  .btn-v:hover { background: rgba(16, 185, 129, 0.25); color: #fff; }
-  .btn-f { background: rgba(244, 63, 94, 0.15); color: #f87171; border-color: rgba(244, 63, 94, 0.3); }
-  .btn-f:hover { background: rgba(244, 63, 94, 0.25); color: #fff; }
-  .quiz-feedback {
-    display: none;
-    margin-top: 14px;
-    padding: 12px 16px;
-    border-radius: 10px;
-    font-size: 0.88rem;
-    line-height: 1.5;
-  }
-  .quiz-feedback.show { display: block; }
-  .quiz-feedback.correct {
-    background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.3);
-    color: #a7f3d0;
-  }
-  .quiz-feedback.wrong {
-    background: rgba(244, 63, 94, 0.1);
-    border: 1px solid rgba(244, 63, 94, 0.3);
-    color: #fecdd3;
-  }
-
-  /* Audio Speak Button */
-  .btn-speak {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-subtle);
     color: var(--text-secondary);
-    border-radius: 6px;
-    padding: 2px 8px;
-    font-size: 0.75rem;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    margin-right: 6px;
-    vertical-align: middle;
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 600;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
   }
-  .btn-speak:hover { color: #fff; background: rgba(255, 255, 255, 0.1); }
+  .desktop-nav-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-subtle);
+  }
+  .desktop-nav-link.active {
+    color: var(--amber-primary);
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.25);
+  }
 
-  /* ==========================================================================
-     Desktop Chapters Dropdown & Pagination (Declutter Architecture)
-     ========================================================================== */
+  .desktop-nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-audio-btn {
+    height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #e4e4e7;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .nav-audio-btn:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
   .nav-dropdown-wrapper {
     position: relative;
     display: inline-block;
@@ -675,9 +190,7 @@
     z-index: 1100;
     direction: rtl;
   }
-  .nav-dropdown-menu.active {
-    display: flex;
-  }
+  .nav-dropdown-menu.active { display: flex; }
   .nav-dropdown-item {
     display: flex;
     align-items: center;
@@ -695,132 +208,743 @@
     color: #fff;
   }
   .nav-dropdown-item.active {
-    background: rgba(56, 189, 248, 0.12);
-    color: #38bdf8;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--amber-primary);
     font-weight: 700;
   }
 
-  /* Chapter Pagination */
+  /* Hamburger Button (< 768px) */
+  .nav-hamburger-btn {
+    display: none;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .hamburger-box { width: 20px; height: 14px; position: relative; }
+  .hamburger-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #f4f4f5;
+    border-radius: 2px;
+    transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  }
+  .line-top { top: 0; }
+  .line-mid { top: 6px; }
+  .line-bot { top: 12px; }
+
+  .nav-hamburger-btn.is-active .line-top { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger-btn.is-active .line-mid { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger-btn.is-active .line-bot { transform: translateY(-6px) rotate(-45deg); }
+
+  /* Mobile Drawer Panel */
+  .mobile-drawer-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .mobile-drawer-overlay.is-active { display: block; opacity: 1; }
+  .mobile-drawer-panel {
+    display: none;
+    position: fixed;
+    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
+    left: 0; right: 0;
+    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
+    background: rgba(15, 15, 18, 0.94);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
+    z-index: 999;
+    padding: 16px;
+    padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  }
+  .mobile-drawer-panel.is-active { display: block; transform: translateY(0); opacity: 1; }
+  .mobile-nav-list { display: flex; flex-direction: column; gap: 8px; list-style: none; }
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    min-height: 48px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: #e4e4e7;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+  .mobile-nav-link.active {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.35);
+    color: var(--amber-primary);
+  }
+
+  /* Main Container */
+  .guide-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: calc(var(--nav-base-height) + 28px) 20px 80px 20px;
+  }
+
+  /* Hero Section */
+  .chapter-hero {
+    background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12), transparent 70%),
+                linear-gradient(180deg, rgba(24, 24, 27, 0.7) 0%, rgba(18, 18, 20, 0.9) 100%);
+    border: 1px solid var(--border-subtle);
+    border-radius: 24px;
+    padding: 40px 32px;
+    margin-bottom: 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), transparent);
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--sky-primary);
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .hero-subtitle {
+    font-family: var(--font-mono);
+    color: var(--sky-primary);
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+    direction: ltr;
+  }
+  .hero-desc {
+    max-width: 860px;
+    margin: 0 auto 24px auto;
+    color: var(--text-secondary);
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+  .hero-badges-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .hero-stat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: #d4d4d8;
+  }
+
+  /* Golden Rules Banner */
+  .golden-rules-banner {
+    background: rgba(56, 189, 248, 0.06);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 36px;
+  }
+  .golden-rules-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--sky-primary);
+    margin-bottom: 16px;
+  }
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .rule-box {
+    background: rgba(24, 24, 27, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .rule-box h4 {
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .rule-box p {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Filter Pills */
+  .filter-pills-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    margin-bottom: 28px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filter-pill {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .filter-pill:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+  }
+  .filter-pill.active {
+    background: var(--sky-primary);
+    border-color: var(--sky-primary);
+    color: #000;
+    font-weight: 700;
+  }
+
+  /* Rotatoria Simulator Box */
+  .simulator-box {
+    background: linear-gradient(180deg, rgba(24, 24, 27, 0.8) 0%, rgba(18, 18, 20, 0.95) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .sim-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--sky-primary);
+    margin-bottom: 6px;
+  }
+  .sim-subtitle {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+  }
+  .sim-controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .sim-btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sim-btn:hover { background: rgba(255, 255, 255, 0.1); }
+  .sim-btn.active {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: var(--sky-primary);
+    color: var(--sky-primary);
+  }
+  .sim-output-card {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .sim-img-wrapper img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+  }
+  .sim-details { flex: 1; text-align: right; }
+  .sim-state-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .state-normal { background: rgba(245, 158, 11, 0.2); color: var(--amber-primary); }
+  .state-rot-precedence { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .sim-legal-text {
+    font-size: 0.92rem;
+    color: #e4e4e7;
+    line-height: 1.7;
+  }
+
+  /* Comparison Section: Paths */
+  .comp-section {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .comp-header { margin-bottom: 20px; text-align: right; }
+  .comp-header h3 { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+  .comp-header p { font-size: 0.9rem; color: var(--text-secondary); }
+  .comp-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .comp-card-path {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .comp-card-path img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 12px;
+  }
+  .comp-card-path h4 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .comp-card-path .path-it {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--sky-primary);
+    margin-bottom: 10px;
+  }
+  .comp-card-path p {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    text-align: right;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  /* Grid of Signals Cards */
+  .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .section-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-badge {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: var(--sky-primary);
+    background: rgba(56, 189, 248, 0.1);
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+  }
+
+  .signals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .signal-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .signal-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-highlight);
+  }
+
+  .signal-img-container {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    padding: 12px;
+  }
+  .signal-img-container img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+  }
+
+  /* Card Header Vertical Hierarchy */
+  .card-header-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+  .card-ar-title {
+    order: 1;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  .card-it-title {
+    order: 2;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--sky-primary);
+    direction: ltr;
+    text-align: right;
+  }
+
+  .card-desc-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  /* ZERO FLEX ON LISTS (STRICT TYPOGRAPHY) */
+  .card-points-group { margin-bottom: 14px; }
+  .points-group-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .points-group-title.vero-title { color: var(--emerald-primary); }
+  .points-group-title.falso-title { color: var(--rose-primary); }
+
+  .card-points-list { list-style: none; margin: 0; padding: 0; }
+  .card-points-list li {
+    display: block;
+    position: relative;
+    padding-right: 28px;
+    line-height: 1.7;
+    text-align: right;
+    font-size: 0.88rem;
+    color: #d4d4d8;
+    margin-bottom: 6px;
+  }
+  .card-points-list li > span:first-child {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .card-trap-alert {
+    background: rgba(244, 63, 94, 0.08);
+    border: 1px solid rgba(244, 63, 94, 0.22);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    color: #fca5a5;
+    line-height: 1.6;
+    margin-top: auto;
+  }
+  .card-trap-alert strong { color: var(--rose-primary); }
+
+  /* Glossary Section */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .glossary-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+  .term-it {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--sky-primary);
+    margin-bottom: 4px;
+    direction: ltr;
+    text-align: right;
+  }
+  .term-ar {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .term-def {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Quiz Traps Interactive Section */
+  .traps-section { margin-bottom: 50px; }
+  .traps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+  }
+  .trap-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .trap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card-tag-pill {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  .tag-vero { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .tag-falso { background: rgba(244, 63, 94, 0.2); color: var(--rose-primary); }
+
+  .trap-q-it {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: #e4e4e7;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 8px;
+    padding: 10px;
+    direction: ltr;
+    text-align: left;
+    line-height: 1.5;
+  }
+  .trap-reason {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .trap-reason strong { color: #fff; }
+
+  /* Pagination Bar */
   .chapter-pagination {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    margin: 40px 0 20px;
-    padding: 16px 20px;
-    background: rgba(24, 24, 27, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    backdrop-filter: blur(12px);
-    flex-wrap: wrap;
+    gap: 16px;
+    padding: 24px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    margin-top: 40px;
   }
   .pagination-btn {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 18px;
-    border-radius: 12px;
+    padding: 12px 20px;
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #f4f4f5;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    color: #fff;
     text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 0.9rem;
     transition: all 0.15s ease;
   }
   .pagination-btn:hover {
     background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.16);
-    color: #fff;
-    transform: translateY(-1px);
+    border-color: var(--border-highlight);
   }
-  .pagination-btn.index-btn {
-    background: rgba(56, 189, 248, 0.08);
-    border-color: rgba(56, 189, 248, 0.2);
-    color: #38bdf8;
-  }
-  .pagination-btn.disabled {
-    opacity: 0.35;
-    pointer-events: none;
-    cursor: not-allowed;
-  }
-  .pagination-info {
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-  }
-  .pagination-label {
-    font-size: 0.72rem;
-    color: #a1a1aa;
-    font-weight: 500;
-  }
-  .pagination-title {
-    font-size: 0.85rem;
-    color: #fff;
-    font-weight: 700;
+  .pagination-info { display: flex; flex-direction: column; text-align: right; }
+  .pagination-label { font-size: 0.75rem; color: var(--text-muted); }
+  .pagination-title { font-size: 0.92rem; color: #fff; }
+
+  /* Responsive Rules (< 768px) */
+  @media (max-width: 768px) {
+    .desktop-nav-links, .desktop-nav-controls { display: none !important; }
+    .nav-hamburger-btn { display: flex !important; }
+    .guide-container { padding-top: calc(var(--nav-base-height) + 16px); padding-left: 14px; padding-right: 14px; }
+    .hero-title { font-size: 1.6rem; }
+    .signals-grid { grid-template-columns: 1fr; }
+    .sim-output-card { flex-direction: column; text-align: center; }
+    .sim-details { text-align: center; }
+    .chapter-pagination { flex-direction: column; align-items: stretch; }
   }
 
-  @media (max-width: 1023px) {
-    .nav-dropdown-wrapper {
-      display: none !important;
-    }
-  }
 
+.badge-visual-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.badge-visual-icon {
+  font-size: 3.5rem;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+}
+.badge-visual-code {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--amber-primary);
+  background: rgba(245, 158, 11, 0.12);
+  padding: 2px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
 </style>
 </head>
 <body>
 
-<!-- Apple HIG Responsive Navigation -->
-<nav class="unified-portal-nav" id="portal-nav">
-  <a href="index.html" class="nav-brand">
-    <span style="font-size:1.25rem;">🚦</span>
-    <span>Patente B Pro</span>
-    <span class="badge-tag">A2</span>
-  </a>
+<!-- Unified Top Navigation (54px) -->
+<nav class="unified-portal-nav" aria-label="شريط التنقل الموحد">
+  <div style="display:flex; align-items:center; gap:12px;">
+    <a href="index.html" class="nav-brand">
+      <span>🚦 Patente B Pro</span>
+      <span class="badge-tag" style="background:rgba(239, 68, 68, 0.15); color:#ef4444; border-color:rgba(239, 68, 68, 0.35);">الباب 22</span>
+    </a>
+  </div>
 
-    <!-- Core 3 Desktop Navigation Tabs -->
-  <nav class="nav-desktop-tabs">
-    <a href="index.html" class="nav-tab-desktop">🏛️ فهرس المكتبة</a>
-    <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 الأبواب المقسمة</a>
-    <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
-  </nav>
+  <div class="desktop-nav-links">
+    <a href="index.html" class="desktop-nav-link">
+      <span>🏛️</span>
+      <span>فهرس المكتبة الشاملة</span>
+    </a>
+    <a href="../Capitoli_Divisi/index.html" class="desktop-nav-link">
+      <span>📚</span>
+      <span>الأبواب المقسمة (25)</span>
+    </a>
+    <a href="../Simulatore_Esame.html" class="desktop-nav-link">
+      <span>⏱️</span>
+      <span>محاكي الامتحان</span>
+    </a>
+  </div>
 
-  <div class="nav-desktop-actions">
-    <!-- Desktop Chapters Dropdown -->
+  <div class="desktop-nav-controls">
     <div class="nav-dropdown-wrapper">
       <button class="nav-dropdown-btn" onclick="toggleNavDropdown(event)">
         <span>تصفح الأبواب (1-25)</span>
         <span style="font-size:0.75rem;">▾</span>
       </button>
       <div class="nav-dropdown-menu" id="navDropdownMenu">
-      <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
-      <a href="دليل_الباب_02_إشارات_الخطر.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_03_segnali_divieto/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
-      <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
-      <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأفقية والمطبات</span></a>
-      <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
-      <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: الإشارات التكميلية وورش العمل</span></a>
-      <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_11_limiti_di_velocita/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة</span></a>
-      <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
-      <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
-      <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
-      <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
-      <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
-      <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
-      <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
-      <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
-      <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
-      <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: حوادث السير والطقس</span></a>
-      <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
-      <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 23: المسؤولية والتأمين RCA</span></a>
-      <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 24: استهلاك الوقود والبيئة</span></a>
-      <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
+        <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
+        <a href="دليل_الباب_02_إشارات_الخطر.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
+        <a href="دليل_الباب_03_إشارات_المنع.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
+        <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
+        <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
+        <a href="دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأرضية والعوائق</span></a>
+        <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
+        <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
+        <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: الإشارات التكميلية وورش العمل</span></a>
+        <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
+        <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة ومخاطرها</span></a>
+        <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
+        <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
+        <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
+        <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
+        <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
+        <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
+        <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
+        <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
+        <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
+        <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: حوادث السير والطقس</span></a>
+        <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
+        <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 23: المسؤولية والتأمين RCA</span></a>
+        <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 24: استهلاك الوقود والبيئة</span></a>
+        <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
       </div>
     </div>
-
     <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
       <span class="audio-icon-span">🔊</span>
       <span class="audio-label-span">الصوت نشط</span>
@@ -836,484 +960,1270 @@
   </button>
 </nav>
 
+<!-- Mobile Overlay & Drawer -->
 <div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
-
 <div class="mobile-drawer-panel" id="mobile-drawer-panel">
   <div class="mobile-nav-list">
-    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📚</span>
-      <span>مذاكرة الأبواب المقسمة (25 باب)</span>
-    </a>
-    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">⏱️</span>
-      <span>محاكي الامتحان الوزاري (20 دقيقة)</span>
-    </a>
-    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📑</span>
-      <span>فهرس المكتبة الشاملة</span>
-    </a>
-    <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 13 (قواعد السير والمسارات)</span>
-    </a>
-    <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 14 (أسبقية التقاطعات)</span>
-    </a>
-    <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 15 (مناورة التجاوز والتخطي)</span>
-    </a>
-    <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 16 (الوقوف والتوقف والركن)</span>
-    </a>
-    <a href="دليل_الأبواب_11_إلى_15_قواعد_السير_والسرعة_ومسافة_الأمان.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الأبواب 11-15 (السير والسرعة)</span>
-    </a>
-    <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 17 (الأوتوستراد والحمولة والمقطورات)</span>
-    </a>
-    <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 18 (الأضواء والتابلوه والعواكس)</span>
-    </a>
-    <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 19 (الأحزمة والخوذة والمقاعد)</span>
-    </a>
-    <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 20 (الرخص والنقاط والعقوبات)</span>
-    </a>
-    <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 21 (حوادث السير والظروف الجوية)</span>
-    </a>
-    <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="mobile-nav-link active" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 22 (الكحول والمخدرات والإسعافات)</span>
-    </a>
-    <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 23 (التأمين والمسؤولية)</span>
-    </a>
-    <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 24 (البيئة والوقود)</span>
-    </a>
-    <a href="دليل_الباب_الأخير.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 25 (الميكانيكا والصيانة)</span>
-    </a>
+    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📚</span><span>مذاكرة الأبواب المقسمة (25 باب)</span></a>
+    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">⏱️</span><span>محاكي الامتحان الوزاري</span></a>
+    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📑</span><span>فهرس المكتبة الشاملة</span></a>
     <div class="mobile-nav-divider"></div>
-    <button class="mobile-nav-control-btn" onclick="toggleAudio(); closeMobileNav();">
-      <span class="audio-icon-span">🔊</span>
-      <span class="audio-label-span">المؤثرات الصوتية: نشطة</span>
-    </button>
+    <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 20: رخص القيادة والعقوبات</span></a>
+    <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 21: حوادث السير والطقس</span></a>
+    <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="mobile-nav-link active" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
+    <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 23: المسؤولية والتأمين RCA</span></a>
+    <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 24: استهلاك الوقود والبيئة</span></a>
+    <a href="دليل_الباب_الأخير.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
   </div>
 </div>
 
-<div class="container">
+<main class="guide-container">
 
-  <!-- Hero Header -->
-  <div class="hero-card">
-    <div class="chapter-pill">CAPITOLO 22 • CODICE DELLA STRADA 2026</div>
-    <h1 class="page-title">الباب الثاني والعشرون: الحالة البدنية، الكحول، المخدرات والإسعافات الأولية</h1>
-    <div class="page-subtitle-it">Stato psicofisico, alcool, sostanze stupefacenti, farmaci e primo soccorso</div>
-    
-    <div class="stats-banner">
-      <div class="stat-badge">📊 عدد الأسئلة الرسمية: <strong>141 سؤالاً</strong></div>
-      <div class="stat-badge">🎯 نسبة الأسئلة المتشابهة: <strong>~35%</strong></div>
-      <div class="stat-badge">💡 الكلمات المفتاحية: <strong>18 مصطلحاً أساسياً</strong></div>
-      <div class="stat-badge">🚨 الأهمية في الامتحان: <strong>سؤال أو سؤالان مؤكدان في كل نموذج</strong></div>
-    </div>
-  </div>
-
-  <!-- 1. Alcohol Blood Limits -->
-  <div class="section-block">
-    <h2>🍷 1. الحدود القانونية لنسبة الكحول في الدم (Tasso Alcolemico)</h2>
-    <p style="color:var(--text-secondary); margin-bottom: 14px;">
-      يقاس معدل الكحول بوحدة (جرام لكل لتر - g/l). يفرق قانون السير الإيطالي بحزم بين فئتين من السائقين:
+  <!-- HERO SECTION -->
+  <section class="chapter-hero">
+    <div class="hero-tag">🍷 🚑 المرجع المعتمد للدراسة والامتحان الوزاري</div>
+    <h1 class="hero-title">الباب 22: الكحول والمخدرات والإسعافات الأولية</h1>
+    <div class="hero-subtitle">Capitolo 22: Stato psicofisico, alcool, sostanze stupefacenti, farmaci e primo soccorso</div>
+    <p class="hero-desc">
+      الدليل الطبي والتشريعي المعتمد لكود السير الإيطالي: الحدود القانونية لنسبة الكحول في الدم (Tasso alcolemico)، الصفر المطلق للسائقين الجدد (0.0 g/l)، التأثيرات العصبية والبصرية والنفسية (زمن رد الفعل، الرؤية النفقية، وتقدير المخاطر)، فخاخ المعتقدات الخاطئة في التخلص من الكحول، وتدابير الإسعافات الأولية المنقذة للحياة (النزيف، الصدمة، الحروق، والكسور) مع القواعد الصارمة لحظر نزع الخوذة وحظر إعطاء المشروبات والأدوية.
     </p>
 
-    <div class="limits-grid">
-      <div class="limit-card zero">
-        <div class="limit-value">0.0 g/l</div>
-        <div class="limit-title">الصفر المطلق (Tolleranza Zero)</div>
-        <ul class="limit-list">
-          <li>🚫 <strong>السائقون الجدد (Neopatentati):</strong> خلال أول 3 سنوات من نيل الرخصة (وليس سنة واحدة!).</li>
-          <li>🚫 <strong>الشباب أقل من 21 سنة (Minori di 21 anni).</strong></li>
-          <li>🚫 <strong>السائقون المحترفون (Conducenti professionali):</strong> سائقو التاكسي، الحافلات، والشاحنات أثناء أداء عملهم.</li>
+    <div class="hero-stats-banner">
+      <div class="stat-badge">
+        <span class="stat-num">141</span>
+        <span class="stat-label">سؤالاً وزارياً رسمياً</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-num">12</span>
+        <span class="stat-label">فخاً وزارياً دقيقاً</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-num">16</span>
+        <span class="stat-label">بطاقة طبية وقانونية</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">مطابقة معايير كود السير 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOLDEN RULES BANNER -->
+  <section class="golden-rules-banner">
+    <div class="golden-rules-title">
+      <span>⭐</span>
+      <span>القواعد الذهبية الأربع للباب 22 (Regole d'Oro)</span>
+    </div>
+    <div class="rules-grid">
+      <div class="rule-box">
+        <h4><span>1️⃣</span> قاعدة الكحول والصفر المطلق للسائق الجديد</h4>
+        <p>الحد القانوني للسائق العادي 0.5 جم/لتر. أما السائق الجديد (أول 3 سنوات أو أقل من 21 سنة) والسائق المهني فالحد هو صفر مطلق (0.0 g/l). رفض الفحص (Etilometro) يعاقب بأقصى عقوبات الجريمة الجنائية ومصادرة السيارة فوراً.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>2️⃣</span> التأثير البيولوجي للكحول وأخطر فخ لغوي</h4>
+        <p>الكحول يطيل زمن رد الفعل (Il tempo di reazione aumenta)؛ وزيادة زمن رد الفعل تعني استجابة متأخرة وبطيئة وسلبية! كما يضيق المجال البصري (Visione a tunnel) ويمنح شعوراً زائفاً بالأمان وتقدير غير مبالٍ بالمخاطر.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>3️⃣</span> المحظورات الذهبية الثلاثة للمسعف</h4>
+        <p>1) يُمنع منعاً باتاً نزع خوذة سائق الدراجة النارية المصاب (إلا لتوقف التنفس). 2) يُمنع تحريك المصاب بكسور أو إصابات عمود فقري. 3) يُمنع إعطاء المصاب أي دواء أو مسكن أو مشروبات كحولية أو ماء إذا كان مغمى عليه!</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>4️⃣</span> وضعيات الإنقاذ المعتمدة (PLS والصدمة)</h4>
+        <p>المغمى عليه الذي يتنفس: يوضع في وضعية الإفاقة الجانبية (Posizione Laterale di Sicurezza). المصاب بالصدمة (Shock - شحوب، عرق بارد، نبض سريع): يمدد على ظهره وترفع ساقاه للأعلى 30 سم لتغذية المخ بالدم ويغطى ببطانية.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR 1: Alcohol Limits & Penalties -->
+  <section class="simulator-box" id="sim-alcool">
+    <div class="sim-title">
+      <span>🍷</span>
+      <span>المحاكي التفاعلي 1: حاسبة نسبة الكحول والعقوبات القضائية (Tasso Alcolemico e Sanzioni)</span>
+    </div>
+    <div class="sim-subtitle">اختر فئة السائق ومستوى تركيز الكحول في الدم لاستكشاف العقوبات القانونية والخصم:</div>
+    <div class="sim-controls" style="margin-bottom:12px;">
+      <span style="font-size:0.88rem; color:var(--text-muted); margin-left:8px; align-self:center;">فئة السائق:</span>
+      <button class="sim-btn active" id="btnAlcDriverNeo" onclick="setAlcDriver('neo')">سائق جديد (أول 3 سنوات) / أقل من 21 سنة</button>
+      <button class="sim-btn" id="btnAlcDriverOrd" onclick="setAlcDriver('ord')">سائق معتاد (فوق 3 سنوات)</button>
+    </div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnAlcLvl1" onclick="simAlcLevel('0.3')">0.1 - 0.4 جم/لتر</button>
+      <button class="sim-btn" id="btnAlcLvl2" onclick="simAlcLevel('0.6')">0.5 - 0.8 جم/لتر</button>
+      <button class="sim-btn" id="btnAlcLvl3" onclick="simAlcLevel('1.2')">0.8 - 1.5 جم/لتر</button>
+      <button class="sim-btn" id="btnAlcLvl4" onclick="simAlcLevel('1.8')">أكثر من 1.5 جم/لتر أو رفض الفحص</button>
+    </div>
+    <div class="sim-output-card" id="alcOutput" style="margin-top:14px;">
+      <div class="sim-badge" id="alcBadge" style="background:rgba(244,63,94,0.15); color:var(--rose-primary); border:1px solid rgba(244,63,94,0.35);">
+        🚫 مخالفة قانونية للسائق الجديد
+      </div>
+      <div class="sim-details">
+        <h4 id="alcTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">نسبة كحول بين 0.1 و 0.4 جم/لتر للسائق الجديد (Tasso Zero)</h4>
+        <p id="alcDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
+          <strong>الحكم القانوني:</strong> محظور تماماً للسائق الجديد؛ غرامة مالية من 168 إلى 672 يورو، وخصم 10 نقاط كاملة (5 نقاط أساسية مضاعفة إلى 10 نقاط للسائق الجديد!).<br>
+          <strong>للسائق المعتاد:</strong> قانوني ومسموح (ضمن حد الأمان 0.5 جم/لتر).
+        </p>
+        <div class="sim-warning-box" id="alcWarning" style="margin-top:10px; padding:10px 14px; background:rgba(244,63,94,0.1); border-right:3px solid var(--rose-primary); border-radius:8px; font-size:0.86rem; color:#fecdd3;">
+          ⚠️ <strong>القاعدة الذهبية:</strong> السائق الجديد يخضع لمبدأ "الصفر المطلق" (Zero assoluto)؛ أي رشفة كحول تشكل مخالفة صريحة!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR 2: First Aid Decision Tree -->
+  <section class="simulator-box" id="sim-soccorso">
+    <div class="sim-title">
+      <span>🚑</span>
+      <span>المحاكي التفاعلي 2: شجرة القرار الإسعافي المنقذ للحياة (Primo Soccorso Stradale)</span>
+    </div>
+    <div class="sim-subtitle">اضغط لتحديد حالة المصاب واكتشاف البروتوكول الطبي الإلزامي والمحظورات القاتلة:</div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnSocInconscio" onclick="simSoccorso('inconscio')">1. فاقد للوعي ويتنفس</button>
+      <button class="sim-btn" id="btnSocShock" onclick="simSoccorso('shock')">2. حالة صدمة (Shock)</button>
+      <button class="sim-btn" id="btnSocEmorragia" onclick="simSoccorso('emorragia')">3. نزيف شرياني خارجي</button>
+      <button class="sim-btn" id="btnSocCasco" onclick="simSoccorso('casco')">4. سائق دراجة يرتدي خوذة</button>
+      <button class="sim-btn" id="btnSocUstioni" onclick="simSoccorso('ustioni')">5. مصاب بحروق نارية</button>
+    </div>
+    <div class="sim-output-card" id="socOutput">
+      <div class="sim-badge" id="socBadge" style="background:rgba(56,189,248,0.15); color:var(--sky-primary); border:1px solid rgba(56,189,248,0.35);">
+        وضعية الإفاقة الجانبية (PLS)
+      </div>
+      <div class="sim-details">
+        <h4 id="socTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">المصاب فاقد للوعي ولكنه يتنفس بانتظام (Infortunato incosciente)</h4>
+        <p id="socDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
+          <strong>الإجراء الإلزامي:</strong> وضعه فوراً في <strong>وضعية الإفاقة الجانبية (Posizione Laterale di Sicurezza)</strong>.<br>
+          <strong>الهدف الطبي:</strong> منع انسداد مجرى التنفس بسبب ارتخاء عضلات اللسان وسقوطه للخلف، وتصريف أي قيء أو سوائل للخارج لمنع الاختناق (Asfissia).<br>
+          <strong>المحظور القاطع:</strong> يحظر محاولة إيقاظه بصفعه، أو سكب الماء على وجهه، أو إعطاؤه أي سوائل للشرب.
+        </p>
+        <div class="sim-warning-box" id="socWarning" style="margin-top:10px; padding:10px 14px; background:rgba(245,158,11,0.1); border-right:3px solid var(--amber-primary); border-radius:8px; font-size:0.86rem; color:#fde68a;">
+          💡 <strong>معلومة ذهبية:</strong> استدعاء الإسعاف 112/118 مع تحديد درجة الوعي والتنفس خطوة أسبق من أي تدبير آخر.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR 3: Myths vs Facts -->
+  <section class="simulator-box" id="sim-miti">
+    <div class="sim-title">
+      <span>☕ ❌</span>
+      <span>المحاكي التفاعلي 3: نسف الخرافات والمعتقدات الخاطئة في التخلص من الكحول (Falsi Miti)</span>
+    </div>
+    <div class="sim-subtitle">اضغط على الخرافة الامتحانية الشائعة لاكتشاف الحقيقة العلمية التي يعتمدها واضع الامتحان الوزاري:</div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnMitoCaffe" onclick="simMito('caffe')">1. شرب القهوة المركزة</button>
+      <button class="sim-btn" id="btnMitoDoccia" onclick="simMito('doccia')">2. الاستحمام بالماء البارد</button>
+      <button class="sim-btn" id="btnMitoCaramelle" onclick="simMito('caramelle')">3. مضغ اللبان والحلوى</button>
+      <button class="sim-btn" id="btnMitoCorsa" onclick="simMito('corsa')">4. ممارسة الجري والرياضة</button>
+    </div>
+    <div class="sim-output-card" id="mitoOutput">
+      <div class="sim-badge" id="mitoBadge" style="background:rgba(244,63,94,0.15); color:var(--rose-primary); border:1px solid rgba(244,63,94,0.35);">
+        خرافة وزارية شائعة (FALSO)
+      </div>
+      <div class="sim-details">
+        <h4 id="mitoTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">خرافة: القهوة المركزة تعجل بهضم الكحول وخفض نسبته في الدم</h4>
+        <p id="mitoDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
+          <strong>الحقيقة العلمية:</strong> شرب القهوة المركزة (Caffè amaro) أو مشروبات الطاقة <strong>لا يقلل أبداً</strong> من نسبة الكحول في الدم، ولا يسرع من عملية تفكيكه في الكبد.<br>
+          <strong>الخطر الإضافي:</strong> الكافيين يمنح السائق شعوراً وهمياً باليقظة بينما تظل ردود أفعاله العصبية بطيئة ومشوشة، مما يجعله أكثر جرأة وخطورة خلف المقود.<br>
+          <strong>المحدد البيولوجي الوحيد:</strong> العامل الوحيد لتخفيض نسبة الكحول هو <strong>مرور الوقت</strong>؛ حيث يتخلص الكبد من الكحول بمعدل بطيء جداً وثابت (حوالي 0.15 جم/لتر في الساعة).
+        </p>
+        <div class="sim-warning-box" id="mitoWarning" style="margin-top:10px; padding:10px 14px; background:rgba(244,63,94,0.1); border-right:3px solid var(--rose-primary); border-radius:8px; font-size:0.86rem; color:#fecdd3;">
+          ❌ <strong>صيغة الامتحان الوزاري:</strong> "L'assunzione di caffè amaro accelera lo smaltimento dell'alcool da parte del fegato" -> الإجابة حتماً <strong>FALSO</strong>!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON SECTION -->
+  <section class="comp-section" id="comp-soccorso">
+    <div class="comp-header">
+      <h3>المقارنة البصرية الحاسمة: معايير الكحول والحالات الطبية الحرجة</h3>
+      <p>الفروق الدقيقة التي يركز عليها واضع الامتحان الوزاري للتمييز بين درجات الطوارئ والإسعاف</p>
+    </div>
+    <div class="comp-grid-4">
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">🍷 🎯</div>
+        <h4>Neopatentati vs Ordinari</h4>
+        <div class="comp-tag" style="background:rgba(244,63,94,0.15); color:var(--rose-primary);">نسبة الكحول</div>
+        <p>• <strong>السائق الجديد (أول 3 سنوات أو <21 سنة):</strong> الحد القانوني <strong>0.0 جم/لتر</strong> (صفر مطلق)؛ أي نسبة تعتبر مخالفة تستوجب الغرامة ومضاعفة خصم النقاط.<br>• <strong>السائق المعتاد:</strong> الحد الأقصى المسموح <strong>0.5 جم/لتر</strong>؛ والعقوبات الجنائية المشددة تبدأ من 0.8 جم/لتر.</p>
+      </div>
+
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">🩸 🩹</div>
+        <h4>النزيف الشرياني vs النزيف الوريدي</h4>
+        <div class="comp-tag" style="background:rgba(239,68,68,0.15); color:#ef4444;">التعامل مع الدم</div>
+        <p>• <strong>النزيف الشرياني (Arteriosa):</strong> دم أحمر قانٍ يتدفق بنبضات متزامنة مع ضربات القلب؛ يشكل خطراً مميتاً ويجب الضغط المباشر بالشاش المعقم والضغط على الشريان الرئيسي.<br>• <strong>النزيف الوريدي (Venosa):</strong> دم داكن يتدفق باستمرار دون نبض؛ يتم ربطه وتضميده بضمادة ضاغطة.</p>
+      </div>
+
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">🫀 🥶</div>
+        <h4>حالة الصدمة (Stato di Shock)</h4>
+        <div class="comp-tag" style="background:rgba(56,189,248,0.15); color:var(--sky-primary);">هبوط الدورة الدموية</div>
+        <p>• <strong>الأعراض:</strong> شحوب الوجه الشديد، عرق بارد ولزج، نبض سريع وضعيف، ارتعاش وبرودة الأطراف.<br>• <strong>التصرف:</strong> تمديد المصاب ورفع ساقيه 30 سم لتغذية القلب والمخ، وتغطيته لتدفئته.<br>• <strong>المحظور:</strong> يحظر إعطاؤه أي مسكنات أو أدوية أو مشروبات كحولية!</p>
+      </div>
+
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">🏍️ ⛑️</div>
+        <h4>نزع خوذة سائق الدراجة المصاب</h4>
+        <div class="comp-tag" style="background:rgba(16,185,129,0.15); color:var(--emerald-primary);">الحظر الصارم</div>
+        <p>• <strong>القاعدة المطلقة:</strong> لا يجوز أبداً نزع الخوذة الواقية لسائق الدراجة النارية المصاب في حادث، لتفادي إحداث شلل أو تلف مميت في الحبل الشوكي والفقرات العنقية.<br>• <strong>الاستثناء الوحيد:</strong> إذا كان المصاب في حالة اختناق تام وتوقف تنفس تتطلب الإنعاش القلبي الرئوي الفوري.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER PILLS BAR -->
+  <div class="filter-pills-bar">
+    <button class="filter-pill active" onclick="filterCards('all', this)">جميع البطاقات (16)</button>
+    <button class="filter-pill" onclick="filterCards('alcool', this)">الكحول ونسبة الدم (Tasso Alcolemico)</button>
+    <button class="filter-pill" onclick="filterCards('droghe-farmaci', this)">المخدرات والأدوية واللياقة</button>
+    <button class="filter-pill" onclick="filterCards('soccorso-base', this)">مبادئ الإسعاف وطلب النجدة 112</button>
+    <button class="filter-pill" onclick="filterCards('emorragie-shock', this)">النزيف وحالة الصدمة والكسور</button>
+    <button class="filter-pill" onclick="filterCards('ustioni-occhi', this)">الحروق وإصابات العين والخوذة</button>
+  </div>
+
+  <!-- SIGNALS GRID (16 DETAILED CARDS) -->
+  <div class="section-heading">
+    <div class="section-badge">الشرح التفصيلي لبطاقات الباب 22</div>
+    <h2 class="section-title">البطاقات المعرفية المعتمدة للحالة البدنية والإسعافات الأولية</h2>
+  </div>
+
+  <div class="signals-grid">
+
+    <!-- CARD: Tasso Alcolemico -->
+    <div class="signal-card" data-category="alcool">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🍷 ⚖️</div>
+          <div class="badge-visual-code">Tasso Alcolemico</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الحدود القانونية لنسبة الكحول في الدم وعقوبات السائق الجديد</h3>
+        <span class="card-it-title">I limiti di tasso alcolemico nel sangue e tolleranza zero</span>
+      </div>
+      <p class="card-desc-text">
+        المعايير التشريعية الصارمة لنسبة الكحول المسموحة في الدم؛ الصفر المطلق للسائقين الجدد والسائقين المهنيين، وحد 0.5 جم/لتر للسائقين المعتادين، مع العقوبات الإدارية والجنائية المترتبة على كل شريحة.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يحدد الحد القانوني لنسبة الكحول في الدم للسائقين الجدد (Neopatentati في أول 3 سنوات) ومن هم دون 21 سنة بـ 0.0 جم/لتر (Tasso zero)</li>
+          <li><span>✅</span> يحدد الحد القانوني الأقصى لنسبة الكحول للسائقين المعتادين بـ 0.5 جم/لتر (Limite di 0,5 g/l)</li>
+          <li><span>✅</span> تجاوز نسبة 0.8 جم/لتر يشكل جريمة جنائية يعاقب عليها بالحبس والغرامة المالية وتعليق الرخصة فوراً من المحافظ</li>
+          <li><span>✅</span> تجاوز نسبة 1.5 جم/لتر يوجب الحبس حتى عام، وتعليق الرخصة حتى عامين، والمصادرة الإلزامية للمركبة (Confisca del veicolo)</li>
         </ul>
       </div>
 
-      <div class="limit-card half">
-        <div class="limit-value">0.5 g/l</div>
-        <div class="limit-title">الحد الأقصى للسائق العادي</div>
-        <ul class="limit-list">
-          <li>✅ السائقون الذين مضى على رخصتهم <strong>أكثر من 3 سنوات</strong>.</li>
-          <li>✅ تجاوزوا سن <strong>21 عاماً</strong>.</li>
-          <li>⚠️ أي نسبة تتجاوز 0.5 g/l تعتبر مخالفة قانونية وجنائية تستوجب سحب النقاط وحجز المركبة والغرامة.</li>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يسمح للسائق الجديد بنسبة كحول حتى 0.5 جم/لتر إذا كان يقود سيارة مزودة بناقل حركة أوتوماتيكي ❌</li>
+          <li><span>❌</span> عقوبة القيادة تحت تأثير الكحول تقتصر على غرامة مالية رمزية قدرها 20 يورو فقط دون المساس بالرخصة ❌</li>
+          <li><span>❌</span> يعفى السائق من عقوبة الكحول إذا أثبت أنه شرب النبيذ فقط وليس المشروبات الروحية المركزة ❌</li>
         </ul>
       </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> احفظ جيداً: السائق الجديد (Neopatentato) لا يسمح له حتى بـ 0.1 جم/لتر؛ حده هو الصفر المطلق (0.0 g/l)!
+      </div>
     </div>
 
-    <div class="trap-callout">
-      <div class="trap-callout-header">⚠️ فخ وزاري شهير: كلمة Neopatentati</div>
-      <p>
-        تكرر الوزارة في أسئلة FALSO أن السائق الجديد يعفى من نسبة الصفر بعد مرور <strong>سنة واحدة</strong>! هذا خطأ قاطع؛ صفة (Neopatentato) تمتد قانونياً لـ <strong>3 سنوات كاملة</strong> بخصوص نسب الكحول والسرعات القصوى.
+    <!-- CARD: Tempo di Reazione -->
+    <div class="signal-card" data-category="alcool">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🧠 ⏱️</div>
+          <div class="badge-visual-code">Tempo di Reazione</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">تأثير الكحول على زمن رد الفعل وأخطر فخ لغوي في الامتحان</h3>
+        <span class="card-it-title">Effetti dell'alcool sul tempo di reazione e sui riflessi</span>
+      </div>
+      <p class="card-desc-text">
+        الاضطرابات العصبية التي يحدثها الكحول على الجهاز العصبي؛ زيادة زمن الاستجابة العصبية، بطء معالجة المؤثرات الخارجية، وتراجع القدرة على اتخاذ القرار السريع.
       </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تناول الكحول يؤدي إلى زيادة زمن رد الفعل (L'assunzione di alcool fa aumentare il tempo di reazione)</li>
+          <li><span>✅</span> زيادة زمن رد الفعل تعني أن السائق يستغرق وقتاً أطول للتفاعل والضغط على الفرامل عند رؤية الخطر (Reagisce più lentamente)</li>
+          <li><span>✅</span> تناول الكحول يقلل من اليقظة والانتباه ويؤدي إلى تراجع التنسيق العضلي الحركي</li>
+          <li><span>✅</span> الكحول يمنح السائق شعوراً زائفاً بالأمان والثقة المفرطة مما يدفعه للقيادة بتهور والاستهانة بالأخطار</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تناول الكحول يقلل من زمن رد الفعل ويجعله أسرع في الفرملة (Il tempo di reazione diminuisce) ❌</li>
+          <li><span>❌</span> الكحول يحسن من قدرة السائق على تقدير السرعات والمسافات ليلاً ❌</li>
+          <li><span>❌</span> يساعد الكحول السائق على البقاء متيقظاً ومقاوماً للنعاس أثناء الرحلات الطويلة ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> أخطر فخ لغوي متكرر: الكحول يزيد زمن رد الفعل (Fa aumentare il tempo) وهذه عبارة VERO؛ لأن زيادة الوقت تعني التأخر في الاستجابة! إذا قال الامتحان (Fa diminuire il tempo) فالعبارة FALSO!
+      </div>
     </div>
-  </div>
 
-  <!-- 2. Effects & Critical Trap -->
-  <div class="section-block">
-    <h2>🧠 2. تأثير الكحول على السائق وأخطر فخ لغوي في الامتحان</h2>
-
-    <div class="trap-callout" style="background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.3); border-right-color: var(--amber-primary);">
-      <div class="trap-callout-header" style="color: #fcd34d;">🚨 أخطر فخ في كود السير: (Aumenta il tempo di reazione)</div>
-      <p>
-        السؤال الوزاري يقول: <em>"L'assunzione di alcool aumenta il tempo di reazione"</em>. <br>
-        <strong>الإجابة: VERO ✅</strong><br>
-        <strong>السبب:</strong> زيادة "زمن" رد الفعل تعني أنك أصبحت <strong>أبطأ</strong>! إذا كنت في الحالة الطبيعية تحتاج ثانية واحدة لتضغط الفرامل، بعد شرب الكحول ستحتاج ثانيتين أو ثلاثاً (أي أن الزمن زاد)، وبالتالي تقطع مسافة أطول قبل التوقف!
+    <!-- CARD: Visione a Tunnel -->
+    <div class="signal-card" data-category="alcool">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">👀 🚇</div>
+          <div class="badge-visual-code">Visione a Tunnel</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">ضيق المجال البصري والرؤية النفقية (Visione laterale e a tunnel)</h3>
+        <span class="card-it-title">Riduzione del campo visivo e visione a tunnel per alcool</span>
+      </div>
+      <p class="card-desc-text">
+        التأثير البصري المباشر لتعاطي الكحول؛ انحسار زاوية الرؤية الجانبية والمحيطية وتركيز البصر فقط في مساحة ضيقة للأمام كالنظر داخل نفق.
       </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تناول المشروبات الكحولية يؤدي إلى تضييق المجال البصري الجانبي (Restringe il campo visivo laterale)</li>
+          <li><span>✅</span> يؤدي الكحول إلى ظاهرة 'الرؤية النفقية' (Visione a tunnel) حيث يعجز السائق عن رؤية المشاة والمركبات القادمة من الجوانب والتقاطعات</li>
+          <li><span>✅</span> يضعف الكحول من قدرة العين على التكيف السريع مع تغيرات الإضاءة ويزيد من تأثر السائق بالانبهار الضوئي (Abbagliamento)</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تناول الكحول يوسع المجال البصري ويجعل السائق يرى زاوية 360 درجة بوضوح ❌</li>
+          <li><span>❌</span> الكحول يحمي شبكية العين من الانبهار بضوء السيارات القادمة ❌</li>
+          <li><span>❌</span> الكحول لا يؤثر على الرؤية الجانبية طالما كانت الإضاءة في الشارع ساطعة ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> الرؤية النفقية تعني انعدام إدراك الأخطار الجانبية؛ كالمشاة العابرين من الأرصفة أو السيارات الداخلة من الشوارع الفرعية!
+      </div>
     </div>
 
-    <div class="table-responsive">
-      <table class="content-table">
-        <thead>
-          <tr>
-            <th>الأثر على السائق (بالإيطالية)</th>
-            <th>المعنى بالعربية</th>
-            <th>حكم السؤال في الامتحان</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Aumenta il tempo di reazione</strong></td>
-            <td>يزيد زمن رد الفعل (استجابة أبطأ)</td>
-            <td><span style="color:var(--emerald-primary); font-weight:700;">VERO ✅</span></td>
-          </tr>
-          <tr>
-            <td><strong>Rende più rapido il tempo di reazione</strong></td>
-            <td>يجعل زمن رد الفعل أسرع</td>
-            <td><span style="color:var(--rose-primary); font-weight:700;">FALSO ❌</span></td>
-          </tr>
-          <tr>
-            <td><strong>Visione a tunnel (riduce visione laterale)</strong></td>
-            <td>يقلل الرؤية الجانبية ويحصر النظر كالنفق</td>
-            <td><span style="color:var(--emerald-primary); font-weight:700;">VERO ✅</span></td>
-          </tr>
-          <tr>
-            <td><strong>Falsa sicurezza di sé</strong></td>
-            <td>يمنح شعوراً خادعاً بالأمان والمبالغة في التقدير</td>
-            <td><span style="color:var(--emerald-primary); font-weight:700;">VERO ✅</span></td>
-          </tr>
-          <tr>
-            <td><strong>Aumenta la vigilanza e l'attenzione</strong></td>
-            <td>يزيد من اليقظة والانتباه</td>
-            <td><span style="color:var(--rose-primary); font-weight:700;">FALSO ❌</span></td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- CARD: Rifiuto Accertamento -->
+    <div class="signal-card" data-category="alcool">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🛑 👮</div>
+          <div class="badge-visual-code">Rifiuto Accertamento</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">رفض الخضوع لفحص الكحول بجهاز الإيثيلومتر (Rifiuto dell'accertamento)</h3>
+        <span class="card-it-title">Rifiuto di sottoporsi all'accertamento del tasso alcolemico</span>
+      </div>
+      <p class="card-desc-text">
+        العواقب القانونية المترتبة على امتناع السائق عن النفخ في جهاز فحص الكحول أو إجراء التحاليل الطبية التي تطلبها الشرطة.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> رفض الخضوع لفحص نسبة الكحول يعتبر جريمة جنائية يعاقب عليها القانون بأقصى العقوبات المقررة للشريحة العليا من المخالفة</li>
+          <li><span>✅</span> يترتب على الرفض عقوبة الحبس من 6 أشهر إلى سنة، وغرامة مالية من 1.500 إلى 6.000 يورو</li>
+          <li><span>✅</span> يتم تعليق رخصة القيادة من 6 أشهر إلى سنتين، مع إمكانية إلغائها نهائياً في حال التكرار (Recidiva)</li>
+          <li><span>✅</span> يتم مصادرة المركبة التابعة للمخالف وخصم 10 نقاط كاملة من رصيد الرخصة (20 نقطة للسائق الجديد)</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يحق للسائق رفض فحص الكحول بحرية دون أي مسؤولية قانونية إذا كان في عجلة من أمره ❌</li>
+          <li><span>❌</span> رفض الفحص يعاقب عليه فقط بإنذار شفهي وإلزام السائق بالعودة إلى بيته سيراً ❌</li>
+          <li><span>❌</span> يعتبر رفض الفحص دليلاً قانونياً قاطعاً على براءة السائق من تعاطي الكحول ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> الامتناع والرفض يساوي في القانون أسوأ حالات السكر (أكثر من 1.5 جم/لتر)؛ فلا مهرب من العقوبة الجنائية بالرفض!
+      </div>
+    </div>
+
+    <!-- CARD: Sostanze Stupefacenti -->
+    <div class="signal-card" data-category="droghe-farmaci">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">💊 🧪</div>
+          <div class="badge-visual-code">Sostanze Stupefacenti</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">المخدرات والمؤثرات العقلية والقيادة (Sostanze stupefacenti)</h3>
+        <span class="card-it-title">Guida sotto l'effetto di sostanze stupefacenti o psicotrope</span>
+      </div>
+      <p class="card-desc-text">
+        المخاطر الجسيمة لتناول المواد المخدرة؛ الهلوسة البصرية والسمعية، التقدير الخاطئ للمسافات، وفقدان الإحساس بالواقع والخطر.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> القيادة تحت تأثير المواد المخدرة أو المؤثرات العقلية تشكل جريمة جنائية خطيرة يعاقب عليها بالحبس والغرامة وتعليق الرخصة فوراً</li>
+          <li><span>✅</span> تسبب المخدرات تشوهاً في إدراك الواقع والمسافات والسرعات، وتؤدي إلى تباطؤ ردود الأفعال العصبية أو التصرف بعدوانية وتهور مفرط</li>
+          <li><span>✅</span> الفحص الطبي لإثبات تعاطي المخدرات يتم من خلال تحاليل السوائل البيولوجية (اللعاب أو البول أو الدم) في مرافق طبية معتمدة</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يسمح بتناول كميات ضئيلة من المواد المخدرة إذا كان السائق يقود في شوارع هادئة وخالية ❌</li>
+          <li><span>❌</span> تعاطي المخدرات لا يؤثر على القيادة إذا نام السائق لمدة ساعة بعد التعاطي ❌</li>
+          <li><span>❌</span> التحاليل الطبية للمخدرات غير ملزمة للسائق ولا يعتد بها في المحاكم الإيطالية ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> المخدرات ليس لها أي حد مسموح (Tolleranza zero مطلقة)؛ وثبوت أي أثر للمخدر في الجسم أثناء القيادة جريمة جنائية فورية!
+      </div>
+    </div>
+
+    <!-- CARD: Farmaci e Sonnolenza -->
+    <div class="signal-card" data-category="droghe-farmaci">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">💊 ⚠️</div>
+          <div class="badge-visual-code">Farmaci e Sonnolenza</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الأدوية العلاجية والنعاس والحساسية (Farmaci e idoneità alla guida)</h3>
+        <span class="card-it-title">Assunzione di farmaci, sedativi, antistaminici e sonnolenza</span>
+      </div>
+      <p class="card-desc-text">
+        التأثيرات الجانبية للأدوية المهدئة ومضادات الاكتئاب ومضادات الحساسية؛ خطر النعاس الفجائي وارتخاء العضلات، ومضاعفة أثرها مع الكحول.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> بعض الأدوية العلاجية، وبخاصة المهدئات (Sedativi) والمنومات ومضادات الحساسية (Antistaminici)، تسبب النعاس الشديد وبطء ردود الأفعال</li>
+          <li><span>✅</span> تناول الكحول بالتزامن مع الأدوية يؤدي إلى تفاعلات خطيرة تضاعف التأثير المهدئ وتفقد السائق السيطرة على نفسه</li>
+          <li><span>✅</span> يجب على السائق قراءة النشرة الدوائية المرفقة واستشارة الطبيب قبل قيادة السيارة عند تناول علاجات دوائية جديدة</li>
+          <li><span>✅</span> علامات التعب والنعاس (تكرار التثاؤب وثقل الجفون) تلزم السائق بالتوقف فوراً في أقرب استراحة وأخذ قسط من النوم</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> الأدوية التي تصرف بدون وصفة طبية لا تسبب النعاس إطلاقاً ولا تؤثر على القيادة ❌</li>
+          <li><span>❌</span> إذا شعر السائق بالنعاس الشديد يكفي فتح نافذة السيارة ومواصلة القيادة دون توقف ❌</li>
+          <li><span>❌</span> تناول الأدوية مع الكحول يقلل من أثر الكحول ويساعد على حرق السعرات ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> مضادات الحساسية (Antistaminici) تسبب النعاس! والحل الوحيد للتعب والنعاس هو التوقف والنوم، وليس فتح النافذة أو رفع صوت الراديو!
+      </div>
+    </div>
+
+    <!-- CARD: Chiamata 112 -->
+    <div class="signal-card" data-category="soccorso-base">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">📞 🚑</div>
+          <div class="badge-visual-code">Chiamata 112</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">طلب النجدة الطبية ورقم الطوارئ الأوروبي الموحد 112</h3>
+        <span class="card-it-title">Chiamata di emergenza al Numero Unico Europeo 112 / 118</span>
+      </div>
+      <p class="card-desc-text">
+        البروتوكول السليم للتواصل مع فرق الإنقاذ عند وقوع حادث؛ الإبلاغ الدقيق عن الموقع وعدد الضحايا وحالتهم لتوجيه الإسعاف المناسب.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> عند وقوع حادث به إصابات، يجب الاتصال فوراً برقم الطوارئ الأوروبي الموحد 112 (أو 118 لخدمات الإسعاف الطبي)</li>
+          <li><span>✅</span> يجب إعطاء بيانات دقيقة تشمل: موقع الحادث بدقة (اسم الشارع، الكيلومتر، الاتجاه)، عدد المركبات المتورطة، وعدد وحالة المصابين</li>
+          <li><span>✅</span> يجب تحديد ما إذا كان هناك مصابون محتجزون داخل المركبات أو فاقدون للوعي أو ينزفون بغزارة</li>
+          <li><span>✅</span> يجب عدم إغلاق المكالمة إلا بعد أن يأذن موظف مركز الطوارئ بذلك وبعد الإجابة على كافة تساؤلاته</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يكفي الاتصال بالطوارئ وإخبارهم بوجود حادث دون تحديد اسم الشارع أو رقم الكيلومتر ❌</li>
+          <li><span>❌</span> يجب إغلاق الهاتف فوراً بعد أول جملة لمنع استهلاك رصيد المكالمات ❌</li>
+          <li><span>❌</span> رقم الطوارئ 112 يتطلب وجود رصيد مالي في الهاتف لإجراء المكالمة ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> رقم 112 مجاني ويعمل حتى بدون شريحة SIM أو بدون رصيد! ويجب البقاء على الخط حتى ينهي مأمور العمليات المكالمة!
+      </div>
+    </div>
+
+    <!-- CARD: Sicurezza Soccorritore -->
+    <div class="signal-card" data-category="soccorso-base">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🛡️ 🧯</div>
+          <div class="badge-visual-code">Sicurezza Soccorritore</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">تأمين موقع الحادث وحماية المسعف والمصابين</h3>
+        <span class="card-it-title">Compiti del soccorritore e messa in sicurezza del luogo</span>
+      </div>
+      <p class="card-desc-text">
+        القاعدة الأساسية للإسعاف؛ سلامة المسعف أولاً، حماية مسرح الحادث من حوادث تصادم أخرى، وإطفاء محركات السيارات المصدومة وتجنب التدخين.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> الواجب الأول للمسعف هو حماية نفسه وتأمين موقع الحادث لتجنب وقوع ضحايا إضافيين (Autoprotezione e sicurezza della scena)</li>
+          <li><span>✅</span> يجب إطفاء محركات السيارات المتورطة في الحادث وسحب مفاتيح التشغيل لمنع اندلاع الحرائق</li>
+          <li><span>✅</span> يجب منع التدخين وإبعاد أي مصادر للهب أو الشرر عن موقع الحادث تحسباً لتسرب الوقود من الخزانات المتضررة</li>
+          <li><span>✅</span> يجب تحذير المركبات القادمة باستخدام أضواء الطوارئ ومثلث التحذير العاكس والسترة الفوسفورية</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يجب إشعال أعواد الثقاب للتأكد من عدم وجود تسريب للبنزين في محيط الحادث ❌</li>
+          <li><span>❌</span> يجب على المسعف التسرع بالقفز وسط مسار الأوتوستراد دون ارتداء السترة العاكسة ❌</li>
+          <li><span>❌</span> يلزم المسعف بنقل جميع المصابين في سيارته الخاصة فوراً دون انتظار سيارة الإسعاف ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> لا تكن ضحية ثانية! تأمين نفسك وارتداء السترة العاكسة وحماية الموقع تسبق الاقتراب من المصابين!
+      </div>
+    </div>
+
+    <!-- CARD: Posizione Laterale -->
+    <div class="signal-card" data-category="soccorso-base">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🛌 🔄</div>
+          <div class="badge-visual-code">Posizione Laterale</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">وضعية الإفاقة الجانبية للمغمى عليه (Posizione Laterale di Sicurezza - PLS)</h3>
+        <span class="card-it-title">Posizione laterale di sicurezza per infortunato incosciente</span>
+      </div>
+      <p class="card-desc-text">
+        الوضعية التشريحية الإلزامية للمصاب الفاقد للوعي ولكن يتنفس بانتظام؛ للحفاظ على مجرى الهواء مفتوحاً وتفادي الاختناق باللسان أو القيء.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تستخدم وضعية الإفاقة الجانبية (PLS) للشخص الفاقد للوعي الذي يتنفس بصورة طبيعية ومنتظمة</li>
+          <li><span>✅</span> تضمن هذه الوضعية بقاء مجرى الهواء سالكاً وتمنع رجوع اللسان للخلف وتسمح بتصريف السوائل والقيء للخارج</li>
+          <li><span>✅</span> يتم تمديد المصاب على جنبه مع ثني الساق العلوية وتثبيت الرأس مائلاً للخلف قليلاً مع فتح الفم لأسفل</li>
+          <li><span>✅</span> يجب فحص التنفس بانتظام أثناء بقاء المصاب في هذه الوضعية لحين وصول فرق الإسعاف المتخصصة</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تطبق وضعية الإفاقة الجانبية للشخص الذي توقف قلبه ونبضه تماماً ❌</li>
+          <li><span>❌</span> يجب وضع المصاب الفاقد للوعي جالساً على كرسي وإسناد رأسه للأمام بين ركبتيه ❌</li>
+          <li><span>❌</span> يجب سكب الخل أو العطور المركزة في أنف المصاب الفاقد للوعي لإيقاظه فوراً ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> وضعية PLS حصراً للمغمى عليه الذي يتنفس! وإذا كان هناك اشتباه قوي في كسر خطير بالعمود الفقري فيجب تجنب تحريكه إلا إذا كان يختنق بالقيء!
+      </div>
+    </div>
+
+    <!-- CARD: Emorragie Esterne -->
+    <div class="signal-card" data-category="emorragie-shock">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🩸 🩹</div>
+          <div class="badge-visual-code">Emorragie Esterne</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">إيقاف النزيف الدموي الخارجي والضغط الموضعي (Emorragia esterna)</h3>
+        <span class="card-it-title">Trattamento delle emorragie esterne e tamponamento</span>
+      </div>
+      <p class="card-desc-text">
+        التدابير الإسعافية للنزيف الحاد؛ استخدام الشاش المعقم والضغط المباشر على الجرح، وحظر نزع الأجسام الغريبة المغروزة.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> في حالات النزيف الخارجي الحاد، يجب الضغط المباشر على موضع الجرح باستخدام شاش معقم أو قطعة قماش نظيفة (Tamponamento)</li>
+          <li><span>✅</span> يجب رفع الطرف المصاب النازف (الذراع أو الساق) لأعلى من مستوى القلب إن أمكن لتقليل تدفق الدم</li>
+          <li><span>✅</span> إذا كان هناك جسم غريب (سلك، زجاج، حديد) مغروزاً داخل الجرح، يحظر تماماً نزعه أو محاولة إخراجه لأن ذلك يزيد النزيف بشدة</li>
+          <li><span>✅</span> يجب وضع المصاب النازف مستلقياً على ظهره لتفادي فقدان الوعي والإغماء نتيجة نقص تدفق الدم للدماغ</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يجب نزع الأجسام الزجاجية والمعدنية المغروزة في الجرح وغسلها بالماء الساخن فوراً ❌</li>
+          <li><span>❌</span> يجب وضع زيت المحركات أو البن المطحون داخل الجرح المفتوح لوقف النزيف ❌</li>
+          <li><span>❌</span> يجب ترك الجرح النازف مكشوفاً في الهواء الطلق دون أي تغطية حتى يتجمد الدم ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> الجسم المغروز في الجرح (Corpo estraneo) لا ينزع أبداً (Non deve essere rimosso)! نزعه يسبب نزيفاً صاعقاً وموتاً للمصاب!
+      </div>
+    </div>
+
+    <!-- CARD: Stato di Shock -->
+    <div class="signal-card" data-category="emorragie-shock">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🫀 🥶</div>
+          <div class="badge-visual-code">Stato di Shock</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">حالة الصدمة وهبوط الدورة الدموية (Stato di Shock)</h3>
+        <span class="card-it-title">Riconoscimento e trattamento dello stato di shock</span>
+      </div>
+      <p class="card-desc-text">
+        قصور حاد وخطير في التروية الدموية للأعضاء الحيوية؛ أعراضه وكيفية إسعافه بوضعية رفع القدمين وتدفئة المصاب.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تحدث الصدمة نتيجة فقدان كميات كبيرة من الدم، أو الآلام المبرحة، أو الحروق الواسعة، أو الصدمات النفسية الشديدة</li>
+          <li><span>✅</span> أعراض الصدمة: شحوب شديد في الوجه والشفتين، عرق بارد ولزج، نبض سريع وضعيف، تنفس سطحي متسارع، وقشعريرة وبرودة الأطراف</li>
+          <li><span>✅</span> إسعاف الصدمة: تمديد المصاب على ظهره مع رفع الساقين للأعلى بحوالي 30 سم (وضعية ترندلنبورغ) لتسهيل وصول الدم إلى المخ والقلب</li>
+          <li><span>✅</span> يجب تغطية المصاب ببطانية لحمايته من البرد ومنع فقدان حرارة جسمه، مع التحدث إليه لتهدئته وطمأنته</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يجب إعطاء المصاب بالصدمة كأساً من الخمر أو القهوة الساخنة لتدفئته ❌</li>
+          <li><span>❌</span> يجب إيقاف المصاب بالصدمة على قدميه وإجباره على المشي والقفز لتنشيط دورته الدموية ❌</li>
+          <li><span>❌</span> يجب صفع المصاب بالصدمة على وجهه لضمان بقائه مستيقظاً ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> المصاب بالصدمة يحظر إعطاؤه أي مشروب كحولي أو مسكنات دوائية إطلاقاً! والتصرف هو رفع الساقين (Gambe sollevate) وتغطيته!
+      </div>
+    </div>
+
+    <!-- CARD: Fratture agli Arti -->
+    <div class="signal-card" data-category="emorragie-shock">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🦴 🩹</div>
+          <div class="badge-visual-code">Fratture agli Arti</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الكسور في الأطراف وتثبيتها الآمن (Fratture agli arti)</h3>
+        <span class="card-it-title">Comportamento in caso di fratture ossee degli arti</span>
+      </div>
+      <p class="card-desc-text">
+        التعامل الطبي السليم مع اشتباه كسر العظام؛ تثبيت العضو في وضعه الحالي دون محاولة تعديله، وتغطية الكسور المفتوحة.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> عند الاشتباه بوجود كسر في عظام أحد الأطراف، يجب تثبيت الطرف المصاب لمنع حركته دون محاولة رد العظام إلى مكانها</li>
+          <li><span>✅</span> في الكسر المفتوح (الذي يخترق فيه العظم الجلد)، يجب تغطية الجرح بضمادة أو شاش معقم لوقف النزيف ومنع التلوث والعدوى</li>
+          <li><span>✅</span> يجب فحص نبض الأطراف والتأكد من وصول الدورة الدموية إلى الأصابع بعد التثبيت المؤقت</li>
+          <li><span>✅</span> يحظر تماماً سحب أو شد العضو المكسور أو محاولة إعادة استقامته بالقوة لأن ذلك قد يقطع الأعصاب والأوعية الدموية</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يجب إعادة العظم المكسور إلى مكانه بقوة فوراً قبل وصول سيارة الإسعاف ❌</li>
+          <li><span>❌</span> يجب تدليك العضو المكسور بزيوت ساخنة لتخفيف الورم ❌</li>
+          <li><span>❌</span> يجب إجبار المصاب بكسر في الساق على المشي عليها لتقوية العظام ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> لا تعد العظم لمكانه أبداً (Non tentare di raddrizzare l'osso)! فقط ثبته في وضعه الحالي لمنع تفاقم الكسر وتمزق الشرايين!
+      </div>
+    </div>
+
+    <!-- CARD: Ferito Ustionato -->
+    <div class="signal-card" data-category="ustioni-occhi">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🔥 💧</div>
+          <div class="badge-visual-code">Ferito Ustionato</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">إسعاف المصاب بالحروق النارية (Infortunato con ustioni)</h3>
+        <span class="card-it-title">Primo soccorso all'infortunato con ustioni</span>
+      </div>
+      <p class="card-desc-text">
+        البروتوكول الإسعافي للمصاب بالحروق؛ إخماد ألسنة اللهب، التبريد بالماء النظيف، وحظر نزع الملابس الملتصقة أو فقء البثور.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يجب إخماد النيران المشتعلة بملابس المصاب بتغطيته ببطانية أو دحرجته على الأرض وتجنب استخدام مطفأة الحريق الكيماوية على جسده مباشرة</li>
+          <li><span>✅</span> يجب تبريد الأجزاء المحترقة بسكب ماء بارد ونظيف عليها لمدة 10 إلى 15 دقيقة لخفض حرارة الجلد والحد من عمق الحرق</li>
+          <li><span>✅</span> يحظر تماماً نزع أو شد قطع الملابس الملتصقة بالجلد المحترق لتفادي سلخ أنسجة الجلد الحية</li>
+          <li><span>✅</span> يحظر وضع المراهم أو الزيوت أو معجون الأسنان على الحروق الحديثة، ويحظر فقء أو فتح البثور والفقاعات المائية (Vescicole)</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يجب شد ونزع الملابس الملتصقة بالحرق بالقوة لتطهير مكان الحريق ❌</li>
+          <li><span>❌</span> يجب دهن الحروق بالزبدة أو الزيوت الطبيعية فوراً لتبريدها ❌</li>
+          <li><span>❌</span> يجب فتح جميع الفقاعات المائية المتكونة بإبرة غير معقمة لإخراج السوائل ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> لا تنزع الملابس الملتصقة بالجلد، ولا تضع أي مراهم دهنية، ولا تفقأ البثور المائية (Non forare le vescicole)!
+      </div>
+    </div>
+
+    <!-- CARD: Corpo Estraneo Occhio -->
+    <div class="signal-card" data-category="ustioni-occhi">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">👁️ 🩹</div>
+          <div class="badge-visual-code">Corpo Estraneo Occhio</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">دخول جسم غريب في العين وإصابات العين (Corpo estraneo nell'occhio)</h3>
+        <span class="card-it-title">Presenza di un corpo estraneo nell'occhio del ferito</span>
+      </div>
+      <p class="card-desc-text">
+        الإجراء الدقيق عند إصابة العين بشظية أو زجاج؛ منع فرك العين، وحظر محاولة استخراج الأجسام المغروزة، وتضميد كلتا العينين.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> إذا دخل جسم غريب في عين المصاب، يجب منعه بشدة من فرك أو حك عينه المصابة لتفادي خدش القرنية</li>
+          <li><span>✅</span> إذا كان الجسم الغريب مغروزاً أو ملتصقاً بقرنية العين، يحظر تماماً محاولة نزعه أو استخراجه بأدوات حادة أو أعواد قطنية</li>
+          <li><span>✅</span> يجب تضميد وتغطية كلتا العينين (العين المصابة والسليمة معاً) بشاش معقم لمنع الحركات التوافقية المتزامنة للعين التي قد تزيد التلف</li>
+          <li><span>✅</span> يمكن غسل العين بلطف بكميات وفيرة من الماء النظيف فقط إذا كانت المادة ملوثة أو مادة كيميائية سائلة سقطت في العين</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يجب استخدام ملقط معدني لاستخراج قطع الزجاج المغروزة في بؤبؤ العين فوراً ❌</li>
+          <li><span>❌</span> يجب فرك العين بقوة باليد لإخراج ذرات الغبار بالحركة الميكانيكية ❌</li>
+          <li><span>❌</span> يجب وضع قطرات مضاد حيوي غير موصوفة طبياً داخل العين قبل نقل المصاب ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> تغطية كلتا العينين (Entrambi gli occhi) إجراء ذهبي في الامتحان؛ لأن حركة العين السليمة تحرك العين المصابة تلقائياً مما يزيد الخطر!
+      </div>
+    </div>
+
+    <!-- CARD: Casco Motociclista -->
+    <div class="signal-card" data-category="ustioni-occhi">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🏍️ ⛑️</div>
+          <div class="badge-visual-code">Casco Motociclista</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">حظر نزع الخوذة لسائق الدراجة المصاب (Casco del motociclista)</h3>
+        <span class="card-it-title">Divieto di togliere il casco al motociclista infortunato</span>
+      </div>
+      <p class="card-desc-text">
+        أهم قاعدة جنائية وطبية في كود السير؛ الحظر المطلق لنزع خوذة سائق الدراجة النارية بعد الحادث لحماية الفقرات العنقية من الشلل التام.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> كقاعدة عامة مطلقة، يحظر تماماً نزع الخوذة الواقية من رأس سائق الدراجة النارية المصاب في حادث مروري (Non togliere il casco)</li>
+          <li><span>✅</span> نزع الخوذة بحركات غير مدربة قد يؤدي إلى تحريك الفقرات العنقية المكسورة والتسبب في قطع الحبل الشوكي مما يؤدي للشلل الرباعي أو الوفاة الفورية</li>
+          <li><span>✅</span> يقتصر التصرف السليم على فتح قناع الخوذة الشفاف (Visiera) لتمكين المصاب من التنفس وفحص درجة وعيه دون تحريك الرأس</li>
+          <li><span>✅</span> الاستثناء الوحيد لنزع الخوذة هو عندما يكون المصاب في حالة توقف تام للتنفس (Arresto respiratorio) ويكون نزع الخوذة ضرورياً لإجراء الإنعاش الرئوي</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يجب نزع الخوذة فوراً من رأس المصاب ليشعر بالراحة وتجديد الهواء ❌</li>
+          <li><span>❌</span> نزع الخوذة يعتبر أول إجراء إلزامي يجب أن يقوم به أي شخص يمر بموقع حادث دراجة نارية ❌</li>
+          <li><span>❌</span> يسمح بنزع الخوذة إذا طلب المصاب ذلك حتى لو كان يعاني من آلام شديدة في الرقبة ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> امتحان الوزارة يكرر دائماً: 'Bisogna togliere il casco...' والإجابة حتماً FALSO! الخوذة لا تنزع إلا في حالات الطوارئ القصوى لإنقاذ التنفس!
+      </div>
+    </div>
+
+    <!-- CARD: Divieti al Soccorritore -->
+    <div class="signal-card" data-category="soccorso-base">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🚫 🍷</div>
+          <div class="badge-visual-code">Divieti al Soccorritore</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">المحظورات القاطعة على المسعف: الأدوية والمشروبات (Cosa NON fare)</h3>
+        <span class="card-it-title">Divieti assoluti per il soccorritore non medico</span>
+      </div>
+      <p class="card-desc-text">
+        قائمة المحظورات الطبية الجنائية؛ حظر إعطاء أي عقاقير أو مسكنات، حظر إعطاء المشروبات الكحولية للمصابين، وتجنب التدخلات الجراحية.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يحظر تماماً على المسعف غير المؤهل طبياً إعطاء أي نوع من الأدوية أو المسكنات أو المهدئات للمصابين في الحادث</li>
+          <li><span>✅</span> يحظر إعطاء المشروبات الكحولية للمصابين حتى لو كانوا يعانون من البرد الشديد أو الصدمة لأن الكحول يوسع الأوعية ويزيد هبوط الضغط والنزيف</li>
+          <li><span>✅</span> يحظر إعطاء الماء أو السوائل للشخص الفاقد للوعي أو المصاب بجروح في البطن أو المشتبه بحاجته لجراحة عاجلة لتفادي الاختناق بالرئة</li>
+          <li><span>✅</span> يحظر نقل المصابين بإصابات خطيرة في سيارات خاصة غير مجهزة ويجب انتظار وصول سيارات الإسعاف المجهزة طبياً</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> ينصح بإعطاء المصاب المتألم جرعة مسكن قوية مثل الأسبرين لتخفيف وجعه قبل وصول الإسعاف ❌</li>
+          <li><span>❌</span> المشروبات الكحولية تعتبر علاجاً سريعاً ومفيداً لتدفئة المصاب الذي يرتجف من البرد ❌</li>
+          <li><span>❌</span> يجب إعطاء لتر من الماء البارد للشخص المغمى عليه لمساعدته على استعادة الوعي ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> المسعف يقدم الحماية والدعم والتثبيت، ولا يعطي أبداً أي دواء ولا مشروب كحولي ولا يمارس عملاً طبياً تخصصياً!
+      </div>
+    </div>
+  </div><!-- /signals-grid -->
+
+  <!-- GLOSSARY SECTION -->
+  <div class="section-heading" id="glossary-section">
+    <div class="section-badge">المعجم الطبي والتشريعي للباب 22</div>
+    <h2 class="section-title">قاموس المصطلحات الإيطالية للكحول والمخدرات والإسعاف</h2>
+  </div>
+
+  <div class="glossary-grid">
+    <div class="glossary-card">
+      <div class="term-it">Tasso alcolemico</div>
+      <div class="term-ar">نسبة تركيز الكحول في الدم</div>
+      <div class="term-def">كمية الكحول مقاسة بالجرام لكل لتر من الدم (g/l)؛ الحد الأقصى للسائق العادي 0.5 جم/لتر، وللسائق الجديد صفر مطلق (0.0).</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Tempo di reazione</div>
+      <div class="term-ar">زمن رد الفعل العصبي</div>
+      <div class="term-def">الفترة الزمنية بين رؤية الخطر والبدء في التصرف؛ يزداد مع تعاطي الكحول والمخدرات والإرهاق، مما يعني استجابة أبطأ وأكثر خطورة.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Visione a tunnel</div>
+      <div class="term-ar">الرؤية النفقية (انحسار الرؤية الجانبية)</div>
+      <div class="term-def">حالة بصرية ناجمة عن الكحول أو السرعة المفرطة يضيق فيها المجال البصري الجانبي فيرى السائق فقط ما أمامه مباشرة كأنه في نفق.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Etilometro</div>
+      <div class="term-ar">جهاز قياس الكحول بالهواء الرئوي</div>
+      <div class="term-def">جهاز أمني تستخدمه الشرطة لقياس تركيز الكحول في هواء الزفير، ورفض الفحص به يعتبر جريمة جنائية فورية.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Sostanze psicotrope</div>
+      <div class="term-ar">المؤثرات العقلية والنفسية</div>
+      <div class="term-def">مركبات كيميائية أو مخدرات تؤثر على كيمياء الدماغ وتعدل المزاج والإدراك الحسي وتفقد السائق الأهلية البدنية للقيادة.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Antistaminici</div>
+      <div class="term-ar">مضادات الهيستامين (أدوية الحساسية)</div>
+      <div class="term-def">أدوية لعلاج الحساسية تؤدي إلى آثار جانبية متمثلة في النعاس وثقل الجفون وبطء التركيز، وتزداد خطورتها مع الكحول.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Primo soccorso</div>
+      <div class="term-ar">الإسعاف الأولي الميداني</div>
+      <div class="term-def">مجموعة التدابير الفورية والمؤقتة التي يقدمها المسعف للحفاظ على حياة المصاب ومنع تدهور حالته لحين وصول الكادر الطبي.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Posizione laterale di sicurezza (PLS)</div>
+      <div class="term-ar">وضعية الإفاقة الجانبية الآمنة</div>
+      <div class="term-def">تمديد المصاب المغمى عليه الذي يتنفس على جانبه لمنع انسداد مجرى التنفس باللسان أو القيء ولتفادي الاختناق.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Stato di shock</div>
+      <div class="term-ar">حالة الصدمة وهبوط التروية</div>
+      <div class="term-def">قصور دوراني حاد في تغذية الأعضاء الحيوية بالدم، يعالج بتمديد المصاب ورفع الساقين للأعلى 30 سم وتغطيته لتدفئته.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Emorragia arteriosa</div>
+      <div class="term-ar">النزيف الشرياني الحاد</div>
+      <div class="term-def">خروج الدم بلون أحمر فاتح متدفقاً على شكل نبضات متزامنة مع نبضات القلب، ويتطلب ضغطاً مباشراً سريعاً بشاش معقم.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Emorragia venosa</div>
+      <div class="term-ar">النزيف الوريدي المستمر</div>
+      <div class="term-def">تدفق الدم بلون داكن وبصورة مستمرة دون نبضات، يعالج بضمادة ضاغطة على موضع الجرح ورفع الطرف المصاب.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Casco protettivo</div>
+      <div class="term-ar">الخوذة الواقية للدراجات</div>
+      <div class="term-def">غطاء واقٍ للرأس يحظر نزعه عن قائد الدراجة المصاب بعد الحادث لحماية الفقرات العنقية من الشلل، إلا عند توقف التنفس.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Ustione</div>
+      <div class="term-ar">الحرق الناري</div>
+      <div class="term-def">تلف في أنسجة الجلد ناتج عن النيران أو المواد الساخنة، يبرد بالماء النظيف ويحظر نزع الملابس الملتصقة به أو فقء البثور.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Vescicole</div>
+      <div class="term-ar">البثور والفقاعات المائية الجلدية</div>
+      <div class="term-def">تجمعات مائية تحت الجلد المحترق تحمي الطبقات السفلية من التلوث ويحظر تماماً فتحها أو وخزها بالإبر.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Corpo estraneo</div>
+      <div class="term-ar">الجسم الغريب المغروز</div>
+      <div class="term-def">شظية أو قطعة حديد أو زجاج مغروزة في العين أو الجسم؛ يحظر نزعها نهائياً لتفادي مضاعفة النزيف وتلف الأنسجة.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Numero Unico 112</div>
+      <div class="term-ar">رقم الطوارئ الأوروبي الموحد 112</div>
+      <div class="term-def">الرقم الهاتفي المجاني الموحد لطلب كافة خدمات الطوارئ (الإسعاف 118، الشرطة 113، الدرك 112، والمطافئ 115).</div>
     </div>
   </div>
 
-  <!-- 3. False Myths -->
-  <div class="section-block">
-    <h2>❌ 3. المعتقدات الخاطئة في الامتحان (Falsi Miti)</h2>
-    <p style="color:var(--text-secondary); margin-bottom: 12px;">
-      جميع الأسئلة التي تدعي وجود طرق لتسريع حرق الكحول أو خفض نسبته في الدم هي أسئلة <strong>FALSO قاطعة</strong>:
-    </p>
+  <!-- TRAPS SECTION -->
+  <div class="traps-section" id="traps-section">
+    <div class="section-heading">
+      <div class="section-badge">الفخاخ الامتحانية الوزارية الرسمية</div>
+      <h2 class="section-title">أخطر 12 فخاً وزارياً في الباب 22 يقع فيها الطلاب</h2>
+    </div>
 
-    <div class="aid-grid">
-      <div class="aid-card" style="border-right: 3px solid var(--rose-primary);">
-        <div class="aid-icon">☕</div>
-        <h3>القهوة المركزة (Caffè amaro)</h3>
-        <p>لا تسرع التخلص من الكحول في الدم نهائياً؛ الكبد هو العضو الوحيد الذي يعالج الكحول بمعدل بيولوجي ثابت.</p>
+    <div class="traps-grid">
+      <!-- Trap 1 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ تناقص زمن رد الفعل بالكحول</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"L'assunzione di bevande alcoliche rende più vigili e fa diminuire il tempo di reazione del conducente"</p>
+        <p class="trap-quiz-trans">«تناول المشروبات الكحولية يجعل السائق أكثر يقظة ويقلل من زمن رد فعله»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة تماماً (FALSO). الكحول يطيل ويزيد زمن رد الفعل (Fa aumentare il tempo di reazione)؛ وزيادة الزمن تعني أن السائق يستغرق وقتاً أطول للتفكير والتصرف فتكون استجابته متأخرة وبطيئة جداً.
+        </div>
       </div>
 
-      <div class="aid-card" style="border-right: 3px solid var(--rose-primary);">
-        <div class="aid-icon">🚿</div>
-        <h3>الاستحمام بماء بارد (Doccia fredda)</h3>
-        <p>قد يوقظك للحظات لكنه لا يغير من نسبة الكحول المقاسة في الدم (Tasso alcolemico).</p>
+      <!-- Trap 2 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ نزع خوذة سائق الدراجة المصاب</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"In caso di incidente con motociclista a terra, la prima cosa da fare è togliere subito il casco per farlo respirare"</p>
+        <p class="trap-quiz-trans">«عند وقوع حادث وسقوط سائق الدراجة أرضاً، أول ما يجب فعله هو نزع الخوذة فوراً لتمكينه من التنفس»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة وخطيرة جداً (FALSO). يحظر نزع الخوذة عن سائق الدراجة المصاب قطعاً، لأن أي حركة غير مدربة للرقبة قد تؤدي إلى قطع الحبل الشوكي وحدوث شلل رباعي أو وفاة؛ ويقتصر الأمر على فتح واجهة الخوذة الزجاجية فقط.
+        </div>
       </div>
 
-      <div class="aid-card" style="border-right: 3px solid var(--rose-primary);">
-        <div class="aid-icon">🍬</div>
-        <h3>حلوى النعناع ومعجون الأسنان</h3>
-        <p>لا تخدع جهاز قياس التنفس (Etilometro) لأن الجهاز يقيس الكحول في هواء الحويصلات الهوائية وليس رائحة الفم.</p>
+      <!-- Trap 3 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ علاج الصدمة بالمشروبات الكحولية</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"All'infortunato della strada in stato di shock bisogna somministrare una piccola quantità di bevanda alcolica"</p>
+        <p class="trap-quiz-trans">«يجب إعطاء المصاب في حادث والموجود في حالة صدمة كمية قليلة من مشروب كحولي»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة تماماً (FALSO). يحظر تماماً إعطاء الكحول للمصاب بالصدمة؛ فالكحول يوسع الأوعية الدموية الطرفية ويزيد من هبوط ضغط الدم ويفاقم الصدمة، والتصرف السليم هو تمديده ورفع ساقيه 30 سم وتغطيته لتدفئته.
+        </div>
       </div>
 
-      <div class="aid-card" style="border-right: 3px solid var(--rose-primary);">
-        <div class="aid-icon">🐌</div>
-        <h3>القيادة بسرعة بطيئة جداً</h3>
-        <p>لا تجعل القيادة قانونية إذا كانت النسبة فوق الحد المسموح، لأن الخلل الذهني والبطء يبقى قائماً.</p>
+      <!-- Trap 4 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ الصفر المطلق للسائقين الجدد</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"Per i primi tre anni dal conseguimento della patente B, il limite di tasso alcolemico è pari a zero"</p>
+        <p class="trap-quiz-trans">«في السنوات الثلاث الأولى من الحصول على رخصة B، يكون الحد القانوني لنسبة الكحول مساوياً للصفر»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة تماماً (VERO). يفرض كود السير مبدأ التسامح الصفري (Zero assoluto) على السائقين الجدد في أول 3 سنوات ومن هم دون سن 21 عاماً والسائقين المحترفين؛ فلا يجوز تناول أي قطرة كحول قبل القيادة.
+        </div>
+      </div>
+
+      <!-- Trap 5 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ القهوة وتفكيك الكحول</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"L'assunzione di caffè amaro o una doccia fredda consentono di eliminare rapidamente l'alcool dal sangue"</p>
+        <p class="trap-quiz-trans">«تناول القهوة المرة أو أخذ دش بارد يتيحان التخلص السريع من الكحول في الدم»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). لا القهوة ولا الاستحمام ولا ممارسة الرياضة تؤثر على سرعة تفكيك الكحول في الكبد؛ والعامل الوحيد الذي يخفض نسبة الكحول في الدم هو مرور الوقت بمعدل ثابت (حوالي 0.15 جم/لتر بالساعة).
+        </div>
+      </div>
+
+      <!-- Trap 6 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ نزع الملابس الملتصقة بالحروق</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Se un infortunato presenta ustioni, bisogna strappare con forza i vestiti attaccati alla pelle per disinfettare la ferita"</p>
+        <p class="trap-quiz-trans">«إذا كان المصاب يعاني من حروق، يجب نزع الملابس الملتصقة بالجلد بقوة لتطهير الجرح»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة وخطيرة (FALSO). يحظر نزع أو شد الملابس الملتصقة بالجلد المحترق لأن ذلك يسلخ طبقات الجلد الحية ويحدث نزيفاً وتلوثاً، والتصرف السليم هو تبريد المنطقة بالماء البارد وقص الملابس حول الحرق دون شدها.
+        </div>
+      </div>
+
+      <!-- Trap 7 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ وضعية ترندلنبورغ لعلاج الصدمة</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"La persona in stato di shock deve essere distesa a terra con le gambe sollevate di circa 20-30 centimetri"</p>
+        <p class="trap-quiz-trans">«يجب تمديد الشخص في حالة صدمة أرضاً مع رفع ساقيه حوالي 20 إلى 30 سنتيمتراً»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة تماماً (VERO). رفع الساقين للأعلى يساعد بتأثير الجاذبية على توجيه كميات إضافية من الدم من الأطراف السفلية نحو المراكز الحيوية (المخ والقلب والرئتين) لإنقاذ حياة المصاب.
+        </div>
+      </div>
+
+      <!-- Trap 8 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ نزع الأجسام المغروزة في الجروح</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Se nel corpo dell'infortunato è conficcato un oggetto appuntito (es. vetro o metallo), bisogna estrarlo immediatamente"</p>
+        <p class="trap-quiz-trans">«إذا كان هناك جسم حاد مغروزاً في جسم المصاب (كزجاج أو معدن)، يجب استخراجه فوراً»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة تماماً (FALSO). يحظر نزع الجسم المغروز؛ لأن الجسم يعمل كسدادة تمنع تدفق الدم من الشرايين الممزقة، ونزعه قد يؤدي إلى نزيف صاعق غير قابل للسيطرة يؤدي للوفاة خلال دقائق.
+        </div>
+      </div>
+
+      <!-- Trap 9 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ تغطية كلتا العينين عند إصابة إحداهما</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"In caso di corpo estraneo nell'occhio, è opportuno bendare entrambi gli occhi per evitare movimenti coordinati"</p>
+        <p class="trap-quiz-trans">«عند وجود جسم غريب في العين، من المناسب تضميد كلتا العينين لمنع الحركات التوافقية»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة تماماً (VERO). عضلات العينين تتحرك بشكل متزامن ولا إرادي؛ فإذا تركت العين السليمة مفتوحة ستتحرك العين المصابة معها تلقائياً مسببة احتكاك الجسم الغريب بالقرنية وزيادة التمزق الداخلي.
+        </div>
+      </div>
+
+      <!-- Trap 10 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ رفض فحص الكحول وغرامته</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Il rifiuto di sottoporsi all'accertamento con etilometro comporta unicamente una sanzione amministrativa pecuniaria"</p>
+        <p class="trap-quiz-trans">«يترتب على رفض الخضوع للفحص بجهاز الإيثيلومتر مجرد عقوبة إدارية مالية فقط»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). رفض الفحص يشكل جريمة جنائية يعاقب عليها بعقوبات الشريحة القصوى: الحبس من 6 أشهر إلى سنة، وغرامة من 1.500 إلى 6.000 يورو، وتعليق الرخصة من 6 أشهر لسنتين، ومصادرة المركبة.
+        </div>
+      </div>
+
+      <!-- Trap 11 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ إعطاء أدوية ومسكنات للمصاب</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Il soccorritore deve somministrare farmaci antidolorifici all'infortunato che lamenta forti dolori"</p>
+        <p class="trap-quiz-trans">«يجب على المسعف إعطاء أدوية مسكنة للألم للمصاب الذي يشتكي من آلام شديدة»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). يحظر على المسعف إعطاء أي دواء على الإطلاق؛ فالأدوية قد تسبب صدمة حساسية مميتة، أو تخفي الأعراض الإكلينيكية الحقيقية التي يحتاجها الطبيب للتشخيص، أو تزيد النزيف الداخلي.
+        </div>
+      </div>
+
+      <!-- Trap 12 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ وضعية الإفاقة الجانبية للمغمى عليه</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"La posizione laterale di sicurezza deve essere utilizzata per l'infortunato che ha perso i sensi ma respira regolarmente"</p>
+        <p class="trap-quiz-trans">«يجب استخدام وضعية الإفاقة الجانبية للشخص المصاب الفاقد للوعي ولكنه يتنفس بانتظام»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة تماماً (VERO). وضعية الإفاقة الجانبية (PLS) تضمن بقاء المسالك الهوائية سالكة وتمنع ارتخاء اللسان وسقوطه في الحلق وتسهل خروج القيء دون التسبب في انسداد الرئتين والاختناق.
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- 4. Refusal of Testing -->
-  <div class="section-block">
-    <h2>⚖️ 4. رفض الخضوع للفحص (Rifiuto dell'Accertamento)</h2>
-    <p style="color:var(--text-secondary);">
-      إذا طلبت الشرطة من السائق النفخ في جهاز فحص الكحول (Etilometro) أو فحص المخدرات ورفض السائق:
-    </p>
-    <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 18px; margin-top: 12px;">
-      <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem;">
-        <li>⚖️ <strong>عقوبة الرفض:</strong> يعاقب السائق قانونياً بـ <strong>أقصى عقوبة مقررة (Massime sanzioni previste)</strong> كما لو تم ضبطه بأعلى شريحة كحولية (&gt; 1.5 g/l).</li>
-        <li>🚫 <strong>سحب رخصة القيادة الفوري (Sospensione della patente)</strong> ومصادرة أو حجز المركبة.</li>
-        <li>❌ <strong>فخ الامتحان:</strong> السؤال الذي يزعم أن الرافض يعاقب بأدنى عقوبة (Sanzioni minime) هو <strong>FALSO</strong>.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- 5. Medications & Fatigue -->
-  <div class="section-block">
-    <h2>💊 5. الأدوية، الإرهاق، ونوبة النعاس (Colpo di Sonno)</h2>
-    <div class="table-responsive">
-      <table class="content-table">
-        <thead>
-          <tr>
-            <th>العامل المسبب</th>
-            <th>التأثير على القيادة</th>
-            <th>القاعدة الوزارية</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>المهدئات ومضادات الهستامين (Sedativi / Antistaminici)</strong></td>
-            <td>تسبب النعاس الشديد (Sonnolenza) وتباطؤ ردود الأفعال</td>
-            <td>يمنع القيادة تحت تأثيرها دون استشارة طبية وقراءة النشرة</td>
-          </tr>
-          <tr>
-            <td><strong>نوبة النعاس المفاجئة (Colpo di sonno)</strong></td>
-            <td>فقدان الوعي للحظات قليلة كافية لوقوع حادث مميت</td>
-            <td>الحل الوحيد: التوقف فوراً في مكان آمن (Area di servizio) والنوم قليلاً</td>
-          </tr>
-          <tr>
-            <td><strong>المشروبات المنبهة (Energy drinks)</strong></td>
-            <td>تؤخر الشعور بالإرهاق مؤقتاً</td>
-            <td>لا تلغي حاجة الجسد للنوم وقد يليها هبوط مفاجئ في التركيز</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- 6. First Aid Rules -->
-  <div class="section-block">
-    <h2>🩹 6. الإسعافات الأولية لحوادث الطرق (Primo Soccorso)</h2>
-    <p style="color:var(--text-secondary); margin-bottom: 14px;">
-      الهدف من الإسعاف الأولي هو إبقاء المصاب على قيد الحياة ومنع تدهور حالته حتى وصول الإسعاف المتخصص:
-    </p>
-
-    <div class="aid-grid">
-      <div class="aid-card">
-        <div class="aid-icon">📞</div>
-        <h3>1. الاتصال بالطوارئ (112 / 118)</h3>
-        <p>تحديد مكان الحادث بدقة، عدد المصابين، وحالتهم. تأمين موقع الحادث بالمثلث العاكس لمنع حوادث إضافية.</p>
+  <!-- CHAPTER PAGINATION -->
+  <nav class="chapter-pagination">
+    <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="pagination-btn prev-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">→</span>
+      <div class="pagination-info">
+        <span class="pagination-label">الباب السابق</span>
+        <span class="pagination-title">الباب 21: حوادث السير والطقس</span>
       </div>
+    </a>
 
-      <div class="aid-card">
-        <div class="aid-icon">🚫</div>
-        <h3>2. عدم تحريك المصاب (Non spostare)</h3>
-        <p>لا تحرك المصاب إلا في حال وجود <strong>خطر وشيك ومميت</strong> (حريق بالمركبة، أو خطر سقوطها في هاوية).</p>
+    <a href="index.html" class="pagination-btn index-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">🏛️</span>
+      <div class="pagination-info">
+        <span class="pagination-label">العودة</span>
+        <span class="pagination-title">فهرس المكتبة الشاملة</span>
       </div>
+    </a>
 
-      <div class="aid-card">
-        <div class="aid-icon">⛑️</div>
-        <h3>3. عدم نزع الخوذة (Non togliere il casco)</h3>
-        <p>يمنع تماماً نزع خوذة راكب الدراجة النارية منعاً لتلف النخاع الشوكي والفقرات العنقية، إلا للمسعف المدرب.</p>
+    <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="pagination-btn next-btn" onclick="soundEngine.click()">
+      <div class="pagination-info" style="text-align:left;">
+        <span class="pagination-label">الباب التالي</span>
+        <span class="pagination-title">الباب 23: المسؤولية والتأمين RCA</span>
       </div>
+      <span class="pagination-icon">←</span>
+    </a>
+  </nav>
 
-      <div class="aid-card">
-        <div class="aid-icon">🚰</div>
-        <h3>4. عدم إعطاء ماء أو أدوية</h3>
-        <p><strong>FALSO:</strong> إعطاء ماء أو مسكنات للمصاب قد يسبب الاختناق بالرئة إذا تقيأ أو دخل في غيبوبة.</p>
-      </div>
+</main>
 
-      <div class="aid-card">
-        <div class="aid-icon">🩸</div>
-        <h3>5. النزيف الشديد (Emorragia)</h3>
-        <p>الضغط المباشر على الجرح بضمادة أو شاش معقم (Compressione diretta). تجنب ربط العضد إلا في البتر الكامل.</p>
-      </div>
-
-      <div class="aid-card">
-        <div class="aid-icon">🛌</div>
-        <h3>6. وضعية الإفاقة (PLS)</h3>
-        <p>للشخص <strong>فاقد الوعي لكنه يتنفس</strong>: يوضع على جانبه (Posizione Laterale di Sicurezza) لفتح مجرى الهواء.</p>
-      </div>
-
-      <div class="aid-card">
-        <div class="aid-icon">🥶</div>
-        <h3>7. الصدمة العصبية (Stato di Shock)</h3>
-        <p>شحوب، تعرق بارد، نبض سريع وضعيف. الإسعاف: تدفئة المصاب بغطاء ورفع ساقيه للأعلى (Gambe sollevate).</p>
-      </div>
-
-      <div class="aid-card">
-        <div class="aid-icon">🗡️</div>
-        <h3>8. الأجسام المغروزة (Corpo conficcato)</h3>
-        <p>لا تنزع أي جسم غريب مغروز في جسد المصاب (قطعة زجاج أو حديد) لأن نزعه قد يفجر نزيفاً حاداً فورياً.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- 7. Bilingual Glossary -->
-  <div class="section-block">
-    <h2>📖 7. القاموس المصور للمصطلحات الوزارية الأكثر تكراراً</h2>
-    <div class="table-responsive">
-      <table class="content-table">
-        <thead>
-          <tr>
-            <th>المصطلح الإيطالي</th>
-            <th>الترجمة العربية</th>
-            <th>تنبيه الامتحان</th>
-            <th>استماع</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Tasso alcolemico</strong></td>
-            <td>نسبة الكحول في الدم</td>
-            <td>حد الصفر للجدد (0.0)، و (0.5) للقدامى</td>
-            <td><button class="btn-speak" onclick="speakText('Tasso alcolemico')">🔊 نطق</button></td>
-          </tr>
-          <tr>
-            <td><strong>Tempo di reazione</strong></td>
-            <td>زمن رد الفعل</td>
-            <td>الكحول يزيده (Aumenta) مما يجعلك أبطأ</td>
-            <td><button class="btn-speak" onclick="speakText('Tempo di reazione')">🔊 نطق</button></td>
-          </tr>
-          <tr>
-            <td><strong>Neopatentati</strong></td>
-            <td>السائقون الجدد</td>
-            <td>أول 3 سنوات من نيل الرخصة</td>
-            <td><button class="btn-speak" onclick="speakText('Neopatentati')">🔊 نطق</button></td>
-          </tr>
-          <tr>
-            <td><strong>Visione a tunnel</strong></td>
-            <td>الرؤية النفقية</td>
-            <td>تضيق مجال الرؤية وانعدام الرؤية الجانبية</td>
-            <td><button class="btn-speak" onclick="speakText('Visione a tunnel')">🔊 نطق</button></td>
-          </tr>
-          <tr>
-            <td><strong>Sonnolenza</strong></td>
-            <td>النعاس والإغفاء</td>
-            <td>تسببه الأدوية المهدئة ومضادات الهستامين</td>
-            <td><button class="btn-speak" onclick="speakText('Sonnolenza')">🔊 نطق</button></td>
-          </tr>
-          <tr>
-            <td><strong>Colpo di sonno</strong></td>
-            <td>نوبة نوم مباغتة</td>
-            <td>إشارة للتوقف فوراً في استراحة الطريق</td>
-            <td><button class="btn-speak" onclick="speakText('Colpo di sonno')">🔊 نطق</button></td>
-          </tr>
-          <tr>
-            <td><strong>Rifiuto dell'accertamento</strong></td>
-            <td>رفض الخضوع للفحص</td>
-            <td>يعاقب بأقصى عقوبة مقررة (Massima sanzione)</td>
-            <td><button class="btn-speak" onclick="speakText('Rifiuto dell accertamento')">🔊 نطق</button></td>
-          </tr>
-          <tr>
-            <td><strong>Stupefacenti</strong></td>
-            <td>مواد مخدرة</td>
-            <td>القيادة تحت تأثيرها جريمة جنائية ومصادرة مركبة</td>
-            <td><button class="btn-speak" onclick="speakText('Stupefacenti')">🔊 نطق</button></td>
-          </tr>
-          <tr>
-            <td><strong>Posizione laterale di sicurezza</strong></td>
-            <td>وضعية الإفاقة الجانبية</td>
-            <td>للمصاب فاقد الوعي والذي يتنفس بصورة طبيعية</td>
-            <td><button class="btn-speak" onclick="speakText('Posizione laterale di sicurezza')">🔊 نطق</button></td>
-          </tr>
-          <tr>
-            <td><strong>Stato di shock</strong></td>
-            <td>حالة الصدمة الحادة</td>
-            <td>تدفئة المصاب ورفع ساقيه للأعلى</td>
-            <td><button class="btn-speak" onclick="speakText('Stato di shock')">🔊 نطق</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- 8. Interactive Exam Traps Simulator -->
-  <div class="section-block quiz-section">
-    <h2>🎯 8. محاكي اختبار الفخاخ الوزارية في الباب 22</h2>
-    <p style="color:var(--text-secondary); margin-bottom: 20px;">
-      اختبر قدرتك الآن على كشف أشهر أفخاخ الوزارة في هذا الباب واحصل على تغذية راجعة فورية:
-    </p>
-
-    <!-- Quiz Q1 -->
-    <div class="quiz-card" id="q-card-1">
-      <div class="quiz-q-num">سؤال وزاري #1 • فخ زمن رد الفعل</div>
-      <div class="quiz-text-it">L'assunzione di alcool rende più rapido il tempo di reazione del conducente.</div>
-      <div class="quiz-text-ar">تناول الكحول يجعل زمن رد فعل السائق أكثر سرعة.</div>
-      <div class="quiz-btns">
-        <button class="btn-v" onclick="handleQuiz(1, true, false, '❌ خطأ! الكحول يجعله أبطأ (Rallenta la reazione)، أي أنه يزيد من الزمن (Aumenta il tempo di reazione).')">VERO (صح)</button>
-        <button class="btn-f" onclick="handleQuiz(1, false, false, '✅ إجابة ممتازة! العبارة خاطئة لأن الكحول يزيد زمن رد الفعل ولا يجعله أسرع.')">FALSO (خطأ)</button>
-      </div>
-      <div class="quiz-feedback" id="feedback-1"></div>
-    </div>
-
-    <!-- Quiz Q2 -->
-    <div class="quiz-card" id="q-card-2">
-      <div class="quiz-q-num">سؤال وزاري #2 • فخ شرب القهوة</div>
-      <div class="quiz-text-it">L'assunzione di caffè permette di eliminare rapidamente l'alcool dal sangue.</div>
-      <div class="quiz-text-ar">تناول القهوة يسمح بالتخلص السريع من الكحول في الدم.</div>
-      <div class="quiz-btns">
-        <button class="btn-v" onclick="handleQuiz(2, true, false, '❌ خطأ! القهوة لا تسرع حرق الكحول إطلاقاً؛ الكبد يعمل بمعدل بيولوجي ثابت.')">VERO (صح)</button>
-        <button class="btn-f" onclick="handleQuiz(2, false, false, '✅ إجابة صحيحة! القهوة من المعتقدات الخاطئة (Falsi miti) ولا تقلل نسبة الكحول المقاسة.')">FALSO (خطأ)</button>
-      </div>
-      <div class="quiz-feedback" id="feedback-2"></div>
-    </div>
-
-    <!-- Quiz Q3 -->
-    <div class="quiz-card" id="q-card-3">
-      <div class="quiz-q-num">سؤال وزاري #3 • فخ السائق الجديد Neopatentato</div>
-      <div class="quiz-text-it">Un conducente nei primi tre anni dal conseguimento della patente B deve guidare con tasso alcolemico pari a zero.</div>
-      <div class="quiz-text-ar">يجب على السائق في أول ثلاث سنوات من نيل رخصة القيادة B أن يقود بمعدل كحول يساوي صفراً تماماً.</div>
-      <div class="quiz-btns">
-        <button class="btn-v" onclick="handleQuiz(3, true, true, '✅ إجابة صحيحة 100%! السائقون الجدد (أول 3 سنوات) يخضعون لقاعدة الصفر المطلق 0.0 g/l.')">VERO (صح)</button>
-        <button class="btn-f" onclick="handleQuiz(3, false, true, '❌ خطأ! العبارة صحيحة تماماً (VERO)، نسبة السائق الجديد هي 0.0 g/l لأول 3 سنوات.')">FALSO (خطأ)</button>
-      </div>
-      <div class="quiz-feedback" id="feedback-3"></div>
-    </div>
-
-    <!-- Quiz Q4 -->
-    <div class="quiz-card" id="q-card-4">
-      <div class="quiz-q-num">سؤال وزاري #4 • فخ نزع خوذة المصاب</div>
-      <div class="quiz-text-it">In caso di incidente stradale, bisogna sempre togliere subito il casco al motociclista infortunato.</div>
-      <div class="quiz-text-ar">في حال وقوع حادث مروري، يجب دائماً نزع خوذة سائق الدراجة النارية المصاب على الفور.</div>
-      <div class="quiz-btns">
-        <button class="btn-v" onclick="handleQuiz(4, true, false, '❌ خطأ قاتل! يمنع نزع الخوذة لتجنب إحداث شلل أو كسر في فقرات الرقبة، إلا للمسعف المختص.')">VERO (صح)</button>
-        <button class="btn-f" onclick="handleQuiz(4, false, false, '✅ إجابة صحيحة! يمنع منعاً باتاً نزع الخوذة حفاظاً على العمود الفقري والنخاع الشوكي.')">FALSO (خطأ)</button>
-      </div>
-      <div class="quiz-feedback" id="feedback-4"></div>
-    </div>
-
-    <!-- Quiz Q5 -->
-    <div class="quiz-card" id="q-card-5">
-      <div class="quiz-q-num">سؤال وزاري #5 • فخ رفض الفحص</div>
-      <div class="quiz-text-it">Il conducente che rifiuta di sottoporsi al controllo dell'etilometro è punito con le sanzioni minime previste dalla legge.</div>
-      <div class="quiz-text-ar">السائق الذي يرفض الخضوع لفحص قياس الكحول يعاقب بالحد الأدنى من العقوبات المنصوص عليها قانوناً.</div>
-      <div class="quiz-btns">
-        <button class="btn-v" onclick="handleQuiz(5, true, false, '❌ خطأ! الرافض يعاقب بأقصى عقوبة (Massime sanzioni) كما لو كان في أعلى شريحة كحولية.')">VERO (صح)</button>
-        <button class="btn-f" onclick="handleQuiz(5, false, false, '✅ ممتاز! الرفض يعتبر اعترافاً ويقابل بأقصى درجات العقوبة القانونية.')">FALSO (خطأ)</button>
-      </div>
-      <div class="quiz-feedback" id="feedback-5"></div>
-    </div>
-  </div>
-
-</div>
-
+<!-- JAVASCRIPT & SOUND ENGINE -->
 <script>
-  // Web Audio Sound Engine
-  const soundEngine = {
+  const soundEngine = window.soundEngine || {
     ctx: null,
     enabled: true,
     init() {
@@ -1321,156 +2231,260 @@
         const AudioCtx = window.AudioContext || window.webkitAudioContext;
         if (AudioCtx) this.ctx = new AudioCtx();
       }
-      if (this.ctx && this.ctx.state === 'suspended') {
-        this.ctx.resume();
-      }
     },
     click() {
       if (!this.enabled) return;
       this.init();
       if (!this.ctx) return;
-      try {
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(540, this.ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.04);
-        gain.gain.setValueAtTime(0.05, this.ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
-        osc.start();
-        osc.stop(this.ctx.currentTime + 0.04);
-      } catch(e) {}
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(600, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(800, this.ctx.currentTime + 0.05);
+      gain.gain.setValueAtTime(0.15, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.05);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.05);
     },
-    correct() {
-      if (!this.enabled) return;
-      this.init();
-      if (!this.ctx) return;
-      try {
-        const now = this.ctx.currentTime;
-        [523.25, 659.25, 783.99].forEach((freq, i) => {
-          const osc = this.ctx.createOscillator();
-          const gain = this.ctx.createGain();
-          osc.type = 'triangle';
-          osc.frequency.setValueAtTime(freq, now + i * 0.06);
-          gain.gain.setValueAtTime(0.06, now + i * 0.06);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.06 + 0.18);
-          osc.connect(gain);
-          gain.connect(this.ctx.destination);
-          osc.start(now + i * 0.06);
-          osc.stop(now + i * 0.06 + 0.18);
-        });
-      } catch(e) {}
-    },
-    wrong() {
-      if (!this.enabled) return;
-      this.init();
-      if (!this.ctx) return;
-      try {
-        const now = this.ctx.currentTime;
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-        osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(160, now);
-        osc.frequency.exponentialRampToValueAtTime(80, now + 0.16);
-        gain.gain.setValueAtTime(0.06, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
-        osc.start(now);
-        osc.stop(now + 0.16);
-      } catch(e) {}
+    toggle() {
+      this.enabled = !this.enabled;
+      return this.enabled;
     }
   };
 
-  window.handleQuiz = function(qId, userChoice, isCorrectAnswer, explanation) {
-    const card = document.getElementById(`q-card-${qId}`);
-    const fb = document.getElementById(`feedback-${qId}`);
-    const isRight = (userChoice === isCorrectAnswer);
-
-    if (isRight) {
-      soundEngine.correct();
-      card.className = 'quiz-card answered-correct';
-      fb.className = 'quiz-feedback show correct';
-    } else {
-      soundEngine.wrong();
-      card.className = 'quiz-card answered-wrong';
-      fb.className = 'quiz-feedback show wrong';
-    }
-    fb.innerHTML = explanation;
-  };
-
-  window.speakText = function(text) {
-    if ('speechSynthesis' in window) {
+  function toggleAudio() {
+    const isEnabled = soundEngine.toggle();
+    const btn = document.querySelector('.nav-audio-btn');
+    const label = btn.querySelector('.audio-label-span');
+    const icon = btn.querySelector('.audio-icon-span');
+    if (isEnabled) {
       soundEngine.click();
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'it-IT';
-      utterance.rate = 0.9;
-      window.speechSynthesis.speak(utterance);
+      label.textContent = 'الصوت نشط';
+      icon.textContent = '🔊';
+      btn.style.borderColor = 'rgba(255, 255, 255, 0.16)';
+      btn.style.color = '#f4f4f5';
+    } else {
+      label.textContent = 'مكتوم';
+      icon.textContent = '🔇';
+      btn.style.borderColor = 'rgba(244, 63, 94, 0.4)';
+      btn.style.color = '#f43f5e';
     }
-  };
+  }
 
-  window.toggleMobileNav = function() {
-    const btn = document.getElementById('nav-hamburger-btn');
-    const panel = document.getElementById('mobile-drawer-panel');
+  function toggleMobileNav() {
+    soundEngine.click();
+    const drawer = document.getElementById('mobile-drawer-panel');
     const overlay = document.getElementById('mobile-drawer-overlay');
-    if (!panel) return;
-    const isOpen = panel.classList.contains('is-active');
+    const btn = document.getElementById('nav-hamburger-btn');
+    const isOpen = drawer.classList.contains('is-open');
     if (isOpen) {
       closeMobileNav();
     } else {
-      btn && btn.classList.add('is-active');
-      btn && btn.setAttribute('aria-expanded', 'true');
-      panel.classList.add('is-active');
-      overlay && overlay.classList.add('is-active');
-      document.body.classList.add('nav-scroll-lock');
-      if (soundEngine.click) soundEngine.click();
+      drawer.classList.add('is-open');
+      overlay.classList.add('is-open');
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
     }
-  };
-
-  window.closeMobileNav = function() {
-    const btn = document.getElementById('nav-hamburger-btn');
-    const panel = document.getElementById('mobile-drawer-panel');
-    const overlay = document.getElementById('mobile-drawer-overlay');
-    btn && btn.classList.remove('is-active');
-    btn && btn.setAttribute('aria-expanded', 'false');
-    panel && panel.classList.remove('is-active');
-    overlay && overlay.classList.remove('is-active');
-    document.body.classList.remove('nav-scroll-lock');
-  };
-
-  window.toggleAudio = function() {
-    soundEngine.enabled = !soundEngine.enabled;
-    const icons = document.querySelectorAll('.audio-icon-span');
-    const labels = document.querySelectorAll('.audio-label-span');
-    icons.forEach(el => el.textContent = soundEngine.enabled ? '🔊' : '🔇');
-    labels.forEach(el => el.textContent = soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم');
-    if (soundEngine.enabled && soundEngine.click) soundEngine.click();
-  };
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'm' || e.key === 'M') toggleAudio();
-    if (e.key === 'Escape') closeMobileNav();
-  });
-
-  // Desktop Chapters Dropdown Toggle & Outside Click
-  function toggleNavDropdown(e) {
-    if (e) e.stopPropagation();
-    const menu = document.getElementById('navDropdownMenu');
-    if (menu) menu.classList.toggle('active');
   }
-  document.addEventListener('click', function(e) {
-    const wrapper = document.querySelector('.nav-dropdown-wrapper');
+
+  function closeMobileNav() {
+    const drawer = document.getElementById('mobile-drawer-panel');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    const btn = document.getElementById('nav-hamburger-btn');
+    if (drawer) drawer.classList.remove('is-open');
+    if (overlay) overlay.classList.remove('is-open');
+    if (btn) {
+      btn.classList.remove('is-active');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    document.body.style.overflow = '';
+  }
+
+  function toggleNavDropdown(e) {
+    e.stopPropagation();
+    soundEngine.click();
     const menu = document.getElementById('navDropdownMenu');
-    if (menu && menu.classList.contains('active')) {
-      if (wrapper && !wrapper.contains(e.target)) {
-        menu.classList.remove('active');
-      }
+    menu.classList.toggle('show');
+  }
+
+  window.addEventListener('click', function(e) {
+    const menu = document.getElementById('navDropdownMenu');
+    if (menu && menu.classList.contains('show')) {
+      menu.classList.remove('show');
     }
   });
 
+  function filterCards(category, btn) {
+    soundEngine.click();
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cards = document.querySelectorAll('.signals-grid .signal-card');
+    cards.forEach(card => {
+      if (category === 'all' || card.getAttribute('data-category') === category) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // SIMULATOR 1: Alcool
+  let currentAlcDriver = 'neo';
+  let currentAlcLevel = '0.3';
+
+  function setAlcDriver(driver) {
+    soundEngine.click();
+    currentAlcDriver = driver;
+    document.getElementById('btnAlcDriverNeo').classList.toggle('active', driver === 'neo');
+    document.getElementById('btnAlcDriverOrd').classList.toggle('active', driver === 'ord');
+    updateAlcSim();
+  }
+
+  function simAlcLevel(lvl) {
+    soundEngine.click();
+    currentAlcLevel = lvl;
+    document.getElementById('btnAlcLvl1').classList.toggle('active', lvl === '0.3');
+    document.getElementById('btnAlcLvl2').classList.toggle('active', lvl === '0.6');
+    document.getElementById('btnAlcLvl3').classList.toggle('active', lvl === '1.2');
+    document.getElementById('btnAlcLvl4').classList.toggle('active', lvl === '1.8');
+    updateAlcSim();
+  }
+
+  function updateAlcSim() {
+    let badgeText = '';
+    let badgeColor = '';
+    let titleText = '';
+    let descText = '';
+    let warnText = '';
+
+    if (currentAlcLevel === '0.3') {
+      if (currentAlcDriver === 'neo') {
+        badgeText = '🚫 مخالفة صريحة (Tasso Zero)';
+        badgeColor = 'var(--rose-primary)';
+        titleText = 'نسبة كحول 0.1 - 0.4 جم/لتر للسائق الجديد (Neopatentato)';
+        descText = '<strong>الحكم القانوني:</strong> محظور تماماً؛ يخضع السائق لمبدأ الصفر المطلق.<br><strong>العقوبة:</strong> غرامة من 168 إلى 672 يورو، وخصم 10 نقاط كاملة (5 نقاط أساسية مضاعفة إلى 10).<br><strong>سحب/تعليق:</strong> لا يوجد تعليق في هذه الفئة ما لم يتكرر الأمر.';
+        warnText = '⚠️ <strong>القاعدة الذهبية:</strong> أي نسبة فوق 0.0 تعرض السائق الجديد للغرامة وخصم 10 نقاط فوراً!';
+      } else {
+        badgeText = '✅ مسموح قانوناً (Sotto 0.5)';
+        badgeColor = 'var(--emerald-primary)';
+        titleText = 'نسبة كحول 0.1 - 0.4 جم/لتر للسائق المعتاد';
+        descText = '<strong>الحكم القانوني:</strong> مسموح قانوناً؛ لأنه يقع تحت الحد الأقصى المقرر 0.5 جم/لتر.<br><strong>تنبيه طبي:</strong> حتى هذه النسبة الطفيفة تزيد زمن رد الفعل وتضعف التركيز البصري ليلاً.';
+        warnText = '💡 <strong>معلومة:</strong> رغم كونه مسموحاً قانوناً، فإن التأثيرات العصبية تبدأ من أول رشفة كحول!';
+      }
+    } else if (currentAlcLevel === '0.6') {
+      badgeText = '⚖️ مخالفة إدارية جسيمة (0.5 - 0.8 g/l)';
+      badgeColor = 'var(--amber-primary)';
+      titleText = 'نسبة كحول بين 0.5 و 0.8 جم/لتر (جميع السائقين)';
+      descText = '<strong>الحكم القانوني:</strong> مخالفة إدارية مشددة.<br><strong>العقوبة:</strong> غرامة من 543 إلى 2.170 يورو.<br><strong>تعليق الرخصة (Sospensione):</strong> من 3 إلى 6 أشهر.<br><strong>النقاط:</strong> خصم 10 نقاط للسائق المعتاد، و 20 نقطة كاملة (تصفير الرصيد) للسائق الجديد!';
+      warnText = '🚨 للسائق الجديد: خصم 20 نقطة يؤدي مباشرة إلى فرض اختبار إعادة الفحص (Revisione)!';
+    } else if (currentAlcLevel === '1.2') {
+      badgeText = '🚨 جريمة جنائية متوسطة (0.8 - 1.5 g/l)';
+      badgeColor = 'var(--rose-primary)';
+      titleText = 'نسبة كحول بين 0.8 و 1.5 جم/لتر (Reato Penale)';
+      descText = '<strong>الحكم القانوني:</strong> جريمة جنائية رسمية تحال إلى المحكمة الجنائية.<br><strong>العقوبة:</strong> الحبس حتى 6 أشهر، وغرامة من 800 إلى 3.200 يورو.<br><strong>تعليق الرخصة:</strong> من 6 أشهر إلى سنة كاملة.<br><strong>النقاط:</strong> خصم 10 نقاط (20 نقطة للسائق الجديد).';
+      warnText = '⚖️ تسجل سابقة جنائية على صحيفة السوابق القضائية للسائق (Casellario giudiziale)!';
+    } else {
+      badgeText = '🛑 جريمة جنائية قصوى (>1.5 g/l أو رفض)';
+      badgeColor = 'var(--rose-primary)';
+      titleText = 'نسبة كحول تفوق 1.5 جم/لتر أو رفض الفحص بالإيثيلومتر';
+      descText = '<strong>الحكم القانوني:</strong> أقصى جناية مرورية منصوص عليها بالمادة 186.<br><strong>العقوبة:</strong> الحبس من 6 أشهر إلى سنة كاملة، وغرامة من 1.500 إلى 6.000 يورو.<br><strong>تعليق الرخصة:</strong> من سنة إلى سنتين (تتضاعف إذا كانت السيارة ليست ملك السائق).<br><strong>المصادرة:</strong> مصادرة المركبة نهائياً وبيعها لحساب الدولة (Confisca del veicolo)!';
+      warnText = '🛑 رفض الفحص يعاقب تلقائياً بأقصى هذه العقوبات وبمصادرة السيارة!';
+    }
+
+    document.getElementById('alcBadge').textContent = badgeText;
+    document.getElementById('alcBadge').style.color = badgeColor;
+    document.getElementById('alcBadge').style.borderColor = badgeColor;
+    document.getElementById('alcTitle').textContent = titleText;
+    document.getElementById('alcDesc').innerHTML = descText;
+    document.getElementById('alcWarning').innerHTML = warnText;
+  }
+
+  // SIMULATOR 2: Soccorso
+  const soccorsoData = {
+    'inconscio': {
+      badge: 'وضعية الإفاقة الجانبية (PLS)',
+      title: 'المصاب فاقد للوعي ولكنه يتنفس بانتظام (Infortunato incosciente)',
+      desc: '<strong>الإجراء الإلزامي:</strong> وضعه فوراً في <strong>وضعية الإفاقة الجانبية (Posizione Laterale di Sicurezza)</strong>.<br><strong>الهدف الطبي:</strong> الحفاظ على مجرى الهواء سالكاً وتفادي الاختناق باللسان أو القيء.<br><strong>المحظور:</strong> لا تسكب الماء على وجهه، ولا تعطه ماءً ليشرب!',
+      warning: '💡 استدعاء الإسعاف 112 وتحديد درجة الوعي خطوة تسبق أي إجراء.'
+    },
+    'shock': {
+      badge: 'رفع الساقين وتدفئة المصاب',
+      title: 'حالة الصدمة وهبوط الدورة الدموية (Stato di Shock)',
+      desc: '<strong>الأعراض:</strong> شحوب الوجه، عرق بارد، نبض سريع وضعيف، وقشعريرة.<br><strong>الإجراء الإلزامي:</strong> تمديد المصاب أرضاً على ظهره مع <strong>رفع ساقيه بحوالي 30 سم</strong> لتغذية القلب والمخ بالدم.<br><strong>التدفئة:</strong> تغطيته ببطانية أو معطف لحمايته من البرد.<br><strong>المحظور القاطع:</strong> يحظر إعطاؤه أي مسكنات أو مشروبات كحولية!',
+      warning: '🚨 الكحول يوسع الأوعية ويسرع الوفاة بالصدمة، فلا تعط كحولاً أبداً!'
+    },
+    'emorragia': {
+      badge: 'ضغط مباشر بشاش معقم',
+      title: 'النزيف الشرياني الحاد (Emorragia arteriosa esterna)',
+      desc: '<strong>الإجراء الإلزامي:</strong> وضع شاش معقم أو قماش نظيف والضغط المباشر بقوة وثبات فوق موضع الجرح النازف (Tamponamento).<br><strong>رفع العضو:</strong> رفع الطرف النازف لأعلى من مستوى القلب إن أمكن.<br><strong>الأجسام المغروزة:</strong> إذا كان هناك زجاج أو حديد مغروز، <strong>يحظر نزعه إطلاقاً</strong>؛ بل يتم التضميد حوله بحذر.',
+      warning: '🩸 نزع الجسم المغروز يفتح الشريان المغلق ويسبب نزيفاً صاعقاً مميتاً!'
+    },
+    'casco': {
+      badge: 'حظر نزع الخوذة نهائياً',
+      title: 'سائق دراجة نارية مصاب يرتدي خوذة واقية (Casco protettivo)',
+      desc: '<strong>القاعدة الصارمة:</strong> <strong>يحظر تماماً نزع الخوذة</strong> عن رأس سائق الدراجة المصاب لتفادي شلل الحبل الشوكي والفقرات العنقية.<br><strong>التصرف المسموح:</strong> فتح القناع الشفاف للخوذة فقط لتمكينه من التنفس.<br><strong>الاستثناء الوحيد:</strong> توقف التنفس التام الذي يتطلب الإنعاش القلبي الرئوي الفوري.',
+      warning: '❌ كود السير يكرر: لا تنزع الخوذة حتى لو طلب المصاب ذلك!'
+    },
+    'ustioni': {
+      badge: 'تبريد بالماء وحظر نزع الملابس',
+      title: 'المصاب بالحروق النارية (Infortunato con ustioni)',
+      desc: '<strong>التبريد:</strong> سكب ماء بارد ونظيف على مكان الحرق لمدة 10-15 دقيقة لتخفيض حرارة الأنسجة.<br><strong>الملابس الملتصقة:</strong> <strong>يحظر شدها أو نزعها بالقوة</strong> لتفادي سلخ الجلد الحي.<br><strong>الفقاعات المائية (Vescicole):</strong> يحظر فتحها أو ثقبها.<br><strong>المراهم:</strong> يحظر وضع الزيوت أو المراهم.',
+      warning: '💧 الماء البارد فقط، ولا تضع مراهم دهنية ولا معجون أسنان!'
+    }
+  };
+
+  function simSoccorso(type) {
+    soundEngine.click();
+    document.querySelectorAll('#sim-soccorso .sim-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('btnSoc' + type.charAt(0).toUpperCase() + type.slice(1)).classList.add('active');
+    const data = soccorsoData[type];
+    document.getElementById('socBadge').textContent = data.badge;
+    document.getElementById('socTitle').textContent = data.title;
+    document.getElementById('socDesc').innerHTML = data.desc;
+    document.getElementById('socWarning').innerHTML = data.warning;
+  }
+
+  // SIMULATOR 3: Myths
+  const mitiData = {
+    'caffe': {
+      badge: 'خرافة وزارية شائعة (FALSO)',
+      title: 'خرافة: القهوة المركزة تعجل بهضم الكحول وخفض نسبته في الدم',
+      desc: '<strong>الحقيقة العلمية:</strong> شرب القهوة المركزة (Caffè amaro) أو مشروبات الطاقة <strong>لا يقلل أبداً</strong> من نسبة الكحول في الدم، ولا يسرع من عملية تفكيكه في الكبد.<br><strong>الخطر الإضافي:</strong> الكافيين يمنح السائق شعوراً وهمياً باليقظة بينما تظل ردود أفعاله العصبية بطيئة ومشوشة، مما يجعله أكثر جرأة وخطورة خلف المقود.<br><strong>المحدد البيولوجي الوحيد:</strong> العامل الوحيد لتخفيض نسبة الكحول هو <strong>مرور الوقت</strong>؛ حيث يتخلص الكبد من الكحول بمعدل بطيء جداً وثابت (حوالي 0.15 جم/لتر في الساعة).',
+      warning: '❌ صيغة الامتحان: "L'assunzione di caffè amaro accelera lo smaltimento dell'alcool" -> الإجابة حتماً FALSO!'
+    },
+    'doccia': {
+      badge: 'خرافة غير صحيحة (FALSO)',
+      title: 'خرافة: الاستحمام بالماء البارد يعيد اللياقة البدنية والتركيز',
+      desc: '<strong>الحقيقة العلمية:</strong> الاستحمام بالماء البارد يحدث صدمة حرارية سطحية للجسم توقظ الجلد مؤقتاً، لكنها لا تؤثر إطلاقاً على تركيز جزيئات الكحول في الدورة الدموية ومراكز المخ العصبية.<br><strong>الأثر الحقيقي:</strong> يبقى زمن رد الفعل بطيئاً جداً، وتظل الرؤية النفقية مستمرة.',
+      warning: '💡 لا شيء يطرد الكحول من الدم سوى إفرازات إنزيمات الكبد مع الوقت!'
+    },
+    'caramelle': {
+      badge: 'خداع فاشل للإيثيلومتر (FALSO)',
+      title: 'خرافة: مضغ العلكة أو الحلوى أو البصل يخدع جهاز قياس الكحول',
+      desc: '<strong>الحقيقة العلمية:</strong> جهاز قياس الكحول (Etilometro) لا يقيس رائحة الفم أو المعدة، بل يقيس تركيز الكحول في <strong>هواء الحويصلات الرئوية العميقة (Aria alveolare)</strong> المتصل بالدم مباشرة!<br><strong>النتيجة:</strong> الحلوى واللبان لا تغير قراءة الجهاز بمقدار 0.001 جم/لتر!',
+      warning: '❌ استخدام معطرات الفم لا يغير النتيجة وقد يضيف كحولاً في الجهاز!'
+    },
+    'corsa': {
+      badge: 'جهد بدني خطير وبلا فائدة (FALSO)',
+      title: 'خرافة: ممارسة الجري والتعرق يحرق الكحول ويخرجه من الجسم',
+      desc: '<strong>الحقيقة العلمية:</strong> الكبد مسؤول عن استقلاب أكثر من 95% من الكحول المتناول؛ بينما العرق والتنفس لا يخرجان سوى أقل من 5% مجتمعين!<br><strong>الخطر:</strong> ممارسة الرياضة تحت تأثير الكحول ترهق القلب وتسبب جفافاً حاداً وهبوطاً للدورة الدموية دون خفض نسبة الكحول.',
+      warning: '⏳ الحل الوحيد المعتمد: الانتظار حتى يتخلص الجسم طبيعياً من الكحول مع الوقت.'
+    }
+  };
+
+  function simMito(type) {
+    soundEngine.click();
+    document.querySelectorAll('#sim-miti .sim-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('btnMito' + type.charAt(0).toUpperCase() + type.slice(1)).classList.add('active');
+    const data = mitiData[type];
+    document.getElementById('mitoBadge').textContent = data.badge;
+    document.getElementById('mitoTitle').textContent = data.title;
+    document.getElementById('mitoDesc').innerHTML = data.desc;
+    document.getElementById('mitoWarning').innerHTML = data.warning;
+  }
 </script>
 </body>
 </html>
