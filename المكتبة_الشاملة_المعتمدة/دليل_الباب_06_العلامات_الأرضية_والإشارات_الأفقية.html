@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>دليل وقاموس الباب 08: إشارات الإرشاد والمعلومات | رخصة القيادة الإيطالية Patente B Pro</title>
+<title>دليل وقاموس الباب 06: العلامات الأرضية والإشارات الأفقية وعلامات العوائق | رخصة القيادة الإيطالية Patente B Pro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -476,7 +476,7 @@
     gap: 16px;
   }
 
-  /* Comparison & Info Cards */
+  /* Feature Cards */
   .feature-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--border-subtle);
@@ -499,6 +499,10 @@
   .feature-card.highlight-amber {
     border-color: rgba(245, 158, 11, 0.3);
     background: rgba(245, 158, 11, 0.03);
+  }
+  .feature-card.highlight-rose {
+    border-color: rgba(244, 63, 94, 0.3);
+    background: rgba(244, 63, 94, 0.03);
   }
 
   /* Vertical Comparison Header (Standardized) */
@@ -568,19 +572,63 @@
     filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
   }
 
-  /* Color Codes Matrix Table */
-  .color-matrix-table {
+  /* Interactive Simulator Box */
+  .simulator-interactive-box {
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid var(--border-highlight);
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 18px;
+  }
+  .sim-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .sim-btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #f4f4f5;
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .sim-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+  .sim-btn.active {
+    background: rgba(56, 189, 248, 0.16);
+    border-color: #38bdf8;
+    color: #38bdf8;
+  }
+  .sim-display-area {
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  /* Tables */
+  .custom-data-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 14px;
   }
-  .color-matrix-table th, .color-matrix-table td {
+  .custom-data-table th, .custom-data-table td {
     padding: 12px 14px;
     text-align: right;
     border-bottom: 1px solid var(--border-subtle);
     font-size: 0.9rem;
   }
-  .color-matrix-table th {
+  .custom-data-table th {
     background: rgba(255, 255, 255, 0.04);
     color: #fff;
     font-weight: 700;
@@ -594,29 +642,9 @@
     font-weight: 700;
     font-size: 0.8rem;
   }
-  .pill-green { background: #15803d; color: #fff; }
-  .pill-blue { background: #1d4ed8; color: #fff; }
   .pill-white { background: #f4f4f5; color: #18181b; }
+  .pill-blue { background: #1d4ed8; color: #fff; }
   .pill-yellow { background: #eab308; color: #18181b; }
-  .pill-brown { background: #78350f; color: #fff; }
-  .pill-black { background: #27272a; color: #fbbf24; border: 1px solid #fbbf24; }
-
-  /* Dictionary Table */
-  .dict-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-  }
-  .dict-table th, .dict-table td {
-    padding: 12px 14px;
-    text-align: right;
-    border-bottom: 1px solid var(--border-subtle);
-    font-size: 0.9rem;
-  }
-  .dict-table th {
-    background: rgba(255, 255, 255, 0.04);
-    color: #fff;
-  }
   .dict-it-term {
     font-family: 'JetBrains Mono', monospace;
     font-weight: 700;
@@ -751,7 +779,7 @@
 <nav class="unified-portal-nav" aria-label="شريط التنقل الرئيسي">
   <a href="index.html" class="nav-brand" onclick="soundEngine.click()">
     <span>🇮🇹 Patente B Pro</span>
-    <span class="badge-tag">Capitolo 08</span>
+    <span class="badge-tag">Capitolo 06</span>
   </a>
 
   <!-- Desktop Tabs -->
@@ -783,10 +811,10 @@
         <a href="../Capitoli_Divisi/Capitolo_03_segnali_divieto/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
         <a href="../Capitoli_Divisi/Capitolo_04_segnali_obbligo/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
         <a href="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
-        <a href="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأرضية والعوائق</span></a>
+        <a href="دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 6: الإشارات الأرضية والعوائق</span></a>
         <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
-        <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
-        <a href="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: إشارات الورش والتحويلات</span></a>
+        <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
+        <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: إشارات الورش والتحويلات</span></a>
         <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
         <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة ومخاطرها</span></a>
         <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
@@ -839,17 +867,25 @@
       <span class="nav-icon">📚</span>
       <span>مذاكرة الأبواب المقسمة (1-25)</span>
     </a>
-    <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="mobile-nav-link active" onclick="closeMobileNav()">
+    <a href="دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html" class="mobile-nav-link active" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 06 (الإشارات الأرضية والعوائق)</span>
+    </a>
+    <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 07 (الإشارات الضوئية والشرطي)</span>
+    </a>
+    <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="mobile-nav-link" onclick="closeMobileNav()">
       <span class="nav-icon">📖</span>
       <span>دليل الباب 08 (الإشارات الإرشادية)</span>
+    </a>
+    <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 09 (الإشارات التكميلية وورش العمل)</span>
     </a>
     <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="mobile-nav-link" onclick="closeMobileNav()">
       <span class="nav-icon">📖</span>
       <span>دليل الباب 10 (اللوحات الإضافية)</span>
-    </a>
-    <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 11 (حدود السرعة ومخاطرها)</span>
     </a>
   </div>
   <div class="mobile-drawer-footer">
@@ -869,14 +905,14 @@
   <!-- HERO BANNER -->
   <header class="hero-banner">
     <div class="hero-badges">
-      <span class="hero-badge badge-sky">CAPITOLO 08</span>
-      <span class="hero-badge badge-emerald">SEGNALI DI INDICAZIONE</span>
-      <span class="hero-badge badge-amber">250 - 300 سؤال وزاري</span>
+      <span class="hero-badge badge-sky">CAPITOLO 06</span>
+      <span class="hero-badge badge-emerald">SEGNALETICA ORIZZONTALE</span>
+      <span class="hero-badge badge-amber">200 - 250 سؤال وزاري</span>
     </div>
-    <h1 class="hero-title">دليل وقاموس الباب الثامن: إشارات الإرشاد والمعلومات</h1>
-    <div class="hero-subtitle">Segnali di Indicazione: Colori, Centri Abitati, Servizi e Corsie</div>
+    <h1 class="hero-title">دليل وقاموس الباب السادس: الإشارات الأرضية وعلامات العوائق</h1>
+    <div class="hero-subtitle">Segnaletica Orizzontale e Segni sugli Ostacoli</div>
     <p class="hero-desc">
-      المرجع الشامل والمعتمد لشرح كافة إشارات الإرشاد والمعلومات في قانون المرور الإيطالي: فك شفرة الألوان الستة الحاكمة، قواعد دخول ومغادرة التجمعات السكنية (Centro Abitato)، إشارات اختيار وتوزيع الحارات، دلالات أرقام الطرق، إشارات الخدمات، مواقف السيارات، وساعة الوقوف (Disco Orario).
+      المرجع الهندسي المعتمد لكافة الدهانات والخطوط المرسومة على سطح الطريق (Carreggiata): فك شفرة الخطوط المتصلة والمتقطعة، قاعدة الخطين المتجاورين، المقارنة الفاصلة بين خط التوقف STOP وخط المثلثات، أسهم توجيه المسارات، ألوان مواقف السيارات، وحظر الجزيرة المرورية المطلية.
     </p>
   </header>
 
@@ -884,7 +920,7 @@
   <section class="content-section">
     <div class="section-header">
       <span class="section-icon">📊</span>
-      <h2 class="section-title">1. نظرة عامة وإحصائيات الباب الوزارية (Panoramica e Statistiche)</h2>
+      <h2 class="section-title">1. نظرة عامة وإحصائيات الباب السادس (Panoramica e Statistiche)</h2>
     </div>
     <div class="grid-3">
       <div class="feature-card highlight-sky">
@@ -893,8 +929,8 @@
           <span class="header-it-subtitle">Listato Ufficiale Ministeriale</span>
         </div>
         <ul class="card-points-list">
-          <li><span class="point-icon">🔢</span> يضم بنك الأسئلة المعتمد ما بين <strong>250 إلى 300 سؤالاً</strong> يغطي جميع أنواع اللوحات الإرشادية.</li>
-          <li><span class="point-icon">⚖️</span> تركز الأسئلة على الآثار القانونية المترتبة على اللوحة (السرعة، أولوية المرور، الحظر، وطبيعة الطريق).</li>
+          <li><span class="point-icon">🔢</span> يضم بنك الأسئلة الوزاري ما بين <strong>200 إلى 250 سؤالاً</strong> تغطي كافة دهانات الطريق وعلامات العوائق.</li>
+          <li><span class="point-icon">⚖️</span> تركز الأسئلة على إمكانية عبور الخط من عدمه (Valicabile / Invalicabile) والآثار القانونية للتجاوز والدوران للخلف.</li>
         </ul>
       </div>
 
@@ -904,332 +940,309 @@
           <span class="header-it-subtitle">Ripetizioni e Trabocchetti (~35%)</span>
         </div>
         <ul class="card-points-list">
-          <li><span class="point-icon">🔁</span> تصل نسبة التكرار إلى نحو <strong>35%</strong> حيث تتكرر القواعد الأساسية بصيغ لغوية متباينة لاختبار دقة التركيز.</li>
-          <li><span class="point-icon">⚠️</span> الفخ الأبرز يكمن في الخلط بين دلالات الألوان (أخضر، أزرق، أبيض) والخلط بين بداية المدينة ونهايتها.</li>
+          <li><span class="point-icon">🔁</span> تبلغ نسبة التشابه نحو <strong>35%</strong> حيث تتكرر أسئلة الخطين المتجاورين (Strisce affiancate) وألوان مربعات الوقوف بصيغ خداعية.</li>
+          <li><span class="point-icon">⚠️</span> الفخ الأبرز يكمن في الزعم بجواز تخطي الخط المتصل إذا كانت الرؤية واضحة أو عدم وجود حركة مرور (Falso دائماً!).</li>
         </ul>
       </div>
 
       <div class="feature-card highlight-emerald">
         <div class="comparison-header-vertical">
-          <span class="header-ar-title">مستوى اللغة ومنهجية الدراسة</span>
-          <span class="header-it-subtitle">Livello Linguistico A2 - B1</span>
+          <span class="header-ar-title">المعيار الذهبي للامتحان</span>
+          <span class="header-it-subtitle">Regola d'Oro dei Quiz</span>
         </div>
         <ul class="card-points-list">
-          <li><span class="point-icon">🎯</span> صُمم هذا الدليل بلغة عربية تقنية واضحة تناسب الدارسين من مستويات A2 في الإيطالية.</li>
-          <li><span class="point-icon">💡</span> القاعدة الذهبية: الإشارة الإرشادية ترشد وتقدم معلومات، لكنها قد تفرض قيوداً قانونية فورية ومباشرة!</li>
+          <li><span class="point-icon">🎯</span> <strong>الخط المتصل جدار لا يمكن اختراقه:</strong> يمنع السير فوقه، يمنع تجاوزه، ويمنع الدوران للخلف (Inversione di marcia) فوقه نهائياً.</li>
+          <li><span class="point-icon">💡</span> الخط المتقطع يسمح بالعبور إذا تمت المناورة بأمان ودون خلق خطر أو إعاقة.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 2: COLOR CODES MATRIX -->
-  <section class="content-section">
-    <div class="section-header">
-      <span class="section-icon">🎨</span>
-      <h2 class="section-title">2. مصفوفة دلالات الألوان في الإشارات الإرشادية (Color Codes Matrix)</h2>
-    </div>
-    <p style="color: #a1a1aa; font-size: 0.94rem; margin-bottom: 16px;">
-      الألوان في إشارات الإرشاد الإيطالية ليست للزينة، بل هي رموز قانونية تحدد تصنيف الطريق وحد السرعة الواجب احترامه فور رؤيتها:
-    </p>
-
-    <div style="overflow-x: auto;">
-      <table class="color-matrix-table">
-        <thead>
-          <tr>
-            <th>اللون وخلفية الإشارة</th>
-            <th>نوع الطريق / الوجهة (Significato)</th>
-            <th>حد السرعة العام الافتراضي</th>
-            <th>ملاحظات وقواعد الامتحان الوزاري</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="color-pill pill-green">🟢 أخضر (Verde)</span></td>
-            <td><strong>طريق سريع (Autostrada)</strong> أو الاتجاه المؤدي إليه</td>
-            <td>130 كم/س (110 كم/س عند المطر)</td>
-            <td>توضع أيضاً داخل المدن لتوجيه السائقين نحو بوابات الأوتوستراد (Casello).</td>
-          </tr>
-          <tr>
-            <td><span class="color-pill pill-blue">🔵 أزرق (Blu)</span></td>
-            <td><strong>طرق خارج المدن (Strade Extraurbane)</strong></td>
-            <td>90 كم/س (ثانوي) أو 110 كم/س (رئيسي)</td>
-            <td>تستخدم لكافة وجهات السفر بين المدن والقرى على شبكة الطرق الإقليمية والقومية.</td>
-          </tr>
-          <tr>
-            <td><span class="color-pill pill-white">⚪ أبيض (Bianco)</span></td>
-            <td><strong>شوارع داخل المدن (Strade Urbane) ومرافق محلية</strong></td>
-            <td>50 كم/س (أو 70 كم/س إذا رُفع بلوحة)</td>
-            <td>تستخدم لأسماء المدن، الشوارع الحضرية، المراكز الإدارية، المقابر، والمستشفيات.</td>
-          </tr>
-          <tr>
-            <td><span class="color-pill pill-yellow">🟡 أصفر (Giallo)</span></td>
-            <td><strong>ورش عمل وأشغال وتحويلات مؤقتة (Cantiere / Deviazione)</strong></td>
-            <td>حسب ما تحدده لوحة المنع المرافقة</td>
-            <td>تلغي مؤقتاً الإشارات الدائمة وتسبق مناطق التحويلات وأعمال الصيانة الحية.</td>
-          </tr>
-          <tr>
-            <td><span class="color-pill pill-brown">🟤 بني (Marrone)</span></td>
-            <td><strong>معالم سياحية، تاريخية، ثقافية، وجغرافية (Località turistiche)</strong></td>
-            <td>حسب الطريق المقام عليه الإشارة</td>
-            <td>تشير للمنتزهات القومية، المتاحف، الآثار، الفنادق الجبلية، والتخييم.</td>
-          </tr>
-          <tr>
-            <td><span class="color-pill pill-black">⚫ أسود / رمادي</span></td>
-            <td><strong>مناطق صناعية وحرفية وتجارية (Zone industriali / commerciali)</strong></td>
-            <td>حسب اللوائح المحلية</td>
-            <td>تحدد مناطق المعارض، الموانئ، المستودعات، والمجمعات الحرفية.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- SECTION 3: INIZIO E FINE CENTRO ABITATO SIMULATOR -->
-  <section class="content-section">
-    <div class="section-header">
-      <span class="section-icon">🏙️</span>
-      <h2 class="section-title">3. محاكي بداية ونهاية التجمعات السكنية (Inizio e Fine Centro Abitato)</h2>
-    </div>
-
-    <div class="grid-2">
-      <!-- Card: Inizio Centro Abitato -->
-      <div class="feature-card highlight-sky">
-        <div class="sign-img-wrapper">
-          <img src="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/immagini/207.png" alt="Inizio Centro Abitato (Figura 207)" onerror="this.onerror=null; this.src='https://placehold.co/180x60/ffffff/000000?text=VERONA';">
-        </div>
-        <div class="comparison-header-vertical">
-          <span class="header-ar-title">بداية التجمع السكني (المدينة)</span>
-          <span class="header-it-subtitle">Inizio Centro Abitato (Figura 207)</span>
-        </div>
-        <ul class="card-points-list">
-          <li><span class="point-icon">⚡</span> <strong>حد السرعة القانوني:</strong> يصبح تلقائياً <strong>50 كم/س</strong> لجميع المركبات، إلا إذا وُضعت لوحة ترفعها لـ 70 كم/س في شوارع معينة.</li>
-          <li><span class="point-icon">🔇</span> <strong>حظر الكلاكس تماماً (Uso del clacson vietato):</strong> يمنع استخدام آلة التنبيه الصوتية منعاً باتاً داخل المدينة، ويُستثنى فقط حالتان: خطر وقوع حادث وشيك، أو نقل مصابين/مرضى في حالة خطرة إلى المستشفى.</li>
-          <li><span class="point-icon">🚌</span> <strong>أسبقية الحافلات (Precedenza autobus):</strong> يجب على السائقين إعطاء الأسبقية وتسهيل إعادة انطلاق حافلات النقل العام وسيارات النقل المدرسي عند مغادرتها لمواقفها.</li>
-          <li><span class="point-icon">💡</span> <strong>إضاءة المركبة:</strong> يجب استخدام أضواء التقاطع (Anabbaglianti) نصف ساعة بعد الغروب حتى نصف ساعة قبل الشروق أو في الأنفاق.</li>
-        </ul>
-      </div>
-
-      <!-- Card: Fine Centro Abitato -->
-      <div class="feature-card highlight-emerald">
-        <div class="sign-img-wrapper">
-          <img src="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/immagini/183.png" alt="Fine Centro Abitato (Figura 183)" onerror="this.onerror=null; this.src='https://placehold.co/180x60/ffffff/dc2626?text=VERONA+X';">
-        </div>
-        <div class="comparison-header-vertical">
-          <span class="header-ar-title">نهاية التجمع السكني والعودة للخارجي</span>
-          <span class="header-it-subtitle">Fine Centro Abitato (Figura 183)</span>
-        </div>
-        <ul class="card-points-list">
-          <li><span class="point-icon">🚀</span> <strong>عودة السرعة العامة:</strong> ينتهي حد 50 كم/س وتعود السرعة للحد الخارجي العام <strong>90 كم/س</strong> (على الطرق الثانوية) أو 110 كم/س (على الطرق الرئيسية ما لم ينص على غير ذلك).</li>
-          <li><span class="point-icon">📢</span> <strong>انتهاء حظر الكلاكس:</strong> يجوز استخدام المنبه الصوتي خارج المدينة عند الضرورة القصوى لتنبيه السائقين أثناء التجاوز نهاراً في المنعطفات الخطرة.</li>
-          <li><span class="point-icon">📍</span> <strong>لوحة التأكيد والمسافات (Pannello distanziometrico):</strong> غالباً ما يُلحق بهذه الإشارة أو يتبعها لوحة زرقاء أو خضراء توضح أسماء المدن القادمة والمسافة المتبقية بالكيلومترات (Segnale di conferma).</li>
-          <li><span class="point-icon">❌</span> <strong>فخ الامتحان الوزاري:</strong> الإشارة لا تعني انتهاء كافة قواعد المرور، بل تعني انتهاء القواعد الخاصة بالمدن فقط!</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 4: HIGHWAY IDENTIFICATION & ROUTE SIGNS -->
+  <!-- SECTION 2: AXIS 1 - STRISCE LONGITUDINALI -->
   <section class="content-section">
     <div class="section-header">
       <span class="section-icon">🛣️</span>
-      <h2 class="section-title">4. ترقيم الطرق وإشارات الأوتوستراد (Identificazione Strade e Segnali Autostradali)</h2>
-    </div>
-
-    <div class="grid-3">
-      <div class="feature-card">
-        <div class="sign-img-wrapper">
-          <img src="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/immagini/200.png" alt="Autostrada A (Figura 200)" onerror="this.onerror=null; this.src='https://placehold.co/120x60/15803d/ffffff?text=A1';">
-        </div>
-        <div class="comparison-header-vertical">
-          <span class="header-ar-title">ترقيم الأوتوستراد الوطني</span>
-          <span class="header-it-subtitle">Identificazione Autostrada (Figura 200)</span>
-        </div>
-        <ul class="card-points-list">
-          <li><span class="point-icon">🟢</span> لوحة خضراء مثمنة الشكل بحرف <strong>A</strong> ورقم الطريق (مثل A1, A4).</li>
-          <li><span class="point-icon">🚗</span> تطبق عليها كافة قواعد الأوتوستراد الصارمة: حد السرعة 130 كم/س وحظر المركبات البطيئة.</li>
-        </ul>
-      </div>
-
-      <div class="feature-card">
-        <div class="sign-img-wrapper">
-          <img src="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/immagini/199.png" alt="Itinerario Internazionale E (Figura 199)" onerror="this.onerror=null; this.src='https://placehold.co/120x60/15803d/ffffff?text=E45';">
-        </div>
-        <div class="comparison-header-vertical">
-          <span class="header-ar-title">شبكة الطرق الأوروبية الدولية</span>
-          <span class="header-it-subtitle">Itinerario Internazionale (Figura 199)</span>
-        </div>
-        <ul class="card-points-list">
-          <li><span class="point-icon">🇪🇺</span> لوحة خضراء مستطيلة بحرف <strong>E</strong> تدل على محور دولي أوروبي عابر للحدود.</li>
-          <li><span class="point-icon">🗺️</span> قد تتزامن اللوحة E مع لوحة الأوتوستراد A أو طريق قومي SS في المسار المشترك.</li>
-        </ul>
-      </div>
-
-      <div class="feature-card">
-        <div class="sign-img-wrapper">
-          <img src="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/immagini/206.png" alt="Progressiva Chilometrica (Figura 206)" onerror="this.onerror=null; this.src='https://placehold.co/120x60/15803d/ffffff?text=Km+54';">
-        </div>
-        <div class="comparison-header-vertical">
-          <span class="header-ar-title">المسافة الكيلومترية ومسافة المخرج</span>
-          <span class="header-it-subtitle">Segnale di Progressiva (Figura 206)</span>
-        </div>
-        <ul class="card-points-list">
-          <li><span class="point-icon">📏</span> الرقم بالأعلى يوضح الكيلومتر المقطوع من بداية الطريق السريع.</li>
-          <li><span class="point-icon">🆘</span> الرقم بالسهم يوضح المسافة المتبقية لأقرب مخرج أو محطة وقود أو نجدة.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 5: INTERSECTIONS & PRESELECTION -->
-  <section class="content-section">
-    <div class="section-header">
-      <span class="section-icon">🔀</span>
-      <h2 class="section-title">5. إشارات التقاطعات والاختيار المسبق للحارات (Intersezioni e Preselezione)</h2>
+      <h2 class="section-title">2. المحور الأول: الخطوط الطولية وقاعدة الخطين المتجاورين (Strisce Longitudinali)</h2>
     </div>
 
     <div class="grid-2">
-      <!-- Card: Preavviso Intersezione -->
-      <div class="feature-card">
+      <!-- Card: Striscia Continua -->
+      <div class="feature-card highlight-rose">
         <div class="sign-img-wrapper">
-          <img src="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/immagini/166.png" alt="Preavviso Intersezione (Figura 166)" onerror="this.onerror=null; this.src='https://placehold.co/180x80/27272a/ffffff?text=Preavviso+Incrocio';">
+          <img src="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/immagini/501.png" alt="Striscia Continua (Figura 501)" onerror="this.onerror=null; this.src='https://placehold.co/180x70/18181b/ffffff?text=Striscia+Continua';">
         </div>
         <div class="comparison-header-vertical">
-          <span class="header-ar-title">إشعار مسبق بالتقاطع الحضري والريفي</span>
-          <span class="header-it-subtitle">Preavviso di Intersezione (Figura 166 / 170)</span>
+          <span class="header-ar-title">الخط الطولي المتصل الفردي</span>
+          <span class="header-it-subtitle">Striscia Continua Singola (Figura 501)</span>
         </div>
         <ul class="card-points-list">
-          <li><span class="point-icon">📍</span> توضح شكلياً تخطيط التقاطع القادم وتسمي الوجهات المختلفة قبل الوصول إليها بمسافة آمنة.</li>
-          <li><span class="point-icon">🎨</span> دلالة الألوان داخل المخطط: مستطيل أخضر يوجه للأوتوستراد، مستطيل أزرق للمدن الخارجية، وأبيض للمناطق المحلية.</li>
-          <li><span class="point-icon">🔄</span> لوحة الدوار (Rotatoria - شكل 168): ترسم سهماً دائرياً وتبين المخارج والمدن لكل اتجاه.</li>
+          <li><span class="point-icon">🚫</span> <strong>غير قابل للعبور نهائياً (Invalicabile):</strong> يمنع منعاً باتاً السير فوق الخط أو تجاوزه أو حتى ملامسته بعجلات السيارة.</li>
+          <li><span class="point-icon">↩️</span> <strong>حظر الدوران للخلف (Inversione di marcia vietata):</strong> لا يجوز قطعياً إجراء يو-تيرن فوق الخط المتصل حتى لو كان الشارع خالياً تماماً.</li>
+          <li><span class="point-icon">🏎️</span> <strong>التجاوز بدون تخطي الخط (Sorpasso senza oltrepassare):</strong> يُسمح فقط بتجاوز مركبة بطيئة (مثل دراجة) بشرط عدم ملامسة أو عبور الخط المتصل والبقاء داخل نفس الحارة.</li>
         </ul>
       </div>
 
-      <!-- Card: Corsie di Preselezione -->
-      <div class="feature-card">
-        <div class="sign-img-wrapper">
-          <img src="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/immagini/171.png" alt="Preselezione (Figura 171)" onerror="this.onerror=null; this.src='https://placehold.co/180x80/1d4ed8/ffffff?text=Corsie+Preselezione';">
-        </div>
-        <div class="comparison-header-vertical">
-          <span class="header-ar-title">حارات الاختيار المسبق قبل التقاطع</span>
-          <span class="header-it-subtitle">Corsie di Preselezione (Figura 171 / 172)</span>
-        </div>
-        <ul class="card-points-list">
-          <li><span class="point-icon">🚦</span> ترشد السائق للتموضع في الحارة المتوافقة مع اتجاه سيره المفضل قبل الوصول للتقاطع.</li>
-          <li><span class="point-icon">🔒</span> <strong>القاعدة الإلزامية:</strong> بمجرد أن يتحول الخط الأرضي الفاصل بين الحارات من متقطع (Discontinua) إلى متصل (Continua)، <strong>يُحظر منعاً باتاً تغيير الحارة</strong> ويجب الالتزام بالاتجاه المحدد للحارة!</li>
-          <li><span class="point-icon">➡️</span> الحارة اليمينية للانعطاف يميناً، والوسطى للمضي قدماً، واليسرى للانعطاف يساراً.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 6: LANE UTILIZATION & SPECIAL ROADS -->
-  <section class="content-section">
-    <div class="section-header">
-      <span class="section-icon">🛣️</span>
-      <h2 class="section-title">6. توزيع الحارات والسرعات والطرق المخصصة (Corsie e Strade Riservate)</h2>
-    </div>
-
-    <div class="grid-3">
-      <!-- Card: Velocità Minima per Corsia -->
-      <div class="feature-card">
-        <div class="sign-img-wrapper">
-          <img src="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/immagini/243.png" alt="Velocità Minima Corsie (Figura 243)" onerror="this.onerror=null; this.src='https://placehold.co/160x70/1d4ed8/ffffff?text=Corsie+60+90';">
-        </div>
-        <div class="comparison-header-vertical">
-          <span class="header-ar-title">السرعات الدنيا الإلزامية للحارات</span>
-          <span class="header-it-subtitle">Velocità Minima Obbligatoria (Figura 243)</span>
-        </div>
-        <ul class="card-points-list">
-          <li><span class="point-icon">🐢</span> الحارة اليمنى مخصصة لكافة المركبات العادية دون إلزام بحد أدنى للسرعة.</li>
-          <li><span class="point-icon">⚡</span> الحارات الوسطى واليسرى تتضمن دوائر زرقاء بحدود دنيا (مثل 60 و 90 كم/س)؛ يمنع السير فيها لمن لا تستطيع مركبته بلوغ هذه السرعة.</li>
-        </ul>
-      </div>
-
-      <!-- Card: Corsia Riservata Autobus -->
-      <div class="feature-card">
-        <div class="sign-img-wrapper">
-          <img src="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/immagini/245.png" alt="Corsia Riservata Bus (Figura 245)" onerror="this.onerror=null; this.src='https://placehold.co/160x70/1d4ed8/ffffff?text=Corsia+BUS';">
-        </div>
-        <div class="comparison-header-vertical">
-          <span class="header-ar-title">حارة مخصصة للحافلات ومركبات الخدمة</span>
-          <span class="header-it-subtitle">Corsia Riservata Autobus (Figura 245)</span>
-        </div>
-        <ul class="card-points-list">
-          <li><span class="point-icon">🚌</span> حارة محجوزة حصرياً لوسائل النقل الجماعي (Autobus) وسيارات الأجرة (Taxi).</li>
-          <li><span class="point-icon">🚫</span> <strong>يمنع منعاً كلياً</strong> سير أو وقوف السيارات الخاصة والموتوسيكلات فيها حتى لو كان التوقف لحظياً!</li>
-        </ul>
-      </div>
-
-      <!-- Card: Strada Riservata Veicoli a Motore -->
-      <div class="feature-card">
-        <div class="sign-img-wrapper">
-          <img src="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/immagini/228.png" alt="Strada Riservata Motore (Figura 228)" onerror="this.onerror=null; this.src='https://placehold.co/160x70/1d4ed8/ffffff?text=Auto+Strada+Riservata';">
-        </div>
-        <div class="comparison-header-vertical">
-          <span class="header-ar-title">طريق مخصص للمركبات ذات المحرك</span>
-          <span class="header-it-subtitle">Strada Riservata Veicoli a Motore (Figura 228)</span>
-        </div>
-        <ul class="card-points-list">
-          <li><span class="point-icon">🚗</span> سيارة بيضاء على خلفية زرقاء: طريق مفتوح فقط للسيارات والدراجات النارية المؤهلة.</li>
-          <li><span class="point-icon">🚷</span> <strong>ممنوع الدخول:</strong> المشاة، الدراجات الهوائية (Biciclette)، وعربات الجر، والدراجات البخارية الصغيرة (Ciclomotori).</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 7: SERVICES & PARKING -->
-  <section class="content-section">
-    <div class="section-header">
-      <span class="section-icon">⛽</span>
-      <h2 class="section-title">7. إشارات الخدمات ومواقف السيارات وساعة الوقوف (Servizi e Parcheggio)</h2>
-    </div>
-
-    <div class="grid-2">
-      <!-- Card: Segnali di Servizio -->
-      <div class="feature-card highlight-sky">
-        <div class="comparison-header-vertical">
-          <span class="header-ar-title">إشارات الخدمات ومحطات الشحن والطوارئ</span>
-          <span class="header-it-subtitle">Segnali di Servizio Utile</span>
-        </div>
-        <ul class="card-points-list">
-          <li><span class="point-icon">⛽</span> <strong>محطة وقود (Rifornimento - شكل 254):</strong> تزود بالبنزين والديزل، وتوضح المسافة المتبقية بالمتر أو الكيلومتر.</li>
-          <li><span class="point-icon">🔌</span> <strong>محطة شحن كهربائي (Ricarica veicoli elettrici):</strong> مخصصة حصرياً للمركبات الكهربائية أثناء عملية الشحن الفعلي للبطارية فقط.</li>
-          <li><span class="point-icon">🏥</span> <strong>مستشفى (Ospedale - شكل 214):</strong> توجب على السائقين التزام الهدوء التام وعدم إحداث ضجيج بالمحرك أو المنبه الصوتي.</li>
-          <li><span class="point-icon">🚑</span> <strong>قسم الطوارئ والإسعاف (Pronto Soccorso - شكل 210):</strong> صليب أحمر مع هلال أو سرير، يدل على وجود خدمة طوارئ طبية على مدار 24 ساعة.</li>
-          <li><span class="point-icon">🆘</span> <strong>هاتف طوارئ (Posto SOS - شكل 220):</strong> لطلب النجدة والمساعدة الفنية السريعة على الطرق السريعة.</li>
-        </ul>
-      </div>
-
-      <!-- Card: Parcheggio e Disco Orario -->
+      <!-- Card: Striscia Discontinua -->
       <div class="feature-card highlight-emerald">
+        <div class="sign-img-wrapper">
+          <img src="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/immagini/502.png" alt="Striscia Discontinua (Figura 502)" onerror="this.onerror=null; this.src='https://placehold.co/180x70/18181b/ffffff?text=Striscia+Discontinua';">
+        </div>
         <div class="comparison-header-vertical">
-          <span class="header-ar-title">مواقف السيارات (P) وساعة الوقوف (Disco Orario)</span>
-          <span class="header-it-subtitle">Regolamentazione del Parcheggio</span>
+          <span class="header-ar-title">الخط الطولي المتقطع الفردي</span>
+          <span class="header-it-subtitle">Striscia Discontinua Singola (Figura 502)</span>
         </div>
         <ul class="card-points-list">
-          <li><span class="point-icon">🅿️</span> <strong>لوحة الموقف (Parcheggio - حرف P):</strong> ساحة مخصصة لانتظار السيارات، قد تكون مجانية أو مدفوعة بتعريفة (Parcometro).</li>
-          <li><span class="point-icon">⏰</span> <strong>ساعة الوقوف (Disco Orario):</strong> عند وجود لوحة قرص الوقت، <strong>يلتزم السائق بضبط وإبراز وقت بدء الوقوف</strong> بوضوح خلف الزجاج الأمامي للمركبة.</li>
-          <li><span class="point-icon">⚒️</span> <strong>أيام العمل (Giorni lavorativi):</strong> رمز المطرقتين يحدد سريان التوقيت من الاثنين إلى السبت فقط.</li>
-          <li><span class="point-icon">✝️</span> <strong>أيام العطلات والأعياد (Giorni festivi):</strong> رمز الصليب اللاتيني يحدد سريان اللائحة في أيام الآحاد والعطلات الرسمية.</li>
-          <li><span class="point-icon">📐</span> <strong>هندسة ركن السيارات:</strong>
-            - عمودي على الرصيف: <em>A pettine (على شكل مشط)</em>.<br>
-            - مائل بزاوية: <em>A spina di pesce (على شكل شوكة سمكة)</em>.<br>
-            - موازي للرصيف في طابور: <em>In fila (على خط واحد)</em>.
-          </li>
+          <li><span class="point-icon">✅</span> <strong>قابل للعبور بأمان (Valicabile):</strong> يجوز عبور الخط لإجراء مناورة التجاوز (Sorpasso) إذا توفرت شروط الرؤية والسلامة.</li>
+          <li><span class="point-icon">🔄</span> <strong>جواز الدوران لليسار والخلف:</strong> يسمح بالانعطاف يساراً أو الدوران للخلف (Inversione) على الطرق ذات الاتجاهين ما لم توجد إشارة منع عمودية.</li>
+          <li><span class="point-icon">📏</span> <strong>دلالة طول الشرطات:</strong> عندما تصبح الفراغات بين الشرطات أقصر والشرطات أطول، فهذا إنذار بقرب التحول إلى خط متصل مانع للتجاوز.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Interactive Simulator: Strisce Affiancate -->
+    <div class="simulator-interactive-box">
+      <div class="comparison-header-vertical">
+        <span class="header-ar-title">🕹️ محاكي قاعدة الخطين المتجاورين (Strisce Affiancate)</span>
+        <span class="header-it-subtitle">Regola della Striscia più vicina al proprio senso di marcia</span>
+      </div>
+      <p style="color: #a1a1aa; font-size: 0.92rem; margin-bottom: 14px;">
+        اختر موضع سيارتك لمعرفة الحكم القانوني الفوري وفقاً للقاعدة الذهبية: <strong>العبرة دائماً بالخط الأقرب لمسار سيارتك المباشر!</strong>
+      </p>
+
+      <div class="sim-controls">
+        <button class="sim-btn active" onclick="simulateLines('discontinua-vicina', this)">
+          🚗 الخط المتقطع هو الأقرب لسيارتك (Figura 506)
+        </button>
+        <button class="sim-btn" onclick="simulateLines('continua-vicina', this)">
+          🚗 الخط المتصل هو الأقرب لسيارتك (Figura 505)
+        </button>
+        <button class="sim-btn" onclick="simulateLines('doppia-continua', this)">
+          ⛔ خطان متصلان متوازيان (Figura 509)
+        </button>
+      </div>
+
+      <div class="sim-display-area" id="simLinesOutput">
+        <strong style="color: #10b981;">الحالة: الخط المتقطع هو الأقرب لسيارتك (Discontinua a destra del senso di marcia)</strong><br>
+        ✅ <strong>الحكم القانوني:</strong> يجوز لك عبور الخط لتجاوز المركبات الأخرى أو الانعطاف أو الدوران للخلف، ويمكنك العودة لمسارك فوق الخط المتصل بعد إتمام المناورة بأمان.<br>
+        📌 <strong>تطبيق عملي:</strong> توجد هذه الحالة عند الخروج من المنعطفات الصعبة أو قمم المرتفعات (Dossi) حيث تصبح الرؤية واضحة أمامك.
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: AXIS 2 - STRISCE TRASVERSALI -->
+  <section class="content-section">
+    <div class="section-header">
+      <span class="section-icon">🛑</span>
+      <h2 class="section-title">3. المحور الثاني: الخطوط العرضية وممرات المشاة والدراجات (Strisce Trasversali)</h2>
+    </div>
+
+    <div class="grid-2">
+      <!-- Card: Stop Transversale -->
+      <div class="feature-card highlight-rose">
+        <div class="sign-img-wrapper">
+          <img src="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/immagini/515.png" alt="Striscia di arresto STOP (Figura 515)" onerror="this.onerror=null; this.src='https://placehold.co/180x70/18181b/ffffff?text=STOP+Linea+Continua';">
+        </div>
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">خط التوقف العرضي المتصل الإجباري</span>
+          <span class="header-it-subtitle">Striscia Trasversale Continua di Arresto (Figura 515)</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">🛑</span> <strong>إلزامية التوقف التام:</strong> خط عريض متصل يفرض إيقاف المركبة بالكامل قبل تجاوزه، ولا يكفي مجرد الإبطاء.</li>
+          <li><span class="point-icon">🚦</span> <strong>مواضع الاقتران:</strong> يرافق إشارة قف (STOP)، أو إشارة المرور ذات الضوء الأحمر، أو عند إشارة رجل المرور (Vigile) أو حواجز السكة الحديد.</li>
+          <li><span class="point-icon">❌</span> <strong>فخ الامتحان:</strong> يُحظر الوقوف أو تجاوز الخط بمقدمة السيارة، ويجب التوقف التام حتى لو كان التقاطع خالياً من أي مركبات أو مشاة!</li>
+        </ul>
+      </div>
+
+      <!-- Card: Dare Precedenza -->
+      <div class="feature-card highlight-amber">
+        <div class="sign-img-wrapper">
+          <img src="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/immagini/517.png" alt="Striscia con Triangoli (Figura 517)" onerror="this.onerror=null; this.src='https://placehold.co/180x70/18181b/ffffff?text=Triangoli+Dare+Precedenza';">
+        </div>
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">خط المثلثات العرضي (إعطاء الأسبقية)</span>
+          <span class="header-it-subtitle">Striscia Trasversale Discontinua con Triangoli (Figura 517)</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">⚠️</span> <strong>إعطاء الأسبقية المشروط:</strong> خط عرضي يتكون من مثلثات بيضاء رؤوسها متجهة نحو السائق القادم، يرافقه إشارة مثلث الأسبقية (Dare Precedenza).</li>
+          <li><span class="point-icon">🚗</span> <strong>التوقف ليس إجبارياً:</strong> لا يلزم السائق بالتوقف التام؛ بل يجب عليه التمهل، والتوقف فقط إذا كانت هناك مركبات قادمة لها حق الأسبقية من اليمين أو اليسار.</li>
+          <li><span class="point-icon">💡</span> <strong>الفارق الجوهري:</strong> مع خط المثلثات يمكنك المرور دون توقف إذا كان الطريق خالياً، بينما مع خط STOP التوقف إلزامي حتماً!</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Pedestrian & Cycle Crossings -->
+    <div class="grid-2" style="margin-top: 20px;">
+      <div class="feature-card">
+        <div class="sign-img-wrapper">
+          <img src="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/immagini/528.png" alt="Attraversamento Pedonale (Figura 528)" onerror="this.onerror=null; this.src='https://placehold.co/180x70/18181b/ffffff?text=Strisce+Pedonali';">
+        </div>
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">ممر المشاة (خطوط الحمار الوحشي)</span>
+          <span class="header-it-subtitle">Attraversamento Pedonale (Figura 528)</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">🚶</span> خطوط بيضاء طولية موازية لمحور الطريق تعطي المشاة حق الأسبقية المطلق عند العبور.</li>
+          <li><span class="point-icon">🚫</span> <strong>حظر الوقوف والتوقف:</strong> يُمنع منعاً باتاً الانتظار (Sosta) أو التوقف المؤقت (Fermata) فوق ممر المشاة أو قبله بمسافة تقل عن 5 أمتار.</li>
+          <li><span class="point-icon">⛔</span> يمنع تجاوز مركبة أخرى توقفت لإفساح المجال للمشاة لعبور الطريق.</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="sign-img-wrapper">
+          <img src="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/immagini/531.png" alt="Attraversamento Ciclabile (Figura 531)" onerror="this.onerror=null; this.src='https://placehold.co/180x70/18181b/ffffff?text=Attraversamento+Ciclabile';">
+        </div>
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">معبر الدراجات الهوائية</span>
+          <span class="header-it-subtitle">Attraversamento Ciclabile (Figura 531)</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">🚲</span> خطوط بيضاء متقطعة مربعة أو مستطيلة تحدد مسار عبور راكبي الدراجات الهوائية من جانب لآخر.</li>
+          <li><span class="point-icon">🛡️</span> تلزم سائقي السيارات بمنح الأسبقية للدراجات الهوائية التي بدأت أو على وشك البدء في العبور.</li>
+          <li><span class="point-icon">🚫</span> يمنع التوقف والوقوف فوق معابر الدراجات بنفس صرامة ممرات المشاة.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 8: TECHNICAL DICTIONARY -->
+  <!-- SECTION 4: AXIS 3 - FRECCE, STALLI & ZEBRATURE -->
+  <section class="content-section">
+    <div class="section-header">
+      <span class="section-icon">↗️</span>
+      <h2 class="section-title">4. المحور الثالث: أسهم التوجيه، مربعات الوقوف، والجزيرة المطلية (Frecce, Stalli e Zebrature)</h2>
+    </div>
+
+    <div class="grid-3">
+      <!-- Card: Frecce di incanalamento -->
+      <div class="feature-card">
+        <div class="sign-img-wrapper">
+          <img src="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/immagini/534.png" alt="Frecce di Incanalamento (Figura 534)" onerror="this.onerror=null; this.src='https://placehold.co/160x70/18181b/ffffff?text=Frecce+Incanalamento';">
+        </div>
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">أسهم التوجيه واختيار المسار</span>
+          <span class="header-it-subtitle">Frecce di Incanalamento (Figura 534 / 535)</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">🧭</span> ترشد السائق للتموضع في الحارة المناسبة قبل التقاطع (مستقيم، يمين، أو يسار).</li>
+          <li><span class="point-icon">🔒</span> طالما كانت خطوط الحارات متقطعة يجوز تغيير الحارة؛ وبمجرد أن تصبح <strong>متصلة يمنع تغيير الحارة نهائياً</strong> ويجب اتباع اتجاه السهم!</li>
+        </ul>
+      </div>
+
+      <!-- Card: Isola di traffico dipinta -->
+      <div class="feature-card highlight-rose">
+        <div class="sign-img-wrapper">
+          <img src="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/immagini/543.png" alt="Isola di Traffico Zebrature (Figura 543)" onerror="this.onerror=null; this.src='https://placehold.co/160x70/18181b/ffffff?text=Zebrature+Vietate';">
+        </div>
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">الجزيرة المرورية المطلية (Zebrature)</span>
+          <span class="header-it-subtitle">Isola di Traffico a Raso (Figura 543)</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">⛔</span> خطوط بيضاء مائلة تفصل تدفقات المرور وتوجه المركبات نحو مسارات آمنة.</li>
+          <li><span class="point-icon">🚫</span> <strong>حظر مطلق للمرور والوقوف:</strong> يُحظر تماماً السير فوقها (Transito vietato) أو ركن السيارة عليها (Sosta vietata) حتى لو لثوانٍ معدودة!</li>
+        </ul>
+      </div>
+
+      <!-- Card: Freccia di Rientro -->
+      <div class="feature-card">
+        <div class="sign-img-wrapper">
+          <img src="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/immagini/537.png" alt="Freccia di Rientro (Figura 537)" onerror="this.onerror=null; this.src='https://placehold.co/160x70/18181b/ffffff?text=Freccia+Rientro';">
+        </div>
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">سهم العودة للمسار الأيمن</span>
+          <span class="header-it-subtitle">Freccia di Rientro (Figura 537)</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">↩️</span> سهم منحني لليمين يوضح للسائق الذي يقوم بالتجاوز ضرورة العودة الفورية للمسار الأيمن.</li>
+          <li><span class="point-icon">⚠️</span> يدل على اقتراب انتهاء الحارة أو تحول الخط المتقطع إلى خط متصل مانع للتجاوز.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Parking Stalls Color Matrix -->
+    <div style="margin-top: 24px;">
+      <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 12px;">🅿️ مصفوفة ألوان مربعات ركن السيارات (Stalli di Sosta)</h3>
+      <div style="overflow-x: auto;">
+        <table class="custom-data-table">
+          <thead>
+            <tr>
+              <th>لون المربع الأرضي</th>
+              <th>التصنيف القانوني (Regolamentazione)</th>
+              <th>شروط الاستخدام وأفخاخ الاختبار</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="color-pill pill-white">⚪ خطوط بيضاء (Strisce Bianche)</span></td>
+              <td><strong>مواقف مجانية (Sosta Gratuita)</strong></td>
+              <td>متاحة لجميع أنواع المركبات بدون مقابل مالي، لكنها قد تقيد بقرص الوقت (Disco orario) إذا نصت لوحة عمودية على ذلك.</td>
+            </tr>
+            <tr>
+              <td><span class="color-pill pill-blue">🔵 خطوط زرقاء (Strisce Blu)</span></td>
+              <td><strong>مواقف مدفوعة الأجر (Sosta a Pagamento)</strong></td>
+              <td>تتطلب دفع رسوم انتظار عبر تذكرة الباركومتر (Ticket) أو تطبيقات الدفع الإلكتروني، وتلزم بإبراز التذكرة على الزجاج الأمامي.</td>
+            </tr>
+            <tr>
+              <td><span class="color-pill pill-yellow">🟡 خطوط صفراء (Strisce Gialle)</span></td>
+              <td><strong>مواقف محجوزة حصرياً (Sosta Riservata)</strong></td>
+              <td>مخصصة حصراً لفئات معينة: ذوي الاحتياجات الخاصة (Invalidi)، سيارات الإسعاف، التاكسي، الحافلات، أو مركبات الشحن والتفريغ. <strong>يُمنع على غير المصرح لهم الوقوف فيها كلياً!</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: AXIS 4 - SEGNALETICA SUGLI OSTACOLI -->
+  <section class="content-section">
+    <div class="section-header">
+      <span class="section-icon">🚧</span>
+      <h2 class="section-title">5. المحور الرابع: علامات العوائق والمطبات (Segni sugli Ostacoli e Rallentatori)</h2>
+    </div>
+
+    <div class="grid-2">
+      <!-- Card: Segni sugli ostacoli -->
+      <div class="feature-card highlight-amber">
+        <div class="sign-img-wrapper">
+          <img src="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/immagini/563.png" alt="Segni sugli Ostacoli (Figura 563)" onerror="this.onerror=null; this.src='https://placehold.co/180x70/18181b/ffffff?text=Nero+Giallo+Ostacolo';">
+        </div>
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">دهانات العوائق على الطريق</span>
+          <span class="header-it-subtitle">Segni sugli Ostacoli (Figura 563 / 565)</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">⚠️</span> <strong>خطوط مائلة باللونين الأسود والأصفر:</strong> تُدهن على الأعمدة، والأرصفة، وركائز الجسور، وحوائط الأنفاق لتنبيه السائقين لوجود عائق ثابت على جانب أو وسط الطريق.</li>
+          <li><span class="point-icon">👁️</span> تهدف لتحسين الرؤية الليلية ولفت الانتباه في المسارات الضيقة لمنع الاصطدام بالعوائق الإنشائية.</li>
+          <li><span class="point-icon">❌</span> لا تعني مكان ركن للسيارات ولا تمنح أسبقية لأي طرف.</li>
+        </ul>
+      </div>
+
+      <!-- Card: Rallentatori di velocità -->
+      <div class="feature-card highlight-sky">
+        <div class="sign-img-wrapper">
+          <img src="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/immagini/574.png" alt="Rallentatori di Velocità (Figura 574)" onerror="this.onerror=null; this.src='https://placehold.co/180x70/18181b/ffffff?text=Rallentatori+Dosso';">
+        </div>
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">مطبات التهدئة الاصطناعية</span>
+          <span class="header-it-subtitle">Rallentatori di Velocità (Figura 574)</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">📉</span> وسائل ميكانيكية أو بصرية أو صوتية على سطح الطريق لإجبار السائقين على خفض السرعة فوراً.</li>
+          <li><span class="point-icon">🏫</span> توضع بالقرب من المدارس، والمناطق السكنية، والتقاطعات الخطرة، وممرات المشاة الحيوية.</li>
+          <li><span class="point-icon">🚗</span> تتطلب التمهل الشديد لتفادي فقدان السيطرة على المركبة أو إتلاف نظام التعليق والمساعدين.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: TECHNICAL DICTIONARY -->
   <section class="content-section">
     <div class="section-header">
       <span class="section-icon">📖</span>
-      <h2 class="section-title">8. قاموس المصطلحات الفنية الـ 10 الحاكمة (Dizionario Tecnico)</h2>
+      <h2 class="section-title">6. قاموس المصطلحات الفنية الـ 11 الحاكمة (Dizionario Tecnico)</h2>
     </div>
 
     <div style="overflow-x: auto;">
-      <table class="dict-table">
+      <table class="custom-data-table">
         <thead>
           <tr>
             <th>المصطلح الإيطالي (Termine)</th>
@@ -1239,176 +1252,209 @@
         </thead>
         <tbody>
           <tr>
-            <td><span class="dict-it-term">Segnali di indicazione</span></td>
-            <td>إشارات إرشادية / معلوماتية</td>
-            <td>ترشد السائق وتحدد الوجهات، وتلزم باحترام القواعد الخاصة بطبيعة كل طريق وألوانه.</td>
+            <td><span class="dict-it-term">Striscia continua</span></td>
+            <td>خط متصل</td>
+            <td>خط طولي لا يمكن عبوره أو ملامسته نهائياً (Invalicabile)، ويمنع الدوران للخلف.</td>
           </tr>
           <tr>
-            <td><span class="dict-it-term">Preavviso di intersezione</span></td>
-            <td>إشعار مسبق بالتقاطع</td>
-            <td>توضع قبل التقاطع لتوضيح مسارات الوجهات ولا تعفي السائق من احترام إشارات الأسبقية.</td>
+            <td><span class="dict-it-term">Striscia discontinua</span></td>
+            <td>خط متقطع</td>
+            <td>خط طولي يسمح بعبوره لإجراء التجاوز والدوران للخلف إذا كانت شروط الأمان متوفرة.</td>
           </tr>
           <tr>
-            <td><span class="dict-it-term">Centro abitato</span></td>
-            <td>تجمع سكني / مدينة</td>
-            <td>منطقة تبدأ بلوحة بيضاء، وتفرض سرعة 50 كم/س وحظراً للكلاكس وأسبقية لحافلات النقل.</td>
+            <td><span class="dict-it-term">Strisce affiancate</span></td>
+            <td>خطان متجاوران</td>
+            <td>خط متصل بجوار خط متقطع؛ الحكم والقاعدة تتبع دائماً الخط الأقرب لجهة سير مركبتك.</td>
           </tr>
           <tr>
-            <td><span class="dict-it-term">Fine centro abitato</span></td>
-            <td>نهاية التجمع السكني</td>
-            <td>لوحة مشطوبة بالأحمر، تعيد حد السرعة إلى 90 كم/س للطرق الخارجية وتنهي حظر الكلاكس.</td>
+            <td><span class="dict-it-term">Inversione di marcia</span></td>
+            <td>الدوران للخلف (يو تيرن)</td>
+            <td>مناورة لتغيير اتجاه السير 180 درجة، ومحظورة كلياً فوق الخط المتصل أو خطوط المشاة.</td>
           </tr>
           <tr>
-            <td><span class="dict-it-term">Deviazione</span></td>
-            <td>تحويل مسار السير</td>
-            <td>تكون بخلفية صفراء وتفرض خط سير بديل بسبب وجود ورش عمل أو عوائق في الطريق الأصلي.</td>
+            <td><span class="dict-it-term">Striscia di arresto</span></td>
+            <td>خط التوقف العرضي المتصل</td>
+            <td>يفرض التوقف التام عند علامة STOP أو الإشارة الحمراء دون تجاوز الخط بمقدمة السيارة.</td>
           </tr>
           <tr>
-            <td><span class="dict-it-term">Cantiere stradale</span></td>
-            <td>ورشة أشغال طرق</td>
-            <td>ترتبط بالإشارات الصفراء، ويجب عندها توخي الحذر ومراعاة العمال والآليات المتحركة.</td>
+            <td><span class="dict-it-term">Striscia con triangoli</span></td>
+            <td>خط المثلثات العرضي</td>
+            <td>يفرض إعطاء الأسبقية، والتوقف عنده غير إلزامي إلا إذا كانت هناك سيارات قادمة بالفعل.</td>
           </tr>
           <tr>
-            <td><span class="dict-it-term">Località turistica</span></td>
-            <td>موقع سياحي أو تاريخي</td>
-            <td>لوحة خلفيتها بنية دائماً، وفخ الامتحان يدعي أنها ترمز للمناطق الصناعية (Falso).</td>
+            <td><span class="dict-it-term">Frecce di incanalamento</span></td>
+            <td>أسهم التوجيه والتموضع</td>
+            <td>تحدد المسار المطلوب للحارة، وتلزم بالاستمرار في نفس الاتجاه فور تحول الخط لمتصل.</td>
           </tr>
           <tr>
-            <td><span class="dict-it-term">Disco orario</span></td>
-            <td>ساعة الوقوف / قرص الوقت</td>
-            <td>أداة إلزامية لتحديد وقت الوصول في المواقف محددة المدة تفادياً لغرامات التجاوز الزمني.</td>
+            <td><span class="dict-it-term">Stalli di sosta</span></td>
+            <td>مربعات ركن السيارات</td>
+            <td>مساحات محددة بدهانات أرضية: بيضاء للمجاني، زرقاء للمدفوع، وصفراء للمحجوز.</td>
           </tr>
           <tr>
-            <td><span class="dict-it-term">Pronto Soccorso</span></td>
-            <td>قسم الطوارئ الطبية</td>
-            <td>لوحة بخلفية بيضاء وصليب أحمر، وتدل على مستشفى مجهز لاستقبال الحالات الحرجة 24/7.</td>
+            <td><span class="dict-it-term">Zebrature / Isola a raso</span></td>
+            <td>الجزيرة المرورية المطلية</td>
+            <td>خطوط بيضاء مائلة تفصل المسارات؛ يحظر قطعياً السير أو الوقوف فوقها نهائياً.</td>
           </tr>
           <tr>
-            <td><span class="dict-it-term">Ricarica veicoli elettrici</span></td>
-            <td>شحن المركبات الكهربائية</td>
-            <td>موقف خاص مخصص حصرياً للمركبات أثناء عملية الشحن الكهربائي الفعلي فقط.</td>
+            <td><span class="dict-it-term">Rallentatori di velocità</span></td>
+            <td>مطبات التهدئة الاصطناعية</td>
+            <td>مطبات على سطح الطريق لإجبار السائقين على الإبطاء قرب المدارس والتقاطعات.</td>
+          </tr>
+          <tr>
+            <td><span class="dict-it-term">Bordi della carreggiata</span></td>
+            <td>خطوط حافة نهر الطريق</td>
+            <td>خطوط تفصل نهر الطريق عن كتف الطريق (Banchina) أو الممرات الجانبية.</td>
           </tr>
         </tbody>
       </table>
     </div>
   </section>
 
-  <!-- SECTION 9: QUIZ TRAPS -->
+  <!-- SECTION 7: QUIZ TRAPS -->
   <section class="content-section">
     <div class="section-header">
       <span class="section-icon">🎯</span>
-      <h2 class="section-title">9. فخاخ الامتحان الوزارية الـ 7 المعتمدة (Trappole dei Quiz)</h2>
+      <h2 class="section-title">7. فخاخ الامتحان الوزارية الـ 9 المعتمدة (Trappole dei Quiz)</h2>
     </div>
     <p style="color: #a1a1aa; font-size: 0.94rem; margin-bottom: 20px;">
-      اختبر فهمك الفوري لأخطر الأسئلة الوزارية التي تتكرر باستمرار في اختبارات Patente B الرسمية:
+      اختبر فهمك الفوري لأخطر الأسئلة الوزارية التي تتكرر باستمرار في اختبارات Patente B الرسمية للباب السادس:
     </p>
 
     <!-- Quiz 1 -->
     <div class="quiz-card" data-correct="Falso">
-      <div class="quiz-q-it">1. Il segnale di fine centro abitato impone il limite massimo di velocità di 50 km/h.</div>
-      <div class="quiz-q-ar">1. تشير لوحة نهاية التجمع السكني (Fine centro abitato) إلى فرض حد أقصى للسرعة يبلغ 50 كم/ساعة.</div>
+      <div class="quiz-q-it">1. La striscia bianca continua che divide la carreggiata in due corsie può essere oltrepassata durante un sorpasso, se non sopraggiungono veicoli in senso opposto.</div>
+      <div class="quiz-q-ar">1. الخط الأبيض المتصل الذي يقسم نهر الطريق إلى حارتين يجوز تجاوزه وعبوره أثناء مناورة التجاوز إذا لم تكن هناك مركبات قادمة في الاتجاه المعاكس.</div>
       <div class="quiz-buttons">
         <button class="quiz-btn" onclick="checkQuiz(this, 'Vero')">VERO ✅</button>
         <button class="quiz-btn" onclick="checkQuiz(this, 'Falso')">FALSO ❌</button>
       </div>
       <div class="quiz-feedback" data-feedback>
         <strong>الإجابة: FALSO ❌</strong><br>
-        <strong>التعليل القانوني:</strong> العكس هو الصحيح تماماً! إشارة نهاية المدينة تعني انتهاء حد 50 كم/س الخاص بالمدن، والعودة إلى الحد العام للطرق الخارجية خارج المدن وهو 90 كم/س.
+        <strong>التعليل القانوني:</strong> الخط المتصل غير قابل للعبور نهائياً (Invalicabile) تحت أي ظرف! لا يجوز عبوره أو ملامسته حتى لو كان الطريق خالياً تماماً ومجال الرؤية مفتوحاً لعدة كيلومترات.
       </div>
     </div>
 
     <!-- Quiz 2 -->
-    <div class="quiz-card" data-correct="Falso">
-      <div class="quiz-q-it">2. Nei centri abitati è sempre consentito l'uso del clacson per avvisare gli altri veicoli prima di un sorpasso.</div>
-      <div class="quiz-q-ar">2. داخل التجمعات السكنية، يُسمح دائماً باستخدام آلة التنبيه (الكلاكس) لتحذير المركبات الأخرى قبل مناورة التجاوز.</div>
+    <div class="quiz-card" data-correct="Vero">
+      <div class="quiz-q-it">2. In presenza di due strisce continue e discontinue affiancate, il conducente deve rispettare la striscia più vicina al proprio senso di marcia.</div>
+      <div class="quiz-q-ar">2. عند وجود خطين متجاورين أحدهما متصل والآخر متقطع، يجب على السائق الالتزام بالخط الأقرب لمسار سيره المباشر.</div>
       <div class="quiz-buttons">
         <button class="quiz-btn" onclick="checkQuiz(this, 'Vero')">VERO ✅</button>
         <button class="quiz-btn" onclick="checkQuiz(this, 'Falso')">FALSO ❌</button>
       </div>
       <div class="quiz-feedback" data-feedback>
-        <strong>الإجابة: FALSO ❌</strong><br>
-        <strong>التعليل القانوني:</strong> استخدام المنبه الصوتي داخل المدن محظور بشكل عام (Vietato di norma) ولا يجوز للتجاوز؛ ويُسمح به فقط في الطوارئ القصوى ونقل المصابين والمرضى الخطرين.
+        <strong>الإجابة: VERO ✅</strong><br>
+        <strong>التعليل القانوني:</strong> هذه هي القاعدة الحاكمة: إذا كان الخط الأقرب لمركبتك متقطعاً، يجوز لك العبور والتجاوز؛ وإذا كان الأقرب متصلاً، يمنع عليك العبور.
       </div>
     </div>
 
     <!-- Quiz 3 -->
-    <div class="quiz-card" data-correct="Vero">
-      <div class="quiz-q-it">3. Il segnale verde di indicazione autostradale può trovarsi anche su strade urbane per indicare la direzione verso l'autostrada.</div>
-      <div class="quiz-q-ar">3. إشارة الإرشاد الخضراء الخاصة بالأوتوستراد يمكن أن توجد أيضاً على طرق المدن لتوضيح الاتجاه المؤدي إلى الطريق السريع.</div>
-      <div class="quiz-buttons">
-        <button class="quiz-btn" onclick="checkQuiz(this, 'Vero')">VERO ✅</button>
-        <button class="quiz-btn" onclick="checkQuiz(this, 'Falso')">FALSO ❌</button>
-      </div>
-      <div class="quiz-feedback" data-feedback>
-        <strong>الإجابة: VERO ✅</strong><br>
-        <strong>التعليل القانوني:</strong> علامات الإرشاد تتلون بلون الطريق الذي ترشد إليه حتى لو كانت مثبتة على طريق آخر ذي تصنيف مختلف؛ لذا توضع اللوحات الخضراء داخل المدن لترشد السائق إلى مدخل الأوتوستراد.
-      </div>
-    </div>
-
-    <!-- Quiz 4 -->
     <div class="quiz-card" data-correct="Falso">
-      <div class="quiz-q-it">4. La corsia riservata agli autobus può essere utilizzata da tutti i veicoli per effettuare la sosta rapida.</div>
-      <div class="quiz-q-ar">4. الحارة المخصصة للحافلات (Corsia riservata) يجوز استخدامها من قبل جميع المركبات لإجراء توقف سريع (Sosta rapida).</div>
+      <div class="quiz-q-it">3. La striscia trasversale continua di arresto obbliga il conducente a fermarsi solo se ci sono pedoni che attraversano.</div>
+      <div class="quiz-q-ar">3. خط التوقف العرضي المتصل يلزم السائق بالتوقف فقط إذا كان هناك مشاة يعبرون الطريق.</div>
       <div class="quiz-buttons">
         <button class="quiz-btn" onclick="checkQuiz(this, 'Vero')">VERO ✅</button>
         <button class="quiz-btn" onclick="checkQuiz(this, 'Falso')">FALSO ❌</button>
       </div>
       <div class="quiz-feedback" data-feedback>
         <strong>الإجابة: FALSO ❌</strong><br>
-        <strong>التعليل القانوني:</strong> الحارة المخصصة للحافلات محجوزة حصرياً للنقل العام وسيارات الأجرة المرخصة، ويُحظر سير أو وقوف أو توقف المركبات الخاصة بها قطعياً لتفادي تعطيل حركة النقل العام.
+        <strong>التعليل القانوني:</strong> خط التوقف المتصل يفرض التوقف التام حتماً عند وجود علامة STOP أو إشارة ضوئية حمراء أو أمر الشرطي، بصرف النظر تماماً عن وجود مشاة أو خلو التقاطع.
       </div>
     </div>
 
-    <!-- Quiz 5 -->
+    <!-- Quiz 4 -->
     <div class="quiz-card" data-correct="Vero">
-      <div class="quiz-q-it">5. Il segnale di parcheggio con pannello integrativo di disco orario impone di indicare l'ora di arrivo.</div>
-      <div class="quiz-q-ar">5. إشارة موقف السيارات الملحق بها لوحة قرص الوقت (Disco orario) تفرض إظهار ساعة الوصول بوضوح.</div>
+      <div class="quiz-q-it">4. La striscia trasversale discontinua formata da una serie di triangoli indica che bisogna dare la precedenza ai veicoli che transitano sulla strada che si incrocia.</div>
+      <div class="quiz-q-ar">4. خط التوقف العرضي المتقطع المكون من سلسلة مثلثات يدل على وجوب إعطاء الأسبقية للمركبات التي تسير على الطريق المتقاطع.</div>
       <div class="quiz-buttons">
         <button class="quiz-btn" onclick="checkQuiz(this, 'Vero')">VERO ✅</button>
         <button class="quiz-btn" onclick="checkQuiz(this, 'Falso')">FALSO ❌</button>
       </div>
       <div class="quiz-feedback" data-feedback>
         <strong>الإجابة: VERO ✅</strong><br>
-        <strong>التعليل القانوني:</strong> عندما تفرض لوحة الموقف ساعة الوقوف (Disco orario)، يكون السائق ملزماً قانوناً بضبط وقت وصوله وإبراز القرص خلف الزجاج الأمامي ليتمكن المراقب من احتساب المدة المسموحة.
+        <strong>التعليل القانوني:</strong> هذا الخط يمثل علامة إعطاء الأسبقية الأرضية (Dare Precedenza)؛ يفرض التمهل ومنح الأسبقية لليمين واليسار، والتوقف مشروط بقدوم مركبات.
+      </div>
+    </div>
+
+    <!-- Quiz 5 -->
+    <div class="quiz-card" data-correct="Falso">
+      <div class="quiz-q-it">5. Sull'isola di traffico dipinta sulla carreggiata (zebratura) è consentita la sosta dei veicoli per brevi periodi.</div>
+      <div class="quiz-q-ar">5. فوق الجزيرة المرورية المطلية على قارعة الطريق (الخطوط المائلة Zebratura) يُسمح بركن وانتظار المركبات لفترات قصيرة.</div>
+      <div class="quiz-buttons">
+        <button class="quiz-btn" onclick="checkQuiz(this, 'Vero')">VERO ✅</button>
+        <button class="quiz-btn" onclick="checkQuiz(this, 'Falso')">FALSO ❌</button>
+      </div>
+      <div class="quiz-feedback" data-feedback>
+        <strong>الإجابة: FALSO ❌</strong><br>
+        <strong>التعليل القانوني:</strong> الجزيرة المرورية المطلية محظور كلياً السير فوقها (Transito vietato) أو الوقوف عليها (Sosta vietata) حتى لو لثوانٍ معدودة لتفادي إرباك وفصل تدفقات المرور.
       </div>
     </div>
 
     <!-- Quiz 6 -->
     <div class="quiz-card" data-correct="Falso">
-      <div class="quiz-q-it">6. Il segnale con sfondo marrone indica località industriali e artigianali.</div>
-      <div class="quiz-q-ar">6. الإشارة ذات الخلفية البنية تشير إلى مناطق صناعية وحرفية.</div>
+      <div class="quiz-q-it">6. Gli stalli di sosta delimitati da strisce gialle possono essere utilizzati da tutti i veicoli se la sosta non supera i 30 minuti.</div>
+      <div class="quiz-q-ar">6. مربعات ركن السيارات المحددة بخطوط صفراء يجوز استخدامها من قبل جميع المركبات إذا لم تتجاوز مدة الوقوف 30 دقيقة.</div>
       <div class="quiz-buttons">
         <button class="quiz-btn" onclick="checkQuiz(this, 'Vero')">VERO ✅</button>
         <button class="quiz-btn" onclick="checkQuiz(this, 'Falso')">FALSO ❌</button>
       </div>
       <div class="quiz-feedback" data-feedback>
         <strong>الإجابة: FALSO ❌</strong><br>
-        <strong>التعليل القانوني:</strong> الخلفية البنية (Sfondo marrone) مخصصة فقط للمعالم السياحية والتاريخية والمنتزهات، بينما المناطق الصناعية والحرفية يُستعمل لها اللون الأسود/الرمادي أو الأبيض.
+        <strong>التعليل القانوني:</strong> الخطوط الصفراء مخصصة حصراً لفئات معينة مصرح لها (مثل ذوي الاحتياجات الخاصة، الإسعاف، الحافلات، التاكسي)؛ ولا يجوز للمركبات العادية الوقوف فيها مهما قصرت المدة.
       </div>
     </div>
 
     <!-- Quiz 7 -->
+    <div class="quiz-card" data-correct="Vero">
+      <div class="quiz-q-it">7. Le frecce direzionali tracciate sulla carreggiata invitano i conducenti a incanalarsi nella corsia destinata alla direzione scelta.</div>
+      <div class="quiz-q-ar">7. أسهم التوجيه المرسومة على سطح الطريق تدعو السائقين إلى التموضع في الحارة المخصصة للاتجاه المختار.</div>
+      <div class="quiz-buttons">
+        <button class="quiz-btn" onclick="checkQuiz(this, 'Vero')">VERO ✅</button>
+        <button class="quiz-btn" onclick="checkQuiz(this, 'Falso')">FALSO ❌</button>
+      </div>
+      <div class="quiz-feedback" data-feedback>
+        <strong>الإجابة: VERO ✅</strong><br>
+        <strong>التعليل القانوني:</strong> تسمى (Frecce di incanalamento) ووظيفتها مساعدة السائقين على اختيار الحارة الصحيحة مبكراً قبل أن تفصل الحارات خطوط متصلة تلزمهم باتباع الاتجاه.
+      </div>
+    </div>
+
+    <!-- Quiz 8 -->
     <div class="quiz-card" data-correct="Falso">
-      <div class="quiz-q-it">7. Il segnale di strada riservata ai veicoli a motore consente il transito a tutti i tipi di veicoli, inclusi ciclomotori e velocipedi.</div>
-      <div class="quiz-q-ar">7. إشارة طريق مخصص للمركبات ذات المحرك تسمح بمرور جميع المركبات بما في ذلك الدراجات البخارية الصغيرة والدراجات الهوائية.</div>
+      <div class="quiz-q-it">8. Una carreggiata divisa da una doppia striscia continua è sempre a senso unico di circolazione.</div>
+      <div class="quiz-q-ar">8. نهر الطريق المفصول بخط مزدوج متصل يكون دائماً في اتجاه واحد للسير (Senso unico).</div>
       <div class="quiz-buttons">
         <button class="quiz-btn" onclick="checkQuiz(this, 'Vero')">VERO ✅</button>
         <button class="quiz-btn" onclick="checkQuiz(this, 'Falso')">FALSO ❌</button>
       </div>
       <div class="quiz-feedback" data-feedback>
         <strong>الإجابة: FALSO ❌</strong><br>
-        <strong>التعليل القانوني:</strong> هذه الطريق مخصصة فقط للسيارات والدراجات النارية السريعة؛ ويُحظر فيها سير الدراجات الهوائية (Velocipedi)، والمشاة، والدراجات البخارية الصغيرة (Ciclomotori).
+        <strong>التعليل القانوني:</strong> الخط المزدوج المتصل يفصل بين اتجاهين متعاكسين للسير (Doppio senso) في الطرق العريضة المكونة من حارتين على الأقل لكل اتجاه، ولا يوضع في الطرق ذات الاتجاه الواحد.
+      </div>
+    </div>
+
+    <!-- Quiz 9 -->
+    <div class="quiz-card" data-correct="Vero">
+      <div class="quiz-q-it">9. È vietata la fermata e la sosta sulle strisce pedonali e a meno di 5 metri da esse.</div>
+      <div class="quiz-q-ar">9. يُحظر الوقوف والتوقف المؤقت فوق خطوط ممرات المشاة وعلى مسافة تقل عن 5 أمتار منها.</div>
+      <div class="quiz-buttons">
+        <button class="quiz-btn" onclick="checkQuiz(this, 'Vero')">VERO ✅</button>
+        <button class="quiz-btn" onclick="checkQuiz(this, 'Falso')">FALSO ❌</button>
+      </div>
+      <div class="quiz-feedback" data-feedback>
+        <strong>الإجابة: VERO ✅</strong><br>
+        <strong>التعليل القانوني:</strong> الوقوف والتوقف محظوران تماماً فوق ممر المشاة وقبله بـ 5 أمتار للحفاظ على زاوية الرؤية وحماية المشاة العابرين من خطر الاصطدام المفاجئ.
       </div>
     </div>
   </section>
 
-  <!-- SECTION 10: CHAPTER PAGINATION -->
+  <!-- SECTION 8: CHAPTER PAGINATION -->
   <nav class="chapter-pagination" aria-label="التنقل بين فصول المكتبة">
-    <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="pagination-btn prev-btn" onclick="soundEngine.click()">
+    <a href="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/index.html" class="pagination-btn prev-btn" onclick="soundEngine.click()">
       <span class="pagination-icon">→</span>
       <div class="pagination-info">
         <span class="pagination-label">الباب السابق</span>
-        <span class="pagination-title">الباب 7: إشارات المرور الضوئية ورجال الشرطة</span>
+        <span class="pagination-title">الباب 5: إشارات الأسبقية</span>
       </div>
     </a>
 
@@ -1420,10 +1466,10 @@
       </div>
     </a>
 
-    <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="pagination-btn next-btn" onclick="soundEngine.click()">
+    <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="pagination-btn next-btn" onclick="soundEngine.click()">
       <div class="pagination-info">
         <span class="pagination-label">الباب التالي</span>
-        <span class="pagination-title">الباب 9: الإشارات التكميلية وورش العمل</span>
+        <span class="pagination-title">الباب 7: الإشارات الضوئية والشرطي</span>
       </div>
       <span class="pagination-icon">←</span>
     </a>
@@ -1508,6 +1554,27 @@
     labels.forEach(el => el.textContent = soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم');
     if (soundEngine.enabled) soundEngine.click();
   };
+
+  // Simulator Controller: Strisce Affiancate
+  function simulateLines(type, btn) {
+    document.querySelectorAll('.sim-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const out = document.getElementById('simLinesOutput');
+    if (type === 'discontinua-vicina') {
+      out.innerHTML = '<strong style="color: #10b981;">الحالة: الخط المتقطع هو الأقرب لسيارتك (Discontinua a destra del senso di marcia - Figura 506)</strong><br>' +
+        '✅ <strong>الحكم القانوني:</strong> يجوز لك عبور الخط لتجاوز المركبات الأخرى أو الانعطاف أو الدوران للخلف، ويمكنك العودة لمسارك فوق الخط المتصل بعد إتمام المناورة بأمان.<br>' +
+        '📌 <strong>تطبيق عملي:</strong> توجد هذه الحالة عند الخروج من المنعطفات الصعبة أو قمم المرتفعات (Dossi) حيث تصبح الرؤية واضحة أمامك.';
+    } else if (type === 'continua-vicina') {
+      out.innerHTML = '<strong style="color: #f43f5e;">الحالة: الخط المتصل هو الأقرب لسيارتك (Continua a destra del senso di marcia - Figura 505)</strong><br>' +
+        '🚫 <strong>الحكم القانوني:</strong> يمنع عليك منعاً باتاً عبور الخطين أو ملامستهما، ولا يجوز التجاوز أو الدوران للخلف نهائياً.<br>' +
+        '📌 <strong>تطبيق عملي:</strong> توضع قبل دخول المنعطفات الخطرة أو قمم المرتفعات حيث تنعدم الرؤية أمامك بينما يسمح للقادم من الاتجاه المعاكس الذي يملك رؤية مفتوحة.';
+    } else if (type === 'doppia-continua') {
+      out.innerHTML = '<strong style="color: #f59e0b;">الحالة: خطان متصلان متوازيان (Doppia striscia continua - Figura 509)</strong><br>' +
+        '⛔ <strong>الحكم القانوني:</strong> حاجز مروري مطلق يفصل بين اتجاهين متعاكسين؛ يمنع التجاوز الذي يتطلب عبور الخطين، ويمنع الدوران للخلف تماماً.<br>' +
+        '📌 <strong>تطبيق عملي:</strong> تستخدم في الطرق الرئيسية متعددة الحارات ذات الكثافة العالية لمنع الاصطدام وجهاً لوجه.';
+    }
+    if (soundEngine.click) soundEngine.click();
+  }
 
   // Desktop Dropdown Controller
   function toggleNavDropdown(e) {
