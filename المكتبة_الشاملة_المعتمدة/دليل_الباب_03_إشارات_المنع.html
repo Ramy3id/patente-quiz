@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>دليل وقاموس الباب 03: إشارات المنع | رخصة القيادة الإيطالية Patente B Pro</title>
+<title>دليل وقاموس الباب 03: إشارات المنع والقيود على السير | رخصة القيادة الإيطالية Patente B Pro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
@@ -49,7 +49,7 @@
     touch-action: none;
   }
 
-  /* Portal Nav */
+  /* Portal Nav Header (Strict 54px, Apple HIG) */
   .unified-portal-nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -78,1590 +78,2804 @@
 
   .badge-tag {
     font-family: var(--font-mono);
-    font-size: 0.65rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    background: var(--rose-primary);
-    color: #fff;
-    padding: 2px 6px;
-    border-radius: 4px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    background: rgba(244, 63, 94, 0.15);
+    color: var(--rose-primary);
+    border: 1px solid rgba(244, 63, 94, 0.3);
+    padding: 2px 7px;
+    border-radius: 6px;
   }
 
-  .nav-desktop-tabs {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-
-  .nav-tab {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 12px;
-    border-radius: 8px;
-    text-decoration: none;
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: all 0.15s;
-  }
-  .nav-tab:hover { background: rgba(255,255,255,0.06); color: #fff; }
-  .nav-tab.active { background: rgba(16,185,129,0.15); color: var(--emerald-primary); }
-
-  .nav-desktop-actions {
+  .desktop-nav-links {
     display: flex;
     align-items: center;
     gap: 8px;
-    position: relative;
   }
-
-  .nav-dropdown-btn {
+  .desktop-nav-link {
     display: flex;
     align-items: center;
     gap: 6px;
-    padding: 6px 12px;
+    padding: 6px 14px;
     border-radius: 8px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid var(--border-subtle);
     color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 600;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+  .desktop-nav-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-subtle);
+  }
+  .desktop-nav-link.active {
+    color: var(--rose-primary);
+    background: rgba(244, 63, 94, 0.1);
+    border-color: rgba(244, 63, 94, 0.25);
+  }
+
+  .desktop-nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-audio-btn {
+    height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #e4e4e7;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .nav-audio-btn:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .nav-dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  .nav-dropdown-btn {
+    height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: #e4e4e7;
     font-size: 0.82rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.15s;
-    font-family: var(--font-sans);
+    transition: all 0.15s ease;
+    font-family: inherit;
+    white-space: nowrap;
   }
-  .nav-dropdown-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
-
+  .nav-dropdown-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.22);
+    color: #fff;
+  }
   .nav-dropdown-menu {
     position: absolute;
     top: calc(100% + 8px);
     left: 0;
-    min-width: 280px;
-    background: rgba(18, 18, 22, 0.98);
+    width: 290px;
+    max-height: 440px;
+    overflow-y: auto;
+    background: #121215;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    border: 1px solid var(--border-highlight);
-    border-radius: 12px;
-    padding: 6px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    padding: 8px;
     display: none;
-    z-index: 200;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 1100;
+    direction: rtl;
   }
-  .nav-dropdown-menu.open { display: block; }
-
+  .nav-dropdown-menu.active { display: flex; }
   .nav-dropdown-item {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 9px 12px;
+    gap: 10px;
+    padding: 8px 12px;
     border-radius: 8px;
+    color: #d4d4d8;
     text-decoration: none;
-    color: var(--text-secondary);
     font-size: 0.82rem;
-    font-weight: 600;
-    transition: all 0.15s;
+    font-weight: 500;
+    transition: all 0.12s ease;
   }
-  .nav-dropdown-item:hover { background: rgba(255,255,255,0.07); color: #fff; }
-  .nav-dropdown-item.active-chapter { background: rgba(244, 63, 94, 0.12); color: var(--rose-primary); }
-
-  .nav-audio-btn {
-    width: 36px; height: 36px;
-    display: flex; align-items: center; justify-content: center;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid var(--border-subtle);
-    border-radius: 8px;
-    cursor: pointer;
-    color: var(--text-secondary);
-    font-size: 1rem;
-    transition: all 0.15s;
+  .nav-dropdown-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
   }
-  .nav-audio-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+  .nav-dropdown-item.active {
+    background: rgba(244, 63, 94, 0.15);
+    color: var(--rose-primary);
+    font-weight: 700;
+  }
 
+  /* Hamburger Button (< 768px) */
   .nav-hamburger-btn {
     display: none;
-    width: 44px; height: 44px;
-    align-items: center; justify-content: center;
+    width: 44px;
+    height: 44px;
     background: transparent;
     border: none;
     cursor: pointer;
-    color: var(--text-primary);
-    font-size: 1.4rem;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    -webkit-tap-highlight-color: transparent;
   }
-
-  @media (max-width: 767px) {
-    .nav-desktop-tabs, .nav-desktop-actions { display: none !important; }
-    .nav-hamburger-btn { display: flex; }
+  .hamburger-box { width: 20px; height: 14px; position: relative; }
+  .hamburger-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #f4f4f5;
+    border-radius: 2px;
+    transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
   }
+  .line-top { top: 0; }
+  .line-mid { top: 6px; }
+  .line-bot { top: 12px; }
 
-  /* Mobile Drawer */
-  .mobile-nav-overlay {
+  .nav-hamburger-btn.is-active .line-top { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger-btn.is-active .line-mid { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger-btn.is-active .line-bot { transform: translateY(-6px) rotate(-45deg); }
+
+  /* Mobile Drawer Panel */
+  .mobile-drawer-overlay {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(4px);
-    z-index: 1100;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.25s ease;
   }
-  .mobile-nav-overlay.open { display: block; }
-
-  .mobile-nav-panel {
+  .mobile-drawer-overlay.is-active { display: block; opacity: 1; }
+  .mobile-drawer-panel {
+    display: none;
     position: fixed;
-    top: 0; right: 0;
-    width: min(300px, 85vw);
-    height: 100%;
-    background: rgba(15,15,18,0.98);
-    border-left: 1px solid var(--border-highlight);
-    z-index: 1200;
-    display: flex;
-    flex-direction: column;
-    transform: translateX(100%);
-    transition: transform 0.28s cubic-bezier(0.4,0,0.2,1);
+    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
+    left: 0; right: 0;
+    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
+    background: rgba(15, 15, 18, 0.94);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
+    z-index: 999;
+    padding: 16px;
+    padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
     overflow-y: auto;
-    padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 16px);
+    -webkit-overflow-scrolling: touch;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
   }
-  .mobile-nav-panel.open { transform: translateX(0); }
-
-  .mobile-nav-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 16px;
-    border-bottom: 1px solid var(--border-subtle);
-    flex-shrink: 0;
-  }
-  .mobile-nav-close {
-    width: 44px; height: 44px;
-    display: flex; align-items: center; justify-content: center;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid var(--border-subtle);
-    border-radius: 10px;
-    cursor: pointer;
-    color: var(--text-primary);
-    font-size: 1.2rem;
-  }
-
-  .mobile-nav-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    padding: 8px;
-    flex: 1;
-  }
-
+  .mobile-drawer-panel.is-active { display: block; transform: translateY(0); opacity: 1; }
+  .mobile-nav-list { display: flex; flex-direction: column; gap: 8px; list-style: none; }
   .mobile-nav-link {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     padding: 12px 14px;
-    border-radius: 10px;
-    text-decoration: none;
-    color: var(--text-secondary);
-    font-size: 0.88rem;
-    font-weight: 600;
     min-height: 48px;
-    transition: all 0.15s;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: #e4e4e7;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
   }
-  .mobile-nav-link:hover, .mobile-nav-link.active { background: rgba(255,255,255,0.07); color: #fff; }
-  .mobile-nav-link.active-chapter { background: rgba(244,63,94,0.12); color: var(--rose-primary); }
-  .nav-icon { font-size: 1.1rem; flex-shrink: 0; }
+  .mobile-nav-link.active {
+    background: rgba(244, 63, 94, 0.15);
+    border-color: rgba(244, 63, 94, 0.35);
+    color: var(--rose-primary);
+  }
 
-  /* Main content */
+  /* Main Container */
   .guide-container {
-    max-width: 900px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: calc(var(--nav-base-height) + 24px) 16px 48px;
+    padding: calc(var(--nav-base-height) + 28px) 20px 80px 20px;
   }
 
-  /* Hero Banner */
-  .hero-banner {
-    background: linear-gradient(135deg, rgba(244,63,94,0.15) 0%, rgba(99,102,241,0.1) 100%);
-    border: 1px solid rgba(244,63,94,0.3);
-    border-radius: 20px;
-    padding: 32px 28px;
+  /* Hero Section */
+  .chapter-hero {
+    background: radial-gradient(circle at 50% 0%, rgba(244, 63, 94, 0.14), transparent 70%),
+                linear-gradient(180deg, rgba(24, 24, 27, 0.7) 0%, rgba(18, 18, 20, 0.9) 100%);
+    border: 1px solid var(--border-subtle);
+    border-radius: 24px;
+    padding: 40px 32px;
     margin-bottom: 32px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
   }
-  .hero-chapter-badge {
+  .chapter-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(244, 63, 94, 0.6), transparent);
+  }
+  .hero-tag {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    background: rgba(244,63,94,0.15);
-    border: 1px solid rgba(244,63,94,0.35);
-    border-radius: 50px;
-    padding: 6px 16px;
-    font-size: 0.78rem;
+    gap: 6px;
+    padding: 4px 12px;
+    background: rgba(244, 63, 94, 0.12);
+    border: 1px solid rgba(244, 63, 94, 0.28);
+    border-radius: 20px;
+    font-size: 0.8rem;
     font-weight: 700;
     color: var(--rose-primary);
-    font-family: var(--font-mono);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
     margin-bottom: 16px;
   }
   .hero-title {
-    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-size: 2.2rem;
     font-weight: 900;
     color: #fff;
-    line-height: 1.2;
     margin-bottom: 8px;
+    letter-spacing: -0.02em;
   }
   .hero-subtitle {
     font-family: var(--font-mono);
-    font-size: 0.9rem;
     color: var(--sky-primary);
-    margin-bottom: 16px;
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+    direction: ltr;
   }
-  .hero-stats {
+  .hero-desc {
+    max-width: 860px;
+    margin: 0 auto 24px auto;
+    color: var(--text-secondary);
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+  .hero-badges-row {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 20px;
+    gap: 12px;
   }
-  .hero-stat {
-    background: rgba(255,255,255,0.05);
+  .hero-stat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--border-subtle);
     border-radius: 10px;
-    padding: 10px 18px;
-    text-align: center;
-  }
-  .hero-stat .stat-val {
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: var(--rose-primary);
-    font-family: var(--font-mono);
-    display: block;
-  }
-  .hero-stat .stat-label {
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    font-weight: 600;
+    font-size: 0.85rem;
+    color: #d4d4d8;
   }
 
-  /* Section */
-  .content-section {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
+  /* Golden Rules Banner */
+  .golden-rules-banner {
+    background: rgba(244, 63, 94, 0.06);
+    border: 1px solid rgba(244, 63, 94, 0.22);
+    border-radius: 18px;
     padding: 24px;
-    margin-bottom: 24px;
-    backdrop-filter: blur(12px);
+    margin-bottom: 36px;
   }
-
-  .section-header {
+  .golden-rules-title {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--rose-primary);
+    margin-bottom: 16px;
+  }
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .rule-box {
+    background: rgba(24, 24, 27, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .rule-box h4 {
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .rule-box p {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Filter Pills */
+  .filter-pills-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    margin-bottom: 28px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filter-pill {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .filter-pill:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+  }
+  .filter-pill.active {
+    background: var(--rose-primary);
+    border-color: var(--rose-primary);
+    color: #fff;
+    font-weight: 700;
+  }
+
+  /* Simulators */
+  .simulator-box {
+    background: linear-gradient(180deg, rgba(24, 24, 27, 0.8) 0%, rgba(18, 18, 20, 0.95) 100%);
+    border: 1px solid rgba(244, 63, 94, 0.25);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .sim-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--rose-primary);
+    margin-bottom: 6px;
+  }
+  .sim-subtitle {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
     margin-bottom: 20px;
-    padding-bottom: 14px;
+  }
+  .sim-controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .sim-btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sim-btn:hover { background: rgba(255, 255, 255, 0.1); }
+  .sim-btn.active {
+    background: rgba(244, 63, 94, 0.2);
+    border-color: var(--rose-primary);
+    color: var(--rose-primary);
+  }
+  .sim-output-card {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .sim-img-wrapper img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+  }
+  .sim-details { flex: 1; text-align: right; }
+  .sim-state-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .state-normal { background: rgba(245, 158, 11, 0.2); color: var(--amber-primary); }
+  .state-prohibited { background: rgba(244, 63, 94, 0.2); color: var(--rose-primary); }
+  .state-allowed { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .sim-legal-text {
+    font-size: 0.92rem;
+    color: #e4e4e7;
+    line-height: 1.7;
+  }
+
+  /* Comparison Section */
+  .comp-section {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .comp-header { margin-bottom: 20px; text-align: right; }
+  .comp-header h3 { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+  .comp-header p { font-size: 0.9rem; color: var(--text-secondary); }
+  .comp-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .comp-card-path {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .comp-card-path img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+  }
+  .comp-card-path h4 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .comp-card-path .path-it {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--sky-primary);
+    margin-bottom: 10px;
+  }
+  .comp-card-path p {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    text-align: right;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  /* Grid of Signals Cards */
+  .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
     border-bottom: 1px solid var(--border-subtle);
   }
-  .section-icon {
-    width: 42px; height: 42px;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    flex-shrink: 0;
-  }
-  .icon-rose { background: rgba(244,63,94,0.15); }
-  .icon-amber { background: rgba(245,158,11,0.15); }
-  .icon-sky { background: rgba(56,189,248,0.15); }
-  .icon-emerald { background: rgba(16,185,129,0.15); }
-  .icon-indigo { background: rgba(99,102,241,0.15); }
-  .icon-violet { background: rgba(139,92,246,0.15); }
-
   .section-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-badge {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: var(--sky-primary);
+    background: rgba(56, 189, 248, 0.1);
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+  }
+
+  .signals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .signal-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .signal-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-highlight);
+  }
+
+  .signal-img-container {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    padding: 12px;
+  }
+  .signal-img-container img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+  }
+
+  /* Card Header Vertical Hierarchy */
+  .card-header-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+  .card-ar-title {
+    order: 1;
     font-size: 1.15rem;
     font-weight: 800;
     color: #fff;
   }
-  .section-subtitle {
+  .card-it-title {
+    order: 2;
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.82rem;
     color: var(--sky-primary);
-    margin-top: 2px;
+    direction: ltr;
+    text-align: right;
   }
 
-  /* Comparison vertical header */
-  .comparison-header-vertical {
-    text-align: center;
-    margin-bottom: 16px;
-  }
-  .header-ar-title {
-    font-size: 1rem;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 4px;
-  }
-  .header-it-subtitle {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--sky-primary);
-    font-style: italic;
-  }
-
-  /* Comparison grid */
-  .comparison-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-  @media (max-width: 600px) { .comparison-grid { grid-template-columns: 1fr; } }
-
-  .compare-card {
-    background: var(--bg-surface-elevated);
-    border-radius: 12px;
-    padding: 18px;
-    border: 1px solid var(--border-subtle);
-    position: relative;
-    overflow: hidden;
-  }
-  .compare-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-  }
-  .compare-card.rose::before { background: var(--rose-primary); }
-  .compare-card.amber::before { background: var(--amber-primary); }
-  .compare-card.emerald::before { background: var(--emerald-primary); }
-  .compare-card.sky::before { background: var(--sky-primary); }
-  .compare-card.indigo::before { background: var(--indigo-primary); }
-
-  .compare-card-title {
-    font-size: 0.95rem;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 4px;
-  }
-  .compare-card-it {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--sky-primary);
-    margin-bottom: 12px;
-    font-style: italic;
-  }
-
-  .sign-circle {
-    width: 72px; height: 72px;
-    border-radius: 50%;
-    border: 5px solid;
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 12px;
-    font-size: 0.65rem;
-    font-weight: 900;
-    text-align: center;
-    line-height: 1.2;
-  }
-  .sign-circle.red-white { border-color: #ef4444; background: #fff; color: #ef4444; }
-  .sign-circle.red-ring { border-color: #ef4444; background: rgba(239,68,68,0.08); }
-
-  .sign-octagon {
-    width: 72px; height: 72px;
-    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-    background: #ef4444;
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 12px;
-    color: #fff;
+  .card-desc-text {
     font-size: 0.9rem;
-    font-weight: 900;
-    letter-spacing: 1px;
-  }
-
-  /* Feature list */
-  .feature-list {
-    list-style: none;
-    margin-top: 10px;
-  }
-  .feature-list li {
-    display: block;
-    position: relative;
-    padding-right: 28px;
-    line-height: 1.7;
-    font-size: 0.88rem;
     color: var(--text-secondary);
-    margin-bottom: 6px;
+    line-height: 1.7;
+    margin-bottom: 16px;
   }
-  .feature-list li::before {
-    content: '→';
-    position: absolute;
-    right: 6px;
-    color: var(--rose-primary);
+
+  /* ZERO FLEX ON LISTS (STRICT TYPOGRAPHY) */
+  .card-points-group { margin-bottom: 14px; }
+  .points-group-title {
+    font-size: 0.82rem;
     font-weight: 700;
-  }
-  .feature-list li.emerald::before { color: var(--emerald-primary); }
-  .feature-list li.amber::before { color: var(--amber-primary); }
-  .feature-list li.sky::before { color: var(--sky-primary); }
-  .feature-list li strong { color: var(--text-primary); font-weight: 700; }
-
-  /* Info box */
-  .info-box {
-    border-radius: 10px;
-    padding: 14px 16px;
-    margin-top: 14px;
-    font-size: 0.87rem;
-    line-height: 1.7;
-    border: 1px solid;
-  }
-  .info-box.rose { background: rgba(244,63,94,0.08); border-color: rgba(244,63,94,0.25); color: #fda4af; }
-  .info-box.amber { background: rgba(245,158,11,0.08); border-color: rgba(245,158,11,0.25); color: #fcd34d; }
-  .info-box.emerald { background: rgba(16,185,129,0.08); border-color: rgba(16,185,129,0.25); color: #6ee7b7; }
-  .info-box.sky { background: rgba(56,189,248,0.08); border-color: rgba(56,189,248,0.25); color: #7dd3fc; }
-  .info-box strong { font-weight: 700; }
-
-  /* Trap box */
-  .trap-box {
-    background: rgba(245,158,11,0.06);
-    border: 1px solid rgba(245,158,11,0.3);
-    border-radius: 10px;
-    padding: 14px 16px;
-    margin-top: 14px;
-    font-size: 0.87rem;
-    line-height: 1.7;
-    color: #fcd34d;
-  }
-  .trap-box .trap-title {
-    font-weight: 800;
-    font-size: 0.9rem;
-    color: var(--amber-primary);
+    margin-bottom: 6px;
     display: flex;
     align-items: center;
     gap: 6px;
-    margin-bottom: 8px;
   }
+  .points-group-title.vero-title { color: var(--emerald-primary); }
+  .points-group-title.falso-title { color: var(--rose-primary); }
 
-  /* Card points list (global fix) */
-  .card-points-list { list-style: none; }
+  .card-points-list { list-style: none; margin: 0; padding: 0; }
   .card-points-list li {
     display: block;
     position: relative;
     padding-right: 28px;
     line-height: 1.7;
+    text-align: right;
     font-size: 0.88rem;
-    color: var(--text-secondary);
+    color: #d4d4d8;
     margin-bottom: 6px;
   }
-  .card-points-list li::before {
-    content: '✓';
+  .card-points-list li > span:first-child {
     position: absolute;
-    right: 6px;
-    color: var(--emerald-primary);
-    font-weight: 700;
-  }
-  .card-points-list li strong { color: var(--text-primary); }
-
-  /* Quiz cards */
-  .quiz-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 16px;
-    margin-top: 16px;
+    right: 0;
+    top: 2px;
+    font-size: 1rem;
+    line-height: 1;
   }
 
-  .quiz-card {
-    background: var(--bg-surface-elevated);
-    border: 1px solid var(--border-subtle);
-    border-radius: 12px;
-    padding: 18px;
-    transition: border-color 0.2s;
-  }
-  .quiz-card:hover { border-color: var(--border-highlight); }
-
-  .quiz-question {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 14px;
-    line-height: 1.5;
-  }
-  .quiz-question .it-text {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--sky-primary);
-    display: block;
-    margin-bottom: 4px;
-    font-style: italic;
-  }
-
-  .quiz-buttons {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 12px;
-  }
-  .quiz-btn {
-    flex: 1;
-    padding: 9px 6px;
-    border-radius: 8px;
-    border: 1px solid var(--border-subtle);
-    background: rgba(255,255,255,0.04);
-    color: var(--text-secondary);
-    font-family: var(--font-sans);
+  .card-trap-alert {
+    background: rgba(244, 63, 94, 0.08);
+    border: 1px solid rgba(244, 63, 94, 0.22);
+    border-radius: 10px;
+    padding: 10px 14px;
     font-size: 0.82rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.15s;
-    min-height: 40px;
-  }
-  .quiz-btn:hover { background: rgba(255,255,255,0.08); color: #fff; }
-  .quiz-btn.vero { color: #6ee7b7; border-color: rgba(16,185,129,0.4); }
-  .quiz-btn.falso { color: #fda4af; border-color: rgba(244,63,94,0.4); }
-
-  .quiz-result {
-    display: none;
-    padding: 10px 12px;
-    border-radius: 8px;
-    font-size: 0.83rem;
+    color: #fca5a5;
     line-height: 1.6;
-    font-weight: 600;
+    margin-top: auto;
   }
-  .quiz-result.show { display: block; }
-  .quiz-result.correct { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: #6ee7b7; }
-  .quiz-result.wrong { background: rgba(244,63,94,0.12); border: 1px solid rgba(244,63,94,0.3); color: #fda4af; }
+  .card-trap-alert strong { color: var(--rose-primary); }
 
-  /* Dictionary */
-  .dictionary-grid {
+  /* Glossary Section */
+  .glossary-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 12px;
-    margin-top: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
   }
-  .dict-card {
-    background: var(--bg-surface-elevated);
+  .glossary-card {
+    background: var(--bg-surface);
     border: 1px solid var(--border-subtle);
-    border-radius: 10px;
-    padding: 14px;
+    border-radius: 14px;
+    padding: 16px 18px;
   }
-  .dict-it {
+  .term-it {
     font-family: var(--font-mono);
-    font-size: 0.82rem;
+    font-size: 0.95rem;
+    font-weight: 700;
     color: var(--sky-primary);
-    font-weight: 700;
     margin-bottom: 4px;
+    direction: ltr;
+    text-align: right;
   }
-  .dict-ar {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 4px;
+  .term-ar {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
   }
-  .dict-note {
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    line-height: 1.5;
+  .term-def {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
   }
 
-  /* Image gallery */
-  .images-gallery {
+  /* Quiz Traps Interactive Section */
+  .traps-section { margin-bottom: 50px; }
+  .traps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 12px;
-    margin-top: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
   }
-  .img-item {
-    background: var(--bg-surface-elevated);
+  .trap-card {
+    background: var(--bg-surface);
     border: 1px solid var(--border-subtle);
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: center;
-    padding: 8px;
-  }
-  .img-item img {
-    max-width: 100%;
-    height: 80px;
-    object-fit: contain;
-    border-radius: 6px;
-  }
-  .img-caption {
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    margin-top: 6px;
-    font-family: var(--font-mono);
-  }
-
-  /* Timeline / flow */
-  .rule-flow {
+    border-radius: 16px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 14px;
+    gap: 12px;
   }
-  .rule-step {
+  .trap-header {
     display: flex;
-    gap: 14px;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: space-between;
   }
-  .rule-step-num {
-    width: 32px; height: 32px;
-    border-radius: 50%;
-    background: rgba(244,63,94,0.15);
-    border: 1px solid rgba(244,63,94,0.4);
-    color: var(--rose-primary);
-    font-weight: 800;
-    font-size: 0.82rem;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
+  .card-tag-pill {
     font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
   }
-  .rule-step-text {
-    font-size: 0.88rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    padding-top: 4px;
-  }
-  .rule-step-text strong { color: var(--text-primary); }
+  .tag-vero { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .tag-falso { background: rgba(244, 63, 94, 0.2); color: var(--rose-primary); }
 
-  /* Exception table */
-  .exception-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 14px;
+  .trap-q-it {
+    font-family: var(--font-mono);
     font-size: 0.85rem;
+    color: #e4e4e7;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 8px;
+    padding: 10px;
+    direction: ltr;
+    text-align: left;
+    line-height: 1.5;
   }
-  .exception-table th {
-    background: rgba(244,63,94,0.12);
-    color: var(--rose-primary);
-    padding: 10px 12px;
-    text-align: right;
-    font-weight: 700;
-    border: 1px solid rgba(244,63,94,0.2);
-  }
-  .exception-table td {
-    padding: 10px 12px;
-    border: 1px solid var(--border-subtle);
+  .trap-reason {
+    font-size: 0.88rem;
     color: var(--text-secondary);
     line-height: 1.6;
   }
-  .exception-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
-  .exception-table td strong { color: var(--text-primary); }
-  .badge-yes { color: var(--emerald-primary); font-weight: 800; }
-  .badge-no { color: var(--rose-primary); font-weight: 800; }
+  .trap-reason strong { color: #fff; }
 
-  /* Pagination */
+  /* Pagination Bar */
   .chapter-pagination {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 12px;
-    padding: 20px 0;
-    margin-top: 32px;
-    border-top: 1px solid var(--border-subtle);
-    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    margin-top: 40px;
   }
   .pagination-btn {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 18px;
-    border-radius: 10px;
+    gap: 10px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    color: #fff;
     text-decoration: none;
-    font-size: 0.85rem;
     font-weight: 700;
-    border: 1px solid var(--border-highlight);
-    color: var(--text-secondary);
-    background: var(--bg-surface);
-    transition: all 0.15s;
-    min-height: 48px;
+    font-size: 0.9rem;
+    transition: all 0.15s ease;
   }
-  .pagination-btn:hover { background: rgba(255,255,255,0.06); color: #fff; border-color: rgba(255,255,255,0.2); }
-  .pagination-btn.primary { background: rgba(244,63,94,0.12); border-color: rgba(244,63,94,0.35); color: var(--rose-primary); }
-  .pagination-btn.primary:hover { background: rgba(244,63,94,0.2); }
-  .pagination-center { color: var(--text-muted); font-size: 0.78rem; font-weight: 600; font-family: var(--font-mono); text-align: center; }
+  .pagination-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--border-highlight);
+  }
+  .pagination-info { display: flex; flex-direction: column; text-align: right; }
+  .pagination-label { font-size: 0.75rem; color: var(--text-muted); }
+  .pagination-title { font-size: 0.92rem; color: #fff; }
+
+  /* Responsive Rules (< 768px) */
+  @media (max-width: 768px) {
+    .desktop-nav-links, .desktop-nav-controls { display: none !important; }
+    .nav-hamburger-btn { display: flex !important; }
+    .guide-container { padding-top: calc(var(--nav-base-height) + 16px); padding-left: 14px; padding-right: 14px; }
+    .hero-title { font-size: 1.6rem; }
+    .signals-grid { grid-template-columns: 1fr; }
+    .sim-output-card { flex-direction: column; text-align: center; }
+    .sim-details { text-align: center; }
+    .chapter-pagination { flex-direction: column; align-items: stretch; }
+  }
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
-<nav class="unified-portal-nav">
+<!-- Unified Top Navigation (54px) -->
+<nav class="unified-portal-nav" aria-label="شريط التنقل الموحد">
   <a href="../index.html" class="nav-brand">
     <span>🇮🇹</span>
     <span>Patente B Pro</span>
-    <span class="badge-tag">BETA</span>
+    <span class="badge-tag">CAP. 03</span>
   </a>
 
-  <div class="nav-desktop-tabs">
-    <a href="../index.html" class="nav-tab">🏠 الرئيسية</a>
-    <a href="../Simulatore_Esame.html" class="nav-tab">⏱️ محاكي الامتحان</a>
-    <a href="index.html" class="nav-tab active">📑 المكتبة الشاملة</a>
+  <div class="desktop-nav-links">
+    <a href="../Capitoli_Divisi/index.html" class="desktop-nav-link">
+      <span>📚</span> <span>الأبواب المقسمة</span>
+    </a>
+    <a href="../Simulatore_Esame.html" class="desktop-nav-link">
+      <span>⏱️</span> <span>محاكي الامتحان</span>
+    </a>
+    <a href="index.html" class="desktop-nav-link active">
+      <span>📑</span> <span>المكتبة الشاملة</span>
+    </a>
   </div>
 
-  <div class="nav-desktop-actions">
-    <button class="nav-dropdown-btn" onclick="toggleNavDropdown()" aria-label="أبواب المكتبة">
-      <span>📚</span>
-      <span>أبواب المكتبة</span>
-      <span>▾</span>
-    </button>
-    <div class="nav-dropdown-menu" id="navDropdownMenu">
-      <a href="../Capitoli_Divisi/Capitolo_01_definizioni_generali/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: التعريفات العامة</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_02_segnali_pericolo/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
-      <a href="دليل_الباب_03_إشارات_المنع.html" class="nav-dropdown-item active-chapter"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
-      <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
-      <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
-      <a href="دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: العلامات الأرضية</span></a>
-      <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: إشارات الضوء والشرطة</span></a>
-      <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإرشاد والمعلومات</span></a>
-      <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: الإشارات التكميلية</span></a>
-      <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
-      <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة</span></a>
+  <div class="desktop-nav-controls">
+    <div class="nav-dropdown-wrapper">
+      <button class="nav-dropdown-btn" onclick="toggleNavDropdown(event)">
+        <span>📖</span>
+        <span>فهرس الأبواب</span>
+        <span style="font-size:0.7rem;">▼</span>
+      </button>
+      <div class="nav-dropdown-menu" id="navDropdownMenu">
+        <a href="../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
+        <a href="../Capitoli_Divisi/Capitolo_02_segnali_pericolo/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
+        <a href="دليل_الباب_03_إشارات_المنع.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
+        <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
+        <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
+        <a href="دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأرضية والعوائق</span></a>
+        <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
+        <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
+        <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: الإشارات التكميلية وورش العمل</span></a>
+        <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
+        <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة ومخاطرها</span></a>
+        <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
+        <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
+        <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
+        <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
+        <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
+        <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
+        <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
+        <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
+        <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
+        <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: حوادث السير والطقس</span></a>
+        <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
+        <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 23: المسؤولية والتأمين RCA</span></a>
+        <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 24: استهلاك الوقود والبيئة</span></a>
+        <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
+      </div>
     </div>
-    <button class="nav-audio-btn" onclick="toggleAudio()" id="audioBtn" aria-label="تفعيل الصوت">🔇</button>
+    <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
+      <span class="audio-icon-span">🔊</span>
+      <span class="audio-label-span">الصوت نشط</span>
+    </button>
   </div>
 
-  <button class="nav-hamburger-btn" onclick="toggleMobileNav()" aria-label="فتح القائمة">☰</button>
+  <button class="nav-hamburger-btn" id="nav-hamburger-btn" onclick="toggleMobileNav()" aria-label="قائمة التنقل" aria-expanded="false">
+    <div class="hamburger-box">
+      <span class="hamburger-line line-top"></span>
+      <span class="hamburger-line line-mid"></span>
+      <span class="hamburger-line line-bot"></span>
+    </div>
+  </button>
 </nav>
 
-<!-- Mobile Drawer -->
-<div class="mobile-nav-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
-<div class="mobile-nav-panel" id="mobile-drawer-panel">
-  <div class="mobile-nav-header">
-    <span style="font-weight:800;color:#fff;font-size:0.95rem;">📚 أبواب المكتبة</span>
-    <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
-  </div>
+<!-- Mobile Overlay & Drawer -->
+<div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
+<div class="mobile-drawer-panel" id="mobile-drawer-panel">
   <div class="mobile-nav-list">
-    <a href="../index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">🏠</span>
-      <span>الصفحة الرئيسية</span>
-    </a>
-    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">⏱️</span>
-      <span>محاكي الامتحان الوزاري (20 دقيقة)</span>
-    </a>
-    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📑</span>
-      <span>فهرس المكتبة الشاملة المعتمدة</span>
-    </a>
-    <a href="دليل_الباب_03_إشارات_المنع.html" class="mobile-nav-link active-chapter" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 03 (إشارات المنع)</span>
-    </a>
-    <a href="دليل_الباب_04_إشارات_الإلزام.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 04 (إشارات الإلزام)</span>
-    </a>
-    <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 05 (إشارات الأسبقية)</span>
-    </a>
-    <a href="دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 06 (الإشارات الأرضية والعوائق)</span>
-    </a>
-    <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 07 (إشارات الضوء والشرطة)</span>
-    </a>
-    <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 08 (الإرشاد والمعلومات)</span>
-    </a>
-    <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 09 (الإشارات التكميلية)</span>
-    </a>
-    <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 10 (اللوحات الإضافية)</span>
-    </a>
-    <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 11 (حدود السرعة)</span>
-    </a>
+    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📚</span><span>مذاكرة الأبواب المقسمة (25 باب)</span></a>
+    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">⏱️</span><span>محاكي الامتحان الوزاري</span></a>
+    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📑</span><span>فهرس المكتبة الشاملة</span></a>
+    <a href="دليل_الباب_03_إشارات_المنع.html" class="mobile-nav-link active" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>دليل الباب 03 (إشارات المنع)</span></a>
+    <a href="دليل_الباب_04_إشارات_الإلزام.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>دليل الباب 04 (إشارات الإلزام)</span></a>
+    <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>دليل الباب 05 (إشارات الأسبقية)</span></a>
+    <a href="دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>دليل الباب 06 (العلامات الأرضية والعوائق)</span></a>
+    <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>دليل الباب 07 (الإشارات الضوئية والشرطي)</span></a>
+    <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>دليل الباب 08 (إشارات الإرشاد والمعلومات)</span></a>
   </div>
 </div>
 
-<!-- ═══════════════════════════ MAIN CONTENT ═══════════════════════════ -->
 <main class="guide-container">
 
-  <!-- Hero -->
-  <div class="hero-banner">
-    <div class="hero-chapter-badge">📕 CAPITOLO 03 · إشارات المنع</div>
-    <h1 class="hero-title">دليل الباب الثالث: إشارات المنع</h1>
-    <p class="hero-subtitle">Segnali di Divieto — المرجع الشامل المعتمد</p>
-    <p style="color:var(--text-secondary);font-size:0.9rem;margin-top:8px;">
-      الشكل المميز: دائرة حمراء بحافة حمراء وخلفية بيضاء — تفرض قيوداً إلزامية على المرور والسرعة والتوقف والتجاوز.
+  <!-- HERO SECTION -->
+  <section class="chapter-hero">
+    <div class="hero-tag">
+      <span>🔴</span>
+      <span>الباب 03 · إشارات المنع والتنظيم</span>
+    </div>
+    <h1 class="hero-title">الباب 03: إشارات المنع والقيود على السير والوقوف</h1>
+    <div class="hero-subtitle">Capitolo 03: Segnali di divieto e limitazioni alla circolazione</div>
+    <p class="hero-desc">
+      الدليل المرجعي التفاعلي المعتمد والشامل لكافة إشارات المنع ذات الإطار الدائري الأحمر: التمييز القانوني الجوهري بين حظر العبور وممنوع الدخول، محاكيات حظر التجاوز وفخاخ الشاحنات والحافلات، الفروق الصارمة بين حظر الوقوف وحظر التوقف المطلق، وقيود الأبعاد والأوزان والكتل مع كافة العبارات والفخاخ الوزارية المعتمدة.
     </p>
-    <div class="hero-stats">
-      <div class="hero-stat"><span class="stat-val">250-300</span><span class="stat-label">سؤال في بنك الوزارة</span></div>
-      <div class="hero-stat"><span class="stat-val">35%</span><span class="stat-label">نسبة التكرار والتشابه</span></div>
-      <div class="hero-stat"><span class="stat-val">47</span><span class="stat-label">صورة في الباب</span></div>
-      <div class="hero-stat"><span class="stat-val">A2</span><span class="stat-label">مستوى اللغة الإيطالية</span></div>
-    </div>
-  </div>
-
-  <!-- ─── SECTION 1: الخصائص العامة ─── -->
-  <div class="content-section">
-    <div class="section-header">
-      <div class="section-icon icon-rose">🔴</div>
-      <div>
-        <div class="section-title">الخصائص العامة لإشارات المنع</div>
-        <div class="section-subtitle">Caratteristiche generali dei segnali di divieto</div>
+    <div class="hero-badges-row">
+      <div class="hero-stat-badge">
+        <span>📊</span> <span>521 سؤالاً وزارياً</span>
+      </div>
+      <div class="hero-stat-badge">
+        <span>⚠️</span> <span>35% نسبة الفخاخ والتشابه</span>
+      </div>
+      <div class="hero-stat-badge">
+        <span>🖼️</span> <span>39 إشارة ولوحة معتمدة</span>
+      </div>
+      <div class="hero-stat-badge">
+        <span>🎯</span> <span>نسبة النجاح المستهدفة 100%</span>
       </div>
     </div>
+  </section>
 
-    <div class="comparison-header-vertical">
-      <div class="header-ar-title">الشكل — اللون — القاعدة الذهبية</div>
-      <div class="header-it-subtitle">Forma, Colore, Regola d'oro</div>
+  <!-- GOLDEN RULES BANNER -->
+  <section class="golden-rules-banner">
+    <div class="golden-rules-title">
+      <span>✨</span>
+      <span>القواعد الذهبية الأربع لإشارات المنع (Regole Fondamentali dei Divieti)</span>
     </div>
+    <div class="rules-grid">
+      <div class="rule-box">
+        <h4><span>1️⃣</span> مكان وسريان إشارة المنع</h4>
+        <p>
+          توضع إشارات المنع عند النقطة التي يبدأ منها الحظر تحديداً. ويسري المنع حتى التقاطع القادم، ما لم توجد لوحة تكميلية تحدد مسافة ممتدة أو إشارة إنهاء المنع (Segnale di fine prescrizione).
+        </p>
+      </div>
+      <div class="rule-box">
+        <h4><span>2️⃣</span> المشاة والدراجات الهوائية</h4>
+        <p>
+          إشارة حظر العبور (Divieto di transito) وممنوع الدخول (Senso vietato) لا تمنعان المشاة أبداً. الدراجة الهوائية مسموح بها معهما إذا كانت مدفوعة باليد (Condotta a mano)، لأن قائدها حينها يُعامل معاملة المشاة.
+        </p>
+      </div>
+      <div class="rule-box">
+        <h4><span>3️⃣</span> استثناءات حظر التجاوز</h4>
+        <p>
+          مع إشارة حظر التجاوز (Divieto di sorpasso)، يُسمح بتجاوز المركبات غير الآلية (الدراجات، العربات)، وكذلك الدراجات النارية ذات العجلتين فقط، بشرط عدم تخطي الخط المتصل (Striscia continua).
+        </p>
+      </div>
+      <div class="rule-box">
+        <h4><span>4️⃣</span> فخ الشاحنات والحافلات</h4>
+        <p>
+          حظر التجاوز أو المرور للشاحنات فوق 3.5 طن (Veicoli merci oltre 3,5 t) ينطبق حصراً على مركبات نقل البضائع. الحافلات (Autobus) وعربات الكرفان (Autocaravan) لا يشملها المنع مهما زاد وزنها.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <div class="comparison-grid">
-      <div class="compare-card rose">
-        <div class="comparison-header-vertical">
-          <div class="compare-card-title">🔴 الشكل واللون المميز</div>
-          <div class="compare-card-it">Forma e colore</div>
+  <!-- INTERACTIVE SIMULATOR 1: TRANSITO VS SENSO VIETATO -->
+  <section class="simulator-box" id="sim-transito">
+    <div class="sim-title">
+      <span>🚫</span>
+      <span>المحاكي التفاعلي 1: حظر العبور الكامل مقابل ممنوع الدخول (Transito vs. Senso Vietato)</span>
+    </div>
+    <div class="sim-subtitle">اضغط للمقارنة الفورية بين الإشارتين واكتشاف الفروق القانونية الحاسمة للامتحان الوزاري:</div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnSimTransito" onclick="simulateTransito('transito')">
+        <span>⛔</span> <span>1. حظر العبور في الاتجاهين (Divieto di transito - Fig. 54)</span>
+      </button>
+      <button class="sim-btn" id="btnSimSenso" onclick="simulateTransito('senso')">
+        <span>🚫</span> <span>2. ممنوع الدخول - شارع ذو اتجاه واحد (Senso vietato - Fig. 55)</span>
+      </button>
+    </div>
+    <div class="sim-output-card" id="simTransitoOutputCard">
+      <div class="sim-img-wrapper" id="simTransitoImgWrapper">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/54.png" alt="Divieto di transito">
+      </div>
+      <div class="sim-details" id="simTransitoDetails">
+        <span class="sim-state-badge state-prohibited" id="simTransitoBadge">حظر عبور مطلق للمركبات في كلا الاتجاهين (Entrambi i sensi)</span>
+        <div class="sim-legal-text" id="simTransitoText">
+          <strong>الوضع القانوني (Fig. 54):</strong> دائرة بيضاء بحافة حمراء دون أي رمز داخلي؛ تمنع حركة السير لجميع أنواع المركبات (السيارات، الدراجات النارية، الشاحنات، والدراجات الهوائية أثناء ركوبها) في كلا اتجاهي الطريق. توضع على مداخل الطريق من الجانبين. <strong>المشاة:</strong> مسموح لهم بالسير والعبور بحرية. الدراجة الهوائية مسموح بمرورها فقط إذا كان قائدها يترجل ويدفعها يدوياً (Condotta a mano).
         </div>
-        <ul class="feature-list">
-          <li><strong>دائرية الشكل</strong> بحافة حمراء عريضة وخلفية بيضاء</li>
-          <li>استثناء: <strong>إشارة STOP</strong> ثمانية الشكل (أوكتاغون) حمراء كلها</li>
-          <li>استثناء: <strong>Senso vietato</strong> دائرة بيضاء بحافة حمراء وشريط أبيض أفقي</li>
-          <li><strong>الرمز</strong> داخل الدائرة يُحدد نوع المنع بدقة</li>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE SIMULATOR 2: SOSTA VS FERMATA -->
+  <section class="simulator-box" id="sim-sosta">
+    <div class="sim-title">
+      <span>🅿️</span>
+      <span>المحاكي التفاعلي 2: حظر الوقوف مقابل حظر التوقف التام (Divieto di Sosta vs. Fermata)</span>
+    </div>
+    <div class="sim-subtitle">اضغط لمعرفة ما هو مسموح وما هو ممنوع بين خط مائل واحد وعلامة X:</div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnSimSosta" onclick="simulateSosta('sosta')">
+        <span>🅿️</span> <span>1. حظر الوقوف (Divieto di sosta - Fig. 84)</span>
+      </button>
+      <button class="sim-btn" id="btnSimFermata" onclick="simulateSosta('fermata')">
+        <span>❌</span> <span>2. حظر التوقف المطلق (Divieto di fermata - Fig. 85)</span>
+      </button>
+    </div>
+    <div class="sim-output-card" id="simSostaOutputCard">
+      <div class="sim-img-wrapper" id="simSostaImgWrapper">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/84.png" alt="Divieto di sosta">
+      </div>
+      <div class="sim-details" id="simSostaDetails">
+        <span class="sim-state-badge state-normal" id="simSostaBadge">يمنع الوقوف (Sosta) ويسمح بالتوقف العابر (Fermata)</span>
+        <div class="sim-legal-text" id="simSostaText">
+          <strong>الوضع القانوني (Fig. 84):</strong> خط مائل أحمر واحد. يمنع ترك السيارة متوقفة بدون سائق (Sosta). <strong>يسمح تماماً بالتوقف المؤقت (Fermata)</strong> لإنزال أو صعود راكب بشرط عدم إعاقة حركة المرور وبقاء السائق جاهزاً للتحرك فوراً. السريان داخل المدن: من <strong>08:00 إلى 20:00</strong> افتراضياً، وخارج المدن 24 ساعة.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE SIMULATOR 3: SORPASSO -->
+  <section class="simulator-box" id="sim-sorpasso">
+    <div class="sim-title">
+      <span>🚗</span>
+      <span>المحاكي التفاعلي 3: قواعد ومستثنيات التجاوز (Divieto di Sorpasso)</span>
+    </div>
+    <div class="sim-subtitle">اضغط للتحقق من استثناءات التجاوز وفخ الشاحنات مقابل الحافلات:</div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnSimSorpGen" onclick="simulateSorpasso('gen')">
+        <span>🚗</span> <span>1. حظر التجاوز العام (Divieto di sorpasso - Fig. 56)</span>
+      </button>
+      <button class="sim-btn" id="btnSimSorpCamion" onclick="simulateSorpasso('camion')">
+        <span>🚛</span> <span>2. حظر تجاوز الشاحنات فوق 3.5 طن (Fig. 60)</span>
+      </button>
+    </div>
+    <div class="sim-output-card" id="simSorpassoOutputCard">
+      <div class="sim-img-wrapper" id="simSorpassoImgWrapper">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/56.png" alt="Divieto di sorpasso">
+      </div>
+      <div class="sim-details" id="simSorpassoDetails">
+        <span class="sim-state-badge state-prohibited" id="simSorpassoBadge">حظر تجاوز لجميع المركبات ذات المحرك (أكثر من عجلتين)</span>
+        <div class="sim-legal-text" id="simSorpassoText">
+          <strong>الوضع القانوني (Fig. 56):</strong> سيارة حمراء بجانب سيارة سوداء. يمنع على أي مركبة ذات محرك تجاوز أي مركبة أخرى ذات محرك (أكثر من عجلتين). <strong>الاستثناء المسموح:</strong> يجوز تجاوز المركبات غير الآلية (دراجات هوائية، عربات حيوانات) وكذلك الدراجات النارية ذات العجلتين فقط (Senza sidecar) بشرط عدم عبور الخط المتصل والبقاء داخل المسار.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON SECTION: SAGOMA E MASSA -->
+  <section class="comp-section" id="comp-sagoma">
+    <div class="comp-header">
+      <h3>المقارنة البصرية الحاسمة: قيود الأبعاد والكتل والأوزان القصوى</h3>
+      <p>الأرقام والمقاييس الدقيقة لإشارات قيود الحجم والوزن لتجنب الخلط في أسئلة الامتحان</p>
+    </div>
+    <div class="comp-grid-4">
+      <!-- Sagoma 1: Larghezza -->
+      <div class="comp-card-path">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/75.png" alt="Larghezza 2.30m">
+        <h4>أقصى عرض مسموح</h4>
+        <div class="path-it">Larghezza oltre 2,30 m (Fig. 75)</div>
+        <p>
+          يمنع مرور المركبات التي <strong>يتجاوز عرضها الإجمالي مع الحمولة</strong> الرقم المذكور (سهمان أفقيان يشيران للداخل). يسري على كافة أنواع المركبات.
+        </p>
+      </div>
+
+      <!-- Sagoma 2: Altezza -->
+      <div class="comp-card-path">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/76.png" alt="Altezza 3.50m">
+        <h4>أقصى ارتفاع مسموح</h4>
+        <div class="path-it">Altezza oltre 3,50 m (Fig. 76)</div>
+        <p>
+          يمنع مرور المركبات التي <strong>يتجاوز ارتفاعها الإجمالي</strong> الرقم المكتوب (سهمان رأسيان يشيران للداخل). يوضع قبل الجسور والأنفاق المنخفضة.
+        </p>
+      </div>
+
+      <!-- Sagoma 3: Lunghezza -->
+      <div class="comp-card-path">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/77.png" alt="Lunghezza 10m">
+        <h4>أقصى طول للمركبة</h4>
+        <div class="path-it">Lunghezza oltre 10 m (Fig. 77)</div>
+        <p>
+          يمنع مرور المركبات أو <strong>قوافل المركبات والمقطورات</strong> التي يتجاوز طولها الكلي 10 أمتار. يسري أيضاً على الحافلات الطويلة.
+        </p>
+      </div>
+
+      <!-- Sagoma 4: Massa -->
+      <div class="comp-card-path">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/78.png" alt="Massa 7t">
+        <h4>أقصى كتلة إجمالية فعلية</h4>
+        <div class="path-it">Massa oltre 7 t (Fig. 78)</div>
+        <p>
+          يمنع مرور المركبات التي <strong>يتجاوز وزنها الفعلي لحظة المرور</strong> الرقم المكتوب (7 طن)، وليس الوزن المكتوب في رخصة المركبة فقط.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER PILLS BAR -->
+  <div class="filter-pills-bar">
+    <button class="filter-pill active" onclick="filterCards('all', this)">الكل (39 إشارة معتمدة)</button>
+    <button class="filter-pill" onclick="filterCards('transito', this)">السير والمرور (Circolazione)</button>
+    <button class="filter-pill" onclick="filterCards('sorpasso', this)">السرعة والتجاوز (Velocità e Sorpasso)</button>
+    <button class="filter-pill" onclick="filterCards('categorie', this)">فئات المركبات الممنوعة (Categorie)</button>
+    <button class="filter-pill" onclick="filterCards('massa', this)">الأبعاد والأوزان (Sagoma e Massa)</button>
+    <button class="filter-pill" onclick="filterCards('sosta', this)">الوقوف والتوقف (Sosta e Fermata)</button>
+    <button class="filter-pill" onclick="filterCards('fine', this)">إشارات إنهاء المنع (Fine prescrizioni)</button>
+    <button class="filter-pill" onclick="filterCards('glossary', this)">المصطلحات والقاموس</button>
+  </div>
+
+  <!-- SIGNALS GRID SECTION -->
+  <div class="section-heading">
+    <div class="section-title">
+      <span>📋</span>
+      <span>البطاقات الفنية المعتمدة لإشارات المنع</span>
+    </div>
+    <span class="section-badge">39 إشارة ولوحة معتمدة</span>
+  </div>
+
+  <div class="signals-grid">
+
+    <!-- Card 1: Fig 54 -->
+    <div class="signal-card" data-category="transito">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/54.png" alt="Divieto di transito" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">حظر العبور في كلا الاتجاهين</h3>
+        <span class="card-it-title">Divieto di transito (Figura 54)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر دون أي رمز بداخلها. توضع عند مداخل الطريق لتمنع حركة السير لجميع أنواع المركبات ذات المحرك وغير الآلية في كلا الاتجاهين.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع سير جميع أنواع المركبات في كلا الاتجاهين (Nei due sensi).</li>
+          <li><span>•</span> يوضع على كلا مدخلي الطريق المعني بالحظر.</li>
+          <li><span>•</span> يسمح بمرور المشاة بحرية تامة دون أي قيود.</li>
+          <li><span>•</span> يسمح بمرور الدراجات الهوائية فقط إذا كانت تُدفع باليد (Condotta a mano).</li>
         </ul>
       </div>
-      <div class="compare-card amber">
-        <div class="comparison-header-vertical">
-          <div class="compare-card-title">⚠️ القاعدة الذهبية</div>
-          <div class="compare-card-it">Regola d'oro</div>
-        </div>
-        <ul class="feature-list">
-          <li class="amber"><strong>مكان التركيب:</strong> قبل بداية المنطقة المقيدة مباشرة</li>
-          <li class="amber"><strong>نطاق السريان:</strong> من الإشارة حتى نهاية القيد أو إشارة إلغاء</li>
-          <li class="amber"><strong>الإشارات اللاحقة</strong> تُعدّل أو تلغي القيد السابق</li>
-          <li class="amber">إشارة المنع في <strong>تقاطع</strong> تسري على التقاطع القادم فقط</li>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يسمح بمرور الدراجات النارية والسيارات الكهربائية (خطأ، المنع يشمل كافة المركبات).</li>
+          <li><span>•</span> يمنع المشاة من العبور (خطأ، المشاة مستثنون تماماً).</li>
+          <li><span>•</span> يشير إلى شارع باتجاه واحد (خطأ، هذا Senso vietato Fig. 55).</li>
         </ul>
       </div>
-    </div>
-
-    <div class="info-box rose">
-      💡 <strong>ملاحظة الامتحان:</strong> كل إشارة منع تُلزم السائق بالامتثال فور رؤيتها — لا يُسمح بتجاهلها حتى لو كان الطريق فارغاً. المخالفة تعني عقوبة مالية وخصم نقاط.
-    </div>
-  </div>
-
-  <!-- ─── SECTION 2: المقارنة الفاصلة Divieto transito vs Senso vietato ─── -->
-  <div class="content-section">
-    <div class="section-header">
-      <div class="section-icon icon-rose">🚫</div>
-      <div>
-        <div class="section-title">المقارنة الفاصلة: حظر العبور مقابل ممنوع الدخول</div>
-        <div class="section-subtitle">Divieto di transito vs. Senso vietato</div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> "يمنع المشاة من السير" ➔ خطأ (FALSO)؛ المشاة مسموح لهم دائماً، والدراجة مسموح بها فقط إذا كانت مدفوعة باليد!
       </div>
     </div>
 
-    <div class="comparison-grid">
-      <div class="compare-card rose">
-        <div class="sign-circle red-white" style="font-size:1.2rem;">✖</div>
-        <div class="compare-card-title">حظر العبور الكامل</div>
-        <div class="compare-card-it">Divieto di transito</div>
-        <ul class="feature-list">
-          <li><strong>يمنع</strong> جميع المركبات من العبور في الاتجاهين</li>
-          <li><strong>المشاة</strong> مسموح لهم بالعبور دائماً</li>
-          <li><strong>الدراجات الهوائية</strong> — تُدفع بالإيد (سيراً على الأقدام) فقط</li>
-          <li>يُستخدم في الشوارع المغلقة، أعمال الطريق، تحت الجسور المنخفضة</li>
+    <!-- Card 2: Fig 55 -->
+    <div class="signal-card" data-category="transito">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/55.png" alt="Senso vietato" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">ممنوع الدخول (شارع باتجاه واحد)</h3>
+        <span class="card-it-title">Senso vietato (Figura 55)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة حمراء بشريط أبيض أفقي في المنتصف. تمنع الدخول إلى الشارع من هذا الطرف فقط لأنه مخصص للسير في الاتجاه المعاكس (شارع ذو اتجاه واحد Senso unico).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع الدخول إلى طريق يمكن الدخول إليه من الطرف الآخر (Senso unico).</li>
+          <li><span>•</span> يمنع حركة السير لجميع أنواع المركبات القادمة من جهة الإشارة.</li>
+          <li><span>•</span> يسمح بخروج المركبات القادمة من الاتجاه المقابل.</li>
+          <li><span>•</span> يسمح بمرور وسير المشاة.</li>
         </ul>
       </div>
-      <div class="compare-card amber">
-        <div style="background:#ef4444;border-radius:50%;width:72px;height:72px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;">
-          <div style="background:#fff;width:36px;height:12px;border-radius:3px;"></div>
-        </div>
-        <div class="compare-card-title">ممنوع الدخول (باب الاتجاه الواحد)</div>
-        <div class="compare-card-it">Senso vietato</div>
-        <ul class="feature-list">
-          <li class="amber"><strong>يمنع</strong> الدخول من هذا الطرف فقط (شارع ذو اتجاه واحد)</li>
-          <li class="amber">الطريق <strong>مفتوح</strong> للمركبات القادمة من الاتجاه الآخر</li>
-          <li class="amber"><strong>المشاة</strong> مسموح لهم دائماً</li>
-          <li class="amber">الفارق الجوهري: يمنع الدخول من اتجاه واحد، لا العبور كله</li>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع السير في الاتجاهين (خطأ، هذا Divieto di transito Fig. 54).</li>
+          <li><span>•</span> يسمح بالدخول للدراجات النارية والتاكسي (خطأ، المنع عام للدخول من هذا الجانب).</li>
+          <li><span>•</span> يلزم السائق بالدوران للخلف فوراً (خطأ، لا يفرض مناورة محددة بل يمنع التقدم في هذا الشارع).</li>
         </ul>
       </div>
-    </div>
-
-    <div class="trap-box">
-      <div class="trap-title">⚠️ فخ الامتحان الشائع</div>
-      السؤال: "إشارة Divieto di transito تمنع المشاة من العبور" → <strong>خطأ (Falso)</strong>.
-      المشاة دائماً مسموح لهم بالعبور في كلتا الإشارتين. لكن الدراجات الهوائية يجب أن تُدفع يدوياً ولا تُقاد.
-    </div>
-  </div>
-
-  <!-- ─── SECTION 3: محاكي التجاوز ─── -->
-  <div class="content-section">
-    <div class="section-header">
-      <div class="section-icon icon-amber">🚗</div>
-      <div>
-        <div class="section-title">حظر التجاوز — المحاكي التفصيلي</div>
-        <div class="section-subtitle">Divieto di sorpasso — Simulatore</div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> التفريق بين Fig. 54 (ممنوع في الاتجاهين) و Fig. 55 (ممنوع الدخول من جهتك فقط والطريق سالك من الطرف الآخر).
       </div>
     </div>
 
-    <div class="comparison-grid">
-      <div class="compare-card rose">
-        <div class="comparison-header-vertical">
-          <div class="compare-card-title">🚫 حظر التجاوز العام</div>
-          <div class="compare-card-it">Divieto di sorpasso</div>
-        </div>
-        <ul class="feature-list">
-          <li>يحظر <strong>تجاوز</strong> جميع المركبات متعددة المسارات</li>
-          <li><strong>الدراجات الهوائية وثنائية العجلات</strong> (دون محرك) — مسموح تجاوزها</li>
-          <li><strong>الدراجات النارية (2 عجلات بمحرك)</strong> — تجاوزها جائز بشرط</li>
-          <li>الشرط: عدم تخطي الخط الأبيض الصلب (striscia continua)</li>
-        </ul>
-        <div class="info-box rose" style="margin-top:10px;">
-          ✅ <strong>مسموح:</strong> تجاوز مركبة ذات عجلتين فقط (bicicletta, ciclomotore, motocicletta) — إذا لم يتطلب عبور الخط الصلب
-        </div>
+    <!-- Card 3: Fig 56 -->
+    <div class="signal-card" data-category="sorpasso">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/56.png" alt="Divieto di sorpasso" loading="lazy">
       </div>
-      <div class="compare-card amber">
-        <div class="comparison-header-vertical">
-          <div class="compare-card-title">🚫🚛 حظر تجاوز الشاحنات</div>
-          <div class="compare-card-it">Divieto di sorpasso per i veicoli merci oltre 3,5 t</div>
-        </div>
-        <ul class="feature-list">
-          <li class="amber">يحظر على <strong>الشاحنات</strong> (> 3.5 طن حمولة) تجاوز المركبات الأخرى</li>
-          <li class="amber"><strong>الحافلات (Autobus)</strong> — غير مشمولة حتى لو تزيد عن 3.5 طن</li>
-          <li class="amber">الفارق الحاسم: <strong>veicoli merci</strong> = بضائع/حمولة فقط</li>
-          <li class="amber">الحافلة تنقل ركاباً (passeggeri) وليس بضائع</li>
-        </ul>
-        <div class="trap-box" style="margin-top:10px;">
-          ⚠️ <strong>فخ:</strong> "هذه الإشارة تمنع الحافلات > 3.5 طن من التجاوز" → <strong>خطأ!</strong> تنطبق على الشاحنات (veicoli merci) فقط.
-        </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">حظر التجاوز لجميع المركبات ذات المحرك</h3>
+        <span class="card-it-title">Divieto di sorpasso (Figura 56)</span>
       </div>
-    </div>
-
-    <div class="info-box sky" style="margin-top:14px;">
-      📋 <strong>قاعدة الإلغاء:</strong> حظر التجاوز يسري حتى ظهور إشارة إنهاء الحظر (Fine divieto di sorpasso — دائرة رمادية بخطوط مائلة) أو نهاية المنطقة المحظورة.
-    </div>
-  </div>
-
-  <!-- ─── SECTION 4: وقوف وتوقف ─── -->
-  <div class="content-section">
-    <div class="section-header">
-      <div class="section-icon icon-sky">🅿️</div>
-      <div>
-        <div class="section-title">المقارنة الفاصلة: حظر الوقوف مقابل حظر التوقف</div>
-        <div class="section-subtitle">Divieto di sosta vs. Divieto di fermata</div>
-      </div>
-    </div>
-
-    <div class="comparison-grid">
-      <div class="compare-card sky">
-        <div class="comparison-header-vertical">
-          <div class="compare-card-title">🅿️ حظر الوقوف</div>
-          <div class="compare-card-it">Divieto di sosta</div>
-        </div>
-        <div style="background:var(--bg-surface-elevated);border:3px solid #ef4444;border-radius:50%;width:72px;height:72px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;position:relative;">
-          <div style="position:absolute;width:3px;height:56px;background:#ef4444;transform:rotate(-45deg);border-radius:2px;"></div>
-        </div>
-        <ul class="feature-list">
-          <li class="sky">خط مائل واحد داخل الدائرة</li>
-          <li class="sky"><strong>الوقوف (Sosta) محظور</strong> — لكن التوقف القصير جائز</li>
-          <li class="sky">في المدن: سريان <strong>08:00 - 20:00</strong> فقط (ما لم يُذكر غير ذلك)</li>
-          <li class="sky"><strong>Fermata مسموحة:</strong> يمكن التوقف لإنزال راكب أو تحميل حمولة فوراً</li>
-          <li class="sky">بعد انتهاء ساعات الحظر — الوقوف الكامل مسموح</li>
+      <p class="card-desc-text">
+        دائرة بإطار أحمر وسيارة سوداء يميناً وأخرى حمراء يساراً. تمنع جميع المركبات ذات المحرك من تجاوز أي مركبة أخرى ذات محرك (أكثر من عجلتين).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع تجاوز المركبات ذات المحرك، ما لم تكن دراجات نارية ثنائية العجلات دون سلة جانبية.</li>
+          <li><span>•</span> يسمح بتجاوز المركبات غير الآلية (دراجات هوائية، عربات حيوانية، عربات يد).</li>
+          <li><span>•</span> يسمح بتجاوز دراجة نارية ذات عجلتين (Motociclo) بشرط عدم عبور الخط الأبيض المتصل والبقاء داخل نفس المسار.</li>
         </ul>
       </div>
-      <div class="compare-card rose">
-        <div class="comparison-header-vertical">
-          <div class="compare-card-title">🚫 حظر التوقف المطلق</div>
-          <div class="compare-card-it">Divieto di fermata</div>
-        </div>
-        <div style="background:var(--bg-surface-elevated);border:3px solid #ef4444;border-radius:50%;width:72px;height:72px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;position:relative;">
-          <div style="position:absolute;width:3px;height:56px;background:#ef4444;transform:rotate(-45deg);border-radius:2px;"></div>
-          <div style="position:absolute;width:3px;height:56px;background:#ef4444;transform:rotate(45deg);border-radius:2px;"></div>
-        </div>
-        <ul class="feature-list">
-          <li><strong>خطان متقاطعان (X)</strong> داخل الدائرة</li>
-          <li>يحظر <strong>أي توقف</strong> — حتى لثانية واحدة</li>
-          <li>سريان: <strong>24 ساعة، 7 أيام</strong> — لا استثناءات</li>
-          <li><strong>لا استثناءات</strong> — لا إنزال راكب، لا تحميل، لا طوارئ</li>
-          <li>استثناء وحيد: <strong>سيارات الإسعاف وسيارات الشرطة في حالة طوارئ</strong></li>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يسمح للدراجة النارية بتجاوز سيارة (خطأ، الدراجة ذات محرك وممنوعة من تجاوز السيارات).</li>
+          <li><span>•</span> يمنع تجاوز الدراجات الهوائية (خطأ، يجوز تجاوزها دون تخطي الخط المتصل).</li>
+          <li><span>•</span> يمنع التجاوز فقط للشاحنات (خطأ، هذا Fig. 60).</li>
         </ul>
       </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> "تستطيع السيارة تجاوز دراجة نارية ذات عجلتين" ➔ صحيح (VERO) إذا لم تتخطَ الخط المتصل. أما "الدراجة النارية تتجاوز سيارة" ➔ خطأ (FALSO)!
+      </div>
     </div>
 
-    <div class="trap-box">
-      <div class="trap-title">⚠️ الفخ الأكثر تكراراً في الامتحان</div>
-      السؤال: "Divieto di sosta يمنع حتى إنزال الركاب" → <strong>خطأ!</strong> — إنزال الراكب هو Fermata (توقف عابر) وليس Sosta (وقوف)، وهو مسموح مع هذه الإشارة.
-      <br><br>
-      السؤال: "Divieto di fermata يسمح بالتوقف لحظات لإنزال الركاب" → <strong>خطأ!</strong> — الحظر مطلق ولا توجد أي استثناءات للمركبات العادية.
+    <!-- Card 4: Fig 57 -->
+    <div class="signal-card" data-category="sorpasso">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/57.png" alt="Distanziamento minimo obbligatorio" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">المسافة الدنيا الإجبارية بين المركبات (70 متراً)</h3>
+        <span class="card-it-title">Distanziamento minimo obbligatorio di 70 m (Figura 57)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر وسيارتا ركاب تفصل بينهما مسافة 70 متراً. تلزم السائق بترك مسافة أمان لا تقل عن الرقم المكتوب عن المركبة التي تسبقه أثناء السير.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يلزم بترك مسافة أمان لا تقل عن 70 متراً عن المركبة التي تسير في الأمام.</li>
+          <li><span>•</span> يسري على جميع المركبات ذات المحرك السائرة على نفس المسار.</li>
+          <li><span>•</span> يطبق حتى عند السير بسرعة بطيئة.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يشير إلى مسافة التوقف الكامل (خطأ، هي مسافة بين مركبتين أثناء السير).</li>
+          <li><span>•</span> يلزم السير بسرعة 70 كم/س (خطأ، هذا حد سرعة وليس مسافة أمان).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> الرقم بالمتر (m) وليس بالسرعة (km/h)؛ يحدد مسافة تباعد إجبارية أثناء السير وليس مسافة الوقوف.
+      </div>
+    </div>
+
+    <!-- Card 5: Fig 58 -->
+    <div class="signal-card" data-category="sorpasso">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/58.png" alt="Limite massimo di velocità" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الحد الأقصى للسرعة (80 كم/س)</h3>
+        <span class="card-it-title">Limite massimo di velocità 80 km/h (Figura 58)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر ورقم بالداخل. يحدد السرعة القصوى بالكيلومتر في الساعة التي يحظر على جميع المركبات تجاوزها على هذا الطريق.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع السير بسرعة تزيد عن 80 كم/ساعة.</li>
+          <li><span>•</span> يسري فوراً من موضع الإشارة وحتى التقاطع القادم أو ظهور إشارة إلغاء (Fig. 81).</li>
+          <li><span>•</span> يلزم جميع فئات المركبات بالتقيد بهذا الحد الأقصى.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يحدد الحد الأدنى الإجباري للسرعة (خطأ، الحد الأدنى دائري أزرق Fig. 105).</li>
+          <li><span>•</span> ينصح بالسرعة فقط ولا يلزم بها (خطأ، إشارة منع وإلزام قانوني صريح).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> دائرة حمراء برقم = حد أقصى (Massimo). دائرة زرقاء برقم = حد أدنى إجباري (Minimo). مربع أزرق برقم = سرعة منصوح بها (Consigliata).
+      </div>
+    </div>
+
+    <!-- Card 6: Fig 59 -->
+    <div class="signal-card" data-category="transito">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/59.png" alt="Divieto di segnalazioni acustiche" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منع استخدام آلة التنبيه الصوتية (الكلاكس)</h3>
+        <span class="card-it-title">Divieto di segnalazioni acustiche (Figura 59)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر وبوق مشطوب بخط أحمر مائل. تمنع استخدام آلة التنبيه (Il clacson) إلا في حالات الضرورة القصوى لتفادي خطر وشيك وحادث محقق.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع استخدام آلات التنبيه الصوتية إلا في حالة وجود خطر داهم مباشر (Pericolo immediato).</li>
+          <li><span>•</span> يسمح باستخدامه عند نقل جريح أو مريض في حالة صحية حرجة وخطيرة.</li>
+          <li><span>•</span> يوضع عادة بالقرب من المستشفيات ودور الرعاية والمناطق السكنية الهادئة.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع استخدام الكلاكس حتى في حالات الخطر المباشر (خطأ، الخطر المباشر يستثنى دائماً).</li>
+          <li><span>•</span> يسمح باستخدامه لتحية الأصدقاء أو حث السائق المتكاسل أمامك (خطأ تماماً).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> "يحظر الكلاكس تماماً دون أي استثناء" ➔ خطأ (FALSO)؛ الخطر المباشر ونقل المصابين استثناء قانوني دائم.
+      </div>
+    </div>
+
+    <!-- Card 7: Fig 60 -->
+    <div class="signal-card" data-category="sorpasso">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/60.png" alt="Divieto sorpasso autocarri merci oltre 3,5 t" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">حظر التجاوز للشاحنات الثقيلة (فوق 3.5 طن)</h3>
+        <span class="card-it-title">Divieto di sorpasso per autocarri merci oltre 3,5 t (Figura 60)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بإطار أحمر، يظهر فيها شاحنة بضائع حمراء يساراً وسيارة سوداء يميناً. تحظر التجاوز حصراً على مركبات نقل البضائع التي تزيد كتلتها القصوى المحملة عن 3.5 طن.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع شاحنات البضائع (Veicoli merci) التي تتجاوز 3.5 طن من تجاوز المركبات ذات المحرك.</li>
+          <li><span>•</span> لا يشمل الحافلات (Autobus) حتى لو زادت كتلتها عن 3.5 طن لأنها مخصصة لنقل الأشخاص.</li>
+          <li><span>•</span> لا يشمل عربات السكن والكرفان (Autocaravan) لنفس السبب السابق.</li>
+          <li><span>•</span> يسمح لسيارات الركاب والشاحنات الصغيرة حتى 3.5 طن بإجراء التجاوز بشكل طبيعي.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع الحافلات التي يزيد وزنها عن 3.5 طن من التجاوز (فخ وزاري شهير ➔ FALSO).</li>
+          <li><span>•</span> يمنع جميع السيارات من تجاوز الشاحنة (خطأ، يمنع الشاحنة من تجاوز غيرها).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان الأهم:</strong> السؤال عن الحافلة (Autobus) فوق 3.5 طن ➔ الإشارة لا تعنيها إطلاقاً لأنها ليست مركبة بضائع (Non destinata al trasporto merci)!
+      </div>
+    </div>
+
+    <!-- Card 8: Fig 61 -->
+    <div class="signal-card" data-category="categorie">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/61.png" alt="Veicoli trazione animale" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منع مرور مركبات الجر الحيواني</h3>
+        <span class="card-it-title">Divieto di transito ai veicoli a trazione animale (Figura 61)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر ورسم حصان يجر عربة. تمنع عبور كافة العربات التي تجرها حيوانات (خيول، حمير، بغال).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع مرور جميع المركبات التي تجرها الحيوانات.</li>
+          <li><span>•</span> يسمح بمرور كافة المركبات الآلية والسيارات والدراجات الهوائية.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع ركوب الخيل بمفرده دون عربة (خطأ، يمنع العربة المجرورة بحيوان).</li>
+          <li><span>•</span> يمنع الجرارات الزراعية (خطأ، للجرارات إشارة خاصة Fig. 71).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> يمنع العربة المجرورة بحيوان (Veicoli a trazione animale)، ولا يمنع الآلات الزراعية أو السيارات.
+      </div>
+    </div>
+
+    <!-- Card 9: Fig 62 -->
+    <div class="signal-card" data-category="categorie">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/62.png" alt="Divieto transito pedoni" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منع عبور وسير المشاة</h3>
+        <span class="card-it-title">Divieto di transito ai pedoni (Figura 62)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر ورسم رجل يمشي باللون الأسود. تمنع حركة وسير المشاة على هذا الطريق أو المسار لخطورته عليهم.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع المشاة من السير واستخدام الطريق.</li>
+          <li><span>•</span> يوضع في الأنفاق أو الطرق السريعة غير المجهزة بأرصفة مشاة.</li>
+          <li><span>•</span> يسمح بمرور جميع أنواع المركبات المصرح لها قانوناً.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يشير إلى ممر مشاة إجباري (خطأ، الإجباري دائرة زرقاء Fig. 108).</li>
+          <li><span>•</span> يشير إلى خطر عبور مشاة (خطأ، إشارة الخطر مثلثة Fig. 26).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> الخلط بين الدائرة الحمراء (منع المشاة) والدائرة الزرقاء (مسار إجباري للمشاة) والمثلث الأحمر (خطر عبور المشاة).
+      </div>
+    </div>
+
+    <!-- Card 10: Fig 63 -->
+    <div class="signal-card" data-category="categorie">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/63.png" alt="Divieto transito biciclette" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منع مرور الدراجات الهوائية (Velocipedi)</h3>
+        <span class="card-it-title">Divieto di transito ai velocipedi (Figura 63)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر ورسم دراجة هوائية. تمنع مرور الدراجات الهوائية والتروسيكلات الهوائية ودراجات التانديم.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع ركوب وسير الدراجات الهوائية بجميع أنواعها (Velocipedi).</li>
+          <li><span>•</span> يسمح بمرور المشاة والدراجات النارية والسيارات.</li>
+          <li><span>•</span> يسمح بمرور الدراجة إذا نزل قائدها ودفعها بيده (Condotta a mano).</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع الدراجات ذات المحرك الصغير (Ciclomotori) (خطأ، يمنع الدراجات الهوائية العادية).</li>
+          <li><span>•</span> يشير إلى مسار إلزامي للدراجات (خطأ، الإلزامي دائرة زرقاء Fig. 110).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> Velocipedi تعني الدراجات الهوائية العادية، ولا تعني Ciclomotori (سيكلوموتوري بمحرك).
+      </div>
+    </div>
+
+    <!-- Card 11: Fig 64 -->
+    <div class="signal-card" data-category="categorie">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/64.png" alt="Divieto transito motocicli" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منع مرور الدراجات النارية (Motocicli)</h3>
+        <span class="card-it-title">Divieto di transito ai motocicli (Figura 64)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر ورسم دراجة نارية وسائقها. تمنع مرور الدراجات النارية بجميع أحجام محركاتها (Motocicli)، سواء كانت بسلة جانبية (Sidecar) أو بدونها.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع مرور جميع الدراجات النارية (Motocicli di ogni cilindrata).</li>
+          <li><span>•</span> يسمح بمرور السيكلوموتوري ذي المحرك الصغير (Ciclomotori a 2 ruote).</li>
+          <li><span>•</span> يسمح بمرور سيارات الركاب والشاحنات والحافلات.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع السيكلوموتوري (Ciclomotori) (خطأ شهير في الامتحان، Ciclomotori مسموح لهم).</li>
+          <li><span>•</span> يمنع السيارات ذات الأربع عجلات (خطأ).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان الذهبي:</strong> "يمنع Ciclomotori من المرور" ➔ خطأ (FALSO)؛ الإشارة تمنع Motocicli فقط ولا تمنع Ciclomotori!
+      </div>
+    </div>
+
+    <!-- Card 12: Fig 65 -->
+    <div class="signal-card" data-category="categorie">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/65.png" alt="Veicoli a braccia" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منع مرور العربات اليدوية (Veicoli a braccia)</h3>
+        <span class="card-it-title">Divieto di transito ai veicoli a braccia (Figura 65)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر ورسم رجل يدفع عربة يدوية. تمنع حركة كافة العربات التي تجر أو تدفع باليد على هذا الطريق.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع مرور العربات المدفوعة أو المجرورة بالأذرع البشرية.</li>
+          <li><span>•</span> يسمح بسير المشاة العاديين وعربات الأطفال وعربات ذوي الاحتياجات الخاصة.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع مرور عربات الأطفال (خطأ، عربات الأطفال ليست veicoli a braccia بالمعنى القانوني للمرور).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> لا يمنع عربات الأطفال أو كراسي المعاقين المدفوعة باليد.
+      </div>
+    </div>
+
+    <!-- Card 13: Fig 66 -->
+    <div class="signal-card" data-category="categorie">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/66.png" alt="Divieto transito autoveicoli" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منع مرور جميع السيارات والمركبات الآلية</h3>
+        <span class="card-it-title">Divieto di transito a tutti gli autoveicoli (Figura 66)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر ورسم مقدمة سيارة ركاب. تمنع مرور جميع المركبات الآلية ذات 3 عجلات فأكثر (Autoveicoli, Motoveicoli a 3 e 4 ruote).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع مرور جميع المركبات الآلية (سيارات، شاحنات، حافلات، دراجات ثلاثية ورباعية Quadricicli).</li>
+          <li><span>•</span> يسمح بمرور المركبات ذات العجلتين فقط (دراجات هوائية، سيكلوموتوري، دراجات نارية ثنائية العجلات).</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع الدراجات النارية ثنائية العجلات (خطأ، يسمح بها صراحة).</li>
+          <li><span>•</span> يمنع سيارات الركاب فقط ويسمح بالشاحنات (خطأ، يمنع كل ذي 3 عجلات فأكثر).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> يسمح بمرور أي مركبة ذات عجلتين (2 ruote)، ويمنع الدراجات النارية ذات السلة الجانبية (Sidecar) لأنها ذات 3 عجلات!
+      </div>
+    </div>
+
+    <!-- Card 14: Fig 67 -->
+    <div class="signal-card" data-category="categorie">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/67.png" alt="Divieto transito autobus" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منع عبور الحافلات (Autobus)</h3>
+        <span class="card-it-title">Divieto di transito agli autobus (Figura 67)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر ورسم جانبي لحافلة ركاب. تمنع مرور جميع الحافلات السياحية والنقل العام والمدرسية، أياً كان وزنها.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع مرور جميع الحافلات المصممة لنقل أكثر من 9 ركاب (Autobus).</li>
+          <li><span>•</span> يسمح بمرور الشاحنات وسيارات الركاب وعربات الكرفان (Autocaravan).</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع عربات السكن الكرفان (خطأ، الكرفان ليس حافلة).</li>
+          <li><span>•</span> يسمح للحافلات المدرسية (Scuolabus) بالمرور (خطأ، المنع يشمل كافة الحافلات إلا بلوحة استثناء).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> يمنع الحافلات فقط، ولا يمنع عربات السكن (Autocaravan) ولا الشاحنات.
+      </div>
+    </div>
+
+    <!-- Card 15: Fig 68 -->
+    <div class="signal-card" data-category="categorie">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/68.png" alt="Transito autocarri merci oltre 3,5 t" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منع مرور شاحنات البضائع فوق 3.5 طن</h3>
+        <span class="card-it-title">Divieto di transito agli autocarri oltre 3,5 t (Figura 68)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر ورسم شاحنة بضائع. تمنع مرور مركبات نقل البضائع التي تتجاوز كتلتها الإجمالية القصوى المصرح بها 3.5 طن.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع مركبات نقل البضائع (Veicoli trasporto merci) التي يتجاوز وزنها المرخص 3.5 طن.</li>
+          <li><span>•</span> يعتمد على الوزن الأقصى المصرح به في وثيقة تسجيل المركبة (Carta di circolazione).</li>
+          <li><span>•</span> يسمح بمرور الحافلات وعربات الكرفان حتى لو تجاوز وزنها 3.5 طن.</li>
+          <li><span>•</span> يسمح بمرور الشاحنات التي لا يتجاوز وزنها المصرح به 3.5 طن حتى لو كانت محملة بالكامل.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع الحافلات السياحية التي يزيد وزنها عن 3.5 طن (فخ شهير ➔ خطأ FALSO).</li>
+          <li><span>•</span> يقيس الوزن الفعلي على الميزان (خطأ، يقيس الوزن الأقصى المدون بالرخصة).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان الأهم:</strong> الوزن المقاس هو الوزن المصرح به في الرخصة (A pieno carico indicato sulla carta) وليس الوزن الفعلي اللحظي!
+      </div>
+    </div>
+
+    <!-- Card 16: Fig 69 -->
+    <div class="signal-card" data-category="categorie">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/69.png" alt="Veicoli merci oltre 6,5 t" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منع شاحنات البضائع بوزن محدد (مثال: فوق 6.5 طن)</h3>
+        <span class="card-it-title">Divieto di transito a veicoli merci oltre 6,5 t (Figura 69)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر ورسم شاحنة وبداخلها رقم بالأطنان (مثلاً 6,5 t). تعديل للحد الافتراضي 3.5 طن إلى الرقم المكتوب صراحة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع شاحنات نقل البضائع التي تتجاوز كتلتها المرخصة الرقم المكتوب (6.5 طن).</li>
+          <li><span>•</span> يسمح بمرور شاحنات البضائع التي وزنها المرخص 6.5 طن أو أقل.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع الحافلات التي يزيد وزنها عن 6.5 طن (خطأ، الحافلات لنقل الأشخاص).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> الرقم المكتوب داخل رسم الشاحنة يحدد سقف الوزن المرخص لشاحنات البضائع بدلاً من الـ 3.5 طن القياسية.
+      </div>
+    </div>
+
+    <!-- Card 17: Fig 70 -->
+    <div class="signal-card" data-category="categorie">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/70.png" alt="Veicoli con rimorchio" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منع مرور المركبات التي تسحب مقطورة</h3>
+        <span class="card-it-title">Divieto di transito ai veicoli che trainano un rimorchio (Figura 70)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر ورسم سيارة تسحب مقطورة. تمنع جميع المركبات التي تقطر مقطورة يزيد وزنها عن 750 كجم (Rimorchio non leggero)، ما لم تحدد لوحة تكميلية خلاف ذلك.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع الشاحنات ذات المقطورات (Autotreni) والقاطرات المفصلية (Autoarticolati).</li>
+          <li><span>•</span> يسمح بسحب المقطورات الخفيفة (Rimorchi leggeri fino a 750 kg) ما لم تكن هناك لوحة تمنعها.</li>
+          <li><span>•</span> يسمح بسحب عربات السكن والمخيمات الصغيرة الخفيفة وفق الشروط.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع سحب سيارة معطلة وفقاً للمادة 165 (خطأ، السحب الاضطراري للطوارئ مسموح).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> المقطورة الخفيفة (Rimorchio leggero fino a 750 kg) مسموح بقطرها عادة ما لم تذكر لوحة تكميلية غير ذلك.
+      </div>
+    </div>
+
+    <!-- Card 18: Fig 71 -->
+    <div class="signal-card" data-category="categorie">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/71.png" alt="Macchine agricole" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منع مرور الآلات والجرارات الزراعية</h3>
+        <span class="card-it-title">Divieto di transito alle macchine agricole (Figura 71)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر ورسم جرار زراعي. تمنع مرور جميع الآلات الزراعية ذاتية الحركة والمجرورة، ذات العجلات المطاطية أو الجنزيرية.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع مرور كافة الآلات الزراعية (Semoventi e trainate).</li>
+          <li><span>•</span> يسري على الآلات الزراعية ذات العجلات (Gommate) وذات الجنزير (Cingolate).</li>
+          <li><span>•</span> يسمح بمرور آلات الأشغال العامة والبناء (Macchine operatrici).</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع آلات رصف الطرق والبناء (خطأ، هذه Macchine operatrici وليست agricole).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> يمنع الآلات الزراعية فقط (Macchine agricole)، ولا يمنع آلات العمل والبناء (Macchine operatrici).
+      </div>
+    </div>
+
+    <!-- Card 19: Fig 72 -->
+    <div class="signal-card" data-category="categorie">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/72.png" alt="Merci pericolose" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منع مركبات نقل البضائع الخطرة</h3>
+        <span class="card-it-title">Divieto di transito ai veicoli con merci pericolose (Figura 72)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر وصندوق شاحنة بلون برتقالي مائل. تمنع مرور المركبات التي تنقل بضائع ومواد مصنفة قانوناً كبضائع خطرة (Merci pericolose).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع مرور المركبات التي تنقل مواد سامة، مسببة للتآكل، أو مشعة.</li>
+          <li><span>•</span> يوضع قبل الأنفاق والمناطق المأهولة لحماية الأرواح والبيئة.</li>
+          <li><span>•</span> لا ينطبق على وقود المركبة الموجود في خزانها العادي لتشغيل محركها.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع السيارات التي تعمل بوقود الغاز الطبيعي أو الميثان (خطأ، الوقود الداخلي للمحرك مستثنى).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> الوقود الموجود في خزان تشغيل السيارة (Serbatoio) لا يعد بضائع خطرة منقولة، فالإشارة لا تمنع سيارات الركاب العادية.
+      </div>
+    </div>
+
+    <!-- Card 20: Fig 73 -->
+    <div class="signal-card" data-category="categorie">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/73.png" alt="Merci esplosive o infiammabili" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منع مركبات نقل المتفجرات والمواد سريعة الاشتعال</h3>
+        <span class="card-it-title">Divieto di transito per merci esplosive o infiammabili (Figura 73)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر ورسم انفجار داخل دائرة برتقالية. تمنع حصراً المركبات المحملة بمواد متفجرة أو سهلة الاشتعال والانفجار.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع مرور شاحنات نقل الألعاب النارية، الديناميت، والغازات القابلة للانفجار.</li>
+          <li><span>•</span> يوضع قبل الأنفاق ومراكز المدن ذات الكثافة العالية.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع مركبات التزود بوقود البنزين العادية (خطأ).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> يمنع نقل المتفجرات (Esplosivi e infiammabili)، ويختلف عن Fig. 74 الخاص بحماية مصادر المياه.
+      </div>
+    </div>
+
+    <!-- Card 21: Fig 74 -->
+    <div class="signal-card" data-category="categorie">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/74.png" alt="Prodotti contaminanti per l'acqua" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منع المركبات التي تنقل مواد ملوثة للمياه</h3>
+        <span class="card-it-title">Divieto per prodotti contaminanti dell'acqua (Figura 74)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر ورسم صهريج تتساقط منه قطرات فوق أمواج مائية. تمنع مرور المركبات التي تنقل سوائل ومواد من شأنها تلويث المياه السطحية والجوفية.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع صهاريج نقل المواد الكيماوية والنفطية القابلة لتلويث المياه.</li>
+          <li><span>•</span> يوضع بالقرب من البحيرات، الأنهار، الخزانات المائية والمحميات الطبيعية.</li>
+          <li><span>•</span> يسمح بمرور صهاريج نقل مياه الشرب النقية أو الحليب.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع صهاريج مياه الري أو نقل الحليب (خطأ، الماء النقي والحليب لا يلوثان المياه).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> يمنع المواد الملوثة للمياه (Contaminanti)، وصهريج الماء النظيف أو الحليب مصرح له بالمرور تماماً.
+      </div>
+    </div>
+
+    <!-- Card 22: Fig 75 -->
+    <div class="signal-card" data-category="massa">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/75.png" alt="Larghezza oltre 2,30 m" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منع المركبات التي يتجاوز عرضها 2.30 متراً</h3>
+        <span class="card-it-title">Divieto per larghezza superiore a 2,30 m (Figura 75)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر، يظهر فيها سهمان أفقيان يشيران للداخل وبينهما رقم (مثلاً 2,30 m). تمنع مرور أي مركبة يتجاوز عرضها الإجمالي مع حمولتها هذا الرقم.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يقيس العرض الأقصى للمركبة متضمناً الحمولة والمرايا الجانبية البارزة.</li>
+          <li><span>•</span> يسري على جميع المركبات بدون استثناء (سيارات، شاحنات، حافلات).</li>
+          <li><span>•</span> يوضع قبل الطرق الضيقة والأزقة التاريخية والجسور الضيقة.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يحدد الارتفاع (خطأ، الأسهم أفقية تعني العرض Larghezza).</li>
+          <li><span>•</span> يسمح بمرور مركبة عرضها 2.30 متراً تماماً (صحيح، لأن المنع لمن يزيد عن الرقم Superiore a).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> كلمة "Superiore a" تعني أن المركبة ذات العرض 2.30 م بالضبط يُسمح لها بالمرور؛ المنع فقط لمن تجاوز الـ 2.30 م!
+      </div>
+    </div>
+
+    <!-- Card 23: Fig 76 -->
+    <div class="signal-card" data-category="massa">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/76.png" alt="Altezza oltre 3,50 m" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منع المركبات التي يتجاوز ارتفاعها 3.50 متراً</h3>
+        <span class="card-it-title">Divieto per altezza superiore a 3,50 m (Figura 76)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر مع سهمين رأسيين (أعلى وأسفل) ورقم بالمتر (مثلاً 3,50 m). تمنع مرور المركبات التي يتجاوز ارتفاعها الكلي مع الحمولة الرقم المحدد.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يقيس الارتفاع الكلي من سطح الأرض حتى أعلى نقطة في المركبة أو حمولتها.</li>
+          <li><span>•</span> يوضع قبل الأنفاق والجسور السفلية والأسلاك الكهربائية المنخفضة.</li>
+          <li><span>•</span> يسري على كافة المركبات دون استثناء.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع مركبة بارتفاع 3.50 م بالضبط (خطأ، المنع لمن يتجاوز Superiore a).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> الأسهم الرأسية تعني الارتفاع (Altezza)، والمركبة بارتفاع 3.50 م تماماً تعبر بأمان دون مخالفة.
+      </div>
+    </div>
+
+    <!-- Card 24: Fig 77 -->
+    <div class="signal-card" data-category="massa">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/77.png" alt="Lunghezza oltre 10 m" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منع المركبات التي يتجاوز طولها 10 أمتار</h3>
+        <span class="card-it-title">Divieto per lunghezza superiore a 10 m (Figura 77)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر ورسم شاحنة مع سهمين أفقيين ورقم (مثلاً 10 m). تمنع مرور المركبات الفردية أو المجموعات المفصلية التي يتجاوز طولها الكلي 10 أمتار.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يسري على الشاحنات، الحافلات، وقوافل المركبات ذات المقطورات (Autotreni).</li>
+          <li><span>•</span> يوضع عند مداخل المنعطفات الجبلية الحادة والشوارع الضيقة التي يصعب فيها الدوران.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> لا ينطبق على الحافلات السياحية (خطأ، ينطبق على الحافلة إذا زاد طولها عن 10 أمتار).</li>
+          <li><span>•</span> يشير لمسافة الأمان بين سيارتين (خطأ، هذا Fig. 57).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> ينطبق على الحافلات الطويلة أيضاً إذا تجاوز طولها الرقم المكتوب، وليس على الشاحنات فقط.
+      </div>
+    </div>
+
+    <!-- Card 25: Fig 78 -->
+    <div class="signal-card" data-category="massa">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/78.png" alt="Massa a pieno carico oltre 7 t" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منع المركبات بوزن إجمالي فعلي يتجاوز 7 أطنان</h3>
+        <span class="card-it-title">Divieto per massa superiore a 7 t (Figura 78)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر ورقم طن (مثلاً 7 t). تمنع مرور أي مركبة يتجاوز وزنها الفعلي اللحظي وقت المرور الرقم المحدد على اللوحة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يقيس الوزن الإجمالي الفعلي للمركبة مع حمولتها لحظة العبور (Massa effettiva).</li>
+          <li><span>•</span> يوضع قبل الجسور والأرضيات الضعيفة المعرضة للانهيار.</li>
+          <li><span>•</span> يسمح بمرور شاحنة رخصتها 10 طن إذا كانت تسير فارغة ووزنها الفعلي اللحظي 6 طن فقط.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يقيس الوزن الأقصى المكتوب في رخصة السيارة (خطأ، يقيس الوزن الفعلي على الميزان).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان الحاسم:</strong> Fig. 78 يقيس الوزن الفعلي اللحظي (Massa effettiva)، بخلاف Fig. 68 الذي يقيس الوزن الأقصى بالرخصة (Massa a pieno carico indicata sulla carta)!
+      </div>
+    </div>
+
+    <!-- Card 26: Fig 79 -->
+    <div class="signal-card" data-category="massa">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/79.png" alt="Massa per asse oltre 2,5 t" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منع المركبات بحمولة محور تتجاوز 2.5 طن</h3>
+        <span class="card-it-title">Divieto per massa per asse superiore a 2,5 t (Figura 79)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بيضاء بإطار أحمر ورسم محور عجلات ورقم (مثلاً 2,5 t). تمنع مرور المركبات التي تتجاوز حمولة أي محور من محاورها الرقم المحدد.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يقيس الحمولة الواقعة على المحور الأكثر وزناً بالمركبة (Massa gravante sull'asse).</li>
+          <li><span>•</span> يوضع لحماية الجسور ذات العوارض الحساسة وأنابيب المرافق تحت الإسفلت.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يقيس الوزن الإجمالي لكافة محاور المركبة معاً (خطأ، يقيس كل محور بمفرده Asse singolo).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> كلمة "Per asse" تعني لكل محور بمفرده، ولا تعبر عن الوزن الإجمالي للمركبة.
+      </div>
+    </div>
+
+    <!-- Card 27: Fig 80 -->
+    <div class="signal-card" data-category="fine">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/80.png" alt="Via libera - Fine prescrizioni" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">نهاية كافة أشكال المنع والقيود السابقة (طريق سالك)</h3>
+        <span class="card-it-title">Via libera / Fine di tutte le prescrizioni (Figura 80)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة رمادية بيضاء يشطبها شريط أسود مائل. تعلن انتهاء كافة القيود والمنوعات المحددة سابقاً على هذا الطريق، واستعادة القواعد العامة للسير.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> ينهي كافة قيود المنع المحددة سابقاً (السرعة، التجاوز، المسافة).</li>
+          <li><span>•</span> تعود بعده السرعة القصوى إلى الحدود العامة القانونية للطريق (مثلاً 90 كم/س خارج المدن).</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> ينهي إشارات الخطر أو الأسبقية (خطأ، ينهي قيود إشارات المنع Segnali di divieto فقط).</li>
+          <li><span>•</span> يسمح بالسير بأي سرعة دون حدود قانونية (خطأ، تعود الحدود العامة للطريق).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> "Via libera" تلغي إشارات المنع السابقة فقط، ولا تلغي القواعد العامة للمرور ولا حدود السرعة العامة لنوع الطريق!
+      </div>
+    </div>
+
+    <!-- Card 28: Fig 81 -->
+    <div class="signal-card" data-category="fine">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/81.png" alt="Fine del limite di velocità" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">نهاية حد السرعة القصوى السابق</h3>
+        <span class="card-it-title">Fine del limite massimo di velocità (Figura 81)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة رمادية بيضاء ورقم بالأسود يشطبه شريط أسود مائل. تنهي حد السرعة المفروض سابقاً وتعيد تطبيق الحد العام القانوني لنوع الطريق.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يعلن انتهاء سريان حد السرعة المشار إليه سابقاً.</li>
+          <li><span>•</span> تعود السرعة إلى الحد العام المطبق على تلك الفئة من الطرق.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يلزم السائق بالسير بسرعة 80 كم/س (خطأ، ينهي الحد وليس يفرضه).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> ينهي القيد المحدد فقط (السرعة)، ولا ينهي حظر التجاوز إن وجد.
+      </div>
+    </div>
+
+    <!-- Card 29: Fig 82 -->
+    <div class="signal-card" data-category="fine">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/82.png" alt="Fine divieto di sorpasso" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">نهاية حظر التجاوز لجميع المركبات</h3>
+        <span class="card-it-title">Fine del divieto di sorpasso (Figura 82)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة رمادية بيضاء بها سيارتان رماديتان يشطبهما شريط أسود مائل. تنهي حظر التجاوز العام المفروض بإشارة Fig. 56 وتسمح بالمناورة وفق ضوابط الأمان.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يسمح مجدداً بمناورة التجاوز مع مراعاة قواعد السلامة والخطوط الأرضية.</li>
+          <li><span>•</span> يظل التجاوز خاضعاً لحالة الخط الأرضي (لا يجوز تخطي الخط المتصل Striscia continua).</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يسمح بالتجاوز حتى مع وجود خط متصل (خطأ جسيم، الخط المتصل يحظر التخطي دائماً).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> انتهاء إشارة حظر التجاوز لا يبيح التجاوز إذا كان الخط الأرضي متصلاً (Continua) أو الرؤية غير كافية!
+      </div>
+    </div>
+
+    <!-- Card 30: Fig 83 -->
+    <div class="signal-card" data-category="fine">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/83.png" alt="Fine divieto sorpasso autocarri oltre 3,5 t" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">نهاية حظر التجاوز للشاحنات الثقيلة فوق 3.5 طن</h3>
+        <span class="card-it-title">Fine divieto sorpasso autocarri oltre 3,5 t (Figura 83)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة رمادية بيضاء برسم شاحنة وسيارة رماديتين يشطبهما خط أسود. تنهي حظر التجاوز المفروض على شاحنات البضائع فوق 3.5 طن (Fig. 60).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يسمح للشاحنات الثقيلة فوق 3.5 طن بالتجاوز وفق القواعد العامة.</li>
+          <li><span>•</span> يسري حصراً على إنهاء الحظر الخاص بمركبات نقل البضائع.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> ينهي حظر التجاوز لسيارات الركاب (خطأ، سيارات الركاب لم تكن محظورة بهذه الإشارة أصلاً).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> ينهي الحظر الخاص بشاحنات البضائع الثقيلة فقط.
+      </div>
+    </div>
+
+    <!-- Card 31: Fig 84 -->
+    <div class="signal-card" data-category="sosta">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/84.png" alt="Divieto di sosta" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">حظر الوقوف (الركن)</h3>
+        <span class="card-it-title">Divieto di sosta (Figura 84)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة زرقاء بإطار أحمر وخط أحمر مائل واحد. تمنع الوقوف المطول للسيارة وتركها بدون سائق (Sosta). تسمح صراحة بالتوقف المؤقت القصير لإنزال الركاب (Fermata).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع الوقوف التام للسيارة بدون سائق (Sosta).</li>
+          <li><span>•</span> يسمح بالتوقف القصير (Fermata) لصعود أو نزول الركاب مع بقاء السائق على استعداد للمغادرة.</li>
+          <li><span>•</span> يسري داخل المدن (Centri abitati) من الساعة 8:00 إلى 20:00 كقاعدة عامة ما لم توجد لوحة خلاف ذلك.</li>
+          <li><span>•</span> يسري خارج المدن (Strade extraurbane) على مدار 24 ساعة يومياً.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع أيضاً التوقف لإنزال راكب (Fermata) (فخ شهير ➔ FALSO؛ التوقف مسموح).</li>
+          <li><span>•</span> يسري داخل المدن على مدار 24 ساعة دون لوحة (خطأ، بالمدن من 8 إلى 20 فقط).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>الفخ الذهبي الأول بالامتحان:</strong> "Divieto di sosta يمنع إنزال راكب" ➔ خطأ (FALSO)؛ إنزال الراكب هو Fermata وهي مسموحة قانوناً!
+      </div>
+    </div>
+
+    <!-- Card 32: Fig 85 -->
+    <div class="signal-card" data-category="sosta">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/85.png" alt="Divieto di fermata" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">حظر التوقف المطلق</h3>
+        <span class="card-it-title">Divieto di fermata (Figura 85)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة زرقاء بإطار أحمر وشريطين أحمرين متقاطعين على شكل حرف X. تمنع منعاً باتاً أي توقف للمركبة ولو لثانية واحدة (سواء Sosta أو Fermata).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع كلاً من الوقوف (Sosta) والتوقف المؤقت (Fermata) منعاً باتاً.</li>
+          <li><span>•</span> يسري على مدار 24 ساعة يومياً طوال أيام الأسبوع، داخل المدن وخارجها.</li>
+          <li><span>•</span> يمنع التوقف حتى لإنزال راكب أو لشراء شيء سريع.</li>
+          <li><span>•</span> استثناء الطوارئ: مركبات الإسعاف والشرطة والإطفاء أثناء أداء مهام الطوارئ فقط.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يسمح بالتوقف لدقيقة واحدة لإنزال راكب (خطأ جسيم، ممنوع تماماً).</li>
+          <li><span>•</span> يسري داخل المدن من 8 إلى 20 فقط (خطأ، يسري 24 ساعة في كل مكان).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>الفخ الذهبي الثاني بالامتحان:</strong> علامة X تعني حظراً مطلقاً لا يقبل أي استثناء عادي: 24 ساعة، لا وقوف ولا توقف إطلاقاً!
+      </div>
+    </div>
+
+    <!-- Card 33: Fig 86 -->
+    <div class="signal-card" data-category="sosta">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/86.png" alt="Parcheggio" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">موقف سيارات مصرح به (باركينج)</h3>
+        <span class="card-it-title">Parcheggio (Figura 86)</span>
+      </div>
+      <p class="card-desc-text">
+        مربع أزرق بحرف P أبيض كبير. يشير إلى منطقة مخصصة ومصرح فيها بوقوف وركن السيارات وفق الشروط واللوحات الملحقة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يشير إلى ساحة أو منطقة مجهزة لوقوف المركبات.</li>
+          <li><span>•</span> يمكن أن يقترن بلوحات تكميلية توضح ساعات الوقوف، أو الرسوم، أو فئات المركبات المسموح لها.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يلزم السائق بركن سيارته (خطأ، إشارة إرشادية وتسهيلية وليست إشارة إلزام دائرية).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> مربع أزرق بحرف P هو إشارة ترخيص وتسهيل، وتحدد اللوحات الملحقة إن كان مجانياً أو مدفوعاً أو بقرص التوقيت.
+      </div>
+    </div>
+
+    <!-- Card 34: Fig 89 -->
+    <div class="signal-card" data-category="sosta">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/89.png" alt="Preavviso area di parcheggio" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">إشعار مسبق بموقف سيارات</h3>
+        <span class="card-it-title">Preavviso di area di parcheggio (Figura 89)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة زرقاء بحرف P وسهم يحدد الاتجاه والمسافة المتبقية للوصول إلى ساحة الوقوف المتاحة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يشعر السائق بوجود موقف سيارات على مسافة معينة بالاتجاه المشار إليه.</li>
+          <li><span>•</span> يساعد السائق على التموضع المبكر في المسار الصحيح للوصول للموقف.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يوضع في نقطة الموقف مباشرة (خطأ، هو إشعار مسبق Preavviso).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> كلمة "Preavviso" تعني إشعاراً مسبقاً قبل الموقف بمسافة وليس الموقف نفسه.
+      </div>
+    </div>
+
+    <!-- Card 35: Fig 90 -->
+    <div class="signal-card" data-category="sosta">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/90.png" alt="Passo carrabile" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">مدخل عقار خاص (Passo carrabile)</h3>
+        <span class="card-it-title">Passo carrabile (Figura 90)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة رسمية مستطيلة تحمل شعار البلدية ورقم الترخيص وعبارة Passo Carrabile مع علامة حظر الوقوف. تمنع وقوف السيارات أمام مدخل العقار أو الجراج الخاص.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع الوقوف (Sosta) أمام المدخل لإتاحة دخول وخروج مركبات العقار.</li>
+          <li><span>•</span> يسمح بالتوقف العابر القصير (Fermata) بشرط عدم إعاقة المدخل وبقاء السائق بالسيارة.</li>
+          <li><span>•</span> لتكون اللوحة قانونية، يجب أن تحمل اسم البلدية الصادرة عنها ورقم وتاريخ الترخيص الرسمي.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع التوقف القصير لإنزال راكب (خطأ، Fermata مسموحة).</li>
+          <li><span>•</span> يسمح لصاحب الجراج نفسه بركن سيارته أمام المدخل في الشارع العام (خطأ، المنع يسري على الجميع في الطريق العام).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان الشهير:</strong> حتى صاحب العقار نفسه لا يحق له ركن سيارته في الشارع أمام مدخل Passo carrabile لأن الشارع ملكية عامة!
+      </div>
+    </div>
+
+    <!-- Card 36: Fig 91 -->
+    <div class="signal-card" data-category="sosta">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/91.png" alt="Sosta invalidi" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">وقوف مخصص لذوي الاحتياجات الخاصة</h3>
+        <span class="card-it-title">Sosta consentita alle persone invalide (Figura 91)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة حظر الوقوف مقترنة برسم كرسي متحرك لذوي الاحتياجات الخاصة. تحظر الوقوف على كافة المركبات وتخصصه حصراً لحاملي التصريح الرسمي (Contrassegno invalidi).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع الوقوف لجميع المركبات غير المصرح لها.</li>
+          <li><span>•</span> يخصص المكان حصراً للمركبات التي تخدم ذوي الإعاقة الحاملين للتصريح القانوني المعروض بوضوح.</li>
+          <li><span>•</span> يسري المنع على مدار 24 ساعة دون انقطاع.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يسمح بالوقوف المؤقت لشراء دواء من صيدلية (خطأ جسيم، ممنوع تماماً ويعاقب عليه بغرامة ونقاط).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> مكان مخصص حصراً لحاملي البطاقة الرسمية (Contrassegno)، ومخالفته توجب سحب النقاط من الرخصة والغرامة.
+      </div>
+    </div>
+
+    <!-- Card 37: Fig 92 -->
+    <div class="signal-card" data-category="sosta">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/92.png" alt="Disco orario" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">تنظيم الوقوف بواسطة قرص التوقيت (Disco orario)</h3>
+        <span class="card-it-title">Regolazione della sosta con disco orario (Figura 92)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة حظر وقوف ملحقة برسم قرص توقيت وسقف زمني (مثلاً 60 دقيقة). تسمح بالوقوف المجاني لفترة محددة بشرط عرض قرص توقيت بدء الوقوف على الزجاج الأمامي.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يلزم السائق بوضع وعرض قرص التوقيت (Disco orario) مشيراً إلى ساعة الوصول بدقة.</li>
+          <li><span>•</span> يحدد الحد الأقصى للمدة المسموح بركن السيارة فيها بالمجان.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يسمح بتغيير مؤشر القرص دون تحريك السيارة لتمديد الوقت (خطأ ومخالفة قانونية صريحة).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> إعادة تدوير مؤشر قرص التوقيت بدون مغادرة مكان الركن مخالفة قانونية تستوجب الغرامة.
+      </div>
+    </div>
+
+    <!-- Card 38: Fig 148 -->
+    <div class="signal-card" data-category="sosta">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/148.png" alt="Pulizia strada" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">حظر الوقوف المؤقت لأعمال تنظيف الشارع</h3>
+        <span class="card-it-title">Divieto di sosta per pulizia della strada (Figura 148)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة حظر الوقوف ملحقة برسم شاحنة مكانس التنظيف وساعات وأيام محددة. تحظر الوقوف في تلك الأوقات حصراً لإتاحة تنظيف الشارع بالآلات، وتؤدي لمصادرة وسحب السيارة المخالفة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع الوقوف في الأيام والساعات المحددة باللوحة لتنظيف وتطهير الشارع.</li>
+          <li><span>•</span> السيارة المخالفة يتم سحبها بالونش (Rimozione forzata) على نفقة مالكها.</li>
+          <li><span>•</span> في غير الأوقات المحددة باللوحة، يكون الوقوف مسموحاً بشكل طبيعي.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يسري المنع طوال أيام الأسبوع 24 ساعة (خطأ، يسري فقط في المواعيد المحددة باللوحة).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> ركن السيارة في موعد تنظيف الشارع يستوجب السحب بالونش (Rimozione con carro attrezzi) مع غرامة مالية ورسوم السحب.
+      </div>
+    </div>
+
+    <!-- Card 39: Fig 151 -->
+    <div class="signal-card" data-category="categorie">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/151.png" alt="Autotreni e autoarticolati" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منع الشاحنات ذات المقطورات المزدوجة والمفصلية</h3>
+        <span class="card-it-title">Divieto ad autotreni e autoarticolati (Figura 151)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة حظر تمنع عبور الشاحنات الطويلة ذات المقطورة المزدوجة (Autotreni) والقاطرات النصف نقل المفصلية الكبيرة (Autoarticolati).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع مرور الشاحنات الكبيرة المزدوجة والمفصلية على الطرق الضيقة.</li>
+          <li><span>•</span> يسمح بمرور الشاحنات العادية المفردة دون مقطورة (Autocarri isolati).</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع الشاحنات الفردية المنعزلة (خطأ، يمنع الشاحنات ذات المقطورات فقط).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> Autotreni (شاحنة + مقطورة) و Autoarticolati (رأس جرار + نصف مقطورة) هما الممنوعان، أما الشاحنة المفردة فمسموح لها.
+      </div>
     </div>
   </div>
 
-  <!-- ─── SECTION 5: إشارات السرعة ─── -->
-  <div class="content-section">
-    <div class="section-header">
-      <div class="section-icon icon-emerald">🚀</div>
-      <div>
-        <div class="section-title">حدود السرعة القصوى — الفروقات الدقيقة</div>
-        <div class="section-subtitle">Limiti massimi di velocità — Dettagli critici</div>
-      </div>
+  <!-- GLOSSARY SECTION -->
+  <div class="section-heading" id="glossary-section">
+    <div class="section-title">
+      <span>📚</span>
+      <span>قاموس المصطلحات والمفاهيم القانونية للباب الثالث</span>
     </div>
-
-    <div class="comparison-header-vertical">
-      <div class="header-ar-title">قراءة إشارات السرعة بدقة</div>
-      <div class="header-it-subtitle">Lettura precisa dei segnali di velocità</div>
-    </div>
-
-    <div class="rule-flow">
-      <div class="rule-step">
-        <div class="rule-step-num">1</div>
-        <div class="rule-step-text">
-          <strong>الرقم داخل الدائرة</strong> = الحد الأقصى المسموح به. السرعة <strong>بالكيلومتر في الساعة (km/h)</strong> فقط.
-        </div>
-      </div>
-      <div class="rule-step">
-        <div class="rule-step-num">2</div>
-        <div class="rule-step-text">
-          <strong>يسري</strong> من موضع الإشارة حتى ظهور إشارة سرعة مختلفة أو "Fine limite di velocità" أو نهاية الطريق.
-        </div>
-      </div>
-      <div class="rule-step">
-        <div class="rule-step-num">3</div>
-        <div class="rule-step-text">
-          في حال وجود <strong>لوحة تكميلية (pannello integrativo)</strong> تحت الإشارة — قد تُقيد النطاق (مثلاً: "فقط عند المطر") أو نوع المركبة.
-        </div>
-      </div>
-      <div class="rule-step">
-        <div class="rule-step-num">4</div>
-        <div class="rule-step-text">
-          الحد الأقصى <strong>المتغير إلكترونياً (Limite variabile)</strong> له قوة قانونية مساوية للإشارة الثابتة.
-        </div>
-      </div>
-    </div>
-
-    <table class="exception-table">
-      <thead>
-        <tr>
-          <th>الإشارة</th>
-          <th>ما تُقيّده</th>
-          <th>نطاق السريان</th>
-          <th>إلغاؤه</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>دائرة حمراء + رقم (مثلاً 50)</strong></td>
-          <td>الحد الأقصى بالكيلومتر</td>
-          <td>من الإشارة للأمام</td>
-          <td>إشارة سرعة أخرى أو "Fine limite"</td>
-        </tr>
-        <tr>
-          <td><strong>دائرة بيضاء رمادية + رقم مشطوب</strong></td>
-          <td>إلغاء القيد السابق</td>
-          <td>فوري</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td><strong>Zone 30 (المنطقة 30)</strong></td>
-          <td>جميع الطرق داخل المنطقة</td>
-          <td>حتى إشارة "Fine Zona 30"</td>
-          <td>إشارة نهاية المنطقة</td>
-        </tr>
-      </tbody>
-    </table>
+    <span class="section-badge">14 مصطلحاً حاسماً</span>
   </div>
 
-  <!-- ─── SECTION 6: جدول الاستثناءات الشامل ─── -->
-  <div class="content-section">
-    <div class="section-header">
-      <div class="section-icon icon-indigo">📋</div>
-      <div>
-        <div class="section-title">جدول الاستثناءات الشامل لإشارات المنع</div>
-        <div class="section-subtitle">Tabella delle eccezioni — Tutti i segnali</div>
-      </div>
+  <div class="glossary-grid">
+    <div class="glossary-card">
+      <div class="term-it">Segnali di prescrizione</div>
+      <div class="term-ar">إشارات التنظيم والالتزام القانوني</div>
+      <div class="term-def">الفئة الأم الكبرى في القانون الإيطالي التي تشمل: إشارات الأسبقية (Precedenza)، إشارات المنع (Divieto)، وإشارات الإلزام (Obbligo). تفرض قواعد سلوكية صارمة ملزمة للسائق فور رؤيتها.</div>
     </div>
 
-    <table class="exception-table">
-      <thead>
-        <tr>
-          <th>الإشارة (Segnale)</th>
-          <th>المنع الأساسي</th>
-          <th>المشاة</th>
-          <th>الدراجات الهوائية</th>
-          <th>استثناء مهم</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Divieto di transito</strong></td>
-          <td>جميع المركبات في الاتجاهين</td>
-          <td class="badge-yes">✓ مسموح</td>
-          <td>مدفوعة يدوياً فقط</td>
-          <td>الطوارئ بإذن</td>
-        </tr>
-        <tr>
-          <td><strong>Senso vietato</strong></td>
-          <td>المركبات من هذا الاتجاه</td>
-          <td class="badge-yes">✓ مسموح</td>
-          <td class="badge-no">✗ ممنوعة</td>
-          <td>الطريق مفتوح من الاتجاه الآخر</td>
-        </tr>
-        <tr>
-          <td><strong>Divieto di sorpasso</strong></td>
-          <td>تجاوز المركبات متعددة المسارات</td>
-          <td>—</td>
-          <td class="badge-yes">✓ تجاوزها جائز</td>
-          <td>تجاوز 2 عجلة جائز بلا عبور خط صلب</td>
-        </tr>
-        <tr>
-          <td><strong>Divieto di sosta</strong></td>
-          <td>الوقوف (Sosta)</td>
-          <td>—</td>
-          <td>—</td>
-          <td>Fermata (توقف عابر) مسموح</td>
-        </tr>
-        <tr>
-          <td><strong>Divieto di fermata</strong></td>
-          <td>أي توقف — مطلق</td>
-          <td>—</td>
-          <td>—</td>
-          <td>الطوارئ فقط (إسعاف/شرطة)</td>
-        </tr>
-        <tr>
-          <td><strong>Limite di velocità</strong></td>
-          <td>السرعة فوق الرقم المذكور</td>
-          <td>—</td>
-          <td>—</td>
-          <td>يُلغى بإشارة أخرى أو Fine limite</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- ─── SECTION 7: قاموس المصطلحات ─── -->
-  <div class="content-section">
-    <div class="section-header">
-      <div class="section-icon icon-sky">📚</div>
-      <div>
-        <div class="section-title">قاموس مصطلحات الباب الثالث</div>
-        <div class="section-subtitle">Glossario Capitolo 03</div>
-      </div>
+    <div class="glossary-card">
+      <div class="term-it">Divieto di transito</div>
+      <div class="term-ar">حظر العبور في كلا الاتجاهين</div>
+      <div class="term-def">منع حركة السير لكافة المركبات ذات المحرك وغير الآلية في كلا الاتجاهين معاً؛ المشاة مستثنون دائماً، والدراجة الهوائية مسموح بها فقط إذا كانت مدفوعة باليد.</div>
     </div>
 
-    <div class="dictionary-grid">
-      <div class="dict-card">
-        <div class="dict-it">Segnali di divieto</div>
-        <div class="dict-ar">إشارات المنع</div>
-        <div class="dict-note">الفئة الكاملة — دائرة حمراء تُقيّد السلوك</div>
-      </div>
-      <div class="dict-card">
-        <div class="dict-it">Divieto di transito</div>
-        <div class="dict-ar">حظر العبور الكامل</div>
-        <div class="dict-note">يمنع جميع المركبات في الاتجاهين — المشاة مسموح</div>
-      </div>
-      <div class="dict-card">
-        <div class="dict-it">Senso vietato</div>
-        <div class="dict-ar">ممنوع الدخول (اتجاه واحد)</div>
-        <div class="dict-note">يمنع الدخول من هذا الطرف فقط — الطريق مفتوح من الجهة الأخرى</div>
-      </div>
-      <div class="dict-card">
-        <div class="dict-it">Divieto di sorpasso</div>
-        <div class="dict-ar">حظر التجاوز</div>
-        <div class="dict-note">يمنع تجاوز المركبات — ماعدا ثنائية العجلات بشروط</div>
-      </div>
-      <div class="dict-card">
-        <div class="dict-it">Divieto di sosta</div>
-        <div class="dict-ar">حظر الوقوف</div>
-        <div class="dict-note">خط مائل — يمنع Sosta لكن يُجيز Fermata</div>
-      </div>
-      <div class="dict-card">
-        <div class="dict-it">Divieto di fermata</div>
-        <div class="dict-ar">حظر التوقف المطلق</div>
-        <div class="dict-note">خطان متقاطعان — يمنع أي توقف 24/7 بلا استثناء</div>
-      </div>
-      <div class="dict-card">
-        <div class="dict-it">Sosta</div>
-        <div class="dict-ar">الوقوف (الراكد)</div>
-        <div class="dict-note">ترك المركبة دون سائق لفترة — الركن</div>
-      </div>
-      <div class="dict-card">
-        <div class="dict-it">Fermata</div>
-        <div class="dict-ar">التوقف العابر</div>
-        <div class="dict-note">توقف مؤقت مع السائق لإنزال راكب أو تحميل — لا يُعدّ Sosta</div>
-      </div>
-      <div class="dict-card">
-        <div class="dict-it">Striscia continua</div>
-        <div class="dict-ar">الخط الأبيض الصلب</div>
-        <div class="dict-note">لا يجوز عبوره أو تجاوزه في أي حال</div>
-      </div>
-      <div class="dict-card">
-        <div class="dict-it">Veicoli merci</div>
-        <div class="dict-ar">مركبات البضائع (الشاحنات)</div>
-        <div class="dict-note">تشمل الشاحنات وناقلات البضائع — لا تشمل الحافلات</div>
-      </div>
-      <div class="dict-card">
-        <div class="dict-it">Autobus</div>
-        <div class="dict-ar">الحافلة</div>
-        <div class="dict-note">مركبة ركاب — لا تنطبق عليها قيود الشاحنات (veicoli merci)</div>
-      </div>
-      <div class="dict-card">
-        <div class="dict-it">Fine divieto di sorpasso</div>
-        <div class="dict-ar">إنهاء حظر التجاوز</div>
-        <div class="dict-note">دائرة رمادية بخطوط مائلة — تُلغي حظر التجاوز السابق</div>
-      </div>
+    <div class="glossary-card">
+      <div class="term-it">Senso vietato</div>
+      <div class="term-ar">ممنوع الدخول (شارع باتجاه واحد)</div>
+      <div class="term-def">حظر الدخول إلى الطريق من هذه الجهة فقط، مع كونه مفتوحاً للمرور والخروج من الجهة الأخرى للمركبات القادمة في الاتجاه المعاكس.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Divieto di sorpasso</div>
+      <div class="term-ar">حظر التجاوز للمركبات الآلية</div>
+      <div class="term-def">منع أي مركبة ذات محرك من تجاوز مركبة أخرى ذات محرك (أكثر من عجلتين)، مع السماح القانوني بتجاوز الدراجات النارية ذات العجلتين فقط دون تخطي الخط المتصل.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Divieto di sosta</div>
+      <div class="term-ar">حظر الوقوف (الركن)</div>
+      <div class="term-def">منع ترك السيارة متوقفة بدون سائق (Sosta)، مع إباحة التوقف القصير المؤقت (Fermata) لإنزال راكب أو صعوده مع بقاء السائق على أهبة الاستعداد للتحرك فوراً.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Divieto di fermata</div>
+      <div class="term-ar">حظر التوقف المطلق</div>
+      <div class="term-def">منع تام وشامل لأي توقف للمركبة ولو لثانية واحدة (Sosta e Fermata)، يسري 24 ساعة يومياً في كل مكان ولا يقبل أي استثناء عادي سوى سيارات الطوارئ الرسمية.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Sosta</div>
+      <div class="term-ar">الوقوف المطول للمركبة</div>
+      <div class="term-def">إيقاف المركبة لفترة زمنية ممتدة مع إمكانية مغادرة السائق لمقعده والابتعاد عنها.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Fermata</div>
+      <div class="term-ar">التوقف العابر القصير</div>
+      <div class="term-def">توقف لحظي مؤقت للمركبة بهدف إنزال أو صعود الركاب، بشرط عدم تعطيل حركة السير وبقاء السائق داخل أو بجوار المركبة جاهزاً للانطلاق.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Veicoli trasporto merci</div>
+      <div class="term-ar">مركبات نقل البضائع (الشاحنات)</div>
+      <div class="term-def">المركبات المصممة حصراً لنقل البضائع والمهمات (Autocarri)، ولا تشمل إطلاقاً الحافلات (Autobus) أو سيارات الركاب أو الكرفان (Autocaravan).</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Massa a pieno carico</div>
+      <div class="term-ar">الكتلة القصوى المصرح بها بالرخصة</div>
+      <div class="term-def">الوزن الأقصى القانوني للمركبة مع كامل حمولتها والركاب كما هو مسجل رسمياً في وثيقة تسجيل المركبة (Carta di circolazione).</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Massa effettiva</div>
+      <div class="term-ar">الكتلة الفعلية اللحظية للمركبة</div>
+      <div class="term-def">الوزن الحقيقي الواقعي للمركبة وحمولتها المقاس فعلياً على الميزان في لحظة مرورها بالطريق، وهو المعتمد في إشارة Fig. 78.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Fine prescrizione</div>
+      <div class="term-ar">نهاية سريان قيود المنع (طريق سالك)</div>
+      <div class="term-def">إشارة دائرية رمادية تنهي مفعول كافة إشارات المنع السابقة على الطريق، وتُعيد السائق إلى القواعد والحدود العامة لنوع الطريق.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Passo carrabile</div>
+      <div class="term-ar">مدخل عقار أو جراج خاص مرخص</div>
+      <div class="term-def">منفذ مرخص رسمياً من البلدية يربط ملكية خاصة بالطريق العام؛ يمنع وقوف السيارات أمامه ولكنه يبيح التوقف القصير (Fermata) المؤقت.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Striscia continua</div>
+      <div class="term-ar">الخط الطولي المتصل</div>
+      <div class="term-def">خط أبيض فاصل على الإسفلت يحظر تجاوزه أو السير فوقه إطلاقاً، حتى أثناء التجاوزات المسموحة قانوناً.</div>
     </div>
   </div>
 
-  <!-- ─── SECTION 8: معرض الصور ─── -->
-  <div class="content-section">
-    <div class="section-header">
-      <div class="section-icon icon-violet">🖼️</div>
-      <div>
-        <div class="section-title">معرض إشارات الباب الثالث</div>
-        <div class="section-subtitle">Galleria immagini — Capitolo 03</div>
+  <!-- MINISTERIAL TRAPS INTERACTIVE SECTION -->
+  <div class="traps-section" id="traps-section">
+    <div class="section-heading">
+      <div class="section-title">
+        <span>⚠️</span>
+        <span>فخاخ الامتحان الوزاري الأكثر تكراراً (I Trabocchetti Ministeriali)</span>
       </div>
+      <span class="section-badge">12 فخاً وزارياً مؤكداً</span>
     </div>
 
-    <div class="images-gallery">
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/54.png" alt="إشارة 54" loading="lazy">
-        <div class="img-caption">54 · Divieto transito</div>
+    <div class="traps-grid">
+      <!-- Trap 1 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:700; color:#fff; font-size:0.9rem;">Fig. 54 · Divieto di transito</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <div class="trap-q-it">"Il segnale raffigurato vieta il transito ai pedoni"</div>
+        <div class="trap-reason">
+          <strong>الترجمة والتحليل:</strong> "الإشارة الموضحة تمنع عبور المشاة" ➔ <strong>خطأ (FALSO)</strong>.
+          <br>
+          <strong>الفخ:</strong> إشارة حظر العبور (Fig. 54) تمنع جميع المركبات فقط، والمشاة مسموح لهم بالسير والعبور بحرية كاملة دون أي قيد.
+        </div>
       </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/55.png" alt="إشارة 55" loading="lazy">
-        <div class="img-caption">55 · Senso vietato</div>
+
+      <!-- Trap 2 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:700; color:#fff; font-size:0.9rem;">Fig. 55 · Senso vietato</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <div class="trap-q-it">"Il segnale raffigurato vieta la circolazione nei due sensi di marcia"</div>
+        <div class="trap-reason">
+          <strong>الترجمة والتحليل:</strong> "الإشارة الموضحة تمنع حركة السير في كلا الاتجاهين" ➔ <strong>خطأ (FALSO)</strong>.
+          <br>
+          <strong>الفخ:</strong> الإشارة تمنع الدخول من جهتك فقط لوجود طريق ذي اتجاه واحد، والمركبات القادمة من الطرف الآخر مسموح لها بالسير والخروج.
+        </div>
       </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/56.png" alt="إشارة 56" loading="lazy">
-        <div class="img-caption">56 · Divieto sorpasso</div>
+
+      <!-- Trap 3 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:700; color:#fff; font-size:0.9rem;">Fig. 56 · Divieto di sorpasso</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <div class="trap-q-it">"Il segnale raffigurato consente ad un'autovettura di sorpassare un motociclo senza oltrepassare la striscia continua"</div>
+        <div class="trap-reason">
+          <strong>الترجمة والتحليل:</strong> "تسمح الإشارة لسيارة ركاب بتجاوز دراجة نارية دون عبور الخط المتصل" ➔ <strong>صحيح (VERO)</strong>.
+          <br>
+          <strong>الفخ:</strong> يجوز للسيارة تجاوز دراجة نارية ذات عجلتين بشرطين: البقاء داخل نفس المسار وعدم لمس أو تخطي الخط المتصل.
+        </div>
       </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/57.png" alt="إشارة 57" loading="lazy">
-        <div class="img-caption">57 · Divieto sorpasso merci</div>
+
+      <!-- Trap 4 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:700; color:#fff; font-size:0.9rem;">Fig. 56 · Divieto di sorpasso</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <div class="trap-q-it">"Il segnale raffigurato consente ad un motociclo di sorpassare un'autovettura"</div>
+        <div class="trap-reason">
+          <strong>الترجمة والتحليل:</strong> "تسمح الإشارة لدراجة نارية بتجاوز سيارة ركاب" ➔ <strong>خطأ (FALSO)</strong>.
+          <br>
+          <strong>الفخ:</strong> الاستثناء ينطبق على تجاوز الدراجة، لكن الدراجة ذاتها مركبة ذات محرك ومحظور عليها تجاوز السيارات تماماً.
+        </div>
       </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/58.png" alt="إشارة 58" loading="lazy">
-        <div class="img-caption">58 · Limite velocità</div>
+
+      <!-- Trap 5 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:700; color:#fff; font-size:0.9rem;">Fig. 60 · Sorpasso autocarri</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <div class="trap-q-it">"Il segnale raffigurato vieta il sorpasso anche agli autobus di massa complessiva superiore a 3,5 t"</div>
+        <div class="trap-reason">
+          <strong>الترجمة والتحليل:</strong> "تمنع الإشارة التجاوز أيضاً للحافلات التي تزيد كتلتها الإجمالية عن 3.5 طن" ➔ <strong>خطأ (FALSO)</strong>.
+          <br>
+          <strong>الفخ:</strong> الحافلات (Autobus) تنقل ركاباً وليست مركبات بضائع (Veicoli merci)، وبالتالي لا يشملها المنع مهما زاد وزنها.
+        </div>
       </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/59.png" alt="إشارة 59" loading="lazy">
-        <div class="img-caption">59 · Fine limite</div>
+
+      <!-- Trap 6 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:700; color:#fff; font-size:0.9rem;">Fig. 64 · Divieto motocicli</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <div class="trap-q-it">"Il segnale raffigurato vieta il transito ai ciclomotori a due ruote"</div>
+        <div class="trap-reason">
+          <strong>الترجمة والتحليل:</strong> "تمنع الإشارة عبور السيكلوموتوري ذي العجلتين" ➔ <strong>خطأ (FALSO)</strong>.
+          <br>
+          <strong>الفخ:</strong> الإشارة تمنع الدراجات النارية (Motocicli) فقط، ويسمح بمرور السيكلوموتوري (Ciclomotori) والدراجات الهوائية.
+        </div>
       </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/60.png" alt="إشارة 60" loading="lazy">
-        <div class="img-caption">60 · Divieto sosta</div>
+
+      <!-- Trap 7 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:700; color:#fff; font-size:0.9rem;">Fig. 68 · Autocarri oltre 3,5 t</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <div class="trap-q-it">"Il segnale raffigurato fa riferimento alla massa effettiva del veicolo al momento del transito"</div>
+        <div class="trap-reason">
+          <strong>الترجمة والتحليل:</strong> "تشير الإشارة للوزن الفعلي للمركبة لحظة العبور" ➔ <strong>خطأ (FALSO)</strong>.
+          <br>
+          <strong>الفخ:</strong> Fig. 68 تشير للوزن الأقصى المصرح به في رخصة السيارة (Carta di circolazione) حتى لو كانت تسير فارغة تماماً.
+        </div>
       </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/61.png" alt="إشارة 61" loading="lazy">
-        <div class="img-caption">61 · Divieto fermata</div>
+
+      <!-- Trap 8 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:700; color:#fff; font-size:0.9rem;">Fig. 78 · Massa oltre 7 t</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <div class="trap-q-it">"Il segnale raffigurato fa riferimento alla massa effettiva del veicolo al momento del transito"</div>
+        <div class="trap-reason">
+          <strong>الترجمة والتحليل:</strong> "تشير الإشارة إلى الوزن الفعلي للمركبة وقت العبور" ➔ <strong>صحيح (VERO)</strong>.
+          <br>
+          <strong>الفخ:</strong> إشارة Fig. 78 ذات الرقم بالطن داخل دائرة تقيس الوزن الحقيقي على الميزان لحظة المرور (Massa effettiva).
+        </div>
       </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/62.png" alt="إشارة 62" loading="lazy">
-        <div class="img-caption">62 · Segnale 62</div>
+
+      <!-- Trap 9 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:700; color:#fff; font-size:0.9rem;">Fig. 84 · Divieto di sosta</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <div class="trap-q-it">"Il segnale raffigurato vieta anche la fermata per far scendere un passeggero"</div>
+        <div class="trap-reason">
+          <strong>الترجمة والتحليل:</strong> "تمنع الإشارة أيضاً التوقف العابر لإنزال راكب" ➔ <strong>خطأ (FALSO)</strong>.
+          <br>
+          <strong>الفخ:</strong> حظر الوقوف (Sosta) لا يمنع إطلاقاً التوقف العابر (Fermata) طالما السائق جاهز للمغادرة فوراً ولا يعطل حركة السير.
+        </div>
       </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/63.png" alt="إشارة 63" loading="lazy">
-        <div class="img-caption">63 · Segnale 63</div>
+
+      <!-- Trap 10 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:700; color:#fff; font-size:0.9rem;">Fig. 84 · Divieto di sosta</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <div class="trap-q-it">"In un centro abitato, in assenza di pannelli integrativi, il divieto di sosta vige dalle ore 8.00 alle ore 20.00"</div>
+        <div class="trap-reason">
+          <strong>الترجمة والتحليل:</strong> "داخل المدن، في غياب لوحات تكميلية، يسري حظر الوقوف من 8:00 إلى 20:00" ➔ <strong>صحيح (VERO)</strong>.
+          <br>
+          <strong>الفخ:</strong> قاعدة التوقيت القانونية الصارمة: داخل المدن 8-20 افتراضياً، بينما خارج المدن 24 ساعة.
+        </div>
       </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/64.png" alt="إشارة 64" loading="lazy">
-        <div class="img-caption">64 · Segnale 64</div>
+
+      <!-- Trap 11 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:700; color:#fff; font-size:0.9rem;">Fig. 85 · Divieto di fermata</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <div class="trap-q-it">"Il segnale raffigurato consente la fermata di brevissima durata per acquistare il giornale"</div>
+        <div class="trap-reason">
+          <strong>الترجمة والتحليل:</strong> "تسمح الإشارة بتوقف قصير جداً لشراء صحيفة" ➔ <strong>خطأ (FALSO)</strong>.
+          <br>
+          <strong>الفخ:</strong> علامة X تعني حظراً تاماً ومطلقاً لأي توقف ولو للحظة واحدة، على مدار 24 ساعة كاملة.
+        </div>
       </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/65.png" alt="إشارة 65" loading="lazy">
-        <div class="img-caption">65 · Segnale 65</div>
-      </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/66.png" alt="إشارة 66" loading="lazy">
-        <div class="img-caption">66 · Segnale 66</div>
-      </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/67.png" alt="إشارة 67" loading="lazy">
-        <div class="img-caption">67 · Segnale 67</div>
-      </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/68.png" alt="إشارة 68" loading="lazy">
-        <div class="img-caption">68 · Segnale 68</div>
-      </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/69.png" alt="إشارة 69" loading="lazy">
-        <div class="img-caption">69 · Segnale 69</div>
-      </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/70.png" alt="إشارة 70" loading="lazy">
-        <div class="img-caption">70 · Segnale 70</div>
-      </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/71.png" alt="إشارة 71" loading="lazy">
-        <div class="img-caption">71 · Segnale 71</div>
-      </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/72.png" alt="إشارة 72" loading="lazy">
-        <div class="img-caption">72 · Segnale 72</div>
-      </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/148.png" alt="إشارة 148" loading="lazy">
-        <div class="img-caption">148 · Segnale 148</div>
-      </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/151.png" alt="إشارة 151" loading="lazy">
-        <div class="img-caption">151 · Segnale 151</div>
-      </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/932.png" alt="إشارة 932" loading="lazy">
-        <div class="img-caption">932 · Segnale 932</div>
-      </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/940.png" alt="إشارة 940" loading="lazy">
-        <div class="img-caption">940 · Segnale 940</div>
-      </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/946.png" alt="إشارة 946" loading="lazy">
-        <div class="img-caption">946 · Segnale 946</div>
-      </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/947.png" alt="إشارة 947" loading="lazy">
-        <div class="img-caption">947 · Segnale 947</div>
-      </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/948.png" alt="إشارة 948" loading="lazy">
-        <div class="img-caption">948 · Segnale 948</div>
-      </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/949.png" alt="إشارة 949" loading="lazy">
-        <div class="img-caption">949 · Segnale 949</div>
-      </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/950.png" alt="إشارة 950" loading="lazy">
-        <div class="img-caption">950 · Segnale 950</div>
-      </div>
-      <div class="img-item">
-        <img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/955.png" alt="إشارة 955" loading="lazy">
-        <div class="img-caption">955 · Segnale 955</div>
+
+      <!-- Trap 12 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:700; color:#fff; font-size:0.9rem;">Fig. 90 · Passo carrabile</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <div class="trap-q-it">"In corrispondenza del passo carrabile è consentita la fermata per salita o discesa di passeggeri"</div>
+        <div class="trap-reason">
+          <strong>الترجمة والتحليل:</strong> "أمام مدخل العقار الخاص يسمح بالتوقف العابر لصعود أو نزول الركاب" ➔ <strong>صحيح (VERO)</strong>.
+          <br>
+          <strong>الفخ:</strong> لوحة Passo carrabile تمنع الوقوف (Sosta) ولكنها تسمح بالتوقف المؤقت (Fermata) بشرط عدم سد المدخل وبقاء السائق بالسيارة.
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ─── SECTION 9: أسئلة تفاعلية ─── -->
-  <div class="content-section">
-    <div class="section-header">
-      <div class="section-icon icon-emerald">🧪</div>
-      <div>
-        <div class="section-title">أسئلة تدريبية تفاعلية — الباب الثالث</div>
-        <div class="section-subtitle">Quiz interattivi — Segnali di divieto</div>
-      </div>
-    </div>
-
-    <div class="quiz-grid">
-
-      <!-- Q1 -->
-      <div class="quiz-card">
-        <div class="quiz-question">
-          <span class="it-text">Il segnale "Divieto di transito" vieta anche il passaggio dei pedoni.</span>
-          إشارة "حظر العبور" تمنع المشاة أيضاً من العبور.
-        </div>
-        <div class="quiz-buttons">
-          <button class="quiz-btn vero" onclick="checkQuiz(this,'falso','q1')">✓ Vero (صحيح)</button>
-          <button class="quiz-btn falso" onclick="checkQuiz(this,'falso','q1')">✗ Falso (خطأ)</button>
-        </div>
-        <div class="quiz-result" id="q1">
-          ❌ <strong>خطأ (Falso)</strong> — إشارة حظر العبور تمنع المركبات فقط. المشاة مسموح لهم دائماً بالعبور.
-        </div>
-      </div>
-
-      <!-- Q2 -->
-      <div class="quiz-card">
-        <div class="quiz-question">
-          <span class="it-text">Il segnale "Divieto di sosta" impedisce anche la fermata per fare scendere un passeggero.</span>
-          إشارة "حظر الوقوف" تمنع أيضاً التوقف لإنزال راكب.
-        </div>
-        <div class="quiz-buttons">
-          <button class="quiz-btn vero" onclick="checkQuiz(this,'falso','q2')">✓ Vero (صحيح)</button>
-          <button class="quiz-btn falso" onclick="checkQuiz(this,'falso','q2')">✗ Falso (خطأ)</button>
-        </div>
-        <div class="quiz-result" id="q2">
-          ❌ <strong>خطأ (Falso)</strong> — Divieto di sosta يمنع الوقوف (Sosta) فقط. التوقف العابر (Fermata) لإنزال راكب مسموح.
-        </div>
-      </div>
-
-      <!-- Q3 -->
-      <div class="quiz-card">
-        <div class="quiz-question">
-          <span class="it-text">Il segnale "Divieto di sorpasso" vale anche per il sorpasso delle biciclette.</span>
-          إشارة "حظر التجاوز" تنطبق أيضاً على تجاوز الدراجات الهوائية.
-        </div>
-        <div class="quiz-buttons">
-          <button class="quiz-btn vero" onclick="checkQuiz(this,'falso','q3')">✓ Vero (صحيح)</button>
-          <button class="quiz-btn falso" onclick="checkQuiz(this,'falso','q3')">✗ Falso (خطأ)</button>
-        </div>
-        <div class="quiz-result" id="q3">
-          ❌ <strong>خطأ (Falso)</strong> — تجاوز الدراجات الهوائية (biciclette) وثنائية العجلات جائز بشرط عدم عبور الخط الصلب (striscia continua).
-        </div>
-      </div>
-
-      <!-- Q4 -->
-      <div class="quiz-card">
-        <div class="quiz-question">
-          <span class="it-text">Il segnale "Divieto di sorpasso per veicoli merci oltre 3,5 t" si applica anche agli autobus di peso superiore a 3,5 t.</span>
-          إشارة حظر تجاوز الشاحنات (> 3.5 طن) تنطبق على الحافلات أيضاً إذا تجاوزت 3.5 طن.
-        </div>
-        <div class="quiz-buttons">
-          <button class="quiz-btn vero" onclick="checkQuiz(this,'falso','q4')">✓ Vero (صحيح)</button>
-          <button class="quiz-btn falso" onclick="checkQuiz(this,'falso','q4')">✗ Falso (خطأ)</button>
-        </div>
-        <div class="quiz-result" id="q4">
-          ❌ <strong>خطأ (Falso)</strong> — الإشارة تنطبق على "veicoli merci" (مركبات البضائع) فقط. الحافلات (autobus) تنقل ركاباً وليست مركبات بضائع.
-        </div>
-      </div>
-
-      <!-- Q5 -->
-      <div class="quiz-card">
-        <div class="quiz-question">
-          <span class="it-text">Con il segnale "Divieto di fermata" è consentito fermarsi brevemente per far scendere un passeggero.</span>
-          مع إشارة "حظر التوقف" يُسمح بالتوقف لفترة وجيزة لإنزال راكب.
-        </div>
-        <div class="quiz-buttons">
-          <button class="quiz-btn vero" onclick="checkQuiz(this,'falso','q5')">✓ Vero (صحيح)</button>
-          <button class="quiz-btn falso" onclick="checkQuiz(this,'falso','q5')">✗ Falso (خطأ)</button>
-        </div>
-        <div class="quiz-result" id="q5">
-          ❌ <strong>خطأ (Falso)</strong> — Divieto di fermata يمنع أي توقف مطلقاً، 24 ساعة دون أي استثناء للمركبات العادية.
-        </div>
-      </div>
-
-      <!-- Q6 -->
-      <div class="quiz-card">
-        <div class="quiz-question">
-          <span class="it-text">Il segnale "Senso vietato" vieta la circolazione in entrambi i sensi di marcia.</span>
-          إشارة "Senso vietato" تمنع السير في الاتجاهين معاً.
-        </div>
-        <div class="quiz-buttons">
-          <button class="quiz-btn vero" onclick="checkQuiz(this,'falso','q6')">✓ Vero (صحيح)</button>
-          <button class="quiz-btn falso" onclick="checkQuiz(this,'falso','q6')">✗ Falso (خطأ)</button>
-        </div>
-        <div class="quiz-result" id="q6">
-          ❌ <strong>خطأ (Falso)</strong> — Senso vietato تمنع الدخول من هذا الطرف فقط. الطريق مفتوح للمركبات القادمة من الاتجاه الآخر — وهو ما يميزها عن Divieto di transito.
-        </div>
-      </div>
-
-      <!-- Q7 -->
-      <div class="quiz-card">
-        <div class="quiz-question">
-          <span class="it-text">Il segnale "Divieto di sosta" in area urbana è valido di norma dalle ore 8:00 alle ore 20:00.</span>
-          إشارة "حظر الوقوف" في المناطق الحضرية تسري عادةً من الساعة 8:00 حتى 20:00.
-        </div>
-        <div class="quiz-buttons">
-          <button class="quiz-btn vero" onclick="checkQuiz(this,'vero','q7')">✓ Vero (صحيح)</button>
-          <button class="quiz-btn falso" onclick="checkQuiz(this,'vero','q7')">✗ Falso (خطأ)</button>
-        </div>
-        <div class="quiz-result" id="q7">
-          ✅ <strong>صحيح (Vero)</strong> — في غياب لوحة تكميلية تُحدد ساعات مختلفة، يسري حظر الوقوف في المدن من 08:00 إلى 20:00.
-        </div>
-      </div>
-
-      <!-- Q8 -->
-      <div class="quiz-card">
-        <div class="quiz-question">
-          <span class="it-text">Con "Divieto di transito" le biciclette possono passare se condotte a mano.</span>
-          مع إشارة "حظر العبور" تستطيع الدراجات الهوائية العبور إذا كانت تُدفع باليد.
-        </div>
-        <div class="quiz-buttons">
-          <button class="quiz-btn vero" onclick="checkQuiz(this,'vero','q8')">✓ Vero (صحيح)</button>
-          <button class="quiz-btn falso" onclick="checkQuiz(this,'vero','q8')">✗ Falso (خطأ)</button>
-        </div>
-        <div class="quiz-result" id="q8">
-          ✅ <strong>صحيح (Vero)</strong> — الدراجة الهوائية إذا دُفعت باليد (condotta a mano) فصاحبها يُعامل معاملة المشاة، وهم مسموح لهم بالعبور.
-        </div>
-      </div>
-
-      <!-- Q9 -->
-      <div class="quiz-card">
-        <div class="quiz-question">
-          <span class="it-text">Il segnale di limite di velocità cessa i suoi effetti alla fine del centro abitato.</span>
-          إشارة حد السرعة تنتهي تأثيراتها عند نهاية المنطقة المأهولة.
-        </div>
-        <div class="quiz-buttons">
-          <button class="quiz-btn vero" onclick="checkQuiz(this,'falso','q9')">✓ Vero (صحيح)</button>
-          <button class="quiz-btn falso" onclick="checkQuiz(this,'falso','q9')">✗ Falso (خطأ)</button>
-        </div>
-        <div class="quiz-result" id="q9">
-          ❌ <strong>خطأ (Falso)</strong> — إشارة حد السرعة تسري حتى ظهور إشارة سرعة مختلفة أو إشارة "Fine limite di velocità" — وليس بالضرورة عند حدود المنطقة المأهولة.
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ─── Pagination ─── -->
-  <div class="chapter-pagination">
+  <!-- CHAPTER PAGINATION BAR -->
+  <nav class="chapter-pagination" aria-label="التنقل بين الأبواب">
     <a href="../Capitoli_Divisi/Capitolo_02_segnali_pericolo/index.html" class="pagination-btn">
-      ← <span>الباب 02: إشارات الخطر</span>
+      <span style="font-size:1.1rem;">→</span>
+      <div class="pagination-info">
+        <span class="pagination-label">الباب السابق</span>
+        <span class="pagination-title">الباب 02: إشارات الخطر (Segnali di pericolo)</span>
+      </div>
     </a>
-    <div class="pagination-center">
-      الباب 03 / 25<br>
-      <span style="color:var(--rose-primary);font-weight:800;">Segnali di divieto</span>
-    </div>
-    <a href="دليل_الباب_04_إشارات_الإلزام.html" class="pagination-btn primary">
-      <span>الباب 04: إشارات الإلزام</span> →
+
+    <a href="دليل_الباب_04_إشارات_الإلزام.html" class="pagination-btn">
+      <div class="pagination-info" style="text-align:left;">
+        <span class="pagination-label">الباب التالي</span>
+        <span class="pagination-title">الباب 04: إشارات الإلزام (Segnali di obbligo)</span>
+      </div>
+      <span style="font-size:1.1rem;">←</span>
     </a>
-  </div>
+  </nav>
 
 </main>
 
-<!-- ═══════════════════════════ JS ═══════════════════════════ -->
+<!-- JAVASCRIPT LOGIC -->
 <script>
-  // Sound Engine
+  // Web Audio API Sound Engine
   const soundEngine = {
     ctx: null,
     enabled: false,
     init() {
       if (!this.ctx) {
-        try { this.ctx = new (window.AudioContext || window.webkitAudioContext)(); } catch(e) {}
+        try {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          this.ctx = new AudioContext();
+        } catch(e) {}
       }
     },
-    play(freq, dur, type='sine', vol=0.3) {
+    click() {
+      if (!this.enabled) return;
       this.init();
-      if (!this.enabled || !this.ctx) return;
-      try {
-        const o = this.ctx.createOscillator();
-        const g = this.ctx.createGain();
-        o.connect(g); g.connect(this.ctx.destination);
-        o.type = type; o.frequency.value = freq;
-        g.gain.setValueAtTime(vol, this.ctx.currentTime);
-        g.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + dur);
-        o.start(); o.stop(this.ctx.currentTime + dur);
-      } catch(e) {}
-    },
-    click() { this.play(440, 0.08, 'sine', 0.2); },
-    correct() { this.play(523, 0.15); setTimeout(() => this.play(659, 0.15), 100); },
-    wrong() { this.play(200, 0.3, 'sawtooth', 0.2); }
+      if (!this.ctx) return;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(600, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(800, this.ctx.currentTime + 0.05);
+      gain.gain.setValueAtTime(0.08, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.05);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.05);
+    }
   };
 
   function toggleAudio() {
     soundEngine.enabled = !soundEngine.enabled;
-    document.getElementById('audioBtn').textContent = soundEngine.enabled ? '🔊' : '🔇';
+    const icons = document.querySelectorAll('.audio-icon-span');
+    const labels = document.querySelectorAll('.audio-label-span');
+    icons.forEach(el => el.textContent = soundEngine.enabled ? '🔊' : '🔇');
+    labels.forEach(el => el.textContent = soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم');
+    if (soundEngine.enabled) soundEngine.click();
   }
 
-  function toggleNavDropdown() {
-    document.getElementById('navDropdownMenu').classList.toggle('open');
+  // Simulator 1: Transito vs Senso vietato
+  function simulateTransito(mode) {
+    const btnT = document.getElementById('btnSimTransito');
+    const btnS = document.getElementById('btnSimSenso');
+    const imgWrapper = document.getElementById('simTransitoImgWrapper');
+    const badge = document.getElementById('simTransitoBadge');
+    const text = document.getElementById('simTransitoText');
+
+    if (mode === 'transito') {
+      btnT.classList.add('active');
+      btnS.classList.remove('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/54.png" alt="Divieto di transito">';
+      badge.className = 'sim-state-badge state-prohibited';
+      badge.textContent = 'حظر عبور مطلق للمركبات في كلا الاتجاهين (Entrambi i sensi)';
+      text.innerHTML = '<strong>الوضع القانوني (Fig. 54):</strong> دائرة بيضاء بإطار أحمر دون أي رمز بداخلها؛ تمنع حركة السير لجميع أنواع المركبات (السيارات، الدراجات النارية، الشاحنات، والدراجات الهوائية أثناء ركوبها) في كلا اتجاهي الطريق. توضع على مداخل الطريق من الجانبين. <strong>المشاة:</strong> مسموح لهم بالسير والعبور بحرية. الدراجة الهوائية مسموح بمرورها فقط إذا كان قائدها يترجل ويدفعها يدوياً (Condotta a mano).';
+    } else {
+      btnS.classList.add('active');
+      btnT.classList.remove('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/55.png" alt="Senso vietato">';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'ممنوع الدخول من هذا المنفذ فقط (Accesso vietato da questo lato)';
+      text.innerHTML = '<strong>الوضع القانوني (Fig. 55):</strong> شريط أبيض أفقي في دائرة حمراء؛ يمنع الدخول إلى الشارع من هذه الجهة فقط لأنه مخصص لحركة المرور في الاتجاه المعاكس (Senso unico). <strong>المركبات القادمة من الجهة المقابلة:</strong> مسموح لها بالسير والتقدم بشكل طبيعي. المشاة مسموح لهم دائماً بالعبور.';
+    }
+    soundEngine.click();
   }
 
-  document.addEventListener('click', function(e) {
+  // Simulator 2: Sosta vs Fermata
+  function simulateSosta(mode) {
+    const btnS = document.getElementById('btnSimSosta');
+    const btnF = document.getElementById('btnSimFermata');
+    const imgWrapper = document.getElementById('simSostaImgWrapper');
+    const badge = document.getElementById('simSostaBadge');
+    const text = document.getElementById('simSostaText');
+
+    if (mode === 'sosta') {
+      btnS.classList.add('active');
+      btnF.classList.remove('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/84.png" alt="Divieto di sosta">';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'يمنع الوقوف (Sosta) ويسمح بالتوقف العابر (Fermata)';
+      text.innerHTML = '<strong>الوضع القانوني (Fig. 84):</strong> خط مائل أحمر واحد. يمنع ترك السيارة متوقفة بدون سائق (Sosta). <strong>يسمح تماماً بالتوقف المؤقت (Fermata)</strong> لإنزال أو صعود راكب بشرط عدم إعاقة حركة المرور وبقاء السائق جاهزاً للتحرك فوراً. السريان داخل المدن: من <strong>08:00 إلى 20:00</strong> افتراضياً، وخارج المدن 24 ساعة.';
+    } else {
+      btnF.classList.add('active');
+      btnS.classList.remove('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/85.png" alt="Divieto di fermata">';
+      badge.className = 'sim-state-badge state-prohibited';
+      badge.textContent = 'حظر مطلق وتام لكافة أنواع الوقوف والتوقف 24 ساعة';
+      text.innerHTML = '<strong>الوضع القانوني (Fig. 85):</strong> خطان متقاطعان باللون الأحمر (X). يمنع منعاً باتاً أي توقف للمركبة ولو لثانية واحدة (سواء Sosta أو Fermata)، حتى لإنزال راكب أو شراء شيء. السريان: <strong>24 ساعة على مدار اليوم، طوال أيام الأسبوع</strong> دون استثناء داخل وخارج المدن.';
+    }
+    soundEngine.click();
+  }
+
+  // Simulator 3: Sorpasso
+  function simulateSorpasso(mode) {
+    const btnG = document.getElementById('btnSimSorpGen');
+    const btnC = document.getElementById('btnSimSorpCamion');
+    const imgWrapper = document.getElementById('simSorpassoImgWrapper');
+    const badge = document.getElementById('simSorpassoBadge');
+    const text = document.getElementById('simSorpassoText');
+
+    if (mode === 'gen') {
+      btnG.classList.add('active');
+      btnC.classList.remove('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/56.png" alt="Divieto di sorpasso">';
+      badge.className = 'sim-state-badge state-prohibited';
+      badge.textContent = 'حظر تجاوز لجميع المركبات ذات المحرك (أكثر من عجلتين)';
+      text.innerHTML = '<strong>الوضع القانوني (Fig. 56):</strong> سيارة حمراء بجانب سيارة سوداء. يمنع على أي مركبة ذات محرك تجاوز أي مركبة أخرى ذات محرك (أكثر من عجلتين). <strong>الاستثناء المسموح:</strong> يجوز تجاوز المركبات غير الآلية (دراجات هوائية، عربات حيوانات) وكذلك الدراجات النارية ذات العجلتين فقط (Senza sidecar) بشرط عدم عبور الخط المتصل والبقاء داخل المسار.';
+    } else {
+      btnC.classList.add('active');
+      btnG.classList.remove('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_03_segnali_divieto/immagini/60.png" alt="Divieto sorpasso camion oltre 3,5 t">';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'يمنع شاحنات البضائع > 3.5t فقط (Veicoli merci)';
+      text.innerHTML = '<strong>الوضع القانوني والفخ الوزاري (Fig. 60):</strong> يمنع تجاوز المركبات ذات المحرك فقط للشاحنات المخصصة لنقل البضائع (Autocarri / Veicoli merci) التي يتجاوز وزنها الإجمالي 3.5 طن. <strong>الحافلات (Autobus) وعربات الكرفان (Autocaravan):</strong> لا ينطبق عليها هذا المنع حتى لو تجاوز وزنها 3.5 طن، لأنها مخصصة لنقل الركاب وليس البضائع!';
+    }
+    soundEngine.click();
+  }
+
+  // Filter Pills Logic
+  function filterCards(category, btn) {
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    soundEngine.click();
+
+    const cards = document.querySelectorAll('.signal-card');
+    cards.forEach(card => {
+      if (category === 'all') {
+        card.style.display = 'flex';
+      } else if (card.getAttribute('data-category') === category) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (category === 'glossary') {
+      const el = document.getElementById('glossary-section');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // Desktop Dropdown
+  function toggleNavDropdown(e) {
+    if (e) e.stopPropagation();
     const menu = document.getElementById('navDropdownMenu');
-    if (menu && !menu.contains(e.target) && !e.target.closest('.nav-dropdown-btn')) {
-      menu.classList.remove('open');
+    if (menu) menu.classList.toggle('active');
+  }
+  document.addEventListener('click', function(e) {
+    const wrapper = document.querySelector('.nav-dropdown-wrapper');
+    const menu = document.getElementById('navDropdownMenu');
+    if (menu && menu.classList.contains('active')) {
+      if (wrapper && !wrapper.contains(e.target)) menu.classList.remove('active');
     }
   });
 
+  // Mobile Drawer Navigation (Apple HIG)
   function toggleMobileNav() {
-    document.getElementById('mobile-drawer-overlay').classList.toggle('open');
-    document.getElementById('mobile-drawer-panel').classList.toggle('open');
-    document.body.classList.toggle('nav-scroll-lock');
+    const btn = document.getElementById('nav-hamburger-btn');
+    const panel = document.getElementById('mobile-drawer-panel');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    if (!btn || !panel) return;
+    const isOpening = !panel.classList.contains('is-active');
+    if (isOpening) {
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-expanded', 'true');
+      panel.classList.add('is-active');
+      if (overlay) overlay.classList.add('is-active');
+      document.body.classList.add('nav-scroll-lock');
+    } else {
+      closeMobileNav();
+    }
+    soundEngine.click();
   }
 
   function closeMobileNav() {
-    document.getElementById('mobile-drawer-overlay').classList.remove('open');
-    document.getElementById('mobile-drawer-panel').classList.remove('open');
+    const btn = document.getElementById('nav-hamburger-btn');
+    const panel = document.getElementById('mobile-drawer-panel');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    if (btn) {
+      btn.classList.remove('is-active');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    if (panel) panel.classList.remove('is-active');
+    if (overlay) overlay.classList.remove('is-active');
     document.body.classList.remove('nav-scroll-lock');
   }
 
-  function checkQuiz(btn, correctAnswer, resultId) {
-    const card = btn.closest('.quiz-card');
-    const buttons = card.querySelectorAll('.quiz-btn');
-    const result = document.getElementById(resultId);
-    const userAnswer = btn.classList.contains('vero') ? 'vero' : 'falso';
-    const isCorrect = userAnswer === correctAnswer;
-
-    buttons.forEach(b => b.disabled = true);
-    result.classList.add('show', isCorrect ? 'correct' : 'wrong');
-
-    if (isCorrect) soundEngine.correct();
-    else soundEngine.wrong();
-  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMobileNav();
+  });
 </script>
+
 </body>
 </html>
