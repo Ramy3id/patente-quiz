@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>دليل وقاموس الباب 05: إشارات الأسبقية وقواعد التقاطعات | رخصة القيادة الإيطالية Patente B Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-base: #09090b;
+    --bg-surface: rgba(24, 24, 27, 0.75);
+    --bg-surface-elevated: rgba(39, 39, 42, 0.85);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(255, 255, 255, 0.16);
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --emerald-primary: #10b981;
+    --emerald-dark: #059669;
+    --emerald-glow: rgba(16, 185, 129, 0.25);
+    --rose-primary: #f43f5e;
+    --rose-glow: rgba(244, 63, 94, 0.25);
+    --amber-primary: #f59e0b;
+    --amber-glow: rgba(245, 158, 11, 0.25);
+    --sky-primary: #38bdf8;
+    --sky-glow: rgba(56, 189, 248, 0.25);
+    --indigo-primary: #6366f1;
+    --nav-base-height: 54px;
+    --font-sans: 'Cairo', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body.nav-scroll-lock {
+    overflow: hidden !important;
+    touch-action: none;
+  }
+
+  /* Portal Nav Header (Strict 54px, Apple HIG) */
+  .unified-portal-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-base-height);
+    background: rgba(15, 15, 18, 0.82);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.05rem;
+  }
+
+  .badge-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--amber-primary);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    padding: 2px 7px;
+    border-radius: 6px;
+  }
+
+  .desktop-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .desktop-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 600;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+  .desktop-nav-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-subtle);
+  }
+  .desktop-nav-link.active {
+    color: var(--amber-primary);
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.25);
+  }
+
+  .desktop-nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-audio-btn {
+    height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #e4e4e7;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .nav-audio-btn:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .nav-dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  .nav-dropdown-btn {
+    height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: #e4e4e7;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+  .nav-dropdown-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.22);
+    color: #fff;
+  }
+  .nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 290px;
+    max-height: 440px;
+    overflow-y: auto;
+    background: #121215;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 1100;
+    direction: rtl;
+  }
+  .nav-dropdown-menu.active { display: flex; }
+  .nav-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #d4d4d8;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: all 0.12s ease;
+  }
+  .nav-dropdown-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+  }
+  .nav-dropdown-item.active {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--amber-primary);
+    font-weight: 700;
+  }
+
+  /* Hamburger Button (< 768px) */
+  .nav-hamburger-btn {
+    display: none;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .hamburger-box { width: 20px; height: 14px; position: relative; }
+  .hamburger-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #f4f4f5;
+    border-radius: 2px;
+    transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  }
+  .line-top { top: 0; }
+  .line-mid { top: 6px; }
+  .line-bot { top: 12px; }
+
+  .nav-hamburger-btn.is-active .line-top { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger-btn.is-active .line-mid { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger-btn.is-active .line-bot { transform: translateY(-6px) rotate(-45deg); }
+
+  /* Mobile Drawer Panel */
+  .mobile-drawer-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .mobile-drawer-overlay.is-active { display: block; opacity: 1; }
+  .mobile-drawer-panel {
+    display: none;
+    position: fixed;
+    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
+    left: 0; right: 0;
+    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
+    background: rgba(15, 15, 18, 0.94);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
+    z-index: 999;
+    padding: 16px;
+    padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  }
+  .mobile-drawer-panel.is-active { display: block; transform: translateY(0); opacity: 1; }
+  .mobile-nav-list { display: flex; flex-direction: column; gap: 8px; list-style: none; }
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    min-height: 48px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: #e4e4e7;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+  .mobile-nav-link.active {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.35);
+    color: var(--amber-primary);
+  }
+
+  /* Main Container */
+  .guide-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: calc(var(--nav-base-height) + 28px) 20px 80px 20px;
+  }
+
+  /* Hero Section */
+  .chapter-hero {
+    background: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.12), transparent 70%),
+                linear-gradient(180deg, rgba(24, 24, 27, 0.7) 0%, rgba(18, 18, 20, 0.9) 100%);
+    border: 1px solid var(--border-subtle);
+    border-radius: 24px;
+    padding: 40px 32px;
+    margin-bottom: 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.5), transparent);
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.28);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--amber-primary);
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .hero-subtitle {
+    font-family: var(--font-mono);
+    color: var(--sky-primary);
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+    direction: ltr;
+  }
+  .hero-desc {
+    max-width: 860px;
+    margin: 0 auto 24px auto;
+    color: var(--text-secondary);
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+  .hero-badges-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .hero-stat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: #d4d4d8;
+  }
+
+  /* Golden Rules Banner */
+  .golden-rules-banner {
+    background: rgba(245, 158, 11, 0.06);
+    border: 1px solid rgba(245, 158, 11, 0.22);
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 36px;
+  }
+  .golden-rules-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--amber-primary);
+    margin-bottom: 16px;
+  }
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .rule-box {
+    background: rgba(24, 24, 27, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .rule-box h4 {
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .rule-box p {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Quick Filter Pills */
+  .filter-pills-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    margin-bottom: 28px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filter-pill {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .filter-pill:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+  }
+  .filter-pill.active {
+    background: var(--amber-primary);
+    border-color: var(--amber-primary);
+    color: #000;
+    font-weight: 700;
+  }
+
+  /* Comparison Section: Dare vs STOP */
+  .comp-section {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .comp-header {
+    margin-bottom: 20px;
+    text-align: right;
+  }
+  .comp-header h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .comp-header p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+  .comp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .comp-col {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .comp-col.dare {
+    border-top: 3px solid var(--amber-primary);
+  }
+  .comp-col.stop {
+    border-top: 3px solid var(--rose-primary);
+  }
+  .comp-col img {
+    height: 90px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 14px;
+  }
+  .comp-col-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .comp-col-sub {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--sky-primary);
+    margin-bottom: 14px;
+  }
+  .comp-desc-box {
+    text-align: right;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 0.86rem;
+    line-height: 1.6;
+    color: #d4d4d8;
+    margin-bottom: 12px;
+  }
+  .comp-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .badge-dare { background: rgba(245, 158, 11, 0.18); color: var(--amber-primary); }
+  .badge-stop { background: rgba(244, 63, 94, 0.18); color: var(--rose-primary); }
+
+  /* Interactive Simulator Box */
+  .simulator-box {
+    background: linear-gradient(180deg, rgba(24, 24, 27, 0.8) 0%, rgba(18, 18, 20, 0.95) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 40px;
+  }
+  .sim-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--sky-primary);
+    margin-bottom: 6px;
+  }
+  .sim-subtitle {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+  }
+  .sim-controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .sim-btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sim-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .sim-btn.active {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: var(--sky-primary);
+    color: var(--sky-primary);
+  }
+  .sim-output-card {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .sim-img-wrapper img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+  }
+  .sim-details {
+    flex: 1;
+    text-align: right;
+  }
+  .sim-state-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .state-give { background: rgba(244, 63, 94, 0.2); color: var(--rose-primary); }
+  .state-have { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .sim-legal-text {
+    font-size: 0.92rem;
+    color: #e4e4e7;
+    line-height: 1.7;
+  }
+
+  /* Grid of Signals Cards */
+  .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .section-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-badge {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: var(--amber-primary);
+    background: rgba(245, 158, 11, 0.1);
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(245, 158, 11, 0.25);
+  }
+
+  .signals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .signal-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .signal-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-highlight);
+  }
+
+  .signal-img-container {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    padding: 12px;
+  }
+  .signal-img-container img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+  }
+
+  /* Card Header Vertical Hierarchy */
+  .card-header-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+  .card-ar-title {
+    order: 1;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  .card-it-title {
+    order: 2;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--sky-primary);
+    direction: ltr;
+    text-align: right;
+  }
+
+  .card-desc-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  /* ZERO FLEX ON LISTS (STRICT TYPOGRAPHY) */
+  .card-points-group {
+    margin-bottom: 14px;
+  }
+  .points-group-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .points-group-title.vero-title { color: var(--emerald-primary); }
+  .points-group-title.falso-title { color: var(--rose-primary); }
+
+  .card-points-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .card-points-list li {
+    display: block;
+    position: relative;
+    padding-right: 28px;
+    line-height: 1.7;
+    text-align: right;
+    font-size: 0.88rem;
+    color: #d4d4d8;
+    margin-bottom: 6px;
+  }
+  .card-points-list li > span:first-child {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .card-trap-alert {
+    background: rgba(244, 63, 94, 0.08);
+    border: 1px solid rgba(244, 63, 94, 0.22);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    color: #fca5a5;
+    line-height: 1.6;
+    margin-top: auto;
+  }
+  .card-trap-alert strong {
+    color: var(--rose-primary);
+  }
+
+  /* Glossary Section */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .glossary-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+  .term-it {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--sky-primary);
+    margin-bottom: 4px;
+    direction: ltr;
+    text-align: right;
+  }
+  .term-ar {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .term-def {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Quiz Traps Interactive Section */
+  .traps-section {
+    margin-bottom: 50px;
+  }
+  .traps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+  }
+  .trap-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .trap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card-tag-pill {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  .tag-vero { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .tag-falso { background: rgba(244, 63, 94, 0.2); color: var(--rose-primary); }
+
+  .trap-q-it {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: #e4e4e7;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 8px;
+    padding: 10px;
+    direction: ltr;
+    text-align: left;
+    line-height: 1.5;
+  }
+  .trap-reason {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .trap-reason strong { color: #fff; }
+
+  /* Pagination Bar */
+  .chapter-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    margin-top: 40px;
+  }
+  .pagination-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.15s ease;
+  }
+  .pagination-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--border-highlight);
+  }
+  .pagination-info {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+  .pagination-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+  .pagination-title {
+    font-size: 0.92rem;
+    color: #fff;
+  }
+
+  /* Responsive Rules (< 768px) */
+  @media (max-width: 768px) {
+    .desktop-nav-links, .desktop-nav-controls { display: none !important; }
+    .nav-hamburger-btn { display: flex !important; }
+    .guide-container { padding-top: calc(var(--nav-base-height) + 16px); padding-left: 14px; padding-right: 14px; }
+    .hero-title { font-size: 1.6rem; }
+    .comp-grid { grid-template-columns: 1fr; }
+    .signals-grid { grid-template-columns: 1fr; }
+    .sim-output-card { flex-direction: column; text-align: center; }
+    .sim-details { text-align: center; }
+    .chapter-pagination { flex-direction: column; align-items: stretch; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Unified Top Navigation (54px) -->
+<nav class="unified-portal-nav" aria-label="شريط التنقل الموحد">
+  <div style="display:flex; align-items:center; gap:12px;">
+    <a href="index.html" class="nav-brand">
+      <span>🚦 Patente B Pro</span>
+      <span class="badge-tag">A2</span>
+    </a>
+  </div>
+
+  <div class="desktop-nav-links">
+    <a href="index.html" class="desktop-nav-link">
+      <span>🏛️</span>
+      <span>فهرس المكتبة الشاملة</span>
+    </a>
+    <a href="../Capitoli_Divisi/index.html" class="desktop-nav-link">
+      <span>📚</span>
+      <span>الأبواب المقسمة (25)</span>
+    </a>
+    <a href="../Simulatore_Esame.html" class="desktop-nav-link">
+      <span>⏱️</span>
+      <span>محاكي الامتحان</span>
+    </a>
+  </div>
+
+  <div class="desktop-nav-controls">
+    <div class="nav-dropdown-wrapper">
+      <button class="nav-dropdown-btn" onclick="toggleNavDropdown(event)">
+        <span>تصفح الأبواب (1-25)</span>
+        <span style="font-size:0.75rem;">▾</span>
+      </button>
+      <div class="nav-dropdown-menu" id="navDropdownMenu">
+        <a href="../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
+        <a href="../Capitoli_Divisi/Capitolo_02_segnali_pericolo/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
+        <a href="../Capitoli_Divisi/Capitolo_03_segnali_divieto/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
+        <a href="../Capitoli_Divisi/Capitolo_04_segnali_obbligo/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
+        <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
+        <a href="دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأفقية والمطبات</span></a>
+        <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
+        <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
+        <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: الإشارات التكميلية وورش العمل</span></a>
+        <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
+        <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة ومخاطرها</span></a>
+        <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
+        <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
+        <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
+        <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
+        <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
+        <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
+        <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
+        <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
+        <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
+        <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: حوادث السير والطقس</span></a>
+        <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
+        <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 23: المسؤولية والتأمين RCA</span></a>
+        <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 24: استهلاك الوقود والبيئة</span></a>
+        <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
+      </div>
+    </div>
+    <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
+      <span class="audio-icon-span">🔊</span>
+      <span class="audio-label-span">الصوت نشط</span>
+    </button>
+  </div>
+
+  <button class="nav-hamburger-btn" id="nav-hamburger-btn" onclick="toggleMobileNav()" aria-label="قائمة التنقل" aria-expanded="false">
+    <div class="hamburger-box">
+      <span class="hamburger-line line-top"></span>
+      <span class="hamburger-line line-mid"></span>
+      <span class="hamburger-line line-bot"></span>
+    </div>
+  </button>
+</nav>
+
+<!-- Mobile Overlay & Drawer -->
+<div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
+<div class="mobile-drawer-panel" id="mobile-drawer-panel">
+  <div class="mobile-nav-list">
+    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📚</span><span>مذاكرة الأبواب المقسمة (25 باب)</span></a>
+    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">⏱️</span><span>محاكي الامتحان الوزاري</span></a>
+    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📑</span><span>فهرس المكتبة الشاملة</span></a>
+    <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="mobile-nav-link active" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>دليل الباب 05 (إشارات الأسبقية)</span></a>
+    <a href="دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>دليل الباب 06 (العلامات الأرضية والعوائق)</span></a>
+    <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>دليل الباب 07 (الإشارات الضوئية والشرطي)</span></a>
+    <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>دليل الباب 08 (إشارات الإرشاد والمعلومات)</span></a>
+  </div>
+</div>
+
+<main class="guide-container">
+
+  <!-- HERO SECTION -->
+  <section class="chapter-hero">
+    <div class="hero-tag">🏛️ المرجع المعتمد للدراسة الذكية A2</div>
+    <h1 class="hero-title">الباب 05: إشارات الأسبقية وقواعد التقاطعات</h1>
+    <div class="hero-subtitle">Capitolo 05: Segnali di precedenza e sensi unici alternati</div>
+    <p class="hero-desc">
+      الدليل الهندسي الشامل لعصب قواعد السير في إيطاليا: تفكيك الفروق الجوهرية بين التوقف المشروط (Dare Precedenza) والتوقف الإجباري المطلق (STOP)، معايير نطاق الأسبقية (طريق الأولوية Rombo giallo مقابل التقاطع التالي فقط)، تقاطعات اليمين العامة X، إشارات المرور التبادلي الضيق، والأسبقية المطلقة للترام.
+    </p>
+    <div class="hero-badges-row">
+      <div class="hero-stat-badge"><span>📊</span> <span>243 سؤالاً وزارياً معتمداً</span></div>
+      <div class="hero-stat-badge"><span>🖼️</span> <span>15 لوحة وإشارة رسمية</span></div>
+      <div class="hero-stat-badge"><span>⚖️</span> <span>تحديثات كود السير 2026</span></div>
+      <div class="hero-stat-badge"><span>🎯</span> <span>دقة 100% بدون تشويش</span></div>
+    </div>
+  </section>
+
+  <!-- GOLDEN RULES BANNER -->
+  <section class="golden-rules-banner">
+    <div class="golden-rules-title">
+      <span>⭐</span>
+      <span>القواعد الذهبية الخمس لإشارات الأسبقية (Regole d'Oro)</span>
+    </div>
+    <div class="rules-grid">
+      <div class="rule-box">
+        <h4><span>1️⃣</span> Dare Precedenza vs STOP</h4>
+        <p>إشارة المثلث المقلوب تلزم بإعطاء الأسبقية لليمين واليسار دون توقف إجباري إذا كان الشارع خالياً؛ بينما إشارة STOP تفرض <strong>التوقف التام الإجباري في كل الأحوال</strong> عند خط التوقف الأبيض.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>2️⃣</span> نطاق سريان الأسبقية</h4>
+        <p>المعين الأصفر يمنح الأسبقية في <strong>جميع التقاطعات التالية</strong> حتى إشارة النهاية، بينما مثلث الخطر ذو السهم العريض يمنح الأسبقية في <strong>التقاطع المباشر القادم فقط</strong>.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>3️⃣</span> تقاطع اليمين فقط (إشارة X)</h4>
+        <p>مثلث الخطر بعلامة X يلغي أي أسبقية استثنائية سابقة، ويعيد تطبيق القاعدة العامة لقانون المرور: <strong>إعطاء الأسبقية للمركبات القادمة من اليمين فقط</strong>.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>4️⃣</span> أسبقية الترام المطلقة</h4>
+        <p>المركبات التي تسير على قضبان (Tram) لها حق الأسبقية العامة دائماً عند التقاطعات سواء قادمة من اليمين أو اليسار لثقل وزنها وطول مسافة فرملتها.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER PILLS -->
+  <div class="filter-pills-bar">
+    <button class="filter-pill active" onclick="filterCards('all', this)">جميع الإشارات (15)</button>
+    <button class="filter-pill" onclick="filterCards('dare-stop', this)">Dare Precedenza vs STOP</button>
+    <button class="filter-pill" onclick="filterCards('diritto', this)">طرق الأسبقية والتقاطعات</button>
+    <button class="filter-pill" onclick="filterCards('alternati', this)">المرور التبادلي (Sensi unici)</button>
+    <button class="filter-pill" onclick="filterCards('glossary', this)">القاموس وفخاخ الامتحان</button>
+  </div>
+
+  <!-- COMPARISON COMPONENT: Dare Precedenza vs STOP -->
+  <section class="comp-section" id="comp-dare-stop">
+    <div class="comp-header">
+      <h3>المقارنة الفاصلة: التوقف المشروط مقابل التوقف الإجباري المطلق</h3>
+      <p>أكثر نقطة اختبارية تتكرر في أسئلة الموتوريزاسيوني الإيطالية لخداع الطلاب</p>
+    </div>
+    <div class="comp-grid">
+      <!-- Col 1: Dare Precedenza -->
+      <div class="comp-col dare">
+        <span class="comp-badge badge-dare">توقف مشروط (Rallentare)</span>
+        <img src="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/immagini/40.png" alt="Dare Precedenza">
+        <div class="comp-col-title">إعطاء الأسبقية</div>
+        <div class="comp-col-sub">Dare precedenza (Fig. 40)</div>
+        <div class="comp-desc-box">
+          • <strong>الشكل الهندسي:</strong> مثلث مقلوب (Triangolo con vertice verso il basso).<br>
+          • <strong>الحكم القانوني:</strong> التوقف <strong>ليس إجبارياً</strong> إذا كان الطريق خالياً تماماً والرؤية مفتوحة.<br>
+          • <strong>الالتزام:</strong> إبطاء السرعة وإعطاء الأسبقية لليمين واليسار.<br>
+          • <strong>العلامة الأرضية:</strong> خط عرضي من المثلثات البيضاء الموجهة للخلف.
+        </div>
+      </div>
+
+      <!-- Col 2: STOP -->
+      <div class="comp-col stop">
+        <span class="comp-badge badge-stop">توقف إجباري قطعي (Arresto Obbligatorio)</span>
+        <img src="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/immagini/41.png" alt="STOP">
+        <div class="comp-col-title">قف وإعطاء الأسبقية</div>
+        <div class="comp-col-sub">Fermarsi e dare precedenza - STOP (Fig. 41)</div>
+        <div class="comp-desc-box">
+          • <strong>الشكل الهندسي:</strong> لوحة ثمانية الأضلاع حمراء (Ottagonale).<br>
+          • <strong>الحكم القانوني:</strong> التوقف التام الإجباري (Arresto obbligatorio) <strong>في كل الأحوال</strong> حتى لو كان التقاطع فارغاً.<br>
+          • <strong>موقع التوقف:</strong> قبل خط التوقف العرضي الأبيض المتصل.<br>
+          • <strong>الالتزام:</strong> التوقف التام + إعطاء الأسبقية لليمين واليسار.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE SIMULATOR: SENSI UNICI ALTERNATI -->
+  <section class="simulator-box" id="sim-alternati">
+    <div class="sim-title">
+      <span>🔄</span>
+      <span>المحاكي التفاعلي: المرور التبادلي في المسارات الضيقة (Sensi Unici Alternati)</span>
+    </div>
+    <div class="sim-subtitle">اضغط لتجربة حالتي المرور التبادلي ومشاهدة المركز القانوني وقاعدة العبور فوراً:</div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnSimGive" onclick="simulateAlternato('give')">
+        <span>🔴</span> <span>حالة الدائرة الحمراء (Dare precedenza)</span>
+      </button>
+      <button class="sim-btn" id="btnSimHave" onclick="simulateAlternato('have')">
+        <span>🟦</span> <span>حالة المربع الأزرق (Diritto di precedenza)</span>
+      </button>
+    </div>
+    <div class="sim-output-card" id="simOutputCard">
+      <div class="sim-img-wrapper" id="simImgWrapper">
+        <img src="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/immagini/45.png" alt="Sensi unici alternati">
+      </div>
+      <div class="sim-details" id="simDetails">
+        <span class="sim-state-badge state-give" id="simBadge">عليك إعطاء الأسبقية (Devi dare la precedenza)</span>
+        <div class="sim-legal-text" id="simText">
+          <strong>الإشارة:</strong> دائرية بإطار أحمر (Fig. 45). السهم الأحمر باتجاهك يعني وجوب التوقف وإفساح الطريق للمركبات القادمة من الاتجاه المقابل في الجزء الضيق من الطريق. لا يشترط التوقف إلا إذا كانت هناك مركبة مقابلة تعبر أو تقترب من المضيق.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNALS GRID SECTION -->
+  <div class="section-heading">
+    <div class="section-title">
+      <span>📋</span>
+      <span>البطاقات الفنية المعتمدة للإشارات الـ 15 (Schede Segnali)</span>
+    </div>
+    <span class="section-badge">15 لوحة رسمية</span>
+  </div>
+
+  <div class="signals-grid">
+
+    <!-- Card 1: Fig 40 -->
+    <div class="signal-card" data-category="dare-stop">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/immagini/40.png" alt="Dare precedenza">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">إشارة إعطاء الأسبقية</h3>
+        <span class="card-it-title">Dare precedenza (Figura 40)</span>
+      </div>
+      <p class="card-desc-text">
+        توضع عند مداخل التقاطعات ومسارات الاندماج بالأوتوستراد. تفرض على السائق إبطاء السرعة والاستعداد لإعطاء الأسبقية للمركبات القادمة من اليمين ومن اليسار.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يفرض إعطاء الأسبقية للمركبات القادمة من اليمين ومن اليسار معاً (a destra e a sinistra).</li>
+          <li><span>•</span> لا يلزم بالتوقف التام إذا تأكد السائق من خلو التقاطع وإمكانية المرور بأمان دون إعاقة أحد.</li>
+          <li><span>•</span> يتكامل على أرضية الطريق مع خط عرضي من المثلثات البيضاء الموجهة للخلف.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يفرض التوقف التام الإجباري في كل الأحوال حتى مع خلو الشارع (خطأ، هذا خاص بإشارة STOP).</li>
+          <li><span>•</span> يلزم بإعطاء الأسبقية للمركبات القادمة من اليمين فقط (خطأ، لليمين واليسار).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> "يسمح بالمرور فقط بعد التوقف الإجباري" ➔ خطأ (FALSO) لأن التوقف غير إجباري إلا إذا وُجدت مركبات عابرة.
+      </div>
+    </div>
+
+    <!-- Card 2: Fig 41 -->
+    <div class="signal-card" data-category="dare-stop">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/immagini/41.png" alt="Fermarsi e dare precedenza - STOP">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">إشارة قف وإعطاء الأسبقية</h3>
+        <span class="card-it-title">Fermarsi e dare precedenza - STOP (Figura 41)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة ثمانية الأضلاع توضع في التقاطعات الخطرة ذات الرؤية المحجوبة ومزلقانات السكك الحديدية غير المحمية. تفرض التوقف التام الإجباري في كل الأحوال.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يفرض التوقف التام الإجباري (Arresto obbligatorio) عند خط التوقف الأبيض العرضي في كل الأحوال.</li>
+          <li><span>•</span> يلزم بإعطاء الأسبقية لكافة المركبات القادمة من اليمين واليسار على حد سواء.</li>
+          <li><span>•</span> التوقف يجب أن يكون بدقة عند الخط العرضي على الأرض وليس بمحاذاة عمود الإشارة.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يسمح بمتابعة السير دون توقف إذا كان الطريق خالياً تماماً والرؤية مفتوحة (خطأ قاطع FALSO).</li>
+          <li><span>•</span> يلزم بالتوقف فقط في حال وجود سيارات مقبلة من اليمين (خطأ، التوقف قطعي).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> "إذا كان التقاطع مضاءً وخالياً يجوز عبوره ببطء دون توقف" ➔ خطأ (FALSO) قاطع!
+      </div>
+    </div>
+
+    <!-- Card 3: Fig 42 -->
+    <div class="signal-card" data-category="dare-stop">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/immagini/42.png" alt="Preavviso di dare precedenza">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">إشعار مسبق بإعطاء الأسبقية</h3>
+        <span class="card-it-title">Preavviso di dare precedenza (Figura 42)</span>
+      </div>
+      <p class="card-desc-text">
+        مثلث مقلوب تلحق به لوحة إضافية تشير لمسافة بالأمتار فقط مثل [150 m]. ينبه السائق بأنه بعد المسافة المكتوبة سيصل لإشارة Dare Precedenza عادية.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> ينبه بوجود إشارة إعطاء أسبقية بعد المسافة المحددة في اللوحة السفلية.</li>
+          <li><span>•</span> يدعو لتخفيف السرعة تدريجياً للاستعداد لإعطاء الأسبقية لليمين واليسار.</li>
+          <li><span>•</span> اللوحة السفلية لا تحتوي إطلاقاً على كلمة STOP بل أرقام فقط.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> ينبه باقتراب إشارة قف STOP (خطأ، إشعار STOP يحتوي على كلمة STOP واضحة).</li>
+          <li><span>•</span> يفرض التوقف الإجباري الفوري عند موضع اللوحة (خطأ).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> الخلط بين [150 m] المجردة وإشارة [STOP 150 m].
+      </div>
+    </div>
+
+    <!-- Card 4: Fig 43 -->
+    <div class="signal-card" data-category="dare-stop">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/immagini/43.png" alt="Preavviso di STOP">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">إشعار مسبق لإشارة قف (STOP)</h3>
+        <span class="card-it-title">Preavviso di STOP (Figura 43)</span>
+      </div>
+      <p class="card-desc-text">
+        مثلث مقلوب تلحق به لوحة مستطيلة بيضاء مدون بها كلمة [STOP 150 m]. ينبه بوجوب التوقف التام الإجباري عند التقاطع التالي بعد المسافة المحددة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> ينبه السائق باقتراب تقاطع محكوم بإشارة قف STOP على بعد المسافة المكتوبة.</li>
+          <li><span>•</span> شكل الإشارة مثلث مقلوب (Triangolare) وليس شكلاً ثمانياً.</li>
+          <li><span>•</span> يفرض الاستعداد للتوقف التام عند خط التوقف العرضي القادم.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> شكله ثماني الأضلاع مثل لوحة STOP الأصلية (خطأ FALSO، الإشعار المسبق شكله مثلث مقلوب).</li>
+          <li><span>•</span> يشير لإلغاء إشارة الوقف إذا كان الطريق سالكاً (خطأ).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان المتكرر:</strong> "لوحة الإشعار المسبق لـ STOP لها 8 أضلاع" ➔ إجابة خاطئة (FALSO)!
+      </div>
+    </div>
+
+    <!-- Card 5: Fig 44 -->
+    <div class="signal-card" data-category="diritto">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/immagini/44.png" alt="Intersezione con precedenza a destra">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">تقاطع مع الأسبقية لليمين فقط</h3>
+        <span class="card-it-title">Intersezione con precedenza a destra (Figura 44)</span>
+      </div>
+      <p class="card-desc-text">
+        مثلث خطر يحمل علامة X سوداء. ينبه باقتراب تقاطع تطبق فيه القاعدة العامة لقانون السير: إعطاء الأسبقية لمركبات اليمين فقط (Solo a destra).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> ينبه بتقاطع يجب فيه إعطاء الأسبقية للمركبات القادمة من جهة اليمين فقط.</li>
+          <li><span>•</span> يمنح السائق حق الأسبقية على المركبات القادمة من جهة اليسار.</li>
+          <li><span>•</span> يلغي أي أسبقية سابقة كانت ممنوحة للسائق على الطريق.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يلزم بإعطاء الأسبقية لليمين واليسار معاً (خطأ، لليمين فقط).</li>
+          <li><span>•</span> يشير لوجود مزلقان سكة حديد بصليب سانت أندريا (خطأ).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> "يلزم بإعطاء الأسبقية لجميع المركبات" ➔ خطأ (FALSO) بل لليمين فقط!
+      </div>
+    </div>
+
+    <!-- Card 6: Fig 45 -->
+    <div class="signal-card" data-category="alternati">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/immagini/45.png" alt="Dare precedenza nei sensi unici alternati">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">إعطاء الأسبقية في المرور التبادلي</h3>
+        <span class="card-it-title">Dare precedenza nei sensi unici alternati (Figura 45)</span>
+      </div>
+      <p class="card-desc-text">
+        دائرة بإطار أحمر وسهم أحمر صاعد باتجاهك. تلزم بالتوقف وإعطاء الأسبقية للمركبات المقابلة في المسارات الضيقة التي لا تتسع لمركبتين معاً.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يوضع قبل المضايق واختناقات الطرق حيث يسمح بمرور صف واحد من المركبات بالتناوب.</li>
+          <li><span>•</span> السهم الأحمر يلزم اتجاهك بالتوقف وإفساح الطريق للمرور المعاكس.</li>
+          <li><span>•</span> لا يلزم بالتوقف إذا كان المضيق خالياً تماماً من المركبات القادمة في الاتجاه المقابل.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنحك حق الأسبقية على الاتجاه المعاكس (خطأ، هو إعطاء أسبقية).</li>
+          <li><span>•</span> يشير لطريق باتجاه واحد إجباري (خطأ، الطريق ذو اتجاهين بحركة تبادلية).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> "السهم الأحمر يمنحك الأولوية" ➔ خطأ (FALSO)؛ السهم الأحمر يعني عليك التوقف وإعطاء الأولوية!
+      </div>
+    </div>
+
+    <!-- Card 7: Fig 46 -->
+    <div class="signal-card" data-category="diritto">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/immagini/46.png" alt="Fine del diritto di precedenza">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">نهاية حق الأسبقية</h3>
+        <span class="card-it-title">Fine del diritto di precedenza (Figura 46)</span>
+      </div>
+      <p class="card-desc-text">
+        معين أصفر مشطوب بشريط أسود مائل. يعلن انتهاء طريق الأسبقية والعودة لقاعدة الأسبقية العامة للقادم من اليمين في التقاطعات القادمة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يشير إلى أن الطريق فقد ميزة الأولوية ولم تعد للمركبة أسبقية مطلقة في التقاطعات اللاحقة.</li>
+          <li><span>•</span> يفرض زيادة الانتباه وتطبيق قاعدة الأسبقية لليمين ما لم توجد إشارات أخرى تنظم ذلك.</li>
+          <li><span>•</span> يمكن أن تتبعه إشارة قف STOP أو Dare precedenza قبل التقاطع التالي.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يفرض التوقف الفوري الإجباري بمحاذاة اللوحة (خطأ).</li>
+          <li><span>•</span> يشير لنهاية طريق باتجاه واحد (خطأ، لا علاقة له بعدد الاتجاهات).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> "تمنح الإشارة الأسبقية لجميع المركبات القادمة" ➔ خطأ، هي فقط تعلن نهاية الأولوية السابقة.
+      </div>
+    </div>
+
+    <!-- Card 8: Fig 47 -->
+    <div class="signal-card" data-category="diritto">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/immagini/47.png" alt="Intersezione con diritto di precedenza">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">تقاطع ذو حق أسبقية</h3>
+        <span class="card-it-title">Intersezione con diritto di precedenza (Figura 47)</span>
+      </div>
+      <p class="card-desc-text">
+        مثلث خطر بسهم رأسي عريض وخط عرضي رفيع. يمنح السائق حق الأسبقية على المركبات القادمة من اليمين واليسار في التقاطع المباشر القادم فقط.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنح الأسبقية على القادمين من اليمين واليسار في التقاطع القادم فقط (Incrocio successivo).</li>
+          <li><span>•</span> الطرق الفرعية الجانبية المتقاطعة ملزمة بإشارات Dare precedenza أو STOP.</li>
+          <li><span>•</span> يفرض على السائق تخفيف السرعة والتحقق بحذر من انصياع الآخرين للإشارة.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنح حق الأسبقية في جميع التقاطعات التالية على طول الطريق (خطأ، للتقاطع القادم فقط).</li>
+          <li><span>•</span> يسمح بالمرور بأقصى سرعة دون تهدئة (خطأ، الحذر وتخفيف السرعة إلزاميان دائماً).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>الفخ الذهبي:</strong> "In tutti gli incroci successivi" ➔ خطأ (FALSO) لأن الأولوية هنا لتقاطع واحد فقط!
+      </div>
+    </div>
+
+    <!-- Card 9: Fig 48 -->
+    <div class="signal-card" data-category="diritto">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/immagini/48.png" alt="Intersezione a T destra">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">تقاطع تفرع T مع أسبقية من اليمين</h3>
+        <span class="card-it-title">Intersezione a T con diritto di precedenza da destra (Figura 48)</span>
+      </div>
+      <p class="card-desc-text">
+        ينبه بوجود تقاطع فرعي ملتحم من جهة اليمين فقط على شكل حرف T، مع تمتع مسارك بحق الأسبقية على القادمين من هذا الطريق الفرعي في التقاطع القادم.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> ينبه بمدخل طريق جانبي فرعي من جهة اليمين.</li>
+          <li><span>•</span> يمنح الأسبقية لمركبتك على المركبات القادمة من اليمين في هذا التقاطع.</li>
+          <li><span>•</span> القادمون من الطريق الفرعي يجدون إشارة Dare precedenza أو STOP.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يفرض الانعطاف إجبارياً لليمين (خطأ، الإشارة لا تفرض أي اتجاه إجباري).</li>
+          <li><span>•</span> يلزمك بإعطاء الأسبقية لمركبات اليمين (خطأ، أنت صاحب الأولوية هنا).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> الخلط بين إشارات الأسبقية وإشارات اتجاه السير الإلزامي الزرقاء.
+      </div>
+    </div>
+
+    <!-- Card 10: Fig 49 -->
+    <div class="signal-card" data-category="diritto">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/immagini/49.png" alt="Intersezione a T sinistra">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">تقاطع تفرع T مع أسبقية من اليسار</h3>
+        <span class="card-it-title">Intersezione a T con diritto di precedenza da sinistra (Figura 49)</span>
+      </div>
+      <p class="card-desc-text">
+        ينبه بالتقاء طريق فرعي جانبي من جهة اليسار دون وجود تقاطع كامل، مع تمتع مسارك بحق الأسبقية على المركبات القادمة من اليسار في هذا التقاطع.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنحك حق الأسبقية على المركبات القادمة من الطريق الفرعي الأيسر.</li>
+          <li><span>•</span> يوضح أن الطريق المتقاطع هو طريق ثانوي ينتهي عند هذا التقاطع (a T).</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنع السير للأمام ويفرض الانعطاف يساراً (خطأ).</li>
+          <li><span>•</span> يشير لوجود طريق ذي اتجاه واحد نحو اليسار (خطأ).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> السهم العريض للأمام يؤكد أن الطريق الرئيسي مستمر مباشرة ولا يلزم بالانعطاف.
+      </div>
+    </div>
+
+    <!-- Card 11: Fig 50 -->
+    <div class="signal-card" data-category="diritto">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/immagini/50.png" alt="Confluenza destra">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">اندماج مروري من اليمين</h3>
+        <span class="card-it-title">Confluenza a destra (Figura 50)</span>
+      </div>
+      <p class="card-desc-text">
+        يوضع على الأوتوستراد والطرق السريعة ذات الاتجاه الواحد لتنبيه السائق باقتراب حارة تسارع (Corsia di accelerazione) تلتحم بالمسار الرئيسي من اليمين.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يوضع في الطرق السريعة ذات المسارين المنفصلين حيث حركة السير باتجاه واحد.</li>
+          <li><span>•</span> يمنح الأسبقية للمركبات السائرة على المسار الرئيسي على المركبات المندمجة من حارة التسارع.</li>
+          <li><span>•</span> يلزم السائق بالانتباه للمركبات الداخلة وتسهيل اندماجها إن أمكن دون تعريض نفسه للخطر.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يلزم السائق على الطريق السريع بإعطاء الأسبقية للسيارات الداخلة (خطأ، الداخل هو الملزم بإعطاء الأسبقية).</li>
+          <li><span>•</span> يشير لتفرع الأوتوستراد إلى اتجاهين (خطأ، هو التحام وليس تفرعاً).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> الداخل من حارة التسارع ملزم دائماً بـ Dare precedenza وليس العكس.
+      </div>
+    </div>
+
+    <!-- Card 12: Fig 51 -->
+    <div class="signal-card" data-category="diritto">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/immagini/51.png" alt="Confluenza sinistra">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">اندماج مروري من اليسار</h3>
+        <span class="card-it-title">Confluenza a sinistra (Figura 51)</span>
+      </div>
+      <p class="card-desc-text">
+        ينبه بالتحام مروري من جهة اليسار على الطرق السريعة ذات الاتجاه الواحد مع تمتع مسار الطريق الرئيسي المستمر بحق الأسبقية على السيارات المندمجة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يوضع على الطرق السريعة عند مداخل الاندماج اليسارية.</li>
+          <li><span>•</span> يحافظ على حق الأسبقية للمركبات السائرة بالفعل في مسار الطريق الرئيسي.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يفرض على سيارات المسار الرئيسي التوقف التام للسماح بدخول القادمين من اليسار (خطأ).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> لا تخلط بين اندماج حارة التسارع والتقاطع العادي مع شارع ذي اتجاهين.
+      </div>
+    </div>
+
+    <!-- Card 13: Fig 52 -->
+    <div class="signal-card" data-category="diritto">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/immagini/52.png" alt="Strada con diritto di precedenza">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">طريق ذو حق أسبقية</h3>
+        <span class="card-it-title">Strada con diritto di precedenza (Figura 52)</span>
+      </div>
+      <p class="card-desc-text">
+        معين أصفر ذو إطار أبيض وأسود. يوضع في بداية وعلى طول الطرق الرئيسية ليمنح السائق حق الأسبقية على جميع المركبات القادمة من اليمين واليسار في جميع التقاطعات التالية.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنح حق الأسبقية في كافة التقاطعات التالية على امتداد الطريق حتى إشارة النهاية.</li>
+          <li><span>•</span> تتكرر الإشارة بعد كل تقاطع رئيسي لتأكيد استمرار صفة الأولوية للطريق.</li>
+          <li><span>•</span> يمكن تزويده بلوحة توضح المسار المنعطف للطريق الرئيسي (Fig. 972).</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يسري مفعوله للتقاطع القادم فقط (خطأ، هذا خاص بالمثلث ذي السهم العريض Fig. 47).</li>
+          <li><span>•</span> يمنح الأسبقية على سيارات الإسعاف والشرطة ذات السارينات المشتعلة (خطأ مطلق).</li>
+          <li><span>•</span> يعفي السائق من تخفيف السرعة عند التقاطعات (خطأ).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>الفارق الجوهري:</strong> المعين يمنح الأسبقية في (Tutti gli incroci)، بينما المثلث في (Incrocio successivo solo).
+      </div>
+    </div>
+
+    <!-- Card 14: Fig 53 -->
+    <div class="signal-card" data-category="alternati">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/immagini/53.png" alt="Diritto di precedenza nei sensi unici alternati">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">حق الأسبقية في المرور التبادلي</h3>
+        <span class="card-it-title">Diritto di precedenza nei sensi unici alternati (Figura 53)</span>
+      </div>
+      <p class="card-desc-text">
+        مربع أزرق بسهم أبيض في اتجاهك وسهم أحمر في الاتجاه المقابل. يمنح اتجاهك حق الأسبقية في العبور عند أجزاء الطريق الضيقة والجسور المؤقتة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يمنحك حق الأولوية في عبور المسار الضيق على المركبات القادمة في الاتجاه المعاكس.</li>
+          <li><span>•</span> يقابله في الاتجاه الآخر الإشارة الدائرية الحمراء الملزمة بإعطاء الأسبقية (Fig. 45).</li>
+          <li><span>•</span> يجب التأكد من عدم وجود مركبة مقابلة شرعت بالفعل في العبور قبل الدخول في المضيق.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> يلزمك بالتوقف وإفساح الطريق للمرور المعاكس (خطأ، بل أنت صاحب الأسبقية).</li>
+          <li><span>•</span> يسمح بالعبور دون أي حذر حتى لو كانت مركبة مقابلة قد حاصرت المضيق بالفعل (خطأ).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>المقارنة البصرية:</strong> المربع الأزرق = لك الأسبقية vs الدائرة الحمراء = عليك إعطاء الأسبقية.
+      </div>
+    </div>
+
+    <!-- Card 15: Fig 972 -->
+    <div class="signal-card" data-category="diritto">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/immagini/972.png" alt="Andamento della strada principale">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">مسار الطريق الرئيسي ذي الأولوية</h3>
+        <span class="card-it-title">Andamento della strada principale (Figura 972)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة إضافية مستطيلة توضع أسفل إشارة المعين الأصفر (Fig. 52). يمثل الخط العريض مسار طريق الأولوية المنعطف، بينما تمثل الخطوط الرفيعة الطرق الفرعية الخاضعة للأسبقية.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> الخط العريض يحدد المسار المستمر لطريق حق الأسبقية عند انعطاف التقاطع.</li>
+          <li><span>•</span> المركبة التي تتبع مسار الخط العريض تحتفظ بحق الأسبقية على المركبات القادمة من الخطوط الرفيعة.</li>
+          <li><span>•</span> القادمون من الطرق الممثلة بالخطوط الرفيعة ملزمون بإعطاء الأسبقية.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> تنزع الأسبقية من السائق إذا قرر الانعطاف متبعاً مسار الخط العريض (خطأ، الأسبقية تتبع الخط العريض).</li>
+          <li><span>•</span> تمنع الانعطاف أو الدوران للخلف (خطأ، هي لوحة توضيحية فقط).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> من يتبع مسار الخط العريض يحتفظ بأولويته القانونية كاملة على من يقف عند الخطوط الرفيعة!
+      </div>
+    </div>
+
+  </div>
+
+  <!-- GLOSSARY SECTION -->
+  <div class="section-heading" id="glossary-section">
+    <div class="section-title">
+      <span>📖</span>
+      <span>قاموس المصطلحات الـ 9 المعتمد للباب الخامس (Glossario Ufficiale)</span>
+    </div>
+    <span class="section-badge">مصطلحات الموتوريزاسيوني</span>
+  </div>
+
+  <div class="glossary-grid">
+    <div class="glossary-card">
+      <div class="term-it">Arresto obbligatorio</div>
+      <div class="term-ar">التوقف التام الإجباري</div>
+      <p class="term-def">التوقف الكامل الإلزامي لعجلات المركبة في كافة الظروف والأحوال، حتى مع خلو الطريق التام، ويقترن حصراً بإشارة قف (STOP).</p>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Striscia trasversale di arresto</div>
+      <div class="term-ar">خط التوقف العرضي على الأسفلت</div>
+      <p class="term-def">خط أبيض متصل مرسوم بعرض المسار، يحدد الموضع الدقيق لوجوب توقف مقدمة المركبة عند إشارة STOP أو الإشارة الضوئية الحمراء.</p>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Incrocio successivo</div>
+      <div class="term-ar">التقاطع التالي المباشر فقط</div>
+      <p class="term-def">التقاطع المفرد الأول الذي يلي الإشارة مباشرة، وهو النطاق المكاني الحصري لسريان أسبقية مثلثات الخطر ذات السهم العريض (Fig. 47-51).</p>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Dare la precedenza a destra e sinistra</div>
+      <div class="term-ar">إعطاء الأسبقية لليمين واليسار معاً</div>
+      <p class="term-def">القاعدة الإلزامية المقترنة بإشارتي Dare precedenza و STOP، وتفرض إفساح الطريق للمركبات القادمة من كلا الاتجاهين المتقاطعين.</p>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Dare la precedenza solo a destra</div>
+      <div class="term-ar">إعطاء الأسبقية لليمين فقط</div>
+      <p class="term-def">القاعدة العامة لقانون السير عند انعدام الإشارات أو عند وجود إشارة التقاطع ذات علامة X (Fig. 44)، حيث تعطى الأولوية للقادم من اليمين حصراً.</p>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Senso unico alternato</div>
+      <div class="term-ar">المرور التبادلي في اتجاه واحد</div>
+      <p class="term-def">نظام تنظيم السير في أجزاء الطرق الضيقة التي لا تتسع لمرور مركبتين في وقت واحد، وتتحكم به الإشارة الدائرية (Fig. 45) والمربعة (Fig. 53).</p>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Preavviso di STOP</div>
+      <div class="term-ar">إشعار مسبق للوقف وإعطاء الأسبقية</div>
+      <p class="term-def">إشارة مثلثة مقلوبة مرفقة بلوحة مكتوب عليها [STOP 150m]، تنبه بوجوب التوقف الإجباري القاطع بعد المسافة المكتوبة.</p>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Fine del diritto di precedenza</div>
+      <div class="term-ar">نهاية طريق حق الأسبقية</div>
+      <p class="term-def">لوحة المعين الأصفر المشطوب، وتعلن انتهاء امتياز الأولوية على الطريق وعودة التقاطعات القادمة لقاعدة الأسبقية العامة للقادم من اليمين.</p>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Sede tranviaria / Veicoli su rotaie</div>
+      <div class="term-ar">مسار وسكك مركبات الترام</div>
+      <p class="term-def">الترام والمركبات التي تسير على قضبان تتمتع بالأسبقية العامة المطلقة دائماً عند التقاطعات (قادمة من اليمين أو اليسار) ما لم توجد إشارة صريحة تلزمها بخلاف ذلك.</p>
+    </div>
+  </div>
+
+  <!-- QUIZ TRAPS SECTION -->
+  <div class="traps-section" id="traps-section">
+    <div class="section-heading">
+      <div class="section-title">
+        <span>⚠️</span>
+        <span>فخاخ الامتحان الوزارية الـ 8 المباشرة (Trappole dei Quiz)</span>
+      </div>
+      <span class="section-badge">8 أسئلة مفصلية</span>
+    </div>
+
+    <div class="traps-grid">
+
+      <!-- Trap 1 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ التوقف عند إشارة Dare Precedenza</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <div class="trap-q-it">"Il segnale DARE PRECEDENZA obbliga sempre ad arrestarsi all'incrocio, anche se non vi sono veicoli in transito."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني:</strong> خطأ قاطع (FALSO). إشارة إعطاء الأسبقية تلزم بإبطاء السرعة فقط، والتوقف فيها مشروط بوجود مركبات أخرى. أما التوقف الإجباري الدائم فهو خاص حصراً بإشارة STOP.
+        </div>
+      </div>
+
+      <!-- Trap 2 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ شكل لوحة الإشعار المسبق لـ STOP</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <div class="trap-q-it">"Il segnale di PREAVVISO DI STOP è a forma ottagonale come il segnale di STOP."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني:</strong> خطأ شنيع (FALSO). لوحة الإشعار المسبق لـ STOP شكلها مثلث مقلوب (Triangolare) وتحتها لوحة إضافية مستطيلة مدون بها [STOP 150m].
+        </div>
+      </div>
+
+      <!-- Trap 3 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ موضع التوقف عند إشارة STOP</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <div class="trap-q-it">"In presenza del segnale STOP, il conducente deve arrestarsi in corrispondenza della striscia trasversale di arresto."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني:</strong> صحيح (VERO). التوقف يجب أن يكون بدقة قبل خط التوقف الأبيض المتصل على الأسفلت وليس بمحاذاة عمود الإشارة.
+        </div>
+      </div>
+
+      <!-- Trap 4 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ نطاق سريان أسبقية التقاطع (Fig. 47)</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <div class="trap-q-it">"Il segnale di INTERSEZIONE CON DIRITTO DI PRECEDENZA dà diritto di precedenza in tutti gli incroci successivi della strada."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني:</strong> خطأ (FALSO). مثلث الخطر ذو السهم العريض يمنح الأسبقية في التقاطع المباشر القادم فقط (Incrocio successivo solo). أما الأسبقية في كافة التقاطعات التالية فهي خاصة برمز المعين الأصفر (Fig. 52).
+        </div>
+      </div>
+
+      <!-- Trap 5 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ أسبقية إشارة X لليمين واليسار</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <div class="trap-q-it">"Il segnale di INTERSEZIONE CON PRECEDENZA A DESTRA obbliga a dare la precedenza ai veicoli provenienti da destra e da sinistra."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني:</strong> خطأ (FALSO). إشارة التقاطع بعلامة X تلزم بإعطاء الأسبقية لمركبات اليمين فقط (Solo a destra)، بينما يمنحك حق الأسبقية على القادمين من اليسار.
+        </div>
+      </div>
+
+      <!-- Trap 6 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ السهم الأحمر في المرور التبادلي</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <div class="trap-q-it">"Nel segnale DARE PRECEDENZA NEI SENSI UNICI ALTERNATI la freccia rossa indica il senso di marcia che deve dare la precedenza."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني:</strong> صحيح (VERO). في الإشارة الدائرية Fig. 45، السهم الأحمر يمثل مسار سيرك ويلزمك بالتوقف وإعطاء الأسبقية لمركبات الاتجاه المقابل.
+        </div>
+      </div>
+
+      <!-- Trap 7 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ أسبقية الترام العامة</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <div class="trap-q-it">"I veicoli che circolano su rotaie (tram) hanno normalmente la precedenza sui veicoli a motore, salvo diversa segnalazione."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني:</strong> صحيح (VERO). الترام يتمتع بالأسبقية العامة دائماً عند التقاطعات سواء أتى من اليمين أو اليسار لثقل كتلته وطول مسافة توقفه.
+        </div>
+      </div>
+
+      <!-- Trap 8 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ الأسبقية المطلقة دون تخفيف السرعة</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <div class="trap-q-it">"Chi circola su strada con diritto di precedenza non è tenuto a rallentare in prossimità degli incroci."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني:</strong> خطأ قاطع (FALSO). حتى لو كنت تسير على طريق له حق الأسبقية المطلقة (Rombo giallo)، يفرض القانون دائماً إبطاء السرعة وتوخي الحذر للتأكد من انصياع الآخرين للإشارات.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SERIAL CHAPTER PAGINATION -->
+  <nav class="chapter-pagination">
+    <a href="../Capitoli_Divisi/Capitolo_04_segnali_obbligo/index.html" class="pagination-btn prev-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">→</span>
+      <div class="pagination-info">
+        <span class="pagination-label">الباب السابق</span>
+        <span class="pagination-title">الباب 4: إشارات الإلزام</span>
+      </div>
+    </a>
+
+    <a href="index.html" class="pagination-btn index-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">🏛️</span>
+      <div class="pagination-info">
+        <span class="pagination-label">الرجوع للمكتبة</span>
+        <span class="pagination-title">فهرس الأبواب الشاملة</span>
+      </div>
+    </a>
+
+    <a href="دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html" class="pagination-btn next-btn" onclick="soundEngine.click()">
+      <div class="pagination-info">
+        <span class="pagination-label">الباب التالي</span>
+        <span class="pagination-title">الباب 6: الإشارات الأفقية والمطبات</span>
+      </div>
+      <span class="pagination-icon">←</span>
+    </a>
+  </nav>
+
+</main>
+
+<script>
+  // Unified Web Audio API Sound Engine
+  const soundEngine = window.soundEngine || {
+    ctx: null,
+    enabled: true,
+    init() {
+      if (!this.ctx) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) this.ctx = new AudioCtx();
+      }
+    },
+    click() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
+      if (this.ctx.state === 'suspended') this.ctx.resume();
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(540, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(180, this.ctx.currentTime + 0.04);
+      gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.04);
+    },
+    correct() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
+      if (this.ctx.state === 'suspended') this.ctx.resume();
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(440, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(880, this.ctx.currentTime + 0.12);
+      gain.gain.setValueAtTime(0.1, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.14);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.14);
+    },
+    wrong() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
+      if (this.ctx.state === 'suspended') this.ctx.resume();
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(280, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(110, this.ctx.currentTime + 0.16);
+      gain.gain.setValueAtTime(0.12, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.18);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.18);
+    }
+  };
+
+  function toggleAudio() {
+    soundEngine.enabled = !soundEngine.enabled;
+    const icons = document.querySelectorAll('.audio-icon-span');
+    const labels = document.querySelectorAll('.audio-label-span');
+    icons.forEach(el => el.textContent = soundEngine.enabled ? '🔊' : '🔇');
+    labels.forEach(el => el.textContent = soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم');
+    if (soundEngine.enabled) soundEngine.click();
+  }
+
+  // Sensi Unici Alternati Simulator Logic
+  function simulateAlternato(mode) {
+    const btnGive = document.getElementById('btnSimGive');
+    const btnHave = document.getElementById('btnSimHave');
+    const imgWrapper = document.getElementById('simImgWrapper');
+    const badge = document.getElementById('simBadge');
+    const text = document.getElementById('simText');
+
+    if (mode === 'give') {
+      btnGive.classList.add('active');
+      btnHave.classList.remove('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/immagini/45.png" alt="Dare precedenza nei sensi unici alternati">';
+      badge.className = 'sim-state-badge state-give';
+      badge.textContent = 'عليك إعطاء الأسبقية (Devi dare la precedenza)';
+      text.innerHTML = '<strong>الإشارة:</strong> دائرية بإطار أحمر (Fig. 45). السهم الأحمر باتجاهك يعني وجوب التوقف وإفساح الطريق للمركبات القادمة من الاتجاه المقابل في الجزء الضيق من الطريق. لا يشترط التوقف إلا إذا كانت هناك مركبة مقابلة تعبر أو تقترب من المضيق.';
+      soundEngine.click();
+    } else {
+      btnHave.classList.add('active');
+      btnGive.classList.remove('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/immagini/53.png" alt="Diritto di precedenza nei sensi unici alternati">';
+      badge.className = 'sim-state-badge state-have';
+      badge.textContent = 'لك حق الأسبقية (Hai diritto di precedenza)';
+      text.innerHTML = '<strong>الإشارة:</strong> مربعة زرقاء بسهم أبيض صاعد (Fig. 53). يمنحك حق الأسبقية في العبور على المركبات المقابلة. ومع ذلك، يجب التأكد بحذر قبل الدخول من أن المركبة المقابلة لم تشرع بالفعل في العبور.';
+      soundEngine.click();
+    }
+  }
+
+  // Filter Pills Logic
+  function filterCards(category, btn) {
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    soundEngine.click();
+
+    const cards = document.querySelectorAll('.signal-card');
+    cards.forEach(card => {
+      if (category === 'all') {
+        card.style.display = 'flex';
+      } else if (card.getAttribute('data-category') === category) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (category === 'glossary') {
+      const el = document.getElementById('glossary-section');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // Desktop Dropdown
+  function toggleNavDropdown(e) {
+    if (e) e.stopPropagation();
+    const menu = document.getElementById('navDropdownMenu');
+    if (menu) menu.classList.toggle('active');
+  }
+  document.addEventListener('click', function(e) {
+    const wrapper = document.querySelector('.nav-dropdown-wrapper');
+    const menu = document.getElementById('navDropdownMenu');
+    if (menu && menu.classList.contains('active')) {
+      if (wrapper && !wrapper.contains(e.target)) menu.classList.remove('active');
+    }
+  });
+
+  // Mobile Drawer Navigation (Apple HIG)
+  function toggleMobileNav() {
+    const btn = document.getElementById('nav-hamburger-btn');
+    const panel = document.getElementById('mobile-drawer-panel');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    if (!btn || !panel) return;
+    const isOpening = !panel.classList.contains('is-active');
+    if (isOpening) {
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-expanded', 'true');
+      panel.classList.add('is-active');
+      if (overlay) overlay.classList.add('is-active');
+      document.body.classList.add('nav-scroll-lock');
+    } else {
+      closeMobileNav();
+    }
+    soundEngine.click();
+  }
+
+  function closeMobileNav() {
+    const btn = document.getElementById('nav-hamburger-btn');
+    const panel = document.getElementById('mobile-drawer-panel');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    if (btn) {
+      btn.classList.remove('is-active');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    if (panel) panel.classList.remove('is-active');
+    if (overlay) overlay.classList.remove('is-active');
+    document.body.classList.remove('nav-scroll-lock');
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMobileNav();
+  });
+</script>
+
+</body>
+</html>
