@@ -3,787 +3,147 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>دليل وقاموس الباب الأخير الشامل — Patente B Pro</title>
+<title>دليل وقاموس الباب الأخير: الميكانيكا، الصيانة، والإطارات وأجهزة الأمان | Patente B Pro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 
   :root {
     --bg-base: #09090b;
     --bg-surface: rgba(24, 24, 27, 0.75);
+    --bg-surface-elevated: rgba(39, 39, 42, 0.85);
     --border-subtle: rgba(255, 255, 255, 0.08);
     --border-highlight: rgba(255, 255, 255, 0.16);
     --text-primary: #f4f4f5;
     --text-secondary: #a1a1aa;
     --text-muted: #71717a;
     --emerald-primary: #10b981;
+    --emerald-dark: #059669;
+    --emerald-glow: rgba(16, 185, 129, 0.25);
     --rose-primary: #f43f5e;
+    --rose-glow: rgba(244, 63, 94, 0.25);
     --amber-primary: #f59e0b;
+    --amber-glow: rgba(245, 158, 11, 0.25);
+    --sky-primary: #38bdf8;
+    --sky-glow: rgba(56, 189, 248, 0.25);
     --indigo-primary: #6366f1;
-    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    --nav-base-height: 54px;
+    --font-sans: 'Cairo', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
+  html, body {
     background-color: var(--bg-base);
     color: var(--text-primary);
-    font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
-    line-height: 1.75;
-    min-height: 100vh;
-    padding-bottom: 70px;
-    background-image: 
-      radial-gradient(ellipse at 50% -10%, rgba(99, 102, 241, 0.08), transparent 60%),
-      radial-gradient(circle at 90% 90%, rgba(16, 185, 129, 0.03), transparent 40%);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
   }
 
-  .unified-portal-nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    background: rgba(9, 9, 11, 0.85);
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 12px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
+  body.nav-scroll-lock {
+    overflow: hidden !important;
+    touch-action: none;
   }
+
+  /* Portal Nav Header (Strict 54px, Apple HIG) */
+  .unified-portal-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-base-height);
+    background: rgba(15, 15, 18, 0.82);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
   .nav-brand {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--text-primary);
-  }
-  .nav-tabs-wrapper {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-  }
-  .nav-tab {
+    gap: 8px;
     text-decoration: none;
-    color: var(--text-secondary);
-    padding: 7px 14px;
-    border-radius: 9px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: all 0.15s;
-    border: 1px solid transparent;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.05rem;
+  }
+
+  .badge-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--amber-primary);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    padding: 2px 7px;
+    border-radius: 6px;
+  }
+
+  .desktop-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .desktop-nav-link {
     display: flex;
     align-items: center;
     gap: 6px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 600;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
   }
-  .nav-tab:hover {
+  .desktop-nav-link:hover {
     color: #fff;
     background: rgba(255, 255, 255, 0.05);
     border-color: var(--border-subtle);
   }
-  .nav-tab.active {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border-color: var(--border-highlight);
+  .desktop-nav-link.active {
+    color: var(--amber-primary);
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.25);
   }
 
-  .container {
-    max-width: 980px;
-    margin: 28px auto;
-    padding: 0 16px;
-  }
-  .content-sheet {
-    background: var(--bg-surface);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--border-subtle);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06), 0 20px 40px -15px rgba(0,0,0,0.7);
-    border-radius: 20px;
-    padding: 42px 48px;
-  }
-  @media (max-width: 700px) {
-    .content-sheet { padding: 26px 20px; }
-  }
-
-  .main-title {
-    font-size: 1.85rem;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 8px;
-    letter-spacing: -0.025em;
-  }
-  .sub-lead {
-    font-size: 1.12rem;
-    color: #38bdf8;
-    margin-bottom: 20px;
-    font-weight: 600;
-  }
-  .section-title {
-    font-size: 1.35rem;
-    font-weight: 800;
-    color: #fff;
-    margin: 36px 0 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border-subtle);
-  }
-
-  .callout-box {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border-subtle);
-    border-right: 4px solid #38bdf8;
-    padding: 16px 20px;
-    border-radius: 12px;
-    color: #e4e4e7;
-    margin-bottom: 16px;
-    line-height: 1.7;
-  }
-
-  .table-wrap {
-    overflow-x: auto;
-    margin: 22px 0 26px;
-    border: 1px solid var(--border-subtle);
-    border-radius: 12px;
-  }
-  .data-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.95rem;
-    text-align: right;
-  }
-  .data-table th {
-    background: rgba(39, 39, 42, 0.9);
-    padding: 14px 16px;
-    border: 1px solid var(--border-subtle);
-    font-weight: 700;
-    color: #fff;
-  }
-  .data-table td {
-    padding: 13px 16px;
-    border: 1px solid var(--border-subtle);
-    color: #d4d4d8;
-  }
-  .data-table tr:nth-child(even) {
-    background: rgba(255, 255, 255, 0.02);
-  }
-
-  .bullet-item { margin: 8px 0; font-size: 1.02rem; color: #e4e4e7; }
-  .num-item { margin: 10px 0; font-size: 1.02rem; color: #e4e4e7; }
-  .para { margin: 10px 0; font-size: 1.02rem; color: #e4e4e7; }
-  .divider { border: 0; height: 1px; background: var(--border-subtle); margin: 30px 0; }
-  strong { color: #fff; }
-  a { color: #38bdf8; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-
-
-  /* ==========================================================================
-     Infographics & Visual Comparison Grid (RTL-Native, Zero-Overflow)
-     ========================================================================== */
-  .diagram-wrapper {
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid var(--border-subtle);
-    border-radius: 18px;
-    padding: 24px;
-    margin: 28px 0;
-  }
-  .diagram-wrapper-title {
-    font-weight: 800;
-    font-size: 1.15rem;
-    color: #fff;
-    margin-bottom: 20px;
+  .desktop-nav-controls {
     display: flex;
     align-items: center;
     gap: 10px;
   }
-  .comparison-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 18px;
-  }
-  .compare-card {
-    background: #18181b;
-    border-radius: 14px;
-    padding: 22px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    border: 1px solid var(--border-subtle);
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s, box-shadow 0.2s;
-  }
-  .compare-card:hover {
-    transform: translateY(-2px);
-  }
-  .compare-card.penale {
-    border-color: rgba(244, 63, 94, 0.35);
-    background: linear-gradient(180deg, rgba(244, 63, 94, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
-    box-shadow: 0 8px 24px -6px rgba(244, 63, 94, 0.08);
-  }
-  .compare-card.emerald {
-    border-color: rgba(16, 185, 129, 0.35);
-    background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
-    box-shadow: 0 8px 24px -6px rgba(16, 185, 129, 0.08);
-  }
-  .card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  .card-badge {
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    font-weight: 700;
-  }
-  .badge-rose { background: rgba(244, 63, 94, 0.12); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
-  .badge-emerald { background: rgba(16, 185, 129, 0.12); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
 
-  .card-title-text {
-    font-size: 1.12rem;
-    font-weight: 800;
-    color: #fff;
-  }
-  .card-subtitle-text {
-    font-size: 0.9rem;
-    font-weight: 600;
-    line-height: 1.5;
-  }
-  .card-rule {
-    height: 1px;
-    background: rgba(255, 255, 255, 0.08);
-    margin: 2px 0;
-  }
-  .card-points {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .card-points li {
-    position: relative;
-    padding-right: 28px;
-    line-height: 1.7;
-    display: block;
-    text-align: right;
-    font-size: 0.92rem;
-    color: #d4d4d8;
-  }
-  .card-points li > span:first-child,
-  .card-points li > .p-icon {
-    position: absolute;
-    right: 0;
-    top: 2px;
-    font-size: 1.05rem;
-    line-height: 1;
-  }
-  .card-points li > div {
-    display: inline;
-  }
-
-  /* Spie (Dashboard Lights) Grid */
-  .spie-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 16px;
-  }
-  .spia-card {
-    background: #18181b;
-    border: 1px solid var(--border-subtle);
-    border-radius: 14px;
-    padding: 20px 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s;
-  }
-  .spia-card:hover {
-    transform: translateY(-2px);
-  }
-  .spia-icon-circle {
-    width: 68px;
-    height: 68px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 4px;
-  }
-  .spia-danger {
-    border-color: rgba(244, 63, 94, 0.35);
-    background: linear-gradient(180deg, rgba(244, 63, 94, 0.06) 0%, rgba(24, 24, 27, 0.95) 100%);
-  }
-  .spia-danger .spia-icon-circle {
-    background: rgba(244, 63, 94, 0.15);
-  }
-  .spia-info {
-    border-color: rgba(56, 189, 248, 0.35);
-    background: linear-gradient(180deg, rgba(56, 189, 248, 0.06) 0%, rgba(24, 24, 27, 0.95) 100%);
-  }
-  .spia-info .spia-icon-circle {
-    background: rgba(56, 189, 248, 0.15);
-  }
-  .spia-title {
-    font-size: 1.05rem;
-    font-weight: 800;
-    color: #fff;
-  }
-  .spia-code {
-    font-size: 0.85rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 700;
-  }
-  .spia-desc {
-    font-size: 0.88rem;
-    color: #a1a1aa;
-    line-height: 1.5;
-  }
-  .spia-action {
-    font-size: 0.86rem;
-    font-weight: 700;
-    padding-top: 6px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    width: 100%;
-  }
-
-  /* Triangle metric breakdown cards */
-  .tri-metric-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 14px;
-    margin-top: 18px;
-  }
-  .tri-metric-box {
-    background: #18181b;
-    border: 1px solid var(--border-subtle);
-    border-radius: 12px;
-    padding: 16px;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-  }
-
-
-  
-  /* ==========================================================================
-     Apple HIG & Design Engineering Responsive Navigation System
-     ========================================================================== */
-  :root {
-    --nav-base-height: 54px;
-    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  html, body {
-    overflow-x: hidden !important;
-    width: 100% !important;
-    margin: 0;
-    padding: 0;
-  }
-  body.nav-scroll-lock {
-    overflow: hidden !important;
-    touch-action: none !important;
-    -webkit-overflow-scrolling: auto !important;
-  }
-
-  .unified-portal-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
-    max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
-    background: rgba(9, 9, 11, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 24px;
-    padding-top: env(safe-area-inset-top, 0px);
-    padding-right: max(20px, env(safe-area-inset-right, 0px));
-    padding-left: max(20px, env(safe-area-inset-left, 0px));
-    box-sizing: border-box;
-    transition: background 0.25s var(--ease-spring), border-color 0.25s;
-  }
-
-  /* Desktop Brand */
-  .nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #fff;
-    white-space: nowrap;
-    text-decoration: none;
-    flex-shrink: 0;
-  }
-  .nav-brand .badge-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    padding: 2px 7px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
-    color: #a1a1aa;
-  }
-
-  /* Desktop Tabs Menu */
-  .nav-desktop-tabs {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .nav-tab-desktop {
-    text-decoration: none;
-    color: #a1a1aa;
-    padding: 7px 13px;
-    border-radius: 9px;
-    font-size: 0.84rem;
-    font-weight: 600;
-    transition: all 0.15s;
-    border: 1px solid transparent;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    white-space: nowrap;
-  }
-  .nav-tab-desktop:hover {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.08);
-  }
-  .nav-tab-desktop.active {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.16);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), 0 2px 8px rgba(0,0,0,0.4);
-  }
-
-  /* Desktop Audio Button */
-  .nav-desktop-actions {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-  }
   .nav-audio-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #a1a1aa;
-    border-radius: 9px;
-    padding: 6px 12px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
+    height: 34px;
     display: flex;
     align-items: center;
     gap: 6px;
-    transition: all 0.15s;
-    white-space: nowrap;
-  }
-  .nav-audio-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
-  .nav-audio-btn:active { transform: scale(0.96); }
-
-  /* Animated Hamburger Icon (Apple HIG & Design Engineer) */
-  .nav-hamburger-btn {
-    display: none;
-    width: 42px;
-    height: 42px;
+    padding: 0 12px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 0;
-    z-index: 1002;
-    transition: background 0.15s, transform 0.15s;
-  }
-  .nav-hamburger-btn:active {
-    transform: scale(0.92);
-  }
-  .hamburger-box {
-    width: 20px;
-    height: 14px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .hamburger-line {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: #fff;
-    border-radius: 2px;
-    transition: transform 0.28s var(--ease-spring), opacity 0.2s, background-color 0.2s;
-  }
-  .nav-hamburger-btn.is-active .line-top {
-    transform: translateY(6px) rotate(45deg);
-    background-color: #38bdf8;
-  }
-  .nav-hamburger-btn.is-active .line-mid {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-  .nav-hamburger-btn.is-active .line-bot {
-    transform: translateY(-6px) rotate(-45deg);
-    background-color: #38bdf8;
-  }
-
-  /* Glassmorphic Slide-Down Panel & Backdrop Drawer (< 768px) */
-  .mobile-drawer-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 998;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s var(--ease-spring);
-  }
-  .mobile-drawer-overlay.is-active {
-    display: block;
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .mobile-drawer-panel {
-    display: none;
-    position: fixed;
-    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
-    left: 0;
-    right: 0;
-    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
-    background: rgba(15, 15, 18, 0.92);
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
-    z-index: 999;
-    padding: 16px;
-    padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
-    padding-right: max(16px, env(safe-area-inset-right, 0px));
-    padding-left: max(16px, env(safe-area-inset-left, 0px));
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.32s var(--ease-spring), opacity 0.22s ease;
-  }
-  .mobile-drawer-panel.is-active {
-    display: block;
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .mobile-nav-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .mobile-nav-link {
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 0 16px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
+    border-radius: 8px;
     color: #e4e4e7;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: background 0.15s, border-color 0.15s, transform 0.1s;
-  }
-  .mobile-nav-link:active {
-    transform: scale(0.98);
-    background: rgba(255, 255, 255, 0.08);
-  }
-  .mobile-nav-link.active {
-    background: rgba(56, 189, 248, 0.12);
-    border-color: rgba(56, 189, 248, 0.3);
-    color: #fff;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  }
-  .mobile-nav-link .nav-icon {
-    font-size: 1.2rem;
-    flex-shrink: 0;
-  }
-
-  /* Drawer Footer Controls (Sound & Info) */
-  .mobile-drawer-footer {
-    display: flex;
-    gap: 10px;
-    margin-top: 14px;
-    padding-top: 14px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-  }
-  .mobile-control-btn {
-    min-height: 48px;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    color: #fff;
-    font-size: 0.88rem;
+    font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.15s;
+    transition: all 0.15s ease;
+    font-family: inherit;
   }
-  .mobile-control-btn:active {
-    transform: scale(0.98);
+  .nav-audio-btn:hover {
     background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.2);
   }
 
-  /* ==========================================================================
-     Breakpoint (< 768px): Strict Mobile Rules
-     ========================================================================== */
-  @media (max-width: 768px) {
-    .unified-portal-nav {
-      height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
-      max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
-      padding: 0 16px;
-      padding-top: env(safe-area-inset-top, 0px);
-      box-sizing: border-box;
-    }
-    .nav-desktop-tabs,
-    .nav-desktop-actions {
-      display: none !important;
-    }
-    .nav-hamburger-btn {
-      display: flex;
-    }
-    .nav-brand .badge-tag {
-      display: none;
-    }
-  }
-
-  /* ==========================================================================
-     Content Safe-Area and Responsive Polish
-     ========================================================================== */
-  @media (max-width: 640px) {
-    body {
-      padding-bottom: max(40px, env(safe-area-inset-bottom, 0px));
-    }
-    .container {
-      margin: 10px auto;
-      padding: 0 max(10px, env(safe-area-inset-left, 0px));
-      padding-right: max(10px, env(safe-area-inset-right, 0px));
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .content-sheet {
-      padding: 20px 14px !important;
-      border-radius: 16px !important;
-    }
-    .main-title {
-      font-size: 1.35rem !important;
-      line-height: 1.35 !important;
-    }
-    .sub-lead {
-      font-size: 0.98rem !important;
-      margin-bottom: 16px !important;
-    }
-    .section-title {
-      font-size: 1.15rem !important;
-      margin: 24px 0 12px !important;
-    }
-    .callout-box {
-      padding: 12px 14px !important;
-      font-size: 0.92rem !important;
-      line-height: 1.6 !important;
-    }
-    .diagram-wrapper {
-      padding: 16px 12px !important;
-      margin: 18px 0 !important;
-      border-radius: 14px !important;
-    }
-    .comparison-grid {
-      grid-template-columns: 1fr !important;
-      gap: 12px !important;
-    }
-    .compare-card {
-      padding: 16px 14px !important;
-    }
-    .table-wrap {
-      margin: 14px 0 !important;
-      overflow-x: auto !important;
-      -webkit-overflow-scrolling: touch !important;
-    }
-    .data-table th, .data-table td {
-      padding: 10px 8px !important;
-      font-size: 0.84rem !important;
-    }
-    .formula-banner {
-      flex-direction: column !important;
-      gap: 8px !important;
-      padding: 14px 12px !important;
-    }
-    .formula-op {
-      transform: rotate(90deg);
-    }
-    .bar-chart-container {
-      padding: 14px 10px !important;
-    }
-    .bar-row-head {
-      flex-direction: column !important;
-      gap: 3px !important;
-      font-size: 0.8rem !important;
-    }
-    .spie-grid {
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 10px !important;
-    }
-    .spia-card {
-      padding: 14px 8px !important;
-    }
-    .tri-metric-grid {
-      grid-template-columns: 1fr !important;
-      gap: 10px !important;
-    }
-    .guides-grid {
-      grid-template-columns: 1fr !important;
-      gap: 14px !important;
-    }
-    .guide-card {
-      padding: 18px 16px !important;
-    }
-  }
-
-  @media (max-width: 380px) {
-    .spie-grid {
-      grid-template-columns: 1fr !important;
-    }
-  }
-
-
-  /* ==========================================================================
-     Desktop Chapters Dropdown & Pagination (Declutter Architecture)
-     ========================================================================== */
   .nav-dropdown-wrapper {
     position: relative;
     display: inline-block;
@@ -830,9 +190,7 @@
     z-index: 1100;
     direction: rtl;
   }
-  .nav-dropdown-menu.active {
-    display: flex;
-  }
+  .nav-dropdown-menu.active { display: flex; }
   .nav-dropdown-item {
     display: flex;
     align-items: center;
@@ -850,142 +208,749 @@
     color: #fff;
   }
   .nav-dropdown-item.active {
-    background: rgba(56, 189, 248, 0.12);
-    color: #38bdf8;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--amber-primary);
     font-weight: 700;
   }
 
-  /* Chapter Pagination */
+  /* Hamburger Button (< 768px) */
+  .nav-hamburger-btn {
+    display: none;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .hamburger-box { width: 20px; height: 14px; position: relative; }
+  .hamburger-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #f4f4f5;
+    border-radius: 2px;
+    transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  }
+  .line-top { top: 0; }
+  .line-mid { top: 6px; }
+  .line-bot { top: 12px; }
+
+  .nav-hamburger-btn.is-active .line-top { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger-btn.is-active .line-mid { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger-btn.is-active .line-bot { transform: translateY(-6px) rotate(-45deg); }
+
+  /* Mobile Drawer Panel */
+  .mobile-drawer-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .mobile-drawer-overlay.is-active { display: block; opacity: 1; }
+  .mobile-drawer-panel {
+    display: none;
+    position: fixed;
+    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
+    left: 0; right: 0;
+    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
+    background: rgba(15, 15, 18, 0.94);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
+    z-index: 999;
+    padding: 16px;
+    padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  }
+  .mobile-drawer-panel.is-active { display: block; transform: translateY(0); opacity: 1; }
+  .mobile-nav-list { display: flex; flex-direction: column; gap: 8px; list-style: none; }
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    min-height: 48px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: #e4e4e7;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+  .mobile-nav-link.active {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.35);
+    color: var(--amber-primary);
+  }
+
+  /* Main Container */
+  .guide-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: calc(var(--nav-base-height) + 28px) 20px 80px 20px;
+  }
+
+  /* Hero Section */
+  .chapter-hero {
+    background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12), transparent 70%),
+                linear-gradient(180deg, rgba(24, 24, 27, 0.7) 0%, rgba(18, 18, 20, 0.9) 100%);
+    border: 1px solid var(--border-subtle);
+    border-radius: 24px;
+    padding: 40px 32px;
+    margin-bottom: 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), transparent);
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--sky-primary);
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .hero-subtitle {
+    font-family: var(--font-mono);
+    color: var(--sky-primary);
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+    direction: ltr;
+  }
+  .hero-desc {
+    max-width: 860px;
+    margin: 0 auto 24px auto;
+    color: var(--text-secondary);
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+  .hero-badges-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .hero-stat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: #d4d4d8;
+  }
+
+  /* Golden Rules Banner */
+  .golden-rules-banner {
+    background: rgba(56, 189, 248, 0.06);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 36px;
+  }
+  .golden-rules-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--sky-primary);
+    margin-bottom: 16px;
+  }
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .rule-box {
+    background: rgba(24, 24, 27, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .rule-box h4 {
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .rule-box p {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Filter Pills */
+  .filter-pills-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    margin-bottom: 28px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filter-pill {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .filter-pill:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+  }
+  .filter-pill.active {
+    background: var(--sky-primary);
+    border-color: var(--sky-primary);
+    color: #000;
+    font-weight: 700;
+  }
+
+  /* Rotatoria Simulator Box */
+  .simulator-box {
+    background: linear-gradient(180deg, rgba(24, 24, 27, 0.8) 0%, rgba(18, 18, 20, 0.95) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .sim-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--sky-primary);
+    margin-bottom: 6px;
+  }
+  .sim-subtitle {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+  }
+  .sim-controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .sim-btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sim-btn:hover { background: rgba(255, 255, 255, 0.1); }
+  .sim-btn.active {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: var(--sky-primary);
+    color: var(--sky-primary);
+  }
+  .sim-output-card {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .sim-img-wrapper img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+  }
+  .sim-details { flex: 1; text-align: right; }
+  .sim-state-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .state-normal { background: rgba(245, 158, 11, 0.2); color: var(--amber-primary); }
+  .state-rot-precedence { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .sim-legal-text {
+    font-size: 0.92rem;
+    color: #e4e4e7;
+    line-height: 1.7;
+  }
+
+  /* Comparison Section: Paths */
+  .comp-section {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .comp-header { margin-bottom: 20px; text-align: right; }
+  .comp-header h3 { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+  .comp-header p { font-size: 0.9rem; color: var(--text-secondary); }
+  .comp-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .comp-card-path {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .comp-card-path img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 12px;
+  }
+  .comp-card-path h4 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .comp-card-path .path-it {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--sky-primary);
+    margin-bottom: 10px;
+  }
+  .comp-card-path p {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    text-align: right;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  /* Grid of Signals Cards */
+  .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .section-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-badge {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: var(--sky-primary);
+    background: rgba(56, 189, 248, 0.1);
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+  }
+
+  .signals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .signal-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .signal-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-highlight);
+  }
+
+  .signal-img-container {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    padding: 12px;
+  }
+  .signal-img-container img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+  }
+
+  /* Card Header Vertical Hierarchy */
+  .card-header-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+  .card-ar-title {
+    order: 1;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  .card-it-title {
+    order: 2;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--sky-primary);
+    direction: ltr;
+    text-align: right;
+  }
+
+  .card-desc-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  /* ZERO FLEX ON LISTS (STRICT TYPOGRAPHY) */
+  .card-points-group { margin-bottom: 14px; }
+  .points-group-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .points-group-title.vero-title { color: var(--emerald-primary); }
+  .points-group-title.falso-title { color: var(--rose-primary); }
+
+  .card-points-list { list-style: none; margin: 0; padding: 0; }
+  .card-points-list li {
+    display: block;
+    position: relative;
+    padding-right: 28px;
+    line-height: 1.7;
+    text-align: right;
+    font-size: 0.88rem;
+    color: #d4d4d8;
+    margin-bottom: 6px;
+  }
+  .card-points-list li > span:first-child {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .card-trap-alert {
+    background: rgba(244, 63, 94, 0.08);
+    border: 1px solid rgba(244, 63, 94, 0.22);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    color: #fca5a5;
+    line-height: 1.6;
+    margin-top: auto;
+  }
+  .card-trap-alert strong { color: var(--rose-primary); }
+
+  /* Glossary Section */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .glossary-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+  .term-it {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--sky-primary);
+    margin-bottom: 4px;
+    direction: ltr;
+    text-align: right;
+  }
+  .term-ar {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .term-def {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Quiz Traps Interactive Section */
+  .traps-section { margin-bottom: 50px; }
+  .traps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+  }
+  .trap-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .trap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card-tag-pill {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  .tag-vero { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .tag-falso { background: rgba(244, 63, 94, 0.2); color: var(--rose-primary); }
+
+  .trap-q-it {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: #e4e4e7;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 8px;
+    padding: 10px;
+    direction: ltr;
+    text-align: left;
+    line-height: 1.5;
+  }
+  .trap-reason {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .trap-reason strong { color: #fff; }
+
+  /* Pagination Bar */
   .chapter-pagination {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    margin: 40px 0 20px;
-    padding: 16px 20px;
-    background: rgba(24, 24, 27, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    backdrop-filter: blur(12px);
-    flex-wrap: wrap;
+    gap: 16px;
+    padding: 24px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    margin-top: 40px;
   }
   .pagination-btn {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 18px;
-    border-radius: 12px;
+    padding: 12px 20px;
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #f4f4f5;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    color: #fff;
     text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 0.9rem;
     transition: all 0.15s ease;
   }
   .pagination-btn:hover {
     background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.16);
-    color: #fff;
-    transform: translateY(-1px);
+    border-color: var(--border-highlight);
   }
-  .pagination-btn.index-btn {
-    background: rgba(56, 189, 248, 0.08);
-    border-color: rgba(56, 189, 248, 0.2);
-    color: #38bdf8;
-  }
-  .pagination-btn.disabled {
-    opacity: 0.35;
-    pointer-events: none;
-    cursor: not-allowed;
-  }
-  .pagination-info {
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-  }
-  .pagination-label {
-    font-size: 0.72rem;
-    color: #a1a1aa;
-    font-weight: 500;
-  }
-  .pagination-title {
-    font-size: 0.85rem;
-    color: #fff;
-    font-weight: 700;
+  .pagination-info { display: flex; flex-direction: column; text-align: right; }
+  .pagination-label { font-size: 0.75rem; color: var(--text-muted); }
+  .pagination-title { font-size: 0.92rem; color: #fff; }
+
+  /* Responsive Rules (< 768px) */
+  @media (max-width: 768px) {
+    .desktop-nav-links, .desktop-nav-controls { display: none !important; }
+    .nav-hamburger-btn { display: flex !important; }
+    .guide-container { padding-top: calc(var(--nav-base-height) + 16px); padding-left: 14px; padding-right: 14px; }
+    .hero-title { font-size: 1.6rem; }
+    .signals-grid { grid-template-columns: 1fr; }
+    .sim-output-card { flex-direction: column; text-align: center; }
+    .sim-details { text-align: center; }
+    .chapter-pagination { flex-direction: column; align-items: stretch; }
   }
 
-  @media (max-width: 1023px) {
-    .nav-dropdown-wrapper {
-      display: none !important;
-    }
-  }
 
+.badge-visual-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.badge-visual-icon {
+  font-size: 3.5rem;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+}
+.badge-visual-code {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--amber-primary);
+  background: rgba(245, 158, 11, 0.12);
+  padding: 2px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
 </style>
 </head>
 <body>
 
-<!-- Unified Portal Navigation (Apple HIG Compliant) -->
-<nav class="unified-portal-nav" id="portal-nav">
-  <!-- Brand (Minimal on mobile, full on desktop) -->
-  <a href="index.html" class="nav-brand">
-    <span style="font-size:1.25rem;">🚦</span>
-    <span>Patente B Pro</span>
-    <span class="badge-tag">A2</span>
-  </a>
+<!-- Unified Top Navigation (54px) -->
+<nav class="unified-portal-nav" aria-label="شريط التنقل الموحد">
+  <div style="display:flex; align-items:center; gap:12px;">
+    <a href="index.html" class="nav-brand">
+      <span>🚦 Patente B Pro</span>
+      <span class="badge-tag" style="background:rgba(245, 158, 11, 0.15); color:var(--amber-primary); border-color:rgba(245, 158, 11, 0.35);">الباب 25</span>
+    </a>
+  </div>
 
-  <!-- Desktop Tabs Menu (Strictly hidden on mobile < 768px) -->
-    <!-- Core 3 Desktop Navigation Tabs -->
-  <nav class="nav-desktop-tabs">
-    <a href="index.html" class="nav-tab-desktop">🏛️ فهرس المكتبة</a>
-    <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 الأبواب المقسمة</a>
-    <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
-  </nav>
+  <div class="desktop-nav-links">
+    <a href="index.html" class="desktop-nav-link">
+      <span>🏛️</span>
+      <span>فهرس المكتبة الشاملة</span>
+    </a>
+    <a href="../Capitoli_Divisi/index.html" class="desktop-nav-link">
+      <span>📚</span>
+      <span>الأبواب المقسمة (25)</span>
+    </a>
+    <a href="../Simulatore_Esame.html" class="desktop-nav-link">
+      <span>⏱️</span>
+      <span>محاكي الامتحان</span>
+    </a>
+  </div>
 
-  <!-- Desktop Audio Control -->
-  <div class="nav-desktop-actions">
-    <!-- Desktop Chapters Dropdown -->
+  <div class="desktop-nav-controls">
     <div class="nav-dropdown-wrapper">
       <button class="nav-dropdown-btn" onclick="toggleNavDropdown(event)">
         <span>تصفح الأبواب (1-25)</span>
         <span style="font-size:0.75rem;">▾</span>
       </button>
       <div class="nav-dropdown-menu" id="navDropdownMenu">
-      <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
-      <a href="دليل_الباب_02_إشارات_الخطر.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_03_segnali_divieto/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
-      <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
-      <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأفقية والمطبات</span></a>
-      <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
-      <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: الإشارات التكميلية وورش العمل</span></a>
-      <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_11_limiti_di_velocita/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة</span></a>
-      <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
-      <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
-      <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
-      <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
-      <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
-      <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
-      <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
-      <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
-      <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
-      <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: حوادث السير والطقس</span></a>
-      <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
-      <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 23: المسؤولية والتأمين RCA</span></a>
-      <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 24: استهلاك الوقود والبيئة</span></a>
-      <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
+        <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
+        <a href="دليل_الباب_02_إشارات_الخطر.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
+        <a href="دليل_الباب_03_إشارات_المنع.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
+        <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
+        <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
+        <a href="دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأرضية والعوائق</span></a>
+        <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
+        <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
+        <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: الإشارات التكميلية وورش العمل</span></a>
+        <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
+        <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة ومخاطرها</span></a>
+        <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
+        <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
+        <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
+        <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
+        <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
+        <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
+        <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
+        <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
+        <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
+        <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: حوادث السير والطقس</span></a>
+        <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
+        <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 23: المسؤولية والتأمين RCA</span></a>
+        <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 24: استهلاك الوقود والبيئة</span></a>
+        <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
       </div>
     </div>
-
     <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
       <span class="audio-icon-span">🔊</span>
       <span class="audio-label-span">الصوت نشط</span>
     </button>
   </div>
 
-  <!-- Animated Hamburger Button (Apple HIG - Only visible on Mobile < 768px) -->
   <button class="nav-hamburger-btn" id="nav-hamburger-btn" onclick="toggleMobileNav()" aria-label="قائمة التنقل" aria-expanded="false">
     <div class="hamburger-box">
       <span class="hamburger-line line-top"></span>
@@ -995,384 +960,1354 @@
   </button>
 </nav>
 
-<!-- Backdrop Blur Overlay -->
+<!-- Mobile Overlay & Drawer -->
 <div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
-
-<!-- Slide-Down Glassmorphic Drawer Panel (Apple HIG - Touch Targets >= 48px) -->
 <div class="mobile-drawer-panel" id="mobile-drawer-panel">
   <div class="mobile-nav-list">
-    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📚</span>
-      <span>مذاكرة الأبواب المقسمة (25 باب)</span>
-    </a>
-    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">⏱️</span>
-      <span>محاكي الامتحان الوزاري (20 دقيقة)</span>
-    </a>
-    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📑</span>
-      <span>فهرس المكتبة الشاملة المعتمدة</span>
-    </a>
-    <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 13 (قواعد السير والمسارات)</span>
-    </a>
-    <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 14 (أسبقية التقاطعات)</span>
-    </a>
-    <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 15 (مناورة التجاوز والتخطي)</span>
-    </a>
-    <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 16 (الوقوف والتوقف والركن)</span>
-    </a>
-    <a href="دليل_الأبواب_11_إلى_15_قواعد_السير_والسرعة_ومسافة_الأمان.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الأبواب 11-15 (حركة السير، السرعة، ومسافة الأمان)</span>
-    </a>
-    <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 17 (الأوتوستراد والحمولة والمقطورات)</span>
-    </a>
-    <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 18 (الأضواء والتابلوه والعواكس)</span>
-    </a>
-    <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 19 (الأحزمة والخوذة والمقاعد)</span>
-    </a>
-    <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 20 (الرخص والنقاط والعقوبات)</span>
-    </a>
-    <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 21 (حوادث السير والظروف الجوية)</span>
-    </a>
-    <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 22 (الكحول والمخدرات والإسعافات)</span>
-    </a>
-    <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 23 (المسؤولية والتأمين RCA)</span>
-    </a>
-    <a href="دليل_الباب_الأخير.html" class="mobile-nav-link active" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل وقاموس الباب 25 (الميكانيكا والصيانة)</span>
-    </a>
-  </div>
-
-  <div class="mobile-drawer-footer">
-    <button class="mobile-control-btn" onclick="toggleAudio()">
-      <span class="audio-icon-span">🔊</span>
-      <span class="audio-label-span">الصوت نشط</span>
-    </button>
-    <div class="mobile-control-btn" style="cursor: default; opacity: 0.85;">
-      <span>🇮🇹 ⬅️ 🇸🇦 Patente B</span>
-    </div>
+    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📚</span><span>مذاكرة الأبواب المقسمة (25 باب)</span></a>
+    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">⏱️</span><span>محاكي الامتحان الوزاري</span></a>
+    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📑</span><span>فهرس المكتبة الشاملة</span></a>
+    <div class="mobile-nav-divider"></div>
+    <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 23: المسؤولية والتأمين RCA</span></a>
+    <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 24: استهلاك الوقود والبيئة</span></a>
+    <a href="دليل_الباب_الأخير.html" class="mobile-nav-link active" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
   </div>
 </div>
 
-<!-- Backdrop Blur Overlay -->
-<div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
+<main class="guide-container">
 
-<!-- Slide-Down Glassmorphic Drawer Panel (Apple HIG - Touch Targets >= 48px) -->
-<div class="mobile-drawer-panel" id="mobile-drawer-panel">
-  <div class="mobile-nav-list">
-    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📚</span>
-      <span>مذاكرة الأبواب المقسمة (25 باب)</span>
+  <!-- HERO SECTION -->
+  <section class="chapter-hero">
+    <div class="hero-tag">⚙️ 🛞 المرجع المعتمد للدراسة والامتحان الوزاري</div>
+    <h1 class="hero-title">الباب الأخير (25): الميكانيكا، صيانة المركبة، والإطارات وأجهزة الأمان</h1>
+    <div class="hero-subtitle">Capitolo 25: Elementi costitutivi del veicolo, manutenzione, pneumatici e sicurezza</div>
+    <p class="hero-desc">
+      الدليل الهندسي والتقني الأكبر والأشمل لرخصة القيادة الإيطالية Patente B: منظومة الفرامل الهيدروليكية ومؤازر الفرامل (Servofreno)، نظام منع انغلاق المكابح الثوري (ABS) وحقيقة الحفاظ على التوجيه، عمق نقشة الإطارات القانوني (1.6 مم / 1.0 مم / 0.5 مم)، عجلة الطوارئ البديلة (Ruotino 80 km/h)، نظام التعليق وممتصات الصدمات (Ammortizzatori)، منظومة التوجيه وضبط الزوايا، فحص مستويات السوائل الحيوية (الزيت والتبريد والفرامل)، ودلالات لمبات التابلوه التحذيرية وأجهزة الأمان التفاعلية.
+    </p>
+
+    <div class="hero-stats-banner">
+      <div class="stat-badge">
+        <span class="stat-num">285</span>
+        <span class="stat-label">سؤالاً وزارياً رسمياً</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-num">12</span>
+        <span class="stat-label">فخاً وزارياً دقيقاً</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-num">18</span>
+        <span class="stat-label">بطاقة هندسية تفصيلية</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">مطابقة معايير كود السير 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOLDEN RULES BANNER -->
+  <section class="golden-rules-banner">
+    <div class="golden-rules-title">
+      <span>⭐</span>
+      <span>القواعد الذهبية الأربع للباب الأخير 25 (Regole d'Oro)</span>
+    </div>
+    <div class="rules-grid">
+      <div class="rule-box">
+        <h4><span>1️⃣</span> الوظيفة الحقيقية لنظام ABS</h4>
+        <p>نظام ABS يمنع انغلاق العجلات أثناء الفرملة الطارئة للحفاظ على التوجيه (Direzionalità) وإمكانية تفادي العائق؛ لكنه <strong>لا يقلل بالضرورة مسافة الفرملة</strong> على الأسفلت الجاف، وقد يطيلها قليلاً على الثلج أو الحصى!</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>2️⃣</span> أرقام أعماق الإطارات وعجلة الطوارئ</h4>
+        <p>الحد الأدنى لعمق نقشة الإطار (Battistrada): <strong>1.6 مم</strong> للسيارات، <strong>1.0 مم</strong> للموتوسيكلات، و <strong>0.5 مم</strong> للسيكلوموتوري. عجلة الطوارئ (Ruotino) تسير بسرعة قصوى <strong>80 كم/س</strong> وتنفخ بضغط أعلى (4 bar).</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>3️⃣</span> ممتصات الصدمات ومؤازر الفرامل (Servofreno)</h4>
+        <p>مؤازر الفرامل يعمل فقط والمحرك شغال؛ وإذا انطفأ المحرك يتحجر الدواسة ويتطلب جهداً عضلياً مضاعفاً. ممتصات الصدمات التالفة تؤدي لتأرجح السيارة، تآكل غير منتظم للإطارات، وزيادة مسافة التوقف وانبهار الفئات القادمة.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>4️⃣</span> فحص السوائل ولمبات التابلوه الحمراء</h4>
+        <p>لمبة الزيت الحمراء تدل على انعدام ضغط الزيت (Mancanza di pressione) وتستوجب إطفاء المحرك فوراً. غطاء مياه التبريد لا يفتح أبداً والمحرك ساخن لتفادي انفجار البخار المغلي وحروق الوجه.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR 1: ABS Braking & Steering Simulator -->
+  <section class="simulator-box" id="sim-abs">
+    <div class="sim-title">
+      <span>🛑 🔄</span>
+      <span>المحاكي التفاعلي 1: فيزياء الفرملة الطارئة والتوجيه مع نظام ABS (Simulatore Frenata ABS)</span>
+    </div>
+    <div class="sim-subtitle">قارن بين سلوك السيارة عند الفرملة القصوى الفجائية بوجود نظام ABS وبدونه:</div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnAbsOn" onclick="simAbs(true)">1. سيارة مزودة بنظام ABS (نشط)</button>
+      <button class="sim-btn" id="btnAbsOff" onclick="simAbs(false)">2. سيارة بدون نظام ABS (عجلات منغلقة)</button>
+    </div>
+    <div class="sim-output-card" id="absOutput">
+      <div class="sim-badge" id="absBadge" style="background:rgba(16,185,129,0.15); color:var(--emerald-primary); border:1px solid rgba(16,185,129,0.35);">
+        توجيه كامل ومستمر (Sterzabilità)
+      </div>
+      <div class="sim-details">
+        <h4 id="absTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">نظام منع انغلاق المكابح ABS نشط أثناء الفرملة العنيفة</h4>
+        <p id="absDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
+          <strong>سلوك العجلات:</strong> الحساسات الإلكترونية تمنع انغلاق العجلات تماماً وتعدل ضغط الزيت آلاف المرات بالثانية.<br>
+          <strong>القدرة على التوجيه:</strong> يستمر السائق في توجيه السيارة بالمقود وتفادي العائق أو المشاة أثناء الضغط بأقصى قوة على الفرامل.<br>
+          <strong>ارتجاج الدواسة:</strong> يشعر السائق بارتجاج ونبضات في دواسة الفرامل (Pulsazione del pedale)؛ وهذا أمر طبيعي تماماً يدل على عمل النظام بكفاءة ولا يعني عطلاً!
+        </p>
+        <div class="sim-warning-box" id="absWarning" style="margin-top:10px; padding:10px 14px; background:rgba(245,158,11,0.1); border-right:3px solid var(--amber-primary); border-radius:8px; font-size:0.86rem; color:#fde68a;">
+          ⚠️ <strong>فخ امتحاني خطير:</strong> نظام ABS لا يقلل بالضرورة مسافة الفرملة على الطريق الجاف، وقد يزيدها قليلاً على الثلوج والحصى؛ فائدته الجوهرية هي الحفاظ على التوجيه (Mantenere la guidabilità)!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR 2: Tires Tread & Spare Wheel -->
+  <section class="simulator-box" id="sim-pneumatici">
+    <div class="sim-title">
+      <span>🛞 📏</span>
+      <span>المحاكي التفاعلي 2: الحدود القانونية لعمق مداس الإطار وعجلة الطوارئ (Battistrada e Ruotino)</span>
+    </div>
+    <div class="sim-subtitle">اختر نوع المركبة لاستعراض الحد الأدنى لعمق النقشة وخصائص عجلة الطوارئ في الامتحان:</div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnTyreAuto" onclick="simTyre('auto')">السيارات والمقطورات (1.6 mm)</button>
+      <button class="sim-btn" id="btnTyreMoto" onclick="simTyre('moto')">الدراجات النارية Motoveicoli (1.0 mm)</button>
+      <button class="sim-btn" id="btnTyreCiclo" onclick="simTyre('ciclo')">السيكلوموتوري Ciclomotori (0.5 mm)</button>
+      <button class="sim-btn" id="btnTyreRuotino" onclick="simTyre('ruotino')">عجلة الطوارئ Ruotino (80 km/h)</button>
+    </div>
+    <div class="sim-output-card" id="tyreOutput">
+      <div class="sim-badge" id="tyreBadge" style="background:rgba(56,189,248,0.15); color:var(--sky-primary); border:1px solid rgba(56,189,248,0.35);">
+        1.6 مم حد أدنى قانوني
+      </div>
+      <div class="sim-details">
+        <h4 id="tyreTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">إطارات السيارات والشاحنات الخفيفة والمقطورات (Autoveicoli e rimorchi)</h4>
+        <p id="tyreDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
+          <strong>العمق الأدنى الإلزامي:</strong> يجب ألا يقل عمق الأخاديد الرئيسية لمداس الإطار (Battistrada) عن <strong>1.6 مم</strong> على كامل محيط الإطار.<br>
+          <strong>مؤشر التآكل (TWI):</strong> تبرز نتوءات مطاطية صغيرة داخل الأخاديد؛ إذا تساوت مع سطح الإطار يكون الإطار منتهي الصلاحية ويجب تغييره فوراً.<br>
+          <strong>العواقب:</strong> السير بإطار متآكل يستوجب غرامة وسحب شهادة التسيير وزيادة هائلة في خطر الانزلاق المائي (Aquaplaning).
+        </p>
+        <div class="sim-warning-box" id="tyreWarning" style="margin-top:10px; padding:10px 14px; background:rgba(56,189,248,0.1); border-right:3px solid var(--sky-primary); border-radius:8px; font-size:0.86rem; color:#bae6fd;">
+          💡 <strong>احفظ الأرقام الثلاثة:</strong> سيارات = 1.6 مم | موتوسيكلات = 1.0 مم | سيكلوموتوري = 0.5 مم!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR 3: Dashboard Warning Lights -->
+  <section class="simulator-box" id="sim-spie">
+    <div class="sim-title">
+      <span>🚨 💡</span>
+      <span>المحاكي التفاعلي 3: لوحة لمبات التابلوه التحذيرية والمستويات الحيوية (Spie del Cruscotto)</span>
+    </div>
+    <div class="sim-subtitle">اضغط على لمبة التابلوه لمعرفة دلالتها الهندسية والإجراء الفوري المطلوب لتفادي تدمير المحرك:</div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnSpiaOlio" onclick="simSpia('olio')">🔴 لمبة أمبولة الزيت (Pressione Olio)</button>
+      <button class="sim-btn" id="btnSpiaFreni" onclick="simSpia('freni')">🔴 لمبة الفرامل / السائل (Freni / Liquido)</button>
+      <button class="sim-btn" id="btnSpiaTemp" onclick="simSpia('temp')">🔴 لمبة حرارة مياه التبريد (Temperatura)</button>
+      <button class="sim-btn" id="btnSpiaBatt" onclick="simSpia('batt')">🔴 لمبة البطارية والدينامو (Generatore)</button>
+      <button class="sim-btn" id="btnSpiaABS" onclick="simSpia('abs')">🟡 لمبة عطل ABS (Avaria ABS)</button>
+    </div>
+    <div class="sim-output-card" id="spiaOutput">
+      <div class="sim-badge" id="spiaBadge" style="background:rgba(244,63,94,0.15); color:var(--rose-primary); border:1px solid rgba(244,63,94,0.35);">
+        توقف فوري وإطفاء المحرك!
+      </div>
+      <div class="sim-details">
+        <h4 id="spiaTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">لمبة ضغط زيت المحرك الحمراء (Mancanza di pressione dell'olio)</h4>
+        <p id="spiaDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
+          <strong>الدلالة الدقيقة:</strong> تشير إلى <strong>انعدام أو هبوط حاد في ضغط دائرة تزييت المحرك</strong>، وليس مجرد نقص منسوب الزيت!<br>
+          <strong>الإجراء الفوري:</strong> يجب التوقف بأمان على جانب الطريق وإطفاء محرك السيارة فوراً دون إبطاء؛ لأن مواصلة السير لدقائق قليلة تؤدي إلى قفش وتدمير أجزاء المحرك الميكانيكية بالكامل (Fusione del motore).<br>
+          <strong>الفحص:</strong> التحقق من منسوب الزيت بمقياس الزيت اليدوي (Asta di livello) وإضافة زيت مطابق للمواصفات.
+        </p>
+        <div class="sim-warning-box" id="spiaWarning" style="margin-top:10px; padding:10px 14px; background:rgba(244,63,94,0.1); border-right:3px solid var(--rose-primary); border-radius:8px; font-size:0.86rem; color:#fecdd3;">
+          ❌ <strong>فخ امتحاني:</strong> لمبة الزيت الحمراء لا تقيس درجة حرارة الزيت ولا تعني أن الزيت بحاجة للتغيير، بل تدل على انعدام الضغط!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON SECTION -->
+  <section class="comp-section" id="comp-meccanica">
+    <div class="comp-header">
+      <h3>المقارنة البصرية الحاسمة: أجهزة الأمان الميكانيكية وقطع الصيانة</h3>
+      <p>الفروق الدقيقة التي يركز عليها واضع الامتحان الوزاري بين الأجزاء الميكانيكية ووظائفها الحيوية</p>
+    </div>
+    <div class="comp-grid-4">
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">🛞 🚗</div>
+        <h4>الإطارات العادية vs عجلة الطوارئ</h4>
+        <div class="comp-tag" style="background:rgba(245,158,11,0.15); color:var(--amber-primary);">عجلة الطوارئ (Ruotino)</div>
+        <p>• <strong>الإطار العادي:</strong> مصمم للسرعات والمسافات الطويلة بضغط هواء معتاد (2-2.5 bar).<br>• <strong>عجلة الطوارئ (Ruotino):</strong> أصغر حجماً وأقل عرضاً، للاستخدام المؤقت فقط للوصول لأقرب ورشة، سرعتها القصوى <strong>80 كم/س</strong> وضغط نفخها مرتفع (حوالي 4 bar).</p>
+      </div>
+
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">🛑 🦶</div>
+        <h4>مؤازر الفرامل (Servofreno)</h4>
+        <div class="comp-tag" style="background:rgba(56,189,248,0.15); color:var(--sky-primary);">تشغيل المحرك</div>
+        <p>• <strong>المحرك يعمل:</strong> مؤازر الفرامل يضاعف قوة ضغط القدم على الدواسة بجهد عضلي خفيف.<br>• <strong>المحرك مطفأ (أثناء القطر):</strong> يتعطل مؤازر الفرامل تماماً وتتحجر دواسة الفرامل؛ وتظل الفرامل تعمل ولكنها تتطلب ضغطاً عضلياً هائلاً بالقدم للتوقف!</p>
+      </div>
+
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">🚙 〰️</div>
+        <h4>ممتصات الصدمات (Ammortizzatori)</h4>
+        <div class="comp-tag" style="background:rgba(244,63,94,0.15); color:var(--rose-primary);">ثبات المركبة</div>
+        <p>• <strong>السليمة:</strong> تضمن التصاق الإطارات بالأرض وتمنع ارتداد النوابض عند المطبات.<br>• <strong>التالفة (Scarichi):</strong> تجعل السيارة تتأرجح وتتمايل في المنحنيات (Rollio) وتنغطس للأمام في الفرملة (Beccheggio)، وتزيد مسافة التوقف وتسبب تآكلاً متموجاً للإطارات.</p>
+      </div>
+
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">🛢️ 🌡️</div>
+        <h4>مياه التبريد vs سائل الفرامل</h4>
+        <div class="comp-tag" style="background:rgba(16,185,129,0.15); color:var(--emerald-primary);">السوائل الحيوية</div>
+        <p>• <strong>سائل التبريد (Liquido radiatore):</strong> مزيج ماء وسائل مانع للتجمد؛ يحظر فتح الغطاء والمحرك ساخن لتفادي انفجار السائل وحروق البخار.<br>• <strong>سائل الفرامل (Liquido freni):</strong> زيت هيدروليكي خاص؛ إذا هبط تحت علامة MIN يدل على تسريب أو تآكل شديد في تيل الفرامل.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER PILLS BAR -->
+  <div class="filter-pills-bar">
+    <button class="filter-pill active" onclick="filterCards('all', this)">جميع البطاقات (18)</button>
+    <button class="filter-pill" onclick="filterCards('freni-abs', this)">الفرامل ومؤازر الفرامل ونظام ABS</button>
+    <button class="filter-pill" onclick="filterCards('pneumatici-ruote', this)">الإطارات وعجلة الطوارئ والتبديل</button>
+    <button class="filter-pill" onclick="filterCards('sospensioni-sterzo', this)">المساعدين والتعليق والمقود</button>
+    <button class="filter-pill" onclick="filterCards('motore-liquidi', this)">المحرك ومستويات الزيت والتبريد</button>
+    <button class="filter-pill" onclick="filterCards('spie-sicurezza', this)">لمبات التابلوه وأجهزة الأمان والمساحات</button>
+  </div>
+
+  <!-- SIGNALS GRID (18 DETAILED CARDS) -->
+  <div class="section-heading">
+    <div class="section-badge">الشرح التفصيلي لبطاقات الباب الأخير 25</div>
+    <h2 class="section-title">البطاقات المعرفية المعتمدة للميكانيكا والصيانة والسلامة</h2>
+  </div>
+
+  <div class="signals-grid">
+
+    <!-- CARD: Impianto Frenante -->
+    <div class="signal-card" data-category="freni-abs">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🛑 🚗</div>
+          <div class="badge-visual-code">Impianto Frenante</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منظومة الفرامل الهيدروليكية (Freni a disco e a tamburo)</h3>
+        <span class="card-it-title">Impianto frenante idraulico, freni a disco e pastiglie</span>
+      </div>
+      <p class="card-desc-text">
+        الدائرة الهيدروليكية المسؤولة عن كبح وتوقيف المركبة؛ عمل الأقراص والتيل، وتأثير تآكل وسادات الفرامل وسائل الكبح.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تعمل فرامل الخدمة في السيارات بنظام هيدروليكي ينقل الضغط عبر سائل الفرامل إلى أسطوانات الكبح على العجلات الأربع</li>
+          <li><span>✅</span> تآكل وسادات الفرامل (Pastiglie freni) يؤدي إلى انخفاض كفاءة الكبح وإصدار صوت صفير معدني واحتكاك حاد عند الضغط على الدواسة</li>
+          <li><span>✅</span> هبوط مستوى سائل الفرامل في الخزان تحت علامة الحد الأدنى (MIN) يشير إلى وجود تسريب في الدائرة أو تآكل متقدم جداً في وسادات الفرامل</li>
+          <li><span>✅</span> يجب استخدام سائل الفرامل المحدد حصرياً من قبل الشركة المصنعة واستبداله دورياً وفق كتيب الصيانة</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> سائل الفرامل يمكن استبداله بماء الصنبور العادي أو زيت الطهي في حالات الطوارئ ❌</li>
+          <li><span>❌</span> تآكل وسادات الفرامل يؤدي إلى تقصير مسافة الفرملة وزيادة قوة التوقف ❌</li>
+          <li><span>❌</span> الفرامل القرصية (A disco) لا تحتاج أبداً لأي صيانة أو فحص طوال عمر السيارة ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> سائل الفرامل هيدروليكي خاص لا يخلط أبداً بالماء أو الزيوت العادية؛ وهبوطه عن علامة MIN خطر مباشر يجب معه فحص الدائرة فوراً!
+      </div>
+    </div>
+
+    <!-- CARD: Servofreno -->
+    <div class="signal-card" data-category="freni-abs">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🛑 🦶</div>
+          <div class="badge-visual-code">Servofreno</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">مؤازر الفرامل الميكانيكي (Il Servofreno)</h3>
+        <span class="card-it-title">Funzionamento del servofreno a motore acceso e spento</span>
+      </div>
+      <p class="card-desc-text">
+        الجهاز الهوائي المعاون الذي يضاعف قوة ضغط قدم السائق على دواسة الفرامل؛ ارتباطه المباشر بتشغيل المحرك ومخاطر إطفاء المحرك أثناء السير.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> مؤازر الفرامل (Servofreno) يعمل فقط عندما يكون محرك السيارة مشغلاً (A motore avviato)</li>
+          <li><span>✅</span> إذا انطفأ المحرك أثناء السير أو أثناء قطر المركبة، يتوقف مؤازر الفرامل عن العمل وتصبح دواسة الفرامل ثقيلة وقاسية جداً</li>
+          <li><span>✅</span> عند تعطل مؤازر الفرامل، تظل منظومة الفرامل تعمل ميكانيكياً وهيدروليكياً ولكنها تتطلب ضغطاً عضلياً كبيراً جداً بالقدم لإيقاف السيارة</li>
+          <li><span>✅</span> يحظر تماماً إطفاء محرك السيارة أثناء النزول من المنحدرات لأن ذلك يعطل مؤازر الفرامل ومؤازر المقود ويفقد السائق السيطرة</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> مؤازر الفرامل يعمل بكفاءة مضاعفة عندما يكون المحرك مطفأ تماماً ❌</li>
+          <li><span>❌</span> عند تعطل مؤازر الفرامل تفقد السيارة الفرامل تماماً وتصبح الدواسة رخوة تصل إلى أرضية السيارة دون مقاومة ❌</li>
+          <li><span>❌</span> مؤازر الفرامل مخصص فقط لفرملة العجلات الخلفية أثناء الركن ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> فخ متكرر: مع المحرك المطفأ، الفرامل لا تنعدم، بل تصبح الدواسة قاسية جداً (Dura) وتتطلب جهداً عضلياً كبيراً من السائق!
+      </div>
+    </div>
+
+    <!-- CARD: Sistema ABS -->
+    <div class="signal-card" data-category="freni-abs">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🛑 🔄</div>
+          <div class="badge-visual-code">Sistema ABS</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">نظام منع انغلاق المكابح (ABS) والحفاظ على التوجيه</h3>
+        <span class="card-it-title">Sistema antibloccaggio delle ruote in frenata (ABS)</span>
+      </div>
+      <p class="card-desc-text">
+        أهم تقنية أمان نشطة في السيارات؛ منع انغلاق العجلات أثناء الفرملة القصوى لضمان استمرار قدرة السائق على توجيه السيارة وتفادي الاصطدام.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> الوظيفة الأساسية لنظام ABS هي منع انغلاق العجلات أثناء الفرملة الشديدة لضمان بقاء السيارة قابلة للتوجيه بالمقود (Mantenere la guidabilità)</li>
+          <li><span>✅</span> يتيح نظام ABS للسائق إمكانية الانعطاف وتفادي العوائق والمشاة حتى أثناء الضغط بأقصى قوة على دواسة الفرامل</li>
+          <li><span>✅</span> ارتجاج ونبضات دواسة الفرامل تحت قدم السائق أثناء الفرملة القصوى أمر طبيعي تماماً يدل على تدخل صمامات ABS الهيدروليكية بكفاءة</li>
+          <li><span>✅</span> نظام ABS يتدخل بشكل مستقل على كل عجلة لمنع انزلاقها وفقاً لدرجة تماسك الأسفلت تحت كل إطار</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> نظام ABS يضمن دائماً تقصير مسافة الفرملة في كافة الظروف وعلى الطرق المغطاة بالثلوج والحصى ❌</li>
+          <li><span>❌</span> ارتجاج دواسة الفرامل أثناء الفرملة العنيفة يعتبر عطلاً خطيراً يوجب التوقف الفوري واستدعاء الونش ❌</li>
+          <li><span>❌</span> نظام ABS يعطل عمل مقود السيارة ويمنع السائق من توجيهها أثناء الكبح ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> احفظ الفخ الأكبر في كود السير: ABS لا يقصر بالضرورة مسافة الفرملة على الطريق الجاف، وقد يطيلها على الثلج والحصى؛ فائدته الجوهرية هي الحفاظ على التوجيه!
+      </div>
+    </div>
+
+    <!-- CARD: Freno di Stazionamento -->
+    <div class="signal-card" data-category="freni-abs">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🅿️ 🛑</div>
+          <div class="badge-visual-code">Freno di Stazionamento</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">فرملة التثبيت والركن اليدوية (Freno di stazionamento)</h3>
+        <span class="card-it-title">Freno di stazionamento (a mano) e bloccaggio delle ruote</span>
+      </div>
+      <p class="card-desc-text">
+        فرملة الركن الميكانيكية المستقلة عن الدائرة الهيدروليكية؛ تثبيت السيارة المتوقفة في المنحدرات والتحكم بالعجلات الخلفية.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> فرملة التثبيت (Freno di stazionamento / فرامل اليد) تعمل ميكانيكياً عبر كابلات سلكية على عجلات المحور الخلفي عادة للمركبة</li>
+          <li><span>✅</span> تستخدم لتثبيت السيارة ومنع تحركها أثناء الركن والوقوف التام، وبخاصة على الطرق المنحدرة</li>
+          <li><span>✅</span> يمكن استخدامها كفرملة طوارئ بديلة بحذر وتدرج شديد في حال الانهيار التام لدائرة فرامل الخدمة الهيدروليكية</li>
+          <li><span>✅</span> يجب التأكد من إنزال ذراع فرملة اليد بالكامل قبل الانطلاق بالسيارة لتجنب ارتفاع حرارة وتآكل الفرامل الخلفية</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> فرملة الركن تعمل هيدروليكياً على العجلات الأربع بقوة تعادل ضعف فرامل الخدمة ❌</li>
+          <li><span>❌</span> يجب شد فرملة اليد بأقصى قوة أثناء القيادة بسرعة 100 كم/س للمساعدة في تجاوز المنعطفات ❌</li>
+          <li><span>❌</span> فرملة اليد تعفي السائق من تعشيق الغيار الأول عند ركن السيارة في صعدة جبلية شديدة ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> فرامل اليد تعمل ميكانيكياً وتؤثر على عجلات المحور الخلفي فقط؛ ولا تغني عن تعشيق الغيار الأول (أو المارشيدير) عند الركن في المنحدرات!
+      </div>
+    </div>
+
+    <!-- CARD: Battistrada Minimo -->
+    <div class="signal-card" data-category="pneumatici-ruote">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🛞 📏</div>
+          <div class="badge-visual-code">Battistrada Minimo</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الحدود القانونية لعمق مداس الإطارات (Battistrada dei pneumatici)</h3>
+        <span class="card-it-title">Spessore minimo del battistrada per autoveicoli, motoveicoli e ciclomotori</span>
+      </div>
+      <p class="card-desc-text">
+        المقاييس القانونية الصارمة لعمق نقشة الإطار وفق كود السير؛ لضمان تصريف المياه ومنع الانزلاق وتفادي الحوادث.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> الحد الأدنى لعمق الأخاديد الرئيسية لمداس إطارات السيارات والمركبات الخفيفة والمقطورات هو 1.6 مم (1,6 mm per autoveicoli)</li>
+          <li><span>✅</span> الحد الأدنى لعمق مداس إطارات الدراجات النارية (Motoveicoli) هو 1.0 مم (1,0 mm per motoveicoli)</li>
+          <li><span>✅</span> الحد الأدنى لعمق مداس إطارات الدراجات البخارية الصغيرة (Ciclomotori) هو 0.5 مم (0,5 mm per ciclomotori)</li>
+          <li><span>✅</span> يجب أن يتوفر هذا العمق الأدنى على كامل محيط الإطار وفي نطاق الأخاديد الرئيسية المركزية للمداس</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> الحد الأدنى لعمق مداس إطارات السيارات هو 3.5 مم تحت طائلة سحب الرخصة فوراً ❌</li>
+          <li><span>❌</span> يسمح بالقيادة بإطارات ممسوحة ملساء تماماً طالما كان الطقس صيفياً مشمساً ❌</li>
+          <li><span>❌</span> إطارات الموتوسيكلات تشترط عمقاً أدنى 2.5 مم كإطارات الشاحنات الثقيلة ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> احفظ الأرقام الثلاثة الذهبية للامتحان: سيارات = 1.6 مم | موتوسيكلات = 1.0 مم | سيكلوموتوري = 0.5 مم!
+      </div>
+    </div>
+
+    <!-- CARD: Ruotino di Scorta -->
+    <div class="signal-card" data-category="pneumatici-ruote">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🛞 ⚡</div>
+          <div class="badge-visual-code">Ruotino di Scorta</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">عجلة الطوارئ البديلة وقيودها الصارمة (Il Ruotino di soccorso)</h3>
+        <span class="card-it-title">Uso corretto del ruotino di scorta e limitazioni di velocità</span>
+      </div>
+      <p class="card-desc-text">
+        الإطار البديل المصغر المخصص للطوارئ؛ قيود السرعة المحددة بـ 80 كم/س، ارتفاع ضغط النفخ، والاستخدام المؤقت لحين الإصلاح.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> عجلة الطوارئ (Ruotino di soccorso) مخصصة حصرياً للاستخدام المؤقت والاضطراري للوصول إلى أقرب ورشة لإصلاح الإطار الأصلي</li>
+          <li><span>✅</span> يحظر تجاوز سرعة 80 كم/ساعة عند تركيب عجلة الطوارئ على أي محور من محاور السيارة (Velocità max 80 km/h)</li>
+          <li><span>✅</span> تتطلب عجلة الطوارئ ضغط نفخ هوائي مرتفعاً بشكل ملحوظ مقارنة بالإطارات العادية (حوالي 4 بار أو 4.2 بار)</li>
+          <li><span>✅</span> بسبب صغر عرض عجلة الطوارئ واختلاف قطرها، يتأثر اتزان وسلوك السيارة في المنحنيات والفرملة ويجب القيادة بحذر شديد</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يسمح بالسير بعجلة الطوارئ بسرعة 130 كم/س على الأوتوستراد لقطع مسافات طويلة ❌</li>
+          <li><span>❌</span> عجلة الطوارئ يمكن استخدامها بصفة دائمة كبديل نهائي للإطار الممزق ❌</li>
+          <li><span>❌</span> ضغط نفخ عجلة الطوارئ يجب أن يكون منخفضاً جداً (أقل من 1 بار) لتوفير الراحة ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> القاعدتان الذهبيتان لعجلة الطوارئ: 1) السرعة القصوى 80 كم/س؛ 2) ضغط النفخ أعلى بكثير من الإطار العادي (حوالي 4 بار)!
+      </div>
+    </div>
+
+    <!-- CARD: Sostituzione Ruota -->
+    <div class="signal-card" data-category="pneumatici-ruote">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🔧 🛞</div>
+          <div class="badge-visual-code">Sostituzione Ruota</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">خطوات الاستبدال الآمن للعجلة المثقوبة (Sostituzione della ruota)</h3>
+        <span class="card-it-title">Procedura corretta per la sostituzione di una ruota forata con cric</span>
+      </div>
+      <p class="card-desc-text">
+        الترتيب الهندسي الإلزامي لاستبدال الإطار باستخدام الرافعة (Cric) ومفتاح الصواميل؛ تثبيت السيارة وفك الصواميل بنظام التقاطع.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> قبل رفع السيارة بالرافعة، يجب ركنها على أرضية مستوية وصلبة، وتعشيق الغيار الأول، وشد فرملة اليد، وتشغيل أضواء الطوارئ</li>
+          <li><span>✅</span> يجب فك وخلخلة صواميل العجلة (Allentare i bulloni) جزئياً أثناء ملامسة الإطار للأرض وقبل رفع السيارة بالرافعة</li>
+          <li><span>✅</span> توضع الرافعة (Cric) حصرياً في نقاط الارتكاز المخصصة والمقواة أسفل هيكل السيارة المحددة في الكتالوج</li>
+          <li><span>✅</span> عند تركيب العجلة البديلة، يجب ربط الصواميل بشكل متقاطع (A croce) لضمان استقرار العجلة وتمركزها السليم على الصرة</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يجب فك وإزالة كافة صواميل العجلة بالكامل قبل وضع الرافعة ورفع السيارة ❌</li>
+          <li><span>❌</span> توضع الرافعة الهيدروليكية مباشرة تحت خزان الوقود أو أنبوب العادم لرفع السيارة ❌</li>
+          <li><span>❌</span> يتم ربط الصواميل بشكل دائري متتابع في اتجاه عقارب الساعة لضمان الأمان ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> الصواميل ترخى والإطار على الأرض قبل الرفع؛ والربط يتم بطريقة متقاطعة (A croce) وليس بشكل دائري!
+      </div>
+    </div>
+
+    <!-- CARD: Pneumatici Tubeless -->
+    <div class="signal-card" data-category="pneumatici-ruote">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🛞 🎈</div>
+          <div class="badge-visual-code">Pneumatici Tubeless</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الإطارات بدون غرفة هواء داخلية (Pneumatici Tubeless)</h3>
+        <span class="card-it-title">Pneumatici senza camera d'aria (Tubeless) e sicurezza contro lo scoppio</span>
+      </div>
+      <p class="card-desc-text">
+        تقنية الإطارات الحديثة الخالية من الأنبوب المطاطي الداخلي؛ ميزة الاحتفاظ بالهواء وتفريغه ببطء عند الثقب لتفادي الانفجار المفاجئ.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> الإطارات من نوع تيوبلس (Tubeless) لا تحتوي على غرفة هواء داخلية (Camera d'aria)، بل يلتصق الإطار بإحكام مباشر بحافة الجنط المعدني</li>
+          <li><span>✅</span> في حال ثقب الإطار بمسمار، يظل المسمار غالباً محشوراً ويسرب الهواء ببطء شديد وتدريجي دون انفجار فجائي للإطار</li>
+          <li><span>✅</span> يتيح التفريغ البطيء للهواء في إطارات التيوبلس للسائق الحفاظ على مسار السيارة والتوقف بأمان دون فقدان السيطرة</li>
+          <li><span>✅</span> يحظر تركيب غرفة هواء داخلية (Camera d'aria) داخل إطار مخصص ليعمل بنظام Tubeless</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> إطارات التيوبلس تنفجر كالقنبلة فور ملامستها لأي مسمار صغير على الطريق ❌</li>
+          <li><span>❌</span> يجب ملء إطارات التيوبلس بالماء والزيت بدلاً من الهواء المضغوط ❌</li>
+          <li><span>❌</span> إطارات التيوبلس تستخدم فقط للدراجات الهوائية للأطفال ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> ميزة التيوبلس الجوهرية: تفريغ الهواء البطيء والتدريجي عند الثقب، مما يحمي السيارة من الانقلاب والانفجار المباغت!
+      </div>
+    </div>
+
+    <!-- CARD: Ammortizzatori Scarichi -->
+    <div class="signal-card" data-category="sospensioni-sterzo">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">〰️ 🚙</div>
+          <div class="badge-visual-code">Ammortizzatori Scarichi</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">تلف ممتصات الصدمات ومخاطره على الاتزان (Ammortizzatori scarichi)</h3>
+        <span class="card-it-title">Ammortizzatori inefficienti, usura irregolare gomme e tenuta di strada</span>
+      </div>
+      <p class="card-desc-text">
+        أهمية المساعدين في امتصاص ارتداد النوابض؛ عواقب تلفها في تمايل السيارة، زيادة مسافة التوقف، وتآكل الإطارات المتموج.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تلف ممتصات الصدمات (Ammortizzatori scarichi o inefficienti) يؤدي إلى تراجع خطير في ثبات وتماسك السيارة مع الطريق (Tenuta di strada)</li>
+          <li><span>✅</span> يؤدي تلف المساعدين إلى تأرجح السيارة وانغطاس مقدمتها للأمام بشدة عند الفرملة (Beccheggio) وتمايلها العنيف في المنحنيات (Rollio)</li>
+          <li><span>✅</span> المساعدين التالفين يزيدون من مسافة الفرملة والتوقف ويزيدون من احتمالية حدوث الانزلاق المائي (Aquaplaning)</li>
+          <li><span>✅</span> يسبب تلف ممتصات الصدمات تآكلاً سريعاً وغير منتظم لمداس الإطارات (على شكل بقع وأمواج تالفة)، وتأرجح حزم أضواء الفئات مما يبهر السائقين القادمين</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> ممتصات الصدمات التالفة تجعل السيارة أكثر ثباتاً والتصاقاً بالأسفلت في المنعطفات ❌</li>
+          <li><span>❌</span> لا علاقة لممتصات الصدمات بمسافة الفرملة أو تآكل الإطارات ❌</li>
+          <li><span>❌</span> المساعدين التالفين يمنعون حدوث الانزلاق المائي تماماً ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> المساعدين التالفين يطيلون مسافة الفرملة ويهدرون تماسك السيارة ويؤدون لتآكل غير منتظم لمداس الإطار (Usura anomala)!
+      </div>
+    </div>
+
+    <!-- CARD: Sterzo e Servosterzo -->
+    <div class="signal-card" data-category="sospensioni-sterzo">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🔄 ☸️</div>
+          <div class="badge-visual-code">Sterzo e Servosterzo</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منظومة التوجيه وخلوص المقود ومؤازر التوجيه (Servosterzo)</h3>
+        <span class="card-it-title">Organi di sterzo, gioco dello sterzo e servosterzo idraulico/elettrico</span>
+      </div>
+      <p class="card-desc-text">
+        نظام توجيه العجلات الأمامية؛ دلالات البوش والفضاوا في المقود، وعمل مؤازر التوجيه الهيدروليكي والكهربائي في تسهيل المناورة.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> وجود خلوص وفضاوا مفرطة في عجلة القيادة (Gioco eccessivo dello sterzo) يدل على تآكل أو تلف في مفاصل التوجيه أو علبة المقود</li>
+          <li><span>✅</span> يقوم مؤازر التوجيه (Servosterzo) بتخفيف الجهد العضلي المطلوب من السائق لإدارة عجلة القيادة، خاصة أثناء المناورات البطيئة والركن</li>
+          <li><span>✅</span> إذا تعطل مؤازر التوجيه، يظل المقود يعمل ويوجه العجلات ميكانيكياً ولكنه يصبح ثقيلاً جداً ويتطلب جهداً بدنياً كبيراً لإدارته</li>
+          <li><span>✅</span> يجب فحص زوايا وضبط استقامة العجلات (Convergenza) عند ملاحظة انحراف السيارة جانباً في خط مستقيم</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> عند تعطل مؤازر التوجيه ينفصل المقود عن العجلات تماماً وتفقد السيارة التوجيه ❌</li>
+          <li><span>❌</span> الفضاوا الكبيرة في المقود تعتبر ميزة رياضية مطلوبة للقيادة على الأوتوستراد ❌</li>
+          <li><span>❌</span> مؤازر التوجيه يعمل فقط عندما تكون السيارة تسير بسرعة تفوق 130 كم/س ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> تعطل السيرفوستيرزو لا يلغي التوجيه، بل يجعل المقود ثقيلاً جداً (Pesante)؛ والبوش الزائد خلل ميكانيكي يتطلب الصيانة!
+      </div>
+    </div>
+
+    <!-- CARD: Equilibratura e Vibrazioni -->
+    <div class="signal-card" data-category="sospensioni-sterzo">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">⚖️ 🛞</div>
+          <div class="badge-visual-code">Equilibratura e Vibrazioni</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">ترصيص العجلات واهتزازات المقود (Equilibratura delle ruote)</h3>
+        <span class="card-it-title">Equilibratura delle ruote, vibrazioni al volante e convergenza</span>
+      </div>
+      <p class="card-desc-text">
+        التوزيع المتجانس لكتلة العجلة والجنط حول محور الدوران؛ دلالات الرجة والاهتزازات في عجلة القيادة عند سرعات معينة.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> عدم ضبط ترصيص العجلات (Ruote non equilibrate) يؤدي إلى حدوث رجة واهتزازات واضحة في عجلة القيادة (Vibrazioni al volante) عند سرعات محددة</li>
+          <li><span>✅</span> تتسبب العجلات غير المرصصة في تآكل مبكر وغير متجانس لمداس الإطارات وإجهاد مفاصل التوجيه وممتصات الصدمات</li>
+          <li><span>✅</span> يتم ضبط الترصيص بإضافة أوزان رصاصية صغيرة دقيقة على حافة الجنط المعدني لتحقيق التوازن الديناميكي التام</li>
+          <li><span>✅</span> انحراف السيارة تلقائياً إلى أحد الجانبين عند السير في طريق مستقيم يشير إلى خلل في زوايا ضبط المحاذاة (Convergenza errata)</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> اهتزاز المقود عند سرعة 90 كم/س يعتبر أمراً طبيعياً ولا يستدعي أي فحص فني ❌</li>
+          <li><span>❌</span> ترصيص العجلات يعني دهان الجنوط بألوان فسفورية عاكسة ❌</li>
+          <li><span>❌</span> إذا انحرفت السيارة لليمين يجب تفريغ الإطار الأيسر من الهواء لمعادلتها ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> رجة واهتزاز بالمقود عند سرعة معينة = خلل ترصيص (Equilibratura)؛ انحراف السيارة في خط مستقيم = خلل زوايا ومحاذاة (Convergenza)!
+      </div>
+    </div>
+
+    <!-- CARD: Livello Olio Motore -->
+    <div class="signal-card" data-category="motore-liquidi">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🛢️ 📏</div>
+          <div class="badge-visual-code">Livello Olio Motore</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">قياس منسوب زيت المحرك بالسيخ اليدوي (Controllo livello olio)</h3>
+        <span class="card-it-title">Controllo del livello dell'olio motore tramite asta graduata</span>
+      </div>
+      <p class="card-desc-text">
+        الخطوات الهندسية الصحيحة لفحص مستوى زيت التزييت؛ فحص السيارة على أرض مستوية والمحرك مطفأ وبارد بين علامتي MIN و MAX.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يجب فحص منسوب زيت المحرك والسيارة متوقفة على أرضية مستوية أفقية تماماً (In piano) والمحرك مطفأ وبارد (A motore spento e freddo)</li>
+          <li><span>✅</span> يتم سحب مقياس الزيت (Asta di livello) ومسحه بقطعة قماش نظيفة، ثم إدخاله بالكامل وإخراجه مجدداً لقراءة المنسوب</li>
+          <li><span>✅</span> يجب أن يكون مستوى الزيت مستقراً بين علامتي الحد الأدنى (MIN) والحد الأقصى (MAX) على مقياس الزيت</li>
+          <li><span>✅</span> يحظر تماماً أن يتجاوز منسوب الزيت علامة الحد الأقصى MAX لأن ذلك يسبب ضغطاً مفرطاً وتلفاً لعوازل الزيت (Paraoli) واحتراق الزيت مع العادم</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يجب فحص منسوب زيت المحرك والسيارة تسير على سرعة 100 كم/س ❌</li>
+          <li><span>❌</span> يستحسن ملء الزيت حتى يفيض من فتحة التعبئة لضمان تزييت كابوت السيارة ❌</li>
+          <li><span>❌</span> إذا كان مستوى الزيت تحت علامة MIN فهذا دليل على نظافة ونقاء المحرك ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> فحص الزيت يتم والسيارة على أرض مستوية والمحرك مطفأ وبارد؛ والزيت الزائد عن علامة MAX ضار ومدمر للمحرك كالنقصان تماماً!
+      </div>
+    </div>
+
+    <!-- CARD: Liquido Raffreddamento -->
+    <div class="signal-card" data-category="motore-liquidi">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🌡️ 💧</div>
+          <div class="badge-visual-code">Liquido Raffreddamento</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">سائل تبريد المحرك ومخاطر فتح الغطاء والمحرك ساخن</h3>
+        <span class="card-it-title">Impianto di raffreddamento, liquido antigelo e pericolo di ustioni</span>
+      </div>
+      <p class="card-desc-text">
+        دورة التبريد المغلقة للمحرك؛ استخدام ماء مضاف إليه سائل مانع للتجمد، والتحذير الطبي الصارم من فتح خزان التمدد أثناء سخونة المحرك.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يحتوي نظام التبريد على سائل خاص يتكون من ماء نقي وسائل مانع للتجمد (Liquido antigelo) لحماية المحرك من التجمد شتاءً والغليان صيفاً</li>
+          <li><span>✅</span> يحظر تماماً فتح غطاء خزان سائل التبريد (Vaschetta di espansione) عندما يكون المحرك ساخناً لتفادي اندفاع البخار والسائل المغلي والتسبب في حروق بالغة في الوجه واليدين</li>
+          <li><span>✅</span> إذا ارتفعت درجة حرارة سائل التبريد واقترب المؤشر من المنطقة الحمراء، يجب التوقف وإطفاء المحرك والانتظار حتى يبرد تماماً قبل الفحص</li>
+          <li><span>✅</span> يجب فحص مستوى سائل التبريد في الخزان الشفاف والتأكد من بقائه بين علامتي MIN و MAX</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يجب فتح غطاء الردياتير فوراً والمحرك في قمة غليانه لتبريده بالنفخ فيه ❌</li>
+          <li><span>❌</span> سائل التبريد يجب تفريغه بالكامل في فصل الشتاء لمنع المحرك من البرودة ❌</li>
+          <li><span>❌</span> يمكن استخدام ماء البحر المالح في دورة التبريد لأنه لا يتجمد ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> خطر طبي معتمد بالامتحان: حظر فتح غطاء مياه التبريد والمحرك ساخن (Pericolo di gravi ustioni per fuoriuscita di liquido bollente)!
+      </div>
+    </div>
+
+    <!-- CARD: Liquido Lavavetri -->
+    <div class="signal-card" data-category="motore-liquidi">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">💧 ❄️</div>
+          <div class="badge-visual-code">Liquido Lavavetri</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">سائل غسيل الزجاج ومضاد التجمد ومساحات الزجاج</h3>
+        <span class="card-it-title">Liquido lavavetri con antigelo e manutenzione spazzole tergicristallo</span>
+      </div>
+      <p class="card-desc-text">
+        ضمان وضوح الرؤية الأمامية؛ إضافة سائل مضاد للتجمد في خزان المساحات شتاءً، وفحص سلامة شفرات المساحات المطاطية.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يجب ملء خزان سائل غسيل الزجاج (Vaschetta lavacristalli) بسائل منظف مخصص مضاف إليه سائل مانع للتجمد في فصل الشتاء</li>
+          <li><span>✅</span> إهمال إضافة مانع التجمد لسائل المساحات شتاءً يؤدي لتجمد الماء داخل الأنابيب والخزان وتلف مضخة الغسيل وتشقق الزجاج</li>
+          <li><span>✅</span> تلف أو جفاف شفرات مساحات الزجاج المطاطية (Spazzole tergicristallo) يسبب صدور صرير وترك خطوط وتشوهات تحجب الرؤية وتخدش الزجاج</li>
+          <li><span>✅</span> يجب تنظيف وتفقد فتحات رشاشات المياه (Ugelli) بإبرة دقيقة لضمان توجيه رذاذ الماء على منتصف الزجاج الأمامي</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يجب ملء خزان سائل المساحات بزيت المحرك الثقيل لتلميع الزجاج ❌</li>
+          <li><span>❌</span> المساحات التالفة التي تترك خطوطاً على الزجاج تساهم في تبريد كابينة الركاب ❌</li>
+          <li><span>❌</span> لا يلزم أبداً تغيير مساحات الزجاج حتى لو تآكل المطاط وظهر المعدن ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> سائل المساحات يحتاج مانع تجمد شتاءً (Antigelo)؛ ومساحات الزجاج التالفة يجب استبدالها فوراً لسلامة الرؤية!
+      </div>
+    </div>
+
+    <!-- CARD: Spie Rosse di Allarme -->
+    <div class="signal-card" data-category="spie-sicurezza">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🚨 🔴</div>
+          <div class="badge-visual-code">Spie Rosse di Allarme</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">دلالات لمبات التابلوه الحمراء التحذيرية (Le Spie Rosse)</h3>
+        <span class="card-it-title">Spie rosse del quadro strumenti: pressione olio, freni, batteria e temperatura</span>
+      </div>
+      <p class="card-desc-text">
+        الترميز اللوني المعياري للمبات لوحة القيادة؛ دلالة اللون الأحمر على خطر داهم أو خلل جسيم يتطلب التوقف الفوري أو تحرير مكبح الركن.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> اللمبات ذات اللون الأحمر في لوحة القيادة (Spie rosse) تدل على وجود خطر داهم أو عطل حرج في أجهزة الأمان أو تفعيل مكبح اليد</li>
+          <li><span>✅</span> لمبة أمبولة الزيت الحمراء تدل على انعدام ضغط الزيت وتستوجب التوقف الفوري وإطفاء المحرك</li>
+          <li><span>✅</span> لمبة علامة التعجب الحمراء داخل دائرة تدل على أن فرملة اليد مشدودة أو أن سائل الفرامل هبط دون الحد الأدنى</li>
+          <li><span>✅</span> لمبة مقياس الحرارة الحمراء تدل على الارتفاع المفرط لدرجة حرارة سائل تبريد المحرك (Surriscaldamento)</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> اللمبات الحمراء في التابلوه تضاء فقط للزينة والجمال الداخلي للسيارة ❌</li>
+          <li><span>❌</span> إضاءة لمبة الزيت الحمراء تعني أن السيارة يمكنها مواصلة السفر لمسافة 500 كم إضافية ❌</li>
+          <li><span>❌</span> اللمبات الحمراء تعني أعطالاً بسيطة يمكن تأجيل فحصها لعدة سنوات ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> القاعدة الذهبية: اللمبة الحمراء تعني توقف فوري وفحص عاجل (ما عدا لمبة فرامل اليد التي تنطفئ بإنزال الذراع)!
+      </div>
+    </div>
+
+    <!-- CARD: Spie Gialle e Ambra -->
+    <div class="signal-card" data-category="spie-sicurezza">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">⚠️ 🟡</div>
+          <div class="badge-visual-code">Spie Gialle e Ambra</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">دلالات لمبات التابلوه الصفراء والبرتقالية (Le Spie Gialle/Ambra)</h3>
+        <span class="card-it-title">Spie gialle/ambra: avaria motore, ABS, riserva carburante e retronebbia</span>
+      </div>
+      <p class="card-desc-text">
+        اللون الأصفر والبرتقالي في التابلوه؛ دلالة على تفعيل جهاز خاص، أو وجود عطل مؤقت لا يستوجب التوقف الميداني الفوري ولكن يتطلب مراجعة الورشة.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> اللمبات الصفراء أو البرتقالية (Spie gialle / ambra) تشير إلى تحذير أو عطل في نظام إلكتروني أو تفعيل وظيفة إضافية</li>
+          <li><span>✅</span> لمبة مضخة الوقود الصفراء تشير إلى وصول كمية الوقود إلى حد الاحتياطي (Riserva di carburante)</li>
+          <li><span>✅</span> لمبة دائرة ABS الصفراء تدل على وجود عطل في نظام منع انغلاق المكابح؛ وتظل الفرامل العادية تعمل ولكن دون حماية ABS ضد الانغلاق</li>
+          <li><span>✅</span> لمبة كشاف الضباب الخلفي الصفراء تدل على أن مصباح الضباب الخلفي الأحمر مشغل</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> إضاءة لمبة ABS الصفراء تعني أن فرامل السيارة تعطلت تماماً ولن تتوقف السيارة إطلاقاً ❌</li>
+          <li><span>❌</span> اللمبة الصفراء تعني أن السيارة ستنفجر خلال 10 ثوانٍ ❌</li>
+          <li><span>❌</span> لمبة احتياطي الوقود الصفراء تعني أن خزان الوقود ممتلئ تماماً ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> عند إضاءة لمبة ABS الصفراء: الفرامل العادية تظل تعمل بكفاءة تامة، ولكن يفقد السائق ميزة منع انغلاق العجلات فقط!
+      </div>
+    </div>
+
+    <!-- CARD: Interruttore Inerziale -->
+    <div class="signal-card" data-category="spie-sicurezza">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">⚡ 🛑</div>
+          <div class="badge-visual-code">Interruttore Inerziale</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">مفتاح الأمان القصوري لمنع اشتعال النيران (Interruttore inerziale)</h3>
+        <span class="card-it-title">Interruttore inerziale di blocco carburante in caso di urto violento</span>
+      </div>
+      <p class="card-desc-text">
+        جهاز استشعار وقائي يقطع ضخ الوقود فورياً عند تعرض السيارة لاصطدام عنيف؛ لمنع تسرب البنزين واندلاع النيران.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> مفتاح الأمان القصوري (Interruttore inerziale) جهاز أمان أوتوماتيكي يتدخل فورياً عند وقوع تصادم أو حادث عنيف</li>
+          <li><span>✅</span> وظيفته قطع التغذية الكهربائية عن مضخة الوقود لمنع استمرار ضخ البنزين أو الديزل عبر الأنابيب الممزقة</li>
+          <li><span>✅</span> يهدف المفتاح إلى تقليل مخاطر اندلاع الحرائق وانفجار المركبة بعد وقوع الحادث</li>
+          <li><span>✅</span> في بعض السيارات، يفتح المفتاح أيضاً أقفال الأبواب أوتوماتيكياً ويشغل أضواء الطوارئ وأضواء الصالون لتسهيل إنقاذ الركاب</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> مفتاح الأمان القصوري يقوم بإطلاق مقعد السائق في الهواء بالمظلة ❌</li>
+          <li><span>❌</span> يقوم المفتاح بضخ البنزين بأقصى قوة في محيط الحادث لإخماد النيران ❌</li>
+          <li><span>❌</span> يجب على السائق تفعيل المفتاح يدوياً بيده قبل الاصطدام بجزء من الثانية ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> المفتاح القصوري (Interruttore inerziale) وظيفته الحيوية قطع تدفق الوقود (Blocco afflusso carburante) لمنع اندلاع الحرائق بعد الحادث!
+      </div>
+    </div>
+
+    <!-- CARD: Correttore Assetto Fari -->
+    <div class="signal-card" data-category="spie-sicurezza">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">💡 📐</div>
+          <div class="badge-visual-code">Correttore Assetto Fari</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">مصحح ومعدل ارتفاع حزمة الأضواء (Regolazione dell'assetto fari)</h3>
+        <span class="card-it-title">Regolazione del fascio luminoso dei fari in base al carico</span>
+      </div>
+      <p class="card-desc-text">
+        الزر والموجه الميكانيكي أو الكهربائي لضبط زاوية هبوط ضوء الكشافات الأمامية؛ تفادي إبهار القادمين عند تحميل أمتعة ثقيلة في الخلف.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> عند تحميل السيارة بأمتعة ثقيلة في الصندوق الخلفي أو ركوب ركاب في المقاعد الخلفية، ينخفض الجزء الخلفي وترتفع مقدمة السيارة للأعلى</li>
+          <li><span>✅</span> ارتفاع مقدمة السيارة يوجه حزمة ضوء الكشافات المنخفضة (Anabbaglianti) للأعلى مما يسبب انبهاراً شديداً وعمى مؤقتاً للسائقين القادمين</li>
+          <li><span>✅</span> يجب استخدام جهاز تعديل ارتفاع الفئات (Correttore assetto fari) بخفض حزمة الضوء للأسفل لتعويض ارتفاع مقدمة المركبة</li>
+          <li><span>✅</span> تزويد المصابيح بمصابيح غير مطابقة أو تركيب كشافات زينون غير أصلية مخالف للقانون ويسبب إبهاراً خطيراً</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يجب توجيه حزمة الضوء لأعلى زاوية ممكنة نحو السماء لرؤية الطائرات والنجوم ❌</li>
+          <li><span>❌</span> عند تحميل الصندوق الخلفي بالأوزان الثقيلة تنخفض مقدمة السيارة نحو الأسفلت ❌</li>
+          <li><span>❌</span> لا تتأثر زاوية إضاءة الفوانيس بحمولة السيارة أو عدد الركاب إطلاقاً ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> الحمولة الخلفية ترفع مقدمة السيارة للأعلى (Solleva l'avantreno)؛ والتصرف السليم هو ضبط مفتاح الفوانيس لخفض الحزمة الضوئية للأسفل!
+      </div>
+    </div>
+  </div><!-- /signals-grid -->
+
+  <!-- GLOSSARY SECTION -->
+  <div class="section-heading" id="glossary-section">
+    <div class="section-badge">المعجم الميكانيكي والهندسي للباب الأخير 25</div>
+    <h2 class="section-title">قاموس المصطلحات الإيطالية للميكانيكا والصيانة والإطارات</h2>
+  </div>
+
+  <div class="glossary-grid">
+    <div class="glossary-card">
+      <div class="term-it">Sistema ABS</div>
+      <div class="term-ar">نظام منع انغلاق المكابح</div>
+      <div class="term-def">نظام أمان إلكتروني يمنع انغلاق العجلات أثناء الكبح الشديد للحفاظ على توجيه السيارة وتفادي الاصطدام.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Servofreno</div>
+      <div class="term-ar">مؤازر الفرامل الميكانيكي</div>
+      <div class="term-def">جهاز يضاعف قوة ضغط القدم على الدواسة بجهد خفيف؛ يعمل والمحرك شغال ويتعطل عند إطفاء المحرك فتثقل الدواسة.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Battistrada</div>
+      <div class="term-ar">مداس ونقشة الإطار المطاطية</div>
+      <div class="term-def">الجزء الخارجي للإطار الملامس للطريق والمحتوي على قنوات تصريف المياه؛ الحد الأدنى 1.6 مم للسيارات و1.0 للموتوسيكل.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Ruotino di soccorso</div>
+      <div class="term-ar">عجلة الطوارئ البديلة</div>
+      <div class="term-def">إطار بديل مؤقت ومصغر، سرعته القصوى 80 كم/ساعة وضغط نفخه مرتفع (حوالي 4 بار) للوصول لأقرب ورشة.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Ammortizzatore</div>
+      <div class="term-ar">ممتص الصدمات (المساعد)</div>
+      <div class="term-def">أسطوانة هيدروليكية تخمد وتكبح ارتداد نوابض السيارة لتحافظ على التصاق الإطارات بالأرض ومنع التأرجح.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Servosterzo</div>
+      <div class="term-ar">مؤازر التوجيه الهيدروليكي/الكهربائي</div>
+      <div class="term-def">نظام مساعد يقلل الجهد العضلي المطلوب لإدارة مقود السيارة أثناء السير البطيء ومناورات الركن.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Equilibratura delle ruote</div>
+      <div class="term-ar">ترصيص وتوازن العجلات</div>
+      <div class="term-def">توزيع أوزان العجلة ديناميكياً بالتساوي لمنع حدوث رجة واهتزازات في المقود عند سرعات محددة.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Convergenza delle ruote</div>
+      <div class="term-ar">ضبط زوايا ومحاذاة العجلات</div>
+      <div class="term-def">ضبط هندسي لتوازي واستقامة العجلات الأمامية لمنع انحراف السيارة جانباً في الخطوط المستقيمة.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Pneumatici tubeless</div>
+      <div class="term-ar">إطارات بدون غرفة هواء داخلية</div>
+      <div class="term-def">إطارات تلتصق بالجنط مباشرة دون أنبوب داخلي، وتتميز بتسريب الهواء ببطء تدريجي عند الثقب لمنع الانفجار المفاجئ.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Asta di livello dell'olio</div>
+      <div class="term-ar">مقياس زيت المحرك اليدوي</div>
+      <div class="term-def">سيخ معدني مدرج بعلامتي MIN و MAX يستخدم لفحص منسوب الزيت والسيارة متوقفة على أرض مستوية والمحرك مطفأ وبارد.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Vaschetta di espansione</div>
+      <div class="term-ar">خزان تمدد سائل التبريد</div>
+      <div class="term-def">وعاء شفاف يحتوي على مياه التبريد ومضاد التجمد؛ يحظر فتح غطائه والمحرك ساخن لتفادي حروق البخار المغلي.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Interruttore inerziale</div>
+      <div class="term-ar">مفتاح الأمان القصوري للصدمات</div>
+      <div class="term-def">حساس أوتوماتيكي يقطع ضخ الوقود عن المحرك فور وقوع اصطدام عنيف لمنع تسرب البنزين واندلاع النيران.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Spia di allarme rossa</div>
+      <div class="term-ar">لمبة الإنذار الحمراء</div>
+      <div class="term-def">مصباح بالتابلوه يدل على خطر داهم أو عطل حرج يتطلب التوقف الفوري وإطفاء المحرك (كزيت المحرك أو الحرارة).</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Spazzole tergicristallo</div>
+      <div class="term-ar">شفرات مساحات الزجاج المطاطية</div>
+      <div class="term-def">أذرع مطاطية لتنظيف الزجاج؛ يجب استبدالها فور جفافها أو تمزقها لمنع تشويه الرؤية وخدش الزجاج.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Freno a mano / stazionamento</div>
+      <div class="term-ar">فرملة الركن اليدوية</div>
+      <div class="term-def">فرملة ميكانيكية تعمل على عجلات المحور الخلفي لتثبيت المركبة أثناء التوقف التام في المنحدرات.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Correttore assetto fari</div>
+      <div class="term-ar">معدل ارتفاع حزمة الأضواء</div>
+      <div class="term-def">مفتاح تحكم لتعديل خفض حزمة ضوء الفوانيس الأمامية للأسفل عند تحميل الأمتعة في الصندوق الخلفي لمنع إبهار الآخرين.</div>
+    </div>
+  </div>
+
+  <!-- TRAPS SECTION -->
+  <div class="traps-section" id="traps-section">
+    <div class="section-heading">
+      <div class="section-badge">الفخاخ الامتحانية الوزارية الرسمية</div>
+      <h2 class="section-title">أخطر 12 فخاً وزارياً في الباب 25 يقع فيها الطلاب</h2>
+    </div>
+
+    <div class="traps-grid">
+      <!-- Trap 1 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ نظام ABS وتقصير مسافة الفرملة دائماً</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Il sistema ABS consente di ridurre in ogni caso lo spazio di frenatura rispetto a un veicolo che ne è sprovvisto"</p>
+        <p class="trap-quiz-trans">«نظام ABS يتيح في كافة الحالات تقليل مسافة الفرملة مقارنة بالمركبة غير المزودة به»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة تماماً (FALSO). نظام ABS صمم أساساً للحفاظ على إمكانية توجيه السيارة بالمقود وتفادي العوائق (Sterzabilità)؛ ولكنه لا يقلل بالضرورة مسافة التوقف على الأسفلت الجاف، بل قد يطيل مسافة الفرملة قليلاً على الطرق المغطاة بالثلوج أو الحصى السائب.
+        </div>
+      </div>
+
+      <!-- Trap 2 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ ارتجاج دواسة الفرامل مع ABS</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Se durante una frenata di emergenza si avverte una pulsazione al pedale del freno, significa che l'impianto frenante è guasto"</p>
+        <p class="trap-quiz-trans">«إذا شعرت بنبض وارتجاج في دواسة الفرامل أثناء الفرملة الطارئة، فهذا يعني أن نظام الفرامل معطل»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). ارتجاج ونبض دواسة الفرامل (Pulsazione del pedale) هو رد فعل ميكانيكي وهيدروليكي طبيعي تماماً يدل على أن نظام ABS يعمل بأعلى كفاءة لمنع انغلاق العجلات؛ ويجب على السائق الاستمرار في الضغط بقوة على الدواسة وعدم رفع قدمه أبداً.
+        </div>
+      </div>
+
+      <!-- Trap 3 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ السرعة القصوى لعجلة الطوارئ Ruotino</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"Quando si monta il ruotino di soccorso, non è consentito superare la velocità di 80 km/h"</p>
+        <p class="trap-quiz-trans">«عند تركيب عجلة الطوارئ البديلة، لا يجوز تجاوز سرعة 80 كم/س»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة تماماً (VERO). عجلة الطوارئ مخصصة للاستخدام المؤقت لمسافات قصيرة للوصول لأقرب ورشة؛ وحجمها المصغر يفرض سقفاً قانونياً صارماً للسرعة لا يتجاوز 80 كم/ساعة على كافة الطرق بما فيها الأوتوستراد.
+        </div>
+      </div>
+
+      <!-- Trap 4 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ دلالة لمبة أمبولة الزيت الحمراء</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"La spia rossa dell'olio sul cruscotto indica che è necessario cambiare l'olio motore al più presto entro 1.000 km"</p>
+        <p class="trap-quiz-trans">«لمبة الزيت الحمراء في التابلوه تدل على ضرورة تغيير زيت المحرك في أقرب وقت خلال 1.000 كم»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة وخطيرة (FALSO). لمبة الزيت الحمراء لا تعني موعد الصيانة الدورية، بل تدل على انعدام أو انهيار حاد في ضغط زيت التزييت (Mancanza di pressione dell'olio)؛ ويجب إيقاف السيارة وإطفاء المحرك فوراً لتفادي تدمير وسحق المحرك ميكانيكياً.
+        </div>
+      </div>
+
+      <!-- Trap 5 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ الحد الأدنى لمداس إطار السيارة 1.6 مم</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"Il battistrada dei pneumatici degli autoveicoli deve avere uno spessore minimo di almeno 1,6 mm"</p>
+        <p class="trap-quiz-trans">«يجب أن يكون لمداس إطارات السيارات سمك أدنى لا يقل عن 1.6 مم»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة تماماً (VERO). هذا هو المقياس القانوني الأدنى للسيارات؛ بينما يحدد بـ 1.0 مم للموتوسيكلات و 0.5 مم للسيكلوموتوري.
+        </div>
+      </div>
+
+      <!-- Trap 6 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ فتح غطاء مياه التبريد والمحرك ساخن</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Se il motore si surriscalda, bisogna aprire immediatamente il tappo della vaschetta del liquido di raffreddamento"</p>
+        <p class="trap-quiz-trans">«إذا ارتفعت حرارة المحرك، يجب فتح غطاء خزان سائل التبريد فوراً»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة وكارثية طبياً (FALSO). فتح غطاء دائرة التبريد والمحرك ساخن يؤدي إلى انفجار السائل المغلي والبخار المضغوط في وجه ويدي السائق مسبباً حروقاً بالغة؛ ويجب الانتظار حتى يبرد المحرك تماماً قبل الفحص.
+        </div>
+      </div>
+
+      <!-- Trap 7 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ عمل مؤازر الفرامل والمحرك مطفأ</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"A motore spento, il servofreno non funziona e per frenare occorre esercitare una pressione molto maggiore sul pedale"</p>
+        <p class="trap-quiz-trans">«عندما يكون المحرك مطفأ، يتعطل مؤازر الفرامل ولإيقاف السيارة يلزم ممارسة ضغط أكبر بكثير على الدواسة»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة تماماً (VERO). مؤازر الفرامل يعتمد على خلخلة الهواء الناتجة عن دوران المحرك؛ وبإطفاء المحرك تفقد المساعدة وتصبح الدواسة قاسية جداً وتتطلب قوة عضلية شاقة.
+        </div>
+      </div>
+
+      <!-- Trap 8 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ ترصيص العجلات وانحراف السيارة</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"La mancata equilibratura delle ruote anteriori provoca la deviazione costante del veicolo verso destra o sinistra"</p>
+        <p class="trap-quiz-trans">«عدم ترصيص العجلات الأمامية يسبب انحرافاً مستمراً للمركبة نحو اليمين أو اليسار»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). عدم الترصيص (Mancata equilibratura) يسبب رجة واهتزازات في المقود عند سرعات معينة (Vibrazioni al volante)؛ أما انحراف السيارة جانباً في خط مستقيم فسببه خلل في زوايا ومحاذاة العجلات (Convergenza errata) أو اختلاف ضغط الإطارات.
+        </div>
+      </div>
+
+      <!-- Trap 9 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ فك صواميل العجلة في الهواء</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Durante la sostituzione della ruota, i bulloni vanno allentati solo dopo aver sollevato completamente la vettura con il cric"</p>
+        <p class="trap-quiz-trans">«أثناء استبدال العجلة، يتم فك الصواميل فقط بعد رفع السيارة بالكامل بالرافعة»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة وتسبب سقوط السيارة (FALSO). يجب فك وخلخلة الصواميل جزئياً والإطار ما زال يلامس الأرض لتثبيت العجلة، لأنه إذا رفعت السيارة أولاً ستدور العجلة في الهواء مع محاولة فك الصواميل مما قد يسقط السيارة عن الرافعة.
+        </div>
+      </div>
+
+      <!-- Trap 10 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ وظيفة المفتاح القصوري (Interruttore inerziale)</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"L'interruttore inerziale blocca l'afflusso di carburante al motore in caso di urto violento"</p>
+        <p class="trap-quiz-trans">«المفتاح القصوري يقطع تدفق الوقود إلى المحرك في حالة حدوث تصادم عنيف»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة تماماً (VERO). هذا صمام أمان أوتوماتيكي يقطع التغذية الكهربائية عن مضخة الوقود فور الاصطدام لتفادي تسرب البنزين واندلاع النيران في مسرح الحادث.
+        </div>
+      </div>
+
+      <!-- Trap 11 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ ممتصات الصدمات والتصاق الإطارات</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Gli ammortizzatori scarichi migliorano la tenuta di strada del veicolo sui fondi stradali dissestati"</p>
+        <p class="trap-quiz-trans">«ممتصات الصدمات التالفة تحسن من تماسك وثبات السيارة على الطرق الوعرة»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة تماماً (FALSO). المساعدين التالفين يجعلون العجلات ترتد وتطير عن الأرض دون التصاق بالأسفلت، مما يفقد السائق تماسك وتوجيه السيارة ويزيد مسافة الفرملة بشكل خطير.
+        </div>
+      </div>
+
+      <!-- Trap 12 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ ربط صواميل العجلة بطريقة متقاطعة</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"Il serraggio dei bulloni della ruota sostituita deve essere eseguito a croce"</p>
+        <p class="trap-quiz-trans">«يجب إحكام ربط صواميل العجلة المستبدلة بطريقة متقاطعة (شكل صليب)»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة تماماً (VERO). الربط المتقاطع (A croce) يضمن توزيع الضغط بالتساوي واستقرار الجنط على الصرة بشكل محكم ومثالي دون اعوجاج.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER PAGINATION -->
+  <nav class="chapter-pagination">
+    <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="pagination-btn prev-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">→</span>
+      <div class="pagination-info">
+        <span class="pagination-label">الباب السابق</span>
+        <span class="pagination-title">الباب 24: استهلاك الوقود والبيئة</span>
+      </div>
     </a>
-    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">⏱️</span>
-      <span>محاكي الامتحان الوزاري (20 دقيقة)</span>
+
+    <a href="index.html" class="pagination-btn index-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">🏛️</span>
+      <div class="pagination-info">
+        <span class="pagination-label">العودة</span>
+        <span class="pagination-title">فهرس المكتبة الشاملة</span>
+      </div>
     </a>
-    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📑</span>
-      <span>فهرس المكتبة الشاملة المعتمدة</span>
+
+    <a href="index.html" class="pagination-btn next-btn" onclick="soundEngine.click()">
+      <div class="pagination-info" style="text-align:left;">
+        <span class="pagination-label">الفهرس العام</span>
+        <span class="pagination-title">ختام المكتبة الشاملة المعتمدة 🏆</span>
+      </div>
+      <span class="pagination-icon">🎉</span>
     </a>
-    <a href="دليل_الباب_23_السرعة_ومسافة_الأمان_والتجاوز.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 23 (السرعة ومسافة الأمان والتجاوز)</span>
-    </a>
-    <a href="دليل_الباب_24_المسؤولية_والتأمين.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 24 (المسؤولية والتأمين RCA)</span>
-    </a>
-    <a href="دليل_الباب_الأخير.html" class="mobile-nav-link active" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل وقاموس الباب الأخير (الميكانيكا والصيانة)</span>
-    </a>
-  </div>
+  </nav>
 
-  <div class="mobile-drawer-footer">
-    <button class="mobile-control-btn" onclick="toggleAudio()">
-      <span class="audio-icon-span">🔊</span>
-      <span class="audio-label-span">الصوت نشط</span>
-    </button>
-    <div class="mobile-control-btn" style="cursor: default; opacity: 0.85;">
-      <span>🇮🇹 ⬅️ 🇸🇦 Patente B</span>
-    </div>
-  </div>
-</div><div class="container">
-<div class="content-sheet">
-    <h1 class="main-title">دليل وقاموس الباب الأخير ثنائي اللغة (إيطالي/عربي) المعتمد والشامل</h1><h3 class="sub-lead">الميكانيكا، الصيانة، أجهزة الأمان، البيئة، والإسعافات الأولية (Capitolo 21 - 25)</h3><div class="callout-box">📌 **وثيقة معتمدة ومراجعة بنسبة 100%:** تجمع بين ملخص المادة العلمية، القاموس اللغوي الدقيق، والجداول الرسمية، مع إضافة كافة المفاهيم والكلمات الفنية التي تتكرر كفخاخ في اختبارات رخصة القيادة الإيطالية (*Patente A e B*).</div><hr class="divider"><h2 class="section-title">فهرس المحتويات</h2><div class="num-item"><strong>1. </strong> [الصيانة وأجزاء المركبة والميكانيكا (Manutenzione e Meccanica)](#1-الصيانة-وأجزاء-المركبة-والميكانيكا)</div><div class="num-item"><strong>2. </strong> [نظام الفرامل ومانع الانغلاق ABS وإطار الطوارئ](#2-الفرامل-و-abs-وإطار-الطوارئ)</div><div class="num-item"><strong>3. </strong> [الإطارات وضغط الهواء والانزلاق المائي (Pneumatici e Aquaplaning)](#3-الإطارات-وضغط-الهواء-والانزلاق-المائي)</div><div class="num-item"><strong>4. </strong> [التلوث البيئي والصوتي وترشيد الاستهلاك (Inquinamento e Consumo)](#4-التلوث-البيئي-والصوتي-وترشيد-الاستهلاك)</div><div class="num-item"><strong>5. </strong> [الإسعافات الأولية وقواعد التعامل مع المصابين (Primo Soccorso)](#5-الإسعافات-الأولية-وقواعد-التعامل-مع-المصابين)</div><div class="num-item"><strong>6. </strong> [الحوادث ومثلث الخطر والسترة العاكسة (Incidenti e Triangolo)](#6-الحوادث-ومثلث-الخطر-والسترة-العاكسة)</div><div class="num-item"><strong>7. </strong> [لمبات البيان وأجهزة السلامة السلبية (Spie e Dispositivi di Sicurezza)](#7-لمبات-البيان-وأجهزة-السلامة-السلبية)</div><div class="num-item"><strong>8. </strong> [جدول الفحص الفني الدوري للمركبات (Revisione dei Veicoli)](#8-جدول-الفحص-الفني-الدوري)</div><p class="para">9. [معجم فخاخ الامتحان وألفاظ الجزم الخادعة (I Trabocchetti)](#9-معجم-فخاخ-الامتحان)</p><hr class="divider"><h2 class="section-title">1. الصيانة وأجزاء المركبة والميكانيكا (Manutenzione e Meccanica)</h2><h3 class="sub-lead">المصطلحات الأساسية:</h3><div class="bullet-item">• <strong>Revisione dei veicoli</strong> = الفحص الفني الدوري الإجباري للمركبة.</div><div class="bullet-item">• <strong>Ammortizzatori scarichi</strong> = ممتصات الصدمات (المساعدين) التالفة أو المفرغة من الزيت.</div><div class="bullet-item">• <strong>Sospensioni inefficienti</strong> = نظام التعليق غير الفعال.</div><div class="bullet-item">• <strong>Servosterzo</strong> = معزز التوجيه (الباور ستيرينج).</div><div class="bullet-item">• <strong>Liquido di raffreddamento / refrigerante</strong> = سائل تبريد المحرك.</div><div class="bullet-item">• <strong>Olio motore</strong> = زيت المحرك (يتم قياسه بمقياس الزيت Aste di livello على أرض مستوية والمحرك بارد A motore freddo).</div><div class="bullet-item">• <strong>Filtro dell'aria intasato</strong> = فلتر هواء مسدود (يسبب زيادة استهلاك الوقود ودخاناً أسود).</div><div class="bullet-item">• <strong>Batteria e morsetti</strong> = بطارية السيارة وأقطاب التوصيل (يجب تنظيفها وحمايتها من التأكسد).</div><h3 class="sub-lead">قواعد ميكانيكية هامة وفخاخها:</h3><div class="bullet-item">• <strong>نزول المنحدرات في وضع "الفاضي" (Discesa in folle):</strong></div><div class="bullet-item">• ❌ *فخ:* يزعم السؤال أنه يمكن توفير الوقود بإنزال السيارة في وضع "الفاضي" (Folle أو In folle) أو بالضغط المستمر على الدبرياج.</div><div class="bullet-item">• ✅ *القاعدة:* <strong>ممنوع قطعاً (È vietato)</strong>؛ لأن ذلك يسخن الفرامل ويفرغها من كفاءتها، بل يجب تعشيق غيار ثقيل (Marcia bassa) للاستفادة من فرملة المحرك (*Freno motore*).</div><div class="bullet-item">• <strong>معزز التوجيه (Servosterzo):</strong></div><div class="bullet-item">• ❌ *فخ:* إذا توقف المحرك فجأة ينقفل مقود السيارة تماماً. ⬅️ <strong>FALSO</strong>.</div><div class="bullet-item">• ✅ *القاعدة:* المقود لا ينقفل بل يصبح ثقيلاً جداً وتصعب إدارته (*Diventa pesante*).</div><div class="bullet-item">• <strong>المساعدين التالفين (Ammortizzatori scarichi):</strong></div><div class="bullet-item">• تسبب قفز العجلات عن الأسفلت، زيادة مسافة الفرملة (*Aumento dello spazio di frenata*)، تمايل السيارة في المنعطفات، وإبهار السائقين الآخرين ليلاً لتأرجح الأضواء.</div><hr class="divider"><h2 class="section-title">2. الفرامل و ABS وإطار الطوارئ</h2><h3 class="sub-lead">المصطلحات الأساسية:</h3><div class="bullet-item">• <strong>Frenatura di servizio</strong> = فرملة الخدمة (الدواسة الرئيسية) وتؤثر على جميع العجلات الأربع معاً.</div><div class="bullet-item">• <strong>Freno di stazionamento</strong> = فرامل اليد (التوقف)، وتؤثر عادة على العجلات الخلفية فقط.</div><div class="bullet-item">• <strong>Freno di soccorso</strong> = فرملة الطوارئ البديلة في حال تعطل أحد نصفي دائرة الفرامل.</div><div class="bullet-item">• <strong>ABS (Sistema antibloccaggio)</strong> = نظام مانع انغلاق العجلات أثناء الفرملة القصوى.</div><div class="bullet-item">• <strong>Pastiglie e dischi freno</strong> = تيل وأسطوانات (ديسكات) الفرامل.</div><div class="bullet-item">• <strong>Liquido dei freni</strong> = سائل الفرامل (في دائرة مغلقة؛ هبوط مستواه يعني تآكل التيل أو وجود تسريب، ولا يُزوّد بالماء إطلاقاً).</div><div class="bullet-item">• <strong>Ruotino di scorta</strong> = إطار الطوارئ الصغير المؤقت.</div><h3 class="sub-lead">فخاخ الـ ABS وإطار الطوارئ:</h3><div class="bullet-item">• ⚠️ <strong>فخ الـ ABS الأول:</strong> *نظام الـ ABS يقلل دائماً وفي كل الأحوال من مسافة الفرملة.* ⬅️ **FALSO ❌**</div><p class="para">*(على الأسطح الزلقة جداً كالحصى أو الثلج الكثيف قد تزيد مسافة التوقف قليلاً مقارنة بالإطارات المنغلقة).*</p><div class="bullet-item">• ✅ <strong>ميزة الـ ABS الحقيقية:</strong> الحفاظ على إمكانية توجيه السيارة (*Garantire la direzionalità del veicolo*) ومناورة العوائق أثناء الضغط الأقصى على الدواسة.</div><div class="bullet-item">• ⚠️ <strong>فخ إطار الطوارئ (Ruotino):</strong></div><div class="bullet-item">• أقصى سرعة مسموحة له هي <strong>80 km/h</strong> فقط.</div><div class="bullet-item">• مخصص للاستخدام المؤقت ولأقرب ورشة (*Uso temporaneo*).</div><div class="bullet-item">• لا يجوز تركيب إطارين طوارئ على نفس المحور.</div><hr class="divider">
-<div class="diagram-wrapper">
-  <div class="diagram-wrapper-title">
-    <span>🛞</span>
-    <span>رسم توضيحي: عيوب ضغط هواء الإطار ومواضع التآكل (Pressione e Usura)</span>
-  </div>
+</main>
 
-  <div class="comparison-grid">
-    <!-- Low Pressure Card -->
-    <div class="compare-card penale">
-      <div class="card-top">
-        <div class="card-title-text" style="color: #f43f5e;">ضغط منخفض (Pressione Bassa)</div>
-        <span class="card-badge badge-rose">تآكل جانبي</span>
-      </div>
-      <!-- SVG Tire Visual -->
-      <div style="padding: 10px 0; text-align: center;">
-        <svg viewBox="0 0 200 70" width="100%" style="max-width:180px; height:auto; display:inline-block;">
-          <path d="M25,52 C25,18 175,18 175,52 L170,57 C165,57 155,47 100,47 C45,47 35,57 30,57 Z" fill="#27272a" stroke="#a1a1aa" stroke-width="2"/>
-          <line x1="15" y1="62" x2="185" y2="62" stroke="#71717a" stroke-width="3"/>
-          <ellipse cx="30" cy="56" rx="8" ry="4" fill="#f43f5e"/>
-          <ellipse cx="170" cy="56" rx="8" ry="4" fill="#f43f5e"/>
-        </svg>
-      </div>
-      <div class="card-subtitle-text" style="color: #fda4af;">التآكل على الحواف والجوانب الخارجية (Bordi esterni / Spalle)</div>
-      <div class="card-rule"></div>
-      <ul class="card-points">
-        <li>
-          <span class="p-icon">⛽</span>
-          <div>يزيد استهلاك الوقود بشكل ملحوظ لزيادة مقاومة الدوران (Resistenza al rotolamento).</div>
-        </li>
-        <li>
-          <span class="p-icon">🔥</span>
-          <div style="color: #fca5a5; font-weight: 600;">يرفع درجة حرارة الإطار ويزيد خطورة انفصاله أو انفجاره.</div>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Correct Pressure Card -->
-    <div class="compare-card emerald">
-      <div class="card-top">
-        <div class="card-title-text" style="color: #34d399;">ضغط مثالي (Pressione Corretta)</div>
-        <span class="card-badge badge-emerald">تآكل متساوٍ</span>
-      </div>
-      <!-- SVG Tire Visual -->
-      <div style="padding: 10px 0; text-align: center;">
-        <svg viewBox="0 0 200 70" width="100%" style="max-width:180px; height:auto; display:inline-block;">
-          <path d="M25,52 C25,18 175,18 175,52 L170,60 L30,60 Z" fill="#27272a" stroke="#10b981" stroke-width="2"/>
-          <line x1="15" y1="62" x2="185" y2="62" stroke="#71717a" stroke-width="3"/>
-          <line x1="30" y1="60" x2="170" y2="60" stroke="#34d399" stroke-width="3.5"/>
-        </svg>
-      </div>
-      <div class="card-subtitle-text" style="color: #a7f3d0;">تآكل منتظم ومتساوٍ على كامل المداس (Consumo uniforme)</div>
-      <div class="card-rule"></div>
-      <ul class="card-points">
-        <li>
-          <span class="p-icon">🛡️</span>
-          <div>أقصى ثبات وتماسك للمركبة على المنعطفات والأسفلت الرطب.</div>
-        </li>
-        <li>
-          <span class="p-icon">✅</span>
-          <div style="color: #6ee7b7; font-weight: 600;">أقصر مسافة فرملة ممكنة وعمر افتراضي أطول للإطارات.</div>
-        </li>
-      </ul>
-    </div>
-
-    <!-- High Pressure Card -->
-    <div class="compare-card penale">
-      <div class="card-top">
-        <div class="card-title-text" style="color: #f43f5e;">ضغط مرتفع (Pressione Eccessiva)</div>
-        <span class="card-badge badge-rose">تآكل في الوسط</span>
-      </div>
-      <!-- SVG Tire Visual -->
-      <div style="padding: 10px 0; text-align: center;">
-        <svg viewBox="0 0 200 70" width="100%" style="max-width:180px; height:auto; display:inline-block;">
-          <path d="M25,48 C25,18 175,18 175,48 L155,54 C135,56 115,60 100,60 C85,60 65,56 45,54 Z" fill="#27272a" stroke="#a1a1aa" stroke-width="2"/>
-          <line x1="15" y1="62" x2="185" y2="62" stroke="#71717a" stroke-width="3"/>
-          <ellipse cx="100" cy="60" rx="18" ry="4" fill="#f43f5e"/>
-        </svg>
-      </div>
-      <div class="card-subtitle-text" style="color: #fda4af;">التآكل في منتصف نقشة الإطار (Parte centrale del battistrada)</div>
-      <div class="card-rule"></div>
-      <ul class="card-points">
-        <li>
-          <span class="p-icon">📉</span>
-          <div>يقلل تماسك الإطار مع الأرض ويزيد قساوة واهتزازات السيارة.</div>
-        </li>
-        <li>
-          <span class="p-icon">⚠️</span>
-          <div style="color: #fca5a5; font-weight: 600;">ضعف امتصاص الصدمات وإجهاد المساعدين ونظام التعليق.</div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<h2 class="section-title">3. الإطارات وضغط الهواء والانزلاق المائي (Pneumatici e Aquaplaning)</h2><h3 class="sub-lead">جدول الحدود الدنيا لعمق نقشة الإطار (Spessore minimo del battistrada):</h3><div class="table-wrap"><table class="data-table"><tr><th>نوع المركبة (Tipo di veicolo)</th><th>الحد الأدنى القانوني للنقشة</th><th>ملاحظات هامة</th></tr><tr><td>**السيارات (Autovetture)**</td><td>**1.6 mm**</td><td>يشمل أيضاً المقطورات والسيارات الترفيهية</td></tr><tr><td>**الدراجات النارية (Motocicli)**</td><td>**1.0 mm**</td><td>الدراجات الكبيرة ذات المحرك القوي</td></tr><tr><td>**السكوتر الصغير (Ciclomotori)**</td><td>**0.5 mm**</td><td>فئة 50 سي سي وسيارات المايكروكار</td></tr></table></div><h3 class="sub-lead">ضغط الهواء وعيوب التآكل (Pressione di gonfiaggio):</h3><div class="bullet-item">• <strong>ضغط منخفض (Pressione insufficiente / bassa):</strong></div><div class="bullet-item">• يسبب تآكل <strong>حافتي الإطار وجوانبه الخارجية</strong> (*Bordi esterni / spalle*).</div><div class="bullet-item">• يرفع استهلاك الوقود بشكل ملحوظ لزيادة مقاومة الدوران (*Resistenza al rotolamento*).</div><div class="bullet-item">• يرفع درجة حرارة الإطار ويزيد خطر انفصاله أو انفجاره.</div><div class="bullet-item">• <strong>ضغط مرتفع جداً (Pressione eccessiva / alta):</strong></div><div class="bullet-item">• يسبب تآكل <strong>منتصف الإطار</strong> (*Parte centrale del battistrada*).</div><div class="bullet-item">• يقلل من راحة الركوب وامتصاص الصدمات.</div><div class="bullet-item">• <strong>إطارات التيوبلس (Pneumatici Tubeless):</strong> بدون أنبوبة داخلية؛ عند ثقبها بمسمار ينفد الهواء تدريجياً وببطء مما يمنع الانفجار المفاجئ.</div><div class="bullet-item">• <strong>الانزلاق المائي (Aquaplaning):</strong></div><div class="bullet-item">• ظاهرة فقدان تلامس الإطار مع الأسفلت وطفوه فوق طبقة الماء.</div><div class="bullet-item">• ينتج عنها: فقدان السيطرة وعجلة القيادة تصبح خفيفة جداً.</div><div class="bullet-item">• تزداد خطورته مع: السرعة العالية، انخفاض ضغط الهواء، تآكل نقشة الإطار، والسيارات الخفيفة.</div><hr class="divider"><h2 class="section-title">4. التلوث البيئي والصوتي وترشيد الاستهلاك (Inquinamento e Consumo)</h2><h3 class="sub-lead">المصطلحات الأساسية:</h3><div class="bullet-item">• <strong>Marmitta catalitica</strong> = علبة البيئة / المحول الحفاز (تعمل بكفاءة بعد وصول المحرك لدرجة حرارته التشغيلية).</div><div class="bullet-item">• <strong>Filtro antiparticolato (DPF / FAP)</strong> = فلتر جزيئات الكربون لمحركات الديزل.</div><div class="bullet-item">• <strong>Inquinamento atmosferico</strong> = تلوث الهواء بالغازات السامة (أول أكسيد الكربون، أكاسيد النيتروجين).</div><div class="bullet-item">• <strong>Inquinamento acustico</strong> = التلوث الضوضائي الناتج عن عادم مثقوب أو استخدام الكلاكس دون ضرورة.</div><div class="bullet-item">• <strong>Portapacchi sul tetto</strong> = حامل الأمتعة السقفي (يجب فكه عند عدم الاستخدام لأنه يزيد مقاومة الهواء والاستهلاك).</div><h3 class="sub-lead">دلالات ألوان دخان العادم (Fumo di scarico):</h3><div class="bullet-item">• ⬛ <strong>دخان أسود (Fumo nero):</strong> ناتج عن احتراق غير كامل أو زيادة ضخ الوقود أو انسداد فلتر الهواء.</div><div class="bullet-item">• 🟦 <strong>دخان أزرق (Fumo bluastro):</strong> ناتج عن احتراق زيت المحرك داخل السلندرات لتآكل الشنابر.</div><div class="bullet-item">• ⬜ <strong>دخان أبيض كثيف ومستمر (Fumo bianco denso):</strong> ناتج عن تسرب سائل التبريد (ماء الرادياتير) داخل غرف الاحتراق.</div><hr class="divider"><h2 class="section-title">5. الإسعافات الأولية وقواعد التعامل مع المصابين (Primo Soccorso)</h2><div class="callout-box">⚠️ **القاعدة الذهبية في الامتحان:** أنت مسعف أولي ولست طبيباً؛ معظم الأسئلة التي تطالبك بتصرفات طبية تخصصية إجابتها **FALSO ❌**.</div><h3 class="sub-lead">المحظورات الصارمة (Cosa NON fare):</h3><div class="num-item"><strong>1. </strong> **نزع خوذة سائق الدراجة المصاب (NON togliere il casco):**</div><div class="bullet-item">• <strong>ممنوع منعاً باتاً</strong> نزع الخوذة لتفادي إحداث شلل أو كسر في الفقرات العنقية، إلا في حالة الاختناق التام وتوقف التنفس.</div><div class="num-item"><strong>2. </strong> **تحريك المصاب (NON spostare l'infortunato):**</div><div class="bullet-item">• <strong>لا تحرك المصاب أبداً</strong> من مكانه لتفادي مضاعفة كسور العمود الفقري، إلا إذا كان هناك خطر موت محقق وفوري مثل: اشتعال النيران، تسرب مواد متفجرة، أو خطر السقوط في هاوية (*Burrone*).</div><div class="num-item"><strong>3. </strong> **الأجسام المغروزة (NON rimuovere corpi estranei conficcati):**</div><div class="bullet-item">• إذا وُجد زجاج أو سكين مغروز في الجسم أو العين، <strong>لا تنزعه إطلاقاً</strong> لأنه يسد مجرى الدم ونزعه يسبب نزيفاً مميتاً.</div><div class="num-item"><strong>4. </strong> **السوائل والمشروبات:**</div><div class="bullet-item">• <strong>يُمنع إعطاء الماء أو الكحول</strong> للمصاب فاقد الوعي أو الذي في حالة صدمة.</div><div class="num-item"><strong>5. </strong> **الحروق (Ustioni):**</div><div class="bullet-item">• تبريد الحرق بالماء البارد فقط.</div><div class="bullet-item">• <strong>يُمنع ثقب الفقاقيع (Non forare le vesciche)</strong> ولا تُنزع الملابس الملتصقة بالجلد المحترق.</div><h3 class="sub-lead">التصرفات الصحيحة المعتمدة (Cosa fare):</h3><div class="bullet-item">• <strong>المصاب فاقد الوعي ولكنه يتنفس:</strong> يوضع في **وضع الأمان الجانبي (Posizione laterale di sicurezza)** لمنع ابتلاع اللسان وتسهيل القيء.</div><div class="bullet-item">• <strong>حالة الصدمة (Stato di shock):</strong> أعراضها (شحوب، تعرق بارد، نبض سريع وضعيف). العلاج: تمديده على ظهره و**رفع ساقيه لأعلى (Gambe sollevate)** وتغطيته ببطانية.</div><div class="bullet-item">• <strong>النزيف الخارجي الشديد (Emorragia esterna):</strong> الضغط المباشر على الجرح بضمادة نظيفة (*Tamponare la ferita*).</div><hr class="divider">
-<div class="diagram-wrapper">
-  <div class="diagram-wrapper-title">
-    <span>🔺</span>
-    <span>المسافات القانونية لوضع مثلث الخطر (Segnale Mobile di Pericolo)</span>
-  </div>
-
-  <!-- Road Vector Visual (Numbers and Latin in LTR coordinates) -->
-  <div style="background: #18181b; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px; overflow-x: auto;">
-    <svg viewBox="0 0 840 160" width="100%" style="min-width:640px; height:auto; display:block; margin:0 auto; font-family:'Plus Jakarta Sans', system-ui, sans-serif;">
-      <!-- Road Surface -->
-      <rect x="10" y="15" width="820" height="130" rx="10" fill="#121215" stroke="rgba(255,255,255,0.08)"/>
-      <line x1="20" y1="80" x2="820" y2="80" stroke="#3f3f46" stroke-width="2.5" stroke-dasharray="16, 12"/>
-
-      <!-- Broken Car on Right lane -->
-      <g transform="translate(680, 42)">
-        <rect width="90" height="42" rx="8" fill="#3f3f46" stroke="#e4e4e7" stroke-width="1.5"/>
-        <rect x="20" y="6" width="30" height="30" rx="4" fill="#09090b"/>
-        <circle cx="20" cy="42" r="7" fill="#71717a"/>
-        <circle cx="70" cy="42" r="7" fill="#71717a"/>
-        <circle cx="86" cy="12" r="4" fill="#f59e0b"/>
-        <circle cx="86" cy="30" r="4" fill="#f59e0b"/>
-        <text x="45" y="26" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle" direction="ltr">VEICOLO</text>
-      </g>
-
-      <!-- Triangle Icon on Lane -->
-      <g transform="translate(380, 46)">
-        <polygon points="16,4 4,28 28,28" fill="none" stroke="#f43f5e" stroke-width="3.5" stroke-linejoin="round"/>
-        <polygon points="16,10 9,24 23,24" fill="#f43f5e"/>
-        <text x="16" y="42" fill="#fda4af" font-size="10" font-weight="bold" text-anchor="middle" direction="ltr">TRIANGOLO</text>
-      </g>
-
-      <!-- Oncoming Car on far left -->
-      <g transform="translate(30, 42)">
-        <rect width="80" height="40" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
-        <text x="40" y="25" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle" direction="ltr">TRAFFICO</text>
-      </g>
-
-      <!-- Distance arrows: 50m between Car and Triangle -->
-      <line x1="415" y1="110" x2="675" y2="110" stroke="#f59e0b" stroke-width="2"/>
-      <polygon points="415,110 423,106 423,114" fill="#f59e0b"/>
-      <polygon points="675,110 667,106 667,114" fill="#f59e0b"/>
-      <text x="545" y="102" fill="#f59e0b" font-size="13" font-weight="bold" text-anchor="middle" direction="ltr">Ad almeno 50 m</text>
-
-      <!-- Distance arrow: 100m visibility -->
-      <line x1="120" y1="130" x2="375" y2="130" stroke="#34d399" stroke-width="2"/>
-      <polygon points="120,130 128,126 128,134" fill="#34d399"/>
-      <polygon points="375,130 367,126 367,134" fill="#34d399"/>
-      <text x="247" y="124" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle" direction="ltr">Visibile da almeno 100 m</text>
-    </svg>
-  </div>
-
-  <!-- HTML Key Metrics & Traps Grid -->
-  <div class="tri-metric-grid">
-    <div class="tri-metric-box">
-      <span style="font-size: 1.4rem;">📏</span>
-      <div>
-        <div style="font-weight: 700; color: #fbbf24; font-size: 0.95rem;">مسافة التثبيت خلف السيارة</div>
-        <div style="font-size: 0.88rem; color: #d4d4d8; margin-top: 3px;">على بُعد <strong>50 متراً على الأقل</strong> (Ad almeno 50 m) على نفس حارة السير.</div>
-      </div>
-    </div>
-
-    <div class="tri-metric-box">
-      <span style="font-size: 1.4rem;">👁️</span>
-      <div>
-        <div style="font-weight: 700; color: #34d399; font-size: 0.95rem;">مدى الرؤية للقادمين</div>
-        <div style="font-size: 0.88rem; color: #d4d4d8; margin-top: 3px;">يجب أن يكون مرئياً من <strong>100 متر على الأقل</strong> (Visibile da 100 m).</div>
-      </div>
-    </div>
-
-    <div class="tri-metric-box">
-      <span style="font-size: 1.4rem;">🦺</span>
-      <div>
-        <div style="font-weight: 700; color: #f43f5e; font-size: 0.95rem;">السترة العاكسة الإلزامية</div>
-        <div style="font-size: 0.88rem; color: #d4d4d8; margin-top: 3px;">إلزامية قبل النزول من السيارة خارج المدن ليلاً أو عند ضعف الرؤية.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<h2 class="section-title">6. الحوادث ومثلث الخطر والسترة العاكسة (Incidenti e Triangolo)</h2><h3 class="sub-lead">أرقام مثلث الخطر (Segnale mobile di pericolo - Triangolo):</h3><div class="bullet-item">• يُلزم استخدامه خارج المدن (*Strade extraurbane*) وعلى الأوتوستراد في حال تعطل المركبة أو سقوط حمولة على الطريق ليلاً أو نهاراً مع انعدام الرؤية.</div><div class="bullet-item">• يوضع على مسافة <strong>لا تقل عن 50 متراً</strong> خلف السيارة (*Ad almeno 50 metri*).</div><div class="bullet-item">• ويجب أن يكون مرئياً للقادمين من الخلف من مسافة <strong>لا تقل عن 100 متر</strong> (*Visibile da almeno 100 metri*).</div><div class="bullet-item">• يُمنع النزول لوضعه دون ارتداء <strong>السترة العاكسة (Giubbotto retroriflettente)</strong> التي يجب أن تكون داخل كابينة السيارة وليس في صندوق الأمتعة.</div><h3 class="sub-lead">إقرار الحادث الودي (Modulo CAI / CID):</h3><div class="bullet-item">• يُملأ عند وقوع حادث بين مركبتين لتسهيل التعويض المباشر (*Risarcimento diretto*).</div><div class="bullet-item">• توقيع الطرفين على النموذج يعني الاتفاق على ملابسات الحادث ويُسرّع صرف التعويض من شركة التأمين.</div><hr class="divider">
-<div class="diagram-wrapper">
-  <div class="diagram-wrapper-title">
-    <span>🚨</span>
-    <span>لوحة لمبات البيان الرسمية في التابلوه وفخاخها (Spie del Cruscotto)</span>
-  </div>
-
-  <div class="spie-grid">
-    <!-- Card 1: Pressione Olio -->
-    <div class="spia-card spia-danger">
-      <div class="spia-icon-circle">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2v6m0 0a4 4 0 0 1 4 4v2a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2a4 4 0 0 1 4-4z"/>
-          <path d="M6 12H3a1 1 0 0 0-1 1v1a6 6 0 0 0 6 6h1"/>
-          <circle cx="18" cy="6" r="1.5" fill="#f43f5e"/>
-        </svg>
-      </div>
-      <div class="spia-title">🔴 ضغط زيت المحرك</div>
-      <div class="spia-code" style="color: #fda4af;">Pressione Olio</div>
-      <div class="spia-desc">نقص حاد في ضغط زيت تزييت المحرك يهدد بتلفه الفوري.</div>
-      <div class="spia-action" style="color: #fb7185;">إيقاف المحرك فوراً 🛑</div>
-    </div>
-
-    <!-- Card 2: Liquido Raffreddamento -->
-    <div class="spia-card spia-danger">
-      <div class="spia-icon-circle">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
-          <path d="M4 17h16"/>
-        </svg>
-      </div>
-      <div class="spia-title">🔴 حرارة سائل التبريد</div>
-      <div class="spia-code" style="color: #fda4af;">Liquido Raffreddamento</div>
-      <div class="spia-desc">غليان ماء الردياتير وارتفاع خطير في حرارة المحرك.</div>
-      <div class="spia-action" style="color: #fb7185;">ممنوع فتح الغطاء ساخناً ⚠️</div>
-    </div>
-
-    <!-- Card 3: Impianto Frenante -->
-    <div class="spia-card spia-danger">
-      <div class="spia-icon-circle">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="9"/>
-          <line x1="12" y1="8" x2="12" y2="12"/>
-          <line x1="12" y1="16" x2="12.01" y2="16"/>
-        </svg>
-      </div>
-      <div class="spia-title">🔴 فرامل اليد / سائل الفرامل</div>
-      <div class="spia-code" style="color: #fda4af;">Freno / Liquido Freni</div>
-      <div class="spia-desc">فرامل اليد مشدودة أو نقص سائل الفرامل وتآكل التيل.</div>
-      <div class="spia-action" style="color: #fb7185;">فحص دائرة الفرامل والتيل 🛑</div>
-    </div>
-
-    <!-- Card 4: Luce Abbagliante -->
-    <div class="spia-card spia-info">
-      <div class="spia-icon-circle">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 6a6 6 0 0 0-6 6 6 6 0 0 0 6 6v-12z" fill="#38bdf8"/>
-          <line x1="15" y1="8" x2="21" y2="8"/>
-          <line x1="15" y1="12" x2="21" y2="12"/>
-          <line x1="15" y1="16" x2="21" y2="16"/>
-        </svg>
-      </div>
-      <div class="spia-title">🔵 الضوء العالي فقط</div>
-      <div class="spia-code" style="color: #7dd3fc;">Luce Abbagliante</div>
-      <div class="spia-desc">اللمبة الزرقاء الوحيدة في التابلوه!</div>
-      <div class="spia-action" style="color: #38bdf8;">فخ: النور الواطي لونه أخضر ✅</div>
-    </div>
-  </div>
-</div>
-
-<h2 class="section-title">7. لمبات البيان وأجهزة السلامة السلبية (Spie e Dispositivi)</h2><h3 class="sub-lead">نظام ألوان لمبات التابلوه الرسمية:</h3><div class="bullet-item">• 🔴 <strong>اللون الأحمر (Spia rossa):</strong> خطر جسيم أو عطل خطير يستوجب إيقاف المركبة فوراً بأمان، مثل:</div><div class="bullet-item">• لمبة ضغط زيت المحرك (*Pressione olio motore*).</div><div class="bullet-item">• لمبة حرارة سائل التبريد (*Temperatura liquido refrigerante*).</div><div class="bullet-item">• لمبة فرامل اليد أو نقص زيت الفرامل (*Freno di stazionamento / Impianto frenante*).</div><div class="bullet-item">• لمبة عدم شحن المولد للبطارية (*Generatore / Alternatore*).</div><div class="bullet-item">• 🟡 <strong>اللون الأصفر / البرتقالي (Spia gialla/arancione):</strong> تحذير أو تشغيل نظام مساعد (سخان الديزل، الضباب الخلفي، نقص الوقود).</div><div class="bullet-item">• 🟢 <strong>اللون الأخضر (Spia verde):</strong> نظام يعمل بشكل طبيعي (أضواء النور الصغير، إشارات الانعطاف الفليشر).</div><div class="bullet-item">• 🔵 <strong>اللون الأزرق (Spia blu):</strong> مخصص **فقط وحصراً للضوء العالي (Luce abbagliante)**.</div><h3 class="sub-lead">أحزمة الأمان ومقاعد الأطفال:</h3><div class="bullet-item">• <strong>الأحزمة (Cinture di sicurezza):</strong> إجبارية للجميع أماماً وخلفاً. الاستثناء فقط: الحوامل بتقرير طبي مسبق، وقوات الشرطة والإسعاف أثناء مهام الطوارئ.</div><div class="bullet-item">• <strong>مقاعد الأطفال (Seggiolini):</strong> إجبارية للأطفال حتى طول **1.50 متراً** (*Altezza inferiore a 1,50 m*).</div><div class="bullet-item">• <strong>الوسائد الهوائية (Airbag):</strong> عند وضع كرسي الرضيع في المقعد الأمامي ووجهه للخلف، **يجب إلغاء تفعيل الوسادة الهوائية الأمامية** لسلامة الطفل.</div><div class="bullet-item">• <strong>مساند الرأس (Poggiatesta):</strong> دورها الأساسي ليس الراحة بل الحماية من صدمة الارتداد العنقي (*Colpo di frusta*) عند الاصطدام من الخلف.</div><hr class="divider"><h2 class="section-title">8. جدول الفحص الفني الدوري (Revisione dei Veicoli)</h2><div class="table-wrap"><table class="data-table"><tr><th>فئة المركبة (Tipo di veicolo)</th><th>الفحص الأول (Prima revisione)</th><th>الفحوصات التالية (Revisioni successive)</th></tr><tr><td>**السيارات الخاصة (Autovetture)**</td><td>بعد **4 سنوات** من سنة الترخيص</td><td>كل **سنتين** (Ogni 2 anni)</td></tr><tr><td>**الدراجات النارية والسكوتر (Motocicli e Ciclomotori)**</td><td>بعد **4 سنوات**</td><td>كل **سنتين** (Ogni 2 anni)</td></tr><tr><td>**الكرفانات وسيارات التخييم <= 3.5t (Autocaravan)**</td><td>بعد **4 سنوات**</td><td>كل **سنتين** (Ogni 2 anni)</td></tr><tr><td>**الشاحنات الكبيرة الحجم (> 3.5t)**</td><td>بعد **سنة واحدة**</td><td>كل **سنة** (Ogni anno)</td></tr><tr><td>**سيارات الأجرة، الليموزين، والإسعاف (Taxi, Noleggio, Ambulanze)**</td><td>بعد **سنة واحدة**</td><td>كل **سنة** (Ogni anno)</td></tr><tr><td>**الحافلات (Autobus)**</td><td>بعد **سنة واحدة**</td><td>كل **سنة** (Ogni anno)</td></tr></table></div><hr class="divider"><h2 class="section-title">9. معجم فخاخ الامتحان وألفاظ الجزم الخادعة (I Trabocchetti)</h2><p class="para">في امتحان الباتنتي، 90% من الجمل التي تحتوي على هذه الكلمات تكون إجابتها <strong>FALSO ❌</strong> بسبب التعميم الباطل:</p><div class="num-item"><strong>1. </strong> **Sempre (دائماً):** قانون المرور مليء بالاستثناءات، والجزم المطلق فخ.</div><div class="num-item"><strong>2. </strong> **Mai (أبداً / إطلاقاً):** نفي قاطع غير صحيح غالباً.</div><div class="num-item"><strong>3. </strong> **In ogni caso (في كل الأحوال):** تلغي الشروط الخاصة.</div><div class="num-item"><strong>4. </strong> **Esclusivamente / Soltanto / Solo (حصراً / فقط):** تستخدم لتضييق القاعدة بشكل مضلل.</div><div class="num-item"><strong>5. </strong> **Sostituire (يستبدل):** فخ الإشارات؛ الإشارات التكميلية تُكمل (Integrano) ولا تستبدل.</div><div class="num-item"><strong>6. </strong> **Obbligatorio (إجباري) بدلاً من Facoltativo (اختياري / جائز).**</div><div class="num-item"><strong>7. </strong> **Causa lo slittamento (يسبب الانزلاق) بدلاً من Si oppone allo slittamento (يقاوم الانزلاق).**</div><div class="num-item"><strong>8. </strong> **Impedisce (يمنع) بدلاً من Provoca (يسبب).**</div><hr class="divider"><p class="para">*(تمت مراجعة هذا الدليل ليتطابق مع أحدث لوائح وقواعد كود السير الإيطالي لعام 2026)*</p>
-  </div>
-</div>
-
-
+<!-- JAVASCRIPT & SOUND ENGINE -->
 <script>
-  // Unified Sound Engine
   const soundEngine = window.soundEngine || {
     ctx: null,
     enabled: true,
@@ -1381,197 +2316,212 @@
         const AudioCtx = window.AudioContext || window.webkitAudioContext;
         if (AudioCtx) this.ctx = new AudioCtx();
       }
-      if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
     },
     click() {
       if (!this.enabled) return;
       this.init();
       if (!this.ctx) return;
-      try {
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(520, this.ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.04);
-        gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
-        osc.start();
-        osc.stop(this.ctx.currentTime + 0.04);
-      } catch(e) {}
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(600, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(800, this.ctx.currentTime + 0.05);
+      gain.gain.setValueAtTime(0.15, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.05);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.05);
+    },
+    toggle() {
+      this.enabled = !this.enabled;
+      return this.enabled;
     }
   };
 
-  // Toggle Mobile Navigation Drawer
-  function toggleMobileNav() {
-    const menu = document.getElementById('nav-tabs-menu');
-    const btn = document.getElementById('nav-hamburger-btn');
-    if (!menu || !btn) return;
-    const isOpen = menu.classList.toggle('is-open');
-    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    
-    const iconOpen = btn.querySelector('.hamburger-icon-open');
-    const iconClose = btn.querySelector('.hamburger-icon-close');
-    if (iconOpen && iconClose) {
-      iconOpen.style.display = isOpen ? 'none' : 'block';
-      iconClose.style.display = isOpen ? 'block' : 'none';
-    }
-    if (soundEngine.click) {
+  function toggleAudio() {
+    const isEnabled = soundEngine.toggle();
+    const btn = document.querySelector('.nav-audio-btn');
+    const label = btn.querySelector('.audio-label-span');
+    const icon = btn.querySelector('.audio-icon-span');
+    if (isEnabled) {
       soundEngine.click();
+      label.textContent = 'الصوت نشط';
+      icon.textContent = '🔊';
+      btn.style.borderColor = 'rgba(255, 255, 255, 0.16)';
+      btn.style.color = '#f4f4f5';
+    } else {
+      label.textContent = 'مكتوم';
+      icon.textContent = '🔇';
+      btn.style.borderColor = 'rgba(244, 63, 94, 0.4)';
+      btn.style.color = '#f43f5e';
     }
   }
 
-  // Close mobile drawer when clicking outside
-  document.addEventListener('click', function(e) {
-    const nav = document.getElementById('portal-nav');
-    const menu = document.getElementById('nav-tabs-menu');
+  function toggleMobileNav() {
+    soundEngine.click();
+    const drawer = document.getElementById('mobile-drawer-panel');
+    const overlay = document.getElementById('mobile-drawer-overlay');
     const btn = document.getElementById('nav-hamburger-btn');
-    if (menu && menu.classList.contains('is-open') && nav && !nav.contains(e.target)) {
-      menu.classList.remove('is-open');
-      if (btn) {
-        btn.setAttribute('aria-expanded', 'false');
-        const iconOpen = btn.querySelector('.hamburger-icon-open');
-        const iconClose = btn.querySelector('.hamburger-icon-close');
-        if (iconOpen && iconClose) {
-          iconOpen.style.display = 'block';
-          iconClose.style.display = 'none';
-        }
-      }
+    const isOpen = drawer.classList.contains('is-open');
+    if (isOpen) {
+      closeMobileNav();
+    } else {
+      drawer.classList.add('is-open');
+      overlay.classList.add('is-open');
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeMobileNav() {
+    const drawer = document.getElementById('mobile-drawer-panel');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    const btn = document.getElementById('nav-hamburger-btn');
+    if (drawer) drawer.classList.remove('is-open');
+    if (overlay) overlay.classList.remove('is-open');
+    if (btn) {
+      btn.classList.remove('is-active');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    document.body.style.overflow = '';
+  }
+
+  function toggleNavDropdown(e) {
+    e.stopPropagation();
+    soundEngine.click();
+    const menu = document.getElementById('navDropdownMenu');
+    menu.classList.toggle('show');
+  }
+
+  window.addEventListener('click', function(e) {
+    const menu = document.getElementById('navDropdownMenu');
+    if (menu && menu.classList.contains('show')) {
+      menu.classList.remove('show');
     }
   });
 
-  // Toggle Audio Sound
-  window.toggleAudio = function() {
-    soundEngine.enabled = !soundEngine.enabled;
-    const icon = document.getElementById('audio-icon');
-    const label = document.querySelector('.audio-label');
-    if (icon) icon.textContent = soundEngine.enabled ? '🔊' : '🔇';
-    if (label) label.textContent = soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم';
-    if (soundEngine.enabled) soundEngine.click();
+  function filterCards(category, btn) {
+    soundEngine.click();
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cards = document.querySelectorAll('.signals-grid .signal-card');
+    cards.forEach(card => {
+      if (category === 'all' || card.getAttribute('data-category') === category) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // SIMULATOR 1: ABS
+  function simAbs(hasAbs) {
+    soundEngine.click();
+    document.getElementById('btnAbsOn').classList.toggle('active', hasAbs);
+    document.getElementById('btnAbsOff').classList.toggle('active', !hasAbs);
+
+    if (hasAbs) {
+      document.getElementById('absBadge').textContent = 'توجيه كامل ومستمر (Sterzabilità)';
+      document.getElementById('absBadge').style.color = 'var(--emerald-primary)';
+      document.getElementById('absBadge').style.borderColor = 'var(--emerald-primary)';
+      document.getElementById('absTitle').textContent = 'نظام منع انغلاق المكابح ABS نشط أثناء الفرملة العنيفة';
+      document.getElementById('absDesc').innerHTML = '<strong>سلوك العجلات:</strong> الحساسات الإلكترونية تمنع انغلاق العجلات تماماً وتعدل ضغط الزيت آلاف المرات بالثانية.<br><strong>القدرة على التوجيه:</strong> يستمر السائق في توجيه السيارة بالمقود وتفادي العائق أو المشاة أثناء الضغط بأقصى قوة على الفرامل.<br><strong>ارتجاج الدواسة:</strong> يشعر السائق بارتجاج ونبضات في دواسة الفرامل (Pulsazione del pedale)؛ وهذا أمر طبيعي تماماً يدل على عمل النظام بكفاءة ولا يعني عطلاً!';
+      document.getElementById('absWarning').innerHTML = '⚠️ <strong>فخ امتحاني خطير:</strong> نظام ABS لا يقلل بالضرورة مسافة الفرملة على الطريق الجاف، وقد يزيدها قليلاً على الثلوج والحصى؛ فائدته الجوهرية هي الحفاظ على التوجيه (Mantenere la guidabilità)!';
+    } else {
+      document.getElementById('absBadge').textContent = 'انغلاق تام وفقدان التوجيه 🚨';
+      document.getElementById('absBadge').style.color = 'var(--rose-primary)';
+      document.getElementById('absBadge').style.borderColor = 'var(--rose-primary)';
+      document.getElementById('absTitle').textContent = 'عجلات منغلقة ومنزلقة بدون ABS (Bloccaggio ruote)';
+      document.getElementById('absDesc').innerHTML = '<strong>سلوك العجلات:</strong> تنغلق العجلات الأربع وتتوقف عن الدوران وتنزلق على الأسفلت كقطع صلبة.<br><strong>انعدام التوجيه:</strong> مهما قام السائق بتدوير مقود السيارة، ستواصل السيارة انزلاقها في خط مستقيم نحو العائق كالمقذوف دون أي استجابة للمقود!<br><strong>خطر الانقلاب:</strong> إذا اختلف معامل التماسك بين جانبي الطريق، تدور السيارة حول نفسها وتنحرف عن المسار بعنف.';
+      document.getElementById('absWarning').innerHTML = '🛑 بدون ABS: دوران المقود أثناء الكبح الحاد عديم الفائدة لأن العجلات المنغلقة لا توجه السيارة!';
+    }
+  }
+
+  // SIMULATOR 2: Tires
+  const tyreData = {
+    'auto': {
+      badge: '1.6 مم حد أدنى قانوني',
+      title: 'إطارات السيارات والشاحنات الخفيفة والمقطورات (Autoveicoli e rimorchi)',
+      desc: '<strong>العمق الأدنى الإلزامي:</strong> يجب ألا يقل عمق الأخاديد الرئيسية لمداس الإطار (Battistrada) عن <strong>1.6 مم</strong> على كامل محيط الإطار.<br><strong>مؤشر التآكل (TWI):</strong> تبرز نتوءات مطاطية صغيرة داخل الأخاديد؛ إذا تساوت مع سطح الإطار يكون الإطار منتهي الصلاحية ويجب تغييره فوراً.<br><strong>العواقب:</strong> السير بإطار متآكل يستوجب غرامة وسحب شهادة التسيير وزيادة هائلة في خطر الانزلاق المائي (Aquaplaning).',
+      warning: '💡 احفظ الأرقام الثلاثة: سيارات = 1.6 مم | موتوسيكلات = 1.0 مم | سيكلوموتوري = 0.5 مم!'
+    },
+    'moto': {
+      badge: '1.0 مم للدراجات النارية',
+      title: 'إطارات الدراجات النارية (Motoveicoli)',
+      desc: '<strong>العمق الأدنى الإلزامي:</strong> <strong>1.0 مم</strong> على كامل محيط الإطار في الأخاديد المركزية.<br><strong>الأهمية القصوى:</strong> للدراجة النارية عجلتان فقط؛ وتآكل المداس يؤدي إلى فقدان التماسك المباشر في المنعطفات والانزلاق والسقوط الأرضي الفوري.',
+      warning: '🏍️ كود السير يحدد للموتوسيكلات 1.0 مم وللسيكلوموتوري 0.5 مم!'
+    },
+    'ciclo': {
+      badge: '0.5 مم للسيكلوموتوري',
+      title: 'إطارات الدراجات البخارية الصغيرة (Ciclomotori)',
+      desc: '<strong>العمق الأدنى الإلزامي:</strong> <strong>0.5 مم</strong> كحد أدنى قانوني.<br><strong>الفحص:</strong> التأكد من خلو جوانب الإطار من الشقوق أو الانتفاخات (Ernie/Lesioni) التي تهدد بانفجار الإطار.',
+      warning: '🛵 0.5 مم هو أقل عمق قانوني معتمد في كود السير لكافة المركبات.'
+    },
+    'ruotino': {
+      badge: 'عجلة طوارئ: max 80 km/h',
+      title: 'عجلة الطوارئ البديلة المؤقتة (Il Ruotino di soccorso)',
+      desc: '<strong>السرعة القصوى:</strong> <strong>80 كم/ساعة فقط</strong>.<br><strong>الضغط الهوائي:</strong> حوالي <strong>4 بار</strong> (أعلى بكثير من الإطار العادي).<br><strong>الاستخدام:</strong> مؤقت واضطراري فقط حتى الوصول لأقرب ورشة صيانة؛ ويحظر استخدامها كإطار دائم.',
+      warning: '⚠️ فخ امتحاني: لا يسمح بالسير بعجلة الطوارئ بسرعة 100 أو 130 كم/س!'
+    }
   };
 
-  // Desktop Chapters Dropdown Toggle & Outside Click
-  function toggleNavDropdown(e) {
-    if (e) e.stopPropagation();
-    const menu = document.getElementById('navDropdownMenu');
-    if (menu) menu.classList.toggle('active');
+  function simTyre(type) {
+    soundEngine.click();
+    document.querySelectorAll('#sim-pneumatici .sim-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('btnTyre' + type.charAt(0).toUpperCase() + type.slice(1)).classList.add('active');
+    const data = tyreData[type];
+    document.getElementById('tyreBadge').textContent = data.badge;
+    document.getElementById('tyreTitle').textContent = data.title;
+    document.getElementById('tyreDesc').innerHTML = data.desc;
+    document.getElementById('tyreWarning').innerHTML = data.warning;
   }
-  document.addEventListener('click', function(e) {
-    const wrapper = document.querySelector('.nav-dropdown-wrapper');
-    const menu = document.getElementById('navDropdownMenu');
-    if (menu && menu.classList.contains('active')) {
-      if (wrapper && !wrapper.contains(e.target)) {
-        menu.classList.remove('active');
-      }
-    }
-  });
 
+  // SIMULATOR 3: Warning Lights
+  const spiaData = {
+    'olio': {
+      badge: 'توقف فوري وإطفاء المحرك!',
+      title: 'لمبة ضغط زيت المحرك الحمراء (Mancanza di pressione dell'olio)',
+      desc: '<strong>الدلالة الدقيقة:</strong> تشير إلى <strong>انعدام أو هبوط حاد في ضغط دائرة تزييت المحرك</strong>، وليس مجرد نقص منسوب الزيت!<br><strong>الإجراء الفوري:</strong> يجب التوقف بأمان على جانب الطريق وإطفاء محرك السيارة فوراً دون إبطاء؛ لأن مواصلة السير لدقائق قليلة تؤدي إلى قفش وتدمير أجزاء المحرك الميكانيكية بالكامل (Fusione del motore).<br><strong>الفحص:</strong> التحقق من منسوب الزيت بمقياس الزيت اليدوي (Asta di livello) وإضافة زيت مطابق للمواصفات.',
+      warning: '❌ لمبة الزيت الحمراء لا تعني موعد الصيانة الدورية، بل تدل على انعدام الضغط وخطر تدمير المحرك!'
+    },
+    'freni': {
+      badge: 'فحص سائل الفرامل / فرملة اليد',
+      title: 'لمبة الفرامل الحمراء (Anomalia impianto frenante / Freno a mano)',
+      desc: '<strong>الدلالة:</strong> 1) فرملة اليد مشدودة (تنطفئ عند إنزالها بالكامل)؛ أو 2) <strong>هبوط سائل الفرامل في الخزان دون الحد الأدنى MIN</strong> نتيجة تسريب خطير أو تآكل متقدم جداً في وسادات الفرامل.<br><strong>التصرف:</strong> إذا ظلت مضاءة بعد إنزال فرملة اليد، يجب التوقف بحذر وفحص مستوى السائل وعدم القيادة إذا كانت الدواسة تنزل للأرض.',
+      warning: '🛑 هبوط سائل الفرامل يشير لتسريب هيدروليكي يهدد بفقدان الفرامل فجأة!'
+    },
+    'temp': {
+      badge: 'خطر غليان المحرك',
+      title: 'لمبة ارتفاع حرارة مياه التبريد الحمراء (Surriscaldamento motore)',
+      desc: '<strong>الدلالة:</strong> سائل تبريد المحرك وصل لدرجة حرارة خطيرة تهدد بتلف جوان وش السلندر.<br><strong>التصرف:</strong> التوقف فوراً وإطفاء المحرك والانتظار حتى يبرد.<br><strong>المحظور:</strong> يحظر تماماً فتح غطاء الردياتير والمحرك ساخن لتفادي حروق البخار المغلي.',
+      warning: '⚠️ انتظر تبريد المحرك قبل فتح الغطاء وإلا تعرضت لحروق بالغة!'
+    },
+    'batt': {
+      badge: 'عطل في مولد الكهرباء (Alternatore)',
+      title: 'لمبة البطارية الحمراء (Mancata ricarica della batteria)',
+      desc: '<strong>الدلالة:</strong> المولد الكهربائي (Alternatore) لا يقوم بشحن البطارية، إما لقطع في سير الدينامو أو تلف داخلي بالمولد.<br><strong>الأثر:</strong> السيارة تعمل مؤقتاً على الطاقة المخزونة بالبطارية فقط، وستتوقف فجأة بمجرد نفاد شحنة البطارية بالكامل.',
+      warning: '💡 اللمبة تشير لعطل في الشحن (Alternatore) وليس بالضرورة أن البطارية تالفة بذاتها.'
+    },
+    'abs': {
+      badge: 'عطل إلكتروني في ABS (لمبة صفراء)',
+      title: 'لمبة عطل نظام ABS الصفراء (Avaria sistema ABS)',
+      desc: '<strong>الدلالة:</strong> خلل في الحساسات أو الصمامات الإلكترونية لنظام ABS.<br><strong>الأثر الحقيقي:</strong> منظومة الفرامل العادية تظل تعمل بكفاءة تامة لإيقاف السيارة، ولكن يفقد السائق ميزة منع انغلاق العجلات أثناء الفرملة الطارئة.<br><strong>التصرف:</strong> مراجعة الورشة المتخصصة لفحص الحساسات دون ذعر.',
+      warning: '✅ الفرامل العادية تعمل؛ لكن السيارة قد تنغلق عجلاتها وتفقد التوجيه عند الكبح الحاد!'
+    }
+  };
+
+  function simSpia(type) {
+    soundEngine.click();
+    document.querySelectorAll('#sim-spie .sim-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('btnSpia' + type.charAt(0).toUpperCase() + type.slice(1)).classList.add('active');
+    const data = spiaData[type];
+    document.getElementById('spiaBadge').textContent = data.badge;
+    document.getElementById('spiaTitle').textContent = data.title;
+    document.getElementById('spiaDesc').innerHTML = data.desc;
+    document.getElementById('spiaWarning').innerHTML = data.warning;
+  }
 </script>
-
-
-<script>
-  // Mobile Navigation Drawer Controller (Apple HIG Compliant & Spring Micro-UX)
-  (function() {
-    function toggleMobileNav() {
-      const btn = document.getElementById('nav-hamburger-btn');
-      const panel = document.getElementById('mobile-drawer-panel');
-      const overlay = document.getElementById('mobile-drawer-overlay');
-      if (!btn || !panel) return;
-      
-      const isOpening = !panel.classList.contains('is-active');
-      
-      if (isOpening) {
-        btn.classList.add('is-active');
-        btn.setAttribute('aria-expanded', 'true');
-        panel.classList.add('is-active');
-        if (overlay) overlay.classList.add('is-active');
-        document.body.classList.add('nav-scroll-lock');
-      } else {
-        closeMobileNav();
-      }
-      
-      if (window.soundEngine && typeof window.soundEngine.click === 'function') {
-        window.soundEngine.click();
-      }
-    }
-
-    function closeMobileNav() {
-      const btn = document.getElementById('nav-hamburger-btn');
-      const panel = document.getElementById('mobile-drawer-panel');
-      const overlay = document.getElementById('mobile-drawer-overlay');
-      if (btn) {
-        btn.classList.remove('is-active');
-        btn.setAttribute('aria-expanded', 'false');
-      }
-      if (panel) panel.classList.remove('is-active');
-      if (overlay) overlay.classList.remove('is-active');
-      document.body.classList.remove('nav-scroll-lock');
-    }
-
-    window.toggleMobileNav = toggleMobileNav;
-    window.closeMobileNav = closeMobileNav;
-
-    // Close on Escape key press
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeMobileNav();
-    });
-
-    // Audio Engine synchronization
-    if (typeof window.toggleAudio !== 'function') {
-      window.soundEngine = window.soundEngine || {
-        ctx: null,
-        enabled: true,
-        init() {
-          if (!this.ctx) {
-            const AudioCtx = window.AudioContext || window.webkitAudioContext;
-            if (AudioCtx) this.ctx = new AudioCtx();
-          }
-          if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
-        },
-        click() {
-          if (!this.enabled) return;
-          this.init();
-          if (!this.ctx) return;
-          try {
-            const osc = this.ctx.createOscillator();
-            const gain = this.ctx.createGain();
-            osc.type = 'sine';
-            osc.frequency.setValueAtTime(520, this.ctx.currentTime);
-            osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.04);
-            gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
-            osc.connect(gain);
-            gain.connect(this.ctx.destination);
-            osc.start();
-            osc.stop(this.ctx.currentTime + 0.04);
-          } catch(e) {}
-        }
-      };
-
-      window.toggleAudio = function() {
-        if (!window.soundEngine) return;
-        window.soundEngine.enabled = !window.soundEngine.enabled;
-        const icons = document.querySelectorAll('.audio-icon-span, #audio-icon');
-        const labels = document.querySelectorAll('.audio-label-span, #audio-label, .audio-label');
-        icons.forEach(el => el.textContent = window.soundEngine.enabled ? '🔊' : '🔇');
-        labels.forEach(el => el.textContent = window.soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم');
-        if (window.soundEngine.enabled && window.soundEngine.click) window.soundEngine.click();
-      };
-    } else {
-      const _orig = window.toggleAudio;
-      window.toggleAudio = function() {
-        _orig();
-        const isEnabled = window.soundEngine ? window.soundEngine.enabled : true;
-        const icons = document.querySelectorAll('.audio-icon-span');
-        const labels = document.querySelectorAll('.audio-label-span');
-        icons.forEach(el => el.textContent = isEnabled ? '🔊' : '🔇');
-        labels.forEach(el => el.textContent = isEnabled ? 'الصوت نشط' : 'الصوت مكتوم');
-      };
-    }
-  })();
-</script>
-
 </body>
 </html>
-

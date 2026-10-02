@@ -3,576 +3,147 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>دليل الباب 24: استهلاك الوقود وحماية البيئة والتلوث — Patente B Pro</title>
+<title>دليل وقاموس الباب 24: استهلاك الوقود وحماية البيئة والتلوث | Patente B Pro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+
   :root {
     --bg-base: #09090b;
     --bg-surface: rgba(24, 24, 27, 0.75);
+    --bg-surface-elevated: rgba(39, 39, 42, 0.85);
     --border-subtle: rgba(255, 255, 255, 0.08);
     --border-highlight: rgba(255, 255, 255, 0.16);
     --text-primary: #f4f4f5;
     --text-secondary: #a1a1aa;
     --text-muted: #71717a;
     --emerald-primary: #10b981;
+    --emerald-dark: #059669;
+    --emerald-glow: rgba(16, 185, 129, 0.25);
     --rose-primary: #f43f5e;
+    --rose-glow: rgba(244, 63, 94, 0.25);
     --amber-primary: #f59e0b;
+    --amber-glow: rgba(245, 158, 11, 0.25);
     --sky-primary: #38bdf8;
-    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    --sky-glow: rgba(56, 189, 248, 0.25);
+    --indigo-primary: #6366f1;
+    --nav-base-height: 54px;
+    --font-sans: 'Cairo', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
+  html, body {
     background-color: var(--bg-base);
     color: var(--text-primary);
-    font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
-    line-height: 1.75;
-    min-height: 100vh;
-    padding-bottom: 70px;
-    background-image: 
-      radial-gradient(ellipse at 50% -10%, rgba(16, 185, 129, 0.08), transparent 60%),
-      radial-gradient(circle at 90% 90%, rgba(56, 189, 248, 0.03), transparent 40%);
-  }
-
-  .container {
-    max-width: 980px;
-    margin: 28px auto;
-    padding: 0 16px;
-  }
-  .content-sheet {
-    background: var(--bg-surface);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--border-subtle);
-    border-radius: 20px;
-    padding: 36px 32px;
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-  }
-
-  .header-card {
-    border-bottom: 1px solid var(--border-subtle);
-    padding-bottom: 24px;
-    margin-bottom: 30px;
-  }
-  .badge-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(16, 185, 129, 0.1);
-    color: var(--emerald-primary);
-    border: 1px solid rgba(16, 185, 129, 0.25);
-    padding: 4px 12px;
-    border-radius: 9999px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    margin-bottom: 14px;
-    font-family: 'JetBrains Mono', monospace;
-  }
-  .main-title {
-    font-size: 1.95rem;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 10px;
-    line-height: 1.3;
-  }
-  .sub-lead {
-    font-size: 1.05rem;
-    color: var(--text-secondary);
+    font-family: var(--font-sans);
     line-height: 1.6;
-  }
-
-  .callout-box {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border-subtle);
-    border-right: 4px solid var(--emerald-primary);
-    border-radius: 12px;
-    padding: 16px 20px;
-    margin: 20px 0;
-    font-size: 0.95rem;
-    color: #d4d4d8;
-  }
-  .callout-box.amber {
-    border-right-color: var(--amber-primary);
-    background: rgba(245, 158, 11, 0.04);
-  }
-  .callout-box.rose {
-    border-right-color: var(--rose-primary);
-    background: rgba(244, 63, 94, 0.04);
-  }
-
-  .section-title {
-    font-size: 1.45rem;
-    font-weight: 700;
-    color: #fff;
-    margin: 36px 0 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .section-title::before {
-    content: '';
-    display: inline-block;
-    width: 6px;
-    height: 22px;
-    background: var(--emerald-primary);
-    border-radius: 3px;
-  }
-
-  /* Comparison / Cards Grid */
-  .comparison-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
-    margin: 20px 0;
-  }
-  .compare-card {
-    background: rgba(24, 24, 27, 0.85);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    padding: 22px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    transition: transform 0.2s var(--ease-spring), border-color 0.2s;
-  }
-  .compare-card:hover {
-    transform: translateY(-2px);
-    border-color: var(--border-highlight);
-  }
-  .compare-card.emerald {
-    border-color: rgba(16, 185, 129, 0.35);
-    background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
-  }
-  .compare-card.amber {
-    border-color: rgba(245, 158, 11, 0.35);
-    background: linear-gradient(180deg, rgba(245, 158, 11, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
-  }
-  .compare-card.rose {
-    border-color: rgba(244, 63, 94, 0.35);
-    background: linear-gradient(180deg, rgba(244, 63, 94, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
-  }
-  .compare-card.sky {
-    border-color: rgba(56, 189, 248, 0.35);
-    background: linear-gradient(180deg, rgba(56, 189, 248, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
-  }
-
-  .card-header-row {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    margin-bottom: 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    padding-bottom: 10px;
-  }
-  .card-ar-title {
-    order: 1;
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #fff;
-  }
-  .card-it-title {
-    order: 2;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #38bdf8;
-    direction: ltr;
-    text-align: right;
-  }
-
-  .card-points-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .card-points-list li, .card-points li {
-    position: relative;
-    padding-right: 28px;
-    line-height: 1.7;
-    display: block;
-    text-align: right;
-    font-size: 0.92rem;
-    color: #d4d4d8;
-  }
-  .card-points-list li > span:first-child, .card-points li > span:first-child {
-    position: absolute;
-    right: 0;
-    top: 2px;
-    font-size: 1.05rem;
-    line-height: 1;
-  }
-
-  /* Smoke Visual Cards */
-  .smoke-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-    margin: 20px 0;
-  }
-  @media (max-width: 640px) {
-    .smoke-grid { grid-template-columns: 1fr; }
-  }
-  .smoke-card {
-    border-radius: 14px;
-    padding: 18px 16px;
-    border: 1px solid var(--border-subtle);
-    background: rgba(24, 24, 27, 0.85);
-  }
-  .smoke-badge {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    font-weight: 800;
-    margin-bottom: 10px;
-    font-family: 'JetBrains Mono', monospace;
-  }
-
-  /* Table styling */
-  .table-wrap {
-    overflow-x: auto;
-    border-radius: 14px;
-    border: 1px solid var(--border-subtle);
-    margin: 24px 0;
-    -webkit-overflow-scrolling: touch;
-  }
-  .data-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: right;
-    font-size: 0.92rem;
-  }
-  .data-table th {
-    background: rgba(39, 39, 42, 0.8);
-    color: #fff;
-    padding: 14px 16px;
-    font-weight: 700;
-    border-bottom: 1px solid var(--border-subtle);
-    white-space: nowrap;
-  }
-  .data-table td {
-    padding: 14px 16px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    color: #d4d4d8;
-  }
-  .data-table tr:hover td {
-    background: rgba(255, 255, 255, 0.02);
-  }
-
-  /* Quiz Accordion */
-  .quiz-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin: 20px 0;
-  }
-  .quiz-card {
-    background: rgba(24, 24, 27, 0.7);
-    border: 1px solid var(--border-subtle);
-    border-radius: 14px;
-    padding: 18px 20px;
-    transition: border-color 0.15s;
-  }
-  .quiz-card:hover { border-color: var(--border-highlight); }
-  .quiz-q-it {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 8px;
-  }
-  .quiz-q-ar {
-    font-size: 0.92rem;
-    color: var(--text-secondary);
-    margin-bottom: 14px;
-  }
-  .quiz-meta-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-    padding-top: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-  }
-  .ans-badge {
-    padding: 4px 12px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 800;
-    font-family: 'JetBrains Mono', monospace;
-  }
-  .ans-vero { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
-  .ans-falso { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
-  .quiz-explain {
-    font-size: 0.88rem;
-    color: #a1a1aa;
-    flex: 1;
-    min-width: 200px;
-  }
-
-  /* ==========================================================================
-     Apple HIG Responsive Top Navigation (< 768px Strict Rules)
-     ========================================================================== */
-  :root {
-    --nav-base-height: 54px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
   }
 
   body.nav-scroll-lock {
     overflow: hidden !important;
-    touch-action: none !important;
-    -webkit-overflow-scrolling: auto !important;
+    touch-action: none;
   }
 
+  /* Portal Nav Header (Strict 54px, Apple HIG) */
   .unified-portal-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
-    max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
-    background: rgba(9, 9, 11, 0.85);
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-base-height);
+    background: rgba(15, 15, 18, 0.82);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid var(--border-subtle);
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
+    padding: 0 16px;
     padding-top: env(safe-area-inset-top, 0px);
-    box-sizing: border-box;
-    direction: rtl;
   }
 
   .nav-brand {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #fff;
-    white-space: nowrap;
-    text-decoration: none;
-    flex-shrink: 0;
-  }
-  .nav-brand .badge-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    padding: 2px 7px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
-    color: #a1a1aa;
-  }
-
-  .nav-desktop-tabs {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .nav-tab-desktop {
-    text-decoration: none;
-    color: #a1a1aa;
-    padding: 7px 13px;
-    border-radius: 9px;
-    font-size: 0.84rem;
-    font-weight: 600;
-    transition: all 0.15s;
-    border: 1px solid transparent;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    white-space: nowrap;
-  }
-  .nav-tab-desktop:hover {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  .nav-tab-desktop.active {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.16);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.15), 0 2px 8px rgba(0,0,0,0.3);
-  }
-
-  .nav-desktop-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .nav-audio-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #e4e4e7;
-    border-radius: 9px;
-    padding: 7px 12px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.15s;
-  }
-  .nav-audio-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
-  .nav-audio-btn:active { transform: scale(0.96); }
-
-  /* Animated Hamburger Icon */
-  .nav-hamburger-btn {
-    display: none;
-    width: 42px;
-    height: 42px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 0;
-    z-index: 1002;
-    transition: background 0.15s, transform 0.15s;
-  }
-  .nav-hamburger-btn:active { transform: scale(0.92); }
-  .hamburger-box {
-    width: 20px;
-    height: 14px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .hamburger-line {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: #fff;
-    border-radius: 2px;
-    transition: transform 0.28s var(--ease-spring), opacity 0.2s, background-color 0.2s;
-  }
-  .nav-hamburger-btn.is-active .line-top {
-    transform: translateY(6px) rotate(45deg);
-    background-color: #38bdf8;
-  }
-  .nav-hamburger-btn.is-active .line-mid { opacity: 0; transform: scaleX(0); }
-  .nav-hamburger-btn.is-active .line-bot {
-    transform: translateY(-6px) rotate(-45deg);
-    background-color: #38bdf8;
-  }
-
-  /* Slide-down Drawer Panel */
-  .mobile-drawer-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 998;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s ease;
-  }
-  .mobile-drawer-overlay.is-active {
-    display: block; opacity: 1; pointer-events: auto;
-  }
-
-  .mobile-drawer-panel {
-    display: none;
-    position: fixed;
-    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
-    left: 0; right: 0;
-    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
-    background: rgba(15, 15, 18, 0.94);
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
-    z-index: 999;
-    padding: 16px;
-    padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.32s var(--ease-spring), opacity 0.22s ease;
-    direction: rtl;
-  }
-  .mobile-drawer-panel.is-active {
-    display: block;
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .mobile-nav-list {
-    display: flex;
-    flex-direction: column;
     gap: 8px;
-    list-style: none;
-  }
-  .mobile-nav-link {
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 0 16px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
-    color: #e4e4e7;
     text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 600;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.05rem;
   }
-  .mobile-nav-link.active {
-    background: rgba(56, 189, 248, 0.12);
-    border-color: rgba(56, 189, 248, 0.3);
-    color: #38bdf8;
+
+  .badge-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--amber-primary);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    padding: 2px 7px;
+    border-radius: 6px;
   }
-  .mobile-nav-divider {
-    height: 1px;
-    background: rgba(255, 255, 255, 0.08);
-    margin: 8px 0;
-  }
-  .mobile-nav-control-btn {
-    min-height: 48px;
+
+  .desktop-nav-links {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 8px;
+  }
+  .desktop-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 600;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+  .desktop-nav-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-subtle);
+  }
+  .desktop-nav-link.active {
+    color: var(--amber-primary);
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.25);
+  }
+
+  .desktop-nav-controls {
+    display: flex;
+    align-items: center;
     gap: 10px;
-    width: 100%;
+  }
+
+  .nav-audio-btn {
+    height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
+    border-radius: 8px;
     color: #e4e4e7;
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .nav-audio-btn:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.2);
   }
 
-  @media (max-width: 768px) {
-    .unified-portal-nav {
-      height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
-      max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
-      padding: 0 16px;
-      padding-top: env(safe-area-inset-top, 0px);
-    }
-    .nav-desktop-tabs, .nav-desktop-actions { display: none !important; }
-    .nav-hamburger-btn { display: flex; }
-    .nav-brand .badge-tag { display: none; }
-  }
-
-
-  /* ==========================================================================
-     Desktop Chapters Dropdown & Pagination (Declutter Architecture)
-     ========================================================================== */
   .nav-dropdown-wrapper {
     position: relative;
     display: inline-block;
@@ -619,9 +190,7 @@
     z-index: 1100;
     direction: rtl;
   }
-  .nav-dropdown-menu.active {
-    display: flex;
-  }
+  .nav-dropdown-menu.active { display: flex; }
   .nav-dropdown-item {
     display: flex;
     align-items: center;
@@ -639,132 +208,743 @@
     color: #fff;
   }
   .nav-dropdown-item.active {
-    background: rgba(56, 189, 248, 0.12);
-    color: #38bdf8;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--amber-primary);
     font-weight: 700;
   }
 
-  /* Chapter Pagination */
+  /* Hamburger Button (< 768px) */
+  .nav-hamburger-btn {
+    display: none;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .hamburger-box { width: 20px; height: 14px; position: relative; }
+  .hamburger-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #f4f4f5;
+    border-radius: 2px;
+    transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  }
+  .line-top { top: 0; }
+  .line-mid { top: 6px; }
+  .line-bot { top: 12px; }
+
+  .nav-hamburger-btn.is-active .line-top { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger-btn.is-active .line-mid { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger-btn.is-active .line-bot { transform: translateY(-6px) rotate(-45deg); }
+
+  /* Mobile Drawer Panel */
+  .mobile-drawer-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .mobile-drawer-overlay.is-active { display: block; opacity: 1; }
+  .mobile-drawer-panel {
+    display: none;
+    position: fixed;
+    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
+    left: 0; right: 0;
+    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
+    background: rgba(15, 15, 18, 0.94);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
+    z-index: 999;
+    padding: 16px;
+    padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  }
+  .mobile-drawer-panel.is-active { display: block; transform: translateY(0); opacity: 1; }
+  .mobile-nav-list { display: flex; flex-direction: column; gap: 8px; list-style: none; }
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    min-height: 48px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: #e4e4e7;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+  .mobile-nav-link.active {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.35);
+    color: var(--amber-primary);
+  }
+
+  /* Main Container */
+  .guide-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: calc(var(--nav-base-height) + 28px) 20px 80px 20px;
+  }
+
+  /* Hero Section */
+  .chapter-hero {
+    background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12), transparent 70%),
+                linear-gradient(180deg, rgba(24, 24, 27, 0.7) 0%, rgba(18, 18, 20, 0.9) 100%);
+    border: 1px solid var(--border-subtle);
+    border-radius: 24px;
+    padding: 40px 32px;
+    margin-bottom: 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), transparent);
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--sky-primary);
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .hero-subtitle {
+    font-family: var(--font-mono);
+    color: var(--sky-primary);
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+    direction: ltr;
+  }
+  .hero-desc {
+    max-width: 860px;
+    margin: 0 auto 24px auto;
+    color: var(--text-secondary);
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+  .hero-badges-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .hero-stat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: #d4d4d8;
+  }
+
+  /* Golden Rules Banner */
+  .golden-rules-banner {
+    background: rgba(56, 189, 248, 0.06);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 36px;
+  }
+  .golden-rules-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--sky-primary);
+    margin-bottom: 16px;
+  }
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .rule-box {
+    background: rgba(24, 24, 27, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .rule-box h4 {
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .rule-box p {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Filter Pills */
+  .filter-pills-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    margin-bottom: 28px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filter-pill {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .filter-pill:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+  }
+  .filter-pill.active {
+    background: var(--sky-primary);
+    border-color: var(--sky-primary);
+    color: #000;
+    font-weight: 700;
+  }
+
+  /* Rotatoria Simulator Box */
+  .simulator-box {
+    background: linear-gradient(180deg, rgba(24, 24, 27, 0.8) 0%, rgba(18, 18, 20, 0.95) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .sim-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--sky-primary);
+    margin-bottom: 6px;
+  }
+  .sim-subtitle {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+  }
+  .sim-controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .sim-btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sim-btn:hover { background: rgba(255, 255, 255, 0.1); }
+  .sim-btn.active {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: var(--sky-primary);
+    color: var(--sky-primary);
+  }
+  .sim-output-card {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .sim-img-wrapper img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+  }
+  .sim-details { flex: 1; text-align: right; }
+  .sim-state-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .state-normal { background: rgba(245, 158, 11, 0.2); color: var(--amber-primary); }
+  .state-rot-precedence { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .sim-legal-text {
+    font-size: 0.92rem;
+    color: #e4e4e7;
+    line-height: 1.7;
+  }
+
+  /* Comparison Section: Paths */
+  .comp-section {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .comp-header { margin-bottom: 20px; text-align: right; }
+  .comp-header h3 { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+  .comp-header p { font-size: 0.9rem; color: var(--text-secondary); }
+  .comp-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .comp-card-path {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .comp-card-path img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 12px;
+  }
+  .comp-card-path h4 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .comp-card-path .path-it {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--sky-primary);
+    margin-bottom: 10px;
+  }
+  .comp-card-path p {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    text-align: right;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  /* Grid of Signals Cards */
+  .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .section-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-badge {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: var(--sky-primary);
+    background: rgba(56, 189, 248, 0.1);
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+  }
+
+  .signals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .signal-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .signal-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-highlight);
+  }
+
+  .signal-img-container {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    padding: 12px;
+  }
+  .signal-img-container img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+  }
+
+  /* Card Header Vertical Hierarchy */
+  .card-header-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+  .card-ar-title {
+    order: 1;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  .card-it-title {
+    order: 2;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--sky-primary);
+    direction: ltr;
+    text-align: right;
+  }
+
+  .card-desc-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  /* ZERO FLEX ON LISTS (STRICT TYPOGRAPHY) */
+  .card-points-group { margin-bottom: 14px; }
+  .points-group-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .points-group-title.vero-title { color: var(--emerald-primary); }
+  .points-group-title.falso-title { color: var(--rose-primary); }
+
+  .card-points-list { list-style: none; margin: 0; padding: 0; }
+  .card-points-list li {
+    display: block;
+    position: relative;
+    padding-right: 28px;
+    line-height: 1.7;
+    text-align: right;
+    font-size: 0.88rem;
+    color: #d4d4d8;
+    margin-bottom: 6px;
+  }
+  .card-points-list li > span:first-child {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .card-trap-alert {
+    background: rgba(244, 63, 94, 0.08);
+    border: 1px solid rgba(244, 63, 94, 0.22);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    color: #fca5a5;
+    line-height: 1.6;
+    margin-top: auto;
+  }
+  .card-trap-alert strong { color: var(--rose-primary); }
+
+  /* Glossary Section */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .glossary-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+  .term-it {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--sky-primary);
+    margin-bottom: 4px;
+    direction: ltr;
+    text-align: right;
+  }
+  .term-ar {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .term-def {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Quiz Traps Interactive Section */
+  .traps-section { margin-bottom: 50px; }
+  .traps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+  }
+  .trap-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .trap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card-tag-pill {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  .tag-vero { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .tag-falso { background: rgba(244, 63, 94, 0.2); color: var(--rose-primary); }
+
+  .trap-q-it {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: #e4e4e7;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 8px;
+    padding: 10px;
+    direction: ltr;
+    text-align: left;
+    line-height: 1.5;
+  }
+  .trap-reason {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .trap-reason strong { color: #fff; }
+
+  /* Pagination Bar */
   .chapter-pagination {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    margin: 40px 0 20px;
-    padding: 16px 20px;
-    background: rgba(24, 24, 27, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    backdrop-filter: blur(12px);
-    flex-wrap: wrap;
+    gap: 16px;
+    padding: 24px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    margin-top: 40px;
   }
   .pagination-btn {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 18px;
-    border-radius: 12px;
+    padding: 12px 20px;
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #f4f4f5;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    color: #fff;
     text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 0.9rem;
     transition: all 0.15s ease;
   }
   .pagination-btn:hover {
     background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.16);
-    color: #fff;
-    transform: translateY(-1px);
+    border-color: var(--border-highlight);
   }
-  .pagination-btn.index-btn {
-    background: rgba(56, 189, 248, 0.08);
-    border-color: rgba(56, 189, 248, 0.2);
-    color: #38bdf8;
-  }
-  .pagination-btn.disabled {
-    opacity: 0.35;
-    pointer-events: none;
-    cursor: not-allowed;
-  }
-  .pagination-info {
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-  }
-  .pagination-label {
-    font-size: 0.72rem;
-    color: #a1a1aa;
-    font-weight: 500;
-  }
-  .pagination-title {
-    font-size: 0.85rem;
-    color: #fff;
-    font-weight: 700;
+  .pagination-info { display: flex; flex-direction: column; text-align: right; }
+  .pagination-label { font-size: 0.75rem; color: var(--text-muted); }
+  .pagination-title { font-size: 0.92rem; color: #fff; }
+
+  /* Responsive Rules (< 768px) */
+  @media (max-width: 768px) {
+    .desktop-nav-links, .desktop-nav-controls { display: none !important; }
+    .nav-hamburger-btn { display: flex !important; }
+    .guide-container { padding-top: calc(var(--nav-base-height) + 16px); padding-left: 14px; padding-right: 14px; }
+    .hero-title { font-size: 1.6rem; }
+    .signals-grid { grid-template-columns: 1fr; }
+    .sim-output-card { flex-direction: column; text-align: center; }
+    .sim-details { text-align: center; }
+    .chapter-pagination { flex-direction: column; align-items: stretch; }
   }
 
-  @media (max-width: 1023px) {
-    .nav-dropdown-wrapper {
-      display: none !important;
-    }
-  }
 
+.badge-visual-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.badge-visual-icon {
+  font-size: 3.5rem;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+}
+.badge-visual-code {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--emerald-primary);
+  background: rgba(16, 185, 129, 0.12);
+  padding: 2px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
 </style>
 </head>
 <body>
 
-<!-- Apple HIG Responsive Navigation -->
-<nav class="unified-portal-nav" id="portal-nav">
-  <a href="index.html" class="nav-brand">
-    <span style="font-size:1.25rem;">🚦</span>
-    <span>Patente B Pro</span>
-    <span class="badge-tag">A2</span>
-  </a>
+<!-- Unified Top Navigation (54px) -->
+<nav class="unified-portal-nav" aria-label="شريط التنقل الموحد">
+  <div style="display:flex; align-items:center; gap:12px;">
+    <a href="index.html" class="nav-brand">
+      <span>🚦 Patente B Pro</span>
+      <span class="badge-tag" style="background:rgba(16, 185, 129, 0.15); color:var(--emerald-primary); border-color:rgba(16, 185, 129, 0.35);">الباب 24</span>
+    </a>
+  </div>
 
-    <!-- Core 3 Desktop Navigation Tabs -->
-  <nav class="nav-desktop-tabs">
-    <a href="index.html" class="nav-tab-desktop">🏛️ فهرس المكتبة</a>
-    <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 الأبواب المقسمة</a>
-    <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
-  </nav>
+  <div class="desktop-nav-links">
+    <a href="index.html" class="desktop-nav-link">
+      <span>🏛️</span>
+      <span>فهرس المكتبة الشاملة</span>
+    </a>
+    <a href="../Capitoli_Divisi/index.html" class="desktop-nav-link">
+      <span>📚</span>
+      <span>الأبواب المقسمة (25)</span>
+    </a>
+    <a href="../Simulatore_Esame.html" class="desktop-nav-link">
+      <span>⏱️</span>
+      <span>محاكي الامتحان</span>
+    </a>
+  </div>
 
-  <div class="nav-desktop-actions">
-    <!-- Desktop Chapters Dropdown -->
+  <div class="desktop-nav-controls">
     <div class="nav-dropdown-wrapper">
       <button class="nav-dropdown-btn" onclick="toggleNavDropdown(event)">
         <span>تصفح الأبواب (1-25)</span>
         <span style="font-size:0.75rem;">▾</span>
       </button>
       <div class="nav-dropdown-menu" id="navDropdownMenu">
-      <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
-      <a href="دليل_الباب_02_إشارات_الخطر.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_03_segnali_divieto/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
-      <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
-      <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأفقية والمطبات</span></a>
-      <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
-      <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: الإشارات التكميلية وورش العمل</span></a>
-      <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_11_limiti_di_velocita/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة</span></a>
-      <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
-      <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
-      <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
-      <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
-      <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
-      <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
-      <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
-      <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
-      <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
-      <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: حوادث السير والطقس</span></a>
-      <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
-      <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 23: المسؤولية والتأمين RCA</span></a>
-      <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 24: استهلاك الوقود والبيئة</span></a>
-      <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
+        <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
+        <a href="دليل_الباب_02_إشارات_الخطر.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
+        <a href="دليل_الباب_03_إشارات_المنع.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
+        <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
+        <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
+        <a href="دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأرضية والعوائق</span></a>
+        <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
+        <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
+        <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: الإشارات التكميلية وورش العمل</span></a>
+        <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
+        <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة ومخاطرها</span></a>
+        <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
+        <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
+        <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
+        <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
+        <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
+        <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
+        <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
+        <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
+        <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
+        <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: حوادث السير والطقس</span></a>
+        <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
+        <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 23: المسؤولية والتأمين RCA</span></a>
+        <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 24: استهلاك الوقود والبيئة</span></a>
+        <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
       </div>
     </div>
-
     <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
       <span class="audio-icon-span">🔊</span>
       <span class="audio-label-span">الصوت نشط</span>
@@ -780,395 +960,1172 @@
   </button>
 </nav>
 
+<!-- Mobile Overlay & Drawer -->
 <div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
-
 <div class="mobile-drawer-panel" id="mobile-drawer-panel">
   <div class="mobile-nav-list">
-    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📚</span>
-      <span>مذاكرة الأبواب المقسمة (25 باب)</span>
-    </a>
-    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">⏱️</span>
-      <span>محاكي الامتحان الوزاري (20 دقيقة)</span>
-    </a>
-    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📑</span>
-      <span>فهرس المكتبة الشاملة</span>
-    </a>
-    <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 13 (قواعد السير والمسارات)</span>
-    </a>
-    <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 14 (أسبقية التقاطعات)</span>
-    </a>
-    <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 15 (مناورة التجاوز والتخطي)</span>
-    </a>
-    <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 16 (الوقوف والتوقف والركن)</span>
-    </a>
-    <a href="دليل_الأبواب_11_إلى_15_قواعد_السير_والسرعة_ومسافة_الأمان.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الأبواب 11-15 (السير والسرعة)</span>
-    </a>
-    <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 17 (الأوتوستراد والحمولة والمقطورات)</span>
-    </a>
-    <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 18 (الأضواء والتابلوه والعواكس)</span>
-    </a>
-    <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 19 (الأحزمة والخوذة والمقاعد)</span>
-    </a>
-    <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 20 (الرخص والنقاط والعقوبات)</span>
-    </a>
-    <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 21 (حوادث السير والظروف الجوية)</span>
-    </a>
-    <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 22 (الكحول والمخدرات والإسعافات)</span>
-    </a>
-    <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 23 (التأمين والمسؤولية)</span>
-    </a>
-    <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="mobile-nav-link active" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 24 (البيئة والوقود)</span>
-    </a>
-    <a href="دليل_الباب_الأخير.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 25 (الميكانيكا والصيانة)</span>
-    </a>
+    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📚</span><span>مذاكرة الأبواب المقسمة (25 باب)</span></a>
+    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">⏱️</span><span>محاكي الامتحان الوزاري</span></a>
+    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📑</span><span>فهرس المكتبة الشاملة</span></a>
     <div class="mobile-nav-divider"></div>
-    <button class="mobile-nav-control-btn" onclick="toggleAudio(); closeMobileNav();">
-      <span class="audio-icon-span">🔊</span>
-      <span class="audio-label-span">المؤثرات الصوتية: نشطة</span>
-    </button>
+    <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
+    <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 23: المسؤولية والتأمين RCA</span></a>
+    <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="mobile-nav-link active" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 24: استهلاك الوقود والبيئة</span></a>
+    <a href="دليل_الباب_الأخير.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
   </div>
 </div>
 
-<main class="container">
-  <article class="content-sheet">
-    <header class="header-card">
-      <div class="badge-tag">CAPITOLO 24 • CODICE DELLA STRADA 2026</div>
-      <h1 class="main-title">دليل وقاموس الباب الرابع والعشرين: استهلاك الوقود وحماية البيئة والتلوث</h1>
-      <p class="sub-lead">Consumi del Veicolo, Tutela dell'Ambiente e Inquinamento — الدليل الشامل لأساليب القيادة الاقتصادية، الحد من انبعاثات العادم والضوضاء، وقواعد التخلص القانوني من المخلفات لمستوى A2.</p>
-    </header>
+<main class="guide-container">
 
-    <div class="callout-box">
-      <strong>📊 إحصائيات الباب في بنك أسئلة الوزارة:</strong> يضم الباب الرابع والعشرون <strong>103 أسئلة رسمية</strong> في بنك الوزارة موزعة على 15 موضوعاً فرعياً. تدور محاور الأسئلة حول قاعدة ذهبية بسيطة: <em>كل سلوك أو تعديل يزيد من مقاومة حركة السيارة أو يجهد المحرك يؤدي حتماً لزيادة الاستهلاك والتلوث</em>.
+  <!-- HERO SECTION -->
+  <section class="chapter-hero">
+    <div class="hero-tag">🌱 ⛽ المرجع المعتمد للدراسة والامتحان الوزاري</div>
+    <h1 class="hero-title">الباب 24: استهلاك الوقود وحماية البيئة والتلوث</h1>
+    <div class="hero-subtitle">Capitolo 24: Consumi del veicolo, rispetto ambientale e inquinamento</div>
+    <p class="hero-desc">
+      الدليل التقني والبيئي الشامل لكود السير الإيطالي: أساليب القيادة الاقتصادية البيئية (Eco-driving)، ترشيد استهلاك الوقود، مقاومة الهواء والأحمال غير الضرورية، الغازات السامة المنبعثة من عوادم السيارات (أول أكسيد الكربون، الهيدروكربونات، والجسيمات الدقيقة)، صيانة المحول الحفاز (Marmitta catalitica) وفلتر الديزل (DPF)، مكافحة التلوث السمعي والضوضاء، والبروتوكول القانوني الإلزامي للتخلص من الزيوت المحروقة والبطاريات والنفايات الخطرة.
+    </p>
+
+    <div class="hero-stats-banner">
+      <div class="stat-badge">
+        <span class="stat-num">103</span>
+        <span class="stat-label">سؤالاً وزارياً رسمياً</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-num">12</span>
+        <span class="stat-label">فخاً وزارياً دقيقاً</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-num">14</span>
+        <span class="stat-label">بطاقة بيئية وتقنية</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">مطابقة معايير كود السير 2026</span>
+      </div>
     </div>
+  </section>
 
-    <!-- Section 1 -->
-    <h2 class="section-title">أولاً: أساليب توفير الوقود والقيادة الاقتصادية (Risparmio Carburante)</h2>
-    <div class="comparison-grid">
-      <div class="compare-card emerald">
-        <div class="card-header-row">
-          <span class="card-it-title">Stile di Guida</span>
-          <span class="card-ar-title">أسلوب القيادة الذكي</span>
+  <!-- GOLDEN RULES BANNER -->
+  <section class="golden-rules-banner">
+    <div class="golden-rules-title">
+      <span>⭐</span>
+      <span>القواعد الذهبية الأربع للباب 24 (Regole d'Oro)</span>
+    </div>
+    <div class="rules-grid">
+      <div class="rule-box">
+        <h4><span>1️⃣</span> القيادة الاقتصادية (Eco-Driving) والسرعة</h4>
+        <p>القيادة بسلاسة واستخدام التعشيقات العالية بمجرد أن يسمح عزم المحرك يقلل استهلاك الوقود والانبعاثات. وإطفاء المحرك أثناء التوقف المطول عند مزلقانات السكك الحديدية أو في الاختناقات المرورية يحد من هدر الوقود وتلوث الهواء.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>2️⃣</span> مقاومة الهواء (Aerodinamica) وضغط الإطارات</h4>
+        <p>ترك النوافذ مفتوحة عند السرعات العالية، أو ترك حامل الأمتعة أو الزلاجات (Portapacchi / Portasci) على السقف حتى وهو فارغ، يزيد مقاومة الهواء ويرفع الاستهلاك بشكل كبير. ضغط الإطارات المنخفض يزيد مقاومة الدوران ويهدر الوقود.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>3️⃣</span> غازات العادم وأجهزة التنقية (Catalizzatore & DPF)</h4>
+        <p>المحول الحفاز (Marmitta catalitica) يخفض أول أكسيد الكربون السام والهيدروكربونات؛ ويعمل بكفاءة فقط في درجات حرارة مرتفعة. فلتر الديزل (DPF/FAP) يحجز الجسيمات الدقيقة والدخان الأسود ويتطلب السير على طرق سريعة لتنظيفه ذاتياً.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>4️⃣</span> مكافحة الضوضاء والتخلص الصارم من النفايات</h4>
+        <p>يُمنع منعاً باتاً تعديل أو ثقب أو إفراغ ماسورة العادم لإحداث صوت أعلى. والزيوت المحروقة وبطاريات الرصاص سوائل شديدة السمية والتلويث؛ يحظر سكبها في المجاري أو إلقاؤها في القمامة العادية، بل تسلم حصرياً للمراكز المعتمدة.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR 1: Eco-Driving & Fuel Consumption Calculator -->
+  <section class="simulator-box" id="sim-consumi">
+    <div class="sim-title">
+      <span>⛽ 📉</span>
+      <span>المحاكي التفاعلي 1: حاسبة استهلاك الوقود ومقاومة الهواء (Calcolatore Consumi ed Eco-Driving)</span>
+    </div>
+    <div class="sim-subtitle">فعل أو عطل العوامل المسببة لزيادة استهلاك الوقود وشاهد نسبة الزيادة المئوية في حرق الوقود وانبعاث الكربون:</div>
+    <div class="sim-controls" style="margin-bottom:12px;">
+      <button class="sim-btn" id="btnFactorPortapacchi" onclick="toggleFactor('portapacchi')">حامل أمتعة على السقف (+15%)</button>
+      <button class="sim-btn" id="btnFactorFinestrini" onclick="toggleFactor('finestrini')">نوافذ مفتوحة بسرعة 130 كم/س (+10%)</button>
+      <button class="sim-btn" id="btnFactorGomme" onclick="toggleFactor('gomme')">ضغط إطارات منخفض (-0.5 bar) (+8%)</button>
+      <button class="sim-btn" id="btnFactorClima" onclick="toggleFactor('clima')">تشغيل مكيف الهواء (+12%)</button>
+      <button class="sim-btn" id="btnFactorGuida" onclick="toggleFactor('guida')">قيادة عنيفة بتسارع مفاجئ (+25%)</button>
+    </div>
+    <div class="sim-output-card" id="consumiOutput" style="margin-top:14px;">
+      <div class="sim-badge" id="consumiBadge" style="background:rgba(16,185,129,0.15); color:var(--emerald-primary); border:1px solid rgba(16,185,129,0.35);">
+        قيادة اقتصادية مثالية: 0% زيادة
+      </div>
+      <div class="sim-details">
+        <h4 id="consumiTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">أعلى كفاءة في استهلاك الوقود وأقل انبعاثات كربونية</h4>
+        <p id="consumiDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
+          السيارة تسير بانسيابية هوائية مثالية، ضغط الإطارات مطابق للمواصفات، والقيادة تتم بسلاسة بالغيارات العالية مع التباطؤ برفع القدم عن دواسة الوقود (Cut-off).<br>
+          <strong>المعدل:</strong> استهلاك وقود قياسي مطابق لكتالوج المصنع وحماية تامة للبيئة.
+        </p>
+        <div class="sim-warning-box" id="consumiWarning" style="margin-top:10px; padding:10px 14px; background:rgba(16,185,129,0.1); border-right:3px solid var(--emerald-primary); border-radius:8px; font-size:0.86rem; color:#bbf7d0;">
+          💡 <strong>نصيحة ذهبية:</strong> إزالة حامل الأمتعة الفارغ من السقف فور انتهاء الرحلة يوفر مئات اليوروهات سنوياً من الوقود!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR 2: Exhaust Gases & Catalytic Converter -->
+  <section class="simulator-box" id="sim-catalizzatore">
+    <div class="sim-title">
+      <span>💨 🔬</span>
+      <span>المحاكي التفاعلي 2: مستكشف غازات العادم وأجهزة التنقية (Marmitta Catalitica & DPF)</span>
+    </div>
+    <div class="sim-subtitle">اختر جهاز تنقية العادم لاكتشاف طريقة عمله، الغازات التي يعالجها، وشروط كفاءته في الامتحان الوزاري:</div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnDevCatalizzatore" onclick="simDevice('catalizzatore')">1. المحول الحفاز (Marmitta catalitica)</button>
+      <button class="sim-btn" id="btnDevDPF" onclick="simDevice('dpf')">2. فلتر الديزل (Filtro antiparticolato DPF)</button>
+      <button class="sim-btn" id="btnDevFiltroAria" onclick="simDevice('filtro_aria')">3. فلتر الهواء والبخاخات (Iniettori)</button>
+      <button class="sim-btn" id="btnDevSilenziatore" onclick="simDevice('silenziatore')">4. الصامت ومانع الضوضاء (Silenziatore)</button>
+    </div>
+    <div class="sim-output-card" id="devOutput">
+      <div class="sim-badge" id="devBadge" style="background:rgba(56,189,248,0.15); color:var(--sky-primary); border:1px solid rgba(56,189,248,0.35);">
+        المحول الحفاز (Catalizzatore)
+      </div>
+      <div class="sim-details">
+        <h4 id="devTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">علبة البيئة / المحول الحفاز (Marmitta catalitica)</h4>
+        <p id="devDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
+          <strong>الوظيفة الأساسية:</strong> تحويل الغازات شديدة السمية الناتجة عن احتراق الوقود (أول أكسيد الكربون CO، الهيدروكربونات غير المحترقة HC، وأكاسيد النيتروجين NOx) إلى غازات غير ضارة كيميائياً (بخار ماء H2O، نيتروجين N2، وثاني أكسيد الكربون CO2).<br>
+          <strong>شرط الفعالية الحاسم:</strong> يعمل المحول الحفاز بكفاءة تامة <strong>فقط عند وصوله إلى درجات حرارة مرتفعة جداً (عدة مئات من الدرجات المئوية)</strong>؛ وبالتالي تكون انبعاثات السيارة الملوثة أعلى في الدقائق الأولى بعد تشغيل المحرك وهو بارد!<br>
+          <strong>العمر الافتراضي:</strong> يفقد فاعليته تدريجياً بعد قطع مسافات طويلة (حوالي 80.000 - 100.000 كم) ويجب استبداله.
+        </p>
+        <div class="sim-warning-box" id="devWarning" style="margin-top:10px; padding:10px 14px; background:rgba(245,158,11,0.1); border-right:3px solid var(--amber-primary); border-radius:8px; font-size:0.86rem; color:#fde68a;">
+          ⚠️ <strong>فخ امتحاني:</strong> المحول الحفاز لا يعمل فور تدوير المحرك، بل يحتاج إلى دقائق ليصل لدرجة حرارة التشغيل العالية!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR 3: Waste Disposal Protocol -->
+  <section class="simulator-box" id="sim-rifiuti">
+    <div class="sim-title">
+      <span>🛢️ ♻️</span>
+      <span>المحاكي التفاعلي 3: الدليل القانوني للتخلص من المخلفات والزيوت الخطرة (Smaltimento Rifiuti)</span>
+    </div>
+    <div class="sim-subtitle">اضغط على نوع النفايات لمعرفة المسار القانوني الإلزامي للتخلص منها والمخاطر البيئية:</div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnWstOlio" onclick="simWaste('olio')">1. زيت المحرك المستعمل (Olio esausto)</button>
+      <button class="sim-btn" id="btnWstBatteria" onclick="simWaste('batteria')">2. بطاريات الرصاص القديمة (Batterie)</button>
+      <button class="sim-btn" id="btnWstFreni" onclick="simWaste('freni')">3. سائل الفرامل ومياه التبريد</button>
+      <button class="sim-btn" id="btnWstMozziconi" onclick="simWaste('mozziconi')">4. أعقاب السجائر والمخلفات</button>
+    </div>
+    <div class="sim-output-card" id="wasteOutput">
+      <div class="sim-badge" id="wasteBadge" style="background:rgba(244,63,94,0.15); color:var(--rose-primary); border:1px solid rgba(244,63,94,0.35);">
+        شديد السمية: حظر الإلقاء
+      </div>
+      <div class="sim-details">
+        <h4 id="wasteTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">زيت المحرك المستعمل والمحروق (Olio motore esausto)</h4>
+        <p id="wasteDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
+          <strong>الخطر البيئي:</strong> لتر واحد من الزيت المستعمل قادر على تلويث مليون لتر من مياه الشرب وتكوين طبقة عازلة تمنع الأكسجين عن الكائنات الحية في الأنهار والبحار.<br>
+          <strong>المسار الإلزامي:</strong> يحظر صبه في البالوعات أو شبكات الصرف الصحي أو على الأراضي الزراعية؛ ويجب تسليمه حصرياً إلى ورش الصيانة المرخصة أو مراكز الجمع التابعة لاتحاد الزيوت المستعملة (Consorzio Nazionale Oli Esausti) أو المحطات البيئية التابعة للبلدية.<br>
+          <strong>العقوبة:</strong> إلقاء الزيوت المستعملة يعتبر جريمة بيئية خطيرة يعاقب عليها بغرامات مالية مشددة.
+        </p>
+        <div class="sim-warning-box" id="wasteWarning" style="margin-top:10px; padding:10px 14px; background:rgba(244,63,94,0.1); border-right:3px solid var(--rose-primary); border-radius:8px; font-size:0.86rem; color:#fecdd3;">
+          🛑 <strong>كود السير:</strong> سكب الزيت في المجاري العامة جريمة جنائية يعاقب عليها القانون بصرامة!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON SECTION -->
+  <section class="comp-section" id="comp-ambiente">
+    <div class="comp-header">
+      <h3>المقارنة البصرية الحاسمة: أساليب القيادة وغازات العادم والملوثات</h3>
+      <p>الفروق الدقيقة التي يركز عليها واضع الامتحان الوزاري بين السلوك البيئي النظيف والأنماط الملوثة</p>
+    </div>
+    <div class="comp-grid-4">
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">🚗 💨</div>
+        <h4>القيادة السلسة vs القيادة المتقطعة</h4>
+        <div class="comp-tag" style="background:rgba(16,185,129,0.15); color:var(--emerald-primary);">أسلوب القيادة</div>
+        <p>• <strong>القيادة السلسة (Eco-driving):</strong> تسارع تدريجي، تعشيقات سريعة للأعلى، ورفع القدم عن دواسة الوقود للتهدئة (Cut-off)؛ توفر حتى 30% من الوقود.<br>• <strong>القيادة المتقطعة (Guida a scatti):</strong> ضغط حاد على الوقود والفرامل المتعاقبة يرفع الاستهلاك بشدة ويزيد انبعاثات الكربون.</p>
+      </div>
+
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">☁️ 🔬</div>
+        <h4>أول أكسيد الكربون (CO) vs الجسيمات (PM10)</h4>
+        <div class="comp-tag" style="background:rgba(244,63,94,0.15); color:var(--rose-primary);">سمية الغازات</div>
+        <p>• <strong>أول أكسيد الكربون (CO):</strong> غاز خبيث عديم اللون والرائحة، يرتبط بهيموغلوبين الدم ويمنع وصول الأكسجين للأنسجة ويسبب الوفاة خنقاً داخل الأماكن المغلقة.<br>• <strong>الجسيمات الدقيقة (Particolato):</strong> غبار وسناج دقيق أسود ينبعث من محركات الديزل ويخترق الحويصلات الرئوية مسبباً أمراضاً سرطانية.</p>
+      </div>
+
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">🧰 ⚙️</div>
+        <h4>علبة البيئة (Catalizzatore) vs فلتر DPF</h4>
+        <div class="comp-tag" style="background:rgba(56,189,248,0.15); color:var(--sky-primary);">أجهزة المعالجة</div>
+        <p>• <strong>المحول الحفاز (Catalizzatore):</strong> يحول الغازات السامة (CO, HC, NOx) بتفاعلات كيميائية إلى غازات غير ضارة عند درجات حرارة عالية.<br>• <strong>فلتر الجسيمات (DPF/FAP):</strong> حاجز فيزيائي يحبس السناج الأسود في محركات الديزل ويحرقه دورياً في عملية التجديد الذاتي.</p>
+      </div>
+
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">🔊 📯</div>
+        <h4>التلوث السمعي والتخلص من النفايات</h4>
+        <div class="comp-tag" style="background:rgba(245,158,11,0.15); color:var(--amber-primary);">الضوضاء والبيئة</div>
+        <p>• <strong>الضوضاء (Rumore):</strong> يحظر ثقب أو تعديل ماسورة العادم أو استخدام المنبه الصوتي بلا داعٍ داخل المدن.<br>• <strong>النفايات (Rifiuti):</strong> الزيوت المحروقة وبطاريات الرصاص تسلم حصرياً للمراكز المعتمدة؛ وإلقاء أعقاب السجائر المشتعلة يعاقب بغرامات مضاعفة لخطر الحرائق.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER PILLS BAR -->
+  <div class="filter-pills-bar">
+    <button class="filter-pill active" onclick="filterCards('all', this)">جميع البطاقات (14)</button>
+    <button class="filter-pill" onclick="filterCards('risparmio', this)">أساليب توفير الوقود والقيادة الاقتصادية</button>
+    <button class="filter-pill" onclick="filterCards('aerodinamica', this)">مقاومة الهواء والإطارات والأحمال</button>
+    <button class="filter-pill" onclick="filterCards('inquinamento-aria', this)">التلوث الهوائي وغازات العادم السامة</button>
+    <button class="filter-pill" onclick="filterCards('dispositivi-scarico', this)">أجهزة تنقية العادم والمحول الحفاز وفلتر DPF</button>
+    <button class="filter-pill" onclick="filterCards('rumore-rifiuti', this)">التلوث السمعي والضوضاء وتدوير النفايات</button>
+  </div>
+
+  <!-- SIGNALS GRID (14 DETAILED CARDS) -->
+  <div class="section-heading">
+    <div class="section-badge">الشرح التفصيلي لبطاقات الباب 24</div>
+    <h2 class="section-title">البطاقات المعرفية المعتمدة لترشيد الوقود وحماية البيئة</h2>
+  </div>
+
+  <div class="signals-grid">
+
+    <!-- CARD: Stile di Guida -->
+    <div class="signal-card" data-category="risparmio">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🌱 🚗</div>
+          <div class="badge-visual-code">Stile di Guida</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">أسلوب القيادة الاقتصادية وتوفير استهلاك الوقود (Eco-Driving)</h3>
+        <span class="card-it-title">Stile di guida economico, marce alte e limitazione dei consumi</span>
+      </div>
+      <p class="card-desc-text">
+        الأنماط السلوكية التي تقلل استهلاك المحرك للوقود؛ التسارع المتدرج، التعشيق المبكر للغيارات العالية، وتفادي الكبح المفاجئ.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
         </div>
         <ul class="card-points-list">
-          <li><span>🟢</span> <strong>السرعة الثابتة:</strong> الحفاظ على سرعة منتظمة قدر الإمكان يقلل استهلاك الوقود بنسبة كبيرة.</li>
-          <li><span>🚫</span> <strong>تجنب الانطلاق المفاجئ:</strong> التسارع الحاد والفرملة العنيفة يرفعان استهلاك الوقود والانبعاثات.</li>
-          <li><span>⚙️</span> <strong>تجنب الغيارات المنخفضة:</strong> السير طويلاً بغيار منخفض (Marcia bassa) يجهد المحرك ويستهلك وقوداً زائداً.</li>
-          <li><span>🛑</span> <strong>إطفاء المحرك في التوقف الطويل:</strong> إطفاء المحرك عند التوقف في طابور طويل أو مزلقان قطار.</li>
+          <li><span>✅</span> القيادة المتوازنة والسلسة مع تجنب التسارع والفرملة المتكررة تؤدي إلى خفض ملحوظ في استهلاك الوقود (Riduce i consumi di carburante)</li>
+          <li><span>✅</span> استخدام تعشيقات السرعة العالية (Marce alte) بمجرد أن تسمح سرعة دوران المحرك يقلل من استهلاك الوقود</li>
+          <li><span>✅</span> الاستفادة من اندفاع المركبة الذاتي ورفع القدم عن دواسة الوقود مسبقاً عند الاقتراب من إشارة حمراء يقطع حقن الوقود تماماً (Cut-off)</li>
+          <li><span>✅</span> إطفاء محرك السيارة أثناء التوقف الطويل (كما في طوابير الانتظار عند مزلقانات القطار) يحد من هدر الوقود وتلويث الهواء</li>
         </ul>
       </div>
 
-      <div class="compare-card sky">
-        <div class="card-header-row">
-          <span class="card-it-title">Aerodinamica</span>
-          <span class="card-ar-title">انسيابية السيارة والهواء</span>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
         </div>
         <ul class="card-points-list">
-          <li><span>🧳</span> <strong>حامل السقف (Portapacchi):</strong> وجوده يكسر انسيابية السيارة ويزيد استهلاك الوقود <strong>حتى وإن كان فارغاً تماماً</strong>!</li>
-          <li><span>🪟</span> <strong>إغلاق النوافذ بالسرعات العالية:</strong> فتح النوافذ يدخل تيار هواء يعمل ككابح للسيارة ويرفع الاستهلاك.</li>
-          <li><span>❄️</span> <strong>طبقة الثلج على السقف:</strong> يجب إزالة الثلوج المتراكمة؛ لأنها تزيد وزن المركبة ومقاومة الهواء.</li>
+          <li><span>❌</span> لتقليل استهلاك الوقود، يجب الضغط على دواسة الوقود بأقصى قوة في التعشيقات المنخفضة حتى يصرخ المحرك ❌</li>
+          <li><span>❌</span> السير على وضع الحياد (Folle) أثناء النزول من المنحدرات يوفر الوقود ويحسن الأمان ❌</li>
+          <li><span>❌</span> يجب ترك المحرك يعمل لمدة نصف ساعة في الصباح قبل الانطلاق لتسخينه بالكامل ❌</li>
         </ul>
       </div>
 
-      <div class="compare-card amber">
-        <div class="card-header-row">
-          <span class="card-it-title">Carichi Elettrici</span>
-          <span class="card-ar-title">الأجهزة الكهربائية والضغط</span>
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> السير في المنحدر بوضع الفول (Folle) ممنوع وخطير ولا يوفر وقوداً في السيارات الحديثة؛ فرفع القدم مع التعشيق (Cut-off) يصفر الاستهلاك تماماً ويضمن فرملة المحرك!
+      </div>
+    </div>
+
+    <!-- CARD: Portapacchi e Carico -->
+    <div class="signal-card" data-category="aerodinamica">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">📦 🌪️</div>
+          <div class="badge-visual-code">Portapacchi e Carico</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">حامل الأمتعة ومقاومة الهواء على السقف (Resistenza Aerodinamica)</h3>
+        <span class="card-it-title">Resistenza aerodinamica, portapacchi, portasci e finestrini</span>
+      </div>
+      <p class="card-desc-text">
+        التأثير المباشر لملحقات السقف والنوافذ على كفاءة انسياب الهواء حول السيارة؛ الزيادة الهائلة في مقاومة السحب واستهلاك الوقود.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
         </div>
         <ul class="card-points-list">
-          <li><span>❄️</span> <strong>التكييف (Climatizzatore):</strong> تشغيله يزيد استهلاك الوقود بشكل ملحوظ عبر تحميل الدينامو على المحرك.</li>
-          <li><span>⚡</span> <strong>سخان الزجاج الخلفي (Lunotto termico):</strong> تشغيله المستمر يرفع الاستهلاك؛ يجب إطفاؤه فور زوال الضباب.</li>
-          <li><span>🔘</span> <strong>ضغط الإطارات (Pressione):</strong> الضغط المنخفض (Sgonfi) يزيد مقاومة التدحرج ويرفع استهلاك الوقود.</li>
+          <li><span>✅</span> تركيب حامل الأمتعة أو حامل الزلاجات (Portapacchi / Portasci) على سقف المركبة يزيد من مقاومة الهواء ويزيد استهلاك الوقود حتى لو كان فارغاً (Anche se scarico)</li>
+          <li><span>✅</span> السير بنوافذ مفتوحة عند السرعات العالية (كالسير على الأوتوستراد) يزيد بشكل كبير من مقاومة الهواء واستهلاك الوقود</li>
+          <li><span>✅</span> يجب إزالة حوامل الأمتعة وصناديق السقف فور الانتهاء من استخدامها لاستعادة الانسيابية الهوائية الأصلية للمركبة</li>
+          <li><span>✅</span> توزيع الأمتعة داخل صندوق السيارة أفضل ديناميكياً وهوائياً من وضعها فوق السقف</li>
         </ul>
       </div>
-    </div>
 
-    <!-- Section 2 -->
-    <h2 class="section-title">ثانياً: التلوث الهوائي ودخان العادم (Fumi di Scarico)</h2>
-    <p style="color:var(--text-secondary); margin-bottom:14px;">لون دخان العادم الخارج من الشكمان هو المؤشر التشخيصي الأول لصحة واحتراق المحرك في كويزات المرور:</p>
-
-    <div class="smoke-grid">
-      <!-- Black -->
-      <div class="smoke-card" style="border-color: rgba(255,255,255,0.2);">
-        <span class="smoke-badge" style="background:#27272a; color:#fff; border:1px solid rgba(255,255,255,0.2);">⬛ دخان أسود (Fumo Nero)</span>
-        <p style="font-size:0.9rem; color:#d4d4d8; line-height:1.5;">
-          <strong>السبب:</strong> زيادة الوقود المحقون، أو انسداد فلتر الهواء (Filtro aria intasato)، أو عطل في رشاشات البخاخات (Iniettori difettosi).<br>
-          <strong>العلاج:</strong> تنظيف أو استبدال فلتر الهواء وضبط البخاخات.
-        </p>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> حامل الأمتعة الفارغ على السقف يساعد على اختراق الهواء ويقلل استهلاك الوقود بنسبة 10% ❌</li>
+          <li><span>❌</span> فتح كافة النوافذ أثناء السير بسرعة 130 كم/س يعتبر بديلاً أفضل وأوفر من استخدام التكييف ❌</li>
+          <li><span>❌</span> وزن الأمتعة في الصندوق الخلفي لا يؤثر إطلاقاً على استهلاك الوقود ❌</li>
+        </ul>
       </div>
 
-      <!-- Blue -->
-      <div class="smoke-card" style="border-color: rgba(56,189,248,0.35);">
-        <span class="smoke-badge" style="background:rgba(56,189,248,0.15); color:#38bdf8; border:1px solid rgba(56,189,248,0.3);">🟦 دخان أزرق (Fumo Bluastro)</span>
-        <p style="font-size:0.9rem; color:#d4d4d8; line-height:1.5;">
-          <strong>السبب:</strong> تسرب واحتراق زيت المحرك (Olio motore) داخل غرف الاحتراق نتيجة تآكل الشنابر أو جلد الصبابات.<br>
-          <strong>العلاج:</strong> فحص مستوى الزيت وصيانة ميكانيكية لأجزاء المحرك الداخلية.
-        </p>
-      </div>
-
-      <!-- White -->
-      <div class="smoke-card" style="border-color: rgba(244,63,94,0.35);">
-        <span class="smoke-badge" style="background:rgba(244,63,94,0.15); color:#fb7185; border:1px solid rgba(244,63,94,0.3);">⬜ دخان أبيض كثيف (Fumo Bianco)</span>
-        <p style="font-size:0.9rem; color:#d4d4d8; line-height:1.5;">
-          <strong>السبب:</strong> تسرب سائل التبريد (Liquido di raffreddamento) لداخل المحرك وتلف جوان وش السلندر (Guarnizione della testata).<br>
-          <em>(ملاحظة: بخار الماء الأبيض الخفيف عند بدء التشغيل في البرد طبيعي).</em>
-        </p>
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> حامل الأمتعة يزيد الاستهلاك حتى لو كان فارغاً (Anche se scarico)؛ بسبب تشويهه لخطوط الانسيابية الهوائية للسيارة!
       </div>
     </div>
 
-    <div class="callout-box rose">
-      <strong>⚠️ فخ حريق المحول الحفاز (Marmitta Catalitica):</strong> المحول الحفاز يصل لدرجات حرارة هائلة تتجاوز 500 درجة مئوية. يمنع منعاً باتاً ركن المركبة فوق الأعشاب والحشائش الجافة (<code>Erba secca</code>) لأن حرارة الكاتاليزور تشعل حرائق فورية!
-    </div>
-
-    <!-- Section 3 -->
-    <h2 class="section-title">ثالثاً: التلوث السمعي والضوضاء (Inquinamento Acustico)</h2>
-    <div class="table-wrap">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>عنصر الضوضاء</th>
-            <th>القاعدة القانونية الإلزامية</th>
-            <th>فخاخ الامتحان الوزاري ⚠️</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>كاتم الصوت (Silenziatore / Marmitta)</strong></td>
-            <td>يجب أن يكون دائماً في حالة كفاءة تامة ومن نوع معتمد ومطابق لموديل السيارة (<code>Omologato</code>).</td>
-            <td>يمنع منعاً باتاً تعديل الشكمان لزيادة صوت المحرك؛ وتوقع عقوبات وغرامات قاسية.</td>
-          </tr>
-          <tr>
-            <td><strong>آلة التنبيه (Clacson)</strong></td>
-            <td>تستخدم فقط وباعتدال للسلامة الفورية ولتجنب الحوادث، أو لنقل جريح في حالة خطر داهم.</td>
-            <td>يمنع استخدام الكلاكس للتحية أو إبداء الغضب أو لتسريع حركة الآخرين في الإشارات.</td>
-          </tr>
-          <tr>
-            <td><strong>الضغط على دواسة البنزين والسيارة متوقفة</strong></td>
-            <td>ممنوع الضغط المتكرر على دواسة الوقود أثناء توقف السيارة (`Sgasare`).</td>
-            <td>فخ شهير: الضغط على البنزين والسيارة باردة لا يفيد في تسخينها بل يزيد التلوث والضجيج.</td>
-          </tr>
-          <tr>
-            <td><strong>الإطارات والمقطورات</strong></td>
-            <td>يمنع الانعطاف بسرعات مفرطة تسبب صرير الإطارات؛ وإحكام تثبيت المقطورات الفارغة المهتزة.</td>
-            <td>صرير الإطارات في المنعطفات يُعد تلوثاً صوتياً مخالفاً للقانون.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Section 4 -->
-    <h2 class="section-title">رابعاً: التخلص القانوني من المخلفات والنفايات (Smaltimento Rifiuti)</h2>
-    <div class="comparison-grid">
-      <div class="compare-card amber">
-        <div class="card-header-row">
-          <span class="card-it-title">Oli Usati</span>
-          <span class="card-ar-title">زيوت المحرك المستعملة</span>
+    <!-- CARD: Pressione Pneumatici -->
+    <div class="signal-card" data-category="aerodinamica">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🛞 💨</div>
+          <div class="badge-visual-code">Pressione Pneumatici</div>
         </div>
-        <p style="font-size:0.92rem; color:#d4d4d8; line-height:1.6;">
-          يمنع منعاً باتاً سكب الزيت المستعمل في البالوعات أو على الأرض؛ لأنه مادة سامة غير قابلة للتحلل الحيوي وتلوث المياه الجوفية. يجب تسليمه لورش الصيانة أو مراكز التجميع الإلزامية (<strong>Consorzio Obbligatorio Oli Usati</strong>).
-        </p>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">ضغط هواء الإطارات ومقاومة الدوران (Pressione dei pneumatici)</h3>
+        <span class="card-it-title">Pressione insufficiente dei pneumatici e aumento dei consumi</span>
+      </div>
+      <p class="card-desc-text">
+        العلاقة الوثيقة بين ضغط الإطارات واستهلاك الطاقة؛ أثر الضغط المنخفض في زيادة سطح الاحتكاك ومقاومة الدوران وهدر الوقود.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> القيادة بإطارات ذات ضغط هواء منخفض وغير كافٍ (Pressione insufficiente) تزيد من مقاومة دوران الإطار على الأسفلت وترفع استهلاك الوقود</li>
+          <li><span>✅</span> الضغط المنخفض للإطارات يؤدي إلى ارتفاع مفرط في درجة حرارتها وتآكلها السريع غير المنتظم على الحواف الجانبية</li>
+          <li><span>✅</span> يجب فحص ضغط هواء الإطارات بانتظام عندما تكون الإطارات باردة (A freddo)، وضبطه وفق القيم المحددة في كتيب صيانة المركبة</li>
+          <li><span>✅</span> الحفاظ على الضغط السليم يقلل من مسافة الفرملة ويحسن توجيه المركبة ويوفر الوقود</li>
+        </ul>
       </div>
 
-      <div class="compare-card rose">
-        <div class="card-header-row">
-          <span class="card-it-title">Batterie Esauste</span>
-          <span class="card-ar-title">بطاريات السيارات التالفة</span>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
         </div>
-        <p style="font-size:0.92rem; color:#d4d4d8; line-height:1.6;">
-          تحتوي على الرصاص وأحماض أكالة شديدة التلوث. التخلي عنها في البيئة جريمة يعاقب عليها القانون. يتم تسليم البطارية القديمة مجاناً لبائع البطاريات عند شراء واحدة جديدة (<strong>Senza costi aggiuntivi</strong>).
-        </p>
+        <ul class="card-points-list">
+          <li><span>❌</span> الضغط المنخفض للإطارات يساعد على توفير الوقود لأن السيارة تصبح أكثر ثباتاً ❌</li>
+          <li><span>❌</span> يجب فحص ضغط الإطارات فقط بعد قطع مسافة 200 كم على الأوتوستراد وهي ساخنة ❌</li>
+          <li><span>❌</span> تفريغ الهواء من الإطارات إلى النصف يوصى به صيفاً لمنع انفجارها ❌</li>
+        </ul>
       </div>
 
-      <div class="compare-card sky">
-        <div class="card-header-row">
-          <span class="card-it-title">Liquido Antigelo</span>
-          <span class="card-ar-title">سائل مانع التجمد</span>
-        </div>
-        <p style="font-size:0.92rem; color:#d4d4d8; line-height:1.6;">
-          سائل التبريد ومانع التجمد للرادياتير مادة سامة وغير قابلة للتحلل الحيوي (<strong>Non biodegradabile</strong>). يمنع تفريغها في شبكات الصرف الصحي، ويجب تصريفها حصراً في ورش متخصصة.
-        </p>
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> ضغط الإطارات يفحص دائماً والإطارات باردة (A freddo)؛ والضغط المنخفض يزيد استهلاك الوقود حتماً (Aumenta i consumi)!
       </div>
     </div>
 
-    <!-- Section 5 -->
-    <h2 class="section-title">خامساً: القاموس التقني ومصطلحات الفخاخ (Glossario Tecnico A2)</h2>
-    <div class="table-wrap">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>المصطلح بالإيطالية</th>
-            <th>الترجمة العربية</th>
-            <th>فخ الكويز والامتحان الوزاري ⚠️</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong style="color:#fff;">Consumo di carburante</strong></td>
-            <td>استهلاك الوقود</td>
-            <td>يزداد مع زيادة السرعة، الوزن، الأجهزة الكهربائية، ومقاومة الهواء.</td>
-          </tr>
-          <tr>
-            <td><strong style="color:#fff;">Resistenza dell'aria</strong></td>
-            <td>مقاومة الهواء</td>
-            <td>تزداد مع صندوق السقف أو فتح النوافذ بالسرعات العالية.</td>
-          </tr>
-          <tr>
-            <td><strong style="color:#fff;">Pressione di gonfiaggio</strong></td>
-            <td>ضغط نفخ الإطارات</td>
-            <td>الضغط المنخفض (Sgonfi) يزيد الاستهلاك؛ والضغط الزائد يضر بالثبات.</td>
-          </tr>
-          <tr>
-            <td><strong style="color:#fff;">Marmitta catalitica</strong></td>
-            <td>المحول الحفاز (الكاتاليزور)</td>
-            <td>يقلل الغازات السامة؛ يسخن بشدة ويمنع ركنه فوق الأعشاب الجافة.</td>
-          </tr>
-          <tr>
-            <td><strong style="color:#fff;">Filtro antiparticolato (FAP/DPF)</strong></td>
-            <td>فلتر الجسيمات (ديزل)</td>
-            <td>يحجز جزيئات الكربون الدقيقة المسرطنة في سيارات الديزل.</td>
-          </tr>
-          <tr>
-            <td><strong style="color:#fff;">Silenziatore</strong></td>
-            <td>كاتم صوت الشكمان</td>
-            <td>يمنع الضوضاء؛ يمنع تعديله أو استبداله بنوع غير معتمد (Non omologato).</td>
-          </tr>
-          <tr>
-            <td><strong style="color:#fff;">Clacson</strong></td>
-            <td>آلة التنبيه (الكلاكس)</td>
-            <td>مخصص للضرورة القصوى وتفادي الحوادث فقط.</td>
-          </tr>
-          <tr>
-            <td><strong style="color:#fff;">Smaltimento rifiuti</strong></td>
-            <td>التخلص من المخلفات</td>
-            <td>البطاريات والزيوت نفايات خاصة وخطرة تسلم للمراكز المعتمدة.</td>
-          </tr>
-          <tr>
-            <td><strong style="color:#fff;">Non biodegradabile</strong></td>
-            <td>غير قابل للتحلل العضوي</td>
-            <td>صفة لسائل الرادياتير (Antigelo) والزيوت المستعملة؛ تلوث المياه الجوفية.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Section 6 -->
-    <h2 class="section-title">سادساً: بنك الفخاخ الوزارية المباشرة (Quiz Vero o Falso)</h2>
-    <div class="quiz-stack">
-      <!-- Q1 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">1. Gli apparecchi elettrici del veicolo (come il lunotto termico o il climatizzatore) fanno aumentare i consumi di carburante.</div>
-        <div class="quiz-q-ar">الأجهزة الكهربائية في المركبة (مثل سخان الزجاج الخلفي أو التكييف) تزيد من استهلاك الوقود.</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-vero">VERO ✅</span>
-          <span class="quiz-explain">صحيح؛ توليد الكهرباء يتطلب جهداً ميكانيكياً إضافياً من المحرك عبر الدينامو مما يرفع الاستهلاك.</span>
+    <!-- CARD: Climatizzatore -->
+    <div class="signal-card" data-category="aerodinamica">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">❄️ ⚡</div>
+          <div class="badge-visual-code">Climatizzatore</div>
         </div>
       </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">مكيف الهواء والأجهزة الكهربائية واستهلاك الوقود</h3>
+        <span class="card-it-title">Uso del climatizzatore, carichi elettrici e consumi energetici</span>
+      </div>
+      <p class="card-desc-text">
+        الحمل الميكانيكي والكهربائي الإضافي الذي تفرضه أجهزة التكييف والملحقات الكهربائية على محرك السيارة ومولد الكهرباء (Alternatore).
+      </p>
 
-      <!-- Q2 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">2. Viaggiare con uno spesso strato di neve sul tetto comporta un aumento dei consumi di carburante.</div>
-        <div class="quiz-q-ar">السفر مع وجود طبقة ثلج سميكة على سقف السيارة يترتب عليه زيادة في استهلاك الوقود.</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-vero">VERO ✅</span>
-          <span class="quiz-explain">صحيح؛ الثلج يزيد الوزن الإجمالي للسيارة ويزيد مقاومة الهواء، ويجب تنظيف السقف قبل الانطلاق.</span>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
         </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تشغيل مكيف الهواء (Climatizzatore) يمثل حملاً إضافياً على محرك السيارة ويؤدي إلى زيادة استهلاك الوقود</li>
+          <li><span>✅</span> يجب استخدام مكيف الهواء باعتدال وتجنب ضبط درجات حرارة منخفضة جداً لا داعي لها</li>
+          <li><span>✅</span> استخدام التجهيزات الكهربائية غير الضرورية داخل السيارة يرهق مولد الكهرباء ويزيد الاستهلاك بشكل طفيف</li>
+          <li><span>✅</span> قبل تشغيل التكييف في سيارة كانت متوقفة تحت الشمس، يستحسن فتح الأبواب والنوافذ لدقائق لطرد الهواء الساخن المحتبس</li>
+        </ul>
       </div>
 
-      <!-- Q3 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">3. Per far scaldare il motore più rapidamente è consigliabile premere ripetutamente a fondo il pedale dell'acceleratore.</div>
-        <div class="quiz-q-ar">لتسخين المحرك بسرعة ينصح بالضغط المتكرر والقوي على دواسة البنزين.</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">فخ ميكانيكي: الضغط المتكرر والسيارة باردة يزيد التلوث وتآكل أجزاء المحرك؛ التسخين يتم بالقيادة الهادئة.</span>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
         </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> مكيف الهواء يعمل بالطاقة الشمسية ولا يؤثر إطلاقاً على كمية الوقود المستهلكة ❌</li>
+          <li><span>❌</span> تشغيل التكييف بأقصى طاقة يزيد من سرعة السيارة وقدرة المحرك على الصعود ❌</li>
+          <li><span>❌</span> يجب تشغيل التكييف باستمرار حتى عند ترك السيارة متوقفة في الجراج لإزالة الرطوبة ❌</li>
+        </ul>
       </div>
 
-      <!-- Q4 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">4. Il portapacchi montato sul tetto fa aumentare il consumo di carburante anche se è vuoto.</div>
-        <div class="quiz-q-ar">حامل الأمتعة المثبت على السقف يزيد من استهلاك الوقود حتى وإن كان فارغاً.</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-vero">VERO ✅</span>
-          <span class="quiz-explain">صحيح 100%؛ حامل السقف يكسر ديناميكية الهواء ويشكل مقاومة هوائية تستهلك وقوداً إضافياً.</span>
-        </div>
-      </div>
-
-      <!-- Q5 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">5. È consentito scaricare il liquido antigelo del radiatore nei tombini delle fognature.</div>
-        <div class="quiz-q-ar">يسمح بسكب سائل مانع التجمد من الرادياتير في بالوعات شبكات الصرف الصحي.</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">جريمة بيئية: سائل التبريد غير قابل للتحلل وسام جداً ويلوث المياه الجوفية والتربة.</span>
-        </div>
-      </div>
-
-      <!-- Q6 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">6. Un fumo di scarico di colore nero indica generalmente un eccessivo consumo di carburante o un filtro dell'aria intasato.</div>
-        <div class="quiz-q-ar">دخان العادم الأسود يشير عموماً إلى استهلاك مفرط للوقود أو انسداد في فلتر الهواء.</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-vero">VERO ✅</span>
-          <span class="quiz-explain">صحيح؛ الدخان الأسود يعني نقص الهواء مقابل الوقود أو عطل في رشاشات الحقن (Iniettori).</span>
-        </div>
-      </div>
-
-      <!-- Q7 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">7. È consentito sostituire la marmitta con un'altra che aumenti la rumorosità per farsi sentire meglio.</div>
-        <div class="quiz-q-ar">يسمح باستبدال الشكمان بآخر يرفع من صوت السيارة لضمان سماعها بشكل أفضل.</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">ممنوع تماماً؛ يجب أن يكون كاتم الصوت من نوع معتمد (Omologato) ومطابق تماماً للمواصفات الرسمية.</span>
-        </div>
-      </div>
-
-      <!-- Q8 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">8. La sosta su un prato con erba secca di un veicolo con marmitta catalitica calda può provocare un incendio.</div>
-        <div class="quiz-q-ar">ركن مركبة بمحول حفاز ساخن فوق مرج به أعشاب جافة يمكن أن يسبب حريقاً.</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-vero">VERO ✅</span>
-          <span class="quiz-explain">صحيح 100%؛ الكاتاليزور يسخن لدرجات حرارة فائقة وملامسته للأعشاب الجافة تشعل حرائق فورية.</span>
-        </div>
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> مكيف الهواء يعمل بكمبروسر متصل بسير المحرك؛ وتشغيله يزيد الاستهلاك حتماً!
       </div>
     </div>
-  </article>
+
+    <!-- CARD: Monossido di Carbonio -->
+    <div class="signal-card" data-category="inquinamento-aria">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">☠️ 💨</div>
+          <div class="badge-visual-code">Monossido di Carbonio</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">أول أكسيد الكربون (CO): القاتل الصامت في عوادم السيارات</h3>
+        <span class="card-it-title">Monossido di carbonio (CO): tossicità, caratteristiche e pericoli</span>
+      </div>
+      <p class="card-desc-text">
+        أخطر الغازات السامة الناتجة عن الاحتراق غير التام للوقود؛ خصائصه الفيزيائية القاتلة، وخطر تشغيل المحرك داخل الأماكن المغلقة.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> أول أكسيد الكربون (CO) غاز شديد السمية، عديم اللون والرائحة والطعم، مما يجعله خفياً وصعب الاكتشاف بالحواس المجردة</li>
+          <li><span>✅</span> يرتبط غاز CO بهيموغلوبين الدم بقوة تفوق الأكسجين بمئات المرات، مما يمنع وصول الأكسجين إلى خلايا الدماغ والأعضاء الحيوية مسبباً الموت خنقاً</li>
+          <li><span>✅</span> يحظر تماماً تشغيل محرك المركبة داخل الجراجات أو الأماكن المغلقة سيئة التهوية لتفادي التراكم السريع لغاز أول أكسيد الكربون القاتل</li>
+          <li><span>✅</span> ينتج غاز أول أكسيد الكربون بشكل أكبر عند الاحتراق غير المكتمل للوقود بسبب اتساخ فلتر الهواء أو خلل في منظومة الحقن</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يتميز أول أكسيد الكربون برائحة نفاذة تشبه البيض الفاسد يمكن شمها بسهولة ❌</li>
+          <li><span>❌</span> يمكن تشغيل المحرك داخل الجراج المغلق بأمان إذا تم فتح غطاء محرك السيارة فقط ❌</li>
+          <li><span>❌</span> غاز أول أكسيد الكربون مفيد للجهاز التنفسي ويساعد على تنقية الرئتين ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> احفظ خصائص أول أكسيد الكربون (CO): عديم اللون والرائحة (Incolore e inodore)؛ وتشغيل المحرك في جراج مغلق خطر مميت!
+      </div>
+    </div>
+
+    <!-- CARD: Gas Inquinanti -->
+    <div class="signal-card" data-category="inquinamento-aria">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🏭 🌫️</div>
+          <div class="badge-visual-code">Gas Inquinanti</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الملوثات الهوائية الأخرى: الهيدروكربونات وأكاسيد النيتروجين والجسيمات</h3>
+        <span class="card-it-title">Idrocarburi incombusti (HC), ossidi di azoto (NOx) e particolato (PM10)</span>
+      </div>
+      <p class="card-desc-text">
+        المركبات الكيميائية الضارة المنبعثة من الاحتراق؛ دورها في تشكيل الضباب الدخاني (Smog)، الأمطار الحمضية، والأمراض التنفسية.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> الهيدروكربونات غير المحترقة (Idrocarburi incombusti - HC) هي بقايا وقود لم تشتعل وتساهم في تشكيل الضباب الدخاني الكيميائي والروائح الكريهة</li>
+          <li><span>✅</span> أكاسيد النيتروجين (Ossidi di azoto - NOx) تتشكل عند درجات حرارة الاحتراق العالية وتسبب تهيج الجهاز التنفسي وتسهم في تكون الأمطار الحمضية</li>
+          <li><span>✅</span> الجسيمات الدقيقة والسناج (Particolato / PM10) تنبعث أساساً من محركات الديزل وتستقر في أعماق الرئتين وتعتبر مواد مسرطنة</li>
+          <li><span>✅</span> الصيانة الدورية لمنظومة الاشتعال والحقن تقلل بشكل كبير من تركيز هذه الملوثات في غازات العادم</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> عوادم السيارات تطلق فقط أكسجيناً نقياً وبخار ماء خاليين من أي أثر كيميائي ❌</li>
+          <li><span>❌</span> الجسيمات الدقيقة PM10 لا تؤثر إلا على الطلاء الخارجي للسيارة فقط ❌</li>
+          <li><span>❌</span> محركات الديزل لا تطلق أي انبعاثات من الجسيمات الدقيقة مقارنة بالبنزين ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> الديزل هو المصدر الرئيسي للجسيمات الدقيقة والسناج (Particolato/PM10)؛ ولذلك تم تزويده بفلتر DPF!
+      </div>
+    </div>
+
+    <!-- CARD: Marmitta Catalitica -->
+    <div class="signal-card" data-category="dispositivi-scarico">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🔬 🔥</div>
+          <div class="badge-visual-code">Marmitta Catalitica</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">المحول الحفاز وعلبة البيئة (La marmitta catalitica)</h3>
+        <span class="card-it-title">Funzionamento e caratteristiche della marmitta catalitica (catalizzatore)</span>
+      </div>
+      <p class="card-desc-text">
+        جهاز معالجة وتطهير غازات العادم في أنبوب العادم؛ يستخدم معادن نبيلة لتحفيز أكسدة واختزال الغازات السامة وتحويلها لغازات آمنة عند درجات حرارة مرتفعة.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تعمل علبة البيئة (Marmitta catalitica) على تحويل الغازات السامة (CO, HC, NOx) إلى مركبات غير ضارة بالبيئة كبخار الماء وثاني أكسيد الكربون والنيتروجين</li>
+          <li><span>✅</span> تتطلب علبة البيئة وصول المحول إلى درجات حرارة تشغيل مرتفعة جداً (عدة مئات من الدرجات) لتبدأ التفاعلات الكيميائية الحفازة بكفاءة</li>
+          <li><span>✅</span> في الرحلات القصيرة جداً، لا تسخن علبة البيئة بالقدر الكافي وتكون نسبة انبعاث الملوثات أعلى</li>
+          <li><span>✅</span> يجب تجنب ركن السيارة فوق الأعشاب الجافة أو أوراق الشجر اليابسة لأن حرارة علبة البيئة المرتفعة قد تؤدي إلى إشعال حريق</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تعمل علبة البيئة بأعلى كفاءة فور تشغيل المحرك والسيارة باردة في الصباح ❌</li>
+          <li><span>❌</span> المحول الحفاز يلغي تماماً انبعاث ثاني أكسيد الكربون (CO2) ❌</li>
+          <li><span>❌</span> يجوز ركن السيارة فوق حقول القش الجافة بعد رحلة طويلة على الأوتوستراد دون قلق ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> فخان خطيران: 1) علبة البيئة تعمل فقط وهي ساخنة جداً؛ 2) حرارتها المرتفعة قد تشعل النيران إذا ركنت فوق أعشاب جافة (Erba secca)!
+      </div>
+    </div>
+
+    <!-- CARD: Filtro Antiparticolato -->
+    <div class="signal-card" data-category="dispositivi-scarico">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🛡️ 🖤</div>
+          <div class="badge-visual-code">Filtro Antiparticolato</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">فلتر الجسيمات الدقيقة في محركات الديزل (DPF / FAP)</h3>
+        <span class="card-it-title">Filtro antiparticolato nei motori diesel e processo di rigenerazione</span>
+      </div>
+      <p class="card-desc-text">
+        مرشح سيراميكي خاص في نظام عادم محركات الديزل؛ يحتجز السناج والجسيمات الكربونية الدقيقة، ويقوم بحرقها ذاتياً عبر دورة التجديد.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يقوم فلتر الجسيمات الدقيقة (Filtro antiparticolato - DPF) باحتجاز ذرات الكربون والسناج المنبعثة من محرك الديزل للحد من التلوث</li>
+          <li><span>✅</span> يقوم الفلتر بعملية تنظيف ذاتي دورية تسمى 'التجديد' (Rigenerazione) يتم فيها حرق الجسيمات المتراكمة عند درجات حرارة فائقة</li>
+          <li><span>✅</span> إذا تم استخدام السيارة في مشاوير قصيرة متكررة داخل المدينة، قد يفشل الفلتر في إتمام التجديد ويضيء مصباح تحذيري بالتابلوه</li>
+          <li><span>✅</span> لإتمام تجديد الفلتر المسدود، ينصح بقيادة السيارة على طريق سريع أو أوتوستراد بسرعة ثابتة لعدة كيلومترات</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> فلتر الجسيمات الدقيقة يركب فقط على السيارات الكهربائية والهجينة ❌</li>
+          <li><span>❌</span> يحظر تماماً تنظيف أو تجديد فلتر الديزل ويجب رميه واستبداله كل 1.000 كم ❌</li>
+          <li><span>❌</span> إزالة أو تفريغ فلتر DPF من السيارة عمل قانوني مسموح به لتحسين عزم المحرك ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> إزالة فلتر DPF جريمة جنائية ومخالفة مرورية فادحة تسقط صلاحية السيارة للسير وتسحب شهادة تسييرها!
+      </div>
+    </div>
+
+    <!-- CARD: Filtro Aria e Fumo Nero -->
+    <div class="signal-card" data-category="dispositivi-scarico">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">💨 ⚫</div>
+          <div class="badge-visual-code">Filtro Aria e Fumo Nero</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">اتساخ فلتر الهواء والبخاخات وظهور الدخان الأسود من العادم</h3>
+        <span class="card-it-title">Intasamento del filtro dell'aria, fumo nero allo scarico e iniettori</span>
+      </div>
+      <p class="card-desc-text">
+        دلالات ألوان دخان العادم؛ الدخان الأسود الكثيف الناتج عن نقص الهواء وزيادة الوقود المحقون، وتأثير تلف الفلاتر.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> اتساخ وانسداد فلتر الهواء (Filtro dell'aria intasato) يقلل من كمية الأكسجين الداخلة لغرف الاحتراق مما يؤدي إلى احتراق غير كامل للوقود</li>
+          <li><span>✅</span> ينتج عن انسداد فلتر الهواء أو اتساخ بخاخات الوقود انبعاث دخان أسود كثيف من ماسورة العادم وزيادة استهلاك الوقود وفقدان عزم المحرك</li>
+          <li><span>✅</span> الصيانة الدورية واستبدال فلتر الهواء في المواعيد المقررة يضمن احتراقاً نظيفاً ويقلل من تلوث البيئة</li>
+          <li><span>✅</span> انبعاث دخان أزرق يدل على احتراق زيت المحرك داخل غرف الاحتراق نتيجة تآكل حلقات المكابس (Fasce elastiche)</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> خروج دخان أسود كثيف من العادم يعتبر دليلاً قاطعاً على كفاءة واقتصادية المحرك ❌</li>
+          <li><span>❌</span> فلتر الهواء لا يحتاج أبداً للاستبدال طوال عمر السيارة الافتراضي ❌</li>
+          <li><span>❌</span> الدخان الأسود يعني أن المحرك يحرق ماء التبريد النظيف ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> دخان أسود = وقود زائد وهواء قليل (فلتر هواء مسدود أو بخاخات تالفة)؛ دخان أزرق = احتراق زيت المحرك!
+      </div>
+    </div>
+
+    <!-- CARD: Inquinamento Acustico -->
+    <div class="signal-card" data-category="rumore-rifiuti">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🔊 🛑</div>
+          <div class="badge-visual-code">Inquinamento Acustico</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">التلوث السمعي والضوضاء الناتجة عن المركبات (Inquinamento Acustico)</h3>
+        <span class="card-it-title">Inquinamento acustico, rumore dei veicoli e sanzioni per modifiche</span>
+      </div>
+      <p class="card-desc-text">
+        مصادر الضوضاء المرورية المحظورة؛ التعديلات غير القانونية على الشكمان، الفرملة الحادة، واستخدام آلات التنبيه الصوتي داخل المدن.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> التلوث السمعي يسبب التوتر العصبي واضطرابات النوم وتشتت الانتباه وارتفاع ضغط الدم لدى السكان ومستخدمي الطريق</li>
+          <li><span>✅</span> يجب الحفاظ على سلامة وكفاءة صامت العادم (Silenziatore / Marmitta) لمنع الضوضاء المفرطة للمحرك</li>
+          <li><span>✅</span> يحظر تماماً تعديل أو تغيير أو إفراغ ماسورة العادم لجعل صوتها أعلى أو لإحداث فرقعات صوتية (Sanzione e ritiro della carta di circolazione)</li>
+          <li><span>✅</span> يجب تجنب التسارع العنيف مع دوران العجلات على الأسفلت (Sgommate) أو الفرملة المفاجئة التي تحدث صريراً حاداً</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يجوز للسائق إزالة صامت العادم بالكامل إذا كان يقود سيارة رياضية ❌</li>
+          <li><span>❌</span> التلوث السمعي لا يؤثر إطلاقاً على صحة الإنسان ولا يعتبر مخالفة قانونية ❌</li>
+          <li><span>❌</span> يسمح باستخدام أبواق موسيقية متعددة النغمات على السيارات الخاصة للترفيه ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> تعديل الشكمان لإحداث صوت رياضي صاخب ممنوع ومخالف لكود السير ويستوجب غرامة وسحب رخصة التسيير (Carta di circolazione)!
+      </div>
+    </div>
+
+    <!-- CARD: Uso del Clacson -->
+    <div class="signal-card" data-category="rumore-rifiuti">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">📯 🏙️</div>
+          <div class="badge-visual-code">Uso del Clacson</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">ضوابط استخدام آلة التنبيه الصوتي (Il Clacson) وحالات الحظر</h3>
+        <span class="card-it-title">Uso corretto dei dispositivi di segnalazione acustica (clacson)</span>
+      </div>
+      <p class="card-desc-text">
+        الأحكام القانونية لاستخدام المنبه الصوتي؛ الحظر الصارم داخل المدن إلا في حالات الضرورة القصوى المباشرة، وحظر استخدامه للاحتجاج.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> داخل التجمعات السكنية (Centri abitati)، يحظر استخدام آلة التنبيه الصوتي (Clacson) إلا في حالات الخطر الفوري الداهم لتفادي وقوع حادث</li>
+          <li><span>✅</span> يسمح باستخدام المنبه الصوتي داخل المدن لنقل جريح أو مصاب بحالة خطيرة إلى المستشفى في حالات الطوارئ الطبية</li>
+          <li><span>✅</span> يحظر استخدام المنبه الصوتي للتعبير عن الغضب أو الاحتجاج على بطء السائقين أو لمطالبة المشاة بالإسراع</li>
+          <li><span>✅</span> خارج المدن، يسمح باستخدام المنبه الصوتي قبل المنعطفات العمياء أو لتنبيه سائق آخر عند الشروع في التجاوز إذا دعت السلامة</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يجب الضغط على المنبه الصوتي أمام كل إشارة مرور خضراء لتنبيه السائقين ❌</li>
+          <li><span>❌</span> يجوز استخدام المنبه الصوتي داخل المدن ليلاً لإلقاء التحية على الأصدقاء ❌</li>
+          <li><span>❌</span> يمنع منعاً باتاً استخدام المنبه الصوتي حتى لو كان هناك خطر اصطدام وشيك بطفل ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> المنبه داخل المدن ممنوع؛ والاستثناءان الوحيدان: 1) خطر فوري مباغت لتفادي حادث، 2) نقل مصاب أو مريض في خطر صحي حرج!
+      </div>
+    </div>
+
+    <!-- CARD: Smaltimento Olio Esausto -->
+    <div class="signal-card" data-category="rumore-rifiuti">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🛢️ ❌</div>
+          <div class="badge-visual-code">Smaltimento Olio Esausto</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">التخلص القانوني من الزيوت المستعملة وحظر الصرف العشوائي</h3>
+        <span class="card-it-title">Smaltimento ecologico dell'olio motore esausto e sanzioni ambientali</span>
+      </div>
+      <p class="card-desc-text">
+        المسؤولية القانونية الصارمة للتعامل مع زيوت المحركات المحروقة؛ حظر الصب في شبكات المياه، والتسليم الإلزامي للجهات المرخصة.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> زيت المحرك المستعمل نفايات خطرة شديدة التلويث وغير قابلة للتحلل الحيوي السريع، ويشكل خطراً كارثياً على البيئة والمياه</li>
+          <li><span>✅</span> يحظر تماماً سكب أو تفريغ الزيت المستعمل في شبكات المجاري أو بالوعات مياه الأمطار أو على سطح التربة أو في مجاري المياه</li>
+          <li><span>✅</span> يجب جمع الزيت المستعمل في أوعية محكمة الإغلاق وتسليمه إلى ورش الصيانة أو محطات الوقود أو مراكز الجمع البيئية المعتمدة (Consorzio Oli Esausti)</li>
+          <li><span>✅</span> إلقاء الزيوت المستعملة في البيئة يعتبر جريمة بيئية خطيرة تستوجب عقوبات جنائية وغرامات مالية باهظة</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يمكن سكب زيت المحرك المستعمل في الحديقة المنزلية لتسميد الأشجار والقضاء على الحشرات ❌</li>
+          <li><span>❌</span> يسمح بخلط الزيت المستعمل مع مياه الأمطار وتصريفه في بالوعة الشارع العمومية ❌</li>
+          <li><span>❌</span> يجوز إحراق الزيت المستعمل في الهواء الطلق للتدفئة في فصل الشتاء ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> سكب الزيت في البالوعات جريمة؛ والمسار الوحيد هو التسليم لجهات التجميع المعتمدة (Consorzio / Isole ecologiche)!
+      </div>
+    </div>
+
+    <!-- CARD: Smaltimento Batterie -->
+    <div class="signal-card" data-category="rumore-rifiuti">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🔋 ⚠️</div>
+          <div class="badge-visual-code">Smaltimento Batterie</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">التخلص من بطاريات الرصاص المستعملة والمخلفات السامة</h3>
+        <span class="card-it-title">Smaltimento delle batterie al piombo esauste e acidi corrosivi</span>
+      </div>
+      <p class="card-desc-text">
+        المخاطر الكيماوية لبطاريات السيارات القديمة؛ احتواؤها على الرصاص الثقيل وحمض الكبريتيك الكاوي، وإلزامية إعادتها للبائع أو المراكز المخصصة.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تحتوي بطاريات السيارات على معدن الرصاص الثقيل السام ومحاليل حمضية كاوية (Acido solforico) تشكل خطراً بالغاً على التربة والمياه الجوفية</li>
+          <li><span>✅</span> يحظر التخلص من البطاريات المستعملة بإلقائها في حاويات القمامة المنزلية العادية أو تركها في الخلاء</li>
+          <li><span>✅</span> يجب تسليم البطارية القديمة للمركز البيئي التابع للبلدية أو إلى البائع عند شراء بطارية جديدة (Ritiro dell'esausto)</li>
+          <li><span>✅</span> أحماض البطارية تسبب حروقاً كيميائية شديدة عند ملامستها للجلد أو العينين ويجب التعامل معها بحذر تام</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يمكن تفريغ حمض البطارية في حوض المطبخ وغسل البطارية بالصابون ورميها مع البلاستيك ❌</li>
+          <li><span>❌</span> بطاريات السيارات تصنع من مواد عضوية تتحلل ذاتياً في التربة خلال أسبوع ❌</li>
+          <li><span>❌</span> يحظر على محلات بيع البطاريات استلام البطاريات القديمة من الزبائن ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> البطارية تحتوي على رصاص وحمض؛ تسلم حصراً للبائع أو للمركز البيئي (Isola ecologica) ولا ترمى في القمامة أبداً!
+      </div>
+    </div>
+
+    <!-- CARD: Getto Mozziconi e Incendi -->
+    <div class="signal-card" data-category="rumore-rifiuti">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🚬 🌲</div>
+          <div class="badge-visual-code">Getto Mozziconi e Incendi</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">حظر إلقاء أعقاب السجائر والمخلفات وخطر حرائق الغابات</h3>
+        <span class="card-it-title">Divieto di gettare mozziconi di sigaretta accesi e rifiuti dal veicolo</span>
+      </div>
+      <p class="card-desc-text">
+        المادة 15 من كود السير؛ الحظر المطلق لإلقاء أي مخلفات من نوافذ المركبات، وخطر الكوارث الناجم عن أعقاب السجائر المشتعلة في المناطق الجافة.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يحظر تماماً إلقاء أي مخلفات أو علب أو أوراق أو سوائل من نوافذ المركبة أثناء السير أو التوقف (Divieto di gettare rifiuti)</li>
+          <li><span>✅</span> إلقاء أعقاب السجائر المشتعلة من نوافذ المركبة يمثل خطراً جسيماً ومسبباً رئيسياً لاندلاع حرائق الغابات والمراعي الكارثية</li>
+          <li><span>✅</span> إلقاء المخلفات في الشارع يهدد سلامة راكبي الدراجات النارية والمشاة وقد يؤدي إلى انزلاق الإطارات ووقوع حوادث</li>
+          <li><span>✅</span> يعاقب كود السير على إلقاء المخلفات بغرامات مالية مشددة تتضاعف في حال إلقاء أعقاب السجائر المشتعلة</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يسمح بإلقاء علب المشروبات الفارغة من النافذة إذا كانت السيارة تسير في طريق ريفي خالٍ ❌</li>
+          <li><span>❌</span> رمي أعقاب السجائر المشتعلة على جانبي الطريق يعتبر تصرفاً آمناً طالما كان الشارع معبداً بالأسفلت ❌</li>
+          <li><span>❌</span> لا توجد أي غرامة في كود السير على رمي القمامة من نوافذ السيارات ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> رمي أعقاب السجائر جريمة بيئية ومرورية فادحة؛ تتسبب في حرائق الغابات (Incendi boschivi) وتوقع غرامات باهظة!
+      </div>
+    </div>
+  </div><!-- /signals-grid -->
+
+  <!-- GLOSSARY SECTION -->
+  <div class="section-heading" id="glossary-section">
+    <div class="section-badge">المعجم البيئي والتقني للباب 24</div>
+    <h2 class="section-title">قاموس المصطلحات الإيطالية للوقود والبيئة والانبعاثات</h2>
+  </div>
+
+  <div class="glossary-grid">
+    <div class="glossary-card">
+      <div class="term-it">Eco-driving</div>
+      <div class="term-ar">القيادة الاقتصادية البيئية</div>
+      <div class="term-def">أسلوب قيادة واعٍ يعتمد على السلاسة وتفادي التسارع العنيف واستخدام الغيارات العالية لتقليل استهلاك الوقود والانبعاثات.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Resistenza aerodinamica</div>
+      <div class="term-ar">المقاومة الهوائية للمركبة</div>
+      <div class="term-def">قوة إعاقة الهواء لحركة السيارة للأمام؛ تزداد مع مربع السرعة ومع وجود حوامل الأمتعة على السقف أو فتح النوافذ.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Marmitta catalitica</div>
+      <div class="term-ar">المحول الحفاز (علبة البيئة)</div>
+      <div class="term-def">جهاز بمعالجة العادم يحول الغازات السامة (CO, HC, NOx) إلى مركبات غير ضارة بتفاعلات كيميائية في درجات حرارة مرتفعة.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Filtro antiparticolato (DPF)</div>
+      <div class="term-ar">فلتر الجسيمات الدقيقة للديزل</div>
+      <div class="term-def">مرشح عادم في سيارات الديزل يحبس السناج الأسود والجسيمات الكربونية ويقوم بحرقها دورياً في عملية التجديد الذاتي.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Monossido di carbonio (CO)</div>
+      <div class="term-ar">غاز أول أكسيد الكربون السام</div>
+      <div class="term-def">غاز قاتل عديم الرائحة واللون ينتج عن الاحتراق غير التام للوقود، ويسبب الاختناق والوفاة في الأماكن المغلقة.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Idrocarburi incombusti (HC)</div>
+      <div class="term-ar">الهيدروكربونات غير المحترقة</div>
+      <div class="term-def">جزيئات وقود خام خرجت مع العادم دون اشتعال نتيجة خلل في الإشعال أو البخاخات، وتساهم في تكون الضباب الدخاني.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Particolato (PM10)</div>
+      <div class="term-ar">الجسيمات الدقيقة والسناج</div>
+      <div class="term-def">ذرات مجهرية صلبة تنبعث من محركات الديزل تخترق الرئتين وتسبب أضراراً صحية بالغة.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Silenziatore di scarico</div>
+      <div class="term-ar">صامت العادم (الشكمان)</div>
+      <div class="term-def">غرفة توسع وامتصاص في ماسورة العادم تخفض ضوضاء انفجارات المحرك، ويحظر تعديلها أو إفراغها قانوناً.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Olio motore esausto</div>
+      <div class="term-ar">زيت المحرك المستعمل والمحروق</div>
+      <div class="term-def">سائل نفطي ملوث شديد السمية للبيئة يجب تسليمه حصرياً للمراكز المعتمدة ويحظر سكبه في شبكات الصرف.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Batteria al piombo esausta</div>
+      <div class="term-ar">بطارية الرصاص التالفة</div>
+      <div class="term-def">مخلفات خطرة تحتوي على أحماض كاوية ورصاص سام تسلم للبائع أو المراكز البيئية لإعادة تدويرها.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Inquinamento acustico</div>
+      <div class="term-ar">التلوث السمعي والضوضائي</div>
+      <div class="term-def">الضجيج الزائد الناتج عن العادم التالف، صرير الإطارات، أو الاستخدام غير المبرر للمنبه الصوتي.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Fumata nera</div>
+      <div class="term-ar">الدخان الأسود الكثيف</div>
+      <div class="term-def">عادم داكن اللون يدل على احتراق رديء بسبب نقص الهواء (فلتر هواء مسدود) أو تلف في بخاخات الوقود.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Pressione insufficiente</div>
+      <div class="term-ar">ضغط الإطارات المنخفض</div>
+      <div class="term-def">نقص الهواء داخل الإطار مما يرفع مقاومة الدوران ويزيد استهلاك الوقود وتآكل حواف الإطار.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Cut-off (Rilascio)</div>
+      <div class="term-ar">قطع حقن الوقود عند التباطؤ</div>
+      <div class="term-def">خاصية في المحركات الحديثة توقف تدفق الوقود تماماً للأسطوانات عندما يرفع السائق قدمه عن دواسة البنزين والغيارات معشقة.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Isola ecologica</div>
+      <div class="term-ar">المركز البيئي لتجميع النفايات</div>
+      <div class="term-def">مرفق بلدي مخصص لاستقبال النفايات الخاصة والخطرة (زيوت، بطاريات، إطارات قديمة) لإعادة تدويرها مجاناً.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Incendio boschivo</div>
+      <div class="term-ar">حرائق الغابات والأحراش</div>
+      <div class="term-def">كارثة بيئية تنتج غالباً عن إلقاء أعقاب السجائر المشتعلة من نوافذ السيارات أو ركن السيارات الساخنة فوق الأعشاب الجافة.</div>
+    </div>
+  </div>
+
+  <!-- TRAPS SECTION -->
+  <div class="traps-section" id="traps-section">
+    <div class="section-heading">
+      <div class="section-badge">الفخاخ الامتحانية الوزارية الرسمية</div>
+      <h2 class="section-title">أخطر 12 فخاً وزارياً في الباب 24 يقع فيها الطلاب</h2>
+    </div>
+
+    <div class="traps-grid">
+      <!-- Trap 1 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ حامل الأمتعة الفارغ على السقف</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Il portapacchi montato sul tetto dell'autovettura non influenza i consumi di carburante se viaggia completamente vuoto"</p>
+        <p class="trap-quiz-trans">«حامل الأمتعة المثبت على سقف السيارة لا يؤثر على استهلاك الوقود إذا كان فارغاً تماماً»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة تماماً (FALSO). حامل الأمتعة أو الزلاجات يزيد من مقاومة الهواء (Resistenza aerodinamica) بشكل ملحوظ حتى لو كان فارغاً (Anche se vuoto)، مما يرفع استهلاك الوقود بنسبة قد تصل إلى 10-15% على السرعات العالية.
+        </div>
+      </div>
+
+      <!-- Trap 2 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ رائحة غاز أول أكسيد الكربون</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Il monossido di carbonio è facilmente riconoscibile dal suo odore acre e pungente"</p>
+        <p class="trap-quiz-trans">«يمكن التعرف على أول أكسيد الكربون بسهولة من خلال رائحته النفاذة واللاذعة»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة وخطيرة جداً (FALSO). أول أكسيد الكربون (CO) غاز خبيث عديم الرائحة تماماً (Inodore) وعديم اللون والطعم، ولا يمكن لحواس الإنسان إدراكه، مما يؤدي للوفاة خنقاً دون أن يشعر الضحية بالخطر في الأماكن المغلقة.
+        </div>
+      </div>
+
+      <!-- Trap 3 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ علبة البيئة وركن السيارة فوق الأعشاب</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"Non bisogna parcheggiare il veicolo con marmitta catalitica sopra sterpaglie o erba secca per evitare incendi"</p>
+        <p class="trap-quiz-trans">«يجب تجنب ركن المركبة المزودة بمحول حفاز فوق الأعشاب الجافة لتفادي اندلاع الحرائق»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة تماماً (VERO). المحول الحفاز يصل أثناء القيادة إلى درجات حرارة فائقة تتجاوز 500 درجة مئوية؛ وملامسته للأعشاب أو القش الجاف يسبب اشتعال النيران فوراً واحتراق السيارة والمكان.
+        </div>
+      </div>
+
+      <!-- Trap 4 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ تعديل ماسورة العادم لزيادة الصوت</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"E' consentito rimuovere o modificare il silenziatore della marmitta per migliorare le prestazioni del motore"</p>
+        <p class="trap-quiz-trans">«يسمح بإزالة أو تعديل صامت العادم لتحسين أداء وقدرة المحرك»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). يمنع كود السير منعاً باتاً تعديل أو تغيير صامت العادم لجعله أكثر صخباً، ويعاقب المخالف بغرامة مالية باهظة وسحب رخصة التسيير (Carta di circolazione) لإلزام المركبة بالفحص الفني الشامل.
+        </div>
+      </div>
+
+      <!-- Trap 5 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ ضغط الإطارات واستهلاك الوقود</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"Una pressione di gonfiaggio dei pneumatici inferiore a quella prescritta fa aumentare i consumi di carburante"</p>
+        <p class="trap-quiz-trans">«ضغط نفخ الإطارات الأقل من المقترح يؤدي إلى زيادة استهلاك الوقود»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة تماماً (VERO). الإطار المنخفض الضغط ينبسط أكثر على الطريق وتزداد مساحة احتكاكه، مما يضاعف مقاومة الدوران (Resistenza al rotolamento) ويلزم المحرك ببذل طاقة أكبر وحرق وقود أكثر لدفع السيارة.
+        </div>
+      </div>
+
+      <!-- Trap 6 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ التخلص من زيت المحرك في البالوعات</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"L'olio motore usato può essere smaltito versandolo nei tombini della fognatura stradale"</p>
+        <p class="trap-quiz-trans">«يجوز التخلص من زيت المحرك المستعمل بسكبه في بالوعات الصرف الصحي في الشارع»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة وجريمة بيئية (FALSO). سكب الزيت في المجاري يلوث المياه الجوفية ومحطات التنقية ويقضي على الحياة المائية، ويلزم تسليمه حصرياً لاتحاد الزيوت المستعملة أو محطات الخدمة المعتمدة.
+        </div>
+      </div>
+
+      <!-- Trap 7 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ الدخان الأسود وفلتر الهواء المسدود</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"La fuoriuscita di fumo nero dallo scarico può essere causata dal filtro dell'aria sporco o intasato"</p>
+        <p class="trap-quiz-trans">«خروج دخان أسود من العادم قد يكون سببه فلتر هواء متسخ أو مسدود»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة تماماً (VERO). انسداد فلتر الهواء يعيق تدفق الأكسجين اللازم للاحتراق الكامل، فيحترق الوقود جزئياً ويخرج الكربون غير المحترق على هيئة دخان أسود كثيف وسناج ملوث.
+        </div>
+      </div>
+
+      <!-- Trap 8 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ فعالية المحول الحفاز وهو بارد</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"La marmitta catalitica riduce al massimo le emissioni inquinanti fin dai primi istanti dall'avviamento a motore freddo"</p>
+        <p class="trap-quiz-trans">«المحول الحفاز يخفض الانبعاثات الملوثة لأقصى درجة منذ اللحظات الأولى لتشغيل المحرك وهو بارد»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). المحول الحفاز لا يؤدي وظيفته الكيميائية إلا بعد وصوله لدرجة حرارة تشغيل مرتفعة جداً؛ لذلك تكون السيارة أكثر تلويثاً في الدقائق الأولى من تشغيلها وهي باردة.
+        </div>
+      </div>
+
+      <!-- Trap 9 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ رمي أعقاب السجائر من النوافذ</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"E' consentito gettare dal finestrino mozziconi di sigaretta accesi se non vi sono altri veicoli nelle vicinanze"</p>
+        <p class="trap-quiz-trans">«يسمح بإلقاء أعقاب السجائر المشتعلة من النافذة إذا لم تكن هناك مركبات أخرى قريبة»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة قطوعاً (FALSO). إلقاء أعقاب السجائر المشتعلة ممنوع مطلقاً وتحت أي ظرف، وهو سبب رئيسي في اشتعال حرائق الغابات الكارثية، ويعاقب عليه كود السير بغرامات مالية قاسية.
+        </div>
+      </div>
+
+      <!-- Trap 10 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ إطفاء المحرك عند التوقف المطول</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"Durante le soste prolungate o in caso di passaggio a livello chiuso, è buona norma e obbligo spegnere il motore"</p>
+        <p class="trap-quiz-trans">«أثناء التوقف المطول أو عند غلق مزلقان السكك الحديدية، يلزم ويستحسن إطفاء المحرك»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة تماماً (VERO). يفرض كود السير إطفاء المحرك أثناء فترات التوقف والانتظار الطويلة لتفادي استهلاك الوقود بلا فائدة ومنع تراكم الغازات السامة وعوادم السيارات حول المواطنين.
+        </div>
+      </div>
+
+      <!-- Trap 11 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ إلقاء البطاريات في القمامة العادية</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Le batterie per autoveicoli esaurite possono essere gettate nei normali cassonetti dei rifiuti solidi urbani"</p>
+        <p class="trap-quiz-trans">«يمكن إلقاء بطاريات السيارات التالفة في حاويات القمامة الحضرية العادية»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). بطاريات الرصاص تحتوي على أحماض كاوية ومعادن سامة خطيرة جداً، ويجب تسليمها حصرياً للمراكز البيئية أو للبائع عند شراء بطارية جديدة لإعادة تدويرها.
+        </div>
+      </div>
+
+      <!-- Trap 12 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ القيادة بالتعشيقات العالية لخفض الاستهلاك</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"L'impiego delle marce più alte, quando le condizioni di marcia lo consentono, favorisce il risparmio di carburante"</p>
+        <p class="trap-quiz-trans">«استخدام الغيارات والتعشيقات العالية، عندما تسمح ظروف السير بذلك، يساعد على توفير الوقود»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة تماماً (VERO). السير بالغيارات العالية يخفض عدد دورات المحرك في الدقيقة (RPM) مما يقلل حرق الوقود ويخفض الضجيج الصوتي وتلوث العادم.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER PAGINATION -->
+  <nav class="chapter-pagination">
+    <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="pagination-btn prev-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">→</span>
+      <div class="pagination-info">
+        <span class="pagination-label">الباب السابق</span>
+        <span class="pagination-title">الباب 23: المسؤولية والتأمين RCA</span>
+      </div>
+    </a>
+
+    <a href="index.html" class="pagination-btn index-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">🏛️</span>
+      <div class="pagination-info">
+        <span class="pagination-label">العودة</span>
+        <span class="pagination-title">فهرس المكتبة الشاملة</span>
+      </div>
+    </a>
+
+    <a href="دليل_الباب_الأخير.html" class="pagination-btn next-btn" onclick="soundEngine.click()">
+      <div class="pagination-info" style="text-align:left;">
+        <span class="pagination-label">الباب التالي</span>
+        <span class="pagination-title">الباب 25: الميكانيكا وصيانة المركبة</span>
+      </div>
+      <span class="pagination-icon">←</span>
+    </a>
+  </nav>
+
 </main>
 
+<!-- JAVASCRIPT & SOUND ENGINE -->
 <script>
-  // Unified Sound Engine
   const soundEngine = window.soundEngine || {
     ctx: null,
     enabled: true,
@@ -1177,89 +2134,248 @@
         const AudioCtx = window.AudioContext || window.webkitAudioContext;
         if (AudioCtx) this.ctx = new AudioCtx();
       }
-      if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
     },
     click() {
       if (!this.enabled) return;
       this.init();
       if (!this.ctx) return;
-      try {
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(520, this.ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.04);
-        gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
-        osc.start();
-        osc.stop(this.ctx.currentTime + 0.04);
-      } catch(e) {}
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(600, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(800, this.ctx.currentTime + 0.05);
+      gain.gain.setValueAtTime(0.15, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.05);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.05);
+    },
+    toggle() {
+      this.enabled = !this.enabled;
+      return this.enabled;
     }
   };
 
-  // Toggle Mobile Navigation Drawer (Apple HIG Compliant with Body Scroll Lock)
+  function toggleAudio() {
+    const isEnabled = soundEngine.toggle();
+    const btn = document.querySelector('.nav-audio-btn');
+    const label = btn.querySelector('.audio-label-span');
+    const icon = btn.querySelector('.audio-icon-span');
+    if (isEnabled) {
+      soundEngine.click();
+      label.textContent = 'الصوت نشط';
+      icon.textContent = '🔊';
+      btn.style.borderColor = 'rgba(255, 255, 255, 0.16)';
+      btn.style.color = '#f4f4f5';
+    } else {
+      label.textContent = 'مكتوم';
+      icon.textContent = '🔇';
+      btn.style.borderColor = 'rgba(244, 63, 94, 0.4)';
+      btn.style.color = '#f43f5e';
+    }
+  }
+
   function toggleMobileNav() {
-    const btn = document.getElementById('nav-hamburger-btn');
-    const panel = document.getElementById('mobile-drawer-panel');
+    soundEngine.click();
+    const drawer = document.getElementById('mobile-drawer-panel');
     const overlay = document.getElementById('mobile-drawer-overlay');
-    if (!btn || !panel) return;
-    
-    const isOpening = !panel.classList.contains('is-active');
-    
-    if (isOpening) {
+    const btn = document.getElementById('nav-hamburger-btn');
+    const isOpen = drawer.classList.contains('is-open');
+    if (isOpen) {
+      closeMobileNav();
+    } else {
+      drawer.classList.add('is-open');
+      overlay.classList.add('is-open');
       btn.classList.add('is-active');
       btn.setAttribute('aria-expanded', 'true');
-      panel.classList.add('is-active');
-      if (overlay) overlay.classList.add('is-active');
-      document.body.classList.add('nav-scroll-lock');
-    } else {
-      closeMobileNav();
+      document.body.style.overflow = 'hidden';
     }
-    
-    if (soundEngine.click) soundEngine.click();
   }
 
   function closeMobileNav() {
-    const btn = document.getElementById('nav-hamburger-btn');
-    const panel = document.getElementById('mobile-drawer-panel');
+    const drawer = document.getElementById('mobile-drawer-panel');
     const overlay = document.getElementById('mobile-drawer-overlay');
+    const btn = document.getElementById('nav-hamburger-btn');
+    if (drawer) drawer.classList.remove('is-open');
+    if (overlay) overlay.classList.remove('is-open');
     if (btn) {
       btn.classList.remove('is-active');
       btn.setAttribute('aria-expanded', 'false');
     }
-    if (panel) panel.classList.remove('is-active');
-    if (overlay) overlay.classList.remove('is-active');
-    document.body.classList.remove('nav-scroll-lock');
+    document.body.style.overflow = '';
   }
 
-  window.toggleAudio = function() {
-    soundEngine.enabled = !soundEngine.enabled;
-    const icons = document.querySelectorAll('.audio-icon-span, #audio-icon');
-    const labels = document.querySelectorAll('.audio-label-span, .audio-label');
-    icons.forEach(el => el.textContent = soundEngine.enabled ? '🔊' : '🔇');
-    labels.forEach(el => el.textContent = soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم');
-    if (soundEngine.enabled && soundEngine.click) soundEngine.click();
-  };
-
-  // Desktop Chapters Dropdown Toggle & Outside Click
   function toggleNavDropdown(e) {
-    if (e) e.stopPropagation();
+    e.stopPropagation();
+    soundEngine.click();
     const menu = document.getElementById('navDropdownMenu');
-    if (menu) menu.classList.toggle('active');
+    menu.classList.toggle('show');
   }
-  document.addEventListener('click', function(e) {
-    const wrapper = document.querySelector('.nav-dropdown-wrapper');
+
+  window.addEventListener('click', function(e) {
     const menu = document.getElementById('navDropdownMenu');
-    if (menu && menu.classList.contains('active')) {
-      if (wrapper && !wrapper.contains(e.target)) {
-        menu.classList.remove('active');
-      }
+    if (menu && menu.classList.contains('show')) {
+      menu.classList.remove('show');
     }
   });
 
-</script>
+  function filterCards(category, btn) {
+    soundEngine.click();
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cards = document.querySelectorAll('.signals-grid .signal-card');
+    cards.forEach(card => {
+      if (category === 'all' || card.getAttribute('data-category') === category) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
 
+  // SIMULATOR 1: Eco-Driving
+  const activeFactors = {
+    'portapacchi': false,
+    'finestrini': false,
+    'gomme': false,
+    'clima': false,
+    'guida': false
+  };
+
+  const factorWeights = {
+    'portapacchi': 15,
+    'finestrini': 10,
+    'gomme': 8,
+    'clima': 12,
+    'guida': 25
+  };
+
+  function toggleFactor(fac) {
+    soundEngine.click();
+    activeFactors[fac] = !activeFactors[fac];
+    const btnId = 'btnFactor' + fac.charAt(0).toUpperCase() + fac.slice(1);
+    document.getElementById(btnId).classList.toggle('active', activeFactors[fac]);
+    updateConsumiSim();
+  }
+
+  function updateConsumiSim() {
+    let totalIncrease = 0;
+    for (let k in activeFactors) {
+      if (activeFactors[k]) totalIncrease += factorWeights[k];
+    }
+
+    let badgeText = '';
+    let badgeColor = '';
+    let badgeBg = '';
+    let titleText = '';
+    let descText = '';
+
+    if (totalIncrease === 0) {
+      badgeText = 'قيادة اقتصادية مثالية: 0% زيادة';
+      badgeColor = 'var(--emerald-primary)';
+      badgeBg = 'rgba(16,185,129,0.15)';
+      titleText = 'أعلى كفاءة في استهلاك الوقود وأقل انبعاثات كربونية';
+      descText = 'السيارة تسير بانسيابية هوائية مثالية، ضغط الإطارات مطابق للمواصفات، والقيادة بسلاسة بالغيارات العالية مع التباطؤ برفع القدم عن دواسة الوقود (Cut-off).';
+    } else if (totalIncrease <= 25) {
+      badgeText = `زيادة معتدلة: +${totalIncrease}% استهلاك`;
+      badgeColor = 'var(--amber-primary)';
+      badgeBg = 'rgba(245,158,11,0.15)';
+      titleText = `ارتفاع استهلاك الوقود بنسبة +${totalIncrease}%`;
+      descText = `تأثير ملحوظ على ميزانية الوقود والانبعاثات البيئية؛ كل 100 كم تقطعها تستهلك حوالي 1 إلى 2 لتر إضافي من الوقود دون أي داعٍ!`;
+    } else {
+      badgeText = `هدر كارثي للوقود: +${totalIncrease}% استهلاك 🚨`;
+      badgeColor = 'var(--rose-primary)';
+      badgeBg = 'rgba(244,63,94,0.15)';
+      titleText = `زيادة هائلة تفوق +${totalIncrease}% في حرق الوقود والتلوث!`;
+      descText = `مزيج خطير من مقاومة الهواء والأحمال الميكانيكية والقيادة العنيفة؛ السيارة تحرق كميات ضخمة من الوقود وتطلق سحباً من الغازات الدفيئة والملوثات السامة.`;
+    }
+
+    document.getElementById('consumiBadge').textContent = badgeText;
+    document.getElementById('consumiBadge').style.color = badgeColor;
+    document.getElementById('consumiBadge').style.borderColor = badgeColor;
+    document.getElementById('consumiBadge').style.background = badgeBg;
+    document.getElementById('consumiTitle').textContent = titleText;
+    document.getElementById('consumiDesc').innerHTML = descText;
+  }
+
+  // SIMULATOR 2: Device
+  const devData = {
+    'catalizzatore': {
+      badge: 'المحول الحفاز (Catalizzatore)',
+      title: 'علبة البيئة / المحول الحفاز (Marmitta catalitica)',
+      desc: '<strong>الوظيفة الأساسية:</strong> تحويل الغازات شديدة السمية الناتجة عن احتراق الوقود (أول أكسيد الكربون CO، الهيدروكربونات غير المحترقة HC، وأكاسيد النيتروجين NOx) إلى غازات غير ضارة كيميائياً (بخار ماء H2O، نيتروجين N2، وثاني أكسيد الكربون CO2).<br><strong>شرط الفعالية الحاسم:</strong> يعمل المحول الحفاز بكفاءة تامة <strong>فقط عند وصوله إلى درجات حرارة مرتفعة جداً (عدة مئات من الدرجات المئوية)</strong>؛ وبالتالي تكون انبعاثات السيارة الملوثة أعلى في الدقائق الأولى بعد تشغيل المحرك وهو بارد!<br><strong>العمر الافتراضي:</strong> يفقد فاعليته تدريجياً بعد قطع مسافات طويلة (حوالي 80.000 - 100.000 كم) ويجب استبداله.',
+      warning: '⚠️ <strong>فخ امتحاني:</strong> المحول الحفاز لا يعمل فور تدوير المحرك، بل يحتاج إلى دقائق ليصل لدرجة حرارة التشغيل العالية!'
+    },
+    'dpf': {
+      badge: 'فلتر الديزل (DPF/FAP)',
+      title: 'فلتر الجسيمات الدقيقة في محركات الديزل (Filtro Antiparticolato)',
+      desc: '<strong>الوظيفة:</strong> احتجاز الجسيمات الكربونية الدقيقة والسناج الأسود (PM10) المنبعث من محرك الديزل وتخزينه في قنوات المرشح الخزفي لمنع خروجه للهواء.<br><strong>عملية التجديد (Rigenerazione):</strong> عند امتلاء الفلتر، يقوم النظام برفع حرارة العادم ذاتياً لحرق السناج وتحويله إلى رماد غير ضار.<br><strong>المشكلة الحضرية:</strong> السير في مشاوير قصيرة داخل المدينة يمنع وصول العادم لحرارة التجديد فينسد الفلتر ويضيء مصباح DPF الأصفر!',
+      warning: '💡 الحل هو قيادة السيارة لـ 15 دقيقة على طريق سريع لإتمام التجديد الذاتي.'
+    },
+    'filtro_aria': {
+      badge: 'فلتر الهواء والبخاخات',
+      title: 'اتساخ فلتر الهواء والبخاخات وظهور الدخان الأسود',
+      desc: '<strong>الخلل:</strong> إذا انسد فلتر الهواء بالأتربة، تقل كمية الأكسجين الداخلة للمحرك فيصبح خليط الوقود والهواء غنياً جداً (Troppo grassa).<br><strong>الأثر المرئي:</strong> احتراق رديء ينبعث منه <strong>دخان أسود كثيف (Fumo nero)</strong> من ماسورة العادم، مع زيادة كبيرة في استهلاك الوقود وهبوط عزم السيارة.<br><strong>العلاج:</strong> استبدال فلتر الهواء بانتظام وتنظيف بخاخات الوقود.',
+      warning: '❌ الدخان الأسود علامة واضحة على نقص الهواء أو اتساخ البخاخات!'
+    },
+    'silenziatore': {
+      badge: 'صامت العادم (Silenziatore)',
+      title: 'صامت العادم وتخفيض الضوضاء (Silenziatore di scarico)',
+      desc: '<strong>الوظيفة:</strong> غرف توسع صوتية تخفض الموجات الانفجارية الصادرة عن فتح صمامات العادم بالمحرك وتحد من التلوث السمعي.<br><strong>الحظر الصارم:</strong> يحظر ثقب أو تعديل أو إفراغ الصامت لجعل الصوت أعلى أو رياضياً.<br><strong>العقوبة:</strong> غرامة وسحب شهادة التسيير (Carta di circolazione).',
+      warning: '🛑 تعديل الشكمان ممنوع قطعاً في كود السير ويستوجب عقوبات فورية!'
+    }
+  };
+
+  function simDevice(type) {
+    soundEngine.click();
+    document.querySelectorAll('#sim-catalizzatore .sim-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('btnDev' + type.charAt(0).toUpperCase() + type.slice(1)).classList.add('active');
+    const data = devData[type];
+    document.getElementById('devBadge').textContent = data.badge;
+    document.getElementById('devTitle').textContent = data.title;
+    document.getElementById('devDesc').innerHTML = data.desc;
+    document.getElementById('devWarning').innerHTML = data.warning;
+  }
+
+  // SIMULATOR 3: Waste
+  const wasteData = {
+    'olio': {
+      badge: 'شديد السمية: حظر الإلقاء',
+      title: 'زيت المحرك المستعمل والمحروق (Olio motore esausto)',
+      desc: '<strong>الخطر البيئي:</strong> لتر واحد من الزيت المستعمل قادر على تلويث مليون لتر من مياه الشرب وتكوين طبقة عازلة تمنع الأكسجين عن الكائنات الحية في الأنهار والبحار.<br><strong>المسار الإلزامي:</strong> يحظر صبه في البالوعات أو شبكات الصرف الصحي أو على الأراضي الزراعية؛ ويجب تسليمه حصرياً إلى ورش الصيانة المرخصة أو مراكز الجمع التابعة لاتحاد الزيوت المستعملة (Consorzio Nazionale Oli Esausti) أو المحطات البيئية التابعة للبلدية.<br><strong>العقوبة:</strong> إلقاء الزيوت المستعملة يعتبر جريمة بيئية خطيرة يعاقب عليها بغرامات مالية مشددة.',
+      warning: '🛑 كود السير: سكب الزيت في المجاري العامة جريمة جنائية يعاقب عليها القانون بصرامة!'
+    },
+    'batteria': {
+      badge: 'أحماض ورصاص ثقيل',
+      title: 'بطاريات الرصاص التالفة (Batterie al piombo esauste)',
+      desc: '<strong>الخطر الكيماوي:</strong> تحتوي على رصاص سام جداً وأحماض كبريتية حارقة تلوث التربة والمياه الجوفية لعشرات السنين.<br><strong>المسار الإلزامي:</strong> تسليم البطارية القديمة للبائع عند شراء بطارية جديدة (Ritiro 1 contro 1) أو تسليمها مجاناً للمركز البيئي للبلدية (Isola ecologica).<br><strong>المحظور:</strong> يحظر تماماً رميها في القمامة العادية أو فتحها وسكب حمضها.',
+      warning: '🔋 البطارية لا ترمى في القمامة أبداً؛ تسلم للبائع أو المركز البيئي!'
+    },
+    'freni': {
+      badge: 'نفايات كيماوية خاصة',
+      title: 'سائل الفرامل ومياه التبريد وموانع التجمد (Liquidi speciali)',
+      desc: '<strong>الخطر:</strong> سوائل الفرامل ومضادات التجمد (Antigelo) تحتوي على مركبات جليكول الإيثيلين السامة والضارة بالجهاز العصبي والمياه.<br><strong>المسار:</strong> تسليمها للورش المتخصصة أثناء الصيانة للتخلص منها وفق بروتوكولات معالجة النفايات الصناعية الخطرة.',
+      warning: '💡 لا تخلط سوائل الفرامل مع زيت المحرك في وعاء واحد!'
+    },
+    'mozziconi': {
+      badge: 'خطر حرائق الغابات',
+      title: 'إلقاء أعقاب السجائر المشتعلة والمخلفات (Mozziconi accesi)',
+      desc: '<strong>الخطر الكارثي:</strong> عود ثقاب أو عقب سيجارة مشتعل ملقى من النافذة على العشب الجاف كفيل بإشعال حرائق غابات هائلة تدمر المنازل وتهدد الأرواح.<br><strong>المادة 15 من كود السير:</strong> حظر مطلق لإلقاء أي شيء من نوافذ السيارات أثناء السير أو التوقف.<br><strong>العقوبة:</strong> غرامات مالية باهظة وملاحقة قضائية.',
+      warning: '🌲 عقب سيجارة واحد يشعل حريق غابة كامل؛ استخدم مطفأة السيارة دائماً!'
+    }
+  };
+
+  function simWaste(type) {
+    soundEngine.click();
+    document.querySelectorAll('#sim-rifiuti .sim-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('btnWst' + type.charAt(0).toUpperCase() + type.slice(1)).classList.add('active');
+    const data = wasteData[type];
+    document.getElementById('wasteBadge').textContent = data.badge;
+    document.getElementById('wasteTitle').textContent = data.title;
+    document.getElementById('wasteDesc').innerHTML = data.desc;
+    document.getElementById('wasteWarning').innerHTML = data.warning;
+  }
+</script>
 </body>
 </html>
