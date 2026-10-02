@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>دليل وقاموس الباب 10: اللوحات الإضافية الملحقة بالإشارات | رخصة القيادة الإيطالية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-base: #09090b;
+    --bg-surface: rgba(24, 24, 27, 0.75);
+    --bg-surface-elevated: rgba(39, 39, 42, 0.85);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(255, 255, 255, 0.16);
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --emerald-primary: #10b981;
+    --rose-primary: #f43f5e;
+    --amber-primary: #f59e0b;
+    --sky-primary: #38bdf8;
+    --indigo-primary: #818cf8;
+    --cyan-primary: #06b6d4;
+    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    --nav-base-height: 54px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image: 
+      radial-gradient(ellipse at 50% -10%, rgba(56, 189, 248, 0.08), transparent 60%),
+      radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.04), transparent 40%);
+  }
+  body.nav-scroll-lock {
+    overflow: hidden !important;
+    touch-action: none !important;
+    -webkit-overflow-scrolling: auto !important;
+  }
+
+  /* ==========================================================================
+     Portal Navigation Header (Apple HIG Compliant & Mobile Frozen 54px)
+     ========================================================================== */
+  .unified-portal-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
+    max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
+    background: rgba(9, 9, 11, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    padding-top: env(safe-area-inset-top, 0px);
+    box-sizing: border-box;
+    transition: background 0.25s var(--ease-spring), border-color 0.25s;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .nav-brand .badge-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    padding: 2px 7px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #a1a1aa;
+  }
+
+  /* Desktop Tabs Menu */
+  .nav-desktop-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 auto;
+  }
+  .nav-tab-desktop {
+    text-decoration: none;
+    color: #a1a1aa;
+    padding: 7px 13px;
+    border-radius: 9px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .nav-tab-desktop:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  .nav-tab-desktop.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), 0 2px 8px rgba(0,0,0,0.4);
+  }
+
+  /* Desktop Actions: Dropdown & Audio */
+  .nav-desktop-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .nav-audio-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #a1a1aa;
+    border-radius: 8px;
+    padding: 6px 11px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+  .nav-audio-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Chapters Dropdown */
+  .nav-dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  .nav-dropdown-btn {
+    height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: #e4e4e7;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+  .nav-dropdown-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.22);
+    color: #fff;
+  }
+  .nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 290px;
+    max-height: 440px;
+    overflow-y: auto;
+    background: #121215;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 1100;
+    direction: rtl;
+  }
+  .nav-dropdown-menu.active {
+    display: flex;
+  }
+  .nav-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #d4d4d8;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: all 0.12s ease;
+  }
+  .nav-dropdown-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+  }
+  .nav-dropdown-item.active {
+    background: rgba(56, 189, 248, 0.12);
+    color: #38bdf8;
+    font-weight: 700;
+  }
+
+  /* Hamburger Button (< 768px) */
+  .nav-hamburger-btn {
+    display: none;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .hamburger-box {
+    width: 20px;
+    height: 14px;
+    position: relative;
+  }
+  .hamburger-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #f4f4f5;
+    border-radius: 2px;
+    transition: all 0.25s var(--ease-spring);
+  }
+  .line-top { top: 0; }
+  .line-mid { top: 6px; }
+  .line-bot { top: 12px; }
+  .nav-hamburger-btn.is-active .line-top { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger-btn.is-active .line-mid { opacity: 0; }
+  .nav-hamburger-btn.is-active .line-bot { transform: translateY(-6px) rotate(-45deg); }
+
+  /* Mobile Drawer */
+  .mobile-drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s var(--ease-spring), visibility 0.3s;
+  }
+  .mobile-drawer-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+  .mobile-drawer-panel {
+    position: fixed;
+    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
+    left: 0;
+    right: 0;
+    background: rgba(18, 18, 21, 0.95);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 999;
+    max-height: calc(85vh - var(--nav-base-height));
+    overflow-y: auto;
+    padding: 16px 20px 24px;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.35s var(--ease-spring), opacity 0.25s, visibility 0.35s;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+  }
+  .mobile-drawer-panel.is-active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  .mobile-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .mobile-nav-link {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    color: #e4e4e7;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: all 0.15s;
+  }
+  .mobile-nav-link:active {
+    transform: scale(0.98);
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .mobile-nav-link.active {
+    background: rgba(56, 189, 248, 0.15);
+    border-color: rgba(56, 189, 248, 0.3);
+    color: #38bdf8;
+  }
+
+  /* ==========================================================================
+     Container & Main Content Layout
+     ========================================================================== */
+  .container {
+    max-width: 1280px;
+    width: 100%;
+    margin: 32px auto;
+    padding: 0 24px 60px;
+    box-sizing: border-box;
+  }
+
+  .content-sheet {
+    background: var(--bg-surface);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.7);
+    margin-bottom: 32px;
+  }
+
+  .main-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .sub-lead {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 24px 0 32px;
+  }
+  .stat-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+  }
+  .stat-num {
+    font-size: 2.2rem;
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+    color: #38bdf8;
+  }
+  .stat-label {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  /* Section Titles */
+  .section-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 40px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 12px;
+  }
+
+  .callout-box {
+    background: rgba(56, 189, 248, 0.06);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin: 20px 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #e0f2fe;
+  }
+  .callout-box.danger {
+    background: rgba(244, 63, 94, 0.06);
+    border-color: rgba(244, 63, 94, 0.25);
+    color: #ffe4e6;
+  }
+  .callout-box.warning {
+    background: rgba(245, 158, 11, 0.06);
+    border-color: rgba(245, 158, 11, 0.25);
+    color: #fef3c7;
+  }
+  .callout-box.emerald {
+    background: rgba(16, 185, 129, 0.06);
+    border-color: rgba(16, 185, 129, 0.25);
+    color: #d1fae5;
+  }
+
+  /* ==========================================================================
+     Cards Grid & Typography Standard (Strict Block Flow & Absolute Icons)
+     ========================================================================== */
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 20px;
+    margin: 24px 0;
+  }
+
+  .compare-card {
+    background: #18181b;
+    border-radius: 18px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-subtle);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05), 0 8px 24px -6px rgba(0,0,0,0.5);
+    transition: transform 0.2s var(--ease-spring), border-color 0.2s;
+  }
+  .compare-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-highlight);
+  }
+  .compare-card.sky-tint {
+    border-color: rgba(56, 189, 248, 0.3);
+    background: linear-gradient(180deg, rgba(56, 189, 248, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
+  }
+  .compare-card.emerald-tint {
+    border-color: rgba(16, 185, 129, 0.3);
+    background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
+  }
+  .compare-card.rose-tint {
+    border-color: rgba(244, 63, 94, 0.3);
+    background: linear-gradient(180deg, rgba(244, 63, 94, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
+  }
+  .compare-card.amber-tint {
+    border-color: rgba(245, 158, 11, 0.3);
+    background: linear-gradient(180deg, rgba(245, 158, 11, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
+  }
+
+  /* Card Header: Strict Vertical Hierarchy */
+  .card-header-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 10px;
+  }
+  .card-ar-title {
+    order: 1;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .card-it-title {
+    order: 2;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #38bdf8;
+    direction: ltr;
+    text-align: right;
+  }
+
+  /* Sign Image Preview */
+  .sign-img-wrapper {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    min-height: 120px;
+  }
+  .sign-img-wrapper img {
+    max-height: 100px;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+  }
+
+  /* List Items: Strict Block Text Flow & Absolute Bullets */
+  .card-points-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+  }
+  .card-points-list li, .card-points li {
+    position: relative;
+    padding-right: 28px;
+    line-height: 1.7;
+    display: block;
+    text-align: right;
+    font-size: 0.92rem;
+    color: #d4d4d8;
+  }
+  .card-points-list li > span:first-child, .card-points li > span:first-child {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    font-size: 1.05rem;
+    line-height: 1;
+  }
+
+  /* Interactive Quiz Engine */
+  .quiz-section {
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 30px;
+  }
+  .quiz-card {
+    background: rgba(24, 24, 27, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    transition: all 0.2s ease;
+  }
+  .quiz-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .quiz-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: rgba(56, 189, 248, 0.12);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+  }
+  .quiz-text-it {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 6px;
+    direction: ltr;
+    text-align: left;
+  }
+  .quiz-text-ar {
+    font-size: 0.92rem;
+    color: #d4d4d8;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .quiz-options {
+    display: flex;
+    gap: 10px;
+  }
+  .quiz-btn {
+    flex: 1;
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .quiz-btn:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  .quiz-feedback {
+    margin-top: 12px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    display: none;
+  }
+  .quiz-feedback.is-correct {
+    display: block;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #6ee7b7;
+  }
+  .quiz-feedback.is-wrong {
+    display: block;
+    background: rgba(244, 63, 94, 0.12);
+    border: 1px solid rgba(244, 63, 94, 0.3);
+    color: #fda4af;
+  }
+
+  /* Chapter Pagination */
+  .chapter-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 40px 0 20px;
+    padding: 16px 20px;
+    background: rgba(24, 24, 27, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    flex-wrap: wrap;
+  }
+  .pagination-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #f4f4f5;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: all 0.15s ease;
+  }
+  .pagination-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.16);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+  .pagination-btn.index-btn {
+    background: rgba(56, 189, 248, 0.08);
+    border-color: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+  }
+  .pagination-info {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+  .pagination-label {
+    font-size: 0.72rem;
+    color: #a1a1aa;
+    font-weight: 500;
+  }
+  .pagination-title {
+    font-size: 0.85rem;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  /* Data Table */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 24px 0;
+    border-radius: 16px;
+    border: 1px solid var(--border-subtle);
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: right;
+    font-size: 0.9rem;
+  }
+  .data-table th, .data-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .data-table th {
+    background: rgba(255, 255, 255, 0.04);
+    color: #38bdf8;
+    font-weight: 700;
+  }
+  .data-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  /* Mobile Media Queries (< 768px Strict Freeze) */
+  @media (max-width: 768px) {
+    .unified-portal-nav {
+      height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
+      max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
+      padding: 0 16px;
+      padding-top: env(safe-area-inset-top, 0px);
+      box-sizing: border-box;
+    }
+    .nav-desktop-tabs,
+    .nav-desktop-actions {
+      display: none !important;
+    }
+    .nav-hamburger-btn {
+      display: flex;
+    }
+    .container {
+      margin: 10px auto;
+      padding: 0 12px 40px;
+    }
+    .content-sheet {
+      padding: 24px 16px;
+      border-radius: 18px;
+    }
+    .main-title {
+      font-size: 1.4rem;
+    }
+    .comparison-grid {
+      grid-template-columns: 1fr;
+    }
+    .chapter-pagination {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .pagination-btn {
+      justify-content: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Unified Portal Navigation (Apple HIG Compliant) -->
+<nav class="unified-portal-nav" id="portal-nav">
+  <!-- Brand (Right in RTL) -->
+  <a href="index.html" class="nav-brand">
+    <span style="font-size:1.25rem;">🚦</span>
+    <span>Patente B Pro</span>
+    <span class="badge-tag">A2</span>
+  </a>
+
+  <!-- Desktop Tabs Menu (Center - Strictly 3 core links) -->
+  <nav class="nav-desktop-tabs">
+    <a href="index.html" class="nav-tab-desktop">🏛️ فهرس المكتبة</a>
+    <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 الأبواب المقسمة</a>
+    <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
+  </nav>
+
+  <!-- Desktop Actions & Chapters Dropdown (Left in RTL) -->
+  <div class="nav-desktop-actions">
+    <div class="nav-dropdown-wrapper">
+      <button class="nav-dropdown-btn" onclick="toggleNavDropdown(event)">
+        <span>تصفح الأبواب (1-25)</span>
+        <span style="font-size:0.75rem;">▾</span>
+      </button>
+      <div class="nav-dropdown-menu" id="navDropdownMenu">
+        <a href="../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
+        <a href="../Capitoli_Divisi/Capitolo_02_segnali_pericolo/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
+        <a href="../Capitoli_Divisi/Capitolo_03_segnali_divieto/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
+        <a href="../Capitoli_Divisi/Capitolo_04_segnali_obbligo/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
+        <a href="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
+        <a href="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأفقية والمطبات</span></a>
+        <a href="../Capitoli_Divisi/Capitolo_07_semafori_vigili/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
+        <a href="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
+        <a href="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: إشارات الورش والتحويلات</span></a>
+        <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
+        <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة</span></a>
+        <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
+        <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
+        <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
+        <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
+        <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
+        <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
+        <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
+        <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
+        <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
+        <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: حوادث السير والطقس</span></a>
+        <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
+        <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 23: المسؤولية والتأمين RCA</span></a>
+        <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 24: استهلاك الوقود والبيئة</span></a>
+        <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
+      </div>
+    </div>
+    <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
+      <span class="audio-icon-span">🔊</span>
+      <span class="audio-label-span">الصوت نشط</span>
+    </button>
+  </div>
+
+  <!-- Animated Hamburger Button (Apple HIG - Only visible on Mobile < 768px) -->
+  <button class="nav-hamburger-btn" id="nav-hamburger-btn" onclick="toggleMobileNav()" aria-label="قائمة التنقل" aria-expanded="false">
+    <div class="hamburger-box">
+      <span class="hamburger-line line-top"></span>
+      <span class="hamburger-line line-mid"></span>
+      <span class="hamburger-line line-bot"></span>
+    </div>
+  </button>
+</nav>
+
+<!-- Backdrop Blur Overlay -->
+<div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
+
+<!-- Slide-Down Glassmorphic Drawer Panel -->
+<div class="mobile-drawer-panel" id="mobile-drawer-panel">
+  <div class="mobile-nav-list">
+    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📚</span> <span>مذاكرة الأبواب المقسمة (25 باب)</span>
+    </a>
+    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>⏱️</span> <span>محاكي الامتحان الوزاري (20 دقيقة)</span>
+    </a>
+    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📑</span> <span>فهرس المكتبة الشاملة المعتمدة</span>
+    </a>
+    <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="mobile-nav-link active" onclick="closeMobileNav()">
+      <span>📖</span> <span>دليل الباب 10 (اللوحات الإضافية)</span>
+    </a>
+    <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📖</span> <span>دليل الباب 11 (حدود السرعة ومخاطرها)</span>
+    </a>
+    <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📖</span> <span>دليل الباب 12 (مسافة الأمان والتوقف)</span>
+    </a>
+  </div>
+</div>
+
+<main class="container">
+  <article class="content-sheet">
+    <header>
+      <h1 class="main-title">
+        <span>📑</span>
+        <span>دليل وقاموس الباب العاشر: اللوحات الإضافية الملحقة بالإشارات</span>
+      </h1>
+      <p class="sub-lead">
+        Capitolo 10 — Pannelli Integrativi dei Segnali Stradali. المرجع الهندسي والامتحاني المعتمد لفهم مخصصات اللوحات الإضافية، التمييز الفارق بين المسافة والامتداد، فترات الأعياد وأيام العمل، فئات المركبات والاستثناءات، وفك جميع فخاخ بنك الأسئلة الوزاري (263 سؤالاً).
+      </p>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-num">263</div>
+          <div class="stat-label">سؤالاً وزارياً رسمياً في بنك الوزارة</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">72</div>
+          <div class="stat-label">لوحة إضافية وشكلاً توضيحياً رسمياً</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">25</div>
+          <div class="stat-label">قسماً تخصصياً يغطي كافة تفريعات الباب</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">مطابقة لمعايير كود السير والامتحان الإيطالي</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- SECTION 1: المقارنة الذهبية -->
+    <section>
+      <h2 class="section-title">
+        <span>⚖️</span>
+        <span>أولاً: المقارنة الذهبية الكبرى — المسافة (Distanza) مقابل الامتداد (Estensione)</span>
+      </h2>
+      <div class="callout-box warning">
+        <strong>⚠️ الفخ الامتحاني الأكثر تكراراً في هذا الباب:</strong>
+        تتعمد وزارة النقل خلط مفهومين أساسيين في أسئلة الامتحان: هل اللوحة تشير إلى "متى يبدأ الخطر" أم "كم متراً يستمر الخطر"؟ الفيصل الهندسي الوحيد هو <strong>وجود الأسهم العمودية أو غيابها</strong>!
+      </div>
+
+      <div class="comparison-grid">
+        <!-- Card: Distanza -->
+        <div class="compare-card sky-tint">
+          <div class="card-header-row">
+            <span class="card-ar-title">لوحة المسافة (المسافة المتبقية لبدء الخطر أو المنع)</span>
+            <span class="card-it-title">Pannello di Distanza (Fig. 121)</span>
+          </div>
+          <div class="sign-img-wrapper">
+            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/121.png" alt="Pannello di Distanza" loading="lazy">
+          </div>
+          <ul class="card-points-list">
+            <li><span>📍</span> <strong>الشكل التايبوجرافي:</strong> رقم مجرد متبوع بوحدة القياس مثل <code>[300 m]</code> أو <code>[3,8 km]</code> <strong>بدون أي أسهم على الإطلاق</strong>.</li>
+            <li><span>🎯</span> <strong>المعنى القانوني الدقيق:</strong> تحدد المسافة الفاصلة بين موضع الإشارة وبين النقطة التي <strong>يبدأ عندها</strong> الخطر أو الإلزام أو المنع.</li>
+            <li><span>🛑</span> <strong>مع إشارات المنع والإلزام:</strong> تعني أن سريان المنع أو الأمر سيبدأ بعد قطع هذه المسافة المحددة.</li>
+            <li><span>💡</span> <strong>مع إشارات الإرشاد (Indicazione):</strong> تحدد المسافة المتبقية للوصول إلى المكان أو الخدمة الموضحة.</li>
+            <li><span>❌</span> <strong>فخاخ وزارية شائعة (FALSO):</strong> "تشير إلى طول المسافة المقطوعة بالفعل (strada già fatta)" • "تشير لطول منطقة الخطر" • "تشير لانحدار الطريق".</li>
+          </ul>
+        </div>
+
+        <!-- Card: Estensione -->
+        <div class="compare-card emerald-tint">
+          <div class="card-header-row">
+            <span class="card-ar-title">لوحة الامتداد (طول قطاع الخطر أو استمرار المنع)</span>
+            <span class="card-it-title">Pannello di Estensione (Fig. 122)</span>
+          </div>
+          <div class="sign-img-wrapper">
+            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/122.png" alt="Pannello di Estensione" loading="lazy">
+          </div>
+          <ul class="card-points-list">
+            <li><span>📏</span> <strong>الشكل التايبوجرافي:</strong> رقم يحيط به <strong>سهمان رأسيان متجهان لأعلى</strong> مثل <code>[↑ 300 m ↑]</code> أو <code>[↑ 2,8 km ↑]</code>.</li>
+            <li><span>🔄</span> <strong>المعنى القانوني الدقيق:</strong> تحدد <strong>طول وامتداد قطاع الطريق</strong> الذي يستمر فيه الخطر أو يسري فيه المنع بدءاً من موقع الإشارة.</li>
+            <li><span>⚠️</span> <strong>مع إشارات الخطر:</strong> تعني أن الخطر يبدأ بعد 150 متراً المعتادة ويستمر بطول المسافة المكتوبة بين السهمين.</li>
+            <li><span>🚫</span> <strong>مع إشارات المنع:</strong> تعني استمرار تطبيق المنع على طول هذه المسافة المحددة.</li>
+            <li><span>❌</span> <strong>فخاخ وزارية شائعة (FALSO):</strong> "الخطر يبدأ بعد 300 متر" (هذا معنى المسافة بدون أسهم!) • "تشير لعرض نهر الطريق" • "تشير لمسافة الأمان بين السيارات".</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: التوقيت والأيام -->
+    <section>
+      <h2 class="section-title">
+        <span>⏰</span>
+        <span>ثانياً: الفترات الزمنية والأيام (Fasce Orarie e Giorni)</span>
+      </h2>
+      <p style="color:var(--text-secondary); margin-bottom: 20px;">
+        تُحدد هذه اللوحات الساعات والأيام التي تكون فيها الإشارة سارية المفعول، وتعتمد الاختبارات على التمييز الصارم بين الرموز الدينية وأيام العمل.
+      </p>
+
+      <div class="comparison-grid">
+        <!-- Fascia Oraria Generale -->
+        <div class="compare-card">
+          <div class="card-header-row">
+            <span class="card-ar-title">لوحة الساعات المحددة طوال أيام الأسبوع</span>
+            <span class="card-it-title">Fascia Oraria Generale (Fig. 123)</span>
+          </div>
+          <div class="sign-img-wrapper">
+            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/123.png" alt="Fascia Oraria" loading="lazy">
+          </div>
+          <ul class="card-points-list">
+            <li><span>🕒</span> <strong>المعنى:</strong> الإشارة تسري فقط خلال الساعات المحددة (مثلاً من 08:00 إلى 20:00).</li>
+            <li><span>📅</span> <strong>نطاق السريان:</strong> تطبق في <strong>جميع أيام الأسبوع</strong> (أيام العمل وأيام العطل معاً) طالما لم يوجد رمز مخصص.</li>
+            <li><span>🌙</span> <strong>خارج هذه الساعات:</strong> تصبح الإشارة غير سارية ويُسمح بما كان ممنوعاً (مثل ركن السيارة).</li>
+          </ul>
+        </div>
+
+        <!-- Giorni Festivi -->
+        <div class="compare-card rose-tint">
+          <div class="card-header-row">
+            <span class="card-ar-title">لوحة أيام العطل والأعياد والأحد (الصليب)</span>
+            <span class="card-it-title">Giorni Festivi (Fig. 124)</span>
+          </div>
+          <div class="sign-img-wrapper">
+            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/124.png" alt="Giorni Festivi" loading="lazy">
+          </div>
+          <ul class="card-points-list">
+            <li><span>✝️</span> <strong>الرمز الدال:</strong> علامة الصليب اللاتيني <code>(✝️)</code>.</li>
+            <li><span>🎉</span> <strong>المعنى القانوني:</strong> الإشارة سارية <strong>حصراً في أيام العطلات الرسمية والأعياد وأيام الأحد (Domeniche e festivi)</strong>.</li>
+            <li><span>💼</span> <strong>أيام العمل (من الاثنين إلى السبت):</strong> الإشارة غير سارية إطلاقاً في أيام العمل العادية.</li>
+            <li><span>❌</span> <strong>فخ وزاري خادع:</strong> "يشير لوجود كنيسة أو مستشفى" ❌ FALSO! • "يسري في أيام العمل" ❌ FALSO!</li>
+          </ul>
+        </div>
+
+        <!-- Giorni Feriali -->
+        <div class="compare-card amber-tint">
+          <div class="card-header-row">
+            <span class="card-ar-title">لوحة أيام العمل والوظائف (المطرقتان)</span>
+            <span class="card-it-title">Giorni Feriali / Lavorativi (Fig. 125)</span>
+          </div>
+          <div class="sign-img-wrapper">
+            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/125.png" alt="Giorni Feriali" loading="lazy">
+          </div>
+          <ul class="card-points-list">
+            <li><span>⚒️</span> <strong>الرمز الدال:</strong> علامة المطرقتين المتقاطعتين <code>(⚒️)</code>.</li>
+            <li><span>🏢</span> <strong>المعنى القانوني:</strong> الإشارة تسري <strong>فقط في أيام العمل من الاثنين إلى السبت (Dal lunedì al sabato nei giorni non festivi)</strong>.</li>
+            <li><span>🏖️</span> <strong>أيام الأحد والعطلات:</strong> تصبح الإشارة معطلة تماماً وغير ملزمة في أيام الأحد والأعياد.</li>
+            <li><span>❌</span> <strong>فخ وزاري خادع:</strong> "يشير لمنجم أو مصنع أو ورشة حدادة" ❌ FALSO! • "يسري طوال أيام الأسبوع" ❌ FALSO!</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: فئات المركبات والاستثناءات -->
+    <section>
+      <h2 class="section-title">
+        <span>🚚</span>
+        <span>ثالثاً: فئات المركبات والاستثناءات — الرمز المجرد مقابل "Eccetto"</span>
+      </h2>
+      <div class="callout-box danger">
+        <strong>⚠️ قاعدة الإلغاء أو التخصيص:</strong>
+        رمز المركبة وحده يعني "يسري عليها وحدها"، أما كلمة <strong>"Eccetto"</strong> أو <strong>"Ad eccezione di"</strong> فتعكس المعنى 180 درجة لتعني "يسري على الجميع ما عدا هذه الفئة"!
+      </div>
+
+      <div class="comparison-grid">
+        <!-- Limitazione Categorie -->
+        <div class="compare-card">
+          <div class="card-header-row">
+            <span class="card-ar-title">لوحة تخصيص المنع لفئة محددة (الرمز المجرد)</span>
+            <span class="card-it-title">Limitazione di Categoria (Fig. 126 / 901)</span>
+          </div>
+          <div class="sign-img-wrapper">
+            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/126.png" alt="Limitazione Categoria" loading="lazy">
+          </div>
+          <ul class="card-points-list">
+            <li><span>🚛</span> <strong>التركيب:</strong> رسم ظلي للمركبة (مثل شاحنة نقل بضائع) بدون أي كتابة مرافقة أسفل إشارة المنع.</li>
+            <li><span>🎯</span> <strong>المعنى:</strong> المنع أو الإلزام <strong>يخص حصراً تلك الفئة المصورة</strong>، ولا علاقة للسيارات الخاصة أو الدراجات به.</li>
+            <li><span>✅</span> <strong>مثال:</strong> إشارة منع الدخول ⛔ مع رسم شاحنة 🚚 تعني: ممنوع دخول الشاحنات فقط، ويجوز للسيارات الملاكي العبور.</li>
+          </ul>
+        </div>
+
+        <!-- Pannello Eccezione -->
+        <div class="compare-card emerald-tint">
+          <div class="card-header-row">
+            <span class="card-ar-title">لوحة الاستثناء من الإشارة (Eccetto / Ad eccezione)</span>
+            <span class="card-it-title">Pannello di Eccezione (Eccetto Autobus)</span>
+          </div>
+          <div class="sign-img-wrapper">
+            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/960.png" alt="Eccetto Autobus" loading="lazy">
+          </div>
+          <ul class="card-points-list">
+            <li><span>🚫</span> <strong>التركيب:</strong> كلمة <strong>"ECCETTO"</strong> مصحوبة برمز الحافلة أو مركبة الشرطة أو ذوي الاحتياجات الخاصة.</li>
+            <li><span>🔄</span> <strong>المعنى العاكس:</strong> الإشارة تسري وتلزم <strong>كافة المركبات الأخرى بلا استثناء، وتُعفى منها فقط</strong> الفئة المستثناة.</li>
+            <li><span>🚌</span> <strong>مثال:</strong> منع المرور مع <code>[eccetto autobus]</code> يعني: ممنوع مرور كل المركبات، ويُسمح فقط لحافلات النقل العام.</li>
+            <li><span>❌</span> <strong>فخ وزاري:</strong> يقول "الإشارة تعني منع مرور الحافلات" ❌ FALSO! بل الحافلة هي الفئة الوحيدة المسموح لها!</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: بداية واستمرار ونهاية المنع -->
+    <section>
+      <h2 class="section-title">
+        <span>↕️</span>
+        <span>رابعاً: لوحات بداية واستمرار ونهاية سريان المنع (Inizio, Continuazione, Fine)</span>
+      </h2>
+      <p style="color:var(--text-secondary); margin-bottom: 20px;">
+        توضع هذه اللوحات بكثرة تحت إشارات منع الوقوف (Divieto di sosta) والتوقف لتوضيح الحدود الجغرافية الدقيقة لمنطقة الحظر.
+      </p>
+
+      <div class="comparison-grid">
+        <!-- Inizio -->
+        <div class="compare-card sky-tint">
+          <div class="card-header-row">
+            <span class="card-ar-title">لوحة بداية سريان المنع (سهم لأعلى)</span>
+            <span class="card-it-title">Inizio Prescrizione (Fig. 127)</span>
+          </div>
+          <div class="sign-img-wrapper">
+            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/127.png" alt="Inizio" loading="lazy">
+          </div>
+          <ul class="card-points-list">
+            <li><span>⬆️</span> <strong>الرمز:</strong> سهم وحيد متجه لأعلى <code>[↑]</code> أو كلمة <code>[INIZIO]</code> بخلفية خضراء.</li>
+            <li><span>🚩</span> <strong>المعنى:</strong> تشير إلى <strong>نقطة البداية الدقيقة</strong> لسريان المنع أو الإلزام على قطاع الطريق التالي للوحة.</li>
+            <li><span>🅿️</span> <strong>قاعدة الركن:</strong> قبل موضع اللوحة يُسمح بالوقوف، ومن بعد اللوحة يبدأ سريان المنع الصارم.</li>
+          </ul>
+        </div>
+
+        <!-- Continuazione -->
+        <div class="compare-card amber-tint">
+          <div class="card-header-row">
+            <span class="card-ar-title">لوحة استمرار سريان المنع (سهم مزدوج)</span>
+            <span class="card-it-title">Continuazione Prescrizione (Fig. 128)</span>
+          </div>
+          <div class="sign-img-wrapper">
+            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/128.png" alt="Continuazione" loading="lazy">
+          </div>
+          <ul class="card-points-list">
+            <li><span>↕️</span> <strong>الرمز:</strong> سهم ذو رأسين متعاكسين لأعلى ولأسفل <code>[↕]</code> أو كلمة <code>[CONTINUA]</code>.</li>
+            <li><span>🔄</span> <strong>المعنى:</strong> تشير إلى <strong>استمرار سريان المنع</strong> في المنطقة الواقعة قبل اللوحة وكذلك بعدها.</li>
+            <li><span>🚫</span> <strong>قاعدة الركن:</strong> الوقوف ممنوع منعاً باتاً على جانبي اللوحة (قبلها وبعدها).</li>
+          </ul>
+        </div>
+
+        <!-- Fine -->
+        <div class="compare-card rose-tint">
+          <div class="card-header-row">
+            <span class="card-ar-title">لوحة نهاية سريان المنع (سهم لأسفل)</span>
+            <span class="card-it-title">Fine Prescrizione (Fig. 129)</span>
+          </div>
+          <div class="sign-img-wrapper">
+            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/129.png" alt="Fine" loading="lazy">
+          </div>
+          <ul class="card-points-list">
+            <li><span>⬇️</span> <strong>الرمز:</strong> سهم وحيد متجه لأسفل <code>[↓]</code> أو كلمة <code>[FINE]</code> بخلفية حمراء.</li>
+            <li><span>🏁</span> <strong>المعنى:</strong> تشير إلى <strong>نهاية منطقة المنع</strong>، ومن بعد موضع هذه الإشارة ينتهي الحظر تماماً.</li>
+            <li><span>✅</span> <strong>قاعدة الركن:</strong> الوقوف كان ممنوعاً قبل اللوحة، وأصبح مسموحاً بمجرد تجاوز موضع اللوحة.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: الطقس والطوارئ وكاسحة الثلوج -->
+    <section>
+      <h2 class="section-title">
+        <span>❄️</span>
+        <span>خامساً: لوحات الظروف الجوية وكاسحة الثلوج ومنطقة السحب الإجباري</span>
+      </h2>
+
+      <div class="comparison-grid">
+        <!-- Sgombraneve -->
+        <div class="compare-card rose-tint">
+          <div class="card-header-row">
+            <span class="card-ar-title">لوحة كاسحة الثلوج قيد العمل (مسافة 20م الإلزامية)</span>
+            <span class="card-it-title">Macchine Sgombraneve in Azione (Fig. 133)</span>
+          </div>
+          <div class="sign-img-wrapper">
+            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/133.png" alt="Sgombraneve" loading="lazy">
+          </div>
+          <ul class="card-points-list">
+            <li><span>🚜</span> <strong>المعنى:</strong> تنبه لوجود آلات وجرافات إزالة الثلوج ونثر الملح تعمل على مسار الطريق.</li>
+            <li><span>📏</span> <strong>الرقم الإلزامي الحاسم:</strong> يجب ترك مسافة أمان لا تقل عن <strong>20 متراً على الأقل (almeno 20 m)</strong> خلف الكاسحة.</li>
+            <li><span>🚫</span> <strong>حظر التجاوز:</strong> يُمنع تماماً تجاوز كاسحة الثلوج إذا كانت تسد أو تشغل مساحة نهر الطريق.</li>
+            <li><span>❌</span> <strong>فخ وزاري:</strong> "يجب ترك مسافة 10 أمتار" ❌ FALSO (القانون يلزم بـ 20 متراً)!</li>
+          </ul>
+        </div>
+
+        <!-- Rimozione Coatta -->
+        <div class="compare-card amber-tint">
+          <div class="card-header-row">
+            <span class="card-ar-title">لوحة منطقة السحب بالونش والحجز البلدي</span>
+            <span class="card-it-title">Zona Rimozione Coatta (Fig. 140)</span>
+          </div>
+          <div class="sign-img-wrapper">
+            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/140.png" alt="Zona Rimozione" loading="lazy">
+          </div>
+          <ul class="card-points-list">
+            <li><span>🏗️</span> <strong>المعنى:</strong> توضع أسفل إشارة منع الوقوف (Divieto di sosta) لتفيد بتطبيق عقوبة السحب الإجباري بالرافعة.</li>
+            <li><span>🚛</span> <strong>إجراء الحجز:</strong> يتم قطر السيارة ونقلها إلى مستودع الحجز البلدي (Depositeria comunale).</li>
+            <li><span>💶</span> <strong>التبعات المالية:</strong> لا يتم استرداد المركبة إلا بعد سداد تكاليف الونش ورسوم الحجز اليومية بالإضافة للغرامة.</li>
+            <li><span>❌</span> <strong>فخ وزاري:</strong> "يشير لورشة صيانة أعطال الطرق" ❌ FALSO!</li>
+          </ul>
+        </div>
+
+        <!-- Ghiaccio & Pioggia -->
+        <div class="compare-card sky-tint">
+          <div class="card-header-row">
+            <span class="card-ar-title">لوحتا خطر الجليد وخطر المطر والانزلاق</span>
+            <span class="card-it-title">Ghiaccio (Fig. 137) & Pioggia (Fig. 138)</span>
+          </div>
+          <div class="sign-img-wrapper">
+            <div style="display:flex; gap:12px; align-items:center; justify-content:center;">
+              <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/137.png" alt="Ghiaccio" style="max-height:80px;" loading="lazy">
+              <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/138.png" alt="Pioggia" style="max-height:80px;" loading="lazy">
+            </div>
+          </div>
+          <ul class="card-points-list">
+            <li><span>❄️</span> <strong>بلورة الجليد (Fig. 137):</strong> تنبه لخطر تشكل الجليد على الأسفلت في حالات الصقيع أو الجسور والمناطق المظللة.</li>
+            <li><span>🌧️</span> <strong>السحابة الممطرة (Fig. 138):</strong> تنبه لاحتمال فقدان الالتصاق وخطر الانزلاق المائي (Aquaplaning) عند هطول الأمطار.</li>
+            <li><span>🚗</span> <strong>الإجراء الواجب:</strong> تخفيف السرعة وزيادة مسافة الأمان وتجنب الفرملة المفاجئة.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: مسار الطريق ذي الأسبقية ومسافات السكة الحديد -->
+    <section>
+      <h2 class="section-title">
+        <span>🛤️</span>
+        <span>سادساً: مسار الطريق الرئيسي ذي الأسبقية ولوحات مسافة مزلقان القطار</span>
+      </h2>
+
+      <div class="comparison-grid">
+        <!-- Andamento Strada Principale -->
+        <div class="compare-card emerald-tint">
+          <div class="card-header-row">
+            <span class="card-ar-title">لوحة مسار الطريق ذي الأسبقية عند التقاطعات</span>
+            <span class="card-it-title">Andamento della Strada Principale (Fig. 145/146)</span>
+          </div>
+          <div class="sign-img-wrapper">
+            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/145.png" alt="Andamento Strada" loading="lazy">
+          </div>
+          <ul class="card-points-list">
+            <li><span>📐</span> <strong>قراءة المخطط:</strong> الخط الأسود <strong>العريض والسميك</strong> يمثل الطريق الرئيسي المحتفظ بحق الأسبقية.</li>
+            <li><span>〰️</span> <strong>الخطوط الرفيعة:</strong> تمثل شوارع جانبية وثانوية ملزمة قانوناً بإعطاء الأسبقية لحركة المرور على الخط العريض.</li>
+            <li><span>🔄</span> <strong>الانعطاف مع المسار:</strong> السائق الذي يتبع الخط العريض يظل متمتعاً بالأسبقية على القادمين من الفروع الرفيعة.</li>
+            <li><span>❌</span> <strong>فخ وزاري:</strong> "يشير لمنعطف خطير نحو اليسار" ❌ FALSO (هذه لوحة إضافية توضح مسار الأسبقية وليست إشارة خطر للمنعطفات)!</li>
+          </ul>
+        </div>
+
+        <!-- Pannelli Distanziometrici -->
+        <div class="compare-card rose-tint">
+          <div class="card-header-row">
+            <span class="card-ar-title">لوحات مسافة مزلقان السكة الحديدية (150م - 100م - 50م)</span>
+            <span class="card-it-title">Pannelli Distanziometrici (Fig. 82)</span>
+          </div>
+          <div class="sign-img-wrapper">
+            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/82.png" alt="Pannelli Distanziometrici" loading="lazy">
+          </div>
+          <ul class="card-points-list">
+            <li><span>🔴</span> <strong>اللوحة الأولى (3 شرط حمراء مائلة):</strong> توضع أسفل إشارة الخطر على بعد <strong>150 متراً</strong> من القضبان.</li>
+            <li><span>🔴</span> <strong>اللوحة الثانية (شرطتان حمراوان):</strong> توضع عند ثلثي المسافة على بعد <strong>100 متر</strong>.</li>
+            <li><span>🔴</span> <strong>اللوحة الثالثة (شرطة حمراء واحدة):</strong> توضع على بعد <strong>50 متراً</strong> فقط من تقاطع القطار.</li>
+            <li><span>📍</span> <strong>قاعدة هامة:</strong> تستخدم مع المزلقانات ذات الحواجز (Con barriere) وبدون حواجز (Senza barriere) على حد سواء.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: القاموس التقني المبوب -->
+    <section>
+      <h2 class="section-title">
+        <span>📖</span>
+        <span>سابعاً: القاموس التقني المبوب للباب العاشر (Glossario A2-B1)</span>
+      </h2>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>المصطلح الإيطالي (Termine)</th>
+              <th>النطق الصوتي والترجمة العربية</th>
+              <th>السياق والوظيفة في الامتحان الوزاري</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>Pannello di distanza</code></td>
+              <td>بانيلّو دي ديستانتسا — لوحة المسافة</td>
+              <td>رقم مجرد يحدد المسافة الفاصلة حتى بداية الخطر أو المنع.</td>
+            </tr>
+            <tr>
+              <td><code>Pannello di estensione</code></td>
+              <td>بانيلّو دي إيستينسيوني — لوحة الامتداد</td>
+              <td>رقم محاط بسهمين لأعلى يحدد طول واستمرار قطاع الخطر.</td>
+            </tr>
+            <tr>
+              <td><code>Giorni festivi</code></td>
+              <td>جورني فيستيفي — أيام العطل والأعياد</td>
+              <td>يرمز لها بالصليب وتشمل أيام الأحد والأعياد المعطلة رسمياً.</td>
+            </tr>
+            <tr>
+              <td><code>Giorni feriali</code></td>
+              <td>جورني فيريالي — أيام العمل</td>
+              <td>يرمز لها بالمطرقتين وتشمل أيام العمل من الاثنين إلى السبت.</td>
+            </tr>
+            <tr>
+              <td><code>Fascia oraria</code></td>
+              <td>فاشا أوراريا — الفترة الزمنية</td>
+              <td>تحديد ساعات محددة من اليوم تسري خلالها تعليمات الإشارة.</td>
+            </tr>
+            <tr>
+              <td><code>Eccetto / Ad eccezione di</code></td>
+              <td>إيتشيتّو — ما عدا / باستثناء</td>
+              <td>تفيد استثناء الفئة المذكورة من حظر الإشارة وسريانه على البقية.</td>
+            </tr>
+            <tr>
+              <td><code>Sgombraneve in azione</code></td>
+              <td>زغومبرانيفي إن أتسيوني — كاسحة ثلوج</td>
+              <td>توجب ترك مسافة أمان لا تقل عن 20 متراً ومنع التجاوز.</td>
+            </tr>
+            <tr>
+              <td><code>Rimozione coatta</code></td>
+              <td>ريموتسيوني كواتّا — سحب إجباري بالونش</td>
+              <td>عقوبة قطر السيارة للحجز عند الوقوف المخالف على نفقة المالك.</td>
+            </tr>
+            <tr>
+              <td><code>Andamento della strada</code></td>
+              <td>أندامينتو ديلا سترادا — مسار الطريق</td>
+              <td>توضيح اتجاه الخط ذي الأسبقية عبر الخطوط العريضة.</td>
+            </tr>
+            <tr>
+              <td><code>Pannelli distanziometrici</code></td>
+              <td>ديستانتسيوميتريتشي — لوحات المسافة</td>
+              <td>لوحات الخطوط الحمراء الثلاثة (150م - 100م - 50م) لمزلقان القطار.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 8: محاكي بنك الفخاخ الوزارية التفاعلي -->
+    <section class="quiz-section">
+      <h2 class="section-title">
+        <span>⚡</span>
+        <span>ثامناً: بنك الفخاخ الوزارية التفاعلي (10 أسئلة حاسمة من الامتحانات الرسمية)</span>
+      </h2>
+      <p style="color:var(--text-secondary); margin-bottom: 24px;">
+        اختبر معلوماتك في فخاخ اللوحات الإضافية. انقر على الإجابة لتتحقق فوراً مع التعليل الوزاري المعتمد.
+      </p>
+
+      <!-- Quiz 1 -->
+      <div class="quiz-card" data-correct="vero">
+        <div class="quiz-header">
+          <span class="quiz-tag">Fig. 121 — Distanza</span>
+        </div>
+        <div class="quiz-text-it">Il pannello integrativo raffigurato, posto sotto un segnale di pericolo, indica la distanza tra il segnale ed il punto d'inizio del pericolo.</div>
+        <div class="quiz-text-ar">اللوحة الإضافية الموضحة (بدون أسهم)، والموضوعة أسفل إشارة خطر، تشير إلى المسافة بين الإشارة ونقطة بداية الخطر.</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuiz(this, 'vero')">VERO (صح) ✅</button>
+          <button class="quiz-btn" onclick="checkQuiz(this, 'falso')">FALSO (خطأ) ❌</button>
+        </div>
+        <div class="quiz-feedback" data-feedback>
+          <strong>الإجابة الصحيحة: VERO ✅</strong> — لأن اللوحة خالية من الأسهم، فهي لوحة مسافة تفيد بأن الخطر سيبدأ بعد قطع المسافة المكتوبة.
+        </div>
+      </div>
+
+      <!-- Quiz 2 -->
+      <div class="quiz-card" data-correct="falso">
+        <div class="quiz-header">
+          <span class="quiz-tag">Fig. 121 — Trabocchetto</span>
+        </div>
+        <div class="quiz-text-it">Il pannello integrativo mostrato in figura A indica i metri di strada già fatta.</div>
+        <div class="quiz-text-ar">اللوحة الإضافية الموضحة في الشكل تشير إلى الأمتار من الطريق التي تم قطعها بالفعل.</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuiz(this, 'vero')">VERO (صح) ✅</button>
+          <button class="quiz-btn" onclick="checkQuiz(this, 'falso')">FALSO (خطأ) ❌</button>
+        </div>
+        <div class="quiz-feedback" data-feedback>
+          <strong>الإجابة الصحيحة: FALSO ❌</strong> — فخ وزاري كلاسيكي! اللوحة تشير إلى المسافة المتبقية حتى بداية الخطر، ولا علاقة لها بما تم قطعه في السابق.
+        </div>
+      </div>
+
+      <!-- Quiz 3 -->
+      <div class="quiz-card" data-correct="vero">
+        <div class="quiz-header">
+          <span class="quiz-tag">Fig. 122 — Estensione</span>
+        </div>
+        <div class="quiz-text-it">Il pannello integrativo raffigurato indica la lunghezza del tratto stradale pericoloso.</div>
+        <div class="quiz-text-ar">اللوحة الإضافية الموضحة (برقم بين سهمين لأعلى) تشير إلى طول قطاع الطريق الخطير.</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuiz(this, 'vero')">VERO (صح) ✅</button>
+          <button class="quiz-btn" onclick="checkQuiz(this, 'falso')">FALSO (خطأ) ❌</button>
+        </div>
+        <div class="quiz-feedback" data-feedback>
+          <strong>الإجابة الصحيحة: VERO ✅</strong> — الأسهم الرأسية تحدد امتداد واستمرار منطقة الخطر أو المنع.
+        </div>
+      </div>
+
+      <!-- Quiz 4 -->
+      <div class="quiz-card" data-correct="falso">
+        <div class="quiz-header">
+          <span class="quiz-tag">Fig. 124 — Giorni Festivi</span>
+        </div>
+        <div class="quiz-text-it">Il pannello integrativo con il simbolo della croce indica la vicinanza di un posto di pronto soccorso o di una chiesa.</div>
+        <div class="quiz-text-ar">اللوحة الإضافية برمز الصليب تشير إلى القرب من نقطة إسعاف أولي أو كنيسة.</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuiz(this, 'vero')">VERO (صح) ✅</button>
+          <button class="quiz-btn" onclick="checkQuiz(this, 'falso')">FALSO (خطأ) ❌</button>
+        </div>
+        <div class="quiz-feedback" data-feedback>
+          <strong>الإجابة الصحيحة: FALSO ❌</strong> — رمز الصليب في اللوحات الإضافية يرمز حصراً لأيام العطلات الرسمية والأعياد وأيام الأحد (Giorni festivi).
+        </div>
+      </div>
+
+      <!-- Quiz 5 -->
+      <div class="quiz-card" data-correct="vero">
+        <div class="quiz-header">
+          <span class="quiz-tag">Fig. 125 — Giorni Feriali</span>
+        </div>
+        <div class="quiz-text-it">Il pannello integrativo raffigurato indica che il segnale vale nei giorni feriali (lavorativi).</div>
+        <div class="quiz-text-ar">اللوحة الإضافية الموضحة (رمز المطرقتين) تشير إلى أن الإشارة تسري في أيام العمل (من الاثنين إلى السبت).</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuiz(this, 'vero')">VERO (صح) ✅</button>
+          <button class="quiz-btn" onclick="checkQuiz(this, 'falso')">FALSO (خطأ) ❌</button>
+        </div>
+        <div class="quiz-feedback" data-feedback>
+          <strong>الإجابة الصحيحة: VERO ✅</strong> — رمز المطرقتين يحدد سريان الإشارة في أيام العمل فقط دون أيام الأحد والعطلات.
+        </div>
+      </div>
+
+      <!-- Quiz 6 -->
+      <div class="quiz-card" data-correct="vero">
+        <div class="quiz-header">
+          <span class="quiz-tag">Fig. 133 — Sgombraneve</span>
+        </div>
+        <div class="quiz-text-it">In presenza del pannello raffigurato è obbligatorio mantenere una distanza di sicurezza di almeno 20 metri dalla macchina sgombraneve.</div>
+        <div class="quiz-text-ar">في وجود اللوحة الموضحة، يجب إلزامياً الحفاظ على مسافة أمان لا تقل عن 20 متراً من كاسحة الثلوج.</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuiz(this, 'vero')">VERO (صح) ✅</button>
+          <button class="quiz-btn" onclick="checkQuiz(this, 'falso')">FALSO (خطأ) ❌</button>
+        </div>
+        <div class="quiz-feedback" data-feedback>
+          <strong>الإجابة الصحيحة: VERO ✅</strong> — الرقم القانوني الثابت لكاسحة الثلوج قيد العمل هو 20 متراً على الأقل تجنباً لتطاير الثلوج والأملاح وتفادياً للحوادث.
+        </div>
+      </div>
+
+      <!-- Quiz 7 -->
+      <div class="quiz-card" data-correct="falso">
+        <div class="quiz-header">
+          <span class="quiz-tag">Fig. 140 — Zona Rimozione</span>
+        </div>
+        <div class="quiz-text-it">Il pannello integrativo raffigurato segnala una zona dove è consentito il parcheggio ai soli mezzi di soccorso stradale.</div>
+        <div class="quiz-text-ar">اللوحة الإضافية الموضحة (صورة الرافعة) تشير إلى منطقة يُسمح بركن سيارات الإغاثة والطوارئ فيها فقط.</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuiz(this, 'vero')">VERO (صح) ✅</button>
+          <button class="quiz-btn" onclick="checkQuiz(this, 'falso')">FALSO (خطأ) ❌</button>
+        </div>
+        <div class="quiz-feedback" data-feedback>
+          <strong>الإجابة الصحيحة: FALSO ❌</strong> — اللوحة تعني منطقة سحب إجباري بالونش للمركبات المخالفة ونقلها للمحجز البلدي.
+        </div>
+      </div>
+
+      <!-- Quiz 8 -->
+      <div class="quiz-card" data-correct="vero">
+        <div class="quiz-header">
+          <span class="quiz-tag">Fig. 145 — Andamento Strada</span>
+        </div>
+        <div class="quiz-text-it">Il pannello integrativo raffigurato evidenzia l'andamento della strada principale con diritto di precedenza.</div>
+        <div class="quiz-text-ar">اللوحة الإضافية الموضحة تبرز مسار الطريق الرئيسي المتمتع بحق الأسبقية.</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuiz(this, 'vero')">VERO (صح) ✅</button>
+          <button class="quiz-btn" onclick="checkQuiz(this, 'falso')">FALSO (خطأ) ❌</button>
+        </div>
+        <div class="quiz-feedback" data-feedback>
+          <strong>الإجابة الصحيحة: VERO ✅</strong> — الخط السميك العريض يوضح المسار الرئيسي ذو الأولوية، بينما الخطوط الرفيعة لشوارع ثانوية.
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: Chapter Pagination -->
+    <nav class="chapter-pagination">
+      <a href="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/index.html" class="pagination-btn prev-btn">
+        <span class="pagination-icon">→</span>
+        <div class="pagination-info">
+          <span class="pagination-label">الباب السابق</span>
+          <span class="pagination-title">الباب 9: إشارات الورش والتحويلات</span>
+        </div>
+      </a>
+
+      <a href="index.html" class="pagination-btn index-btn">
+        <span class="pagination-icon">🏛️</span>
+        <div class="pagination-info">
+          <span class="pagination-label">المكتبة الشاملة</span>
+          <span class="pagination-title">فهرس الأدلة المعتمدة</span>
+        </div>
+      </a>
+
+      <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="pagination-btn next-btn">
+        <div class="pagination-info">
+          <span class="pagination-label">الباب التالي</span>
+          <span class="pagination-title">الباب 11: حدود السرعة ومخاطرها</span>
+        </div>
+        <span class="pagination-icon">←</span>
+      </a>
+    </nav>
+
+  </article>
+</main>
+
+<script>
+  // Unified Web Audio API Sound Engine
+  const soundEngine = window.soundEngine || {
+    ctx: null,
+    enabled: true,
+    init() {
+      if (!this.ctx) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) this.ctx = new AudioCtx();
+      }
+      if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
+    },
+    click() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
+      try {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(520, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.04);
+        gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.04);
+      } catch(e) {}
+    },
+    correct() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
+      try {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(440, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(880, this.ctx.currentTime + 0.12);
+        gain.gain.setValueAtTime(0.1, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.15);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.15);
+      } catch(e) {}
+    },
+    wrong() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
+      try {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(280, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(120, this.ctx.currentTime + 0.18);
+        gain.gain.setValueAtTime(0.12, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.2);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.2);
+      } catch(e) {}
+    }
+  };
+
+  // Dropdown Toggle
+  function toggleNavDropdown(e) {
+    if (e) e.stopPropagation();
+    const menu = document.getElementById('navDropdownMenu');
+    if (menu) menu.classList.toggle('active');
+  }
+  document.addEventListener('click', function(e) {
+    const wrapper = document.querySelector('.nav-dropdown-wrapper');
+    const menu = document.getElementById('navDropdownMenu');
+    if (menu && menu.classList.contains('active')) {
+      if (wrapper && !wrapper.contains(e.target)) {
+        menu.classList.remove('active');
+      }
+    }
+  });
+
+  // Mobile Drawer Controller
+  function toggleMobileNav() {
+    const btn = document.getElementById('nav-hamburger-btn');
+    const panel = document.getElementById('mobile-drawer-panel');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    if (!btn || !panel) return;
+    const isOpening = !panel.classList.contains('is-active');
+    if (isOpening) {
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-expanded', 'true');
+      panel.classList.add('is-active');
+      if (overlay) overlay.classList.add('is-active');
+      document.body.classList.add('nav-scroll-lock');
+    } else {
+      closeMobileNav();
+    }
+    soundEngine.click();
+  }
+  function closeMobileNav() {
+    const btn = document.getElementById('nav-hamburger-btn');
+    const panel = document.getElementById('mobile-drawer-panel');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    if (btn) {
+      btn.classList.remove('is-active');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    if (panel) panel.classList.remove('is-active');
+    if (overlay) overlay.classList.remove('is-active');
+    document.body.classList.remove('nav-scroll-lock');
+  }
+
+  // Audio Toggle
+  window.toggleAudio = function() {
+    soundEngine.enabled = !soundEngine.enabled;
+    const icons = document.querySelectorAll('.audio-icon-span');
+    const labels = document.querySelectorAll('.audio-label-span');
+    icons.forEach(el => el.textContent = soundEngine.enabled ? '🔊' : '🔇');
+    labels.forEach(el => el.textContent = soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم');
+    if (soundEngine.enabled) soundEngine.click();
+  };
+
+  // Interactive Quiz Handler
+  function checkQuiz(btn, chosen) {
+    const card = btn.closest('.quiz-card');
+    if (!card) return;
+    const correct = card.getAttribute('data-correct');
+    const feedback = card.querySelector('[data-feedback]');
+    const isMatch = chosen.toLowerCase() === correct.toLowerCase();
+    
+    // Clear styles
+    card.querySelectorAll('.quiz-btn').forEach(b => {
+      b.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+      b.style.background = 'rgba(255, 255, 255, 0.04)';
+    });
+
+    if (isMatch) {
+      btn.style.borderColor = '#10b981';
+      btn.style.background = 'rgba(16, 185, 129, 0.18)';
+      if (feedback) {
+        feedback.className = 'quiz-feedback is-correct';
+        feedback.style.display = 'block';
+      }
+      soundEngine.correct();
+    } else {
+      btn.style.borderColor = '#f43f5e';
+      btn.style.background = 'rgba(244, 63, 94, 0.18)';
+      if (feedback) {
+        feedback.className = 'quiz-feedback is-wrong';
+        feedback.style.display = 'block';
+      }
+      soundEngine.wrong();
+    }
+  }
+</script>
+
+</body>
+</html>
