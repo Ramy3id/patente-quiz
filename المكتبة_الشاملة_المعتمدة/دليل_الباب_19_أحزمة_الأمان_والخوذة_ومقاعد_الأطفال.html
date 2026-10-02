@@ -1,567 +1,130 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="dark">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>دليل الباب 19: أحزمة الأمان، الخوذة، ومقاعد الأطفال — Patente B Pro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes">
+<title>دليل الباب 19: أحزمة الأمان والخوذة ومقاعد الأطفال — Patente B Pro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg-base: #09090b;
-    --bg-surface: rgba(24, 24, 27, 0.75);
+    --bg-page: #090a0f;
+    --bg-surface: #13151f;
+    --bg-card: #1a1d2e;
     --border-subtle: rgba(255, 255, 255, 0.08);
-    --border-highlight: rgba(255, 255, 255, 0.16);
-    --text-primary: #f4f4f5;
-    --text-secondary: #a1a1aa;
-    --text-muted: #71717a;
+    --border-accent: rgba(245, 158, 11, 0.3);
+    --gold-primary: #f59e0b;
+    --gold-glow: rgba(245, 158, 11, 0.2);
+    --sky-primary: #38bdf8;
     --emerald-primary: #10b981;
     --rose-primary: #f43f5e;
-    --amber-primary: #f59e0b;
-    --sky-primary: #38bdf8;
-    --indigo-primary: #818cf8;
-    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
-    --nav-base-height: 54px;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --font-ar: 'Cairo', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
-    background-color: var(--bg-base);
+    background-color: var(--bg-page);
     color: var(--text-primary);
-    font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-ar);
     line-height: 1.6;
-    min-height: 100vh;
     overflow-x: hidden;
-    background-image: 
-      radial-gradient(ellipse at 50% -10%, rgba(129, 140, 248, 0.08), transparent 60%),
-      radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.04), transparent 40%);
+    padding-top: 54px;
+    -webkit-font-smoothing: antialiased;
   }
 
-  body.nav-scroll-lock {
-    overflow: hidden !important;
-    touch-action: none !important;
-    -webkit-overflow-scrolling: auto !important;
-  }
-
-  /* Apple HIG Responsive Top Navigation */
+  /* 54px Strict Portal Header */
   .unified-portal-nav {
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 1000;
-    height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
-    max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
-    background: rgba(9, 9, 11, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    left: 0;
+    right: 0;
+    height: 54px;
+    background: rgba(9, 10, 15, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border-subtle);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
-    padding-top: env(safe-area-inset-top, 0px);
-    box-sizing: border-box;
-    direction: rtl;
+    padding: 0 16px;
+    z-index: 1000;
   }
 
   .nav-brand {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #fff;
-    white-space: nowrap;
+    gap: 8px;
     text-decoration: none;
-    flex-shrink: 0;
+    color: var(--text-primary);
+    font-weight: 800;
+    font-size: 0.95rem;
   }
   .nav-brand .badge-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #000;
+    font-size: 0.68rem;
+    font-weight: 800;
     padding: 2px 7px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 6px;
-    color: #a1a1aa;
+    letter-spacing: 0.5px;
   }
 
-  .nav-desktop-tabs {
+  .desktop-nav-links {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
   }
-  .nav-tab-desktop {
-    text-decoration: none;
-    color: #a1a1aa;
-    padding: 7px 13px;
-    border-radius: 9px;
-    font-size: 0.84rem;
+  .desktop-nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.82rem;
     font-weight: 600;
-    transition: all 0.15s;
+    color: var(--text-secondary);
+    text-decoration: none;
     border: 1px solid transparent;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    white-space: nowrap;
+    transition: all 0.15s ease;
   }
-  .nav-tab-desktop:hover {
+  .desktop-nav-link:hover {
     color: #fff;
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.1);
   }
-  .nav-tab-desktop.active {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.16);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.15), 0 2px 8px rgba(0,0,0,0.3);
-  }
 
-  .nav-desktop-actions {
+  .desktop-nav-controls {
     display: flex;
     align-items: center;
     gap: 10px;
   }
+
   .nav-audio-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #e4e4e7;
-    border-radius: 9px;
-    padding: 7px 12px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    cursor: pointer;
+    height: 34px;
     display: flex;
     align-items: center;
     gap: 6px;
-    transition: all 0.15s;
-  }
-  .nav-audio-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
-  .nav-audio-btn:active { transform: scale(0.96); }
-
-  /* Animated Hamburger Icon */
-  .nav-hamburger-btn {
-    display: none;
-    width: 42px;
-    height: 42px;
+    padding: 0 12px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 0;
-    z-index: 1002;
-    transition: background 0.15s, transform 0.15s;
-  }
-  .nav-hamburger-btn:active { transform: scale(0.92); }
-  .hamburger-box {
-    width: 20px;
-    height: 14px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .hamburger-line {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: #fff;
-    border-radius: 2px;
-    transition: transform 0.28s var(--ease-spring), opacity 0.2s, background-color 0.2s;
-  }
-  .nav-hamburger-btn.is-active .line-top {
-    transform: translateY(6px) rotate(45deg);
-    background-color: #38bdf8;
-  }
-  .nav-hamburger-btn.is-active .line-mid { opacity: 0; transform: scaleX(0); }
-  .nav-hamburger-btn.is-active .line-bot {
-    transform: translateY(-6px) rotate(-45deg);
-    background-color: #38bdf8;
-  }
-
-  /* Slide-down Drawer Panel */
-  .mobile-drawer-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 998;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s ease;
-  }
-  .mobile-drawer-overlay.is-active {
-    display: block; opacity: 1; pointer-events: auto;
-  }
-
-  .mobile-drawer-panel {
-    display: none;
-    position: fixed;
-    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
-    left: 0; right: 0;
-    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
-    background: rgba(15, 15, 18, 0.94);
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
-    z-index: 999;
-    padding: 16px;
-    padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.32s var(--ease-spring), opacity 0.22s ease;
-    direction: rtl;
-  }
-  .mobile-drawer-panel.is-active {
-    display: block;
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .mobile-nav-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    list-style: none;
-  }
-  .mobile-nav-link {
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 0 16px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
-    color: #e4e4e7;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 600;
-  }
-  .mobile-nav-link.active {
-    background: rgba(56, 189, 248, 0.12);
-    border-color: rgba(56, 189, 248, 0.3);
-    color: #38bdf8;
-  }
-  .mobile-nav-divider {
-    height: 1px;
-    background: rgba(255, 255, 255, 0.08);
-    margin: 8px 0;
-  }
-  .mobile-nav-control-btn {
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    color: #e4e4e7;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-  }
-
-  @media (max-width: 768px) {
-    .unified-portal-nav {
-      height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
-      max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
-      padding: 0 16px;
-      padding-top: env(safe-area-inset-top, 0px);
-    }
-    .nav-desktop-tabs, .nav-desktop-actions { display: none !important; }
-    .nav-hamburger-btn { display: flex; }
-    .nav-brand .badge-tag { display: none; }
-  }
-
-  /* Page Layout */
-  .container {
-    max-width: 1060px;
-    margin: 28px auto;
-    padding: 0 18px 60px;
-  }
-
-  .hero-card {
-    background: var(--bg-surface);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--border-subtle);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06), 0 16px 36px -10px rgba(0,0,0,0.6);
-    border-radius: 20px;
-    padding: 32px 36px;
-    margin-bottom: 28px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-card::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0; left: 0; height: 3px;
-    background: linear-gradient(90deg, var(--indigo-primary), var(--emerald-primary), var(--sky-primary));
-  }
-
-  .chapter-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    padding: 4px 12px;
-    border-radius: 20px;
-    background: rgba(129, 140, 248, 0.12);
-    border: 1px solid rgba(129, 140, 248, 0.3);
-    color: #c7d2fe;
-    margin-bottom: 14px;
-  }
-
-  h1.page-title {
-    font-size: 1.85rem;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 8px;
-    letter-spacing: -0.02em;
-  }
-  .page-subtitle-it {
-    font-size: 1.05rem;
-    color: var(--text-secondary);
-    direction: ltr;
-    text-align: right;
-    font-weight: 500;
-    margin-bottom: 18px;
-  }
-  .stats-banner {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    padding-top: 14px;
-    border-top: 1px solid var(--border-subtle);
-  }
-  .stat-badge {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border-subtle);
-    padding: 6px 14px;
-    border-radius: 10px;
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .stat-badge strong { color: #fff; font-family: 'JetBrains Mono', monospace; }
-
-  /* Section Block */
-  .section-block {
-    background: var(--bg-surface);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    padding: 26px 30px;
-    margin-bottom: 24px;
-    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.4);
-  }
-  .section-block h2 {
-    font-size: 1.35rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .trap-callout {
-    background: rgba(244, 63, 94, 0.08);
-    border: 1px solid rgba(244, 63, 94, 0.25);
-    border-right: 4px solid var(--rose-primary);
-    border-radius: 12px;
-    padding: 18px 22px;
-    margin: 18px 0;
-  }
-  .trap-callout-header {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #fda4af;
-    margin-bottom: 6px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .trap-callout p {
-    font-size: 0.92rem;
-    color: #e4e4e7;
-    line-height: 1.6;
-  }
-
-  .table-responsive {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    border-radius: 12px;
-    border: 1px solid var(--border-subtle);
-    margin-top: 14px;
-  }
-  table.content-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.9rem;
-    text-align: right;
-  }
-  table.content-table th {
-    background: rgba(255, 255, 255, 0.04);
-    color: #fff;
-    padding: 12px 16px;
-    font-weight: 700;
-    border-bottom: 1px solid var(--border-highlight);
-  }
-  table.content-table td {
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border-subtle);
-    color: var(--text-secondary);
-  }
-  table.content-table tr:hover td {
-    background: rgba(255, 255, 255, 0.02);
-  }
-
-  .aid-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 14px;
-    margin-top: 16px;
-  }
-  .aid-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border-subtle);
-    border-radius: 12px;
-    padding: 18px;
-    transition: transform 0.2s;
-  }
-  .aid-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(255, 255, 255, 0.16);
-  }
-  .aid-icon {
-    font-size: 1.6rem;
-    margin-bottom: 8px;
-  }
-  .aid-card h3 {
-    font-size: 0.98rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 6px;
-  }
-  .aid-card p {
-    font-size: 0.86rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-  }
-
-  /* Quiz Section */
-  .quiz-section { margin-top: 36px; }
-  .quiz-card {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: 14px;
-    padding: 20px 24px;
-    margin-bottom: 14px;
-    transition: all 0.2s;
-  }
-  .quiz-card.answered-correct {
-    border-color: rgba(16, 185, 129, 0.4);
-    background: rgba(16, 185, 129, 0.04);
-  }
-  .quiz-card.answered-wrong {
-    border-color: rgba(244, 63, 94, 0.4);
-    background: rgba(244, 63, 94, 0.04);
-  }
-  .quiz-q-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    margin-bottom: 4px;
-  }
-  .quiz-text-it {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #fff;
-    direction: ltr;
-    text-align: left;
-    margin-bottom: 8px;
-  }
-  .quiz-text-ar {
-    font-size: 0.92rem;
-    color: var(--text-secondary);
-    margin-bottom: 16px;
-  }
-  .quiz-btns {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  .btn-v, .btn-f {
-    padding: 7px 20px;
     border-radius: 8px;
-    font-weight: 700;
-    font-size: 0.85rem;
+    color: #e4e4e7;
+    font-size: 0.8rem;
+    font-weight: 600;
     cursor: pointer;
-    border: 1px solid transparent;
-    transition: all 0.15s;
-    font-family: 'JetBrains Mono', monospace;
+    transition: all 0.15s ease;
+    font-family: inherit;
   }
-  .btn-v { background: rgba(16, 185, 129, 0.15); color: #34d399; border-color: rgba(16, 185, 129, 0.3); }
-  .btn-v:hover { background: rgba(16, 185, 129, 0.25); color: #fff; }
-  .btn-f { background: rgba(244, 63, 94, 0.15); color: #f87171; border-color: rgba(244, 63, 94, 0.3); }
-  .btn-f:hover { background: rgba(244, 63, 94, 0.25); color: #fff; }
-  .quiz-feedback {
-    display: none;
-    margin-top: 14px;
-    padding: 12px 16px;
-    border-radius: 10px;
-    font-size: 0.88rem;
-    line-height: 1.5;
-  }
-  .quiz-feedback.show { display: block; }
-  .quiz-feedback.correct {
-    background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.3);
-    color: #a7f3d0;
-  }
-  .quiz-feedback.wrong {
-    background: rgba(244, 63, 94, 0.1);
-    border: 1px solid rgba(244, 63, 94, 0.3);
-    color: #fecdd3;
+  .nav-audio-btn:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.2);
   }
 
-  .btn-speak {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-subtle);
-    color: var(--text-secondary);
-    border-radius: 6px;
-    padding: 2px 8px;
-    font-size: 0.75rem;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    margin-right: 6px;
-    vertical-align: middle;
-  }
-  .btn-speak:hover { color: #fff; background: rgba(255, 255, 255, 0.1); }
-
-  /* ==========================================================================
-     Desktop Chapters Dropdown & Pagination (Declutter Architecture)
-     ========================================================================== */
   .nav-dropdown-wrapper {
     position: relative;
     display: inline-block;
@@ -593,20 +156,18 @@
     top: calc(100% + 8px);
     left: 0;
     width: 290px;
-    max-height: 440px;
+    max-height: 480px;
     overflow-y: auto;
-    background: #121215;
+    background: rgba(19, 21, 31, 0.96);
+    backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 14px;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
+    padding: 6px;
     display: none;
     flex-direction: column;
-    gap: 4px;
-    z-index: 1100;
-    direction: rtl;
+    gap: 2px;
+    z-index: 1010;
   }
   .nav-dropdown-menu.active {
     display: flex;
@@ -614,723 +175,1843 @@
   .nav-dropdown-item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     padding: 8px 12px;
     border-radius: 8px;
-    color: #d4d4d8;
+    color: #cbd5e1;
     text-decoration: none;
-    font-size: 0.82rem;
-    font-weight: 500;
+    font-size: 0.8rem;
+    font-weight: 600;
     transition: all 0.12s ease;
   }
-  .nav-dropdown-item:hover {
-    background: rgba(255, 255, 255, 0.06);
-    color: #fff;
-  }
-  .nav-dropdown-item.active {
-    background: rgba(56, 189, 248, 0.12);
-    color: #38bdf8;
-    font-weight: 700;
+  .nav-dropdown-item:hover, .nav-dropdown-item.active {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--gold-primary);
   }
 
-  /* Chapter Pagination */
+  .nav-hamburger-btn {
+    display: none;
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+  .hamburger-box {
+    width: 20px;
+    height: 14px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #e4e4e7;
+    border-radius: 2px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .nav-hamburger-btn.active .line-top {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .nav-hamburger-btn.active .line-mid {
+    opacity: 0;
+  }
+  .nav-hamburger-btn.active .line-bot {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* Mobile Drawer */
+  .mobile-drawer-overlay {
+    position: fixed;
+    top: 54px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+  .mobile-drawer-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .mobile-drawer-panel {
+    position: fixed;
+    top: 54px;
+    left: 0;
+    right: 0;
+    max-height: calc(100vh - 54px);
+    background: rgba(19, 21, 31, 0.98);
+    border-bottom: 1px solid var(--border-subtle);
+    z-index: 999;
+    padding: 16px;
+    overflow-y: auto;
+    transform: translateY(-100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .mobile-drawer-panel.active {
+    transform: translateY(0);
+  }
+  .mobile-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 48px;
+    padding: 0 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    color: #f1f5f9;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+  .mobile-nav-link.active {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: var(--gold-primary);
+    color: var(--gold-primary);
+  }
+
+  /* Main Container */
+  .guide-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px 16px 80px 16px;
+  }
+
+  /* Chapter Hero */
+  .chapter-hero {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(19, 21, 31, 0.9) 100%);
+    border: 1px solid var(--border-accent);
+    border-radius: 20px;
+    padding: 36px 28px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: 20px;
+    color: var(--gold-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .hero-title {
+    font-size: 1.85rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+  .hero-subtitle {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--gold-primary);
+    direction: ltr;
+    text-align: right;
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+  .hero-desc {
+    font-size: 0.98rem;
+    color: #cbd5e1;
+    max-width: 900px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  /* Explicit Hero Badges Row (User Specification) */
+  .hero-badges-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .hero-stat-badge {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #f1f5f9;
+  }
+  .hero-stat-badge span:first-child {
+    font-size: 1.3rem;
+  }
+
+  /* Golden Rules Banner */
+  .golden-rules-banner {
+    background: rgba(24, 27, 44, 0.7);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+  .golden-rules-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--gold-primary);
+    margin-bottom: 16px;
+  }
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+  }
+  .rule-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 16px;
+    transition: transform 0.2s ease;
+  }
+  .rule-box:hover {
+    transform: translateY(-2px);
+    border-color: rgba(245, 158, 11, 0.25);
+  }
+  .rule-box h4 {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .rule-box p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Interactive Simulators */
+  .interactive-sim-container {
+    background: rgba(19, 21, 31, 0.85);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+  .sim-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .sim-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sim-badge {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--gold-primary);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+  }
+  .sim-controls-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .sim-btn {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    color: #e4e4e7;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .sim-btn:hover, .sim-btn.active {
+    background: var(--gold-primary);
+    color: #000;
+    border-color: var(--gold-primary);
+  }
+  .sim-display-panel {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .sim-view-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 140px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+  .sim-view-icon {
+    font-size: 3rem;
+    margin-bottom: 8px;
+  }
+  .sim-view-label {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .sim-view-sub {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--gold-primary);
+  }
+  .sim-details-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .sim-detail-item {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+  }
+  .sim-detail-item strong {
+    color: #fff;
+  }
+  .sim-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    width: fit-content;
+  }
+  .sim-status-allowed {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--emerald-primary);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+  }
+  .sim-status-prohibited {
+    background: rgba(244, 63, 94, 0.15);
+    color: var(--rose-primary);
+    border: 1px solid rgba(244, 63, 94, 0.3);
+  }
+
+  /* Comparison Matrix */
+  .comp-section {
+    margin-bottom: 36px;
+  }
+  .comp-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .comp-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .comp-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .comp-card-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 10px;
+  }
+  .comp-card-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    display: inline-block;
+  }
+  .comp-card-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  .comp-card-sub {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--gold-primary);
+  }
+  .comp-card-body {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Filter Pills Quick Nav */
+  .quick-nav-bar {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    margin-bottom: 24px;
+    scrollbar-width: thin;
+  }
+  .filter-pill {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    color: #94a3b8;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .filter-pill:hover, .filter-pill.active {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: var(--gold-primary);
+    color: var(--gold-primary);
+  }
+
+  /* Technical Cards Grid */
+  .technical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .technical-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .technical-card:hover {
+    border-color: rgba(245, 158, 11, 0.35);
+    transform: translateY(-2px);
+  }
+  .card-img-container {
+    height: 160px;
+    background: #0f111a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 12px;
+  }
+  .card-img-container svg {
+    max-height: 136px;
+    max-width: 90%;
+  }
+  .card-img-placeholder {
+    font-size: 3.2rem;
+  }
+  .card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 14px;
+  }
+  .card-header-info {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 10px;
+  }
+  .card-title-it {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--gold-primary);
+    font-weight: 700;
+    direction: ltr;
+    text-align: right;
+    margin-bottom: 4px;
+  }
+  .card-title-ar {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  
+  /* ZERO-FLEX RULE on card bullet list (Guaranteed Alignment) */
+  .card-bullet-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .card-bullet-list li {
+    display: block !important;
+    position: relative !important;
+    padding-right: 28px !important;
+    line-height: 1.7 !important;
+    font-size: 0.86rem !important;
+    color: #cbd5e1 !important;
+    margin-bottom: 8px !important;
+  }
+  .card-bullet-list li .bullet-icon {
+    position: absolute !important;
+    right: 0 !important;
+    top: 2px !important;
+    font-size: 0.95rem !important;
+    line-height: 1 !important;
+  }
+
+  .card-box-vero {
+    background: rgba(16, 185, 129, 0.05);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 10px;
+    padding: 12px;
+  }
+  .card-box-vero-title {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--emerald-primary);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card-box-falso {
+    background: rgba(244, 63, 94, 0.05);
+    border: 1px solid rgba(244, 63, 94, 0.2);
+    border-radius: 10px;
+    padding: 12px;
+  }
+  .card-box-falso-title {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--rose-primary);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card-trap-box {
+    background: rgba(244, 63, 94, 0.08);
+    border: 1px solid rgba(244, 63, 94, 0.25);
+    border-radius: 10px;
+    padding: 12px;
+    margin-top: auto;
+  }
+  .card-trap-box-title {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #fda4af;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card-trap-box p {
+    font-size: 0.82rem;
+    color: #fecdd3;
+    line-height: 1.5;
+  }
+
+  /* Audio Glossary */
+  .glossary-section {
+    background: rgba(19, 21, 31, 0.7);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 40px;
+  }
+  .glossary-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+  }
+  .glossary-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .glossary-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .glossary-term-it {
+    font-family: var(--font-mono);
+    font-size: 0.92rem;
+    color: var(--gold-primary);
+    font-weight: 700;
+  }
+  .glossary-term-ar {
+    font-size: 0.82rem;
+    color: #94a3b8;
+  }
+  .glossary-audio-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    color: var(--gold-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    transition: all 0.15s ease;
+  }
+  .glossary-audio-btn:hover {
+    background: var(--gold-primary);
+    color: #000;
+    transform: scale(1.08);
+  }
+
+  /* Ministerial Traps Section */
+  .traps-section {
+    background: linear-gradient(135deg, rgba(244, 63, 94, 0.06) 0%, rgba(19, 21, 31, 0.8) 100%);
+    border: 1px solid rgba(244, 63, 94, 0.3);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 40px;
+  }
+  .traps-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .traps-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  .traps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .trap-item {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .trap-statement-it {
+    font-family: var(--font-mono);
+    font-size: 0.92rem;
+    color: #f8fafc;
+    direction: ltr;
+    text-align: right;
+    line-height: 1.5;
+  }
+  .trap-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .trap-badge-falso {
+    background: rgba(244, 63, 94, 0.2);
+    color: var(--rose-primary);
+    border: 1px solid rgba(244, 63, 94, 0.4);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 0.75rem;
+  }
+  .trap-badge-vero {
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--emerald-primary);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 0.75rem;
+  }
+  .trap-explanation-ar {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 8px 12px;
+    border-radius: 8px;
+    border-right: 3px solid var(--gold-primary);
+  }
+
+  /* Self-Testing Quiz Engine */
+  .quiz-section {
+    background: rgba(19, 21, 31, 0.7);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 40px;
+  }
+  .quiz-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .quiz-card {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .quiz-question-it {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: #f1f5f9;
+    direction: ltr;
+    text-align: right;
+  }
+  .quiz-question-ar {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+  }
+  .quiz-actions {
+    display: flex;
+    gap: 10px;
+  }
+  .quiz-btn {
+    padding: 6px 18px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-size: 0.85rem;
+    font-weight: 800;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s ease;
+  }
+  .quiz-btn-vero {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--emerald-primary);
+    border-color: rgba(16, 185, 129, 0.3);
+  }
+  .quiz-btn-vero:hover {
+    background: var(--emerald-primary);
+    color: #000;
+  }
+  .quiz-btn-falso {
+    background: rgba(244, 63, 94, 0.15);
+    color: var(--rose-primary);
+    border-color: rgba(244, 63, 94, 0.3);
+  }
+  .quiz-btn-falso:hover {
+    background: var(--rose-primary);
+    color: #fff;
+  }
+  .quiz-feedback {
+    display: none;
+    font-size: 0.85rem;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-top: 4px;
+  }
+
+  /* Continuous Serial Pagination */
   .chapter-pagination {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    margin: 40px 0 20px;
-    padding: 16px 20px;
-    background: rgba(24, 24, 27, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    backdrop-filter: blur(12px);
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-subtle);
+    gap: 16px;
     flex-wrap: wrap;
   }
   .pagination-btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     padding: 10px 18px;
-    border-radius: 12px;
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #f4f4f5;
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    color: #f1f5f9;
     text-decoration: none;
     font-size: 0.88rem;
-    font-weight: 600;
+    font-weight: 700;
     transition: all 0.15s ease;
   }
   .pagination-btn:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.16);
-    color: #fff;
-    transform: translateY(-1px);
-  }
-  .pagination-btn.index-btn {
-    background: rgba(56, 189, 248, 0.08);
-    border-color: rgba(56, 189, 248, 0.2);
-    color: #38bdf8;
-  }
-  .pagination-btn.disabled {
-    opacity: 0.35;
-    pointer-events: none;
-    cursor: not-allowed;
-  }
-  .pagination-info {
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-  }
-  .pagination-label {
-    font-size: 0.72rem;
-    color: #a1a1aa;
-    font-weight: 500;
-  }
-  .pagination-title {
-    font-size: 0.85rem;
-    color: #fff;
-    font-weight: 700;
+    background: rgba(245, 158, 11, 0.15);
+    border-color: var(--gold-primary);
+    color: var(--gold-primary);
   }
 
-  @media (max-width: 1023px) {
-    .nav-dropdown-wrapper {
-      display: none !important;
-    }
+  /* Responsive Rules */
+  @media (max-width: 768px) {
+    .desktop-nav-links, .desktop-nav-controls { display: none; }
+    .nav-hamburger-btn { display: flex; }
+    .hero-title { font-size: 1.45rem; }
+    .sim-display-panel { grid-template-columns: 1fr; }
+    .technical-grid { grid-template-columns: 1fr; }
+    .chapter-pagination { flex-direction: column; gap: 12px; }
+    .pagination-btn { width: 100%; justify-content: center; }
   }
-
 </style>
 </head>
 <body>
 
-<!-- Apple HIG Responsive Navigation -->
-<nav class="unified-portal-nav" id="portal-nav">
-  <a href="index.html" class="nav-brand">
-    <span style="font-size:1.25rem;">🚦</span>
-    <span>Patente B Pro</span>
-    <span class="badge-tag">A2</span>
+<!-- UNIFIED PORTAL HEADER (Apple HIG, 54px) -->
+<header class="unified-portal-nav">
+  <a href="index.html" class="nav-brand" onclick="soundEngine.click()">
+    <span>📚</span>
+    <span>رخصة القيادة الإيطالية</span>
+    <span class="badge-tag">Patente B Pro</span>
   </a>
 
-    <!-- Core 3 Desktop Navigation Tabs -->
-  <nav class="nav-desktop-tabs">
-    <a href="index.html" class="nav-tab-desktop">🏛️ فهرس المكتبة</a>
-    <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 الأبواب المقسمة</a>
-    <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
-  </nav>
+  <div class="desktop-nav-links">
+    <a href="index.html" class="desktop-nav-link" onclick="soundEngine.click()">
+      <span>🏛️</span>
+      <span>فهرس المكتبة الشاملة</span>
+    </a>
+    <a href="../Capitoli_Divisi/index.html" class="desktop-nav-link" onclick="soundEngine.click()">
+      <span>📚</span>
+      <span>مذاكرة الأبواب المقسمة</span>
+    </a>
+    <a href="../Simulatore_Esame.html" class="desktop-nav-link" onclick="soundEngine.click()">
+      <span>⏱️</span>
+      <span>محاكي الامتحان الوزاري</span>
+    </a>
+  </div>
 
-  <div class="nav-desktop-actions">
-    <!-- Desktop Chapters Dropdown -->
+  <div class="desktop-nav-controls">
     <div class="nav-dropdown-wrapper">
       <button class="nav-dropdown-btn" onclick="toggleNavDropdown(event)">
         <span>تصفح الأبواب (1-25)</span>
         <span style="font-size:0.75rem;">▾</span>
       </button>
       <div class="nav-dropdown-menu" id="navDropdownMenu">
-      <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
-      <a href="دليل_الباب_02_إشارات_الخطر.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_03_segnali_divieto/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
-      <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
-      <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأفقية والمطبات</span></a>
-      <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
-      <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: الإشارات التكميلية وورش العمل</span></a>
-      <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_11_limiti_di_velocita/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة</span></a>
-      <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
-      <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
-      <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
-      <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
-      <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
-      <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
-      <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
-      <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
-      <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
-      <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: حوادث السير والطقس</span></a>
-      <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
-      <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 23: المسؤولية والتأمين RCA</span></a>
-      <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 24: استهلاك الوقود والبيئة</span></a>
-      <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
+        <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
+        <a href="دليل_الباب_02_إشارات_الخطر.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
+        <a href="دليل_الباب_03_إشارات_المنع.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
+        <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
+        <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
+        <a href="دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأرضية والعوائق</span></a>
+        <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
+        <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
+        <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: الإشارات التكميلية وورش العمل</span></a>
+        <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
+        <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة ومخاطرها</span></a>
+        <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
+        <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
+        <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
+        <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
+        <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
+        <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
+        <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
+        <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
+        <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
+        <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: حوادث السير والطقس</span></a>
+        <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
+        <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 23: المسؤولية والتأمين RCA</span></a>
+        <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 24: استهلاك الوقود والبيئة</span></a>
+        <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
       </div>
     </div>
 
-    <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
+    <button class="nav-audio-btn" onclick="soundEngine.toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية">
       <span class="audio-icon-span">🔊</span>
       <span class="audio-label-span">الصوت نشط</span>
     </button>
   </div>
 
-  <button class="nav-hamburger-btn" id="nav-hamburger-btn" onclick="toggleMobileNav()" aria-label="قائمة التنقل" aria-expanded="false">
+  <button class="nav-hamburger-btn" id="navHamburgerBtn" onclick="toggleMobileNav()" aria-label="قائمة التنقل">
     <div class="hamburger-box">
       <span class="hamburger-line line-top"></span>
       <span class="hamburger-line line-mid"></span>
       <span class="hamburger-line line-bot"></span>
     </div>
   </button>
-</nav>
+</header>
 
-<div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
-
-<div class="mobile-drawer-panel" id="mobile-drawer-panel">
+<!-- Mobile Drawer Overlay & Panel -->
+<div class="mobile-drawer-overlay" id="mobileDrawerOverlay" onclick="closeMobileNav()"></div>
+<div class="mobile-drawer-panel" id="mobileDrawerPanel">
   <div class="mobile-nav-list">
+    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>🏛️</span> <span>فهرس المكتبة الشاملة المعتمدة</span>
+    </a>
     <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📚</span>
-      <span>مذاكرة الأبواب المقسمة (25 باب)</span>
+      <span>📚</span> <span>مذاكرة الأبواب المقسمة (25 باب)</span>
     </a>
     <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">⏱️</span>
-      <span>محاكي الامتحان الوزاري (20 دقيقة)</span>
+      <span>⏱️</span> <span>محاكي الامتحان الوزاري</span>
     </a>
-    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📑</span>
-      <span>فهرس المكتبة الشاملة</span>
-    </a>
-    <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 13 (قواعد السير والمسارات)</span>
-    </a>
-    <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 14 (أسبقية التقاطعات)</span>
-    </a>
-    <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 15 (مناورة التجاوز والتخطي)</span>
-    </a>
-    <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 16 (الوقوف والتوقف والركن)</span>
-    </a>
-    <a href="دليل_الأبواب_11_إلى_15_قواعد_السير_والسرعة_ومسافة_الأمان.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الأبواب 11-15 (السير والسرعة)</span>
-    </a>
-    <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 17 (الأوتوستراد والحمولة والمقطورات)</span>
-    </a>
+    <div style="height: 1px; background: rgba(255,255,255,0.08); margin: 6px 0;"></div>
     <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 18 (الأضواء والتابلوه والعواكس)</span>
+      <span>📖</span> <span>دليل الباب 18 (الأضواء ولمبات التابلوه)</span>
     </a>
     <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="mobile-nav-link active" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 19 (الأحزمة والخوذة والمقاعد)</span>
+      <span>📖</span> <span>دليل الباب 19 (أحزمة الأمان والخوذة)</span>
     </a>
     <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 20 (الرخص والنقاط والعقوبات)</span>
+      <span>📖</span> <span>دليل الباب 20 (رخص القيادة والعقوبات)</span>
     </a>
-    <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 21 (حوادث السير والظروف الجوية)</span>
-    </a>
-    <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 22 (الكحول والمخدرات والإسعافات)</span>
-    </a>
-    <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 23 (التأمين والمسؤولية)</span>
-    </a>
-    <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 24 (البيئة والوقود)</span>
-    </a>
-    <a href="دليل_الباب_الأخير.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 25 (الميكانيكا والصيانة)</span>
-    </a>
-    <div class="mobile-nav-divider"></div>
-    <button class="mobile-nav-control-btn" onclick="toggleAudio(); closeMobileNav();">
-      <span class="audio-icon-span">🔊</span>
-      <span class="audio-label-span">المؤثرات الصوتية: نشطة</span>
-    </button>
   </div>
 </div>
 
-<div class="container">
+<!-- MAIN PAGE CONTAINER -->
+<main class="guide-container">
 
-  <!-- Hero Header -->
-  <div class="hero-card">
-    <div class="chapter-pill">CAPITOLO 19 • CODICE DELLA STRADA 2026</div>
-    <h1 class="page-title">الباب التاسع عشر: أحزمة الأمان، الخوذة، مقاعد الأطفال، وملابس الدراجات</h1>
-    <div class="page-subtitle-it">Cinture di sicurezza, sistemi di ritenuta per bambini, casco protettivo e abbigliamento motociclistico</div>
-    
-    <div class="stats-banner">
-      <div class="stat-badge">📊 عدد الأسئلة الرسمية: <strong>135 سؤالاً وزارياً</strong></div>
-      <div class="stat-badge">🎯 نسبة الأسئلة المتشابهة: <strong>~35%</strong></div>
-      <div class="stat-badge">💡 الكلمات المفتاحية: <strong>18 مصطلحاً حاسماً</strong></div>
-      <div class="stat-badge">🛡️ تصنيف السلامة: <strong>أدوات الأمان السلبية (Sicurezza Passiva)</strong></div>
+  <!-- CHAPTER HERO -->
+  <section class="chapter-hero">
+    <div class="hero-tag">
+      <span>🛡️</span>
+      <span>الباب التاسع عشر • Capitolo 19</span>
     </div>
-  </div>
-
-  <!-- 1. Seat Belts & Pretensionatore -->
-  <div class="section-block">
-    <h2>🔒 1. أحزمة الأمان وجهاز الشد المسبق (Cinture e Pretensionatore)</h2>
-    <p style="color:var(--text-secondary); margin-bottom: 14px;">
-      أحزمة الأمان إجبارية على السائق وجميع الركاب في المقاعد الأمامية والخلفية على حد سواء وفي جميع الطرق وبكافة السرعات:
+    <h1 class="hero-title">أحزمة الأمان والخوذة ومقاعد الأطفال</h1>
+    <div class="hero-subtitle">Cinture di sicurezza, airbag, seggiolini, casco e abbigliamento protettivo</div>
+    <p class="hero-desc">
+      الدليل الهندسي الشامل لأنظمة الأمان السلبي وحماية الركاب في كود السير الإيطالي: جهاز الشد المسبق (Pretensionatore)، شرط الطول الإلزامي لمقاعد الأطفال (1.50 متراً)، قاعدة إبطال الوسادة الهوائية عند وضع مقعد الرضيع للخلف، مواصفات الخوذة المعتمدة للدراجات النارية والملابس التقنية الواقية.
     </p>
 
-    <div class="aid-grid">
-      <div class="aid-card" style="border-right: 3px solid var(--emerald-primary);">
-        <div class="aid-icon">⚡</div>
-        <h3>جهاز الشد (Pretensionatore)</h3>
-        <p>جهاز ميكانيكي/حراري يشد الحزام بقوة على جسد الراكب فور وقوع اصطدام عنيف لمنع ارتطامه بالتابلوه أو الزجاج. <strong>يعمل لمرة واحدة فقط</strong> ويجب استبداله فوراً بعد أي حادث.</p>
-      </div>
+    <!-- Hero Badges Row (Explicit User Specification) -->
+    <div class="hero-badges-row">
+      <div class="hero-stat-badge"><span>📊</span> <span>135 سؤالاً وزارياً معتمداً</span></div>
+      <div class="hero-stat-badge"><span>⚠️</span> <span>12 فخاً وزارياً دقيقاً</span></div>
+      <div class="hero-stat-badge"><span>🛡️</span> <span>16 بطاقة فنية شاملة</span></div>
+      <div class="hero-stat-badge"><span>🎯</span> <span>دقة 100% كود السير 2026</span></div>
+    </div>
+  </section>
 
-      <div class="aid-card" style="border-right: 3px solid var(--amber-primary);">
-        <div class="aid-icon">📋</div>
-        <h3>شهادة الإعفاء الطبية</h3>
-        <p>لا يعفى من الحزام إلا بوجود <strong>شهادة طبية رسمية وموثقة</strong> (مثل الحوامل في حالات خاصة أو مرضى بجروح تمنع الضغط على الصدر). كبار السن غير معفيين قانوناً إطلاقاً.</p>
+  <!-- GOLDEN RULES BANNER -->
+  <section class="golden-rules-banner">
+    <div class="golden-rules-title">
+      <span>⭐</span>
+      <span>القواعد الذهبية الأربع للسلامة وحماية الركاب (Regole d'Oro della Sicurezza)</span>
+    </div>
+    <div class="rules-grid">
+      <div class="rule-box">
+        <h4><span>1️⃣</span> حزام الأمان وجهاز الشد</h4>
+        <p>حزام الأمان إلزامي لجميع الركاب أماماً وخلفاً. جهاز الشد (*Pretensionatore*) يشد الحزام عند الاصطدام، ويجب استبداله فوراً بعد أي حادث حتى لو بدا سليماً.</p>
       </div>
-
-      <div class="aid-card" style="border-right: 3px solid var(--sky-primary);">
-        <div class="aid-icon">🧒</div>
-        <h3>مسؤولية الأطفال القُصّر</h3>
-        <p>إذا كان الراكب الذي لا يرتدي الحزام <strong>قاصراً (Minorenne)</strong>: يتحمل السائق (أو ولي الأمر المرافق) المسؤولية القانونية وغرامة المخالفة وخصم النقاط.</p>
+      <div class="rule-box">
+        <h4><span>2️⃣</span> قاعدة طول الـ 1.50 متراً</h4>
+        <p>مقاعد ونظم حماية الأطفال (*Seggiolini*) إلزامية لكل طفل يقل طوله عن <strong>1.50 متراً</strong>، بغض النظر عن عمر الطفل أو وزنه.</p>
       </div>
-
-      <div class="aid-card" style="border-right: 3px solid var(--rose-primary);">
-        <div class="aid-icon">🚫</div>
-        <h3>فخاخ الإعفاء الكاذبة</h3>
-        <p>القيادة لمسافة قصيرة، القيادة ببطء، القيادة داخل المدن، كبر السن، وجود إيرباج... كل هذه ادعاءات <strong>FALSO قاطعة</strong> لا تعفي من ربط الحزام نهائياً.</p>
+      <div class="rule-box">
+        <h4><span>3️⃣</span> مقعد الرضيع وإبطال الإيرباج</h4>
+        <p>عند تثبيت مقعد الطفل بالمقعد الأمامي وهو موجه للخلف (عكس اتجاه السير)، يلزم حتماً إبطال مفعول الوسادة الهوائية (*Disattivare l'airbag passeggero*).</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>4️⃣</span> الخوذة المعتمدة واستبدالها</h4>
+        <p>الخوذة إلزامية ومربوطة بإحكام للدراجات. يجب استبدالها فور تعرضها لصدمة قوية لأن بطانتها الداخلية تكون قد تكسرت وفقدت قدرتها على امتصاص الصدمات.</p>
       </div>
     </div>
+  </section>
+
+  <!-- INTERACTIVE SIMULATORS -->
+  <section class="interactive-sim-container">
+    <div class="sim-header">
+      <div class="sim-title">
+        <span>👶</span>
+        <span>محاكي مقعد الطفل والوسادة الهوائية (Seggiolino ed Airbag)</span>
+      </div>
+      <div class="sim-badge">Simulatore Sicurezza</div>
+    </div>
+    <div class="sim-controls-row">
+      <button class="sim-btn active" onclick="setSim19(1, 'rear_facing_off')">مقعد للأمام عكس السير + إيرباج مطفأ</button>
+      <button class="sim-btn" onclick="setSim19(1, 'rear_facing_on')">مقعد للأمام عكس السير + إيرباج مشغل</button>
+      <button class="sim-btn" onclick="setSim19(1, 'back_seat')">مقعد طفل في الكنبة الخلفية</button>
+    </div>
+    <div class="sim-display-panel" id="sim1Display">
+      <div class="sim-view-box">
+        <div class="sim-view-icon">👶🛡️</div>
+        <div class="sim-view-label">مقعد رضيع للأمام عكس السير + إيرباج مطفأ</div>
+        <div class="sim-view-sub">Airbag Disattivato - Sicuro</div>
+      </div>
+      <div class="sim-details-box">
+        <div class="sim-status-pill sim-status-allowed">مطابق بنسبة 100% لمعايير السلامة</div>
+        <div class="sim-detail-item"><strong>الشرط القانوني:</strong> تم إبطال مفعول الوسادة الهوائية للراكب الأمامي يدوياً أو عبر المفتاح المخصص.</div>
+        <div class="sim-detail-item"><strong>الأمان:</strong> في حالة الاصطدام، يسند ظهر المقعد رقبة ورأس الرضيع بأمان تام دون خطر انفجار كيس الهواء.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="interactive-sim-container">
+    <div class="sim-header">
+      <div class="sim-title">
+        <span>🪖</span>
+        <span>محاكي متطلبات الخوذة ومعدات الدراجات النارية (Casco e Protezioni)</span>
+      </div>
+      <div class="sim-badge">Verifica Omologazione</div>
+    </div>
+    <div class="sim-controls-row">
+      <button class="sim-btn active" onclick="setSim19(2, 'casco_allacciato')">خوذة معتمدة ومربوطة بإحكام</button>
+      <button class="sim-btn" onclick="setSim19(2, 'casco_slacciato')">خوذة معتمدة لكن غير مربوطة</button>
+      <button class="sim-btn" onclick="setSim19(2, 'casco_urtato')">خوذة تعرضت لحادث سابق</button>
+    </div>
+    <div class="sim-display-panel" id="sim2Display">
+      <div class="sim-view-box">
+        <div class="sim-view-icon">🪖✅</div>
+        <div class="sim-view-label">خوذة معتمدة ومربوطة بإحكام</div>
+        <div class="sim-view-sub">Omologato e Correttamente Allacciato</div>
+      </div>
+      <div class="sim-details-box">
+        <div class="sim-status-pill sim-status-allowed">نظامي وآمن بالكامل</div>
+        <div class="sim-detail-item"><strong>حزام الذقن:</strong> مربوط ومشدود بشكل صحيح يمنع انفلات الخوذة عن الرأس عند السقوط.</div>
+        <div class="sim-detail-item"><strong>الاعتماد (Omologazione):</strong> تحمل شارة ECE الأوروبية المعتمدة.</div>
+        <div class="sim-detail-item"><strong>الحماية:</strong> تمتص البطانة المصنوعة من البوليسترين طاقة الصدمة وتحمي الجمجمة.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON MATRIX -->
+  <section class="comp-section">
+    <div class="comp-title">
+      <span>⚖️</span>
+      <span>مصفوفة المقارنة الفنية لعناصر الأمان السلبي</span>
+    </div>
+    <div class="comp-grid-4">
+      <div class="comp-card">
+        <div class="comp-card-header">
+          <span class="comp-card-badge" style="background:rgba(16,185,129,0.2); color:var(--emerald-primary);">أمان سلبي أساسي</span>
+          <div class="comp-card-title">أحزمة الأمان (Cinture)</div>
+          <div class="comp-card-sub">Trattenere il corpo</div>
+        </div>
+        <div class="comp-card-body">
+          <div>• تثبت الراكب في المقعد وتمنع ارتطامه بالزجاج أو خروجه.</div>
+          <div>• إلزامية لجميع المقاعد الأمامية والخلفية.</div>
+          <div>• جهاز الشد Pretensionatore يشدها فورياً عند الصدمة.</div>
+          <div>• لا يعفي منها إلا بشهادة طبية رسمية من ASL.</div>
+        </div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-header">
+          <span class="comp-card-badge" style="background:rgba(56,189,248,0.2); color:var(--sky-primary);">أمان مكمل</span>
+          <div class="comp-card-title">الوسادة الهوائية (Airbag)</div>
+          <div class="comp-card-sub">Cuscino salvavita</div>
+        </div>
+        <div class="comp-card-body">
+          <div>• تنتفخ بغاز خامل في أجزاء من الألف من الثانية.</div>
+          <div>• تعمل كعنصر مكمل للحزام ولا تغني عنه أبداً.</div>
+          <div>• عدم ربط الحزام مع الإيرباج قد يسبب إصابات قاتلة.</div>
+          <div>• يلزم إبطالها عند وضع مقعد الرضيع للأمام بالخلف.</div>
+        </div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-header">
+          <span class="comp-card-badge" style="background:rgba(245,158,11,0.2); color:var(--gold-primary);">حماية الأطفال</span>
+          <div class="comp-card-title">مقاعد الأطفال (Seggiolini)</div>
+          <div class="comp-card-sub">Statura inferiore a 1,50m</div>
+        </div>
+        <div class="comp-card-body">
+          <div>• إلزامية لكل طفل يقل طوله عن 1.50 متراً.</div>
+          <div>• تصنف حسب وزن وطول الطفل ومعتمدة أوروبياً.</div>
+          <div>• السائق مسؤول عن ربطها للأطفال القُصّر.</div>
+          <div>• تمنع انزلاق الطفل من أسفل حزام السيارة العادي.</div>
+        </div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-header">
+          <span class="comp-card-badge" style="background:rgba(244,63,94,0.2); color:var(--rose-primary);">حماية الدراجات</span>
+          <div class="comp-card-title">الخوذة الواقية (Il Casco)</div>
+          <div class="comp-card-sub">Omologato e allacciato</div>
+        </div>
+        <div class="comp-card-body">
+          <div>• إلزامية لقائد وراكب الدراجات النارية والصغيرة.</div>
+          <div>• القيادة بالخوذة مفكوكة يعاقب عليها كعدم ارتدائها.</div>
+          <div>• يجب استبدالها بعد أي صدمة قوية لحماية الدماغ.</div>
+          <div>• يجب تنظيف القناع (Visiera) بماء غير كاشط.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER PILLS QUICK NAV -->
+  <div class="quick-nav-bar">
+    <button class="filter-pill active" onclick="filterCards('all')">جميع البطاقات (16)</button>
+    <button class="filter-pill" onclick="filterCards('belts')">أحزمة الأمان والإيرباج (6)</button>
+    <button class="filter-pill" onclick="filterCards('kids')">مقاعد وحماية الأطفال (5)</button>
+    <button class="filter-pill" onclick="filterCards('moto')">الخوذة ومعدات الدراجات (5)</button>
   </div>
 
-  <!-- 2. Airbag Facts & Critical Traps -->
-  <div class="section-block">
-    <h2>🎈 2. الوسادة الهوائية (Airbag) وحقائق الامتحان الوزاري</h2>
-    
-    <div class="trap-callout">
-      <div class="trap-callout-header">⚠️ أخطر فخ وزاري في الإيرباج: هل يغني عن حزام الأمان؟</div>
-      <p>
-        السؤال الوزاري الشهير: <em>"Se il veicolo è dotato di airbag, si può fare a meno di allacciare la cintura di sicurezza"</em>.<br>
-        <strong>الإجابة: FALSO قاطع ❌!</strong><br>
-        الوسادة الهوائية مصممة لتعمل <strong>بالتكامل التام مع الحزام</strong>. إذا فُتحت الوسادة لشخص غير رابط للحزام، ستصطدم بوجهه بسرعة 300 كم/س وقد تسبب له كسوراً في الجمجمة أو الموت!
-      </p>
-    </div>
+  <!-- TECHNICAL CARDS GRID -->
+  <section class="technical-grid">
 
-    <div class="table-responsive">
-      <table class="content-table">
-        <thead>
-          <tr>
-            <th>القاعدة الفنية للإيرباج (Airbag)</th>
-            <th>التفصيل الدقيق لكود السير</th>
-            <th>حكم الامتحان</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>زمن الانتفاخ (Tempo di gonfiaggio)</strong></td>
-            <td>تنتفخ خلال <strong>أجزاء من الألف من الثانية (pochi millisecondi)</strong> بفضل تفاعل كيميائي سريع</td>
-            <td><span style="color:var(--emerald-primary); font-weight:700;">VERO ✅ (فخ: pochi secondi خطأ)</span></td>
-          </tr>
-          <tr>
-            <td><strong>طريقة التفعيل (Comando)</strong></td>
-            <td>تنتفخ <strong>تلقائياً</strong> بواسطة مستشعر صدمات (Sensore d'urto) فور الاصطدام العنيف</td>
-            <td><span style="color:var(--emerald-primary); font-weight:700;">VERO ✅ (فخ: الضغط على زر خطأ)</span></td>
-          </tr>
-          <tr>
-            <td><strong>الفحص الدوري للانتفاخ</strong></td>
-            <td><strong>لا تحتاج</strong> لنفخ دوري لتجربتها أو التأكد من سلامتها؛ تفحص إلكترونياً عبر لمبة التابلوه</td>
-            <td><span style="color:var(--rose-primary); font-weight:700;">FALSO ❌</span></td>
-          </tr>
-          <tr>
-            <td><strong>فصل الإيرباج لمقعد الطفل</strong></td>
-            <td>إلزامي فصله عند وضع مقعد الرضيع في المقعد الأمامي ووجهه <strong>عكس اتجاه السير</strong></td>
-            <td><span style="color:var(--emerald-primary); font-weight:700;">VERO ✅</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- 3. Child Restraints (Sistemi di ritenuta) -->
-  <div class="section-block">
-    <h2>👶 3. مقاعد ونظم حماية الأطفال (Sistemi di ritenuta per bambini)</h2>
-    <div class="aid-grid">
-      <div class="aid-card">
-        <div class="aid-icon">📏</div>
-        <h3>شرط الطول (1.50 متراً)</h3>
-        <p>كل طفل يقل طوله عن <strong>1.50 متراً (Altezza inferiore a 1,50 m)</strong> يجب تثبيته في نظام حماية معتمد وملائم لوزنه وقامته.</p>
+    <!-- Card 1: Cinture di Sicurezza -->
+    <div class="technical-card" data-category="belts">
+      <div class="card-img-container">
+        <div class="card-img-placeholder">🔒</div>
       </div>
-
-      <div class="aid-card">
-        <div class="aid-icon">🪑</div>
-        <h3>تنوع المقاعد وتصنيفاتها</h3>
-        <p>لا يوجد مقعد واحد صالح لجميع الأطفال (Falso)؛ المقاعد مقسمة لفئات (Gruppi) معتمدة حسب الوزن والطول (نظام Isofix).</p>
-      </div>
-
-      <div class="aid-card">
-        <div class="aid-icon">🔄</div>
-        <h3>وضع المقعد عكس اتجاه السير</h3>
-        <p>إذا وُضع المقعد في الأمام بظهر موجه للزجاج الأمامي: <strong>يجب تعطيل وسادة الراكب الهوائية (Disattivare l'airbag)</strong>، وإذا تعذر تعطيلها يمنع وضعه في الأمام.</p>
-      </div>
-
-      <div class="aid-card">
-        <div class="aid-icon">🛡️</div>
-        <h3>مسند الرأس (Poggiatesta)</h3>
-        <p>أداة سلامة حاسمة تمنع إصابة <strong>"ضربة السوط" (Colpo di frusta)</strong> عند الصدمات الخلفية. يجب ضبطه بحيث يحاذي قمة الرأس ويدنو منه قدر الإمكان.</p>
+      <div class="card-content">
+        <div class="card-header-info">
+          <div class="card-title-it">Le cinture di sicurezza</div>
+          <h3 class="card-title-ar">أحزمة الأمان ثلاثية النقاط</h3>
+        </div>
+        <div class="card-box-vero">
+          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">✅</span> إلزامية الاستخدام لجميع الركاب في المقاعد الأمامية والخلفية على حد سواء.</li>
+            <li><span class="bullet-icon">✅</span> تمنع قذف الركاب للأمام أو خارج المركبة عند التوقف المفاجئ أو الاصطدام.</li>
+            <li><span class="bullet-icon">✅</span> تقلل بشدة من خطر الاصطدام بعجلة القيادة أو لوحة العدادات أو الزجاج الأمامي.</li>
+          </ul>
+        </div>
+        <div class="card-box-falso">
+          <div class="card-box-falso-title"><span>❌</span> ادعاءات شائعة مضللة (FALSO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">⛔</span> يزعم أنها غير إلزامية في المقاعد الخلفية إذا كانت السرعة داخل المدينة (FALSO، إلزامية دائماً).</li>
+            <li><span class="bullet-icon">⛔</span> يزعم جواز فك الحزام إذا كانت السيارة مزودة بوسائد هوائية Airbag (خطأ قاتل).</li>
+          </ul>
+        </div>
+        <div class="card-trap-box">
+          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الدقيق</div>
+          <p>أحزمة الأمان إلزامية على المقاعد الخلفية تماماً كالمقاعد الأمامية، وإلزامية داخل المدن وخارجها بدون أي استثناء للسرعة!</p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- 4. Motorcycle Gear (Casco, Stivali, Guanti, Giacca) -->
-  <div class="section-block">
-    <h2>🏍️ 4. الخوذة والملابس الفنية للدراجات النارية (تمثل 32 سؤالاً في الامتحان!)</h2>
-    <p style="color:var(--text-secondary); margin-bottom: 14px;">
-      يهمل الكثير من الطلاب أسئلة ملابس الدراجات النارية رغم أنها تتكرر بكثافة في امتحانات الوزارة:
-    </p>
-
-    <div class="table-responsive">
-      <table class="content-table">
-        <thead>
-          <tr>
-            <th>عنصر الحماية</th>
-            <th>المواصفات الصحيحة (VERO)</th>
-            <th>الفخاخ الوزارية القاتلة (FALSO)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>الخوذة الواقية (Casco)</strong></td>
-            <td>إلزامية لجميع الأعمار (كبار وقُصّر) على الدراجات النارية والـ Ciclomotori، وتكون مربوطة بإحكام ومعتمدة (Omologato).</td>
-            <td>❌ فخ: إلزامية للقُصّر فقط (Falso).<br>❌ فخ: يسمح بلصق ستيكرات عادية عليها (تتلف هيكلها).</td>
-          </tr>
-          <tr>
-            <td><strong>زجاجة الخوذة (Visiera)</strong></td>
-            <td>تحمي الوجه والعينين من الحشرات والغبار، ويجب استبدالها فور تعرضها لخدوش (Rigata).</td>
-            <td>❌ فخ: يمكن تصليح الشروخ بلزق شفاف (Falso).<br>❌ فخ: الواقية تقلل الرؤية ويجب الاستغناء عنها.</td>
-          </tr>
-          <tr>
-            <td><strong>أحذية الدراجات (Stivali)</strong></td>
-            <td>تحمي القدم والكاحل من الالتواء والبرد والتآكل بالأسفلت (Abrasione)، وتخلو من الأربطة الحرة (Privi di stringhe libere).</td>
-            <td>❌ فخ: يمكن استبدالها بأحذية تسلق الجبال والتزلج.<br>❌ فخ: نعلها من الفولاذ أو تصل لفوق الركبة.</td>
-          </tr>
-          <tr>
-            <td><strong>قفازات الدراجات (Guanti)</strong></td>
-            <td>تحمي ظهر اليد (Dorso) من الصدمات وباطن اليد (Palmo) من السحجات، وتلبس صيفاً وشتاءً (Anche d'estate!).</td>
-            <td>❌ فخ: استبدالها بقفازات التزلج في الشتاء.<br>❌ فخ: عدم لبسها صيفاً لأنها تسبب التعرق.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- 5. Bilingual Glossary -->
-  <div class="section-block">
-    <h2>📖 5. القاموس المصور للمصطلحات الوزارية الأكثر تكراراً</h2>
-    <div class="table-responsive">
-      <table class="content-table">
-        <thead>
-          <tr>
-            <th>المصطلح الإيطالي</th>
-            <th>الترجمة بالعربية</th>
-            <th>تنبيه الامتحان</th>
-            <th>استماع</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Pretensionatore</strong></td>
-            <td>جهاز الشد المسبق للحزام</td>
-            <td>يعمل لمرة واحدة فقط ويستبدل بعد الحادث</td>
-            <td><button class="btn-speak" onclick="speakText('Pretensionatore')">🔊 نطق</button></td>
-          </tr>
-          <tr>
-            <td><strong>Colpo di frusta</strong></td>
-            <td>ضربة السوط (ارتجاج العنق)</td>
-            <td>إصابة يمنعها مسند الرأس المضبوط جيداً</td>
-            <td><button class="btn-speak" onclick="speakText('Colpo di frusta')">🔊 نطق</button></td>
-          </tr>
-          <tr>
-            <td><strong>Disattivare l'airbag</strong></td>
-            <td>تعطيل الوسادة الهوائية</td>
-            <td>إجباري عند وضع مقعد الطفل بالأمام عكس اتجاه السير</td>
-            <td><button class="btn-speak" onclick="speakText('Disattivare l airbag')">🔊 نطق</button></td>
-          </tr>
-          <tr>
-            <td><strong>Sistemi di ritenuta</strong></td>
-            <td>نظم حماية وتثبيت الأطفال</td>
-            <td>إلزامية لمن يقل طوله عن 1.50 متراً</td>
-            <td><button class="btn-speak" onclick="speakText('Sistemi di ritenuta')">🔊 نطق</button></td>
-          </tr>
-          <tr>
-            <td><strong>Stivali da motociclista</strong></td>
-            <td>أحذية الدراجات النارية المعتمدة</td>
-            <td>بدون أربطة حرة لمنع اشتباكها ببدالات الدراجة</td>
-            <td><button class="btn-speak" onclick="speakText('Stivali da motociclista')">🔊 نطق</button></td>
-          </tr>
-          <tr>
-            <td><strong>Visiera rigata</strong></td>
-            <td>واقية خوذة مخدوشة</td>
-            <td>يجب استبدالها فوراً وتمنع الرؤية الواضحة</td>
-            <td><button class="btn-speak" onclick="speakText('Visiera rigata')">🔊 نطق</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- 6. Interactive Exam Traps Simulator -->
-  <div class="section-block quiz-section">
-    <h2>🎯 6. محاكي اختبار الفخاخ الوزارية في الباب 19</h2>
-    <p style="color:var(--text-secondary); margin-bottom: 20px;">
-      اختبر قدرتك الآن على كشف أشهر أفخاخ الوزارة في هذا الباب واحصل على توجيه فوري:
-    </p>
-
-    <!-- Q1 -->
-    <div class="quiz-card" id="q-card-1">
-      <div class="quiz-q-num">سؤال وزاري #1 • فخ الاستغناء عن الحزام بوجود الإيرباج</div>
-      <div class="quiz-text-it">Se il veicolo è dotato di airbag frontali e laterali, si può fare a meno di allacciare la cintura di sicurezza.</div>
-      <div class="quiz-text-ar">إذا كانت السيارة مجهزة بوسائد هوائية أمامية وجانبية، يمكن الاستغناء عن ربط حزام الأمان.</div>
-      <div class="quiz-btns">
-        <button class="btn-v" onclick="handleQuiz(1, true, false, '❌ خطأ قاتل! الإيرباج مكمل للحزام ولا يحل محله إطلاقاً، وفتحه بدون حزام قد يسبب الوفاة.')">VERO (صح)</button>
-        <button class="btn-f" onclick="handleQuiz(1, false, false, '✅ إجابة صحيحة 100%! العبارة خاطئة تماماً؛ الحزام إجباري حتى مع وجود مائة إيرباج.')">FALSO (خطأ)</button>
+    <!-- Card 2: Il Pretensionatore -->
+    <div class="technical-card" data-category="belts">
+      <div class="card-img-container">
+        <div class="card-img-placeholder">⚡</div>
       </div>
-      <div class="quiz-feedback" id="feedback-1"></div>
-    </div>
-
-    <!-- Q2 -->
-    <div class="quiz-card" id="q-card-2">
-      <div class="quiz-q-num">سؤال وزاري #2 • فخ أحذية الدراجات وأربطتها</div>
-      <div class="quiz-text-it">Gli stivali ad uso motociclistico sono privi di nastri liberi o stringhe per evitarne l'aggancio alle pedivelle dei motocicli.</div>
-      <div class="quiz-text-ar">أحذية الدراجات النارية تخلو من الأشرطة الحرة أو أربطة العقد لمنع اشتباكها ببدالات الدراجة.</div>
-      <div class="quiz-btns">
-        <button class="btn-v" onclick="handleQuiz(2, true, true, '✅ ممتاز! العبارة صحيحة تماماً (VERO). صممت بدون أربطة حرة لضمان عدم تعثر القدم بالبدالات.')">VERO (صح)</button>
-        <button class="btn-f" onclick="handleQuiz(2, false, true, '❌ خطأ! العبارة صحيحة (VERO)؛ خلو الحذاء من الأربطة يمنع حوادث التشابك الخطيرة.')">FALSO (خطأ)</button>
+      <div class="card-content">
+        <div class="card-header-info">
+          <div class="card-title-it">Il pretensionatore delle cinture</div>
+          <h3 class="card-title-ar">جهاز الشد المسبق لأحزمة الأمان</h3>
+        </div>
+        <div class="card-box-vero">
+          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">✅</span> جهاز أمان يعمل ميكانيكياً أو كيميائياً (شحنة بارود) عند حدوث اصطدام عنيف.</li>
+            <li><span class="bullet-icon">✅</span> يشد شريط حزام الأمان بقوة ويلصق جسد الراكب بالمقعد قبل اندفاعه للأمام.</li>
+            <li><span class="bullet-icon">✅</span> يعمل لمرة واحدة فقط ويجب استبداله فوراً بعد أي حادث اصطدام حتى لو بدا سليماً ظاهرياً.</li>
+          </ul>
+        </div>
+        <div class="card-box-falso">
+          <div class="card-box-falso-title"><span>❌</span> ادعاءات شائعة مضللة (FALSO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">⛔</span> يزعم أنه جهاز يمكن إعادة ضبطه يدوياً بعد الحادث واستخدامه مرة أخرى (FALSO، يستبدل كلياً).</li>
+            <li><span class="bullet-icon">⛔</span> يزعم أنه يعمل فقط إذا كانت السيارة تسير بسرعة تفوق 100 كم/س (FALSO، يعمل عند أي صدمة عنيفة).</li>
+          </ul>
+        </div>
+        <div class="card-trap-box">
+          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الدقيق</div>
+          <p>جهاز الشد Pretensionatore صالح لمرة واحدة فقط (*Si attiva una sola volta*) ويجب تغييره بعد أي حادث تصادم!</p>
+        </div>
       </div>
-      <div class="quiz-feedback" id="feedback-2"></div>
     </div>
 
-    <!-- Q3 -->
-    <div class="quiz-card" id="q-card-3">
-      <div class="quiz-q-num">سؤال وزاري #3 • فخ زمن انتفاخ الإيرباج</div>
-      <div class="quiz-text-it">L'airbag entra in funzione gonfiandosi in pochi secondi dopo l'urto.</div>
-      <div class="quiz-text-ar">تبدأ الوسادة الهوائية عملها بالانتفاخ في غضون بضع ثوانٍ بعد وقوع الاصطدام.</div>
-      <div class="quiz-btns">
-        <button class="btn-v" onclick="handleQuiz(3, true, false, '❌ فخ زمني دقيق! ثوانٍ (Secondi) تعني فوات الأوان وموت الراكب! الإيرباج ينتفخ في أجزاء من الألف من الثانية (Millisecondi).')">VERO (صح)</button>
-        <button class="btn-f" onclick="handleQuiz(3, false, false, '✅ ذكاء حاد! العبارة خاطئة (FALSO) لأنها تنتفخ في ملّي ثانية (Pochi millisecondi) وليس ثوانٍ.')">FALSO (خطأ)</button>
+    <!-- Card 3: Airbag Frontale e Laterale -->
+    <div class="technical-card" data-category="belts">
+      <div class="card-img-container">
+        <div class="card-img-placeholder">🎈</div>
       </div>
-      <div class="quiz-feedback" id="feedback-3"></div>
-    </div>
-
-    <!-- Q4 -->
-    <div class="quiz-card" id="q-card-4">
-      <div class="quiz-q-num">سؤال وزاري #4 • فخ قفازات الدراجات في الصيف</div>
-      <div class="quiz-text-it">Quando si circola a bordo di un motociclo, è opportuno indossare gli specifici guanti anche d'estate.</div>
-      <div class="quiz-text-ar">عند السير على متن دراجة نارية، من المناسب ارتداء القفازات المخصصة حتى في فصل الصيف.</div>
-      <div class="quiz-btns">
-        <button class="btn-v" onclick="handleQuiz(4, true, true, '✅ إجابة صحيحة! القفازات تحمي اليد من كشط الأسفلت عند السقوط صيفاً وشتاءً.')">VERO (صح)</button>
-        <button class="btn-f" onclick="handleQuiz(4, false, true, '❌ خطأ! العبارة صحيحة (VERO)؛ ارتداء القفازات مطلوب حتى في الصيف لحماية اليدين عند الانزلاق.')">FALSO (خطأ)</button>
+      <div class="card-content">
+        <div class="card-header-info">
+          <div class="card-title-it">L'airbag (Cuscino salvavita)</div>
+          <h3 class="card-title-ar">الوسادة الهوائية الأمامية والجانبية</h3>
+        </div>
+        <div class="card-box-vero">
+          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">✅</span> كيس نسيجي ينتفخ بغاز غير ضار خلال أجزاء من الألف من الثانية عند استشعار صدمة قوية.</li>
+            <li><span class="bullet-icon">✅</span> يعمل بتكامل تام مع حزام الأمان ولا يعتبر بديلاً عنه على الإطلاق.</li>
+            <li><span class="bullet-icon">✅</span> يفرغ الغاز تلقائياً وبسرعة فور انتفاخه لتجنب خنق الراكب والسماح له بالرؤية والخروج.</li>
+          </ul>
+        </div>
+        <div class="card-box-falso">
+          <div class="card-box-falso-title"><span>❌</span> ادعاءات شائعة مضللة (FALSO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">⛔</span> يزعم أن الوسادة الهوائية تغني عن ربط حزام الأمان (FALSO، عدم ربط الحزام مع الإيرباج يسبب الوفاة).</li>
+            <li><span class="bullet-icon">⛔</span> يزعم انتفاخها في كل مرة يتم فيها الضغط بقوة على الفرامل (FALSO، تنتفخ عند الصدمات فقط).</li>
+          </ul>
+        </div>
+        <div class="card-trap-box">
+          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الدقيق</div>
+          <p>إذا لم تكن رابطاً لحزام الأمان، فإن سرعة اندفاع الوسادة الهوائية بوجهك قد تكسر فقرات عنقك وتؤدي للموت الفوري!</p>
+        </div>
       </div>
-      <div class="quiz-feedback" id="feedback-4"></div>
     </div>
 
-    <!-- Q5 -->
-    <div class="quiz-card" id="q-card-5">
-      <div class="quiz-q-num">سؤال وزاري #5 • فخ طول الطفل وإلزامية المقعد</div>
-      <div class="quiz-text-it">I bambini di altezza inferiore a 1,50 metri devono essere trattenuti da sistemi di ritenuta omologati.</div>
-      <div class="quiz-text-ar">الأطفال الذين يقل طولهم عن 1.50 متراً يجب تثبيتهم بنظم حماية معتمدة.</div>
-      <div class="quiz-btns">
-        <button class="btn-v" onclick="handleQuiz(5, true, true, '✅ إجابة ممتازة! الرقم 1.50 متراً هو الحد الفاصل القانوني الدقيق لإلزامية مقاعد الأطفال.')">VERO (صح)</button>
-        <button class="btn-f" onclick="handleQuiz(5, false, true, '❌ خطأ! العبارة صحيحة تماماً (VERO)؛ شرط الطول القانوني هو أقل من 1.50 م.')">FALSO (خطأ)</button>
+    <!-- Card 4: Statura 1.50m e Seggiolini -->
+    <div class="technical-card" data-category="kids">
+      <div class="card-img-container">
+        <div class="card-img-placeholder">👶</div>
       </div>
-      <div class="quiz-feedback" id="feedback-5"></div>
+      <div class="card-content">
+        <div class="card-header-info">
+          <div class="card-title-it">Sistemi di ritenuta per bambini (Statura < 1,50 m)</div>
+          <h3 class="card-title-ar">مقاعد الأطفال وقاعدة الـ 1.50 متراً</h3>
+        </div>
+        <div class="card-box-vero">
+          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">✅</span> إلزامية استخدام مقاعد ونظم حماية معتمدة للأطفال الذين يقل طولهم عن **1.50 متراً**.</li>
+            <li><span class="bullet-icon">✅</span> مقياس الإلزام القانوني الصارم هو **طول القامة** وليس العمر وحده.</li>
+            <li><span class="bullet-icon">✅</span> يجب أن تكون المقاعد معتمدة ومطابقة لمواصفات اللوائح الأوروبية وتناسب وزن وبنية الطفل.</li>
+          </ul>
+        </div>
+        <div class="card-box-falso">
+          <div class="card-box-falso-title"><span>❌</span> ادعاءات شائعة مضللة (FALSO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">⛔</span> يزعم أن الطفل يعفى من المقعد المخصص إذا أتم سن العاشرة حتى لو كان طوله 1.30م (FALSO).</li>
+            <li><span class="bullet-icon">⛔</span> يزعم جواز جلوس الطفل في حجر شخص بالغ يربط الحزام حولهما معاً (خطر مميت ومخالفة جسيمة).</li>
+          </ul>
+        </div>
+        <div class="card-trap-box">
+          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الدقيق</div>
+          <p>الرقم السحري والفاصل الوحيد في كود السير لمقاعد الأطفال هو <strong>1.50 متراً (150 سم)</strong>! أقل من هذا الطول يلزم مقعد مخصص دائماً.</p>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <!-- SERIAL CHAPTER PAGINATION -->
+    <!-- Card 5: Seggiolino Contrario al Senso di Marcia -->
+    <div class="technical-card" data-category="kids">
+      <div class="card-img-container">
+        <div class="card-img-placeholder">🚼</div>
+      </div>
+      <div class="card-content">
+        <div class="card-header-info">
+          <div class="card-title-it">Seggiolino contrario al senso di marcia</div>
+          <h3 class="card-title-ar">مقعد الرضيع عكس اتجاه السير وإلغاء الإيرباج</h3>
+        </div>
+        <div class="card-box-vero">
+          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">✅</span> عند تثبيت مقعد الطفل بالمقعد الأمامي وهو متجه للخلف، **يلزم حتماً إبطال تفعيل الوسادة الهوائية للراكب**.</li>
+            <li><span class="bullet-icon">✅</span> عدم إبطال الوسادة الهوائية قد يؤدي لانفجارها بقوة هائلة تصطدم بظهر المقعد وتقتل الرضيع.</li>
+            <li><span class="bullet-icon">✅</span> بعد إزالة مقعد الرضيع، يجب إعادة تفعيل الوسادة الهوائية لحماية الركاب البالغين.</li>
+          </ul>
+        </div>
+        <div class="card-box-falso">
+          <div class="card-box-falso-title"><span>❌</span> ادعاءات شائعة مضللة (FALSO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">⛔</span> يزعم ترك الوسادة الهوائية نشطة لحماية المقعد من الأمام (خطأ كارثي).</li>
+            <li><span class="bullet-icon">⛔</span> يزعم منع وضع مقعد الطفل في المقعد الأمامي في جميع الأحوال (FALSO، مسموح بشرط إطفاء الإيرباج).</li>
+          </ul>
+        </div>
+        <div class="card-trap-box">
+          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الدقيق</div>
+          <p>مقعد رضيع موجه للخلف في المقعد الأمامي = إطفاء الوسادة الهوائية حتماً (*Disattivare l'airbag*)!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6: Il Poggiatesta -->
+    <div class="technical-card" data-category="belts">
+      <div class="card-img-container">
+        <div class="card-img-placeholder">💺</div>
+      </div>
+      <div class="card-content">
+        <div class="card-header-info">
+          <div class="card-title-it">Il poggiatesta (Prevenzione colpo di frusta)</div>
+          <h3 class="card-title-ar">مسند الرأس والوقاية من صدمة الارتداد العنقي</h3>
+        </div>
+        <div class="card-box-vero">
+          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">✅</span> جهاز أمان مصمم لحماية فقرات الرقبة من الارتداد الخطير للخلف (Colpo di frusta) عند التعرض لصدمة خلفية.</li>
+            <li><span class="bullet-icon">✅</span> يجب ضبط ارتفاعه بدقة بحيث تحاذي حافته العلوية قمة رأس الراكب أو مستوى العينين.</li>
+            <li><span class="bullet-icon">✅</span> ليس مجرد وسيلة راحة للنوم أو الاسترخاء بل هو عنصر أمان سلبي حيوي.</li>
+          </ul>
+        </div>
+        <div class="card-box-falso">
+          <div class="card-box-falso-title"><span>❌</span> ادعاءات شائعة مضللة (FALSO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">⛔</span> يزعم أنه مصمم فقط لراحة الرأس أثناء القيادة في الرحلات الطويلة (FALSO، لحماية الرقبة من الكسر).</li>
+            <li><span class="bullet-icon">⛔</span> يزعم وضعه عند مستوى الرقبة من الأسفل (FALSO، يجب أن يحاذي قمة الرأس).</li>
+          </ul>
+        </div>
+        <div class="card-trap-box">
+          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الدقيق</div>
+          <p>وظيفة مسند الرأس الأساسية هي منع صدمة ارتداد العنق (*Colpo di frusta*) عند الاصطدام الخلفي العنيف!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 7: Il Casco Protettivo -->
+    <div class="technical-card" data-category="moto">
+      <div class="card-img-container">
+        <div class="card-img-placeholder">🪖</div>
+      </div>
+      <div class="card-content">
+        <div class="card-header-info">
+          <div class="card-title-it">Il casco protettivo omologato</div>
+          <h3 class="card-title-ar">الخوذة الواقية المعتمدة للدراجات</h3>
+        </div>
+        <div class="card-box-vero">
+          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">✅</span> إلزامية لقائد وراكب جميع الدراجات الصغيرة (Ciclomotori) والدراجات النارية (Motocicli).</li>
+            <li><span class="bullet-icon">✅</span> يجب أن تكون من طراز معتمد رسمياً وتحمل علامة المطابقة الأوروبية (Omologazione).</li>
+            <li><span class="bullet-icon">✅</span> يلزم ربط وقفل حزام التثبيت بإحكام تام؛ فالخوذة المفكوكة تعتبر قانونياً كعدم ارتدائها.</li>
+          </ul>
+        </div>
+        <div class="card-box-falso">
+          <div class="card-box-falso-title"><span>❌</span> ادعاءات شائعة مضللة (FALSO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">⛔</span> يزعم إعفاء السائق من الخوذة إذا كان بالغاً ويقود دراجة صغيرة داخل الحي السكني (FALSO، إلزامية للجميع).</li>
+            <li><span class="bullet-icon">⛔</span> يزعم جواز استخدام خوذات التزلج أو الدراجات الهوائية على الدراجات النارية (FALSO وممنوع).</li>
+          </ul>
+        </div>
+        <div class="card-trap-box">
+          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الدقيق</div>
+          <p>السير بخوذة غير مربوطة بحزام الذقن يعاقب عليه بنفس عقوبة من لا يرتدي خوذة: غرامة وخصم نقاط وحجز الدراجة 60 يوماً!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 8: Sostituzione del Casco dopo un Urto -->
+    <div class="technical-card" data-category="moto">
+      <div class="card-img-container">
+        <div class="card-img-placeholder">💥</div>
+      </div>
+      <div class="card-content">
+        <div class="card-header-info">
+          <div class="card-title-it">Sostituzione del casco dopo un urto</div>
+          <h3 class="card-title-ar">استبدال الخوذة بعد التعرض لصدمة</h3>
+        </div>
+        <div class="card-box-vero">
+          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">✅</span> يجب استبدال الخوذة فوراً بعد تعرضها لصدمة قوية أو سقوط عنيف حتى وإن لم يظهر كسر خارجي.</li>
+            <li><span class="bullet-icon">✅</span> بطانة البوليسترين الداخلية المضغوطة تتلف وتمتص الصدمة لمرة واحدة فقط وتفقد كفاءتها.</li>
+            <li><span class="bullet-icon">✅</span> يجب تنظيف قناع الخوذة (Visiera) بماء فاتر وقطعة قماش ناعمة غير كاشطة للحفاظ على الرؤية.</li>
+          </ul>
+        </div>
+        <div class="card-box-falso">
+          <div class="card-box-falso-title"><span>❌</span> ادعاءات شائعة مضللة (FALSO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">⛔</span> يزعم أنه يمكن مواصلة استخدام الخوذة بعد الحادث طالما أن الهيكل الخارجي سليم ولم ينكسر (خطأ جسيم).</li>
+            <li><span class="bullet-icon">⛔</span> يزعم تنظيف واقية الوجه بمواد كحولية مذيبة أو بنزين (يسبب عتامة القناع وتلفه).</li>
+          </ul>
+        </div>
+        <div class="card-trap-box">
+          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الدقيق</div>
+          <p>الخوذة تستبدل حتماً بعد أي صدمة قوية، لأن تلف البطانة الداخلية الماصة للصدمات لا يُرى بالعين المجردة!</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- AUDIO GLOSSARY SECTION -->
+  <section class="glossary-section">
+    <div class="glossary-title">
+      <span>🎧</span>
+      <span>القاموس الصوتي للمصطلحات الوزارية للباب 19 (Glossario Audio)</span>
+    </div>
+    <div class="glossary-grid">
+      <div class="glossary-card">
+        <div class="glossary-info">
+          <div class="glossary-term-it">Cinture di sicurezza</div>
+          <div class="glossary-term-ar">أحزمة الأمان ثلاثية النقاط</div>
+        </div>
+        <button class="glossary-audio-btn" onclick="speakTerm('Cinture di sicurezza')">🔊</button>
+      </div>
+
+      <div class="glossary-card">
+        <div class="glossary-info">
+          <div class="glossary-term-it">Pretensionatore</div>
+          <div class="glossary-term-ar">جهاز الشد المسبق للحزام</div>
+        </div>
+        <button class="glossary-audio-btn" onclick="speakTerm('Pretensionatore')">🔊</button>
+      </div>
+
+      <div class="glossary-card">
+        <div class="glossary-info">
+          <div class="glossary-term-it">Airbag passeggero</div>
+          <div class="glossary-term-ar">الوسادة الهوائية للراكب الأمامي</div>
+        </div>
+        <button class="glossary-audio-btn" onclick="speakTerm('Airbag passeggero')">🔊</button>
+      </div>
+
+      <div class="glossary-card">
+        <div class="glossary-info">
+          <div class="glossary-term-it">Seggiolino per bambini</div>
+          <div class="glossary-term-ar">مقعد الأطفال المعتمد</div>
+        </div>
+        <button class="glossary-audio-btn" onclick="speakTerm('Seggiolino per bambini')">🔊</button>
+      </div>
+
+      <div class="glossary-card">
+        <div class="glossary-info">
+          <div class="glossary-term-it">Casco omologato</div>
+          <div class="glossary-term-ar">الخوذة الواقية المعتمدة</div>
+        </div>
+        <button class="glossary-audio-btn" onclick="speakTerm('Casco omologato')">🔊</button>
+      </div>
+
+      <div class="glossary-card">
+        <div class="glossary-info">
+          <div class="glossary-term-it">Poggiatesta</div>
+          <div class="glossary-term-ar">مسند حماية الرأس والرقبة</div>
+        </div>
+        <button class="glossary-audio-btn" onclick="speakTerm('Poggiatesta')">🔊</button>
+      </div>
+
+      <div class="glossary-card">
+        <div class="glossary-info">
+          <div class="glossary-term-it">Colpo di frusta</div>
+          <div class="glossary-term-ar">صدمة ارتداد فقرات العنق</div>
+        </div>
+        <button class="glossary-audio-btn" onclick="speakTerm('Colpo di frusta')">🔊</button>
+      </div>
+
+      <div class="glossary-card">
+        <div class="glossary-info">
+          <div class="glossary-term-it">Visiera del casco</div>
+          <div class="glossary-term-ar">قناع وواقية وجه الخوذة</div>
+        </div>
+        <button class="glossary-audio-btn" onclick="speakTerm('Visiera del casco')">🔊</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINISTERIAL TRAPS SECTION -->
+  <section class="traps-section">
+    <div class="traps-header">
+      <span>🚨</span>
+      <h2 class="traps-title">فخاخ الامتحان الوزاري الحاسمة في الباب 19 (Trabocchetti Ministeriali)</h2>
+    </div>
+    <div class="traps-list">
+      <div class="trap-item">
+        <div class="trap-statement-it">Il pretensionatore si attiva durante le frenate brusche per evitare lo slittamento delle ruote.</div>
+        <div class="trap-meta-row">
+          <span class="trap-badge-falso">الإجابة: FALSO</span>
+          <span style="font-size:0.8rem; color:#94a3b8;">فخ الخلط بين الشداد وجهاز ABS</span>
+        </div>
+        <div class="trap-explanation-ar">
+          جهاز الشد Pretensionatore يشد حزام الأمان حول جسد الراكب عند التصادم، ولا علاقة له بالعجلات أو منع انزلاقها (هذا عمل نظام ABS).
+        </div>
+      </div>
+
+      <div class="trap-item">
+        <div class="trap-statement-it">I bambini di statura inferiore a 1,50 m devono essere assicurati con un sistema di ritenuta per bambini, regolarmente omologato.</div>
+        <div class="trap-meta-row">
+          <span class="trap-badge-vero">الإجابة: VERO</span>
+          <span style="font-size:0.8rem; color:#94a3b8;">شرط الطول لمقاعد الأطفال</span>
+        </div>
+        <div class="trap-explanation-ar">
+          صحيح تماماً، هذا هو النص القانوني الصريح في كود السير، كل طفل طوله أقل من 1.50 متراً يلزمه نظام حماية معتمد.
+        </div>
+      </div>
+
+      <div class="trap-item">
+        <div class="trap-statement-it">È consentito trasportare un bambino su un seggiolino montato sul sedile anteriore, rivolto all'indietro, anche se l'airbag frontale è attivo.</div>
+        <div class="trap-meta-row">
+          <span class="trap-badge-falso">الإجابة: FALSO</span>
+          <span style="font-size:0.8rem; color:#94a3b8;">فخ الإيرباج ومقعد الرضيع</span>
+        </div>
+        <div class="trap-explanation-ar">
+          خطأ كارثي! يحظر تماماً وضع مقعد الرضيع متجهاً للخلف مع وجود وسادة هوائية مفعلة، ويلزم إبطالها حتماً لحماية حياة الطفل.
+        </div>
+      </div>
+
+      <div class="trap-item">
+        <div class="trap-statement-it">Il casco deve essere sostituito dopo che ha subito un forte urto, anche se non presenta crepe visibili.</div>
+        <div class="trap-meta-row">
+          <span class="trap-badge-vero">الإجابة: VERO</span>
+          <span style="font-size:0.8rem; color:#94a3b8;">استبدال الخوذة المصدومة</span>
+        </div>
+        <div class="trap-explanation-ar">
+          صحيح تماماً، البطانة الداخلية للبوليسترين تنضغط وتفقد قدرتها على امتصاص أي صدمة جديدة ويجب استبدال الخوذة فوراً.
+        </div>
+      </div>
+
+      <div class="trap-item">
+        <div class="trap-statement-it">Chi viaggia sui sedili posteriori di un'autovettura è esentato dall'obbligo di allacciare la cintura di sicurezza se viaggia in città.</div>
+        <div class="trap-meta-row">
+          <span class="trap-badge-falso">الإجابة: FALSO</span>
+          <span style="font-size:0.8rem; color:#94a3b8;">فخ الحزام في المقاعد الخلفية داخل المدينة</span>
+        </div>
+        <div class="trap-explanation-ar">
+          كذبة شائعة! أحزمة الأمان إلزامية على جميع المقاعد (الأمامية والخلفية) وفي كل الطرقات (داخل وخارج المدن) بلا استثناء.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE QUIZ SECTION -->
+  <section class="quiz-section">
+    <div class="quiz-title">
+      <span>📝</span>
+      <span>اختبر جاهزيتك اللحظية لبنك أسئلة الباب 19 الوزاري</span>
+    </div>
+
+    <div class="quiz-card" id="q1">
+      <div class="quiz-question-it">1. L'airbag si sgonfia spontaneamente pochi istanti dopo l'impatto.</div>
+      <div class="quiz-question-ar">الوسادة الهوائية تفرغ هواءها تلقائياً بعد لحظات قليلة من الاصطدام.</div>
+      <div class="quiz-actions">
+        <button class="quiz-btn quiz-btn-vero" onclick="checkAnswer('q1', true, true, 'إجابة صحيحة! تفرغ الغاز بسرعة كبيرة لمنع محاصرة الراكب والسماح له بالرؤية والتنفس والخروج.')">VERO</button>
+        <button class="quiz-btn quiz-btn-falso" onclick="checkAnswer('q1', false, true, 'خطأ! العبارة صحيحة تماماً، الإيرباج ينكمش ويفرغ الغاز ذاتياً فور تأدية وظيفته.')">FALSO</button>
+      </div>
+      <div class="quiz-feedback" id="q1-fb"></div>
+    </div>
+
+    <div class="quiz-card" id="q2">
+      <div class="quiz-question-it">2. L'obbligo di allacciare il casco è valido solo quando si circola su autostrade e strade extraurbane principali.</div>
+      <div class="quiz-question-ar">إلزامية ربط الخوذة تسري فقط عند السير على الأوتوستراد والطرق السريعة الرئيسية.</div>
+      <div class="quiz-actions">
+        <button class="quiz-btn quiz-btn-vero" onclick="checkAnswer('q2', true, false, 'خطأ! الخوذة إلزامية على جميع الطرقات بما في ذلك الشوارع الداخلية داخل المدن.')">VERO</button>
+        <button class="quiz-btn quiz-btn-falso" onclick="checkAnswer('q2', false, false, 'إجابة صحيحة! الخوذة إلزامية في كل مكان وفي جميع الطرقات بلا استثناء.')">FALSO</button>
+      </div>
+      <div class="quiz-feedback" id="q2-fb"></div>
+    </div>
+
+    <div class="quiz-card" id="q3">
+      <div class="quiz-question-it">3. Il poggiatesta ha la funzione di ridurre il rischio di lesioni alla colonna vertebrale in caso di tamponamento.</div>
+      <div class="quiz-question-ar">وظيفة مسند الرأس هي تقليل خطر إصابة العمود الفقري وفقرات الرقبة في حالة الاصطدام الخلفي.</div>
+      <div class="quiz-actions">
+        <button class="quiz-btn quiz-btn-vero" onclick="checkAnswer('q3', true, true, 'إجابة صحيحة ومطابقة لكود السير! مسند الرأس يمنع حركة الارتداد العنيفة للخلف (Colpo di frusta).')">VERO</button>
+        <button class="quiz-btn quiz-btn-falso" onclick="checkAnswer('q3', false, true, 'خطأ! العبارة صحيحة تماماً، مسند الرأس عنصر أمان يقي فقرات العنق من الكسر.')">FALSO</button>
+      </div>
+      <div class="quiz-feedback" id="q3-fb"></div>
+    </div>
+  </section>
+
+  <!-- CONTINUOUS SERIAL PAGINATION CHAIN -->
   <nav class="chapter-pagination">
-    <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="pagination-btn prev-btn" onclick="soundEngine.click()">
-      <span class="pagination-icon">→</span>
-      <div class="pagination-info">
-        <span class="pagination-label">الباب السابق</span>
-        <span class="pagination-title">الباب 18: الأضواء والتابلوه</span>
-      </div>
+    <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="pagination-btn">
+      <span>👉</span>
+      <span>الباب السابق: 18 (الأضواء ولمبات التابلوه)</span>
     </a>
-
-    <a href="index.html" class="pagination-btn index-btn" onclick="soundEngine.click()">
-      <span class="pagination-icon">🏛️</span>
-      <div class="pagination-info">
-        <span class="pagination-label">الرجوع للمكتبة</span>
-        <span class="pagination-title">فهرس الأبواب الشاملة</span>
-      </div>
+    <a href="index.html" class="pagination-btn" style="border-color: rgba(245, 158, 11, 0.3);">
+      <span>🏛️</span>
+      <span>فهرس المكتبة الشاملة المعتمدة</span>
     </a>
-
-    <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="pagination-btn next-btn" onclick="soundEngine.click()">
-      <div class="pagination-info">
-        <span class="pagination-label">الباب التالي</span>
-        <span class="pagination-title">الباب 20: رخص القيادة والنقاط</span>
-      </div>
-      <span class="pagination-icon">←</span>
+    <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="pagination-btn">
+      <span>الباب التالي: 20 (رخص القيادة والنقاط والعقوبات)</span>
+      <span>👈</span>
     </a>
   </nav>
 
-</div>
+</main>
 
 <script>
-  // Web Audio Sound Engine
-  const soundEngine = {
-    ctx: null,
-    enabled: true,
+  // Web Audio API Sound Engine
+  class SoundEngine {
+    constructor() {
+      this.enabled = true;
+      this.ctx = null;
+    }
     init() {
       if (!this.ctx) {
-        const AudioCtx = window.AudioContext || window.webkitAudioContext;
-        if (AudioCtx) this.ctx = new AudioCtx();
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (AudioContext) this.ctx = new AudioContext();
       }
-      if (this.ctx && this.ctx.state === 'suspended') {
-        this.ctx.resume();
-      }
-    },
+    }
     click() {
       if (!this.enabled) return;
       this.init();
       if (!this.ctx) return;
-      try {
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(540, this.ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.04);
-        gain.gain.setValueAtTime(0.05, this.ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
-        osc.start();
-        osc.stop(this.ctx.currentTime + 0.04);
-      } catch(e) {}
-    },
-    correct() {
-      if (!this.enabled) return;
-      this.init();
-      if (!this.ctx) return;
-      try {
-        const now = this.ctx.currentTime;
-        [523.25, 659.25, 783.99].forEach((freq, i) => {
-          const osc = this.ctx.createOscillator();
-          const gain = this.ctx.createGain();
-          osc.type = 'triangle';
-          osc.frequency.setValueAtTime(freq, now + i * 0.06);
-          gain.gain.setValueAtTime(0.06, now + i * 0.06);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.06 + 0.18);
-          osc.connect(gain);
-          gain.connect(this.ctx.destination);
-          osc.start(now + i * 0.06);
-          osc.stop(now + i * 0.06 + 0.18);
-        });
-      } catch(e) {}
-    },
-    wrong() {
-      if (!this.enabled) return;
-      this.init();
-      if (!this.ctx) return;
-      try {
-        const now = this.ctx.currentTime;
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-        osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(160, now);
-        osc.frequency.exponentialRampToValueAtTime(80, now + 0.16);
-        gain.gain.setValueAtTime(0.06, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
-        osc.start(now);
-        osc.stop(now + 0.16);
-      } catch(e) {}
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(600, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(300, this.ctx.currentTime + 0.04);
+      gain.gain.setValueAtTime(0.08, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.04);
     }
-  };
+    success() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(440, this.ctx.currentTime);
+      osc.frequency.setValueAtTime(880, this.ctx.currentTime + 0.08);
+      gain.gain.setValueAtTime(0.12, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.2);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.2);
+    }
+    error() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(220, this.ctx.currentTime);
+      osc.frequency.setValueAtTime(150, this.ctx.currentTime + 0.08);
+      gain.gain.setValueAtTime(0.12, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.25);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.25);
+    }
+    toggleAudio() {
+      this.enabled = !this.enabled;
+      const icon = document.querySelector('.audio-icon-span');
+      const label = document.querySelector('.audio-label-span');
+      if (icon && label) {
+        icon.textContent = this.enabled ? '🔊' : '🔇';
+        label.textContent = this.enabled ? 'الصوت نشط' : 'الصوت مكتوم';
+      }
+      if (this.enabled) this.click();
+    }
+  }
+  const soundEngine = new SoundEngine();
 
-  window.handleQuiz = function(qId, userChoice, isCorrectAnswer, explanation) {
-    const card = document.getElementById(`q-card-${qId}`);
-    const fb = document.getElementById(`feedback-${qId}`);
-    const isRight = (userChoice === isCorrectAnswer);
-
-    if (isRight) {
-      soundEngine.correct();
-      card.className = 'quiz-card answered-correct';
-      fb.className = 'quiz-feedback show correct';
+  // Mobile Navigation Functions
+  function toggleMobileNav() {
+    const btn = document.getElementById('navHamburgerBtn');
+    const panel = document.getElementById('mobileDrawerPanel');
+    const overlay = document.getElementById('mobileDrawerOverlay');
+    const isActive = btn.classList.contains('active');
+    if (isActive) {
+      closeMobileNav();
     } else {
-      soundEngine.wrong();
-      card.className = 'quiz-card answered-wrong';
-      fb.className = 'quiz-feedback show wrong';
-    }
-    fb.innerHTML = explanation;
-  };
-
-  window.speakText = function(text) {
-    if ('speechSynthesis' in window) {
+      btn.classList.add('active');
+      panel.classList.add('active');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
       soundEngine.click();
+    }
+  }
+  function closeMobileNav() {
+    const btn = document.getElementById('navHamburgerBtn');
+    const panel = document.getElementById('mobileDrawerPanel');
+    const overlay = document.getElementById('mobileDrawerOverlay');
+    if (btn) btn.classList.remove('active');
+    if (panel) panel.classList.remove('active');
+    if (overlay) overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Desktop Dropdown
+  function toggleNavDropdown(e) {
+    e.stopPropagation();
+    const menu = document.getElementById('navDropdownMenu');
+    menu.classList.toggle('active');
+    soundEngine.click();
+  }
+  window.addEventListener('click', () => {
+    const menu = document.getElementById('navDropdownMenu');
+    if (menu) menu.classList.remove('active');
+  });
+
+  // Simulator Chapter 19
+  function setSim19(simNum, mode) {
+    soundEngine.click();
+    if (simNum === 1) {
+      const panel = document.getElementById('sim1Display');
+      const container = panel.closest('.interactive-sim-container');
+      const btns = container.querySelectorAll('.sim-btn');
+      btns.forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      if (mode === 'rear_facing_off') {
+        panel.innerHTML = `
+          <div class="sim-view-box">
+            <div class="sim-view-icon">👶🛡️</div>
+            <div class="sim-view-label">مقعد رضيع للأمام عكس السير + إيرباج مطفأ</div>
+            <div class="sim-view-sub">Airbag Disattivato - Sicuro</div>
+          </div>
+          <div class="sim-details-box">
+            <div class="sim-status-pill sim-status-allowed">مطابق بنسبة 100% لمعايير السلامة</div>
+            <div class="sim-detail-item"><strong>الشرط القانوني:</strong> تم إبطال مفعول الوسادة الهوائية للراكب الأمامي يدوياً أو عبر المفتاح المخصص.</div>
+            <div class="sim-detail-item"><strong>الأمان:</strong> في حالة الاصطدام، يسند ظهر المقعد رقبة ورأس الرضيع بأمان تام دون خطر انفجار كيس الهواء.</div>
+          </div>`;
+      } else if (mode === 'rear_facing_on') {
+        panel.innerHTML = `
+          <div class="sim-view-box">
+            <div class="sim-view-icon">⚠️💥</div>
+            <div class="sim-view-label">مقعد رضيع عكس السير + إيرباج نشط</div>
+            <div class="sim-view-sub">خطر مميت ومخالفة قانونية جسيمة</div>
+          </div>
+          <div class="sim-details-box">
+            <div class="sim-status-pill sim-status-prohibited">محظور تماماً وخطر قاتل</div>
+            <div class="sim-detail-item"><strong>آلية الخطر:</strong> عند الاصطدام، تنفجر الوسادة الهوائية بسرعة تفوق 300 كم/س وترتطم بقوة بظهر المقعد.</div>
+            <div class="sim-detail-item"><strong>النتيجة:</strong> كسر جمجمة أو رقبة الرضيع لا قدر الله. يعاقب السائق جنائياً وغرامة وسحب نقاط.</div>
+          </div>`;
+      } else if (mode === 'back_seat') {
+        panel.innerHTML = `
+          <div class="sim-view-box">
+            <div class="sim-view-icon">💺👶</div>
+            <div class="sim-view-label">مقعد الطفل في المقاعد الخلفية</div>
+            <div class="sim-view-sub">المكان الأكثر أماناً إحصائياً</div>
+          </div>
+          <div class="sim-details-box">
+            <div class="sim-status-pill sim-status-allowed">الخيار المثالي الموصى به</div>
+            <div class="sim-detail-item"><strong>التثبيت:</strong> يتم تثبيته بنظام Isofix أو بأحزمة الأمان الخلفية المعتمدة.</div>
+            <div class="sim-detail-item"><strong>الوسائد الهوائية:</strong> لا تتطلب إبطال وسائد المقعد الخلفي لأنها جانبية ولا تصطدم بالمقعد مباشرة.</div>
+          </div>`;
+      }
+    } else if (simNum === 2) {
+      const panel = document.getElementById('sim2Display');
+      const container = panel.closest('.interactive-sim-container');
+      const btns = container.querySelectorAll('.sim-btn');
+      btns.forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      if (mode === 'casco_allacciato') {
+        panel.innerHTML = `
+          <div class="sim-view-box">
+            <div class="sim-view-icon">🪖✅</div>
+            <div class="sim-view-label">خوذة معتمدة ومربوطة بإحكام</div>
+            <div class="sim-view-sub">Omologato e Correttamente Allacciato</div>
+          </div>
+          <div class="sim-details-box">
+            <div class="sim-status-pill sim-status-allowed">نظامي وآمن بالكامل</div>
+            <div class="sim-detail-item"><strong>حزام الذقن:</strong> مربوط ومشدود بشكل صحيح يمنع انفلات الخوذة عن الرأس عند السقوط.</div>
+            <div class="sim-detail-item"><strong>الاعتماد (Omologazione):</strong> تحمل شارة ECE الأوروبية المعتمدة.</div>
+            <div class="sim-detail-item"><strong>الحماية:</strong> تمتص البطانة المصنوعة من البوليسترين طاقة الصدمة وتحمي الجمجمة.</div>
+          </div>`;
+      } else if (mode === 'casco_slacciato') {
+        panel.innerHTML = `
+          <div class="sim-view-box">
+            <div class="sim-view-icon">🪖❌</div>
+            <div class="sim-view-label">خوذة معتمدة لكن غير مربوطة</div>
+            <div class="sim-view-sub">Casco Slacciato = Senza Casco</div>
+          </div>
+          <div class="sim-details-box">
+            <div class="sim-status-pill sim-status-prohibited">مخالفة قانونية كعدم الارتداء</div>
+            <div class="sim-detail-item"><strong>النتيجة العملية:</strong> تطير الخوذة عن الرأس في الجزء الأول من الثانية قبل ملامسة الأرض.</div>
+            <div class="sim-detail-item"><strong>العقوبة:</strong> نفس عقوبة القيادة بدون خوذة (غرامة مالية، خصم 5 نقاط، وحجز الدراجة 60 يوماً).</div>
+          </div>`;
+      } else if (mode === 'casco_urtato') {
+        panel.innerHTML = `
+          <div class="sim-view-box">
+            <div class="sim-view-icon">💥🪖</div>
+            <div class="sim-view-label">خوذة تعرضت لصدمة سابقة</div>
+            <div class="sim-view-sub">تلف البنية الداخلية الماصة للصدمة</div>
+          </div>
+          <div class="sim-details-box">
+            <div class="sim-status-pill sim-status-prohibited">فقدت قدرتها على الحماية</div>
+            <div class="sim-detail-item"><strong>السبب التقني:</strong> البوليسترين الداخلي ينضغط لمرة واحدة ولا يعود لحجمه السابق.</div>
+            <div class="sim-detail-item"><strong>الواجب:</strong> استبدال الخوذة فوراً بشراء خوذة جديدة حتى لو لم تكن هناك شروخ مرئية.</div>
+          </div>`;
+      }
+    }
+  }
+
+  // Text-To-Speech for Italian Terms
+  function speakTerm(text) {
+    soundEngine.click();
+    if ('speechSynthesis' in window) {
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'it-IT';
       utterance.rate = 0.9;
       window.speechSynthesis.speak(utterance);
     }
-  };
-
-  window.toggleMobileNav = function() {
-    const btn = document.getElementById('nav-hamburger-btn');
-    const panel = document.getElementById('mobile-drawer-panel');
-    const overlay = document.getElementById('mobile-drawer-overlay');
-    if (!panel) return;
-    const isOpen = panel.classList.contains('is-active');
-    if (isOpen) {
-      closeMobileNav();
-    } else {
-      btn && btn.classList.add('is-active');
-      btn && btn.setAttribute('aria-expanded', 'true');
-      panel.classList.add('is-active');
-      overlay && overlay.classList.add('is-active');
-      document.body.classList.add('nav-scroll-lock');
-      if (soundEngine.click) soundEngine.click();
-    }
-  };
-
-  window.closeMobileNav = function() {
-    const btn = document.getElementById('nav-hamburger-btn');
-    const panel = document.getElementById('mobile-drawer-panel');
-    const overlay = document.getElementById('mobile-drawer-overlay');
-    btn && btn.classList.remove('is-active');
-    btn && btn.setAttribute('aria-expanded', 'false');
-    panel && panel.classList.remove('is-active');
-    overlay && overlay.classList.remove('is-active');
-    document.body.classList.remove('nav-scroll-lock');
-  };
-
-  window.toggleAudio = function() {
-    soundEngine.enabled = !soundEngine.enabled;
-    const icons = document.querySelectorAll('.audio-icon-span');
-    const labels = document.querySelectorAll('.audio-label-span');
-    icons.forEach(el => el.textContent = soundEngine.enabled ? '🔊' : '🔇');
-    labels.forEach(el => el.textContent = soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم');
-    if (soundEngine.enabled && soundEngine.click) soundEngine.click();
-  };
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'm' || e.key === 'M') toggleAudio();
-    if (e.key === 'Escape') closeMobileNav();
-  });
-
-  // Desktop Chapters Dropdown Toggle & Outside Click
-  function toggleNavDropdown(e) {
-    if (e) e.stopPropagation();
-    const menu = document.getElementById('navDropdownMenu');
-    if (menu) menu.classList.toggle('active');
   }
-  document.addEventListener('click', function(e) {
-    const wrapper = document.querySelector('.nav-dropdown-wrapper');
-    const menu = document.getElementById('navDropdownMenu');
-    if (menu && menu.classList.contains('active')) {
-      if (wrapper && !wrapper.contains(e.target)) {
-        menu.classList.remove('active');
-      }
-    }
-  });
 
+  // Filter Cards
+  function filterCards(cat) {
+    soundEngine.click();
+    const pills = document.querySelectorAll('.filter-pill');
+    pills.forEach(p => p.classList.remove('active'));
+    event.target.classList.add('active');
+
+    const cards = document.querySelectorAll('.technical-card');
+    cards.forEach(card => {
+      if (cat === 'all' || card.dataset.category === cat) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Quiz Engine
+  function checkAnswer(qId, userChoice, isVero, explanation) {
+    const isCorrect = (userChoice === isVero);
+    const fb = document.getElementById(qId + '-fb');
+    fb.style.display = 'block';
+    if (isCorrect) {
+      soundEngine.success();
+      fb.style.background = 'rgba(16, 185, 129, 0.15)';
+      fb.style.color = 'var(--emerald-primary)';
+      fb.style.border = '1px solid rgba(16, 185, 129, 0.3)';
+      fb.innerHTML = '🎉 ' + explanation;
+    } else {
+      soundEngine.error();
+      fb.style.background = 'rgba(244, 63, 94, 0.15)';
+      fb.style.color = 'var(--rose-primary)';
+      fb.style.border = '1px solid rgba(244, 63, 94, 0.3)';
+      fb.innerHTML = '⚠️ ' + explanation;
+    }
+  }
 </script>
+
 </body>
 </html>

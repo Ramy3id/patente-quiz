@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="dark">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>دليل وقاموس الباب 10: اللوحات الإضافية الملحقة بالإشارات | رخصة القيادة الإيطالية</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دليل الباب 10: اللوحات الإضافية الملحقة بالإشارات المرورية | Patente B Pro</title>
+  <meta name="description" content="الدليل الهندسي الشامل للباب العاشر من رخصة القيادة الإيطالية: لوحات المسافة، لوحات الامتداد، الأيام والساعات، فئات المركبات، أسبقية التقاطعات، والمحاكيات التفاعلية.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+
   :root {
     --bg-base: #09090b;
     --bg-surface: rgba(24, 24, 27, 0.75);
@@ -18,140 +20,131 @@
     --text-secondary: #a1a1aa;
     --text-muted: #71717a;
     --emerald-primary: #10b981;
+    --emerald-dark: #059669;
+    --emerald-glow: rgba(16, 185, 129, 0.25);
     --rose-primary: #f43f5e;
+    --rose-glow: rgba(244, 63, 94, 0.25);
     --amber-primary: #f59e0b;
+    --amber-glow: rgba(245, 158, 11, 0.25);
     --sky-primary: #38bdf8;
-    --indigo-primary: #818cf8;
-    --cyan-primary: #06b6d4;
-    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    --sky-glow: rgba(56, 189, 248, 0.25);
+    --indigo-primary: #6366f1;
     --nav-base-height: 54px;
+    --font-sans: 'Cairo', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
+  html, body {
     background-color: var(--bg-base);
     color: var(--text-primary);
-    font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-sans);
     line-height: 1.6;
-    min-height: 100vh;
     overflow-x: hidden;
-    background-image: 
-      radial-gradient(ellipse at 50% -10%, rgba(56, 189, 248, 0.08), transparent 60%),
-      radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.04), transparent 40%);
-  }
-  body.nav-scroll-lock {
-    overflow: hidden !important;
-    touch-action: none !important;
-    -webkit-overflow-scrolling: auto !important;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
   }
 
-  /* ==========================================================================
-     Portal Navigation Header (Apple HIG Compliant & Mobile Frozen 54px)
-     ========================================================================== */
+  body.nav-scroll-lock {
+    overflow: hidden !important;
+    touch-action: none;
+  }
+
+  /* Portal Nav Header (Strict 54px, Apple HIG) */
   .unified-portal-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
-    max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
-    background: rgba(9, 9, 11, 0.85);
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-base-height);
+    background: rgba(15, 15, 18, 0.82);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid var(--border-subtle);
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
+    padding: 0 16px;
     padding-top: env(safe-area-inset-top, 0px);
-    box-sizing: border-box;
-    transition: background 0.25s var(--ease-spring), border-color 0.25s;
   }
 
   .nav-brand {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #fff;
-    white-space: nowrap;
-    text-decoration: none;
-    flex-shrink: 0;
-  }
-  .nav-brand .badge-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    padding: 2px 7px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
-    color: #a1a1aa;
-  }
-
-  /* Desktop Tabs Menu */
-  .nav-desktop-tabs {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 8px;
-    margin: 0 auto;
-  }
-  .nav-tab-desktop {
     text-decoration: none;
-    color: #a1a1aa;
-    padding: 7px 13px;
-    border-radius: 9px;
-    font-size: 0.84rem;
-    font-weight: 600;
-    transition: all 0.15s;
-    border: 1px solid transparent;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.05rem;
+  }
+
+  .badge-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--amber-primary);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    padding: 2px 7px;
+    border-radius: 6px;
+  }
+
+  .desktop-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .desktop-nav-link {
     display: flex;
     align-items: center;
     gap: 6px;
-    white-space: nowrap;
+    padding: 6px 14px;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 600;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
   }
-  .nav-tab-desktop:hover {
+  .desktop-nav-link:hover {
     color: #fff;
     background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.08);
+    border-color: var(--border-subtle);
   }
-  .nav-tab-desktop.active {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.16);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), 0 2px 8px rgba(0,0,0,0.4);
+  .desktop-nav-link.active {
+    color: var(--amber-primary);
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.25);
   }
 
-  /* Desktop Actions: Dropdown & Audio */
-  .nav-desktop-actions {
+  .desktop-nav-controls {
     display: flex;
     align-items: center;
     gap: 10px;
-    flex-shrink: 0;
   }
+
   .nav-audio-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #a1a1aa;
-    border-radius: 8px;
-    padding: 6px 11px;
-    font-size: 0.8rem;
-    cursor: pointer;
+    height: 34px;
     display: flex;
     align-items: center;
     gap: 6px;
-    transition: all 0.15s;
+    padding: 0 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #e4e4e7;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
     font-family: inherit;
-    white-space: nowrap;
   }
   .nav-audio-btn:hover {
-    color: #fff;
     background: rgba(255, 255, 255, 0.09);
     border-color: rgba(255, 255, 255, 0.2);
   }
 
-  /* Chapters Dropdown */
   .nav-dropdown-wrapper {
     position: relative;
     display: inline-block;
@@ -198,9 +191,7 @@
     z-index: 1100;
     direction: rtl;
   }
-  .nav-dropdown-menu.active {
-    display: flex;
-  }
+  .nav-dropdown-menu.active { display: flex; }
   .nav-dropdown-item {
     display: flex;
     align-items: center;
@@ -218,8 +209,8 @@
     color: #fff;
   }
   .nav-dropdown-item.active {
-    background: rgba(56, 189, 248, 0.12);
-    color: #38bdf8;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--amber-primary);
     font-weight: 700;
   }
 
@@ -237,557 +228,679 @@
     color: #fff;
     -webkit-tap-highlight-color: transparent;
   }
-  .hamburger-box {
-    width: 20px;
-    height: 14px;
-    position: relative;
-  }
+  .hamburger-box { width: 20px; height: 14px; position: relative; }
   .hamburger-line {
     position: absolute;
     width: 100%;
     height: 2px;
     background: #f4f4f5;
     border-radius: 2px;
-    transition: all 0.25s var(--ease-spring);
+    transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
   }
   .line-top { top: 0; }
   .line-mid { top: 6px; }
   .line-bot { top: 12px; }
+
   .nav-hamburger-btn.is-active .line-top { transform: translateY(6px) rotate(45deg); }
-  .nav-hamburger-btn.is-active .line-mid { opacity: 0; }
+  .nav-hamburger-btn.is-active .line-mid { opacity: 0; transform: scaleX(0); }
   .nav-hamburger-btn.is-active .line-bot { transform: translateY(-6px) rotate(-45deg); }
 
-  /* Mobile Drawer */
+  /* Mobile Drawer Panel */
   .mobile-drawer-overlay {
+    display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     z-index: 998;
     opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s var(--ease-spring), visibility 0.3s;
+    transition: opacity 0.25s ease;
   }
-  .mobile-drawer-overlay.is-active {
-    opacity: 1;
-    visibility: visible;
-  }
+  .mobile-drawer-overlay.is-active { display: block; opacity: 1; }
   .mobile-drawer-panel {
+    display: none;
     position: fixed;
     top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
-    left: 0;
-    right: 0;
-    background: rgba(18, 18, 21, 0.95);
+    left: 0; right: 0;
+    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
+    background: rgba(15, 15, 18, 0.94);
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
     z-index: 999;
-    max-height: calc(85vh - var(--nav-base-height));
+    padding: 16px;
+    padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
     overflow-y: auto;
-    padding: 16px 20px 24px;
-    transform: translateY(-100%);
+    -webkit-overflow-scrolling: touch;
+    transform: translateY(-10px);
     opacity: 0;
-    visibility: hidden;
-    transition: transform 0.35s var(--ease-spring), opacity 0.25s, visibility 0.35s;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
   }
-  .mobile-drawer-panel.is-active {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-  }
-  .mobile-nav-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+  .mobile-drawer-panel.is-active { display: block; transform: translateY(0); opacity: 1; }
+  .mobile-nav-list { display: flex; flex-direction: column; gap: 8px; list-style: none; }
   .mobile-nav-link {
-    min-height: 48px;
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 0 16px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 12px 14px;
+    min-height: 48px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
     color: #e4e4e7;
     text-decoration: none;
     font-size: 0.92rem;
     font-weight: 600;
-    transition: all 0.15s;
-  }
-  .mobile-nav-link:active {
-    transform: scale(0.98);
-    background: rgba(255, 255, 255, 0.08);
   }
   .mobile-nav-link.active {
-    background: rgba(56, 189, 248, 0.15);
-    border-color: rgba(56, 189, 248, 0.3);
-    color: #38bdf8;
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.35);
+    color: var(--amber-primary);
   }
 
-  /* ==========================================================================
-     Container & Main Content Layout
-     ========================================================================== */
-  .container {
+  /* Main Container */
+  .guide-container {
     max-width: 1280px;
-    width: 100%;
-    margin: 32px auto;
-    padding: 0 24px 60px;
-    box-sizing: border-box;
+    margin: 0 auto;
+    padding: calc(var(--nav-base-height) + 28px) 20px 80px 20px;
   }
 
-  .content-sheet {
-    background: var(--bg-surface);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+  /* Hero Section */
+  .chapter-hero {
+    background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12), transparent 70%),
+                linear-gradient(180deg, rgba(24, 24, 27, 0.7) 0%, rgba(18, 18, 20, 0.9) 100%);
     border: 1px solid var(--border-subtle);
     border-radius: 24px;
-    padding: 40px;
-    box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.7);
+    padding: 40px 32px;
     margin-bottom: 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), transparent);
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--sky-primary);
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .hero-subtitle {
+    font-family: var(--font-mono);
+    color: var(--sky-primary);
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+    direction: ltr;
+  }
+  .hero-desc {
+    max-width: 860px;
+    margin: 0 auto 24px auto;
+    color: var(--text-secondary);
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+  .hero-badges-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .hero-stat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: #d4d4d8;
   }
 
-  .main-title {
-    font-size: 2rem;
+  /* Golden Rules Banner */
+  .golden-rules-banner {
+    background: rgba(56, 189, 248, 0.06);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 36px;
+  }
+  .golden-rules-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.15rem;
     font-weight: 800;
+    color: var(--sky-primary);
+    margin-bottom: 16px;
+  }
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .rule-box {
+    background: rgba(24, 24, 27, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .rule-box h4 {
+    font-size: 0.95rem;
     color: #fff;
     margin-bottom: 8px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 6px;
   }
-  .sub-lead {
-    font-size: 1.05rem;
+  .rule-box p {
+    font-size: 0.86rem;
     color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 28px;
+    line-height: 1.6;
   }
 
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-    margin: 24px 0 32px;
-  }
-  .stat-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    padding: 20px;
-    text-align: center;
-  }
-  .stat-num {
-    font-size: 2.2rem;
-    font-weight: 800;
-    font-family: 'JetBrains Mono', monospace;
-    color: #38bdf8;
-  }
-  .stat-label {
-    font-size: 0.88rem;
-    color: var(--text-secondary);
-    font-weight: 600;
-    margin-top: 4px;
-  }
-
-  /* Section Titles */
-  .section-title {
-    font-size: 1.45rem;
-    font-weight: 800;
-    color: #fff;
-    margin: 40px 0 18px;
+  /* Filter Pills */
+  .filter-pills-bar {
     display: flex;
     align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    gap: 8px;
+    overflow-x: auto;
     padding-bottom: 12px;
+    margin-bottom: 28px;
+    -webkit-overflow-scrolling: touch;
   }
-
-  .callout-box {
-    background: rgba(56, 189, 248, 0.06);
-    border: 1px solid rgba(56, 189, 248, 0.22);
-    border-radius: 16px;
-    padding: 20px 24px;
-    margin: 20px 0;
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: #e0f2fe;
-  }
-  .callout-box.danger {
-    background: rgba(244, 63, 94, 0.06);
-    border-color: rgba(244, 63, 94, 0.25);
-    color: #ffe4e6;
-  }
-  .callout-box.warning {
-    background: rgba(245, 158, 11, 0.06);
-    border-color: rgba(245, 158, 11, 0.25);
-    color: #fef3c7;
-  }
-  .callout-box.emerald {
-    background: rgba(16, 185, 129, 0.06);
-    border-color: rgba(16, 185, 129, 0.25);
-    color: #d1fae5;
-  }
-
-  /* ==========================================================================
-     Cards Grid & Typography Standard (Strict Block Flow & Absolute Icons)
-     ========================================================================== */
-  .comparison-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 20px;
-    margin: 24px 0;
-  }
-
-  .compare-card {
-    background: #18181b;
-    border-radius: 18px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
+  .filter-pill {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--border-subtle);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05), 0 8px 24px -6px rgba(0,0,0,0.5);
-    transition: transform 0.2s var(--ease-spring), border-color 0.2s;
-  }
-  .compare-card:hover {
-    transform: translateY(-2px);
-    border-color: var(--border-highlight);
-  }
-  .compare-card.sky-tint {
-    border-color: rgba(56, 189, 248, 0.3);
-    background: linear-gradient(180deg, rgba(56, 189, 248, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
-  }
-  .compare-card.emerald-tint {
-    border-color: rgba(16, 185, 129, 0.3);
-    background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
-  }
-  .compare-card.rose-tint {
-    border-color: rgba(244, 63, 94, 0.3);
-    background: linear-gradient(180deg, rgba(244, 63, 94, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
-  }
-  .compare-card.amber-tint {
-    border-color: rgba(245, 158, 11, 0.3);
-    background: linear-gradient(180deg, rgba(245, 158, 11, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
-  }
-
-  /* Card Header: Strict Vertical Hierarchy */
-  .card-header-row {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    margin-bottom: 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    padding-bottom: 10px;
-  }
-  .card-ar-title {
-    order: 1;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #fff;
-  }
-  .card-it-title {
-    order: 2;
-    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-secondary);
     font-size: 0.85rem;
     font-weight: 600;
-    color: #38bdf8;
-    direction: ltr;
-    text-align: right;
-  }
-
-  /* Sign Image Preview */
-  .sign-img-wrapper {
-    background: rgba(0, 0, 0, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
-    padding: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-    min-height: 120px;
-  }
-  .sign-img-wrapper img {
-    max-height: 100px;
-    max-width: 100%;
-    object-fit: contain;
-    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
-  }
-
-  /* List Items: Strict Block Text Flow & Absolute Bullets */
-  .card-points-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 0;
-    margin: 0;
-  }
-  .card-points-list li, .card-points li {
-    position: relative;
-    padding-right: 28px;
-    line-height: 1.7;
-    display: block;
-    text-align: right;
-    font-size: 0.92rem;
-    color: #d4d4d8;
-  }
-  .card-points-list li > span:first-child, .card-points li > span:first-child {
-    position: absolute;
-    right: 0;
-    top: 2px;
-    font-size: 1.05rem;
-    line-height: 1;
-  }
-
-  /* Interactive Quiz Engine */
-  .quiz-section {
-    margin-top: 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding-top: 30px;
-  }
-  .quiz-card {
-    background: rgba(24, 24, 27, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 20px 24px;
-    margin-bottom: 16px;
-    transition: all 0.2s ease;
-  }
-  .quiz-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 10px;
-  }
-  .quiz-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    padding: 2px 8px;
-    border-radius: 6px;
-    background: rgba(56, 189, 248, 0.12);
-    color: #38bdf8;
-    border: 1px solid rgba(56, 189, 248, 0.25);
-  }
-  .quiz-text-it {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 6px;
-    direction: ltr;
-    text-align: left;
-  }
-  .quiz-text-ar {
-    font-size: 0.92rem;
-    color: #d4d4d8;
-    line-height: 1.6;
-    margin-bottom: 14px;
-  }
-  .quiz-options {
-    display: flex;
-    gap: 10px;
-  }
-  .quiz-btn {
-    flex: 1;
-    padding: 10px 16px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.04);
-    color: #fff;
-    font-size: 0.9rem;
-    font-weight: 700;
+    white-space: nowrap;
     cursor: pointer;
     transition: all 0.15s ease;
     font-family: inherit;
   }
-  .quiz-btn:hover {
-    background: rgba(255, 255, 255, 0.09);
-    border-color: rgba(255, 255, 255, 0.2);
+  .filter-pill:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
   }
-  .quiz-feedback {
-    margin-top: 12px;
-    padding: 12px 16px;
-    border-radius: 10px;
-    font-size: 0.88rem;
-    line-height: 1.6;
-    display: none;
-  }
-  .quiz-feedback.is-correct {
-    display: block;
-    background: rgba(16, 185, 129, 0.12);
-    border: 1px solid rgba(16, 185, 129, 0.3);
-    color: #6ee7b7;
-  }
-  .quiz-feedback.is-wrong {
-    display: block;
-    background: rgba(244, 63, 94, 0.12);
-    border: 1px solid rgba(244, 63, 94, 0.3);
-    color: #fda4af;
+  .filter-pill.active {
+    background: var(--sky-primary);
+    border-color: var(--sky-primary);
+    color: #000;
+    font-weight: 700;
   }
 
-  /* Chapter Pagination */
+  /* Rotatoria Simulator Box */
+  .simulator-box {
+    background: linear-gradient(180deg, rgba(24, 24, 27, 0.8) 0%, rgba(18, 18, 20, 0.95) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .sim-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--sky-primary);
+    margin-bottom: 6px;
+  }
+  .sim-subtitle {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+  }
+  .sim-controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .sim-btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sim-btn:hover { background: rgba(255, 255, 255, 0.1); }
+  .sim-btn.active {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: var(--sky-primary);
+    color: var(--sky-primary);
+  }
+  .sim-output-card {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .sim-img-wrapper img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+  }
+  .sim-details { flex: 1; text-align: right; }
+  .sim-state-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .state-normal { background: rgba(245, 158, 11, 0.2); color: var(--amber-primary); }
+  .state-rot-precedence { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .sim-legal-text {
+    font-size: 0.92rem;
+    color: #e4e4e7;
+    line-height: 1.7;
+  }
+
+  /* Comparison Section: Paths */
+  .comp-section {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .comp-header { margin-bottom: 20px; text-align: right; }
+  .comp-header h3 { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+  .comp-header p { font-size: 0.9rem; color: var(--text-secondary); }
+  .comp-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .comp-card-path {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .comp-card-path img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 12px;
+  }
+  .comp-card-path h4 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .comp-card-path .path-it {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--sky-primary);
+    margin-bottom: 10px;
+  }
+  .comp-card-path p {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    text-align: right;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  /* Grid of Signals Cards */
+  .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .section-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-badge {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: var(--sky-primary);
+    background: rgba(56, 189, 248, 0.1);
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+  }
+
+  .signals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .signal-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .signal-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-highlight);
+  }
+
+  .signal-img-container {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    padding: 12px;
+  }
+  .signal-img-container img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+  }
+
+  /* Card Header Vertical Hierarchy */
+  .card-header-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+  .card-ar-title {
+    order: 1;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  .card-it-title {
+    order: 2;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--sky-primary);
+    direction: ltr;
+    text-align: right;
+  }
+
+  .card-desc-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  /* ZERO FLEX ON LISTS (STRICT TYPOGRAPHY) */
+  .card-points-group { margin-bottom: 14px; }
+  .points-group-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .points-group-title.vero-title { color: var(--emerald-primary); }
+  .points-group-title.falso-title { color: var(--rose-primary); }
+
+  .card-points-list { list-style: none; margin: 0; padding: 0; }
+  .card-points-list li {
+    display: block;
+    position: relative;
+    padding-right: 28px;
+    line-height: 1.7;
+    text-align: right;
+    font-size: 0.88rem;
+    color: #d4d4d8;
+    margin-bottom: 6px;
+  }
+  .card-points-list li > span:first-child {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .card-trap-alert {
+    background: rgba(244, 63, 94, 0.08);
+    border: 1px solid rgba(244, 63, 94, 0.22);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    color: #fca5a5;
+    line-height: 1.6;
+    margin-top: auto;
+  }
+  .card-trap-alert strong { color: var(--rose-primary); }
+
+  /* Glossary Section */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .glossary-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+  .term-it {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--sky-primary);
+    margin-bottom: 4px;
+    direction: ltr;
+    text-align: right;
+  }
+  .term-ar {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .term-def {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Quiz Traps Interactive Section */
+  .traps-section { margin-bottom: 50px; }
+  .traps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+  }
+  .trap-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .trap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card-tag-pill {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  .tag-vero { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .tag-falso { background: rgba(244, 63, 94, 0.2); color: var(--rose-primary); }
+
+  .trap-q-it {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: #e4e4e7;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 8px;
+    padding: 10px;
+    direction: ltr;
+    text-align: left;
+    line-height: 1.5;
+  }
+  .trap-reason {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .trap-reason strong { color: #fff; }
+
+  /* Pagination Bar */
   .chapter-pagination {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    margin: 40px 0 20px;
-    padding: 16px 20px;
-    background: rgba(24, 24, 27, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    backdrop-filter: blur(12px);
-    flex-wrap: wrap;
+    gap: 16px;
+    padding: 24px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    margin-top: 40px;
   }
   .pagination-btn {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 18px;
-    border-radius: 12px;
+    padding: 12px 20px;
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #f4f4f5;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    color: #fff;
     text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 0.9rem;
     transition: all 0.15s ease;
   }
   .pagination-btn:hover {
     background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.16);
-    color: #fff;
-    transform: translateY(-1px);
+    border-color: var(--border-highlight);
   }
-  .pagination-btn.index-btn {
-    background: rgba(56, 189, 248, 0.08);
-    border-color: rgba(56, 189, 248, 0.2);
-    color: #38bdf8;
-  }
-  .pagination-info {
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-  }
-  .pagination-label {
-    font-size: 0.72rem;
-    color: #a1a1aa;
-    font-weight: 500;
-  }
-  .pagination-title {
-    font-size: 0.85rem;
-    color: #fff;
-    font-weight: 700;
-  }
+  .pagination-info { display: flex; flex-direction: column; text-align: right; }
+  .pagination-label { font-size: 0.75rem; color: var(--text-muted); }
+  .pagination-title { font-size: 0.92rem; color: #fff; }
 
-  /* Data Table */
-  .table-wrap {
-    overflow-x: auto;
-    margin: 24px 0;
-    border-radius: 16px;
-    border: 1px solid var(--border-subtle);
-  }
-  .data-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: right;
-    font-size: 0.9rem;
-  }
-  .data-table th, .data-table td {
-    padding: 14px 18px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  }
-  .data-table th {
-    background: rgba(255, 255, 255, 0.04);
-    color: #38bdf8;
-    font-weight: 700;
-  }
-  .data-table tr:hover td {
-    background: rgba(255, 255, 255, 0.02);
-  }
-
-  /* Mobile Media Queries (< 768px Strict Freeze) */
+  /* Responsive Rules (< 768px) */
   @media (max-width: 768px) {
-    .unified-portal-nav {
-      height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
-      max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
-      padding: 0 16px;
-      padding-top: env(safe-area-inset-top, 0px);
-      box-sizing: border-box;
-    }
-    .nav-desktop-tabs,
-    .nav-desktop-actions {
-      display: none !important;
-    }
-    .nav-hamburger-btn {
-      display: flex;
-    }
-    .container {
-      margin: 10px auto;
-      padding: 0 12px 40px;
-    }
-    .content-sheet {
-      padding: 24px 16px;
-      border-radius: 18px;
-    }
-    .main-title {
-      font-size: 1.4rem;
-    }
-    .comparison-grid {
-      grid-template-columns: 1fr;
-    }
-    .chapter-pagination {
-      flex-direction: column;
-      align-items: stretch;
-    }
-    .pagination-btn {
-      justify-content: center;
-    }
+    .desktop-nav-links, .desktop-nav-controls { display: none !important; }
+    .nav-hamburger-btn { display: flex !important; }
+    .guide-container { padding-top: calc(var(--nav-base-height) + 16px); padding-left: 14px; padding-right: 14px; }
+    .hero-title { font-size: 1.6rem; }
+    .signals-grid { grid-template-columns: 1fr; }
+    .sim-output-card { flex-direction: column; text-align: center; }
+    .sim-details { text-align: center; }
+    .chapter-pagination { flex-direction: column; align-items: stretch; }
   }
-</style>
+
+  </style>
 </head>
 <body>
 
-<!-- Unified Portal Navigation (Apple HIG Compliant) -->
-<nav class="unified-portal-nav" id="portal-nav">
-  <!-- Brand (Right in RTL) -->
-  <a href="index.html" class="nav-brand">
-    <span style="font-size:1.25rem;">🚦</span>
-    <span>Patente B Pro</span>
-    <span class="badge-tag">A2</span>
-  </a>
+<!-- Unified Top Navigation (Strict 54px) -->
+<nav class="unified-portal-nav" aria-label="شريط التنقل الموحد">
+  <div style="display:flex; align-items:center; gap:12px;">
+    <a href="index.html" class="nav-brand">
+      <span>🚦 Patente B Pro</span>
+      <span class="badge-tag" style="background:rgba(59,130,246,0.2); color:#60a5fa; border-color:rgba(59,130,246,0.35);">Cap. 10</span>
+    </a>
+  </div>
 
-  <!-- Desktop Tabs Menu (Center - Strictly 3 core links) -->
-  <nav class="nav-desktop-tabs">
-    <a href="index.html" class="nav-tab-desktop">🏛️ فهرس المكتبة</a>
-    <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 الأبواب المقسمة</a>
-    <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
-  </nav>
+  <div class="desktop-nav-links">
+    <a href="index.html" class="desktop-nav-link">
+      <span>🏛️</span>
+      <span>فهرس المكتبة الشاملة</span>
+    </a>
+    <a href="../Capitoli_Divisi/index.html" class="desktop-nav-link">
+      <span>📚</span>
+      <span>الأبواب المقسمة (25)</span>
+    </a>
+    <a href="../Simulatore_Esame.html" class="desktop-nav-link">
+      <span>⏱️</span>
+      <span>محاكي الامتحان</span>
+    </a>
+  </div>
 
-  <!-- Desktop Actions & Chapters Dropdown (Left in RTL) -->
-  <div class="nav-desktop-actions">
+  <div class="desktop-nav-controls">
     <div class="nav-dropdown-wrapper">
       <button class="nav-dropdown-btn" onclick="toggleNavDropdown(event)">
         <span>تصفح الأبواب (1-25)</span>
         <span style="font-size:0.75rem;">▾</span>
       </button>
       <div class="nav-dropdown-menu" id="navDropdownMenu">
-        <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
-        <a href="دليل_الباب_02_إشارات_الخطر.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
-        <a href="../Capitoli_Divisi/Capitolo_03_segnali_divieto/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
-        <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
-        <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
-        <a href="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأفقية والمطبات</span></a>
-        <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
-        <a href="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
-        <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: الإشارات التكميلية وورش العمل</span></a>
+        <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 01: المفاهيم العامة والواجبات</span></a>
+        <a href="دليل_الباب_02_إشارات_الخطر.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 02: إشارات الخطر</span></a>
+        <a href="دليل_الباب_03_إشارات_المنع.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 03: إشارات المنع</span></a>
+        <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 04: إشارات الإلزام</span></a>
+        <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 05: إشارات الأسبقية</span></a>
+        <a href="دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 06: العلامات الأرضية والعوائق</span></a>
+        <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 07: الإشارات الضوئية والشرطي</span></a>
+        <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 08: إشارات الإرشاد والمعلومات</span></a>
+        <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 09: الإشارات التكميلية وورش العمل</span></a>
         <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
-        <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة</span></a>
+        <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة ومخاطرها</span></a>
         <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
         <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
         <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
@@ -810,7 +923,7 @@
     </button>
   </div>
 
-  <!-- Animated Hamburger Button (Apple HIG - Only visible on Mobile < 768px) -->
+  <!-- Animated Hamburger Button (Apple HIG - Mobile < 768px) -->
   <button class="nav-hamburger-btn" id="nav-hamburger-btn" onclick="toggleMobileNav()" aria-label="قائمة التنقل" aria-expanded="false">
     <div class="hamburger-box">
       <span class="hamburger-line line-top"></span>
@@ -820,632 +933,1331 @@
   </button>
 </nav>
 
-<!-- Backdrop Blur Overlay -->
+<!-- Mobile Overlay & Drawer -->
 <div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
-
-<!-- Slide-Down Glassmorphic Drawer Panel -->
 <div class="mobile-drawer-panel" id="mobile-drawer-panel">
   <div class="mobile-nav-list">
-    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📚</span> <span>مذاكرة الأبواب المقسمة (25 باب)</span>
-    </a>
-    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>⏱️</span> <span>محاكي الامتحان الوزاري (20 دقيقة)</span>
-    </a>
-    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📑</span> <span>فهرس المكتبة الشاملة المعتمدة</span>
-    </a>
-    <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="mobile-nav-link active" onclick="closeMobileNav()">
-      <span>📖</span> <span>دليل الباب 10 (اللوحات الإضافية)</span>
-    </a>
-    <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📖</span> <span>دليل الباب 11 (حدود السرعة ومخاطرها)</span>
-    </a>
-    <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📖</span> <span>دليل الباب 12 (مسافة الأمان والتوقف)</span>
-    </a>
+    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📚</span><span>مذاكرة الأبواب المقسمة (25 باب)</span></a>
+    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">⏱️</span><span>محاكي الامتحان الوزاري</span></a>
+    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📑</span><span>فهرس المكتبة الشاملة</span></a>
+    <div class="mobile-nav-divider"></div>
+    <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 09: الإشارات التكميلية وورش العمل</span></a>
+    <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="mobile-nav-link active" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 10: اللوحات الإضافية الملحقة بالإشارات</span></a>
+    <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 11: حدود السرعة ومخاطرها</span></a>
   </div>
 </div>
 
-<main class="container">
-  <article class="content-sheet">
-    <header>
-      <h1 class="main-title">
-        <span>📑</span>
-        <span>دليل وقاموس الباب العاشر: اللوحات الإضافية الملحقة بالإشارات</span>
-      </h1>
-      <p class="sub-lead">
-        Capitolo 10 — Pannelli Integrativi dei Segnali Stradali. المرجع الهندسي والامتحاني المعتمد لفهم مخصصات اللوحات الإضافية، التمييز الفارق بين المسافة والامتداد، فترات الأعياد وأيام العمل، فئات المركبات والاستثناءات، وفك جميع فخاخ بنك الأسئلة الوزاري (263 سؤالاً).
+<main class="guide-container">
+
+  <!-- HERO SECTION -->
+  <section class="chapter-hero">
+    <div class="hero-tag">📑 🔲 المرجع المعتمد للدراسة والامتحان الوزاري</div>
+    <h1 class="hero-title">الباب 10: اللوحات الإضافية الملحقة بالإشارات المرورية</h1>
+    <div class="hero-subtitle">Capitolo 10: Pannelli integrativi dei segnali stradali</div>
+    <p class="hero-desc">
+      الدليل الهندسي والتشريعي الكامل للوحات المكملة والمفسرة لإشارات المرور: التمييز القاطع بين لوحات المسافة (Distanza) ولوحات الامتداد (Estesa)، شروط السريان بالأيام وساعات الدوام (Lavorativi بالمطرقتين و Festivi بالصليبين)، تخصيص الإشارات لفئات معينة واستثناء فئات أخرى (Eccetto)، خرائط أسبقية التقاطعات ومسار الطريق الرئيسي، وحالات الطقس والجليد والمطر وسحب المركبات بالرافعة.
+    </p>
+
+    <div class="hero-badges-row">
+      <div class="hero-stat-badge"><span>📊</span> <span>263 سؤالاً وزارياً معتمداً</span></div>
+      <div class="hero-stat-badge"><span>⚠️</span> <span>12 فخاً امتحانياً دقيقاً</span></div>
+      <div class="hero-stat-badge"><span>🔲</span> <span>25 فئة ونموذجاً مكملاً</span></div>
+      <div class="hero-stat-badge"><span>🎯</span> <span>دقة 100% كود السير 2026</span></div>
+    </div>
+  </section>
+
+  <!-- GOLDEN RULES BANNER -->
+  <section class="golden-rules-banner">
+    <div class="golden-rules-title">
+      <span>⭐</span>
+      <span>القواعد الذهبية الأربع للباب 10 (Regole d'Oro)</span>
+    </div>
+    <div class="rules-grid">
+      <div class="rule-box">
+        <h4><span>1️⃣</span> قاعدة الأسهم الجانبية (Distanza vs Estesa)</h4>
+        <p>الرقم المجرد بدون أسهم = <strong>مسافة (Distanza)</strong> تفصلك عن بداية الخطر. الرقم المحصور بين سهمين رأسيين (↑ 3.8 km ↑) = <strong>امتداد وطول (Estesa)</strong> يبدأ فوراً ويمتد متواصلاً.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>2️⃣</span> قاعدة المطارق مقابل الصلبان</h4>
+        <p>المطرقتان (Fig. 125) = <strong>أيام العمل فقط (Giorni feriali/lavorativi)</strong> من الاثنين للسبت. الصليبان (Fig. 124) = <strong>أيام العطلات الرسمية والآحاد (Giorni festivi)</strong>.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>3️⃣</span> اتجاه أسهم السريان (Inizio / Fine)</h4>
+        <p>السهم للأعلى = <strong>بداية الحظر (Inizio)</strong>. السهمان المتعاكسان = <strong>استمرار الحظر (Continuazione)</strong>. السهم للأسفل = <strong>نهاية الحظر (Fine)</strong> والعودة للقواعد العامة.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>4️⃣</span> قاعدة الخط العريض في التقاطعات</h4>
+        <p>في لوحات مسار الطريق الرئيسي (Andamento strada principale): <strong>الأسبقية المطلقة دائماً لمن يتبع مسار الخط الأسود العريض</strong>، وتلتزم الخطوط الرفيعة بإعطاء الأسبقية.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE SIMULATORS -->
+
+  <!-- SIMULATOR 1: Distanza vs Estesa -->
+  <section class="simulator-box" id="sim-dist-est">
+    <div class="sim-header">
+      <div>
+        <h3 class="sim-title">🎮 محاكي الفرق الحاسم: لوحة المسافة مقابل لوحة الامتداد</h3>
+        <p class="sim-subtitle">تعلم كيف تميز فورياً بنظرة واحدة بين موعد بداية الخطر وبين المسافة التي يمتد عليها</p>
+      </div>
+      <span class="sim-badge">أهم محاكي في الباب 10</span>
+    </div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnSimDistanza" onclick="simulateDistEst('distanza')">لوحة المسافة (Fig. 121 - بدون أسهم)</button>
+      <button class="sim-btn" id="btnSimEstesa" onclick="simulateDistEst('estesa')">لوحة الامتداد (Fig. 122 - بين سهمين)</button>
+    </div>
+    <div class="sim-output-card">
+      <div class="sim-img-wrapper" id="simDistImgWrapper">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/121.png" alt="Pannello distanza">
+      </div>
+      <div class="sim-details">
+        <div class="sim-state-badge state-normal" id="simDistBadge">لوحة المسافة (Distanza): الخطر يبدأ بعد 3.8 كم</div>
+        <p class="sim-legal-text" id="simDistText">
+          <strong>القاعدة الهندسية:</strong> وجود رقم مجرد بالأمتار أو الكيلومترات دون أي أسهم يعني المسافة التي تفصل بين مكان وضع الإشارة ونقطة بداية الخطر أو سريان المنع. الطريق حالياً آمن والمنع يبدأ بعد قطع المسافة المكتوبة.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR 2: Orari e Giorni -->
+  <section class="simulator-box" id="sim-orari">
+    <div class="sim-header">
+      <div>
+        <h3 class="sim-title">🎮 محاكي أيام وساعات السريان (Festivi vs Lavorativi)</h3>
+        <p class="sim-subtitle">بدّل بين رموز الأيام لمعرفة متى يسري منع الوقوف أو حظر المرور ومتى يكون مسموحاً</p>
+      </div>
+      <span class="sim-badge">محاكي الأيام والأعياد</span>
+    </div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnSimLavorativi" onclick="simulateOrari('lavorativi')">أيام العمل بالمطرقتين (Fig. 125)</button>
+      <button class="sim-btn" id="btnSimFestivi" onclick="simulateOrari('festivi')">أيام العطل بالصليبين (Fig. 124)</button>
+      <button class="sim-btn" id="btnSimH24" onclick="simulateOrari('h24')">فترة يومية عامة (Fig. 123)</button>
+    </div>
+    <div class="sim-output-card">
+      <div class="sim-img-wrapper" id="simOrariImgWrapper">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/125.png" alt="Giorni lavorativi">
+      </div>
+      <div class="sim-details">
+        <div class="sim-state-badge state-rot-precedence" id="simOrariBadge">أيام العمل فقط: من الاثنين إلى السبت</div>
+        <p class="sim-legal-text" id="simOrariText">
+          <strong>الحكم القانوني:</strong> رمز المطرقتين المتقاطعتين يعني سريان الإشارة حصراً في أيام العمل الرسمية (Giorni Lavorativi) خلال الساعات المحددة، ويكون الركن أو المرور مسموحاً في أيام الآحاد والعطلات الرسمية.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR 3: Andamento della Strada Principale -->
+  <section class="simulator-box" id="sim-precedenza">
+    <div class="sim-header">
+      <div>
+        <h3 class="sim-title">🎮 محاكي خريطة أسبقية مسارات التقاطع (Andamento Strada)</h3>
+        <p class="sim-subtitle">اكتشف من يملك حق الأسبقية المطلقة عند انحناء مسار الطريق الرئيسي في التقاطعات</p>
+      </div>
+      <span class="sim-badge">محاكي الأسبقية المعقدة</span>
+    </div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnSimPrecDestra" onclick="simulateAndamento('destra')">انحناء لليمين (Fig. 131)</button>
+      <button class="sim-btn" id="btnSimPrecSinistra" onclick="simulateAndamento('sinistra')">انحناء لليسار (Fig. 132)</button>
+      <button class="sim-btn" id="btnSimPrecDiritto" onclick="simulateAndamento('diritto')">مسار رئيسي مستقيم (Fig. 135)</button>
+    </div>
+    <div class="sim-output-card">
+      <div class="sim-img-wrapper" id="simPrecImgWrapper">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/131.png" alt="Strada principale a destra">
+      </div>
+      <div class="sim-details">
+        <div class="sim-state-badge state-rot-precedence" id="simPrecBadge">الخط العريض = أسبقية مطلقة حتى عند الانعطاف</div>
+        <p class="sim-legal-text" id="simPrecText">
+          <strong>القاعدة الذهبية للتقاطع:</strong> الخط الأسود العريض يمثل مسار الطريق ذي الأسبقية (Strada principale). من يسير عليه يملك حق الأسبقية في العبور، بينما الخطوط الرفيعة تمثل طرقاً ثانوية ملزمة بالتوقف وإعطاء الأسبقية.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- COMPARISON SECTION -->
+
+  <!-- COMPARISON SECTION -->
+  <section class="comp-section">
+    <div class="comp-header">
+      <h3>🔍 مصفوفة المقارنة البصرية: فك تشابهات اللوحات الإضافية المربكة</h3>
+      <p>أهم 4 مقارنات ثنائية يقع فيها أغلب الطلاب في اختبارات رخصة القيادة الإيطالية</p>
+    </div>
+    <div class="comp-grid-4">
+      <!-- Comp 1 -->
+      <div class="comp-card-path">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/121.png" alt="Distanza">
+        <h4>لوحة المسافة (Distanza)</h4>
+        <div class="path-it">Senza frecce (Fig. 121)</div>
+        <p><strong>العلامة:</strong> رقم مجرد بدون أي أسهم.<br><strong>المعنى:</strong> الخطر يبدأ بعد قطع هذه المسافة من موضع الإشارة.</p>
+      </div>
+
+      <!-- Comp 2 -->
+      <div class="comp-card-path">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/122.png" alt="Estesa">
+        <h4>لوحة الامتداد (Estesa)</h4>
+        <div class="path-it">Tra due frecce (Fig. 122)</div>
+        <p><strong>العلامة:</strong> رقم محصور بين سهمين رأسيين.<br><strong>المعنى:</strong> الخطر يبدأ فوراً ويمتد متواصلاً على طول المسافة المكتوبة.</p>
+      </div>
+
+      <!-- Comp 3 -->
+      <div class="comp-card-path">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/125.png" alt="Lavorativi">
+        <h4>أيام العمل (Feriali)</h4>
+        <div class="path-it">Due martelli (Fig. 125)</div>
+        <p><strong>الرمز:</strong> مطرقتان متقاطعتان.<br><strong>السريان:</strong> يسري من الاثنين إلى السبت فقط، ولا يسري في الآحاد والعطلات الرسمية.</p>
+      </div>
+
+      <!-- Comp 4 -->
+      <div class="comp-card-path">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/124.png" alt="Festivi">
+        <h4>أيام العطل (Festivi)</h4>
+        <div class="path-it">Due croci (Fig. 124)</div>
+        <p><strong>الرمز:</strong> صليبان لاتينيان.<br><strong>السريان:</strong> يسري حصراً في أيام الآحاد والأعياد الدينية والوطنية الرسمية.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FILTER PILLS -->
+  <div class="filter-pills-bar">
+    <button class="filter-pill active" onclick="filterCards('all', this)">جميع النماذج واللوحات (25)</button>
+    <button class="filter-pill" onclick="filterCards('distanza', this)">المسافة والامتداد (Distanza/Estesa)</button>
+    <button class="filter-pill" onclick="filterCards('orari', this)">التوقيت والأيام (Festivi/Lavorativi)</button>
+    <button class="filter-pill" onclick="filterCards('validita', this)">بداية ونهاية وتخصيص السريان</button>
+    <button class="filter-pill" onclick="filterCards('precedenza', this)">خرائط أسبقية التقاطعات</button>
+    <button class="filter-pill" onclick="filterCards('pericoli', this)">مخاطر الجليد والمطر والقطر</button>
+    <button class="filter-pill" onclick="filterCards('glossary', this)">القاموس وفخاخ الوزارة</button>
+  </div>
+
+  <!-- SIGNALS GRID -->
+  <div class="signals-grid">
+
+    <!-- Card 1: Pannelli distanza -->
+    <div class="signal-card" data-category="distanza">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/121.png" alt="Pannello integrativo di distanza (Modello 1 - Fig. 121)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة المسافة (موديل 1)</h3>
+        <span class="card-it-title">Pannello integrativo di distanza (Modello 1 - Fig. 121)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة بيضاء مستطيلة بها رقم بالأمتار أو الكيلومترات دون أي أسهم؛ تحدد المسافة المتبقية بين مكان وجود الإشارة ونقطة بداية الخطر أو بداية سريان الإلزام أو المنع (مثلاً: الخطر يبدأ بعد 3.8 كم).
       </p>
-
-      <!-- Stats Grid -->
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-num">263</div>
-          <div class="stat-label">سؤالاً وزارياً رسمياً في بنك الوزارة</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">72</div>
-          <div class="stat-label">لوحة إضافية وشكلاً توضيحياً رسمياً</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">25</div>
-          <div class="stat-label">قسماً تخصصياً يغطي كافة تفريعات الباب</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">100%</div>
-          <div class="stat-label">مطابقة لمعايير كود السير والامتحان الإيطالي</div>
-        </div>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato, posto sotto un segnale di pericolo, indica la distanza tra il segnale ed il punto d'inizio del pericolo</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato, posto sotto un segnale di pericolo, indica la distanza tra il segnale ed il punto d'inizio del pericolo</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato può essere posto sotto i segnali per completarne il significato</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato può essere posto sotto i segnali per completarne il significato</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato, posto sotto un segnale di indicazione, serve a precisare la distanza che manca per raggiungere il punto indicato dal segnale</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato, posto sotto un segnale di indicazione, serve a precisare la distanza che manca per raggiungere il punto indicato dal segnale</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato, posto sotto un segnale di obbligo o divieto, indica la distanza dalla quale inizia la prescrizione</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato, posto sotto un segnale di obbligo o divieto, indica la distanza dalla quale inizia la prescrizione</span></li>
+        </ul>
       </div>
-    </header>
-
-    <!-- SECTION 1: المقارنة الذهبية -->
-    <section>
-      <h2 class="section-title">
-        <span>⚖️</span>
-        <span>أولاً: المقارنة الذهبية الكبرى — المسافة (Distanza) مقابل الامتداد (Estensione)</span>
-      </h2>
-      <div class="callout-box warning">
-        <strong>⚠️ الفخ الامتحاني الأكثر تكراراً في هذا الباب:</strong>
-        تتعمد وزارة النقل خلط مفهومين أساسيين في أسئلة الامتحان: هل اللوحة تشير إلى "متى يبدأ الخطر" أم "كم متراً يستمر الخطر"؟ الفيصل الهندسي الوحيد هو <strong>وجود الأسهم العمودية أو غيابها</strong>!
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello integrativo mostrato in figura A indica i metri di strada già fatta (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica la pendenza di una strada (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo mostrato in figura A indica la distanza di sicurezza da mantenere dal veicolo che sta davanti (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica la larghezza di una strada (خطأ FALSO)</li>
+        </ul>
       </div>
-
-      <div class="comparison-grid">
-        <!-- Card: Distanza -->
-        <div class="compare-card sky-tint">
-          <div class="card-header-row">
-            <span class="card-ar-title">لوحة المسافة (المسافة المتبقية لبدء الخطر أو المنع)</span>
-            <span class="card-it-title">Pannello di Distanza (Fig. 121)</span>
-          </div>
-          <div class="sign-img-wrapper">
-            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/121.png" alt="Pannello di Distanza" loading="lazy">
-          </div>
-          <ul class="card-points-list">
-            <li><span>📍</span> <strong>الشكل التايبوجرافي:</strong> رقم مجرد متبوع بوحدة القياس مثل <code>[300 m]</code> أو <code>[3,8 km]</code> <strong>بدون أي أسهم على الإطلاق</strong>.</li>
-            <li><span>🎯</span> <strong>المعنى القانوني الدقيق:</strong> تحدد المسافة الفاصلة بين موضع الإشارة وبين النقطة التي <strong>يبدأ عندها</strong> الخطر أو الإلزام أو المنع.</li>
-            <li><span>🛑</span> <strong>مع إشارات المنع والإلزام:</strong> تعني أن سريان المنع أو الأمر سيبدأ بعد قطع هذه المسافة المحددة.</li>
-            <li><span>💡</span> <strong>مع إشارات الإرشاد (Indicazione):</strong> تحدد المسافة المتبقية للوصول إلى المكان أو الخدمة الموضحة.</li>
-            <li><span>❌</span> <strong>فخاخ وزارية شائعة (FALSO):</strong> "تشير إلى طول المسافة المقطوعة بالفعل (strada già fatta)" • "تشير لطول منطقة الخطر" • "تشير لانحدار الطريق".</li>
-          </ul>
-        </div>
-
-        <!-- Card: Estensione -->
-        <div class="compare-card emerald-tint">
-          <div class="card-header-row">
-            <span class="card-ar-title">لوحة الامتداد (طول قطاع الخطر أو استمرار المنع)</span>
-            <span class="card-it-title">Pannello di Estensione (Fig. 122)</span>
-          </div>
-          <div class="sign-img-wrapper">
-            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/122.png" alt="Pannello di Estensione" loading="lazy">
-          </div>
-          <ul class="card-points-list">
-            <li><span>📏</span> <strong>الشكل التايبوجرافي:</strong> رقم يحيط به <strong>سهمان رأسيان متجهان لأعلى</strong> مثل <code>[↑ 300 m ↑]</code> أو <code>[↑ 2,8 km ↑]</code>.</li>
-            <li><span>🔄</span> <strong>المعنى القانوني الدقيق:</strong> تحدد <strong>طول وامتداد قطاع الطريق</strong> الذي يستمر فيه الخطر أو يسري فيه المنع بدءاً من موقع الإشارة.</li>
-            <li><span>⚠️</span> <strong>مع إشارات الخطر:</strong> تعني أن الخطر يبدأ بعد 150 متراً المعتادة ويستمر بطول المسافة المكتوبة بين السهمين.</li>
-            <li><span>🚫</span> <strong>مع إشارات المنع:</strong> تعني استمرار تطبيق المنع على طول هذه المسافة المحددة.</li>
-            <li><span>❌</span> <strong>فخاخ وزارية شائعة (FALSO):</strong> "الخطر يبدأ بعد 300 متر" (هذا معنى المسافة بدون أسهم!) • "تشير لعرض نهر الطريق" • "تشير لمسافة الأمان بين السيارات".</li>
-          </ul>
-        </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: خلو اللوحة من الأسهم يعني مسافة (Distanza)، أي أن الخطر لم يبدأ بعد بل يبدأ بعد قطع المسافة المكتوبة.
       </div>
-    </section>
+    </div>
 
-    <!-- SECTION 2: التوقيت والأيام -->
-    <section>
-      <h2 class="section-title">
-        <span>⏰</span>
-        <span>ثانياً: الفترات الزمنية والأيام (Fasce Orarie e Giorni)</span>
-      </h2>
-      <p style="color:var(--text-secondary); margin-bottom: 20px;">
-        تُحدد هذه اللوحات الساعات والأيام التي تكون فيها الإشارة سارية المفعول، وتعتمد الاختبارات على التمييز الصارم بين الرموز الدينية وأيام العمل.
+    <!-- Card 2: Pannelli estensione -->
+    <div class="signal-card" data-category="distanza">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/122.png" alt="Pannello integrativo di estesa (Modello 2 - Fig. 122)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة الامتداد والطول (موديل 2)</h3>
+        <span class="card-it-title">Pannello integrativo di estesa (Modello 2 - Fig. 122)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة تحمل رقماً محصوراً بين سهمين رأسيين جانبيين (↑ 3.8 km ↑)؛ تعلن أن الخطر أو المنع يبدأ فوراً عند الإشارة ويمتد متواصلاً على طول المسافة المكتوبة (مثلاً: منعطفات متتالية تمتد بطول 3.8 كم).
       </p>
-
-      <div class="comparison-grid">
-        <!-- Fascia Oraria Generale -->
-        <div class="compare-card">
-          <div class="card-header-row">
-            <span class="card-ar-title">لوحة الساعات المحددة طوال أيام الأسبوع</span>
-            <span class="card-it-title">Fascia Oraria Generale (Fig. 123)</span>
-          </div>
-          <div class="sign-img-wrapper">
-            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/123.png" alt="Fascia Oraria" loading="lazy">
-          </div>
-          <ul class="card-points-list">
-            <li><span>🕒</span> <strong>المعنى:</strong> الإشارة تسري فقط خلال الساعات المحددة (مثلاً من 08:00 إلى 20:00).</li>
-            <li><span>📅</span> <strong>نطاق السريان:</strong> تطبق في <strong>جميع أيام الأسبوع</strong> (أيام العمل وأيام العطل معاً) طالما لم يوجد رمز مخصص.</li>
-            <li><span>🌙</span> <strong>خارج هذه الساعات:</strong> تصبح الإشارة غير سارية ويُسمح بما كان ممنوعاً (مثل ركن السيارة).</li>
-          </ul>
-        </div>
-
-        <!-- Giorni Festivi -->
-        <div class="compare-card rose-tint">
-          <div class="card-header-row">
-            <span class="card-ar-title">لوحة أيام العطل والأعياد والأحد (الصليب)</span>
-            <span class="card-it-title">Giorni Festivi (Fig. 124)</span>
-          </div>
-          <div class="sign-img-wrapper">
-            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/124.png" alt="Giorni Festivi" loading="lazy">
-          </div>
-          <ul class="card-points-list">
-            <li><span>✝️</span> <strong>الرمز الدال:</strong> علامة الصليب اللاتيني <code>(✝️)</code>.</li>
-            <li><span>🎉</span> <strong>المعنى القانوني:</strong> الإشارة سارية <strong>حصراً في أيام العطلات الرسمية والأعياد وأيام الأحد (Domeniche e festivi)</strong>.</li>
-            <li><span>💼</span> <strong>أيام العمل (من الاثنين إلى السبت):</strong> الإشارة غير سارية إطلاقاً في أيام العمل العادية.</li>
-            <li><span>❌</span> <strong>فخ وزاري خادع:</strong> "يشير لوجود كنيسة أو مستشفى" ❌ FALSO! • "يسري في أيام العمل" ❌ FALSO!</li>
-          </ul>
-        </div>
-
-        <!-- Giorni Feriali -->
-        <div class="compare-card amber-tint">
-          <div class="card-header-row">
-            <span class="card-ar-title">لوحة أيام العمل والوظائف (المطرقتان)</span>
-            <span class="card-it-title">Giorni Feriali / Lavorativi (Fig. 125)</span>
-          </div>
-          <div class="sign-img-wrapper">
-            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/125.png" alt="Giorni Feriali" loading="lazy">
-          </div>
-          <ul class="card-points-list">
-            <li><span>⚒️</span> <strong>الرمز الدال:</strong> علامة المطرقتين المتقاطعتين <code>(⚒️)</code>.</li>
-            <li><span>🏢</span> <strong>المعنى القانوني:</strong> الإشارة تسري <strong>فقط في أيام العمل من الاثنين إلى السبت (Dal lunedì al sabato nei giorni non festivi)</strong>.</li>
-            <li><span>🏖️</span> <strong>أيام الأحد والعطلات:</strong> تصبح الإشارة معطلة تماماً وغير ملزمة في أيام الأحد والأعياد.</li>
-            <li><span>❌</span> <strong>فخ وزاري خادع:</strong> "يشير لمنجم أو مصنع أو ورشة حدادة" ❌ FALSO! • "يسري طوال أيام الأسبوع" ❌ FALSO!</li>
-          </ul>
-        </div>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato, posto sotto un segnale di pericolo, indica la lunghezza del tratto di strada pericoloso</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato, posto sotto un segnale di pericolo, indica la lunghezza del tratto di strada pericoloso</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato, posto sotto un segnale di obbligo, indica la lunghezza del tratto stradale nel quale vale la prescrizione del segnale</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato, posto sotto un segnale di obbligo, indica la lunghezza del tratto stradale nel quale vale la prescrizione del segnale</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato può essere posto sotto un segnale di divieto</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato può essere posto sotto un segnale di divieto</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato in figura B, posto sotto ad un segnale di pericolo, indica, in chilometri, la lunghezza del tratto di strada pericoloso</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato in figura B, posto sotto ad un segnale di pericolo, indica, in chilometri, la lunghezza del tratto di strada pericoloso</span></li>
+        </ul>
       </div>
-    </section>
-
-    <!-- SECTION 3: فئات المركبات والاستثناءات -->
-    <section>
-      <h2 class="section-title">
-        <span>🚚</span>
-        <span>ثالثاً: فئات المركبات والاستثناءات — الرمز المجرد مقابل "Eccetto"</span>
-      </h2>
-      <div class="callout-box danger">
-        <strong>⚠️ قاعدة الإلغاء أو التخصيص:</strong>
-        رمز المركبة وحده يعني "يسري عليها وحدها"، أما كلمة <strong>"Eccetto"</strong> أو <strong>"Ad eccezione di"</strong> فتعكس المعنى 180 درجة لتعني "يسري على الجميع ما عدا هذه الفئة"!
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello integrativo rappresentato in figura A obbliga a proseguire diritto per 380 metri (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo rappresentato in figura A indica la distanza di sicurezza da mantenere in caso di pioggia (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica la distanza tra il segnale e il punto d'inizio del pericolo (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato indica la distanza tra il segnale e l'inizio della strada in cattivo stato (خطأ FALSO)</li>
+        </ul>
       </div>
-
-      <div class="comparison-grid">
-        <!-- Limitazione Categorie -->
-        <div class="compare-card">
-          <div class="card-header-row">
-            <span class="card-ar-title">لوحة تخصيص المنع لفئة محددة (الرمز المجرد)</span>
-            <span class="card-it-title">Limitazione di Categoria (Fig. 126 / 901)</span>
-          </div>
-          <div class="sign-img-wrapper">
-            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/126.png" alt="Limitazione Categoria" loading="lazy">
-          </div>
-          <ul class="card-points-list">
-            <li><span>🚛</span> <strong>التركيب:</strong> رسم ظلي للمركبة (مثل شاحنة نقل بضائع) بدون أي كتابة مرافقة أسفل إشارة المنع.</li>
-            <li><span>🎯</span> <strong>المعنى:</strong> المنع أو الإلزام <strong>يخص حصراً تلك الفئة المصورة</strong>، ولا علاقة للسيارات الخاصة أو الدراجات به.</li>
-            <li><span>✅</span> <strong>مثال:</strong> إشارة منع الدخول ⛔ مع رسم شاحنة 🚚 تعني: ممنوع دخول الشاحنات فقط، ويجوز للسيارات الملاكي العبور.</li>
-          </ul>
-        </div>
-
-        <!-- Pannello Eccezione -->
-        <div class="compare-card emerald-tint">
-          <div class="card-header-row">
-            <span class="card-ar-title">لوحة الاستثناء من الإشارة (Eccetto / Ad eccezione)</span>
-            <span class="card-it-title">Pannello di Eccezione (Eccetto Autobus)</span>
-          </div>
-          <div class="sign-img-wrapper">
-            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/960.png" alt="Eccetto Autobus" loading="lazy">
-          </div>
-          <ul class="card-points-list">
-            <li><span>🚫</span> <strong>التركيب:</strong> كلمة <strong>"ECCETTO"</strong> مصحوبة برمز الحافلة أو مركبة الشرطة أو ذوي الاحتياجات الخاصة.</li>
-            <li><span>🔄</span> <strong>المعنى العاكس:</strong> الإشارة تسري وتلزم <strong>كافة المركبات الأخرى بلا استثناء، وتُعفى منها فقط</strong> الفئة المستثناة.</li>
-            <li><span>🚌</span> <strong>مثال:</strong> منع المرور مع <code>[eccetto autobus]</code> يعني: ممنوع مرور كل المركبات، ويُسمح فقط لحافلات النقل العام.</li>
-            <li><span>❌</span> <strong>فخ وزاري:</strong> يقول "الإشارة تعني منع مرور الحافلات" ❌ FALSO! بل الحافلة هي الفئة الوحيدة المسموح لها!</li>
-          </ul>
-        </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> أشهر فخ في الوزارة: السهمان الرأسيان = امتداد وطول (Estesa/Lunghezza). الرقم بدون أسهم = مسافة تبدأ بعدها الإشارة (Distanza)!
       </div>
-    </section>
+    </div>
 
-    <!-- SECTION 4: بداية واستمرار ونهاية المنع -->
-    <section>
-      <h2 class="section-title">
-        <span>↕️</span>
-        <span>رابعاً: لوحات بداية واستمرار ونهاية سريان المنع (Inizio, Continuazione, Fine)</span>
-      </h2>
-      <p style="color:var(--text-secondary); margin-bottom: 20px;">
-        توضع هذه اللوحات بكثرة تحت إشارات منع الوقوف (Divieto di sosta) والتوقف لتوضيح الحدود الجغرافية الدقيقة لمنطقة الحظر.
+    <!-- Card 3: Fascia oraria -->
+    <div class="signal-card" data-category="orari">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/943.png" alt="Pannello integrativo fascia oraria (Fig. 123)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة الفترات والساعات اليومية</h3>
+        <span class="card-it-title">Pannello integrativo fascia oraria (Fig. 123)</span>
+      </div>
+      <p class="card-desc-text">
+        تحدد الساعات التي يسري خلالها حكم الإشارة (مثل 8.00 - 20.00) طوال أيام الأسبوع بدون استثناء لأي يوم، ويكون التصرف حراً خارج تلك الساعات.
       </p>
-
-      <div class="comparison-grid">
-        <!-- Inizio -->
-        <div class="compare-card sky-tint">
-          <div class="card-header-row">
-            <span class="card-ar-title">لوحة بداية سريان المنع (سهم لأعلى)</span>
-            <span class="card-it-title">Inizio Prescrizione (Fig. 127)</span>
-          </div>
-          <div class="sign-img-wrapper">
-            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/127.png" alt="Inizio" loading="lazy">
-          </div>
-          <ul class="card-points-list">
-            <li><span>⬆️</span> <strong>الرمز:</strong> سهم وحيد متجه لأعلى <code>[↑]</code> أو كلمة <code>[INIZIO]</code> بخلفية خضراء.</li>
-            <li><span>🚩</span> <strong>المعنى:</strong> تشير إلى <strong>نقطة البداية الدقيقة</strong> لسريان المنع أو الإلزام على قطاع الطريق التالي للوحة.</li>
-            <li><span>🅿️</span> <strong>قاعدة الركن:</strong> قبل موضع اللوحة يُسمح بالوقوف، ومن بعد اللوحة يبدأ سريان المنع الصارم.</li>
-          </ul>
-        </div>
-
-        <!-- Continuazione -->
-        <div class="compare-card amber-tint">
-          <div class="card-header-row">
-            <span class="card-ar-title">لوحة استمرار سريان المنع (سهم مزدوج)</span>
-            <span class="card-it-title">Continuazione Prescrizione (Fig. 128)</span>
-          </div>
-          <div class="sign-img-wrapper">
-            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/128.png" alt="Continuazione" loading="lazy">
-          </div>
-          <ul class="card-points-list">
-            <li><span>↕️</span> <strong>الرمز:</strong> سهم ذو رأسين متعاكسين لأعلى ولأسفل <code>[↕]</code> أو كلمة <code>[CONTINUA]</code>.</li>
-            <li><span>🔄</span> <strong>المعنى:</strong> تشير إلى <strong>استمرار سريان المنع</strong> في المنطقة الواقعة قبل اللوحة وكذلك بعدها.</li>
-            <li><span>🚫</span> <strong>قاعدة الركن:</strong> الوقوف ممنوع منعاً باتاً على جانبي اللوحة (قبلها وبعدها).</li>
-          </ul>
-        </div>
-
-        <!-- Fine -->
-        <div class="compare-card rose-tint">
-          <div class="card-header-row">
-            <span class="card-ar-title">لوحة نهاية سريان المنع (سهم لأسفل)</span>
-            <span class="card-it-title">Fine Prescrizione (Fig. 129)</span>
-          </div>
-          <div class="sign-img-wrapper">
-            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/129.png" alt="Fine" loading="lazy">
-          </div>
-          <ul class="card-points-list">
-            <li><span>⬇️</span> <strong>الرمز:</strong> سهم وحيد متجه لأسفل <code>[↓]</code> أو كلمة <code>[FINE]</code> بخلفية حمراء.</li>
-            <li><span>🏁</span> <strong>المعنى:</strong> تشير إلى <strong>نهاية منطقة المنع</strong>، ومن بعد موضع هذه الإشارة ينتهي الحظر تماماً.</li>
-            <li><span>✅</span> <strong>قاعدة الركن:</strong> الوقوف كان ممنوعاً قبل اللوحة، وأصبح مسموحاً بمجرد تجاوز موضع اللوحة.</li>
-          </ul>
-        </div>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il segnale raffigurato vieta la sosta dalle ore 7.30 alle ore 19.00</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato vieta la sosta dalle ore 7.30 alle ore 19.00</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato vieta il transito dalle ore 7.30 alle 19.00</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato vieta il transito dalle ore 7.30 alle 19.00</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo (A), posto sotto il segnale (B), vieta il transito ai pedoni nelle sole ore indicate</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo (A), posto sotto il segnale (B), vieta il transito ai pedoni nelle sole ore indicate</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo rappresentato in figura B indica le ore di tutti i giorni nelle quali vale il segnale</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo rappresentato in figura B indica le ore di tutti i giorni nelle quali vale il segnale</span></li>
+        </ul>
       </div>
-    </section>
-
-    <!-- SECTION 5: الطقس والطوارئ وكاسحة الثلوج -->
-    <section>
-      <h2 class="section-title">
-        <span>❄️</span>
-        <span>خامساً: لوحات الظروف الجوية وكاسحة الثلوج ومنطقة السحب الإجباري</span>
-      </h2>
-
-      <div class="comparison-grid">
-        <!-- Sgombraneve -->
-        <div class="compare-card rose-tint">
-          <div class="card-header-row">
-            <span class="card-ar-title">لوحة كاسحة الثلوج قيد العمل (مسافة 20م الإلزامية)</span>
-            <span class="card-it-title">Macchine Sgombraneve in Azione (Fig. 133)</span>
-          </div>
-          <div class="sign-img-wrapper">
-            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/133.png" alt="Sgombraneve" loading="lazy">
-          </div>
-          <ul class="card-points-list">
-            <li><span>🚜</span> <strong>المعنى:</strong> تنبه لوجود آلات وجرافات إزالة الثلوج ونثر الملح تعمل على مسار الطريق.</li>
-            <li><span>📏</span> <strong>الرقم الإلزامي الحاسم:</strong> يجب ترك مسافة أمان لا تقل عن <strong>20 متراً على الأقل (almeno 20 m)</strong> خلف الكاسحة.</li>
-            <li><span>🚫</span> <strong>حظر التجاوز:</strong> يُمنع تماماً تجاوز كاسحة الثلوج إذا كانت تسد أو تشغل مساحة نهر الطريق.</li>
-            <li><span>❌</span> <strong>فخ وزاري:</strong> "يجب ترك مسافة 10 أمتار" ❌ FALSO (القانون يلزم بـ 20 متراً)!</li>
-          </ul>
-        </div>
-
-        <!-- Rimozione Coatta -->
-        <div class="compare-card amber-tint">
-          <div class="card-header-row">
-            <span class="card-ar-title">لوحة منطقة السحب بالونش والحجز البلدي</span>
-            <span class="card-it-title">Zona Rimozione Coatta (Fig. 140)</span>
-          </div>
-          <div class="sign-img-wrapper">
-            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/140.png" alt="Zona Rimozione" loading="lazy">
-          </div>
-          <ul class="card-points-list">
-            <li><span>🏗️</span> <strong>المعنى:</strong> توضع أسفل إشارة منع الوقوف (Divieto di sosta) لتفيد بتطبيق عقوبة السحب الإجباري بالرافعة.</li>
-            <li><span>🚛</span> <strong>إجراء الحجز:</strong> يتم قطر السيارة ونقلها إلى مستودع الحجز البلدي (Depositeria comunale).</li>
-            <li><span>💶</span> <strong>التبعات المالية:</strong> لا يتم استرداد المركبة إلا بعد سداد تكاليف الونش ورسوم الحجز اليومية بالإضافة للغرامة.</li>
-            <li><span>❌</span> <strong>فخ وزاري:</strong> "يشير لورشة صيانة أعطال الطرق" ❌ FALSO!</li>
-          </ul>
-        </div>
-
-        <!-- Ghiaccio & Pioggia -->
-        <div class="compare-card sky-tint">
-          <div class="card-header-row">
-            <span class="card-ar-title">لوحتا خطر الجليد وخطر المطر والانزلاق</span>
-            <span class="card-it-title">Ghiaccio (Fig. 137) & Pioggia (Fig. 138)</span>
-          </div>
-          <div class="sign-img-wrapper">
-            <div style="display:flex; gap:12px; align-items:center; justify-content:center;">
-              <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/137.png" alt="Ghiaccio" style="max-height:80px;" loading="lazy">
-              <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/138.png" alt="Pioggia" style="max-height:80px;" loading="lazy">
-            </div>
-          </div>
-          <ul class="card-points-list">
-            <li><span>❄️</span> <strong>بلورة الجليد (Fig. 137):</strong> تنبه لخطر تشكل الجليد على الأسفلت في حالات الصقيع أو الجسور والمناطق المظللة.</li>
-            <li><span>🌧️</span> <strong>السحابة الممطرة (Fig. 138):</strong> تنبه لاحتمال فقدان الالتصاق وخطر الانزلاق المائي (Aquaplaning) عند هطول الأمطار.</li>
-            <li><span>🚗</span> <strong>الإجراء الواجب:</strong> تخفيف السرعة وزيادة مسافة الأمان وتجنب الفرملة المفاجئة.</li>
-          </ul>
-        </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il segnale raffigurato consente il transito ai motocicli nelle sole ore indicate (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato indica che il clacson può essere usato dalle ore 7.30 alle ore 19.00 (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato indica l’orario di apertura di una zona a traffico limitato (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo rappresentato in figura B indica in quali ore si può circolare a fari spenti (خطأ FALSO)</li>
+        </ul>
       </div>
-    </section>
-
-    <!-- SECTION 6: مسار الطريق ذي الأسبقية ومسافات السكة الحديد -->
-    <section>
-      <h2 class="section-title">
-        <span>🛤️</span>
-        <span>سادساً: مسار الطريق الرئيسي ذي الأسبقية ولوحات مسافة مزلقان القطار</span>
-      </h2>
-
-      <div class="comparison-grid">
-        <!-- Andamento Strada Principale -->
-        <div class="compare-card emerald-tint">
-          <div class="card-header-row">
-            <span class="card-ar-title">لوحة مسار الطريق ذي الأسبقية عند التقاطعات</span>
-            <span class="card-it-title">Andamento della Strada Principale (Fig. 145/146)</span>
-          </div>
-          <div class="sign-img-wrapper">
-            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/145.png" alt="Andamento Strada" loading="lazy">
-          </div>
-          <ul class="card-points-list">
-            <li><span>📐</span> <strong>قراءة المخطط:</strong> الخط الأسود <strong>العريض والسميك</strong> يمثل الطريق الرئيسي المحتفظ بحق الأسبقية.</li>
-            <li><span>〰️</span> <strong>الخطوط الرفيعة:</strong> تمثل شوارع جانبية وثانوية ملزمة قانوناً بإعطاء الأسبقية لحركة المرور على الخط العريض.</li>
-            <li><span>🔄</span> <strong>الانعطاف مع المسار:</strong> السائق الذي يتبع الخط العريض يظل متمتعاً بالأسبقية على القادمين من الفروع الرفيعة.</li>
-            <li><span>❌</span> <strong>فخ وزاري:</strong> "يشير لمنعطف خطير نحو اليسار" ❌ FALSO (هذه لوحة إضافية توضح مسار الأسبقية وليست إشارة خطر للمنعطفات)!</li>
-          </ul>
-        </div>
-
-        <!-- Pannelli Distanziometrici -->
-        <div class="compare-card rose-tint">
-          <div class="card-header-row">
-            <span class="card-ar-title">لوحات مسافة مزلقان السكة الحديدية (150م - 100م - 50م)</span>
-            <span class="card-it-title">Pannelli Distanziometrici (Fig. 82)</span>
-          </div>
-          <div class="sign-img-wrapper">
-            <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/82.png" alt="Pannelli Distanziometrici" loading="lazy">
-          </div>
-          <ul class="card-points-list">
-            <li><span>🔴</span> <strong>اللوحة الأولى (3 شرط حمراء مائلة):</strong> توضع أسفل إشارة الخطر على بعد <strong>150 متراً</strong> من القضبان.</li>
-            <li><span>🔴</span> <strong>اللوحة الثانية (شرطتان حمراوان):</strong> توضع عند ثلثي المسافة على بعد <strong>100 متر</strong>.</li>
-            <li><span>🔴</span> <strong>اللوحة الثالثة (شرطة حمراء واحدة):</strong> توضع على بعد <strong>50 متراً</strong> فقط من تقاطع القطار.</li>
-            <li><span>📍</span> <strong>قاعدة هامة:</strong> تستخدم مع المزلقانات ذات الحواجز (Con barriere) وبدون حواجز (Senza barriere) على حد سواء.</li>
-          </ul>
-        </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: تسري يومياً طوال أيام الأسبوع طالما لم يقترن بها رمز المطارق أو الصلبان.
       </div>
-    </section>
+    </div>
 
-    <!-- SECTION 7: القاموس التقني المبوب -->
-    <section>
-      <h2 class="section-title">
-        <span>📖</span>
-        <span>سابعاً: القاموس التقني المبوب للباب العاشر (Glossario A2-B1)</span>
-      </h2>
-
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>المصطلح الإيطالي (Termine)</th>
-              <th>النطق الصوتي والترجمة العربية</th>
-              <th>السياق والوظيفة في الامتحان الوزاري</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>Pannello di distanza</code></td>
-              <td>بانيلّو دي ديستانتسا — لوحة المسافة</td>
-              <td>رقم مجرد يحدد المسافة الفاصلة حتى بداية الخطر أو المنع.</td>
-            </tr>
-            <tr>
-              <td><code>Pannello di estensione</code></td>
-              <td>بانيلّو دي إيستينسيوني — لوحة الامتداد</td>
-              <td>رقم محاط بسهمين لأعلى يحدد طول واستمرار قطاع الخطر.</td>
-            </tr>
-            <tr>
-              <td><code>Giorni festivi</code></td>
-              <td>جورني فيستيفي — أيام العطل والأعياد</td>
-              <td>يرمز لها بالصليب وتشمل أيام الأحد والأعياد المعطلة رسمياً.</td>
-            </tr>
-            <tr>
-              <td><code>Giorni feriali</code></td>
-              <td>جورني فيريالي — أيام العمل</td>
-              <td>يرمز لها بالمطرقتين وتشمل أيام العمل من الاثنين إلى السبت.</td>
-            </tr>
-            <tr>
-              <td><code>Fascia oraria</code></td>
-              <td>فاشا أوراريا — الفترة الزمنية</td>
-              <td>تحديد ساعات محددة من اليوم تسري خلالها تعليمات الإشارة.</td>
-            </tr>
-            <tr>
-              <td><code>Eccetto / Ad eccezione di</code></td>
-              <td>إيتشيتّو — ما عدا / باستثناء</td>
-              <td>تفيد استثناء الفئة المذكورة من حظر الإشارة وسريانه على البقية.</td>
-            </tr>
-            <tr>
-              <td><code>Sgombraneve in azione</code></td>
-              <td>زغومبرانيفي إن أتسيوني — كاسحة ثلوج</td>
-              <td>توجب ترك مسافة أمان لا تقل عن 20 متراً ومنع التجاوز.</td>
-            </tr>
-            <tr>
-              <td><code>Rimozione coatta</code></td>
-              <td>ريموتسيوني كواتّا — سحب إجباري بالونش</td>
-              <td>عقوبة قطر السيارة للحجز عند الوقوف المخالف على نفقة المالك.</td>
-            </tr>
-            <tr>
-              <td><code>Andamento della strada</code></td>
-              <td>أندامينتو ديلا سترادا — مسار الطريق</td>
-              <td>توضيح اتجاه الخط ذي الأسبقية عبر الخطوط العريضة.</td>
-            </tr>
-            <tr>
-              <td><code>Pannelli distanziometrici</code></td>
-              <td>ديستانتسيوميتريتشي — لوحات المسافة</td>
-              <td>لوحات الخطوط الحمراء الثلاثة (150م - 100م - 50م) لمزلقان القطار.</td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- Card 4: Fascia oraria giorni festivi -->
+    <div class="signal-card" data-category="orari">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/124.png" alt="Fascia oraria giorni festivi (Fig. 124)">
       </div>
-    </section>
-
-    <!-- SECTION 8: محاكي بنك الفخاخ الوزارية التفاعلي -->
-    <section class="quiz-section">
-      <h2 class="section-title">
-        <span>⚡</span>
-        <span>ثامناً: بنك الفخاخ الوزارية التفاعلي (10 أسئلة حاسمة من الامتحانات الرسمية)</span>
-      </h2>
-      <p style="color:var(--text-secondary); margin-bottom: 24px;">
-        اختبر معلوماتك في فخاخ اللوحات الإضافية. انقر على الإجابة لتتحقق فوراً مع التعليل الوزاري المعتمد.
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة سريان أيام العطلات والأعياد</h3>
+        <span class="card-it-title">Fascia oraria giorni festivi (Fig. 124)</span>
+      </div>
+      <p class="card-desc-text">
+        تحمل رمز صليبين متجاورين إلى جانب التوقيت؛ تدل على أن حكم الإشارة (مثل منع الوقوف أو حظر المرور) يسري حصراً في أيام الآحاد والعطلات الرسمية (Giorni Festivi).
       </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato limita la validità del segnale sotto cui è posto ai giorni festivi e alla fascia oraria indicata</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato limita la validità del segnale sotto cui è posto ai giorni festivi e alla fascia oraria indicata</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato, posto sotto un segnale di prescrizione, precisa che il segnale vale solo nei giorni festivi e nelle fasce orarie indicate</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato, posto sotto un segnale di prescrizione, precisa che il segnale vale solo nei giorni festivi e nelle fasce orarie indicate</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato consente il transito nei giorni festivi e nelle fasce orarie indicate ai soli pedoni</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato consente il transito nei giorni festivi e nelle fasce orarie indicate ai soli pedoni</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato vieta la sosta nella fascia oraria indicata, dei giorni festivi</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato vieta la sosta nella fascia oraria indicata, dei giorni festivi</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello integrativo raffigurato indica l'orario d'ingresso nel cimitero (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica l'orario di apertura delle chiese (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica l'orario di celebrazione delle funzioni religiose (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato indica che si può parcheggiare tutti i giorni nella fascia oraria indicata (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: رمز الصلبان اللاتينية = أيام العطلات والآحاد (Festivi). لا يسري في أيام العمل العادية من الاثنين إلى السبت.
+      </div>
+    </div>
 
-      <!-- Quiz 1 -->
-      <div class="quiz-card" data-correct="vero">
-        <div class="quiz-header">
-          <span class="quiz-tag">Fig. 121 — Distanza</span>
+    <!-- Card 5: Fascia oraria giorni lavorativi -->
+    <div class="signal-card" data-category="orari">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/125.png" alt="Fascia oraria giorni lavorativi (Fig. 125)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة سريان أيام العمل والدوام</h3>
+        <span class="card-it-title">Fascia oraria giorni lavorativi (Fig. 125)</span>
+      </div>
+      <p class="card-desc-text">
+        تحمل رمز مطرقتين متقاطعتين إلى جانب التوقيت؛ تدل على أن الإشارة تسري حصراً في أيام العمل الرسمية من الاثنين إلى السبت (Giorni Lavorativi/Feriali)، ولا تسري في أيام الآحاد والعطلات.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato, posto sotto un segnale, ne limita la validità nei giorni lavorativi e alle fasce orarie indicate</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato, posto sotto un segnale, ne limita la validità nei giorni lavorativi e alle fasce orarie indicate</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato vieta il transito nella fascia oraria indicata, dei giorni lavorativi</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato vieta il transito nella fascia oraria indicata, dei giorni lavorativi</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica la fascia oraria dei giorni lavorativi durante la quale vale la prescrizione del segnale sotto cui è posto</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica la fascia oraria dei giorni lavorativi durante la quale vale la prescrizione del segnale sotto cui è posto</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato vieta la sosta nella fascia oraria indicata dei giorni lavorativi</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato vieta la sosta nella fascia oraria indicata dei giorni lavorativi</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello integrativo raffigurato indica che il segnale al quale è abbinato vale tutti i giorni, ma solo nelle ore indicate (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica gli orari di apertura di un museo di attrezzi da lavoro (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica la fascia oraria di apertura delle officine di soccorso stradale (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato è riservato ai veicoli per il soccorso stradale (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: المطرقتان = أيام العمل الرسمية (Lavorativi). السبت يعتبر يوم عمل قانوناً (Feriale) ما لم يوافق عطلة رسمية.
+      </div>
+    </div>
+
+    <!-- Card 6: Inizio prescrizione -->
+    <div class="signal-card" data-category="validita">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/128.png" alt="Pannello inizio prescrizione (Fig. 128)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة بداية سريان الإلزام أو الحظر</h3>
+        <span class="card-it-title">Pannello inizio prescrizione (Fig. 128)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة بسهم يشير لأعلى (Inizio) أو كلمة Inizio؛ توضع أسفل إشارات المنع أو الوقوف لتعلن النقطة الدقيقة التي يبدأ منها سريان الحظر باتجاه السير للأمام.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il pannello integrativo (A), posto sotto un segnale di divieto, evidenzia il punto d'inizio della prescrizione</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo (A), posto sotto un segnale di divieto, evidenzia il punto d'inizio della prescrizione</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato indica che il divieto di sosta ha inizio in quel punto</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica che il divieto di sosta ha inizio in quel punto</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato evidenzia l'inizio dell'area dove è possibile parcheggiare</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato evidenzia l'inizio dell'area dove è possibile parcheggiare</span></li>
+          <li><span>•</span> <strong>il segnale raffigurato evidenzia il punto d'inizio del divieto di fermata</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">il segnale raffigurato evidenzia il punto d'inizio del divieto di fermata</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello raffigurato (A) indica una strada in salita (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello raffigurato (A) indica l'obbligo di proseguire diritto (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello raffigurato (A) indica la fine di una strada a senso unico (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello raffigurato (B) indica la corsia riservata agli autobus urbani (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: السهم للأعلى يعني نقطة البداية، ولا يعني أنه يسمح بالوقوف قبل الإشارة إذا كانت القواعد العامة تحظره.
+      </div>
+    </div>
+
+    <!-- Card 7: Continuazione prescrizione -->
+    <div class="signal-card" data-category="validita">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/939.png" alt="Pannello continuazione prescrizione (Fig. 129)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة استمرار سريان الإلزام أو الحظر</h3>
+        <span class="card-it-title">Pannello continuazione prescrizione (Fig. 129)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة بسهمين متقابلين متعاكسين (أعلى وأسفل) أو كلمة Continua؛ توضع لتأكيد أن الحظر أو المنع ما زال سارياً ومستمراً قبل وبعد موضع الإشارة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il segnale raffigurato indica che il divieto di sosta continua</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica che il divieto di sosta continua</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato conferma la continuazione del divieto di sorpasso</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato conferma la continuazione del divieto di sorpasso</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato indica la continuazione del limite massimo di velocità</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica la continuazione del limite massimo di velocità</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato indica la continuazione del tratto di strada sdrucciolevole</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica la continuazione del tratto di strada sdrucciolevole</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello integrativo raffigurato (A) indica di tornare indietro (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato indica la fine della zona destinata al parcheggio (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato (A) indica un senso unico alternato (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato (A), posto sotto un segnale di pericolo, ne indica la fine (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: تؤكد استمرار المنع السابق ولا تنشئ منعاً جديداً، وتذكر السائق بأنه ما زال داخل منطقة الحظر.
+      </div>
+    </div>
+
+    <!-- Card 8: Termine prescrizione -->
+    <div class="signal-card" data-category="validita">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/944.png" alt="Pannello fine prescrizione (Fig. 130)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة نهاية سريان الإلزام أو الحظر</h3>
+        <span class="card-it-title">Pannello fine prescrizione (Fig. 130)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة بسهم يشير لأسفل (Fine) أو كلمة Fine؛ تعلن النقطة الدقيقة التي ينتهي عندها مفعول الحظر أو منع الوقوف والعودة للقواعد العامة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il segnale raffigurato indica il punto nel quale termina il divieto di sosta</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica il punto nel quale termina il divieto di sosta</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato indica il punto dove termina il divieto di fermata</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica il punto dove termina il divieto di fermata</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato indica la fine del cantiere stradale</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica la fine del cantiere stradale</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato indica la fine dell'area destinata al parcheggio</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica la fine dell'area destinata al parcheggio</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello integrativo raffigurato (A) indica una strada in discesa (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato (B), posto sotto il segnale PARCHEGGIO, indica l'inizio della zona destinata al parcheggio (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato (A), posto sotto un segnale di divieto, indica l'inizio del divieto (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato (A) indica una strada chiusa al traffico (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: السهم لأسفل يعني نهاية الحظر للأمام، لكن المنع كان سارياً في المسافة السابقة قبل هذه اللوحة.
+      </div>
+    </div>
+
+    <!-- Card 9: Pannelli limitazione -->
+    <div class="signal-card" data-category="categorie">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/926.png" alt="Limitazione a specifiche categorie di veicoli (Fig. 127)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحات تخصيص وسريان الفئات</h3>
+        <span class="card-it-title">Limitazione a specifiche categorie di veicoli (Fig. 127)</span>
+      </div>
+      <p class="card-desc-text">
+        تحمل رمز فئة معينة من المركبات (مثل الشاحنات، الحافلات، السيارات، أو ذوي الإعاقة) لتقصر مفعول الإشارة حصراً على الفئة المرسومة دون غيرها من المركبات.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il segnale raffigurato vieta il transito ai soli veicoli indicati</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato vieta il transito ai soli veicoli indicati</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato vieta la sosta ai veicoli indicati</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato vieta la sosta ai veicoli indicati</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato vieta la sosta agli autoarticolati</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato vieta la sosta agli autoarticolati</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica che il segnale al quale è abbinato vale solo per i veicoli rappresentati</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica che il segnale al quale è abbinato vale solo per i veicoli rappresentati</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello integrativo raffigurato indica un'officina meccanica per autotreni (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica una stazione di rifornimento per soli mezzi pesanti (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato consente la sosta agli autoarticolati (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato prescrive che possono transitare gli autoarticolati (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: إذا كانت الإشارة ممنوع المرور وتحتها رمز شاحنة، فالحظر يقتصر على الشاحنات فقط وتمر السيارات العادية بحرية.
+      </div>
+    </div>
+
+    <!-- Card 10: Pannelli eccezione -->
+    <div class="signal-card" data-category="categorie">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/967.png" alt="Pannelli integrativi di eccezione (Eccetto)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحات الاستثناء (Eccetto)</h3>
+        <span class="card-it-title">Pannelli integrativi di eccezione (Eccetto)</span>
+      </div>
+      <p class="card-desc-text">
+        تحمل كلمة (Eccetto) مع رمز الفئة؛ تعني أن الإشارة تلزم أو تمنع جميع مستخدمي الطريق باستثناء الفئة المذكورة (مثل: ممنوع الدخول ما عدا الحافلات Eccetto Autobus).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il segnale in figura consente l'accesso solo agli autobus</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale in figura consente l'accesso solo agli autobus</span></li>
+          <li><span>•</span> <strong>Il segnale in figura permette di transitare solo agli autobus</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale in figura permette di transitare solo agli autobus</span></li>
+          <li><span>•</span> <strong>Il segnale in figura indica che possono parcheggiare tutti i veicoli tranne gli autobus</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale in figura indica che possono parcheggiare tutti i veicoli tranne gli autobus</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo in figura può essere abbinato ad un segnale di obbligo</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo in figura può essere abbinato ad un segnale di obbligo</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il segnale in figura vieta l'accesso agli autobus (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale in figura vieta il transito agli autobus (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo in figura può trovarsi da solo (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo in figura vale solo per gli autobus urbani (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان الحاسم: بدون كلمة Eccetto = الحظر ينطبق على الفئة. بوجود كلمة Eccetto = الفئة هي الوحيدة المعفاة من الحظر!
+      </div>
+    </div>
+
+    <!-- Card 11: Andamento strada -->
+    <div class="signal-card" data-category="precedenza">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/146.png" alt="Andamento della strada principale (Fig. 131-135)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">خريطة مسارات وأسبقية التقاطع</h3>
+        <span class="card-it-title">Andamento della strada principale (Fig. 131-135)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة توضح المخطط الهندسي للتقاطع: الخط العريض الأسود يمثل مسار الطريق ذي الأسبقية (Strada principale)، بينما الخطوط الرفيعة تمثل الطرق الفرعية الملزمة بإعطاء الأسبقية.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>I pannelli integrativi in figura vengono posti sotto i segnali di diritto di precedenza</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">I pannelli integrativi in figura vengono posti sotto i segnali di diritto di precedenza</span></li>
+          <li><span>•</span> <strong>I pannelli integrativi in figura indicano una intersezione, distinguendo la strada principale dalle strade secondarie</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">I pannelli integrativi in figura indicano una intersezione, distinguendo la strada principale dalle strade secondarie</span></li>
+          <li><span>•</span> <strong>I pannelli integrativi in figura posti in vicinanza di una intersezione, indicano l'andamento della strada principale</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">I pannelli integrativi in figura posti in vicinanza di una intersezione, indicano l'andamento della strada principale</span></li>
+          <li><span>•</span> <strong>I pannelli integrativi in figura possono trovarsi sotto il segnale INTERSEZIONE CON DIRITTO DI PRECEDENZA</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">I pannelli integrativi in figura possono trovarsi sotto il segnale INTERSEZIONE CON DIRITTO DI PRECEDENZA</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> I pannelli in figura (B) e (C) indicano una curva pericolosa (خطأ FALSO)</li>
+          <li><span>•</span> I pannelli integrativi in figura indicano come lasciare il veicolo in sosta (خطأ FALSO)</li>
+          <li><span>•</span> I pannelli integrativi in figura vengono posti anche sulle autostrade (خطأ FALSO)</li>
+          <li><span>•</span> I pannelli integrativi in figura indicano strade senza uscita (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: الأسبقية لمن يسير متبعاً مسار الخط العريض، حتى لو كان ينعطف يميناً أو يساراً في التقاطع!
+      </div>
+    </div>
+
+    <!-- Card 12: Zona rimozione -->
+    <div class="signal-card" data-category="pericoli">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/141.png" alt="Zona rimozione coatta e carrorottrice (Fig. 136)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منطقة سحب المركبات بالرافعة</h3>
+        <span class="card-it-title">Zona rimozione coatta e carrorottrice (Fig. 136)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة برسم رافعة تسحب سيارة؛ توضع أسفل إشارة منع الوقوف (Divieto di sosta) لتنذر بأن الوقوف المخالف يعرض المركبة للقطر والسحب الإجباري الفوري إلى الحجز وحساب الغرامات على المالك.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica che il veicolo lasciato in sosta può essere portato via dal carro-attrezzi</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica che il veicolo lasciato in sosta può essere portato via dal carro-attrezzi</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato indica che il veicolo può essere spostato in una depositeria comunale</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica che il veicolo può essere spostato in una depositeria comunale</span></li>
+          <li><span>•</span> <strong>In presenza del segnale raffigurato i veicoli al servizio di persone diversamente abili, muniti di apposito contrassegno, non possono essere portati nella depositeria comunale, né bloccati con le ganasce</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">In presenza del segnale raffigurato i veicoli al servizio di persone diversamente abili, muniti di apposito contrassegno, non possono essere portati nella depositeria comunale, né bloccati con le ganasce</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica una zona di divieto di sosta con rimozione del veicolo</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica una zona di divieto di sosta con rimozione del veicolo</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello integrativo raffigurato indica la presenza di officine attrezzate per il soccorso stradale (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica l'imbarco delle autovetture sui treni merce (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica un'officina meccanica attrezzata per il cambio d'olio (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica che possono sostare i veicoli per il soccorso stradale (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: تسري في الساعات المحددة، وفي غياب الساعات تسري على مدار 24 ساعة في الشوارع الحيوية.
+      </div>
+    </div>
+
+    <!-- Card 13: Strada ghiacciata -->
+    <div class="signal-card" data-category="pericoli">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/916.png" alt="Pericolo di ghiaccio o formazione di ghiaccio (Fig. 138)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة خطر تكون الجليد والصقيع</h3>
+        <span class="card-it-title">Pericolo di ghiaccio o formazione di ghiaccio (Fig. 138)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة بيضاء برمز بلورة ثلجية؛ توضع أسفل إشارات الخطر لتحذر من أن الطريق معرض لتكون طبقات جليدية غير مرئية (Ghiaccio) خاصة في الجسور والأنفاق والمناطق المظللة والباردة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il segnale raffigurato indica la possibilità di trovare un tratto di strada sdrucciolevole a causa di ghiaccio</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica la possibilità di trovare un tratto di strada sdrucciolevole a causa di ghiaccio</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica la possibilità di trovare tratti di strada ghiacciati</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica la possibilità di trovare tratti di strada ghiacciati</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica, in caso di bassa temperatura, la presenza di tratti pericolosi per ghiaccio</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica, in caso di bassa temperatura, la presenza di tratti pericolosi per ghiaccio</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica, su strade coperte di neve, il pericolo di formazione di ghiaccio</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica, su strade coperte di neve, il pericolo di formazione di ghiaccio</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello integrativo raffigurato indica la presenza nelle vicinanze di impianti di risalita (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica la strada da prendere per raggiungere le alpi (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica la presenza nelle vicinanze di una stazione sciistica (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato invita ad usare le luci di emergenza durante la sosta (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: رمز بلورة الثلج يعني جليداً على الأسفلت (Ghiaccio)، ولا يعني بالضرورة تساقط ثلوج في تلك اللحظة.
+      </div>
+    </div>
+
+    <!-- Card 14: Strada pioggia -->
+    <div class="signal-card" data-category="pericoli">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/139.png" alt="Pericolo di scivolamento per pioggia (Fig. 137)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة خطر الانزلاق عند هطول المطر</h3>
+        <span class="card-it-title">Pericolo di scivolamento per pioggia (Fig. 137)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة برسم سحابة تمطر وقطرات ماء متساقطة؛ تحذر من أن سطح الطريق يصبح شديد الانزلاق ويفقد التماسك عند هطول الأمطار، وتلزم بزيادة مسافة الأمان وتخفيض السرعة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica un tratto di strada pericoloso in caso di pioggia</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica un tratto di strada pericoloso in caso di pioggia</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato invita, in caso di pioggia, ad aumentare la distanza di sicurezza</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato invita, in caso di pioggia, ad aumentare la distanza di sicurezza</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica che quando piove la strada può diventare sdrucciolevole</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica che quando piove la strada può diventare sdrucciolevole</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica che in caso di pioggia si può trovare del fango sulla strada</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica che in caso di pioggia si può trovare del fango sulla strada</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello integrativo raffigurato indica un autolavaggio nelle vicinanze (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica la presenza di una stazione meteorologica nelle vicinanze (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica di fare attenzione agli autocarri in transito, per la possibile perdita del carico trasportato (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica un tratto di strada con probabile formazione di nuvole di polvere (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: تسري وتلزم بالحذر المضاعف عند ابتلال الطريق فقط؛ الأمطار تؤدي لخطر الانزلاق المائي (Aquaplaning).
+      </div>
+    </div>
+
+    <!-- Card 15: Presenza code -->
+    <div class="signal-card" data-category="pericoli">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/136.png" alt="Pericolo di code o rallentamento del traffico (Fig. 140)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة خطر ازدحام وطوابير المركبات</h3>
+        <span class="card-it-title">Pericolo di code o rallentamento del traffico (Fig. 140)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة برسم سيارات متتالية تقترب من بعضها؛ تنبه لاحتمال مفاجئ بوجود طوابير سيارات متوقفة أو بطيئة بسبب اختناق مروري أو حوادث أو ورش عمل وتلزم بتخفيف السرعة مبكراً.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica la possibilità di trovare traffico intenso, con formazione di colonne di veicoli</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica la possibilità di trovare traffico intenso, con formazione di colonne di veicoli</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica la possibilità di trovare veicoli fermi in colonna</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica la possibilità di trovare veicoli fermi in colonna</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato si può trovare all'ingresso delle autostrade, per indicare che vi sono veicoli in lento movimento</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato si può trovare all'ingresso delle autostrade, per indicare che vi sono veicoli in lento movimento</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato invita ad usare prudenza, per non tamponare veicoli fermi per intasamento del traffico</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato invita ad usare prudenza, per non tamponare veicoli fermi per intasamento del traffico</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello raffigurato indica un'area di parcheggio per autovetture (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica che la corsia di sinistra è riservata ai veicoli che pagano il pedaggio autostradale tramite telepass (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica una strada a senso unico (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica l'obbligo di sorpassare a sinistra (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: تفرض الاستعداد للتوقف التام وتفادي الاصطدام المتسلسل (Tamponamento).
+      </div>
+    </div>
+
+    <!-- Card 16: Presenza incidente -->
+    <div class="signal-card" data-category="pericoli">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/132.png" alt="Incidente stradale con intralcio (Fig. 139)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة حادث مروري يعرقل السير</h3>
+        <span class="card-it-title">Incidente stradale con intralcio (Fig. 139)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة برسم سيارتين متصادمتين؛ تحذر من وجود حادث سير أمامك يشغل جزءاً من نهر الطريق، وتلزم بالحذر الشديد وتفسيح المجال لمركبات الإسعاف والإنقاذ والشرطة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato invita a rallentare a causa di un incidente</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato invita a rallentare a causa di un incidente</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica veicoli incidentati sulla carreggiata</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica veicoli incidentati sulla carreggiata</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato segnala che la carreggiata è occupata da veicoli incidentati</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato segnala che la carreggiata è occupata da veicoli incidentati</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato segnala un incidente stradale e che quindi occorre diminuire la velocità</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato segnala un incidente stradale e che quindi occorre diminuire la velocità</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello integrativo raffigurato indica una strada sdrucciolevole (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica di fermarsi e dare la precedenza a destra (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato si trova solo se l'incidente è avvenuto in autostrada (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica un divieto di sosta (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: لا تمنع المرور لكنها تفرض تخفيض السرعة القصوى وعدم التباطؤ بدافع الفضول للتفرج على الحادث.
+      </div>
+    </div>
+
+    <!-- Card 17: Sgombraneve -->
+    <div class="signal-card" data-category="pericoli">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/134.png" alt="Presenza di macchine sgombraneve al lavoro (Fig. 141)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة آليات وكاسحات إزالة الثلوج</h3>
+        <span class="card-it-title">Presenza di macchine sgombraneve al lavoro (Fig. 141)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة برسم شاحنة كاسحة ثلوج؛ تحذر من وجود آليات تنظيف وإزالة الثلوج تعمل على الطريق، وتلزم بالحفاظ على مسافة أمان لا تقل عن 20 متراً خلفها في الطرق العادية و 100 متر في الأوتوستراد.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica la presenza di macchine sgombraneve al lavoro sulla strada</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica la presenza di macchine sgombraneve al lavoro sulla strada</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato è abbinato al segnale ALTRI PERICOLI</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato è abbinato al segnale ALTRI PERICOLI</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato invita a diminuire la velocità per la presenza di macchine sgombraneve in funzione</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato invita a diminuire la velocità per la presenza di macchine sgombraneve in funzione</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato invita a mantenere una distanza di almeno 20 metri dalle macchine sgombraneve in funzione</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato invita a mantenere una distanza di almeno 20 metri dalle macchine sgombraneve in funzione</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello integrativo raffigurato indica la costruzione di un parco giochi nelle vicinanze (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica il divieto di transito alle macchine sgombraneve (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica l'obbligo di montare le catene (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato obbliga a stare distanti 100 metri dallo sgombraneve in funzione (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان الوزاري: تفرض مسافة أمان صارمة خلف كاسحة الثلوج (20 متراً على الأقل) وتمنع تجاوزها إذا كانت تنثر الملح أو تعيق الطريق.
+      </div>
+    </div>
+
+    <!-- Card 18: Mezzi lavoro -->
+    <div class="signal-card" data-category="pericoli">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/137.png" alt="Uscita o entrata autocarri e mezzi di lavoro (Fig. 142)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة خروج ودخول آليات ورش العمل</h3>
+        <span class="card-it-title">Uscita o entrata autocarri e mezzi di lavoro (Fig. 142)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة برسم شاحنة قلاب تفرغ حمولتها؛ تنبه لاحتمال خروج أو مناورة آليات ورش عمل بطيئة محملة بالأتربة أو الحصى، مع احتمال وجود طين أو بقايا حفر على نهر الطريق.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica la possibile presenza di macchine operatrici in movimento</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica la possibile presenza di macchine operatrici in movimento</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica che sulla corsia possono esserci pale meccaniche al lavoro</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica che sulla corsia possono esserci pale meccaniche al lavoro</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica che sulla strada possono esserci escavatori in movimento</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica che sulla strada possono esserci escavatori in movimento</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato invita ad usare particolare prudenza per la presenza di pale meccaniche in movimento</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato invita ad usare particolare prudenza per la presenza di pale meccaniche in movimento</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello integrativo raffigurato indica la presenza di veicoli militari (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica un'area per lo scarico della spazzatura (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato si trova prima di un ponte, per vietare il transito alle macchine operatrici (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica una strada riservata alle sole macchine operatrici (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: تنبه لاحتمال خروج شاحنات ثقيلة مفاجئة ووجود مواد منزلقة على الأسفلت.
+      </div>
+    </div>
+
+    <!-- Card 19: Autocarri rallentamento -->
+    <div class="signal-card" data-category="pericoli">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/140.png" alt="Corsia per autocarri lenti in salita (Fig. 143)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة بطء الشاحنات في المرتفعات</h3>
+        <span class="card-it-title">Corsia per autocarri lenti in salita (Fig. 143)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة برسم شاحنة تصعد منحدراً؛ تنبه السائقين إلى أن الشاحنات الثقيلة تسير ببطء شديد في المرتفعات القادمة، وتدعو لعدم التجاوز الخطر وحفظ مسافة أمان مناسبة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica un tratto di strada in salita con probabile presenza di autocarri che marciano a bassa velocità</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica un tratto di strada in salita con probabile presenza di autocarri che marciano a bassa velocità</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica un tratto di strada in ripida salita che costringe gli autocarri a rallentare</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica un tratto di strada in ripida salita che costringe gli autocarri a rallentare</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica di fare attenzione per la probabile presenza di veicoli pesanti in lento movimento</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica di fare attenzione per la probabile presenza di veicoli pesanti in lento movimento</span></li>
+          <li><span>•</span> <strong>In presenza del segnale raffigurato il conducente deve moderare la velocità per la possibile presenza di autocarri in lento movimento</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">In presenza del segnale raffigurato il conducente deve moderare la velocità per la possibile presenza di autocarri in lento movimento</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello integrativo raffigurato indica un tratto di strada chiuso a causa di un tamponamento (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica che è vietato sorpassare gli autocarri (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato si trova nei pontili d'imbarco delle navi traghetto (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica di diminuire la distanza di sicurezza (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: توضع في بداية المنحدرات الصاعدة وتلزم الشاحنات البطيئة بالتزام المسار الأيمن.
+      </div>
+    </div>
+
+    <!-- Card 20: Presenza tornanti -->
+    <div class="signal-card" data-category="distanza">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/143.png" alt="Serie di tornanti e numero progressivo (Fig. 144)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة عدد وترقيم المنعطفات الجبلية</h3>
+        <span class="card-it-title">Serie di tornanti e numero progressivo (Fig. 144)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة برسم منعطف حاد ومكتوب بها رقم؛ تشير إلى رقم المنعطف الحاد التتابعي (Tornante) أو عدد المنعطفات الحادة المتتالية في الطرق الجبلية الملتوية.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il pannello integrativo in figura (A) indica la vicinanza di una o più curve strette</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo in figura (A) indica la vicinanza di una o più curve strette</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo in figura (B) indica la vicinanza di una o più curve particolarmente pericolose</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo in figura (B) indica la vicinanza di una o più curve particolarmente pericolose</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo in figura (A) può indicare uno o più tornanti</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo in figura (A) può indicare uno o più tornanti</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo in figura (B) si può trovare sotto il segnale di CURVA o DOPPIA CURVA</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo in figura (B) si può trovare sotto il segnale di CURVA o DOPPIA CURVA</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello integrativo di figura B indica il numero di corsie di cui è composta la strada (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo di figura B indica quanti veicoli contemporaneamente possono percorrere la curva (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo di figura B indica quanti chilometri mancano per poter trovare un cavalcavia che consente di invertire il senso di marcia (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo di figura B indica il numero degli svincoli autostradali (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: لا تشير إلى نسبة انحدار الطريق، بل ترقم المنعطفات الحادة وتفرض استخدام غيار سرعة منخفض.
+      </div>
+    </div>
+
+    <!-- Card 21: Zona allagamento -->
+    <div class="signal-card" data-category="pericoli">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/135.png" alt="Pericolo di allagamento o marea (Fig. 145)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة خطر فيضان وغمر المياه</h3>
+        <span class="card-it-title">Pericolo di allagamento o marea (Fig. 145)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة برسم رصيف ومياه بحر؛ تحذر من أن هذا المقطع من الطريق معرض للغمر بمياه الأمطار الغزيرة أو ظاهرة المد البحري، ويجب تجنب عبوره في حالة ارتفاع منسوب المياه.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica una strada che in caso di forte pioggia si può allagare</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica una strada che in caso di forte pioggia si può allagare</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica che stiamo percorrendo un tratto di strada che può allagarsi in caso di forte pioggia</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica che stiamo percorrendo un tratto di strada che può allagarsi in caso di forte pioggia</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato indica che la strada si può allagare in caso di forte pioggia</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica che la strada si può allagare in caso di forte pioggia</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica il pericolo di allagamento della carreggiata in caso di pioggia o forte mareggiata</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica il pericolo di allagamento della carreggiata in caso di pioggia o forte mareggiata</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello integrativo raffigurato indica una piscina nelle vicinanze (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica un tratto di strada coperto di neve (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato preavvisa una banchina cedevole (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato vieta il transito ai veicoli che trasportano prodotti che potrebbero inquinare l'acqua (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: تحذر من تعطل المحرك وابتلال الفرامل عند غمر المياه لنهر الطريق.
+      </div>
+    </div>
+
+    <!-- Card 22: Segni in rifacimento -->
+    <div class="signal-card" data-category="pericoli">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/131.png" alt="Segnaletica orizzontale in rifacimento">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة إعادة تخطيط الخطوط الأرضية</h3>
+        <span class="card-it-title">Segnaletica orizzontale in rifacimento</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة برسم ماكينة دهان الخطوط؛ تنبه السائقين إلى أن الخطوط والعلامات الأرضية غير مكتملة أو قيد التجديد، مما يفرض عدم الاعتماد عليها والالتزام التام بالقواعد العامة والإشارات الرأسية.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato preavvisa che temporaneamente manca la segnaletica orizzontale sulla carreggiata</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato preavvisa che temporaneamente manca la segnaletica orizzontale sulla carreggiata</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica un tratto di strada sul quale non è temporaneamente presente la segnaletica orizzontale</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica un tratto di strada sul quale non è temporaneamente presente la segnaletica orizzontale</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica che si stanno svolgendo i lavori per rifare la segnaletica orizzontale</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica che si stanno svolgendo i lavori per rifare la segnaletica orizzontale</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato viene posto sotto il segnale ALTRI PERICOLI</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato viene posto sotto il segnale ALTRI PERICOLI</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il segnale raffigurato indica una strada chiusa (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica una strada innevata (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica la vicinanza di un attraversamento pedonale (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato preavvisa l'inizio di un tratto di strada a senso unico (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: العلامات الرأسية تكون هي المرجع الحاسم عند غياب أو إعادة دهان الخطوط الأرضية.
+      </div>
+    </div>
+
+    <!-- Card 23: Attraversamento binari -->
+    <div class="signal-card" data-category="pericoli">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/133.png" alt="Presenza di binari o manovra ferroviaria">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة عبور خطوط الترام أو السكك الحديدية</h3>
+        <span class="card-it-title">Presenza di binari o manovra ferroviaria</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة تحذر من تقاطع الطريق مع خطوط سكك حديدية غير محروسة أو خطوط ترام صناعية، وتلزم بالتأكد التام من خلو القضبان من أي قطار أو عربة قبل العبور.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato indica la presenza di binari di manovra</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato indica la presenza di binari di manovra</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato indica l'attraversamento di binari di manovra</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica l'attraversamento di binari di manovra</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo raffigurato preavvisa la presenza di binari di manovra o di raccordo in prossimità di scali merci</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo raffigurato preavvisa la presenza di binari di manovra o di raccordo in prossimità di scali merci</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato invita a diminuire la velocità</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato invita a diminuire la velocità</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello integrativo indica un'area attrezzata per gare di modellismo (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica di fare attenzione perché la strada può essere attraversata dai tram (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato va rispettato dai conducenti dei treni (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo raffigurato indica un passaggio a livello con due binari (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: لا تلزم بالتوقف التام إذا لم تكن هناك إشارة STOP أو ضوء أحمر، ولكن تفرض إبطاء السرعة والتأكد من خلو المسار.
+      </div>
+    </div>
+
+    <!-- Card 24: Pulizia strade -->
+    <div class="signal-card" data-category="orari">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/145.png" alt="Divieto di sosta per pulizia meccanica delle strade">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة مواعيد كنس وتنظيف الشوارع</h3>
+        <span class="card-it-title">Divieto di sosta per pulizia meccanica delle strade</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة برسم سيارة كنس شوارع ويوم وتوقيت محددين؛ توضع أسفل منع الوقوف لتمنع ركن السيارات تماماً في تلك الساعات لإتاحة المجال لمعدات التنظيف البلدية وتجنب القطر الإجباري.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il pannello integrativo in figura, posto sotto il segnale DIVIETO DI SOSTA, indica che la sosta è vietata solo in determinate ore dei giorni indicati</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo in figura, posto sotto il segnale DIVIETO DI SOSTA, indica che la sosta è vietata solo in determinate ore dei giorni indicati</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo in figura è posto nei tratti di strada dove vengono effettuate operazioni di pulizia delle strade con autospazzatrici</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo in figura è posto nei tratti di strada dove vengono effettuate operazioni di pulizia delle strade con autospazzatrici</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo in figura indica i giorni e le ore in cui si effettuano operazioni di pulizia della strada con autospazzatrici</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo in figura indica i giorni e le ore in cui si effettuano operazioni di pulizia della strada con autospazzatrici</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo in figura, posto sotto il segnale DIVIETO DI SOSTA, indica che la sosta è vietata solo in alcune ore dei giorni indicati</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo in figura, posto sotto il segnale DIVIETO DI SOSTA, indica che la sosta è vietata solo in alcune ore dei giorni indicati</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello integrativo in figura indica l'orario per il deposito della spazzatura (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo in figura indica i giorni di apertura degli autolavaggi (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo in figura obbliga a dare la precedenza agli autocarri (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo in figura, posto sotto il segnale DIVIETO DI SOSTA, indica che non possono sostare i veicoli rappresentati (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: منع الوقوف ينطبق فقط في الساعات واليوم المحددين باللوحة للسماح بمرور عربات الكنس.
+      </div>
+    </div>
+
+    <!-- Card 25: Segnale corsia -->
+    <div class="signal-card" data-category="validita">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/142.png" alt="Applicabilità del segnale a una singola corsia">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة تخصيص الإشارة لمسار محدد</h3>
+        <span class="card-it-title">Applicabilità del segnale a una singola corsia</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة بسهم رأسي يشير مباشرة إلى مسار معين دون باقي مسارات نهر الطريق؛ تدل على أن الإشارة التي تعلوها تسري حصراً على مستخدمي هذا المسار فقط.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il pannello integrativo in figura, posto in alto sulla carreggiata insieme ad un segnale indicante una località, segnala la corsia da prendere per raggiungere detta località</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo in figura, posto in alto sulla carreggiata insieme ad un segnale indicante una località, segnala la corsia da prendere per raggiungere detta località</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo in figura, posto in alto sulla carreggiata insieme ad un segnale, specifica a quale corsia si riferisce il segnale</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo in figura, posto in alto sulla carreggiata insieme ad un segnale, specifica a quale corsia si riferisce il segnale</span></li>
+          <li><span>•</span> <strong>Il pannello integrativo in figura indica che il segnale posto sopra vale per la sola corsia indicata dalla freccia</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello integrativo in figura indica che il segnale posto sopra vale per la sola corsia indicata dalla freccia</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello integrativo in figura è posto per indicare la fermata degli autobus (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo in figura indica che hanno la precedenza i veicoli che vengono di fronte (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo in figura indica la fine di una prescrizione (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello integrativo in figura indica la fine del segnale LIMITE MASSIMO DI VELOCITA' (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: السهم الرأسي يقصر أثر الإشارة على المسار الذي يعلوه مباشرة ولا يسري على باقي مسارات الطريق.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- INTERACTIVE GLOSSARY -->
+
+  <section class="glossary-section" id="glossary-section">
+    <div class="section-heading">
+      <h2 class="section-title">📖 قاموس المصطلحات والمفاهيم الإيطالية المعتمدة للباب 10 (16 مصطلحاً)</h2>
+    </div>
+    <div class="glossary-grid">
+      <div class="glossary-card">
+        <div class="glossary-term-it">Pannello di Distanza</div>
+        <div class="glossary-term-ar">لوحة المسافة</div>
+        <div class="glossary-def">تحدد المسافة المتبقية بين الإشارة ونقطة بداية الخطر أو الحظر (رقم مجرد دون أسهم).</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Pannello di Estesa</div>
+        <div class="glossary-term-ar">لوحة الامتداد</div>
+        <div class="glossary-def">تحدد طول المسافة التي يمتد عليها الخطر أو المنع وتتميز بسهمين رأسيين جانبيين.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Fascia Oraria</div>
+        <div class="glossary-term-ar">النطاق الزمني</div>
+        <div class="glossary-def">تحدد ساعات اليوم التي تسري خلالها الإشارة (يسري يومياً ما لم يحدد خلاف ذلك).</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Giorni Festivi</div>
+        <div class="glossary-term-ar">أيام العطل والأعياد</div>
+        <div class="glossary-def">رمز الصليبين؛ يقصر سريان الإشارة على أيام الآحاد والعطلات الرسمية فقط.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Giorni Lavorativi / Feriali</div>
+        <div class="glossary-term-ar">أيام العمل</div>
+        <div class="glossary-def">رمز المطرقتين؛ يقصر سريان الإشارة على أيام العمل الرسمية من الاثنين إلى السبت.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Inizio Prescrizione</div>
+        <div class="glossary-term-ar">بداية السريان</div>
+        <div class="glossary-def">سهم يشير لأعلى يحدد النقطة الدقيقة التي يبدأ عندها تطبيق المنع أو الإلزام.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Continuazione Prescrizione</div>
+        <div class="glossary-term-ar">استمرار السريان</div>
+        <div class="glossary-def">سهمان متعاكسان يؤكدان أن السائق ما زال داخل نطاق حظر أو تنظيم مستمر.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Termine / Fine Prescrizione</div>
+        <div class="glossary-term-ar">نهاية السريان</div>
+        <div class="glossary-def">سهم يشير لأسفل يعلن انتهاء منطقة الحظر وعودة القواعد المرورية العامة.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Eccetto</div>
+        <div class="glossary-term-ar">استثناء فئة</div>
+        <div class="glossary-def">كلمة تعني أن الإشارة تلزم كافة المركبات باستثناء الفئة الموضحة بالرمز بجانبها.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Strada Principale</div>
+        <div class="glossary-term-ar">الطريق الرئيسي</div>
+        <div class="glossary-def">الخط العريض الموضح في لوحة التقاطع والذي يتمتع سائقوه بحق الأسبقية المطلقة.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Rimozione Forzata</div>
+        <div class="glossary-term-ar">القطر والسحب الإجباري</div>
+        <div class="glossary-def">إزالة المركبة المخالفة بالرافعة وحجزها على نفقة المالك عند الوقوف الممنوع.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Ghiaccio</div>
+        <div class="glossary-term-ar">الجليد والصقيع</div>
+        <div class="glossary-def">رمز بلورة الثلج؛ ينبه لخطر انعدام التماسك بسبب الصقيع والجليد غير المرئي.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Pioggia</div>
+        <div class="glossary-term-ar">الأمطار والانزلاق</div>
+        <div class="glossary-def">رمز السحابة الممطرة؛ ينبه لفقدان التماسك وظاهرة الانزلاق المائي (Aquaplaning).</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Presenza Code</div>
+        <div class="glossary-term-ar">طوابير الازدحام</div>
+        <div class="glossary-def">رمز سيارات متقاربة؛ يحذر من وجود رتل مركبات متوقفة فجأة لمنع حوادث التصادم الخلفي.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Sgombraneve</div>
+        <div class="glossary-term-ar">كاسحة الثلوج</div>
+        <div class="glossary-def">آلية صيانة ثلجية تفرض الحفاظ على مسافة أمان كافية وعدم التجاوز الخطر.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Applicabilità di Corsia</div>
+        <div class="glossary-term-ar">تخصيص المسار</div>
+        <div class="glossary-def">سهم رأسي يقصر مفعول الإشارة على حارة مرورية واحدة دون باقي الحارات.</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- MINISTERIAL TRAPS -->
+
+  <section class="traps-section">
+    <div class="section-heading">
+      <h2 class="section-title">⚠️ بنك الفخاخ الوزارية الـ 12 المعتمدة للباب 10 (Ministerial Traps)</h2>
+    </div>
+    <div class="traps-grid">
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #1</span>
+          <span class="trap-verdict">فخ خطير ومؤكد (FALSO)</span>
         </div>
-        <div class="quiz-text-it">Il pannello integrativo raffigurato, posto sotto un segnale di pericolo, indica la distanza tra il segnale ed il punto d'inizio del pericolo.</div>
-        <div class="quiz-text-ar">اللوحة الإضافية الموضحة (بدون أسهم)، والموضوعة أسفل إشارة خطر، تشير إلى المسافة بين الإشارة ونقطة بداية الخطر.</div>
-        <div class="quiz-options">
-          <button class="quiz-btn" onclick="checkQuiz(this, 'vero')">VERO (صح) ✅</button>
-          <button class="quiz-btn" onclick="checkQuiz(this, 'falso')">FALSO (خطأ) ❌</button>
-        </div>
-        <div class="quiz-feedback" data-feedback>
-          <strong>الإجابة الصحيحة: VERO ✅</strong> — لأن اللوحة خالية من الأسهم، فهي لوحة مسافة تفيد بأن الخطر سيبدأ بعد قطع المسافة المكتوبة.
+        <div class="trap-q-it">"Il pannello integrativo con frecce laterali indica la distanza dopo la quale inizia il pericolo."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> السهمان الرأسيان يعنيان الامتداد والطول (Estesa)، أي أن الخطر بدأ بالفعل ويمتد بطول المسافة المكتوبة! لوحة المسافة (Distanza) تخلو تماماً من أي أسهم.
         </div>
       </div>
-
-      <!-- Quiz 2 -->
-      <div class="quiz-card" data-correct="falso">
-        <div class="quiz-header">
-          <span class="quiz-tag">Fig. 121 — Trabocchetto</span>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #2</span>
+          <span class="trap-verdict">عكس الحقيقة تماماً (FALSO)</span>
         </div>
-        <div class="quiz-text-it">Il pannello integrativo mostrato in figura A indica i metri di strada già fatta.</div>
-        <div class="quiz-text-ar">اللوحة الإضافية الموضحة في الشكل تشير إلى الأمتار من الطريق التي تم قطعها بالفعل.</div>
-        <div class="quiz-options">
-          <button class="quiz-btn" onclick="checkQuiz(this, 'vero')">VERO (صح) ✅</button>
-          <button class="quiz-btn" onclick="checkQuiz(this, 'falso')">FALSO (خطأ) ❌</button>
-        </div>
-        <div class="quiz-feedback" data-feedback>
-          <strong>الإجابة الصحيحة: FALSO ❌</strong> — فخ وزاري كلاسيكي! اللوحة تشير إلى المسافة المتبقية حتى بداية الخطر، ولا علاقة لها بما تم قطعه في السابق.
+        <div class="trap-q-it">"Il pannello con due martelli incrociati indica che il divieto vale solo nei giorni festivi e la domenica."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> المطرقتان ترمزان لأيام العمل (Giorni lavorativi/feriali) من الاثنين إلى السبت. أيام العطلات والآحاد يرمز لها بالصليبين (Festivi).
         </div>
       </div>
-
-      <!-- Quiz 3 -->
-      <div class="quiz-card" data-correct="vero">
-        <div class="quiz-header">
-          <span class="quiz-tag">Fig. 122 — Estensione</span>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #3</span>
+          <span class="trap-verdict">خطأ صريح (FALSO)</span>
         </div>
-        <div class="quiz-text-it">Il pannello integrativo raffigurato indica la lunghezza del tratto stradale pericoloso.</div>
-        <div class="quiz-text-ar">اللوحة الإضافية الموضحة (برقم بين سهمين لأعلى) تشير إلى طول قطاع الطريق الخطير.</div>
-        <div class="quiz-options">
-          <button class="quiz-btn" onclick="checkQuiz(this, 'vero')">VERO (صح) ✅</button>
-          <button class="quiz-btn" onclick="checkQuiz(this, 'falso')">FALSO (خطأ) ❌</button>
-        </div>
-        <div class="quiz-feedback" data-feedback>
-          <strong>الإجابة الصحيحة: VERO ✅</strong> — الأسهم الرأسية تحدد امتداد واستمرار منطقة الخطر أو المنع.
+        <div class="trap-q-it">"Il pannello con la freccia rivolta verso il basso indica l'inizio della prescrizione."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> السهم لأسفل يعني نهاية السريان (Fine prescrizione). السهم للأعلى هو الذي يعني البداية (Inizio).
         </div>
       </div>
-
-      <!-- Quiz 4 -->
-      <div class="quiz-card" data-correct="falso">
-        <div class="quiz-header">
-          <span class="quiz-tag">Fig. 124 — Giorni Festivi</span>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #4</span>
+          <span class="trap-verdict">خطأ قطعي (FALSO)</span>
         </div>
-        <div class="quiz-text-it">Il pannello integrativo con il simbolo della croce indica la vicinanza di un posto di pronto soccorso o di una chiesa.</div>
-        <div class="quiz-text-ar">اللوحة الإضافية برمز الصليب تشير إلى القرب من نقطة إسعاف أولي أو كنيسة.</div>
-        <div class="quiz-options">
-          <button class="quiz-btn" onclick="checkQuiz(this, 'vero')">VERO (صح) ✅</button>
-          <button class="quiz-btn" onclick="checkQuiz(this, 'falso')">FALSO (خطأ) ❌</button>
-        </div>
-        <div class="quiz-feedback" data-feedback>
-          <strong>الإجابة الصحيحة: FALSO ❌</strong> — رمز الصليب في اللوحات الإضافية يرمز حصراً لأيام العطلات الرسمية والأعياد وأيام الأحد (Giorni festivi).
+        <div class="trap-q-it">"La presenza del pannello ECCETTO AUTOBUS sotto il divieto di transito consente il passaggio anche ai taxi e alle autovetture."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> الاستثناء محصور حصراً بالفئة المكتوبة بجوار Eccetto (أي الأوتوبيس فقط)، وتظل باقي المركبات بما فيها التاكسي والسيارات خاضعة للمنع.
         </div>
       </div>
-
-      <!-- Quiz 5 -->
-      <div class="quiz-card" data-correct="vero">
-        <div class="quiz-header">
-          <span class="quiz-tag">Fig. 125 — Giorni Feriali</span>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #5</span>
+          <span class="trap-verdict">خطأ جسيم (FALSO)</span>
         </div>
-        <div class="quiz-text-it">Il pannello integrativo raffigurato indica che il segnale vale nei giorni feriali (lavorativi).</div>
-        <div class="quiz-text-ar">اللوحة الإضافية الموضحة (رمز المطرقتين) تشير إلى أن الإشارة تسري في أيام العمل (من الاثنين إلى السبت).</div>
-        <div class="quiz-options">
-          <button class="quiz-btn" onclick="checkQuiz(this, 'vero')">VERO (صح) ✅</button>
-          <button class="quiz-btn" onclick="checkQuiz(this, 'falso')">FALSO (خطأ) ❌</button>
-        </div>
-        <div class="quiz-feedback" data-feedback>
-          <strong>الإجابة الصحيحة: VERO ✅</strong> — رمز المطرقتين يحدد سريان الإشارة في أيام العمل فقط دون أيام الأحد والعطلات.
+        <div class="trap-q-it">"Nei pannelli di andamento della strada principale, la precedenza spetta ai veicoli che provengono dai rami con linea stretta."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> الأسبقية تكون دائماً لمسار الخط العريض الأسود (Strada principale). الخطوط الرفيعة ملزمة بإعطاء الأسبقية.
         </div>
       </div>
-
-      <!-- Quiz 6 -->
-      <div class="quiz-card" data-correct="vero">
-        <div class="quiz-header">
-          <span class="quiz-tag">Fig. 133 — Sgombraneve</span>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #6</span>
+          <span class="trap-verdict">خطأ (FALSO)</span>
         </div>
-        <div class="quiz-text-it">In presenza del pannello raffigurato è obbligatorio mantenere una distanza di sicurezza di almeno 20 metri dalla macchina sgombraneve.</div>
-        <div class="quiz-text-ar">في وجود اللوحة الموضحة، يجب إلزامياً الحفاظ على مسافة أمان لا تقل عن 20 متراً من كاسحة الثلوج.</div>
-        <div class="quiz-options">
-          <button class="quiz-btn" onclick="checkQuiz(this, 'vero')">VERO (صح) ✅</button>
-          <button class="quiz-btn" onclick="checkQuiz(this, 'falso')">FALSO (خطأ) ❌</button>
-        </div>
-        <div class="quiz-feedback" data-feedback>
-          <strong>الإجابة الصحيحة: VERO ✅</strong> — الرقم القانوني الثابت لكاسحة الثلوج قيد العمل هو 20 متراً على الأقل تجنباً لتطاير الثلوج والأملاح وتفادياً للحوادث.
+        <div class="trap-q-it">"Il pannello con fiocco di neve indica che è obbligatorio montare le catene per neve anche su strada asciutta."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> اللوحة تحذر من احتمال وجود جليد وصقيع (Ghiaccio) وتدعو للحذر، ولا تفرض تركيب السلاسل إذا كان الطريق جافاً وخالياً من الثلج.
         </div>
       </div>
-
-      <!-- Quiz 7 -->
-      <div class="quiz-card" data-correct="falso">
-        <div class="quiz-header">
-          <span class="quiz-tag">Fig. 140 — Zona Rimozione</span>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #7</span>
+          <span class="trap-verdict">فخ توقيت (FALSO)</span>
         </div>
-        <div class="quiz-text-it">Il pannello integrativo raffigurato segnala una zona dove è consentito il parcheggio ai soli mezzi di soccorso stradale.</div>
-        <div class="quiz-text-ar">اللوحة الإضافية الموضحة (صورة الرافعة) تشير إلى منطقة يُسمح بركن سيارات الإغاثة والطوارئ فيها فقط.</div>
-        <div class="quiz-options">
-          <button class="quiz-btn" onclick="checkQuiz(this, 'vero')">VERO (صح) ✅</button>
-          <button class="quiz-btn" onclick="checkQuiz(this, 'falso')">FALSO (خطأ) ❌</button>
-        </div>
-        <div class="quiz-feedback" data-feedback>
-          <strong>الإجابة الصحيحة: FALSO ❌</strong> — اللوحة تعني منطقة سحب إجباري بالونش للمركبات المخالفة ونقلها للمحجز البلدي.
+        <div class="trap-q-it">"Il pannello con la rimozione coatta opera esclusivamente dalle ore 8.00 alle ore 20.00 in assenza di orari scritti."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> في غياب أي ساعات محددة، تعمل رافعة السحب والقطر على مدار 24 ساعة يومياً في الأماكن الحيوية ومسارات الطوارئ.
         </div>
       </div>
-
-      <!-- Quiz 8 -->
-      <div class="quiz-card" data-correct="vero">
-        <div class="quiz-header">
-          <span class="quiz-tag">Fig. 145 — Andamento Strada</span>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #8</span>
+          <span class="trap-verdict">خطأ (FALSO)</span>
         </div>
-        <div class="quiz-text-it">Il pannello integrativo raffigurato evidenzia l'andamento della strada principale con diritto di precedenza.</div>
-        <div class="quiz-text-ar">اللوحة الإضافية الموضحة تبرز مسار الطريق الرئيسي المتمتع بحق الأسبقية.</div>
-        <div class="quiz-options">
-          <button class="quiz-btn" onclick="checkQuiz(this, 'vero')">VERO (صح) ✅</button>
-          <button class="quiz-btn" onclick="checkQuiz(this, 'falso')">FALSO (خطأ) ❌</button>
-        </div>
-        <div class="quiz-feedback" data-feedback>
-          <strong>الإجابة الصحيحة: VERO ✅</strong> — الخط السميك العريض يوضح المسار الرئيسي ذو الأولوية، بينما الخطوط الرفيعة لشوارع ثانوية.
+        <div class="trap-q-it">"Il pannello con la sagoma dell'autocarro limita il divieto solo agli autocarri con rimorchio."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> رمز الشاحنة يشمل كافة شاحنات نقل البضائع المخصصة، وليس المقطورات فقط ما لم يُرسم رمز المقطورة تحديداً.
         </div>
       </div>
-    </section>
-
-    <!-- SECTION 9: Chapter Pagination -->
-    <nav class="chapter-pagination">
-      <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="pagination-btn prev-btn">
-        <span class="pagination-icon">→</span>
-        <div class="pagination-info">
-          <span class="pagination-label">الباب السابق</span>
-          <span class="pagination-title">الباب 9: الإشارات التكميلية وورش العمل</span>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #9</span>
+          <span class="trap-verdict">خطأ وزاري (FALSO)</span>
         </div>
-      </a>
-
-      <a href="index.html" class="pagination-btn index-btn">
-        <span class="pagination-icon">🏛️</span>
-        <div class="pagination-info">
-          <span class="pagination-label">المكتبة الشاملة</span>
-          <span class="pagination-title">فهرس الأدلة المعتمدة</span>
+        <div class="trap-q-it">"Il pannello indicante 'corsia per autocarri lenti' impone a tutte le autovetture di non superare i 40 km/h."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> اللوحة تنبه لوجود مركبات ثقيلة تصعد ببطء، ولا تفرض خفض سرعة سيارات الركوب العادية إلى هذا الحد.
         </div>
-      </a>
-
-      <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="pagination-btn next-btn">
-        <div class="pagination-info">
-          <span class="pagination-label">الباب التالي</span>
-          <span class="pagination-title">الباب 11: حدود السرعة ومخاطرها</span>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #10</span>
+          <span class="trap-verdict">سؤال ساذج لكنه فخ (FALSO)</span>
         </div>
-        <span class="pagination-icon">←</span>
-      </a>
-    </nav>
+        <div class="trap-q-it">"Il pannello di pericolo allagamento indica la vicinanza di un autolavaggio."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> اللوحة تحذر من غمر مياه الأمطار أو مياه البحر لنهر الطريق (Allagamento)، ولا علاقة لها بمحطات غسيل السيارات!
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #11</span>
+          <span class="trap-verdict">فخ خادع (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Il pannello con tre sagome di autovetture vicine preannuncia un parcheggio custodito per autovetture."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> رسم السيارات المتتالية يحذر من خطر طوابير وازدحام المركبات المتوقفة (Code) وليس ساحة انتظار.
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #12</span>
+          <span class="trap-verdict">خطأ مستحيل (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Il pannello TORNANTE indica che la velocità massima consentita è di 100 km/h."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> المنعطف الحاد الجبلي (Tornante) يتطلب سرعة منخفضة جداً وغياراً منخفضاً، وتحديد رقمه للتنبيه فقط.
+        </div>
+      </div>
+    </div>
+  </section>
 
-  </article>
+
+  <!-- SERIAL CHAPTER PAGINATION -->
+  <nav class="chapter-pagination">
+    <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="pagination-btn prev-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">→</span>
+      <div class="pagination-info">
+        <span class="pagination-label">الباب السابق</span>
+        <span class="pagination-title">الباب 09: الإشارات التكميلية وورش العمل</span>
+      </div>
+    </a>
+
+    <a href="index.html" class="pagination-btn index-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">🏛️</span>
+      <div class="pagination-info">
+        <span class="pagination-label">الرجوع للمكتبة</span>
+        <span class="pagination-title">فهرس الأبواب الشاملة</span>
+      </div>
+    </a>
+
+    <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="pagination-btn next-btn" onclick="soundEngine.click()">
+      <div class="pagination-info">
+        <span class="pagination-label">الباب التالي</span>
+        <span class="pagination-title">الباب 11: حدود السرعة ومخاطرها</span>
+      </div>
+      <span class="pagination-icon">←</span>
+    </a>
+  </nav>
+
 </main>
 
 <script>
@@ -1468,8 +2280,8 @@
         const osc = this.ctx.createOscillator();
         const gain = this.ctx.createGain();
         osc.type = 'sine';
-        osc.frequency.setValueAtTime(520, this.ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.04);
+        osc.frequency.setValueAtTime(540, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(180, this.ctx.currentTime + 0.04);
         gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
         gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
         osc.connect(gain);
@@ -1477,46 +2289,139 @@
         osc.start();
         osc.stop(this.ctx.currentTime + 0.04);
       } catch(e) {}
-    },
-    correct() {
-      if (!this.enabled) return;
-      this.init();
-      if (!this.ctx) return;
-      try {
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(440, this.ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(880, this.ctx.currentTime + 0.12);
-        gain.gain.setValueAtTime(0.1, this.ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.15);
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
-        osc.start();
-        osc.stop(this.ctx.currentTime + 0.15);
-      } catch(e) {}
-    },
-    wrong() {
-      if (!this.enabled) return;
-      this.init();
-      if (!this.ctx) return;
-      try {
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-        osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(280, this.ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(120, this.ctx.currentTime + 0.18);
-        gain.gain.setValueAtTime(0.12, this.ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.2);
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
-        osc.start();
-        osc.stop(this.ctx.currentTime + 0.2);
-      } catch(e) {}
     }
   };
 
-  // Dropdown Toggle
+  function toggleAudio() {
+    soundEngine.enabled = !soundEngine.enabled;
+    const icons = document.querySelectorAll('.audio-icon-span');
+    const labels = document.querySelectorAll('.audio-label-span');
+    icons.forEach(el => el.textContent = soundEngine.enabled ? '🔊' : '🔇');
+    labels.forEach(el => el.textContent = soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم');
+    if (soundEngine.enabled) soundEngine.click();
+  }
+
+  // Simulator 1 Logic: Distanza vs Estesa
+  function simulateDistEst(type) {
+    const btnD = document.getElementById('btnSimDistanza');
+    const btnE = document.getElementById('btnSimEstesa');
+    const imgWrapper = document.getElementById('simDistImgWrapper');
+    const badge = document.getElementById('simDistBadge');
+    const text = document.getElementById('simDistText');
+
+    btnD.classList.remove('active');
+    btnE.classList.remove('active');
+
+    if (type === 'distanza') {
+      btnD.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/121.png" alt="Pannello distanza">';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'لوحة المسافة (Distanza): الخطر يبدأ بعد 3.8 كم';
+      text.innerHTML = '<strong>القاعدة الهندسية:</strong> وجود رقم مجرد بالأمتار أو الكيلومترات دون أي أسهم يعني المسافة التي تفصل بين مكان وضع الإشارة ونقطة بداية الخطر أو سريان المنع. الطريق حالياً آمن والمنع يبدأ بعد قطع المسافة المكتوبة.';
+    } else {
+      btnE.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/122.png" alt="Pannello estesa">';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      badge.textContent = 'لوحة الامتداد (Estesa): الخطر يبدأ فوراً ويمتد بطول 3.8 كم';
+      text.innerHTML = '<strong>القاعدة الهندسية:</strong> وجود سهمين رأسيين جانبيين يحيطان بالرقم يعني طول المسافة التي يمتد عليها الخطر أو المنع. الخطر يبدأ فوراً عند الإشارة ويستمر بطول المسافة المكتوبة.';
+    }
+    soundEngine.click();
+  }
+
+  // Simulator 2 Logic: Orari e Giorni
+  function simulateOrari(type) {
+    const btnL = document.getElementById('btnSimLavorativi');
+    const btnF = document.getElementById('btnSimFestivi');
+    const btnH = document.getElementById('btnSimH24');
+    const imgWrapper = document.getElementById('simOrariImgWrapper');
+    const badge = document.getElementById('simOrariBadge');
+    const text = document.getElementById('simOrariText');
+
+    btnL.classList.remove('active');
+    btnF.classList.remove('active');
+    btnH.classList.remove('active');
+
+    if (type === 'lavorativi') {
+      btnL.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/125.png" alt="Giorni lavorativi">';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      badge.textContent = 'أيام العمل فقط: من الاثنين إلى السبت';
+      text.innerHTML = '<strong>الحكم القانوني:</strong> رمز المطرقتين المتقاطعتين يعني سريان الإشارة حصراً في أيام العمل الرسمية (Giorni Lavorativi) خلال الساعات المحددة، ويكون الركن أو المرور مسموحاً في أيام الآحاد والعطلات الرسمية.';
+    } else if (type === 'festivi') {
+      btnF.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/124.png" alt="Giorni festivi">';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'أيام العطلات والآحاد فقط';
+      text.innerHTML = '<strong>الحكم القانوني:</strong> رمز الصليبين اللاتينيين يقصر سريان الإشارة على أيام الآحاد والأعياد الدينية والوطنية الرسمية، ولا تسري في باقي أيام الأسبوع العادية.';
+    } else {
+      btnH.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/123.png" alt="Fascia oraria">';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      badge.textContent = 'ساعات يومية عامة طوال الأسبوع';
+      text.innerHTML = '<strong>الحكم القانوني:</strong> الساعات بدون أي رمز مطارق أو صلبان تعني سريان الإشارة يومياً طوال أيام الأسبوع في الساعات المحددة فقط.';
+    }
+    soundEngine.click();
+  }
+
+  // Simulator 3 Logic: Andamento Strada
+  function simulateAndamento(type) {
+    const btnD = document.getElementById('btnSimPrecDestra');
+    const btnS = document.getElementById('btnSimPrecSinistra');
+    const btnDir = document.getElementById('btnSimPrecDiritto');
+    const imgWrapper = document.getElementById('simPrecImgWrapper');
+    const badge = document.getElementById('simPrecBadge');
+    const text = document.getElementById('simPrecText');
+
+    btnD.classList.remove('active');
+    btnS.classList.remove('active');
+    btnDir.classList.remove('active');
+
+    if (type === 'destra') {
+      btnD.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/131.png" alt="Andamento a destra">';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      badge.textContent = 'الطريق الرئيسي ينحني لليمين: الأسبقية متبوعة بالانعطاف';
+      text.innerHTML = '<strong>القاعدة الذهبية:</strong> الخط العريض ينحني يميناً؛ السائق الذي يتابع السير في مسار الخط العريض له الأسبقية على القادمين من المسارات الرفيعة الثانوية.';
+    } else if (type === 'sinistra') {
+      btnS.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/132.png" alt="Andamento a sinistra">';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      badge.textContent = 'الطريق الرئيسي ينحني لليسار: الأسبقية للخط العريض';
+      text.innerHTML = '<strong>القاعدة الذهبية:</strong> الخط العريض ينحني يساراً؛ من يسير عليه يملك حق الأسبقية في العبور، والمسارات الرفيعة تلتزم بالتوقف وإعطاء الأسبقية.';
+    } else {
+      btnDir.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_10_pannelli_integrativi/immagini/135.png" alt="Andamento diritto">';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'طريق رئيسي مباشر مع تفرعات جانبية';
+      text.innerHTML = '<strong>القاعدة الذهبية:</strong> المسار المستقيم الرئيسي يتمتع بالأسبقية المطلقة على أي مركبة تندمج من الشوارع الجانبية الرفيعة.';
+    }
+    soundEngine.click();
+  }
+
+  // Filter Pills Logic
+  function filterCards(category, btn) {
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    soundEngine.click();
+
+    const cards = document.querySelectorAll('.signal-card');
+    cards.forEach(card => {
+      if (category === 'all') {
+        card.style.display = 'flex';
+      } else if (card.getAttribute('data-category') === category) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (category === 'glossary') {
+      const el = document.getElementById('glossary-section');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // Desktop Dropdown
   function toggleNavDropdown(e) {
     if (e) e.stopPropagation();
     const menu = document.getElementById('navDropdownMenu');
@@ -1526,13 +2431,11 @@
     const wrapper = document.querySelector('.nav-dropdown-wrapper');
     const menu = document.getElementById('navDropdownMenu');
     if (menu && menu.classList.contains('active')) {
-      if (wrapper && !wrapper.contains(e.target)) {
-        menu.classList.remove('active');
-      }
+      if (wrapper && !wrapper.contains(e.target)) menu.classList.remove('active');
     }
   });
 
-  // Mobile Drawer Controller
+  // Mobile Drawer Navigation (Apple HIG)
   function toggleMobileNav() {
     const btn = document.getElementById('nav-hamburger-btn');
     const panel = document.getElementById('mobile-drawer-panel');
@@ -1550,6 +2453,7 @@
     }
     soundEngine.click();
   }
+
   function closeMobileNav() {
     const btn = document.getElementById('nav-hamburger-btn');
     const panel = document.getElementById('mobile-drawer-panel');
@@ -1563,48 +2467,10 @@
     document.body.classList.remove('nav-scroll-lock');
   }
 
-  // Audio Toggle
-  window.toggleAudio = function() {
-    soundEngine.enabled = !soundEngine.enabled;
-    const icons = document.querySelectorAll('.audio-icon-span');
-    const labels = document.querySelectorAll('.audio-label-span');
-    icons.forEach(el => el.textContent = soundEngine.enabled ? '🔊' : '🔇');
-    labels.forEach(el => el.textContent = soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم');
-    if (soundEngine.enabled) soundEngine.click();
-  };
-
-  // Interactive Quiz Handler
-  function checkQuiz(btn, chosen) {
-    const card = btn.closest('.quiz-card');
-    if (!card) return;
-    const correct = card.getAttribute('data-correct');
-    const feedback = card.querySelector('[data-feedback]');
-    const isMatch = chosen.toLowerCase() === correct.toLowerCase();
-    
-    // Clear styles
-    card.querySelectorAll('.quiz-btn').forEach(b => {
-      b.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-      b.style.background = 'rgba(255, 255, 255, 0.04)';
-    });
-
-    if (isMatch) {
-      btn.style.borderColor = '#10b981';
-      btn.style.background = 'rgba(16, 185, 129, 0.18)';
-      if (feedback) {
-        feedback.className = 'quiz-feedback is-correct';
-        feedback.style.display = 'block';
-      }
-      soundEngine.correct();
-    } else {
-      btn.style.borderColor = '#f43f5e';
-      btn.style.background = 'rgba(244, 63, 94, 0.18)';
-      if (feedback) {
-        feedback.className = 'quiz-feedback is-wrong';
-        feedback.style.display = 'block';
-      }
-      soundEngine.wrong();
-    }
-  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMobileNav();
+    if (e.key === 'm' || e.key === 'M') toggleAudio();
+  });
 </script>
 
 </body>

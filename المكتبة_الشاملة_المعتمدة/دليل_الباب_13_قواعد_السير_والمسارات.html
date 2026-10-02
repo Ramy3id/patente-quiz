@@ -2,452 +2,126 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>دليل وقاموس الباب 13: قواعد حركة السير وتموضع المركبات | رخصة القيادة الإيطالية</title>
-
-  <!-- Apple System Fonts & JetBrains Mono -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دليل الباب 13: قواعد السير والمسارات والمناورات على الطريق | Patente B Pro</title>
+  <meta name="description" content="الدليل الهندسي الشامل للباب الثالث عشر من رخصة القيادة الإيطالية: استخدام المسارات، الانعطافات، الدوران للخلف، الرجوع للخلف، المرايا والزوايا الميتة، والمحاكيات التفاعلية.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Kufi+Arabic:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
-  /* ==========================================================================
-     Design System Tokens & Dark Modern Theme
-     ========================================================================== */
+
   :root {
     --bg-base: #09090b;
-    --bg-surface: #121215;
-    --bg-elevated: #18181b;
-    --bg-glass: rgba(18, 18, 21, 0.75);
-
+    --bg-surface: rgba(24, 24, 27, 0.75);
+    --bg-surface-elevated: rgba(39, 39, 42, 0.85);
     --border-subtle: rgba(255, 255, 255, 0.08);
     --border-highlight: rgba(255, 255, 255, 0.16);
-    --border-card: rgba(255, 255, 255, 0.05);
-
     --text-primary: #f4f4f5;
     --text-secondary: #a1a1aa;
-    --text-tertiary: #71717a;
-
-    --sky-primary: #38bdf8;
-    --sky-glow: rgba(56, 189, 248, 0.15);
+    --text-muted: #71717a;
     --emerald-primary: #10b981;
-    --amber-primary: #f59e0b;
+    --emerald-dark: #059669;
+    --emerald-glow: rgba(16, 185, 129, 0.25);
     --rose-primary: #f43f5e;
-    --purple-primary: #a855f7;
-    --blue-primary: #3b82f6;
-
-    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    --rose-glow: rgba(244, 63, 94, 0.25);
+    --amber-primary: #f59e0b;
+    --amber-glow: rgba(245, 158, 11, 0.25);
+    --sky-primary: #38bdf8;
+    --sky-glow: rgba(56, 189, 248, 0.25);
+    --indigo-primary: #6366f1;
     --nav-base-height: 54px;
+    --font-sans: 'Cairo', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
   }
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
   }
 
-  body {
-    background-color: var(--bg-base);
-    color: var(--text-primary);
-    font-family: 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, sans-serif;
-    line-height: 1.6;
-    padding-bottom: 80px;
-    background-image:
-      radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.04), transparent 40%),
-      radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.03), transparent 40%);
-    background-attachment: fixed;
+  body.nav-scroll-lock {
+    overflow: hidden !important;
+    touch-action: none;
   }
 
-  h1, h2, h3, h4 {
-    font-family: 'Noto Kufi Arabic', -apple-system, sans-serif;
-    font-weight: 700;
-  }
-
-  .container {
-    max-width: 1040px;
-    margin: 0 auto;
-    padding: 24px 16px;
-  }
-
-  .header-card {
-    background: linear-gradient(135deg, rgba(24, 24, 27, 0.8), rgba(18, 18, 21, 0.9));
-    border: 1px solid var(--border-subtle);
-    border-radius: 20px;
-    padding: 32px 28px;
-    margin-bottom: 24px;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
-
-  .badge-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 14px;
-    border-radius: 9999px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    font-family: 'JetBrains Mono', monospace;
-    background: rgba(56, 189, 248, 0.12);
-    color: var(--sky-primary);
-    border: 1px solid rgba(56, 189, 248, 0.25);
-    margin-bottom: 16px;
-    letter-spacing: 0.5px;
-  }
-
-  .main-title {
-    font-size: 2.1rem;
-    line-height: 1.3;
-    margin-bottom: 12px;
-    color: #fff;
-  }
-
-  .sub-lead {
-    font-size: 1.05rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-  }
-
-  .callout-box {
-    background: rgba(56, 189, 248, 0.08);
-    border: 1px solid rgba(56, 189, 248, 0.2);
-    border-radius: 14px;
-    padding: 18px 22px;
-    margin-bottom: 28px;
-    font-size: 0.95rem;
-    color: #e0f2fe;
-    line-height: 1.7;
-  }
-
-  .section-title {
-    font-size: 1.45rem;
-    margin: 40px 0 18px;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid var(--border-subtle);
-    padding-bottom: 12px;
-  }
-
-  /* Visual Figure Box */
-  .fig-visual-box {
-    background: rgba(24, 24, 27, 0.7);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    padding: 20px;
-    margin: 20px 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 20px;
-  }
-  .fig-visual-box .fig-preview {
-    flex: 0 0 240px;
-    background: #000;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-  }
-  .fig-visual-box .fig-preview img {
-    max-width: 100%;
-    max-height: 180px;
-    object-fit: contain;
-    border-radius: 8px;
-  }
-  .fig-visual-box .fig-preview .fig-caption {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
-    color: var(--amber-primary);
-    margin-top: 8px;
-  }
-  .fig-visual-box .fig-info {
-    flex: 1;
-    min-width: 260px;
-  }
-
-  /* Comparison Grid */
-  .comparison-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
-    margin: 20px 0;
-  }
-
-  .compare-card {
-    background: rgba(24, 24, 27, 0.7);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    padding: 22px 20px;
-    backdrop-filter: blur(12px);
-    transition: transform 0.2s var(--ease-spring), border-color 0.2s;
-  }
-  .compare-card:hover {
-    transform: translateY(-2px);
-    border-color: var(--border-highlight);
-  }
-  .compare-card.emerald { border-top: 3px solid var(--emerald-primary); }
-  .compare-card.amber { border-top: 3px solid var(--amber-primary); }
-  .compare-card.indigo { border-top: 3px solid #6366f1; }
-  .compare-card.rose { border-top: 3px solid var(--rose-primary); }
-  .compare-card.purple { border-top: 3px solid var(--purple-primary); }
-  .compare-card.sky { border-top: 3px solid var(--sky-primary); }
-
-  .card-header-row {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    margin-bottom: 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    padding-bottom: 10px;
-  }
-  .card-ar-title {
-    order: 1;
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #fff;
-  }
-  .card-it-title {
-    order: 2;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #38bdf8;
-    direction: ltr;
-    text-align: right;
-  }
-
-  .card-points-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 0;
-    margin: 0;
-  }
-  .card-points-list li, .card-points li {
-    position: relative;
-    padding-right: 28px;
-    line-height: 1.7;
-    display: block;
-    text-align: right;
-    font-size: 0.92rem;
-    color: #d4d4d8;
-  }
-  .card-points-list li > span:first-child, .card-points li > span:first-child {
-    position: absolute;
-    right: 0;
-    top: 2px;
-    font-size: 1.05rem;
-    line-height: 1;
-  }
-
-  /* Data Table */
-  .table-wrap {
-    overflow-x: auto;
-    border-radius: 14px;
-    border: 1px solid var(--border-subtle);
-    margin: 24px 0;
-    -webkit-overflow-scrolling: touch;
-  }
-  .data-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: right;
-    font-size: 0.92rem;
-  }
-  .data-table th {
-    background: rgba(39, 39, 42, 0.8);
-    color: #fff;
-    padding: 14px 16px;
-    font-weight: 700;
-    border-bottom: 1px solid var(--border-subtle);
-    white-space: nowrap;
-  }
-  .data-table td {
-    padding: 14px 16px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    color: #d4d4d8;
-  }
-  .data-table tr:hover td {
-    background: rgba(255, 255, 255, 0.02);
-  }
-
-  /* Prohibition Matrix */
-  .prohibition-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 14px;
-    margin: 20px 0;
-  }
-  .prohibition-item {
-    background: rgba(244, 63, 94, 0.06);
-    border: 1px solid rgba(244, 63, 94, 0.15);
-    border-radius: 14px;
-    padding: 16px 18px;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  .prohibition-item .p-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: var(--rose-primary);
-    flex-shrink: 0;
-    width: 28px;
-    text-align: center;
-  }
-  .prohibition-item .p-text {
-    font-size: 0.9rem;
-    color: #d4d4d8;
-    line-height: 1.5;
-  }
-  .prohibition-item .p-it {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.82rem;
-    color: var(--text-tertiary);
-    margin-top: 4px;
-    direction: ltr;
-    text-align: left;
-  }
-
-  /* Quiz Accordion & Cards */
-  .quiz-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin: 24px 0;
-  }
-  .quiz-card {
-    background: rgba(24, 24, 27, 0.7);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    padding: 20px 22px;
-    transition: border-color 0.15s;
-  }
-  .quiz-card:hover { border-color: var(--border-highlight); }
-  .quiz-q-it {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 8px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    direction: ltr;
-    text-align: left;
-    line-height: 1.5;
-  }
-  .quiz-q-ar {
-    font-size: 0.95rem;
-    color: #38bdf8;
-    margin-bottom: 14px;
-    line-height: 1.6;
-    font-weight: 500;
-  }
-  .quiz-meta-row {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 14px;
-    flex-wrap: wrap;
-    padding-top: 12px;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-  }
-  .ans-badge {
-    padding: 4px 12px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 800;
-    font-family: 'JetBrains Mono', monospace;
-    flex-shrink: 0;
-  }
-  .ans-vero { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
-  .ans-falso { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
-  .quiz-explain {
-    font-size: 0.9rem;
-    color: #d4d4d8;
-    flex: 1;
-    min-width: 220px;
-    line-height: 1.6;
-  }
-
-  /* Platform Navigation (Unified) */
+  /* Portal Nav Header (Strict 54px, Apple HIG) */
   .unified-portal-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
-    max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
-    background: rgba(9, 9, 11, 0.85);
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-base-height);
+    background: rgba(15, 15, 18, 0.82);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid var(--border-subtle);
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
+    padding: 0 16px;
     padding-top: env(safe-area-inset-top, 0px);
-    box-sizing: border-box;
-    direction: rtl;
   }
 
   .nav-brand {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 0.95rem;
+    gap: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.05rem;
+  }
+
+  .badge-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
     font-weight: 700;
-    color: #fff;
-    white-space: nowrap;
-    text-decoration: none;
-    flex-shrink: 0;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--amber-primary);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    padding: 2px 7px;
+    border-radius: 6px;
   }
 
-  .nav-desktop-tabs {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    padding: 4px 8px;
-    margin: 0 16px;
-    flex: 1;
-    justify-content: center;
-  }
-  .nav-desktop-tabs::-webkit-scrollbar { display: none; }
-
-  .nav-tab-desktop {
-    padding: 6px 14px;
-    border-radius: 9999px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: #a1a1aa;
-    text-decoration: none;
-    white-space: nowrap;
-    border: 1px solid transparent;
-    transition: all 0.15s ease;
-  }
-  .nav-tab-desktop:hover {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.05);
-  }
-  .nav-tab-desktop.active {
-    background: rgba(56, 189, 248, 0.12);
-    border-color: rgba(56, 189, 248, 0.3);
-    color: var(--sky-primary);
-  }
-
-  .nav-desktop-actions {
+  .desktop-nav-links {
     display: flex;
     align-items: center;
     gap: 8px;
-    flex-shrink: 0;
+  }
+  .desktop-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 600;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+  .desktop-nav-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-subtle);
+  }
+  .desktop-nav-link.active {
+    color: var(--amber-primary);
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.25);
+  }
+
+  .desktop-nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 
   .nav-audio-btn {
@@ -463,175 +137,14 @@
     font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.15s;
+    transition: all 0.15s ease;
+    font-family: inherit;
   }
   .nav-audio-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.2);
   }
 
-  .nav-hamburger-btn {
-    display: none;
-    width: 38px;
-    height: 38px;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    cursor: pointer;
-    padding: 0;
-  }
-  .hamburger-box {
-    width: 18px;
-    height: 14px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .hamburger-line {
-    width: 100%;
-    height: 2px;
-    background-color: #f4f4f5;
-    border-radius: 2px;
-    transition: transform 0.2s, opacity 0.2s;
-  }
-
-  /* Mobile Drawer */
-  .mobile-drawer-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 1999;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s ease;
-  }
-  .mobile-drawer-overlay.active {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  .mobile-drawer-panel {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: min(85vw, 360px);
-    background: #121215;
-    border-left: 1px solid var(--border-subtle);
-    z-index: 2000;
-    transform: translateX(100%);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    direction: rtl;
-    box-sizing: border-box;
-  }
-  .mobile-drawer-overlay.active .mobile-drawer-panel {
-    transform: translateX(0);
-  }
-  .mobile-drawer-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border-subtle);
-  }
-  .mobile-drawer-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #fff;
-  }
-  .mobile-drawer-close {
-    width: 34px;
-    height: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-subtle);
-    border-radius: 8px;
-    color: #a1a1aa;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-  .mobile-drawer-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    overflow-y: auto;
-    flex: 1;
-  }
-  .mobile-nav-link {
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 0 16px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
-    color: #e4e4e7;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 600;
-  }
-  .mobile-nav-link.active {
-    background: rgba(56, 189, 248, 0.12);
-    border-color: rgba(56, 189, 248, 0.3);
-    color: var(--sky-primary);
-  }
-
-  /* Highlight Boxes */
-  .highlight-box {
-    background: rgba(245, 158, 11, 0.08);
-    border: 1px solid rgba(245, 158, 11, 0.2);
-    border-radius: 14px;
-    padding: 16px 20px;
-    margin: 18px 0;
-    font-size: 0.92rem;
-    color: #fef3c7;
-    line-height: 1.7;
-  }
-
-  .danger-box {
-    background: rgba(244, 63, 94, 0.08);
-    border: 1px solid rgba(244, 63, 94, 0.2);
-    border-radius: 14px;
-    padding: 18px 22px;
-    margin: 18px 0;
-    font-size: 0.92rem;
-    color: #ffe4e6;
-    line-height: 1.7;
-  }
-
-  @media (max-width: 768px) {
-    .unified-portal-nav {
-      height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
-      max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
-      padding: 0 16px;
-      padding-top: env(safe-area-inset-top, 0px);
-    }
-    .nav-desktop-tabs, .nav-desktop-actions { display: none !important; }
-    .nav-hamburger-btn { display: flex; }
-    .main-title { font-size: 1.55rem; }
-    .comparison-grid { grid-template-columns: 1fr; }
-    .prohibition-grid { grid-template-columns: 1fr; }
-    .fig-visual-box { flex-direction: column; align-items: stretch; }
-    .fig-visual-box .fig-preview { width: 100%; }
-  }
-  
-  /* ==========================================================================
-     Desktop Chapters Dropdown & Pagination (Declutter Architecture)
-     ========================================================================== */
   .nav-dropdown-wrapper {
     position: relative;
     display: inline-block;
@@ -678,9 +191,7 @@
     z-index: 1100;
     direction: rtl;
   }
-  .nav-dropdown-menu.active {
-    display: flex;
-  }
+  .nav-dropdown-menu.active { display: flex; }
   .nav-dropdown-item {
     display: flex;
     align-items: center;
@@ -698,729 +209,1706 @@
     color: #fff;
   }
   .nav-dropdown-item.active {
-    background: rgba(56, 189, 248, 0.12);
-    color: #38bdf8;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--amber-primary);
     font-weight: 700;
   }
 
-  /* Chapter Pagination */
+  /* Hamburger Button (< 768px) */
+  .nav-hamburger-btn {
+    display: none;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .hamburger-box { width: 20px; height: 14px; position: relative; }
+  .hamburger-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #f4f4f5;
+    border-radius: 2px;
+    transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  }
+  .line-top { top: 0; }
+  .line-mid { top: 6px; }
+  .line-bot { top: 12px; }
+
+  .nav-hamburger-btn.is-active .line-top { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger-btn.is-active .line-mid { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger-btn.is-active .line-bot { transform: translateY(-6px) rotate(-45deg); }
+
+  /* Mobile Drawer Panel */
+  .mobile-drawer-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .mobile-drawer-overlay.is-active { display: block; opacity: 1; }
+  .mobile-drawer-panel {
+    display: none;
+    position: fixed;
+    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
+    left: 0; right: 0;
+    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
+    background: rgba(15, 15, 18, 0.94);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
+    z-index: 999;
+    padding: 16px;
+    padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  }
+  .mobile-drawer-panel.is-active { display: block; transform: translateY(0); opacity: 1; }
+  .mobile-nav-list { display: flex; flex-direction: column; gap: 8px; list-style: none; }
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    min-height: 48px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: #e4e4e7;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+  .mobile-nav-link.active {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.35);
+    color: var(--amber-primary);
+  }
+
+  /* Main Container */
+  .guide-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: calc(var(--nav-base-height) + 28px) 20px 80px 20px;
+  }
+
+  /* Hero Section */
+  .chapter-hero {
+    background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12), transparent 70%),
+                linear-gradient(180deg, rgba(24, 24, 27, 0.7) 0%, rgba(18, 18, 20, 0.9) 100%);
+    border: 1px solid var(--border-subtle);
+    border-radius: 24px;
+    padding: 40px 32px;
+    margin-bottom: 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), transparent);
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--sky-primary);
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .hero-subtitle {
+    font-family: var(--font-mono);
+    color: var(--sky-primary);
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+    direction: ltr;
+  }
+  .hero-desc {
+    max-width: 860px;
+    margin: 0 auto 24px auto;
+    color: var(--text-secondary);
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+  .hero-badges-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .hero-stat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: #d4d4d8;
+  }
+
+  /* Golden Rules Banner */
+  .golden-rules-banner {
+    background: rgba(56, 189, 248, 0.06);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 36px;
+  }
+  .golden-rules-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--sky-primary);
+    margin-bottom: 16px;
+  }
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .rule-box {
+    background: rgba(24, 24, 27, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .rule-box h4 {
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .rule-box p {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Filter Pills */
+  .filter-pills-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    margin-bottom: 28px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filter-pill {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .filter-pill:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+  }
+  .filter-pill.active {
+    background: var(--sky-primary);
+    border-color: var(--sky-primary);
+    color: #000;
+    font-weight: 700;
+  }
+
+  /* Rotatoria Simulator Box */
+  .simulator-box {
+    background: linear-gradient(180deg, rgba(24, 24, 27, 0.8) 0%, rgba(18, 18, 20, 0.95) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .sim-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--sky-primary);
+    margin-bottom: 6px;
+  }
+  .sim-subtitle {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+  }
+  .sim-controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .sim-btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sim-btn:hover { background: rgba(255, 255, 255, 0.1); }
+  .sim-btn.active {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: var(--sky-primary);
+    color: var(--sky-primary);
+  }
+  .sim-output-card {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .sim-img-wrapper img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+  }
+  .sim-details { flex: 1; text-align: right; }
+  .sim-state-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .state-normal { background: rgba(245, 158, 11, 0.2); color: var(--amber-primary); }
+  .state-rot-precedence { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .sim-legal-text {
+    font-size: 0.92rem;
+    color: #e4e4e7;
+    line-height: 1.7;
+  }
+
+  /* Comparison Section: Paths */
+  .comp-section {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .comp-header { margin-bottom: 20px; text-align: right; }
+  .comp-header h3 { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+  .comp-header p { font-size: 0.9rem; color: var(--text-secondary); }
+  .comp-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .comp-card-path {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .comp-card-path img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 12px;
+  }
+  .comp-card-path h4 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .comp-card-path .path-it {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--sky-primary);
+    margin-bottom: 10px;
+  }
+  .comp-card-path p {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    text-align: right;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  /* Grid of Signals Cards */
+  .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .section-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-badge {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: var(--sky-primary);
+    background: rgba(56, 189, 248, 0.1);
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+  }
+
+  .signals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .signal-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .signal-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-highlight);
+  }
+
+  .signal-img-container {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    padding: 12px;
+  }
+  .signal-img-container img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+  }
+
+  /* Card Header Vertical Hierarchy */
+  .card-header-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+  .card-ar-title {
+    order: 1;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  .card-it-title {
+    order: 2;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--sky-primary);
+    direction: ltr;
+    text-align: right;
+  }
+
+  .card-desc-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  /* ZERO FLEX ON LISTS (STRICT TYPOGRAPHY) */
+  .card-points-group { margin-bottom: 14px; }
+  .points-group-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .points-group-title.vero-title { color: var(--emerald-primary); }
+  .points-group-title.falso-title { color: var(--rose-primary); }
+
+  .card-points-list { list-style: none; margin: 0; padding: 0; }
+  .card-points-list li {
+    display: block;
+    position: relative;
+    padding-right: 28px;
+    line-height: 1.7;
+    text-align: right;
+    font-size: 0.88rem;
+    color: #d4d4d8;
+    margin-bottom: 6px;
+  }
+  .card-points-list li > span:first-child {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .card-trap-alert {
+    background: rgba(244, 63, 94, 0.08);
+    border: 1px solid rgba(244, 63, 94, 0.22);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    color: #fca5a5;
+    line-height: 1.6;
+    margin-top: auto;
+  }
+  .card-trap-alert strong { color: var(--rose-primary); }
+
+  /* Glossary Section */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .glossary-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+  .term-it {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--sky-primary);
+    margin-bottom: 4px;
+    direction: ltr;
+    text-align: right;
+  }
+  .term-ar {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .term-def {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Quiz Traps Interactive Section */
+  .traps-section { margin-bottom: 50px; }
+  .traps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+  }
+  .trap-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .trap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card-tag-pill {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  .tag-vero { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .tag-falso { background: rgba(244, 63, 94, 0.2); color: var(--rose-primary); }
+
+  .trap-q-it {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: #e4e4e7;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 8px;
+    padding: 10px;
+    direction: ltr;
+    text-align: left;
+    line-height: 1.5;
+  }
+  .trap-reason {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .trap-reason strong { color: #fff; }
+
+  /* Pagination Bar */
   .chapter-pagination {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    margin: 40px 0 20px;
-    padding: 16px 20px;
-    background: rgba(24, 24, 27, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    backdrop-filter: blur(12px);
-    flex-wrap: wrap;
+    gap: 16px;
+    padding: 24px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    margin-top: 40px;
   }
   .pagination-btn {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 18px;
-    border-radius: 12px;
+    padding: 12px 20px;
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #f4f4f5;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    color: #fff;
     text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 0.9rem;
     transition: all 0.15s ease;
   }
   .pagination-btn:hover {
     background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.16);
-    color: #fff;
-    transform: translateY(-1px);
+    border-color: var(--border-highlight);
   }
-  .pagination-btn.index-btn {
-    background: rgba(56, 189, 248, 0.08);
-    border-color: rgba(56, 189, 248, 0.2);
-    color: #38bdf8;
-  }
-  .pagination-btn.disabled {
-    opacity: 0.35;
-    pointer-events: none;
-    cursor: not-allowed;
-  }
-  .pagination-info {
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-  }
-  .pagination-label {
-    font-size: 0.72rem;
-    color: #a1a1aa;
-    font-weight: 500;
-  }
-  .pagination-title {
-    font-size: 0.85rem;
-    color: #fff;
-    font-weight: 700;
+  .pagination-info { display: flex; flex-direction: column; text-align: right; }
+  .pagination-label { font-size: 0.75rem; color: var(--text-muted); }
+  .pagination-title { font-size: 0.92rem; color: #fff; }
+
+  /* Responsive Rules (< 768px) */
+  @media (max-width: 768px) {
+    .desktop-nav-links, .desktop-nav-controls { display: none !important; }
+    .nav-hamburger-btn { display: flex !important; }
+    .guide-container { padding-top: calc(var(--nav-base-height) + 16px); padding-left: 14px; padding-right: 14px; }
+    .hero-title { font-size: 1.6rem; }
+    .signals-grid { grid-template-columns: 1fr; }
+    .sim-output-card { flex-direction: column; text-align: center; }
+    .sim-details { text-align: center; }
+    .chapter-pagination { flex-direction: column; align-items: stretch; }
   }
 
-  @media (max-width: 1023px) {
-    .nav-dropdown-wrapper {
-      display: none !important;
-    }
-  }
-
-</style>
+  </style>
 </head>
 <body>
 
-<!-- Unified Top Navigation Bar -->
-<header class="unified-portal-nav">
-  <a href="index.html" class="nav-brand" onclick="soundEngine.click()">
-    <span class="brand-icon">📚</span>
-    <span>المكتبة الشاملة</span>
-    <span class="badge-tag" style="margin:0; padding:2px 8px; font-size:0.75rem;">Capitolo 13</span>
-  </a>
+<!-- Unified Top Navigation (Strict 54px) -->
+<nav class="unified-portal-nav" aria-label="شريط التنقل الموحد">
+  <div style="display:flex; align-items:center; gap:12px;">
+    <a href="index.html" class="nav-brand">
+      <span>🚦 Patente B Pro</span>
+      <span class="badge-tag" style="background:rgba(14,165,233,0.2); color:#38bdf8; border-color:rgba(14,165,233,0.35);">Cap. 13</span>
+    </a>
+  </div>
 
-  <!-- Desktop Tabs -->
-    <!-- Core 3 Desktop Navigation Tabs -->
-  <nav class="nav-desktop-tabs">
-    <a href="index.html" class="nav-tab-desktop">🏛️ فهرس المكتبة</a>
-    <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 الأبواب المقسمة</a>
-    <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
-  </nav>
+  <div class="desktop-nav-links">
+    <a href="index.html" class="desktop-nav-link">
+      <span>🏛️</span>
+      <span>فهرس المكتبة الشاملة</span>
+    </a>
+    <a href="../Capitoli_Divisi/index.html" class="desktop-nav-link">
+      <span>📚</span>
+      <span>الأبواب المقسمة (25)</span>
+    </a>
+    <a href="../Simulatore_Esame.html" class="desktop-nav-link">
+      <span>⏱️</span>
+      <span>محاكي الامتحان</span>
+    </a>
+  </div>
 
-  <!-- Desktop Actions -->
-  <div class="nav-desktop-actions">
-    <!-- Desktop Chapters Dropdown -->
+  <div class="desktop-nav-controls">
     <div class="nav-dropdown-wrapper">
       <button class="nav-dropdown-btn" onclick="toggleNavDropdown(event)">
         <span>تصفح الأبواب (1-25)</span>
         <span style="font-size:0.75rem;">▾</span>
       </button>
       <div class="nav-dropdown-menu" id="navDropdownMenu">
-      <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
-      <a href="دليل_الباب_02_إشارات_الخطر.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_03_segnali_divieto/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
-      <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
-      <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأفقية والمطبات</span></a>
-      <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
-      <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: الإشارات التكميلية وورش العمل</span></a>
-      <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_11_limiti_di_velocita/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة</span></a>
-      <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
-      <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
-      <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
-      <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
-      <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
-      <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
-      <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
-      <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
-      <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
-      <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: حوادث السير والطقس</span></a>
-      <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
-      <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 23: المسؤولية والتأمين RCA</span></a>
-      <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 24: استهلاك الوقود والبيئة</span></a>
-      <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
+        <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 01: المفاهيم العامة والواجبات</span></a>
+        <a href="دليل_الباب_02_إشارات_الخطر.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 02: إشارات الخطر</span></a>
+        <a href="دليل_الباب_03_إشارات_المنع.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 03: إشارات المنع</span></a>
+        <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 04: إشارات الإلزام</span></a>
+        <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 05: إشارات الأسبقية</span></a>
+        <a href="دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 06: العلامات الأرضية والعوائق</span></a>
+        <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 07: الإشارات الضوئية والشرطي</span></a>
+        <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 08: إشارات الإرشاد والمعلومات</span></a>
+        <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 09: الإشارات التكميلية وورش العمل</span></a>
+        <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
+        <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة ومخاطرها</span></a>
+        <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
+        <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
+        <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
+        <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
+        <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
+        <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
+        <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
+        <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
+        <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
+        <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: حوادث السير والطقس</span></a>
+        <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
+        <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 23: المسؤولية والتأمين RCA</span></a>
+        <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 24: استهلاك الوقود والبيئة</span></a>
+        <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
       </div>
     </div>
-
-    <button class="nav-audio-btn" onclick="toggleAudio()">
+    <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
       <span class="audio-icon-span">🔊</span>
-      <span class="audio-label-span">الصوت: نشط</span>
+      <span class="audio-label-span">الصوت نشط</span>
     </button>
   </div>
 
-  <!-- Mobile Hamburger Button -->
-  <button class="nav-hamburger-btn" onclick="openMobileNav()">
+  <!-- Animated Hamburger Button (Apple HIG - Mobile < 768px) -->
+  <button class="nav-hamburger-btn" id="nav-hamburger-btn" onclick="toggleMobileNav()" aria-label="قائمة التنقل" aria-expanded="false">
     <div class="hamburger-box">
       <span class="hamburger-line line-top"></span>
       <span class="hamburger-line line-mid"></span>
       <span class="hamburger-line line-bot"></span>
     </div>
   </button>
-</header>
+</nav>
 
-<!-- Mobile Navigation Drawer -->
-<div id="mobileDrawerOverlay" class="mobile-drawer-overlay" onclick="closeMobileNav()">
-  <div class="mobile-drawer-panel" onclick="event.stopPropagation()">
-    <div class="mobile-drawer-header">
-      <div class="mobile-drawer-title">فهرس المكتبة الشاملة</div>
-      <button class="mobile-drawer-close" onclick="closeMobileNav()">✕</button>
-    </div>
-    <div class="mobile-drawer-list">
-      <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-        <span>📁 فهرس الأبواب الـ 25</span>
-      </a>
-      <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
-        <span>⚡ محاكي الامتحان الوزاري</span>
-      </a>
-      <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-        <span>📚 فهرس المكتبة المعتمدة</span>
-      </a>
-      <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="mobile-nav-link active" onclick="closeMobileNav()">
-        <span>📖 دليل الباب 13 (قواعد السير والمسارات)</span>
-      </a>
-      <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-        <span>📖 دليل الباب 14 (أسبقية التقاطعات)</span>
-      </a>
-      <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="mobile-nav-link" onclick="closeMobileNav()">
-        <span>📖 دليل الباب 15 (التجاوز والتخطي)</span>
-      </a>
-      <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="mobile-nav-link" onclick="closeMobileNav()">
-        <span>📖 دليل الباب 16 (الوقوف والتوقف والركن)</span>
-      </a>
-      <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-        <span>📖 دليل الباب 17 (الأوتوستراد والمقطورات)</span>
-      </a>
-      <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="mobile-nav-link" onclick="closeMobileNav()">
-        <span>📖 دليل الباب 18 (الأضواء وأجهزة الإنذار)</span>
-      </a>
-      <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="mobile-nav-link" onclick="closeMobileNav()">
-        <span>📖 دليل الباب 19 (الأمان والخوذة والمقاعد)</span>
-      </a>
-      <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-        <span>📖 دليل الباب 20 (الرخص والنقاط والعقوبات)</span>
-      </a>
-      <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="mobile-nav-link" onclick="closeMobileNav()">
-        <span>📖 دليل الباب 21 (حوادث السير والطقس)</span>
-      </a>
-      <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="mobile-nav-link" onclick="closeMobileNav()">
-        <span>📖 دليل الباب 22 (الكحول والمخدرات والإسعافات)</span>
-      </a>
-      <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="mobile-nav-link" onclick="closeMobileNav()">
-        <span>📖 دليل الباب 23 (التأمين والمسؤولية)</span>
-      </a>
-      <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="mobile-nav-link" onclick="closeMobileNav()">
-        <span>📖 دليل الباب 24 (البيئة وترشيد الوقود)</span>
-      </a>
-      <a href="دليل_الباب_الأخير.html" class="mobile-nav-link" onclick="closeMobileNav()">
-        <span>📖 دليل الباب 25 (الميكانيكا والصيانة)</span>
-      </a>
-    </div>
+<!-- Mobile Overlay & Drawer -->
+<div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
+<div class="mobile-drawer-panel" id="mobile-drawer-panel">
+  <div class="mobile-nav-list">
+    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📚</span><span>مذاكرة الأبواب المقسمة (25 باب)</span></a>
+    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">⏱️</span><span>محاكي الامتحان الوزاري</span></a>
+    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📑</span><span>فهرس المكتبة الشاملة</span></a>
+    <div class="mobile-nav-divider"></div>
+    <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 12: مسافة الأمان</span></a>
+    <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="mobile-nav-link active" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 13: قواعد السير والمسارات</span></a>
+    <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 14: أسبقية المرور والتقاطعات</span></a>
   </div>
 </div>
 
-<main class="container">
-  <article class="content-sheet">
-    <header class="header-card">
-      <div class="badge-tag">CAPITOLO 13 • CODICE DELLA STRADA 2026</div>
-      <h1 class="main-title">دليل وقاموس الباب الثالث عشر: قواعد حركة السير وتموضع المركبات</h1>
-      <p class="sub-lead">Norme di circolazione e posizione dei veicoli — الدليل التفاعلي الشامل لقواعد التموضع على الطريق، هندسة الانعطاف، الرجوع للخلف، فيزياء المرايا، والزوايا الميتة لمستوى A2-B1.</p>
-    </header>
+<main class="guide-container">
 
-    <div class="callout-box">
-      <strong>📊 إحصائيات الباب الرسمية في بنك الوزارة:</strong> يضم الباب الثالث عشر بالضبط <strong>379 سؤالاً وزارياً</strong> موزعة على <strong>38 موضوعاً فرعياً</strong> مدعومة بـ <strong>19 صورة ومخططاً توضيحياً</strong>. أكبر كتلة أسئلة هي عن <strong>المرايا والزوايا الميتة (41 سؤالاً)</strong>، تليها <strong>السير في صفوف متوازية (26 سؤالاً)</strong> ومناورة <strong>الرجوع للخلف (17 سؤالاً)</strong>.
+  <!-- HERO SECTION -->
+  <section class="chapter-hero">
+    <div class="hero-tag">🧭 🛣️ المرجع المعتمد للدراسة والامتحان الوزاري</div>
+    <h1 class="hero-title">الباب 13: قواعد السير والمسارات والمناورات على الطريق</h1>
+    <div class="hero-subtitle">Capitolo 13: Norme sulla circolazione, uso delle corsie e manovre</div>
+    <p class="hero-desc">
+      الدليل الهندسي والسلوكي الشامل لكود السير الإيطالي: التموضع الصحيح على الحافة اليمنى لنهر الطريق، القواعد الدقيقة لاستخدام المسارات في الطرق السريعة والأوتوستراد، شروط السير في صفوف متوازية، فنون الانعطاف يميناً ويساراً في الاتجاهين والاتجاه الواحد، محظورات الدوران للخلف (Inversione a U)، الرجوع للخلف الآمن، فحص الزوايا الميتة بالمرايا، والتعامل مع خطوط الترام والدوارات.
+    </p>
+
+    <div class="hero-badges-row">
+      <div class="hero-stat-badge"><span>📊</span> <span>379 سؤالاً وزارياً معتمداً</span></div>
+      <div class="hero-stat-badge"><span>⚠️</span> <span>12 فخاً امتحانياً دقيقاً</span></div>
+      <div class="hero-stat-badge"><span>🧭</span> <span>14 قاعدة ومحوراً سلوكياً</span></div>
+      <div class="hero-stat-badge"><span>🎯</span> <span>دقة 100% كود السير 2026</span></div>
     </div>
+  </section>
 
-    <!-- ======================== SECTION 1 ======================== -->
-    <h2 class="section-title">🚗 أولاً: تموضع المركبات والسير في صفوف متوازية (Posizione e File Parallele)</h2>
-    <p style="color:var(--text-secondary); margin-bottom:16px;">يحدد كود السير الإيطالي بدقة متناهية مكان تواجد المركبة على نهر الطريق (Carreggiata) وفقاً لعدد الحارات واتجاهات السير.</p>
-
-    <!-- Visual Box 1 -->
-    <div class="fig-visual-box">
-      <div class="fig-preview">
-        <img src="../Capitoli_Divisi/Capitolo_13_norme_di_circolazione/immagini/502.png" alt="Figura 502" loading="lazy">
-        <span class="fig-caption">Figura 502: حارتان باتجاهين</span>
+  <!-- GOLDEN RULES BANNER -->
+  <section class="golden-rules-banner">
+    <div class="golden-rules-title">
+      <span>⭐</span>
+      <span>القواعد الذهبية الأربع للباب 13 (Regole d'Oro)</span>
+    </div>
+    <div class="rules-grid">
+      <div class="rule-box">
+        <h4><span>1️⃣</span> الالتزام بالمسار الأيمن</h4>
+        <p>المسار الأيمن مخصص دائماً <strong>للسير العادي</strong>؛ والمسارات اليسرى مخصصة <strong>للتجاوز فقط</strong>، ويحظر السير فيها إذا كان الأيمن خالياً.</p>
       </div>
-      <div class="fig-info">
-        <h4 style="color:#fff; margin-bottom:8px; font-size:1.05rem;">قاعدة الحافة اليمنى الإلزامية (Margine Destro)</h4>
-        <p style="color:#d4d4d8; font-size:0.92rem; line-height:1.7;">
-          في الطرق ذات الاتجاهين والمقسمة لحارتين (Figura 502)، يجب السير دائماً في الحارة اليمنى بالقرب من الحافة اليمنى لنهر الطريق (<code>Margine destro</code>)، وتزداد هذه الصرامة عند المنحنيات (<code>Curve</code>) ومطبات الرؤية (<code>Dossi</code>). يُحظر السير في المنتصف حتى لو كان الطريق خالياً تماماً!
+      <div class="rule-box">
+        <h4><span>2️⃣</span> قاعدة الانعطاف لليسار</h4>
+        <p>في الطريق ذي الاتجاهين: الاقتراب من <strong>الخط الأوسط</strong>. في الطريق ذي الاتجاه الواحد: الاقتراب من <strong>أقصى الحافة اليسرى</strong> تماماً.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>3️⃣</span> محظورات الدوران للخلف (Inversione)</h4>
+        <p>يُحظر قطعياً الدوران للخلف في: <strong>الأوتوستراد، المنعطفات، قمم المطالع (Dossi)</strong>، والتقاطعات، وعند ضعف الرؤية.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>4️⃣</span> أسبقية الترام وبروز الحمولة</h4>
+        <p>الترام يملك <strong>الأسبقية دائماً</strong> في التقاطعات. والحمولة <strong>محظور بروزها من الأمام إطلاقاً</strong> ومسموح بـ 3/10 من الخلف فقط.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE SIMULATORS -->
+
+  <!-- SIMULATOR 1: Svolta a Sinistra (Doppio vs Senso Unico) -->
+  <section class="simulator-box" id="sim-svolta-sinistra">
+    <div class="sim-header">
+      <div>
+        <h3 class="sim-title">🎮 محاكي الانعطاف لليسار: طريق ذو اتجاهين مقابل اتجاه واحد</h3>
+        <p class="sim-subtitle">تعلم كيف تضع سيارتك بدقة في نهر الطريق قبل الانعطاف يساراً لتفادي غزو الاتجاه المعاكس</p>
+      </div>
+      <span class="sim-badge">أهم محاكي للانعطافات</span>
+    </div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnSvoltaDoppio" onclick="simulateSvolta('doppio')">طريق ذو اتجاهين (Doppio Senso)</button>
+      <button class="sim-btn" id="btnSvoltaUnico" onclick="simulateSvolta('unico')">طريق ذو اتجاه واحد (Senso Unico)</button>
+      <button class="sim-btn" id="btnSvoltaCentro" onclick="simulateSvolta('centro')">العبور أمام مركز التقاطع</button>
+    </div>
+    <div class="sim-output-card">
+      <div class="sim-img-wrapper" id="simSvoltaImgWrapper" style="font-size:3.5rem; text-align:center; min-width:110px;">
+        ↩️🛣️
+      </div>
+      <div class="sim-details">
+        <div class="sim-state-badge state-rot-precedence" id="simSvoltaBadge">طريق ذو اتجاهين: التمركز قرب الخط الأوسط فقط</div>
+        <p class="sim-legal-text" id="simSvoltaText">
+          <strong>القاعدة الوزارية الصارمة:</strong> في الطرق ذات الاتجاهين، تقترب من الخط الأوسط الفاصل (Asse mediano) دون أن تتجاوزه، وتترك مسار الحافة اليمنى لليمين، وتعطي الأسبقية للمركبات القادمة في الاتجاه المعاكس ولليمين قبل إتمام الانعطاف.
         </p>
       </div>
     </div>
+  </section>
 
-    <!-- Visual Box 2 -->
-    <div class="fig-visual-box">
-      <div class="fig-preview">
-        <img src="../Capitoli_Divisi/Capitolo_13_norme_di_circolazione/immagini/554.png" alt="Figura 554" loading="lazy">
-        <span class="fig-caption">Figura 554: 3 حارات باتجاهين</span>
+  <!-- SIMULATOR 2: Uso delle Corsie -->
+  <section class="simulator-box" id="sim-uso-corsie">
+    <div class="sim-header">
+      <div>
+        <h3 class="sim-title">🎮 محاكي استخدام المسارات في الطرق السريعة والأوتوستراد</h3>
+        <p class="sim-subtitle">شاهد كيف يفرض كود السير الالتزام بالحافة اليمنى ومتى يجوز الانتقال للمسار الأيسر</p>
       </div>
-      <div class="fig-info">
-        <h4 style="color:#fff; margin-bottom:8px; font-size:1.05rem;">طريق بثلاث حارات واتجاهين (Corsia Centrale di Sorpasso)</h4>
-        <p style="color:#d4d4d8; font-size:0.92rem; line-height:1.7;">
-          في الطريق الموضح في (Figura 554): الحارة اليمنى لكل اتجاه مخصصة للسير العادي، أما <strong>الحارة الوسطى المشتركة</strong> فتُستخدم حصراً لـ <strong>التجاوز فقط لكلا الاتجاهين</strong> (<code>Riservata al sorpasso</code>). يُحظر السير العادي المستمر فيها قطعياً!
+      <span class="sim-badge">محاكي الحارات والمسارات</span>
+    </div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnCorsiaMarcia" onclick="simulateCorsia('marcia')">مسار السير العادي (Destra)</button>
+      <button class="sim-btn" id="btnCorsiaSorpasso" onclick="simulateCorsia('sorpasso')">مسار التجاوز (Sinistra)</button>
+      <button class="sim-btn" id="btnCorsiaFile" onclick="simulateCorsia('file')">الصفوف المتوازية (File parallele)</button>
+    </div>
+    <div class="sim-output-card">
+      <div class="sim-img-wrapper" id="simCorsiaImgWrapper" style="font-size:3.5rem; text-align:center; min-width:110px;">
+        🛣️🚗
+      </div>
+      <div class="sim-details">
+        <div class="sim-state-badge state-rot-precedence" id="simCorsiaBadge">المسار الأيمن إلزامي للسير العادي</div>
+        <p class="sim-legal-text" id="simCorsiaText">
+          <strong>الحكم التشريعي:</strong> يلتزم السائق بالسير في المسار الحر الأيمن دائماً. القيادة في المسارات الوسطى أو اليسرى دون حاجة لتجاوز سيارات أخرى تعتبر مخالفة صريحة لكود السير وتعرضك لغرامة وخصم نقاط!
         </p>
       </div>
     </div>
+  </section>
 
-    <div class="comparison-grid">
-      <div class="compare-card emerald">
-        <div class="card-header-row">
-          <span class="card-it-title">Margine Destro</span>
-          <span class="card-ar-title">الحافة اليمنى</span>
-        </div>
-        <ul class="card-points-list">
-          <li><span>🔑</span> <strong>القاعدة الأساسية:</strong> السير بأقصى قرب ممكن من الحافة اليمنى (<code>Stringere il più possibile il margine destro</code>).</li>
-          <li><span>🏔️</span> <strong>المنحنيات والتلال:</strong> في المنحنيات ومطبات الرؤية يُلزم السائق بالتمسك التام باليمين لمنع الاصطدام بالمقابل.</li>
-          <li><span>⚠️</span> <strong>فخ:</strong> السير في منتصف الشارع بحجة أنه واسع خطأ كلياً ويعتبر Falso!</li>
-        </ul>
+  <!-- SIMULATOR 3: Inversione di Marcia -->
+  <section class="simulator-box" id="sim-inversione">
+    <div class="sim-header">
+      <div>
+        <h3 class="sim-title">🎮 محاكي مناورة الدوران للخلف (Inversione a U) ومحظوراتها</h3>
+        <p class="sim-subtitle">اكتشف أين يُسمح بالدوران وأين يعتبر جريمة ومخالفة مرورية جسيمة تسحب الرخصة</p>
       </div>
-
-      <div class="compare-card amber">
-        <div class="card-header-row">
-          <span class="card-it-title">Carreggiate Separate</span>
-          <span class="card-ar-title">أنهار سير منفصلة</span>
-        </div>
-        <ul class="card-points-list">
-          <li><span>🛣️</span> <strong>نهران منفصلان (Figura 558):</strong> يسير كل اتجاه في نهره الخاص المخصص له.</li>
-          <li><span>🛣️</span> <strong>3 أنهار سير (Figura 562):</strong> النهر الأوسط يكون عادة باتجاهين، والجانبيان باتجاه واحد.</li>
-          <li><span>3️⃣</span> <strong>3 حارات لكل اتجاه (Figura 552):</strong> الحارة اليمنى للسير العادي، والوسطى واليسرى للتجاوز.</li>
-        </ul>
-      </div>
-
-      <div class="compare-card indigo">
-        <div class="card-header-row">
-          <span class="card-it-title">File Parallele</span>
-          <span class="card-ar-title">الصفوف المتوازية</span>
-        </div>
-        <ul class="card-points-list">
-          <li><span>🚦</span> <strong>الحالتان الحصريتان</strong> للسير في صفوف متوازية (<code>Marcia per file parallele</code>):</li>
-          <li><span>1️⃣</span> <strong>الازدحام الشديد:</strong> (<code>Traffico intenso</code>) بتوجيه حركة السير في كافة الحارات.</li>
-          <li><span>2️⃣</span> <strong>التقاطعات المنظمة:</strong> بإشارات ضوئية أو شرطي المرور.</li>
-          <li><span>🏍️</span> <strong>فخ خطير:</strong> حظر مرور الدراجات النارية بين خطوط السيارات في الازدحام!</li>
-        </ul>
-      </div>
+      <span class="sim-badge">محاكي محظورات الدوران</span>
     </div>
-
-    <!-- ======================== SECTION 2 ======================== -->
-    <h2 class="section-title">↩️ ثانياً: هندسة الانعطاف وتغيير المسار (Svolte e Inversione di Marcia)</h2>
-    <p style="color:var(--text-secondary); margin-bottom:16px;">تخضع مناورات الانعطاف لقواعد هندسية صارمة لتفادي قطع مسارات الآخرين أو التسبب في حوادث دهس.</p>
-
-    <!-- Visual Box 3 -->
-    <div class="fig-visual-box">
-      <div class="fig-preview">
-        <img src="../Capitoli_Divisi/Capitolo_13_norme_di_circolazione/immagini/599.png" alt="Figura 599" loading="lazy">
-        <span class="fig-caption">Figura 599: الانعطاف يساراً</span>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnInvConsentita" onclick="simulateInv('consentita')">حالة مسموحة قانوناً</button>
+      <button class="sim-btn" id="btnInvDosso" onclick="simulateInv('dosso')">عند قمة المطلع (Dosso)</button>
+      <button class="sim-btn" id="btnInvAutostrada" onclick="simulateInv('autostrada')">في الأوتوستراد (Autostrada)</button>
+    </div>
+    <div class="sim-output-card">
+      <div class="sim-img-wrapper" id="simInvImgWrapper" style="font-size:3.5rem; text-align:center; min-width:110px;">
+        🔄✅
       </div>
-      <div class="fig-info">
-        <h4 style="color:#fff; margin-bottom:8px; font-size:1.05rem;">الانعطاف لليسار في طريق باتجاهين (Svolta a Sinistra)</h4>
-        <p style="color:#d4d4d8; font-size:0.92rem; line-height:1.7;">
-          عند الانعطاف يساراً في طريق باتجاهين (Figura 599 و 601 و 602):<br>
-          1. الاقتراب من خط منتصف الطريق (<code>Asse della carreggiata</code>) دون اجتيازه.<br>
-          2. ترك <strong>مركز التقاطع على يمينك</strong> (<code>Lasciare il centro dell'incrocio alla propria destra</code>).<br>
-          3. إعطاء الأسبقية للقادمين من الاتجاه المقابل المعاكس قبل إتمام الدوران.
+      <div class="sim-details">
+        <div class="sim-state-badge state-rot-precedence" id="simInvBadge">دوران مسموح: طريق مستقيم، رؤية واسعة، وخط متقطع</div>
+        <p class="sim-legal-text" id="simInvText">
+          <strong>الشروط القانونية الكاملة:</strong> يُسمح بالدوران للخلف فقط عند توافر الرؤية الكاملة لمسافة كافية، عدم وجود خط أبيض متصل يفصل الاتجاهين، عدم تعطيل حركة السير، وإعطاء الأسبقية التامة للقادمين من كلا الاتجاهين.
         </p>
       </div>
     </div>
+  </section>
 
-    <div class="comparison-grid">
-      <div class="compare-card emerald">
-        <div class="card-header-row">
-          <span class="card-it-title">Svolta a Destra</span>
-          <span class="card-ar-title">الانعطاف لليمين</span>
-        </div>
-        <ul class="card-points-list">
-          <li><span>➡️</span> <strong>التموضع:</strong> الالتزام التام بأقصى الحافة اليمنى (<code>Margine destro</code>) قبل وأثناء الانعطاف.</li>
-          <li><span>👀</span> <strong>الانتباه للدراجات والمشاة:</strong> فحص المرايا والتأكد من خلو المسار الأيمن من أي مشاة أو دراجات.</li>
-          <li><span>🔔</span> <strong>الغماز:</strong> تشغيل مؤشر الاتجاه الأيمن بوقت كافٍ قبل بدء التباطؤ والانعطاف.</li>
-        </ul>
+
+  <!-- COMPARISON SECTION -->
+
+  <!-- COMPARISON SECTION -->
+  <section class="comp-section">
+    <div class="comp-header">
+      <h3>🔍 مصفوفة المقارنة البصرية: فك التباس قواعد السير والمناورات</h3>
+      <p>أبرز 4 مقارنات ثنائية جوهرية يحسم بها الطالب نجاحه في أسئلة قواعد المرور والمسارات</p>
+    </div>
+    <div class="comp-grid-4">
+      <!-- Comp 1 -->
+      <div class="comp-card-path">
+        <div style="font-size:2.5rem; margin-bottom:8px;">↩️↔️</div>
+        <h4>يسار في الاتجاهين</h4>
+        <div class="path-it">Doppio Senso di marcia</div>
+        <p><strong>الموقع:</strong> الالتصاق بالخط الأوسط الفاصل.<br><strong>الأسبقية:</strong> إعطاء الأسبقية للقادمين من الأمام ولليمين.<br><strong>الحظر:</strong> يمنع الذهاب لأقصى اليسار.</p>
       </div>
 
-      <div class="compare-card rose">
-        <div class="card-header-row">
-          <span class="card-it-title">Svolta (Senso Unico)</span>
-          <span class="card-ar-title">الانعطاف يساراً — اتجاه واحد</span>
-        </div>
-        <ul class="card-points-list">
-          <li><span>⬅️</span> <strong>التموضع:</strong> الانتقال لأقصى الحافة اليسرى تماماً (<code>Margine sinistro</code>).</li>
-          <li><span>⚠️</span> <strong>فخ كويز متكرر:</strong> في طريق الاتجاه الواحد لا نأخذ خط المنتصف بل نلتصق بأقصى الحافة اليسرى!</li>
-          <li><span>🔔</span> <strong>السبب القانوني:</strong> لعدم وجود مركبات مقابلة، ولإفساح الحارة اليمنى لمن يرغب بالاستمرار للأمام.</li>
-        </ul>
+      <!-- Comp 2 -->
+      <div class="comp-card-path">
+        <div style="font-size:2.5rem; margin-bottom:8px;">⬅️🛣️</div>
+        <h4>يسار في الاتجاه الواحد</h4>
+        <div class="path-it">Senso Unico di marcia</div>
+        <p><strong>الموقع:</strong> الالتصاق بأقصى الحافة اليسرى للشارع.<br><strong>الأسبقية:</strong> لا توجد حركة مقابلة، فقط القادم من اليمين.<br><strong>الميزة:</strong> يفسح الحارة اليمنى للتجاوز.</p>
       </div>
 
-      <div class="compare-card amber">
-        <div class="card-header-row">
-          <span class="card-it-title">Corsie di Canalizzazione</span>
-          <span class="card-ar-title">حارات التوجيه (Fig. 570)</span>
+      <!-- Comp 3 -->
+      <div class="comp-card-path">
+        <div style="font-size:2.5rem; margin-bottom:8px;">🚋⚡</div>
+        <h4>التعامل مع الترام</h4>
+        <div class="path-it">Circolazione e precedenza Tram</div>
+        <p><strong>الأسبقية:</strong> الترام يملك الأسبقية دائماً.<br><strong>السير على القضبان:</strong> مسموح إذا كانت مدمجة ولا تعيق سيره.<br><strong>التجاوز:</strong> يمنع تجاوزه يميناً بدون رصيف أمان.</p>
+      </div>
+
+      <!-- Comp 4 -->
+      <div class="comp-card-path">
+        <div style="font-size:2.5rem; margin-bottom:8px;">📦📐</div>
+        <h4>بروز الحمولة</h4>
+        <div class="path-it">Sporgenza del carico (Art. 164)</div>
+        <p><strong>من الأمام:</strong> محظور تماماً (Zero sporgenza).<br><strong>من الخلف:</strong> بحد أقصى 3/10 من طول السيارة.<br><strong>الشرط:</strong> وضع اللوحة المربعة العاكسة Fig. 300.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FILTER PILLS -->
+  <div class="filter-pills-bar">
+    <button class="filter-pill active" onclick="filterCards('all', this)">جميع القواعد والمحاور (14)</button>
+    <button class="filter-pill" onclick="filterCards('corsie', this)">استخدام المسارات والحارات</button>
+    <button class="filter-pill" onclick="filterCards('svolte', this)">الانعطافات يميناً ويساراً</button>
+    <button class="filter-pill" onclick="filterCards('manovre', this)">مناورات الدوران والرجوع للخلف</button>
+    <button class="filter-pill" onclick="filterCards('specchi', this)">المرايا وفحص الزوايا الميتة</button>
+    <button class="filter-pill" onclick="filterCards('tram', this)">سكك الترام ومركبات الطوارئ</button>
+    <button class="filter-pill" onclick="filterCards('carico', this)">بروز وتثبيت الحمولة (Fig. 300)</button>
+    <button class="filter-pill" onclick="filterCards('glossary', this)">القاموس وفخاخ الوزارة</button>
+  </div>
+
+  <!-- SIGNALS GRID -->
+  <div class="signals-grid">
+
+    <!-- Card 1: posizione_carreggiata -->
+    <div class="signal-card" data-category="corsie">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(14,165,233,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(14,165,233,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">🛣️</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#38bdf8; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(56,189,248,0.3);">Mano destra & Margine destro</span>
         </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">التموضع على نهر الطريق والالتزام بالحافة اليمنى</h3>
+        <span class="card-it-title">Posizione dei veicoli sulla carreggiata e mano da tenere (Art. 143)</span>
+      </div>
+      <p class="card-desc-text">
+        القاعدة الأساسية في كود السير الإيطالي: تسير المركبات على الجانب الأيمن من نهر الطريق وعلى مقربة من حافته اليمنى (Margine destro)، وتزداد إلزامية الالتزام بأقصى اليمين عند المنحنيات وقمم المطالع (Dossi) في الطرق ذات الاتجاهين.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
         <ul class="card-points-list">
-          <li><span>↔️</span> <strong>الخط المتقطع:</strong> يسمح بالانتقال بين حارات التوجيه قبل التقاطع بحذر مع تشغيل الغماز.</li>
-          <li><span>🚫</span> <strong>الخط المتصل:</strong> بمجرد بدء الخط المتصل يُحظر قطعياً تغيير الحارة ويجب الالتزام بالاتجاه المحدد.</li>
-          <li><span>⚠️</span> <strong>فخ:</strong> سؤال يزعم جواز تغيير الحارة عند الخط المتصل بالتقاطع إذا كان فارغاً ← Falso!</li>
+          <li><span>•</span> <strong>E' vietato, in quanto costituisce pericolo o intralcio per la circolazione, tenersi sul margine sinistro della carreggiata per svoltare in una strada a destra</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">E' vietato, in quanto costituisce pericolo o intralcio per la circolazione, tenersi sul margine sinistro della carreggiata per svoltare in una strada a destra</span></li>
+          <li><span>•</span> <strong>E' vietato, in quanto costituisce pericolo o intralcio per la circolazione, sostare sui binari tramviari</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">E' vietato, in quanto costituisce pericolo o intralcio per la circolazione, sostare sui binari tramviari</span></li>
+          <li><span>•</span> <strong>E' vietato, in quanto costituisce pericolo o intralcio per la circolazione, effettuare un cambiamento di direzione senza segnalare la manovra con sufficiente anticipo</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">E' vietato, in quanto costituisce pericolo o intralcio per la circolazione, effettuare un cambiamento di direzione senza segnalare la manovra con sufficiente anticipo</span></li>
+          <li><span>•</span> <strong>E' vietato, in quanto costituisce pericolo o intralcio per la circolazione, gareggiare in velocità</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">E' vietato, in quanto costituisce pericolo o intralcio per la circolazione, gareggiare in velocità</span></li>
         </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> E' vietato, in quanto costituisce pericolo o intralcio per la circolazione, immettersi nel flusso della circolazione provenendo da strade laterali (خطأ FALSO)</li>
+          <li><span>•</span> E' vietato, in quanto costituisce pericolo o intralcio per la circolazione, regolare la velocità in relazione alle caratteristiche e condizioni delle strade (خطأ FALSO)</li>
+          <li><span>•</span> E' vietato, in quanto costituisce pericolo o intralcio per la circolazione, fermare momentaneamente un veicolo lungo il margine destro di una carreggiata a senso unico (خطأ FALSO)</li>
+          <li><span>•</span> Chi guida un veicolo deve guidare sempre al centro della strada, però senza superare la striscia di corsia (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: في الطرق ذات الاتجاهين، يُلزم السائق بالبقاء في أقصى اليمين حتى لو كان الطريق خالياً تماماً من أي سيارات.
       </div>
     </div>
 
-    <h3 style="color:var(--sky-primary); margin:28px 0 12px; font-size:1.15rem;">🚫 مصفوفة الحالات الست لحظر الدوران للخلف (Inversione di marcia)</h3>
-    <p style="color:var(--text-secondary); margin-bottom:12px;">يُحظر الدوران الكامل للخلف (U-turn) قطعياً وبشكل مشدد في الحالات الست التالية (10 أسئلة وزارية):</p>
-
-    <div class="prohibition-grid">
-      <div class="prohibition-item">
-        <span class="p-num">1</span>
-        <div>
-          <div class="p-text"><strong>طرق الاتجاه الواحد</strong> — يستحيل قانونياً السير عكس اتجاه الحركة المعتمد.</div>
-          <div class="p-it">Strade a senso unico</div>
+    <!-- Card 2: uso_corsie_multiplo -->
+    <div class="signal-card" data-category="corsie">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(14,165,233,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(14,165,233,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">🏎️</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#38bdf8; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(56,189,248,0.3);">Destra = Marcia | Sinistra = Sorpasso</span>
         </div>
       </div>
-      <div class="prohibition-item">
-        <span class="p-num">2</span>
-        <div>
-          <div class="p-text"><strong>المنحنيات ومطبات الرؤية</strong> — انعدام مسافة الرؤية يجعل المناورة مميتة.</div>
-          <div class="p-it">Curve e dossi (visibilità limitata)</div>
-        </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">استخدام المسارات في الطرق متعددة الحارات</h3>
+        <span class="card-it-title">Uso delle corsie su strade a due o più corsie per senso di marcia</span>
       </div>
-      <div class="prohibition-item">
-        <span class="p-num">3</span>
-        <div>
-          <div class="p-text"><strong>التقاطعات وبالقرب منها</strong> — خطر الاصطدام بالمركبات القادمة من الطرق المتقاطعة.</div>
-          <div class="p-it">Incroci e nelle loro vicinanze</div>
-        </div>
-      </div>
-      <div class="prohibition-item">
-        <span class="p-num">4</span>
-        <div>
-          <div class="p-text"><strong>الضباب وانعدام الرؤية</strong> — أي ظرف مناخي يقلل مسافة الأمان البصرية.</div>
-          <div class="p-it">Condizioni di scarsa visibilità (nebbia)</div>
-        </div>
-      </div>
-      <div class="prohibition-item">
-        <span class="p-num">5</span>
-        <div>
-          <div class="p-text"><strong>وجود خط طولي متصل</strong> — لا يجوز دوس أو دهس الخط المتصل لأي سبب.</div>
-          <div class="p-it">In presenza di striscia continua</div>
-        </div>
-      </div>
-      <div class="prohibition-item">
-        <span class="p-num">6</span>
-        <div>
-          <div class="p-text"><strong>الأوتوستراد والطرق السريعة</strong> — السرعات العالية تجعل الرجوع أو الدوران خطراً جسيماً.</div>
-          <div class="p-it">Autostrade e strade extraurbane principali</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ======================== SECTION 3 ======================== -->
-    <h2 class="section-title">🔙 ثالثاً: مناورة الرجوع للخلف الآمن (Retromarcia — 17 سؤالاً وزارياً)</h2>
-    <p style="color:var(--text-secondary); margin-bottom:16px;">تعتبر مناورة الرجوع للخلف من أكثر المناورات خطورة بسبب محدودية الرؤية، وتظهر بكثافة عبر المخطط الوزاري الرسمي 676.</p>
-
-    <!-- Visual Box 4 -->
-    <div class="fig-visual-box">
-      <div class="fig-preview">
-        <img src="../Capitoli_Divisi/Capitolo_13_norme_di_circolazione/immagini/676.png" alt="Figura 676: Retromarcia" loading="lazy">
-        <span class="fig-caption">Figura 676: رجوع المركبة S للخلف</span>
-      </div>
-      <div class="fig-info">
-        <h4 style="color:#fff; margin-bottom:8px; font-size:1.05rem;">واجبات السائق عند الرجوع للخلف (Manovra di Retromarcia)</h4>
-        <p style="color:#d4d4d8; font-size:0.92rem; line-height:1.7;">
-          في المخطط (Figura 676)، المركبة S التي تتحرك للخلف للاندماج في السير عليها الالتزامات القانونية التالية:<br>
-          ✅ إعطاء الأسبقية لجميع المركبات القادمة من <strong>اليمين واليسار</strong>.<br>
-          ✅ الانتباه الشديد لـ <strong>المشاة</strong> العابرين خلف السيارة وإعطاؤهم الأسبقية.<br>
-          ✅ تشغيل <strong>مؤشر الاتجاه (الغماز)</strong> فقط.<br>
-          ✅ الاستعانة بـ <strong>شخص خارج السيارة</strong> (<code>Farsi aiutare da persona a terra</code>) عند ضعف الرؤية.
-        </p>
-      </div>
-    </div>
-
-    <div class="danger-box">
-      <strong>⚠️ أشهر الفخاخ الوزارية في أسئلة الرجوع للخلف (FALSO):</strong>
-      <ul style="margin-top:8px; padding-right:20px; list-style:disc; color:#ffe4e6; line-height:1.8;">
-        <li><strong>أضواء الطوارئ (4 Frecce):</strong> زعم وجوب تشغيل أضواء الطوارئ الأربعة أثناء الرجوع للخلف ← <strong>FALSO</strong> (الغماز فقط).</li>
-        <li><strong>أضواء الضباب (Luce posteriore nebbia):</strong> زعم تشغيل ضوء الضباب الخلفي أثناء المناورة ← <strong>FALSO</strong>.</li>
-        <li><strong>أسبقية مقيدة (Solo nel senso di marcia):</strong> زعم إعطاء الأسبقية فقط للمركبات التي في نفس اتجاه السير ← <strong>FALSO</strong> (للجميع من اليمين واليسار).</li>
-        <li><strong>السرعة في الإخلاء:</strong> زعم وجوب الرجوع بسرعة لإخلاء مكان الركن ← <strong>FALSO</strong> (المناورة تتم ببطء شديد وبحذر).</li>
-        <li><strong>الكلاكس المتكرر:</strong> زعم وجوب الضغط المتكرر على المنبه الصوتي أثناء الرجوع ← <strong>FALSO</strong>.</li>
-      </ul>
-    </div>
-
-    <!-- ======================== SECTION 4 ======================== -->
-    <h2 class="section-title">🪞 رابعاً: فيزياء المرايا العاكسة والزوايا الميتة (Specchi e Angoli Ciechi — 41 سؤالاً)</h2>
-    <p style="color:var(--text-secondary); margin-bottom:16px;">المرايا تشكل <strong>أكبر كتلة أسئلة</strong> في هذا الباب. إليك القواعد الفيزيائية والقانونية المعتمدة لضبطها واستخدامها:</p>
-
-    <div class="comparison-grid">
-      <div class="compare-card sky">
-        <div class="card-header-row">
-          <span class="card-it-title">Angoli Ciechi</span>
-          <span class="card-ar-title">الزوايا الميتة</span>
-        </div>
+      <p class="card-desc-text">
+        في الطرق التي تحتوي على مسارين أو أكثر في نفس اتجاه السير: يجب استخدام المسار الأيمن للسير العادي (Corsia di destra)، بينما تخصص المسارات الوسطى واليسرى حصراً لمناورات التجاوز (Corsie di sorpasso).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
         <ul class="card-points-list">
-          <li><span>🔍</span> <strong>عدم الإلغاء الكامل:</strong> المرايا <strong>لا تلغي الزوايا الميتة كلياً</strong> (<code>Non eliminano completamente gli angoli ciechi</code>) — قاعدة ذهبية!</li>
-          <li><span>👀</span> <strong>الالتفات بالرأس:</strong> السائق ملزم بإدارة رأسه والنظر المباشر للتأكد قبل تغيير الحارة أو الانعطاف.</li>
-          <li><span>🚗</span> <strong>المناطق المحجوبة:</strong> بجوار القوائم الخلفية للسيارة وعلى الجانبين في مستوى الكتف.</li>
+          <li><span>•</span> <strong>Su una strada a tre corsie a doppio senso di marcia, in figura, si deve impegnare quella centrale solo per il sorpasso</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Su una strada a tre corsie a doppio senso di marcia, in figura, si deve impegnare quella centrale solo per il sorpasso</span></li>
+          <li><span>•</span> <strong>Su una strada a due corsie a doppio senso di marcia, in figura, si deve impegnare quella di sinistra solo per il sorpasso</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Su una strada a due corsie a doppio senso di marcia, in figura, si deve impegnare quella di sinistra solo per il sorpasso</span></li>
+          <li><span>•</span> <strong>Sulle strade extraurbane principali la sosta è consentita solo nelle apposite aree</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Sulle strade extraurbane principali la sosta è consentita solo nelle apposite aree</span></li>
+          <li><span>•</span> <strong>Chi intende cambiare corsia deve controllare che la corsia che vuole occupare sia libera davanti per un tratto sufficiente</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Chi intende cambiare corsia deve controllare che la corsia che vuole occupare sia libera davanti per un tratto sufficiente</span></li>
         </ul>
       </div>
-
-      <div class="compare-card purple">
-        <div class="card-header-row">
-          <span class="card-it-title">Specchio Convesso</span>
-          <span class="card-ar-title">المرآة المحدبة الخارجية</span>
-        </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
         <ul class="card-points-list">
-          <li><span>🔎</span> <strong>الأبعاد الخادعة:</strong> المرآة المحدبة تظهر الأجسام <strong>أصغر وأبعد</strong> مما هي عليه في الواقع (<code>Più piccoli e più lontani</code>).</li>
-          <li><span>📐</span> <strong>مجال رؤية أوسع:</strong> توفر زاوية رؤية بانورامية أوسع، لكن تقدير المسافة يتطلب حذراً.</li>
-          <li><span>⚠️</span> <strong>فخ:</strong> زعم أن المرآة المحدبة تقرب الأجسام وتجعلها تبدو أقرب ← <strong>FALSO</strong> (بل أبعد!).</li>
+          <li><span>•</span> Su una strada a due carreggiate separate, in figura, si deve percorrere la carreggiata di destra per la marcia normale e quella di sinistra per il sorpasso (خطأ FALSO)</li>
+          <li><span>•</span> Nelle strade composte da una carreggiata a due corsie a doppio senso di marcia, in figura, si può marciare per file parallele (خطأ FALSO)</li>
+          <li><span>•</span> Nelle strade a quattro carreggiate separate, quelle centrali sono riservate al sorpasso (خطأ FALSO)</li>
+          <li><span>•</span> Chi intende cambiare corsia non deve azionare l'indicatore di direzione se la strada è libera (خطأ FALSO)</li>
         </ul>
       </div>
-
-      <div class="compare-card rose">
-        <div class="card-header-row">
-          <span class="card-it-title">Antiriflesso</span>
-          <span class="card-ar-title">وضعية منع الإبهار</span>
-        </div>
-        <ul class="card-points-list">
-          <li><span>🌙</span> <strong>المرآة المركزية الداخلية:</strong> مزودة بوضعية منع الإبهار الليلي (<code>Posizione antiriflesso</code>).</li>
-          <li><span>🔀</span> <strong>آلية العمل:</strong> تكسر شدة وهج مصابيح السيارات الخلفية دون حجب صورة ما يدور خلفك.</li>
-          <li><span>⚙️</span> <strong>ترتيب الضبط:</strong> يجب دائماً <strong>ضبط المقعد أولاً</strong> (<code>Regolare il sedile</code>) ثم ضبط المرايا ثانياً!</li>
-        </ul>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: لا يجوز السير في المسار الأوسط أو الأيسر إذا كان المسار الأيمن خالياً، حتى لو كنت تقود بالحد الأقصى للسرعة.
       </div>
     </div>
 
-    <!-- ======================== SECTION 5 ======================== -->
-    <h2 class="section-title">🎪 خامساً: الحالات الاستثنائية (المواكب، الشاحنات، والدوار)</h2>
-
-    <div class="comparison-grid">
-      <div class="compare-card amber">
-        <div class="card-header-row">
-          <span class="card-it-title">I Cortei (12 سؤالاً)</span>
-          <span class="card-ar-title">المواكب الرسمية والجنائزية</span>
+    <!-- Card 3: file_parallele -->
+    <div class="signal-card" data-category="corsie">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(14,165,233,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(14,165,233,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">🚗🚗</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#38bdf8; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(56,189,248,0.3);">File parallele: Traffico intenso</span>
         </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">السير في صفوف متوازية وشروطه القانونية</h3>
+        <span class="card-it-title">Circolazione per file parallele e condizioni di ammissibilità (Art. 144)</span>
+      </div>
+      <p class="card-desc-text">
+        يُحظر السير في صفوف متوازية كقاعدة عامة؛ ولا يُسمح به إلا استثناءً في حالتين حصريتين: 1) في الطرق ذات مسارين على الأقل لكل اتجاه عند وجود كثافة مرورية عالية وازدحام يفرضه بطء المركبات. 2) في التقاطعات المنظمة بإشارات ضوئية أو رجال المرور.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
         <ul class="card-points-list">
-          <li><span>🚫</span> <strong>حظر قطع الموكب:</strong> يُحظر قطعياً اختراق أو شق أي موكب رسمي أو جنائزي (<code>Vietato tagliare un corteo</code>).</li>
-          <li><span>🔇</span> <strong>حظر الكلاكس:</strong> يُمنع استخدام المنبه الصوتي بجوار الموكب منعاً للإزعاج أو التشتيت.</li>
-          <li><span>🅿️</span> <strong>السلوك السليم:</strong> التوقف على الجانب الأيمن وانتظار مروره بالكامل، أو الانعطاف في شارع فرعي بديل.</li>
+          <li><span>•</span> <strong>In caso di traffico intenso il conducente deve regolare la propria velocità uniformandola il più possibile a quella della corrente di traffico che scorre lungo la corsia occupata</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">In caso di traffico intenso il conducente deve regolare la propria velocità uniformandola il più possibile a quella della corrente di traffico che scorre lungo la corsia occupata</span></li>
+          <li><span>•</span> <strong>In caso di traffico intenso il conducente deve mantenere sempre la distanza di sicurezza dal veicolo che lo precede</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">In caso di traffico intenso il conducente deve mantenere sempre la distanza di sicurezza dal veicolo che lo precede</span></li>
+          <li><span>•</span> <strong>In caso di traffico intenso il conducente deve evitare di suonare il clacson per invitare i veicoli che lo precedono ad accelerare l'andatura</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">In caso di traffico intenso il conducente deve evitare di suonare il clacson per invitare i veicoli che lo precedono ad accelerare l'andatura</span></li>
+          <li><span>•</span> <strong>I veicoli devono, di norma, circolare sulla parte destra della carreggiata ed in vicinanza del margine destro</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">I veicoli devono, di norma, circolare sulla parte destra della carreggiata ed in vicinanza del margine destro</span></li>
         </ul>
       </div>
-
-      <div class="compare-card indigo">
-        <div class="card-header-row">
-          <span class="card-it-title">Autotreni (7 أسئلة)</span>
-          <span class="card-ar-title">انعطاف الشاحنات والمقطورات</span>
-        </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
         <ul class="card-points-list">
-          <li><span>🚛</span> <strong>الانحراف التمهيدي:</strong> تنحرف الشاحنات الكبيرة يساراً أولاً (<code>Allargarsi a sinistra</code>) لتتمكن من الانعطاف يميناً في الشوارع الضيقة.</li>
-          <li><span>🚫</span> <strong>خطر التجاوز من اليمين:</strong> يُحظر على السيارات الصغيرة محاولة التجاوز من اليمين عندما ترى الشاحنة تنحرف يساراً!</li>
-          <li><span>📐</span> <strong>العلة الهندسية:</strong> كبر المسافة بين المحاور الأمامية والخلفية يجعل ذيل المقطورة يضيق نحو الرصيف.</li>
+          <li><span>•</span> In caso di traffico intenso il conducente deve cambiare ripetutamente corsia di marcia in modo da impegnare sempre quella più libera (خطأ FALSO)</li>
+          <li><span>•</span> In caso di traffico intenso il conducente deve occupare le corsie riservate alla marcia dei veicoli in servizio pubblico, se libere (خطأ FALSO)</li>
+          <li><span>•</span> In caso di traffico intenso il conducente deve fare uso del lampeggio simultaneo di tutti gli indicatori di direzione (خطأ FALSO)</li>
+          <li><span>•</span> Su strada a doppio senso di marcia con tre corsie, come in figura, i veicoli possono usare la corsia centrale per la marcia normale (خطأ FALSO)</li>
         </ul>
       </div>
-
-      <div class="compare-card emerald">
-        <div class="card-header-row">
-          <span class="card-it-title">Rotatoria (الدوار)</span>
-          <span class="card-ar-title">قواعد الدوار الحديث</span>
-        </div>
-        <ul class="card-points-list">
-          <li><span>🔄</span> <strong>مع شاخصة إعطاء الأسبقية:</strong> عند وجود شاخصة <code>Dare precedenza</code>، الأسبقية حصراً لمن بداخل الدوار.</li>
-          <li><span>⚠️</span> <strong>بدون شواخص (الدوار القديم):</strong> تُطبق قاعدة اليمين الحر العادية (الأسبقية للقادم من خارج الدوار).</li>
-          <li><span>🔔</span> <strong>مؤشر الخروج:</strong> تشغيل الغماز الأيمن عند الاقتراب من المخرج الذي تنوي الخروج منه.</li>
-        </ul>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> أشهر فخ في الوزارة: لا يجوز للسائق اختيار السير في صفوف متوازية بمفرده على طريق خالٍ لمجرد وجود عدة مسارات!
       </div>
     </div>
 
-    <!-- ======================== SECTION 6 ======================== -->
-    <h2 class="section-title">📖 سادساً: القاموس التقني المبوب ثنائي اللغة (Glossario A2-B1)</h2>
-    <div class="table-wrap">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>المصطلح بالإيطالية</th>
-            <th>الترجمة بالعربية</th>
-            <th>السياق الامتحاني ومفتاح الحل</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Margine destro</strong></td>
-            <td>الحافة اليمنى لنهر الطريق</td>
-            <td>القاعدة العامة الإلزامية: السير بأقصى اليمين، خاصة في المنحنيات ومطبات الرؤية.</td>
-          </tr>
-          <tr>
-            <td><strong>Asse della carreggiata</strong></td>
-            <td>خط منتصف نهر الطريق</td>
-            <td>عند الانعطاف يساراً في طريق باتجاهين: اقترب من خط المنتصف دون تجاوزه.</td>
-          </tr>
-          <tr>
-            <td><strong>Margine sinistro</strong></td>
-            <td>الحافة اليسرى لنهر الطريق</td>
-            <td>تُستخدم للتموضع حصراً عند الانعطاف يساراً في طريق ذي اتجاه واحد (Senso unico).</td>
-          </tr>
-          <tr>
-            <td><strong>Marcia per file parallele</strong></td>
-            <td>السير في صفوف متوازية</td>
-            <td>مسموح به حصراً في حالتين: الازدحام الشديد، أو التقاطعات المنظمة بإشارات أو شرطي.</td>
-          </tr>
-          <tr>
-            <td><strong>Manovra di retromarcia</strong></td>
-            <td>مناورة الرجوع للخلف</td>
-            <td>أسبقية لجميع المركبات من اليمين واليسار وللمشاة، مع تشغيل الغماز فقط والاستعانة بمساعد عند اللزوم.</td>
-          </tr>
-          <tr>
-            <td><strong>Inversione di marcia</strong></td>
-            <td>الدوران الكامل للخلف (U-turn)</td>
-            <td>محظور في 6 حالات رئيسية: الاتجاه الواحد، المنحنيات، التقاطعات، الضباب، الخط المتصل، والأوتوستراد.</td>
-          </tr>
-          <tr>
-            <td><strong>Specchio retrovisore convesso</strong></td>
-            <td>المرآة العاكسة المحدبة</td>
-            <td>تظهر الأجسام أصغر وأبعد (Più lontani)، ولا تلغي الزوايا الميتة كلياً.</td>
-          </tr>
-          <tr>
-            <td><strong>Posizione antiriflesso</strong></td>
-            <td>وضعية منع الإبهار</td>
-            <td>في المرآة المركزية الداخلية لمنع إعماء السائق بأضواء السيارات الخلفية ليلاً.</td>
-          </tr>
-          <tr>
-            <td><strong>Tagliare un corteo</strong></td>
-            <td>قطع أو شق موكب رسمي</td>
-            <td>محظور قطعياً؛ ويُمنع استخدام المنبه الصوتي بجواره.</td>
-          </tr>
-          <tr>
-            <td><strong>Allargarsi a sinistra</strong></td>
-            <td>الانحراف نحو اليسار</td>
-            <td>تقوم به الشاحنات الطويلة قبل الانعطاف يميناً؛ ويُحظر تجاوزهما من اليمين.</td>
-          </tr>
-          <tr>
-            <td><strong>Farsi aiutare da persona a terra</strong></td>
-            <td>الاستعانة بمساعد خارج السيارة</td>
-            <td>واجب عند الرجوع للخلف إذا كانت الرؤية الخلفية غير كافية لضمان الأمان.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- ======================== SECTION 7 ======================== -->
-    <h2 class="section-title">⚡ سابعاً: بنك الفخاخ الوزارية المباشرة (15 سؤالاً حاسماً من الامتحانات الرسمية)</h2>
-    <p style="color:var(--text-secondary); margin-bottom:14px;">تم انتقاء أصعب 15 سؤالاً وزارياً من بنك الأسئلة الرسمي مع الترجمة البشرية الدقيقة والشرح القانوني المباشر:</p>
-
-    <div class="quiz-stack">
-      <!-- Trap 1 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">1. Il veicolo S, muovendosi in retromarcia per immettersi nella circolazione, deve azionare la segnalazione luminosa di pericolo.</div>
-        <div class="quiz-q-ar">يجب على المركبة S، عند تحركها للخلف للاندماج في حركة السير، تشغيل أضواء الطوارئ الرباعية (أضواء الخطر).</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">فخ شهير في الامتحان؛ السائق ملزم فقط بتشغيل مؤشر الاتجاه (الغماز)، ولا يطلب كود السير إطلاقاً تشغيل أضواء الطوارئ الأربعة (4 Frecce) لمجرد الرجوع للخلف.</span>
+    <!-- Card 4: svolta_destra -->
+    <div class="signal-card" data-category="svolte">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(14,165,233,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(14,165,233,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">↪️</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#38bdf8; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(56,189,248,0.3);">Margine destro & Frecce</span>
         </div>
       </div>
-      <!-- Trap 2 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">2. Il veicolo S, muovendosi in retromarcia per immettersi nella circolazione, deve dare la precedenza solo ai veicoli che transitano nel suo senso di marcia.</div>
-        <div class="quiz-q-ar">يجب على المركبة S، أثناء رجوعها للخلف للاندماج في السير، إعطاء الأسبقية فقط للمركبات التي تسير في نفس اتجاه سيرها.</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">فخ كلمة (SOLO)؛ قائد المركبة عند الرجوع للخلف ملزم بإعطاء الأسبقية لجميع المركبات القادمة من كلا الاتجاهين (يمين ويسار) وللمشاة أيضاً خلف السيارة دون استثناء.</span>
-        </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">قواعد ومناورة الانعطاف لليمين (Svolta a destra)</h3>
+        <span class="card-it-title">Comportamento e manovra di svolta a destra (Art. 154)</span>
       </div>
-      <!-- Trap 3 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">3. Chi guida un veicolo deve guidare sempre al centro della strada, però senza superare la striscia di corsia.</div>
-        <div class="quiz-q-ar">يجب على سائق المركبة أن يقود دائماً في منتصف الشارع، ولكن دون تجاوز خط الحارة.</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">فخ كلمة (SEMPRE)؛ القاعدة الأساسية الملزمة في كود السير هي الالتزام بأقصى قرب من الحافة اليمنى لنهر الطريق (Margine destro)، وليس القيادة في المنتصف.</span>
-        </div>
+      <p class="card-desc-text">
+        عند الانعطاف لليمين: يجب الإشارة مسبقاً بالغماز الأيمن، والاقتراب المبكر من الحافة اليمنى لنهر الطريق، وتخفيض السرعة، والانتباه الشديد لعدم قطع مسار الدراجات الهوائية والمشاة، وإعطاء الأسبقية للمشاة العابرين.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Per effettuare la svolta a destra occorre tenersi il più vicino possibile al margine destro della carreggiata</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Per effettuare la svolta a destra occorre tenersi il più vicino possibile al margine destro della carreggiata</span></li>
+          <li><span>•</span> <strong>Per effettuare la svolta a destra bisogna segnalare in anticipo la manovra da compiere, azionando l'indicatore di direzione</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Per effettuare la svolta a destra bisogna segnalare in anticipo la manovra da compiere, azionando l'indicatore di direzione</span></li>
+          <li><span>•</span> <strong>La svolta a destra si effettua immettendosi nella corsia che consente di eseguire tale manovra</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">La svolta a destra si effettua immettendosi nella corsia che consente di eseguire tale manovra</span></li>
+          <li><span>•</span> <strong>La svolta a destra si effettua moderando la velocità man mano che ci si avvicina al punto di svolta</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">La svolta a destra si effettua moderando la velocità man mano che ci si avvicina al punto di svolta</span></li>
+        </ul>
       </div>
-      <!-- Trap 4 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">4. Chi guida un veicolo può sorpassare in ogni condizione di traffico, purché non ci sia il segnale di divieto.</div>
-        <div class="quiz-q-ar">يجوز لسائق المركبة التجاوز في أي ظرف من ظروف المرور، ما دام لا توجد إشارة منع التجاوز.</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">فخ شائع؛ عدم وجود شاخصة منع لا يعني إباحة التجاوز دائماً؛ إذ يُشترط خلو مسار التجاوز ومسافة رؤية كافية وأمان تام وعدم وجود عوائق أو خط متصل أو مطبات.</span>
-        </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Per svoltare a destra bisogna tenersi il più vicino possibile al margine sinistro della carreggiata (خطأ FALSO)</li>
+          <li><span>•</span> Per svoltare a destra bisogna tenersi sulla corsia di sinistra (خطأ FALSO)</li>
+          <li><span>•</span> La svolta a destra si effettua senza mai dare la precedenza ai pedoni, se il semaforo ha la luce verde accesa (خطأ FALSO)</li>
+          <li><span>•</span> La svolta a destra si effettua girando attorno alla colonnina luminosa eventualmente posta al centro dell'incrocio (خطأ FALSO)</li>
+        </ul>
       </div>
-      <!-- Trap 5 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">5. Gli specchi retrovisori montati sul veicolo eliminano completamente gli angoli ciechi.</div>
-        <div class="quiz-q-ar">المرايا العاكسة المثبتة على المركبة تلغي الزوايا الميتة (العمياء) تماماً.</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">قاعدة فيزياء المرايا؛ المرايا لا تلغي الزوايا الميتة كلياً (Non eliminano completamente gli angoli ciechi)؛ لذلك يجب دائماً الالتفات المباشر بالرأس قبل تغيير الحارة.</span>
-        </div>
-      </div>
-      <!-- Trap 6 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">6. Lo specchio retrovisore esterno a superficie convessa fa apparire i veicoli più vicini di quanto lo siano in realtà.</div>
-        <div class="quiz-q-ar">المرآة الخارجية ذات السطح المحدب تجعل المركبات تبدو أقرب مما هي عليه في الواقع.</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">المرآة المحدبة توفر مجال رؤية أوسع ولكنها تصغر الأجسام فيبدو ما خلفك أبعد (Più lontani) مما هو عليه في الحقيقة، وليس أقرب.</span>
-        </div>
-      </div>
-      <!-- Trap 7 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">7. E' vietato tagliare la strada a cortei o colonne di veicoli delle forze armate o cortei funebri.</div>
-        <div class="quiz-q-ar">يُحظر قطع الطريق أو اختراق مواكب القوات المسلحة أو الجنائز أو شق صفوفها.</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-vero">VERO ✅</span>
-          <span class="quiz-explain">صحيح 100%؛ يُمنع منعاً باتاً قطع أي موكب رسمي أو جنائزي أو السير وسطه، والواجب هو التوقف أقصى اليمين لمرورهم أو الدخول في شارع فرعي جانبي.</span>
-        </div>
-      </div>
-      <!-- Trap 8 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">8. Su una strada a tre corsie a doppio senso di marcia, in figura, la corsia centrale è riservata al sorpasso per entrambi i sensi di marcia.</div>
-        <div class="quiz-q-ar">في طريق ذي ثلاث حارات واتجاهين للسير (كما في الشكل 554)، تكون الحارة الوسطى مخصصة للتجاوز لكلا الاتجاهين.</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-vero">VERO ✅</span>
-          <span class="quiz-explain">صحيح؛ الحارة اليمنى لكل اتجاه مخصصة للسير العادي، والحارة الوسطى المشتركة تُستخدم حصراً للتجاوز فقط ولا يجوز السير فيها بشكل مستمر.</span>
-        </div>
-      </div>
-      <!-- Trap 9 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">9. Nella marcia per file parallele è consentito ai motocicli di circolare passando tra i veicoli incolonnati.</div>
-        <div class="quiz-q-ar">أثناء السير في صفوف متوازية، يُسمح للدراجات النارية بالمرور بين السيارات المتراصة في الصفوف.</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">حظر الزجزاج بين السيارات؛ يُمنع قطعياً على الدراجات النارية السير بين مسارات السيارات حتى في حالات الازدحام الشديد، وعليها التزام مسار كامل كسائر المركبات.</span>
-        </div>
-      </div>
-      <!-- Trap 10 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">10. Nella manovra di retromarcia, se la visuale è ostacolata, è opportuno farsi aiutare da una persona a terra.</div>
-        <div class="quiz-q-ar">في مناورة الرجوع للخلف، إذا كانت الرؤية محجوبة أو غير كافية، يجب الاستعانة بشخص يقف على الأرض خارج المركبة لتوجيه السائق.</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-vero">VERO ✅</span>
-          <span class="quiz-explain">نص قانوني صريح؛ عندما يعجز السائق عن الرؤية الخلفية الكاملة والمطمئنة، يُلزمه القانون بالاستعانة بمساعد خارجي (Farsi aiutare) لتفادي دهس المارة أو الاصطدام.</span>
-        </div>
-      </div>
-      <!-- Trap 11 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">11. Il carico può sporgere longitudinalmente dalla parte anteriore dell'autoveicolo per non più di tre decimi della sua lunghezza.</div>
-        <div class="quiz-q-ar">يجوز للحمولة أن تبرز طولياً من الجهة الأمامية للسيارة بما لا يتجاوز ثلاثة أعشار (3/10) طول المركبة.</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">فخ خطير ومكرر؛ البروز الطولي بمقدار 3/10 مسموح به حصراً من الجهة الخلفية (Parte posteriore) مع وضع اللوحة العاكسة، بينما يُحظر تماماً أي بروز من الجهة الأمامية.</span>
-        </div>
-      </div>
-      <!-- Trap 12 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">12. Il conducente di un autotreno, per svoltare a destra in una strada stretta, deve allargarsi preventivamente a sinistra.</div>
-        <div class="quiz-q-ar">سائق الشاحنة المزودة بمقطورة (Autotreno)، لكي ينعطف يميناً في شارع ضيق، ينحرف مسبقاً نحو اليسار.</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-vero">VERO ✅</span>
-          <span class="quiz-explain">صحيح؛ نظراً لكبر طول الشاحنة وتباعد محاورها، تنحرف لليسار لتفادي صعود عجلاتها الخلفية على الرصيف، ويُحظر على السيارات خلفها التجاوز من جهة اليمين.</span>
-        </div>
-      </div>
-      <!-- Trap 13 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">13. L'inversione di marcia è consentita in prossimità o in corrispondenza delle curve purché si azioni l'indicatore di direzione.</div>
-        <div class="quiz-q-ar">يُسمح بالدوران للخلف (U-turn) بالقرب من المنحنيات أو عندها بشرط تشغيل مؤشر الاتجاه (الغماز).</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-falso">FALSO ❌</span>
-          <span class="quiz-explain">الدوران للخلف في المنحنيات ومطبات الرؤية محظور قطعياً ومصنف كجريمة خطرة لانعدام الرؤية، وتشغيل الغماز لا يبيح ارتكاب مخالفة محظورة قانوناً.</span>
-        </div>
-      </div>
-      <!-- Trap 14 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">14. Per svoltare a sinistra da una carreggiata a senso unico, bisogna tenersi il più possibile sul margine sinistro della carreggiata.</div>
-        <div class="quiz-q-ar">للانعطاف يساراً من طريق ذي اتجاه واحد للسير (Senso unico)، يجب التموضع بأقصى ما يمكن على الحافة اليسرى لنهر الطريق.</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-vero">VERO ✅</span>
-          <span class="quiz-explain">صحيح؛ في طريق الاتجاه الواحد لا تأتي مركبات من الاتجاه المعاكس، لذا يُلزم السائق بأخذ أقصى اليسار تماماً، ليترك الجهة اليمنى لمرور بقية السائقين.</span>
-        </div>
-      </div>
-      <!-- Trap 15 -->
-      <div class="quiz-card">
-        <div class="quiz-q-it">15. La posizione antiriflesso dello specchietto retrovisore interno riduce l'abbagliamento provocato dai fari dei veicoli che seguono.</div>
-        <div class="quiz-q-ar">وضعية منع الإبهار (Antiriflesso) في المرآة العاكسة الداخلية تقلل من وهج الإبهار الناتج عن أضواء المركبات التي تسير في الخلف.</div>
-        <div class="quiz-meta-row">
-          <span class="ans-badge ans-vero">VERO ✅</span>
-          <span class="quiz-explain">صحيح؛ ميزة ميكانيكية أو كهرومغناطيسية بالمرآة الداخلية الوسطى تكسر انعكاس الضوء ليلاً لكي لا يُعمى بصر السائق مع بقاء الرؤية الخلفية واضحة.</span>
-        </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: إذا كانت أمامك شاحنة كبيرة تنعطف لليمين وانحرفت يساراً لتوسيع زاوية دورانها، يحظر قطعياً تجاوزها أو التسلل من يمينها.
       </div>
     </div>
-  </article>
+
+    <!-- Card 5: svolta_sinistra_doppio -->
+    <div class="signal-card" data-category="svolte">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(14,165,233,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(14,165,233,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">↩️</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#38bdf8; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(56,189,248,0.3);">Asse mediano & Precedenza di fronte</span>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الانعطاف لليسار في طريق ذو اتجاهين (Doppio senso)</h3>
+        <span class="card-it-title">Svolta a sinistra su carreggiata a doppio senso di marcia</span>
+      </div>
+      <p class="card-desc-text">
+        عند الانعطاف لليسار في طريق يسير في الاتجاهين: يجب الاقتراب من الخط الفاصل الأوسط (Asse della carreggiata) دون تجاوزه، وإعطاء الأسبقية للمركبات القادمة في الاتجاه المعاكس وللقادمين من اليمين، والعبور أمام مركز التقاطع.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>In una carreggiata a doppio senso di circolazione per svoltare a sinistra bisogna avvicinarsi al centro della carreggiata</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">In una carreggiata a doppio senso di circolazione per svoltare a sinistra bisogna avvicinarsi al centro della carreggiata</span></li>
+          <li><span>•</span> <strong>In una carreggiata a doppio senso di circolazione per svoltare a sinistra occorre, di norma, occupare l'area sinistra dell'incrocio, come i veicoli in figura, salvo diversa segnalazione</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">In una carreggiata a doppio senso di circolazione per svoltare a sinistra occorre, di norma, occupare l'area sinistra dell'incrocio, come i veicoli in figura, salvo diversa segnalazione</span></li>
+          <li><span>•</span> <strong>In una carreggiata a doppio senso di circolazione per svoltare a sinistra bisogna girare intorno al centro dell'incrocio come il veicolo H in figura, se c'è il segnale di rotatoria</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">In una carreggiata a doppio senso di circolazione per svoltare a sinistra bisogna girare intorno al centro dell'incrocio come il veicolo H in figura, se c'è il segnale di rotatoria</span></li>
+          <li><span>•</span> <strong>In una carreggiata a doppio senso di circolazione per svoltare a sinistra bisogna dare la precedenza ai veicoli provenienti da destra, salvo diversa segnalazione</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">In una carreggiata a doppio senso di circolazione per svoltare a sinistra bisogna dare la precedenza ai veicoli provenienti da destra, salvo diversa segnalazione</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> In una carreggiata a doppio senso di circolazione per svoltare a sinistra occorre spostarsi il più possibile sul margine sinistro della carreggiata (خطأ FALSO)</li>
+          <li><span>•</span> In una carreggiata a doppio senso di circolazione per svoltare a sinistra bisogna effettuare la manovra velocemente, per evitare i veicoli provenienti da destra e da sinistra (خطأ FALSO)</li>
+          <li><span>•</span> In una carreggiata a doppio senso di circolazione per svoltare a sinistra bisogna effettuare la svolta occupando sempre il lato destro dell'incrocio, come i veicoli in figura (خطأ FALSO)</li>
+          <li><span>•</span> In una carreggiata a doppio senso di circolazione per svoltare a sinistra bisogna dare la precedenza ai veicoli che arrivano da sinistra, salvo diversa segnalazione (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: يحظر قطعياً التمركز في أقصى اليسار في الطريق ذي الاتجاهين لأن ذلك يعني احتلال مسار المرور المعاكس!
+      </div>
+    </div>
+
+    <!-- Card 6: svolta_sinistra_unico -->
+    <div class="signal-card" data-category="svolte">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(14,165,233,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(14,165,233,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">⬅️</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#38bdf8; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(56,189,248,0.3);">Margine sinistro assoluto</span>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الانعطاف لليسار في طريق ذو اتجاه واحد (Senso unico)</h3>
+        <span class="card-it-title">Svolta a sinistra su carreggiata a senso unico di circolazione</span>
+      </div>
+      <p class="card-desc-text">
+        في الطريق ذي الاتجاه الواحد (Senso Unico): يلزم القانون بالاقتراب والتمركز على أقصى الحافة اليسرى تماماً لنهر الطريق (Margine sinistro) قبل الوصول للتقاطع، لإفساح المجال للمركبات الراغبة في التجاوز أو الانعطاف يميناً.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Quando si vuole cambiare direzione si deve azionare in anticipo l'indicatore di direzione</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Quando si vuole cambiare direzione si deve azionare in anticipo l'indicatore di direzione</span></li>
+          <li><span>•</span> <strong>Per svoltare a sinistra bisogna, di norma, lasciare il centro dell'incrocio alla nostra destra, come i veicoli in figura</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Per svoltare a sinistra bisogna, di norma, lasciare il centro dell'incrocio alla nostra destra, come i veicoli in figura</span></li>
+          <li><span>•</span> <strong>Su strada a senso unico per svoltare a sinistra bisogna tenersi sul margine sinistro</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Su strada a senso unico per svoltare a sinistra bisogna tenersi sul margine sinistro</span></li>
+          <li><span>•</span> <strong>Durante l'effettuazione dell'inversione di marcia l'indicatore di direzione deve rimanere in funzione per l'intera durata della manovra</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Durante l'effettuazione dell'inversione di marcia l'indicatore di direzione deve rimanere in funzione per l'intera durata della manovra</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il veicolo in figura, può svoltare a destra (خطأ FALSO)</li>
+          <li><span>•</span> Per svoltare a sinistra bisogna girare intorno al centro dell'incrocio, come i veicoli in figura (خطأ FALSO)</li>
+          <li><span>•</span> Quando si vuole cambiare direzione è obbligatorio fare uso delle segnalazioni acustiche (clacson o trombe) (خطأ FALSO)</li>
+          <li><span>•</span> Viaggiando su semicarreggiata a tre corsie, come in figura, per svoltare a sinistra si deve utilizzare la corsia centrale (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ المقارنة الكبرى: في الاتجاه الواحد تقترب من الحافة اليسرى تماماً؛ أما في الاتجاهين فتقترب من الخط الأوسط فقط!
+      </div>
+    </div>
+
+    <!-- Card 7: inversione_marcia -->
+    <div class="signal-card" data-category="manovre">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(14,165,233,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(14,165,233,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">🔄</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#38bdf8; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(56,189,248,0.3);">Divieto: Dossi, Curve, Incroci, Autostrada</span>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">مناورة الدوران للخلف وحالات الحظر الصارمة</h3>
+        <span class="card-it-title">Manovra di inversione del senso di marcia (Inversione a U)</span>
+      </div>
+      <p class="card-desc-text">
+        الدوران للخلف مسموح فقط في الطرق المستقيمة ذات الرؤية الممتازة دون عبور خطوط متصلة؛ ويُحظر منعاً باتاً في: المنعطفات، قمم المطالع (Dossi)، التقاطعات، بالقرب من مسارات القطار، في ظروف الضباب والظلام، وعلى الأوتوستراد تحت طائلة أقصى العقوبات.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il conducente che intende effettuare l'inversione di marcia su una strada a doppio senso deve dare la precedenza ai veicoli che sopraggiungono</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il conducente che intende effettuare l'inversione di marcia su una strada a doppio senso deve dare la precedenza ai veicoli che sopraggiungono</span></li>
+          <li><span>•</span> <strong>Il conducente che intende effettuare l'inversione di marcia su una strada a doppio senso deve rinunciare a compiere la manovra, qualora vi sia traffico intenso e continuo</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il conducente che intende effettuare l'inversione di marcia su una strada a doppio senso deve rinunciare a compiere la manovra, qualora vi sia traffico intenso e continuo</span></li>
+          <li><span>•</span> <strong>Il conducente che intende effettuare l'inversione di marcia su una strada a doppio senso deve rinunciare ad eseguire la manovra, se vi è scarsa visibilità</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il conducente che intende effettuare l'inversione di marcia su una strada a doppio senso deve rinunciare ad eseguire la manovra, se vi è scarsa visibilità</span></li>
+          <li><span>•</span> <strong>Il conducente che intende effettuare l'inversione di marcia su una strada a doppio senso deve azionare l'indicatore di direzione</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il conducente che intende effettuare l'inversione di marcia su una strada a doppio senso deve azionare l'indicatore di direzione</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il conducente che intende effettuare l'inversione di marcia su una strada a doppio senso deve azionare la segnalazione luminosa di pericolo (خطأ FALSO)</li>
+          <li><span>•</span> Il conducente che intende effettuare l'inversione di marcia su una strada a doppio senso può compiere la manovra anche in curva, se dà precedenza a tutti i veicoli (خطأ FALSO)</li>
+          <li><span>•</span> Il conducente che può effettuare l'inversione di marcia su una strada a doppio senso deve accertarsi se la linea di mezzeria è continua (خطأ FALSO)</li>
+          <li><span>•</span> Il conducente che intende effettuare l'inversione di marcia su una strada a doppio senso può compiere la manovra anche con scarsa visibilità, se la linea di mezzeria è tratteggiata (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: لا يجوز الدوران للخلف عند قمة المطلع (Dosso) حتى لو كان الطريق ذا اتجاه واحد أو خالياً من المرور.
+      </div>
+    </div>
+
+    <!-- Card 8: retromarcia_sicurezza -->
+    <div class="signal-card" data-category="manovre">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(14,165,233,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(14,165,233,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">🔙</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#38bdf8; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(56,189,248,0.3);">Dare precedenza a TUTTI</span>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">قواعد السير إلى الخلف (الرجوع بالمارشيدير Retromarcia)</h3>
+        <span class="card-it-title">Manovra di retromarcia e immissione in sicurezza</span>
+      </div>
+      <p class="card-desc-text">
+        الرجوع للخلف مناورة استثنائية شديدة الخطورة: تلزم بإعطاء الأسبقية لجميع المركبات والمشاة دون استثناء، والرجوع ببطء شديد، وتشغيل مصابيح الرجوع للخلف البيضاء، واستخدام المرايا مع الالتفات المباشر للخلف، وطلب مساعدة شخص آخر إذا كانت الرؤية محجوبة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il veicolo S, muovendosi in retromarcia per immettersi nella circolazione, deve dare la precedenza ai veicoli provenienti sia da destra che da sinistra</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il veicolo S, muovendosi in retromarcia per immettersi nella circolazione, deve dare la precedenza ai veicoli provenienti sia da destra che da sinistra</span></li>
+          <li><span>•</span> <strong>Il veicolo S, muovendosi in retromarcia per immettersi nella circolazione, deve azionare gli indicatori di direzione</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il veicolo S, muovendosi in retromarcia per immettersi nella circolazione, deve azionare gli indicatori di direzione</span></li>
+          <li><span>•</span> <strong>Il veicolo S, muovendosi in retromarcia per immettersi nella circolazione, deve fare attenzione agli eventuali pedoni in transito dietro di esso e dar loro la precedenza</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il veicolo S, muovendosi in retromarcia per immettersi nella circolazione, deve fare attenzione agli eventuali pedoni in transito dietro di esso e dar loro la precedenza</span></li>
+          <li><span>•</span> <strong>Il veicolo S, muovendosi in retromarcia per immettersi nella circolazione, deve dare la precedenza a tutti i veicoli in transito</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il veicolo S, muovendosi in retromarcia per immettersi nella circolazione, deve dare la precedenza a tutti i veicoli in transito</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il veicolo S, muovendosi in retromarcia per immettersi nella circolazione, deve azionare la segnalazione luminosa di pericolo (خطأ FALSO)</li>
+          <li><span>•</span> Il veicolo S, muovendosi in retromarcia per immettersi nella circolazione, deve accendere la luce posteriore per nebbia (خطأ FALSO)</li>
+          <li><span>•</span> Il veicolo S, muovendosi in retromarcia per immettersi nella circolazione, deve dare la precedenza solo ai veicoli che transitano nel suo senso di marcia (خطأ FALSO)</li>
+          <li><span>•</span> Il veicolo S, muovendosi in retromarcia per immettersi nella circolazione, deve manovrare velocemente per liberare il posteggio (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: في مناورة الرجوع للخلف ليس لك أي حق أسبقية على الإطلاق؛ بل يجب إعطاء الأسبقية لكل من في الطريق.
+      </div>
+    </div>
+
+    <!-- Card 9: specchi_angoli_ciechi -->
+    <div class="signal-card" data-category="specchi">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(14,165,233,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(14,165,233,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">🪞</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#38bdf8; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(56,189,248,0.3);">Specchi interni, esterni & Angolo cieco</span>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">المرايا العاكسة والزوايا الميتة (Angoli ciechi)</h3>
+        <span class="card-it-title">Uso degli specchi retrovisori e controllo dell'angolo cieco</span>
+      </div>
+      <p class="card-desc-text">
+        المرايا العاكسة (الداخلية والجانبية المحدبة) تعطي تقديراً للمسافات يبدو أبعد من الواقع وتترك مساحات غير مرئية تسمى الزوايا الميتة (Angoli ciechi)؛ لذلك يلزم قبل أي تغيير مسار التحقق من المرايا بالإضافة إلى الالتفات الخاطف بالرأس نحو الجانب.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Gli specchi retrovisori contribuiscono alla visione panoramica del conducente</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Gli specchi retrovisori contribuiscono alla visione panoramica del conducente</span></li>
+          <li><span>•</span> <strong>Lo specchio retrovisore centrale di un autoveicolo deve essere regolato in modo da garantire una buona visione posteriore</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Lo specchio retrovisore centrale di un autoveicolo deve essere regolato in modo da garantire una buona visione posteriore</span></li>
+          <li><span>•</span> <strong>Gli specchi retrovisori centrali e laterali di un autoveicolo, devono essere regolati dopo che è stata regolata la posizione del sedile di guida</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Gli specchi retrovisori centrali e laterali di un autoveicolo, devono essere regolati dopo che è stata regolata la posizione del sedile di guida</span></li>
+          <li><span>•</span> <strong>Lo specchio retrovisore centrale di un autoveicolo deve essere regolato in modo da garantire la visione dell’intero lunotto posteriore</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Lo specchio retrovisore centrale di un autoveicolo deve essere regolato in modo da garantire la visione dell’intero lunotto posteriore</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> La posizione antiriflesso dello specchio retrovisore centrale di un autoveicolo non deve essere utilizzata di notte (خطأ FALSO)</li>
+          <li><span>•</span> La posizione antiriflesso dello specchio retrovisore centrale di un autoveicolo non può essere utilizzata quando si circola su autostrada (خطأ FALSO)</li>
+          <li><span>•</span> Gli specchi retrovisori devono essere utilizzati per un controllo della strada dietro al veicolo, ogni volta che a un incrocio si intende proseguire diritto (خطأ FALSO)</li>
+          <li><span>•</span> L’illuminazione interna dello specchio retrovisore si accende con l’accensione delle luci di posizione del veicolo (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: لا تكفي المرايا وحدها لرصد راكبي الدراجات والموتوسيكلات في الزاوية الميتة الملاصقة للسيارة.
+      </div>
+    </div>
+
+    <!-- Card 10: rotatoria_circolazione -->
+    <div class="signal-card" data-category="corsie">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(14,165,233,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(14,165,233,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">⭕</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#38bdf8; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(56,189,248,0.3);">Rotatorie: Entrata, Corsie, Uscita</span>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">قواعد السير والتموضع في الميادين والدوارات (Rotatorie)</h3>
+        <span class="card-it-title">Comportamento e posizionamento nelle rotatorie a più corsie</span>
+      </div>
+      <p class="card-desc-text">
+        عند دخول الدوار: إعطاء الأسبقية لمركبات حلقة الدوار (إذا وجدت إشارة Dare precedenza)؛ في الدوارات متعددة المسارات يلتزم المسار الأيمن للخروج في أول مخرج أو متابعة السير للأمام، ويستخدم المسار الأيسر الداخلي للانعطاف لليسار أو الدوران الكامل، مع تشغيل الغماز الأيمن قبل المخرج مباشرة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Giungendo ad un incrocio in cui la circolazione è regolata con rotatoria, bisogna dare la precedenza ai veicoli provenienti da sinistra, solo se vi è il segnale DARE PRECEDENZA</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Giungendo ad un incrocio in cui la circolazione è regolata con rotatoria, bisogna dare la precedenza ai veicoli provenienti da sinistra, solo se vi è il segnale DARE PRECEDENZA</span></li>
+          <li><span>•</span> <strong>Negli incroci regolati con circolazione rotatoria, in assenza di specifico segnale, vale la regola generale di dare la precedenza a destra</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Negli incroci regolati con circolazione rotatoria, in assenza di specifico segnale, vale la regola generale di dare la precedenza a destra</span></li>
+          <li><span>•</span> <strong>Negli incroci regolati con rotatoria, la circolazione può essere disciplinata in modo che i veicoli in entrata diano la precedenza a quelli già circolanti nell'anello</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Negli incroci regolati con rotatoria, la circolazione può essere disciplinata in modo che i veicoli in entrata diano la precedenza a quelli già circolanti nell'anello</span></li>
+          <li><span>•</span> <strong>In un incrocio regolato con circolazione rotatoria, l'obbligo di dare la precedenza può essere imposto ai veicoli che stanno per immettersi</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">In un incrocio regolato con circolazione rotatoria, l'obbligo di dare la precedenza può essere imposto ai veicoli che stanno per immettersi</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Giungendo ad un incrocio in cui la circolazione è regolata con rotatoria, è obbligatorio dare la precedenza ai veicoli provenienti da sinistra (خطأ FALSO)</li>
+          <li><span>•</span> Per immettersi in un incrocio, regolato con circolazione rotatoria, bisogna dare sempre la precedenza ai veicoli già circolanti all'interno della rotatoria (خطأ FALSO)</li>
+          <li><span>•</span> In un incrocio regolato con circolazione rotatoria, i veicoli circolanti nell'anello possono effettuare manovre di retromarcia (خطأ FALSO)</li>
+          <li><span>•</span> Quando un incrocio è regolato con rotatoria, i veicoli circolanti all'interno dell'anello possono sorpassare sia a destra che a sinistra (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: لا تشغل الغماز الأيسر عند الاستمرار للأمام في الدوار؛ بل تشغل الغماز الأيمن فقط عند الاقتراب من مخرجك المقصود.
+      </div>
+    </div>
+
+    <!-- Card 11: binari_tram_circolazione -->
+    <div class="signal-card" data-category="tram">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(14,165,233,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(14,165,233,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">🚋</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#38bdf8; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(56,189,248,0.3);">Precedenza assoluta al TRAM</span>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">السير قرب وتقاطع خطوط وسكك الترام (Binari del tram)</h3>
+        <span class="card-it-title">Circolazione in presenza di binari tramviari e precedenza al tram</span>
+      </div>
+      <p class="card-desc-text">
+        الترام مركبة تسير على قضبان ثابتة ومسافة فرملتها طويلة جداً؛ تملك الأسبقية دائماً في التقاطعات ما لم توجد إشارة صريحة تلزمها بخلاف ذلك. يُسمح بالسير فوق قضبان الترام المدمجة بالأسفلت بشرط عدم عرقلة سيره، ويحظر السير في المسار الحصري المرتفع للترام.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: الترام يملك الأسبقية دائماً حتى لو كان قادماً من يسارك في التقاطعات غير المنظمة بإشارات.
+      </div>
+    </div>
+
+    <!-- Card 12: immissione_flusso -->
+    <div class="signal-card" data-category="manovre">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(14,165,233,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(14,165,233,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">🚗↗️</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#38bdf8; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(56,189,248,0.3);">Dare precedenza a chi circola</span>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الاندماج في حركة السير من الرصيف أو ملكية خاصة</h3>
+        <span class="card-it-title">Immissione nel flusso della circolazione da sosta o proprietà privata</span>
+      </div>
+      <p class="card-desc-text">
+        عند الخروج من مكان ركن أو كراج أو ملكية خاصة للاندماج في نهر الطريق: يجب تشغيل الغماز، فحص المرايا والزاوية الميتة، وإعطاء الأسبقية المطلقة لجميع المركبات السائرة في نهر الطريق وللمشاة على الرصيف، والاندماج بسلاسة دون إجبار الآخرين على الفرملة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Agli incroci è obbligatorio dare la precedenza ai veicoli circolanti su rotaie (tram e treni), salvo diversa segnalazione</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Agli incroci è obbligatorio dare la precedenza ai veicoli circolanti su rotaie (tram e treni), salvo diversa segnalazione</span></li>
+          <li><span>•</span> <strong>E' obbligatorio dare la precedenza a destra e a sinistra quando, da fermi, ci si immette nella circolazione</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">E' obbligatorio dare la precedenza a destra e a sinistra quando, da fermi, ci si immette nella circolazione</span></li>
+          <li><span>•</span> <strong>E' obbligatorio dare la precedenza a tutti i veicoli circolanti sulle strade quando si effettua l'inversione del senso di marcia</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">E' obbligatorio dare la precedenza a tutti i veicoli circolanti sulle strade quando si effettua l'inversione del senso di marcia</span></li>
+          <li><span>•</span> <strong>E' obbligatorio dare la precedenza a tutti i veicoli quando si effettua la retromarcia</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">E' obbligatorio dare la precedenza a tutti i veicoli quando si effettua la retromarcia</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> E' obbligatorio dare la precedenza a destra e a sinistra in presenza del segnale in figura (خطأ FALSO)</li>
+          <li><span>•</span> E' obbligatorio dare la precedenza a destra e a sinistra in presenza del segnale ROTATORIA (خطأ FALSO)</li>
+          <li><span>•</span> E' obbligatorio dare la precedenza a tutti i veicoli circolanti negli incroci regolati da semaforo a luce gialla lampeggiante (خطأ FALSO)</li>
+          <li><span>•</span> E' obbligatorio dare la precedenza a tutti i veicoli circolanti quando si svolta a sinistra (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: الخارج من ملكية خاصة (Passo carrabile) لا يملك أي أسبقية إطلاقاً، ويلزمه التوقف التام وإعطاء الأسبقية للجميع.
+      </div>
+    </div>
+
+    <!-- Card 13: veicoli_soccorso_polizia -->
+    <div class="signal-card" data-category="emergenza">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(14,165,233,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(14,165,233,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">🚑🚨</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#38bdf8; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(56,189,248,0.3);">Sirena + Lampeggiante blu = Sgomberare subito</span>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">التعامل الإلزامي مع سيارات الإسعاف والشرطة والإطفاء</h3>
+        <span class="card-it-title">Comportamento all'avvicinarsi di veicoli di soccorso con sirena e lampeggiante</span>
+      </div>
+      <p class="card-desc-text">
+        عند اقتراب مركبة طوارئ (إسعاف، شرطة، إطفاء) مستخدمة الصفارة المتقطعة (Sirena) والضوء الأزرق الوامض معاً: يجب فوراً إخلاء المسار والانحياز لأقصى اليمين والتوقف إذا لزم الأمر، ويحظر قطعياً ملاحقتها أو استغلال الفراغ خلفها للتجاوز.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>I conducenti devono attenersi alle segnalazioni di pericolo o alle prescrizioni che appaiono, con scritte luminose, sui veicoli della polizia</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">I conducenti devono attenersi alle segnalazioni di pericolo o alle prescrizioni che appaiono, con scritte luminose, sui veicoli della polizia</span></li>
+          <li><span>•</span> <strong>Se un'auto della polizia, con sirena in funzione, vi sorpassa ponendosi davanti e sul tetto ha un display con la scritta luminosa "ACCOSTARE", avete l'obbligo di arrestarvi</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Se un'auto della polizia, con sirena in funzione, vi sorpassa ponendosi davanti e sul tetto ha un display con la scritta luminosa "ACCOSTARE", avete l'obbligo di arrestarvi</span></li>
+          <li><span>•</span> <strong>Se un'auto della polizia, con sirena in funzione, vi sorpassa ponendosi davanti e sul tetto ha un display con la scritta luminosa "ALT POLIZIA", solo voi avete l'obbligo di arrestarvi</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Se un'auto della polizia, con sirena in funzione, vi sorpassa ponendosi davanti e sul tetto ha un display con la scritta luminosa "ALT POLIZIA", solo voi avete l'obbligo di arrestarvi</span></li>
+          <li><span>•</span> <strong>Quando si vede sul tetto dell'auto della polizia un display con la scritta luminosa "INCIDENTE", bisogna diminuire la velocità</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Quando si vede sul tetto dell'auto della polizia un display con la scritta luminosa "INCIDENTE", bisogna diminuire la velocità</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Quando vedete sul tetto di un'auto della polizia un display con la scritta luminosa "INCIDENTE", significa che quella zona è ad alto rischio di incidenti (خطأ FALSO)</li>
+          <li><span>•</span> Se un'auto della polizia, con sirena in funzione, vi sorpassa ponendosi davanti e sul tetto ha un display con la scritta luminosa "ACCOSTARE", significa che avete l'obbligo di svoltare (خطأ FALSO)</li>
+          <li><span>•</span> Se sul tetto di un'auto della polizia è presente un display con la scritta luminosa "RALLENTARE", l'obbligo è rivolto ai soli veicoli pesanti. (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: لا يكفي تشغيل الضوء الأزرق الوامض وحده لفرض إخلاء الطريق، بل يجب اقترانه بالصفارة الصوتية (Sirena)!
+      </div>
+    </div>
+
+    <!-- Card 14: carico_veicoli_sagoma -->
+    <div class="signal-card" data-category="carico">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(14,165,233,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(14,165,233,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">📦</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#38bdf8; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(56,189,248,0.3);">Max 3/10 posteriore con pannello 300</span>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">قواعد وبروز حمولة المركبات (Carico e sagoma limite)</h3>
+        <span class="card-it-title">Sistemazione del carico e sporgenza massima (Art. 164 CdS)</span>
+      </div>
+      <p class="card-desc-text">
+        يجب تثبيت الحمولة بإحكام لتفادي سقوطها وعدم حجب لوحة الأرقام أو الأضواء أو الرؤية؛ لا يجوز أن تبرز الحمولة من الأمام إطلاقاً، ويجوز بروزها من الخلف بحد أقصى 3 أعشار طول المركبة (3/10) بشرط وضع اللوحة المربعة العاكسة المخططة بالأبيض والأحمر (Pannello Fig. 300).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Sui motocicli è consentito il trasporto di animali se custoditi in apposita gabbia</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Sui motocicli è consentito il trasporto di animali se custoditi in apposita gabbia</span></li>
+          <li><span>•</span> <strong>Il carico deve essere sistemato sui motocicli in modo da non sporgere lateralmente di oltre 50 cm</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il carico deve essere sistemato sui motocicli in modo da non sporgere lateralmente di oltre 50 cm</span></li>
+          <li><span>•</span> <strong>Il carico deve essere sistemato sugli autoveicoli in modo da non diminuire la visibilità del conducente</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il carico deve essere sistemato sugli autoveicoli in modo da non diminuire la visibilità del conducente</span></li>
+          <li><span>•</span> <strong>Il carico deve essere sistemato sugli autoveicoli in modo da non impedire la libertà di movimenti nella guida</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il carico deve essere sistemato sugli autoveicoli in modo da non impedire la libertà di movimenti nella guida</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il carico deve essere sistemato sugli autoveicoli in modo da evitare la sporgenza laterale dello stesso per più di tre decimi della lunghezza del veicolo (خطأ FALSO)</li>
+          <li><span>•</span> Il carico deve essere sistemato sugli autoveicoli in modo da non superare di oltre il 10% l'altezza massima prevista dalla carta di circolazione, ma entro 4 metri (خطأ FALSO)</li>
+          <li><span>•</span> Il carico deve essere sistemato sugli autoveicoli in modo da non superare di oltre il 10% la portata utile indicata sul documento di circolazione (خطأ FALSO)</li>
+          <li><span>•</span> Il carico deve essere sistemato sugli autoveicoli in modo da sporgere dalla parte anteriore del veicolo di più dei tre decimi della sua lunghezza (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> أشهر فخ في الوزارة: يحظر تماماً بروز الحمولة غير القابلة للتجزئة من مقدمة السيارة، وبروزها من الخلف محدود بـ 3/10 فقط مع اللوحة المربعة!
+      </div>
+    </div>
+
+  </div>
+
+  <!-- INTERACTIVE GLOSSARY -->
+
+  <section class="glossary-section" id="glossary-section">
+    <div class="section-heading">
+      <h2 class="section-title">📖 قاموس المصطلحات والمفاهيم الإيطالية المعتمدة للباب 13 (16 مصطلحاً)</h2>
+    </div>
+    <div class="glossary-grid">
+      <div class="glossary-card">
+        <div class="glossary-term-it">Mano Destra</div>
+        <div class="glossary-term-ar">الجانب الأيمن</div>
+        <div class="glossary-def">القاعدة الإلزامية بالسير قرب الحافة اليمنى لنهر الطريق في كود السير الإيطالي.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Corsia di Marcia</div>
+        <div class="glossary-term-ar">مسار السير العادي</div>
+        <div class="glossary-def">المسار الأيمن المخصص لحركة السير الاعتيادية لجميع فئات المركبات.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Corsia di Sorpasso</div>
+        <div class="glossary-term-ar">مسار التجاوز</div>
+        <div class="glossary-def">المسار الأيسر المخصص حصراً لتجاوز المركبات البطيئة والعودة للمسار الأيمن.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">File Parallele</div>
+        <div class="glossary-term-ar">الصفوف المتوازية</div>
+        <div class="glossary-def">السير جنباً إلى جنب في حارات متجاورة في حالات الازدحام أو بتوجيه الشرطي.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Svolta a Destra</div>
+        <div class="glossary-term-ar">الانعطاف لليمين</div>
+        <div class="glossary-def">مناورة تغيير الاتجاه لليمين بالاقتراب من الرصيف وتشغيل الغماز مبكراً.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Svolta a Sinistra</div>
+        <div class="glossary-term-ar">الانعطاف لليسار</div>
+        <div class="glossary-def">مناورة الانعطاف لليسار بالاقتراب من الخط الأوسط في الاتجاهين أو الحافة اليسرى في الاتجاه الواحد.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Asse della Carreggiata</div>
+        <div class="glossary-term-ar">محور نهر الطريق</div>
+        <div class="glossary-def">الخط الأوسط الفاصل بين اتجاهي السير في الطرق ذات الاتجاهين.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Inversione di Marcia</div>
+        <div class="glossary-term-ar">الدوران للخلف (U-turn)</div>
+        <div class="glossary-def">دوران السيارة 180 درجة لعكس اتجاه السير، وممنوع في المنحنيات والمطالع والأوتوستراد.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Retromarcia</div>
+        <div class="glossary-term-ar">الرجوع للخلف</div>
+        <div class="glossary-def">تحريك السيارة للخلف بحذر شديد مع إعطاء الأسبقية التامة للجميع.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Angolo Cieco</div>
+        <div class="glossary-term-ar">الزاوية الميتة</div>
+        <div class="glossary-def">المنطقة غير المرئية في مرايا السيارة وتتطلب الالتفات بالرأس لفحصها.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Rotatoria</div>
+        <div class="glossary-term-ar">الدوار / الميدان</div>
+        <div class="glossary-def">تقاطع دائري تسير فيه المركبات عكس عقارب الساعة حول جزيرة وسطى.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Binari del Tram</div>
+        <div class="glossary-term-ar">قضبان الترام</div>
+        <div class="glossary-def">خطوط سير الترام وتفرض أسبقية مطلقة له وتتطلب الحذر من انزلاق العجلات.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Passo Carrabile</div>
+        <div class="glossary-term-ar">مدخل كراج / ملكية خاصة</div>
+        <div class="glossary-def">منفذ خروج المركبات من العقارات، وتلزم الخارج منه بإعطاء الأسبقية لجميع السائقين.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Veicolo di Soccorso</div>
+        <div class="glossary-term-ar">مركبة طوارئ</div>
+        <div class="glossary-def">إسعاف أو إطفاء تستخدم السارينة والضوء الأزرق وتلزم الجميع بإخلاء الطريق فوراً.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Pannello Merci Sporgenti</div>
+        <div class="glossary-term-ar">لوحة بروز الحمولة (Fig. 300)</div>
+        <div class="glossary-def">لوحة مربعة مخططة بالأبيض والأحمر تثبت على أقصى طرف الحمولة البارزة للخلف.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Sagoma Limite</div>
+        <div class="glossary-term-ar">الأبعاد القصوى المسموحة</div>
+        <div class="glossary-def">الحدود الهندسية القصوى لطول وعرض وارتفاع المركبة وحمولتها (عرض 2.55م وارتفاع 4م).</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- MINISTERIAL TRAPS -->
+
+  <section class="traps-section">
+    <div class="section-heading">
+      <h2 class="section-title">⚠️ بنك الفخاخ الوزارية الـ 12 المعتمدة للباب 13 (Ministerial Traps)</h2>
+    </div>
+    <div class="traps-grid">
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #1</span>
+          <span class="trap-verdict">فخ شائع ومخالفة (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Sulle strade a due corsie per senso di marcia, si può percorrere la corsia di sinistra anche se quella di destra è libera."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> المسار الأيمن إلزامي للسير العادي؛ والمسار الأيسر مخصص للتجاوز فقط، ويحظر البقاء فيه إذا كان المسار الأيمن خالياً.
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #2</span>
+          <span class="trap-verdict">خطأ كارثي (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Per svoltare a sinistra in una carreggiata a doppio senso, bisogna accostarsi al margine sinistro della strada."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> في الطريق ذي الاتجاهين (Doppio senso) يجب الاقتراب من الخط الأوسط فقط (Asse mediano)؛ الاقتراب من الحافة اليسرى يعني السير عكس الاتجاه!
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #3</span>
+          <span class="trap-verdict">فخ تعميم (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"La circolazione per file parallele è consentita sempre e ovunque vi siano almeno due corsie."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> السير في صفوف متوازية محظور كأصل عام، ولا يُسمح به إلا في حالات الازدحام الشديد (Traffico intenso) أو عند التقاطعات بإشارة ضوئية.
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #4</span>
+          <span class="trap-verdict">محظور قطعياً (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"L'inversione di marcia è consentita in prossimità o in corrispondenza dei dossi se non vi sono veicoli."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> قمة المطلع (Dosso) تحجب الرؤية تماماً؛ الدوران للخلف عندها محظور قطعياً وبأقصى درجات الشدة حتى لو لم تكن هناك مركبات مرئية.
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #5</span>
+          <span class="trap-verdict">عكس القانون (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Chi esce da una proprietà privata con diritto di passo carrabile ha la precedenza sui veicoli che transitano sulla strada."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> الخارج من ملكية خاصة ملزم بإعطاء الأسبقية لجميع المركبات والمشاة دون أي استثناء، ولا يملك أي حق أسبقية.
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #6</span>
+          <span class="trap-verdict">فخ خطير (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"È consentito superare a destra un tram in marcia se vi è lo spazio necessario e non vi è salvagente."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> تجاوز الترام المتحرك من اليمين محظور إذا لم يكن هناك رصيف أمان (Salvagente) لوجود خطر دهس الركاب النازلين من الترام.
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #7</span>
+          <span class="trap-verdict">فخ أبعاد قاتل (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Il carico può sporgere anteriormente dal veicolo fino a un massimo di 3/10 della sua lunghezza."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> الحمولة يحظر بروزها من الأمام إطلاقاً (Zero sporgenza anteriore)! البروز بحد أقصى 3/10 مسموح من الخلف فقط (Posteriormente).
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #8</span>
+          <span class="trap-verdict">فخ شروط (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"I veicoli di soccorso con solo il lampeggiante blu acceso, senza sirena, hanno diritto di precedenza assoluta."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> الضوء الأزرق وحده لا يكفي؛ لا تتمتع سيارة الطوارئ بالأسبقية الاستثنائية إلا عند تشغيل الصفارة الصوتية (Sirena) مع الضوء الأزرق معاً.
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #9</span>
+          <span class="trap-verdict">إهمال جسيم (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Prima di effettuare una manovra di retromarcia, è sufficiente guardare solo nello specchietto retrovisore interno."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> المرآة الداخلية وحدها لا تكشف محيط السيارة؛ يجب النظر في المرايا الجانبية والالتفات المباشر بالرأس للتأكد من خلو المسار من الأطفال والمشاة.
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #10</span>
+          <span class="trap-verdict">تصرف خاطئ (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Svoltando a destra con un'autovettura, bisogna sempre allargarsi a sinistra prima di girare."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> الانحراف يساراً قبل الانعطاف يميناً خطأ ومربك؛ الواجب هو الالتصاق بالحافة اليمنى، والانحراف يساراً مقتصر فقط على الشاحنات والمقطورات الطويلة.
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #11</span>
+          <span class="trap-verdict">خطأ إشارات (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"In una rotatoria, il conducente che intende proseguire diritto deve obbligatoriamente azionare l'indicatore di direzione sinistro."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> المتابعة للأمام في الدوار لا تتطلب أي إشارة لليسار؛ فقط تشغل الغماز الأيمن عند الاقتراب من مخرجك المقصود.
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #12</span>
+          <span class="trap-verdict">مستحيل فيزيائياً (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Gli specchi retrovisori eliminano completamente qualsiasi angolo cieco intorno al veicolo."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> المرايا تترك دائماً زوايا ميتة (Angoli ciechi) بجانب السيارة وخلفها لا تظهر إلا بالالتفات المباشر بالعين.
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SERIAL CHAPTER PAGINATION -->
+  <nav class="chapter-pagination">
+    <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="pagination-btn prev-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">→</span>
+      <div class="pagination-info">
+        <span class="pagination-label">الباب السابق</span>
+        <span class="pagination-title">الباب 12: مسافة الأمان والعوامل المؤثرة</span>
+      </div>
+    </a>
+
+    <a href="index.html" class="pagination-btn index-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">🏛️</span>
+      <div class="pagination-info">
+        <span class="pagination-label">الرجوع للمكتبة</span>
+        <span class="pagination-title">فهرس الأبواب الشاملة</span>
+      </div>
+    </a>
+
+    <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="pagination-btn next-btn" onclick="soundEngine.click()">
+      <div class="pagination-info">
+        <span class="pagination-label">الباب التالي</span>
+        <span class="pagination-title">الباب 14: أسبقية المرور وفك التقاطعات</span>
+      </div>
+      <span class="pagination-icon">←</span>
+    </a>
+  </nav>
+
 </main>
 
 <script>
@@ -1430,55 +1918,169 @@
     enabled: true,
     init() {
       if (!this.ctx) {
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        this.ctx = new AudioContext();
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) this.ctx = new AudioCtx();
       }
+      if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
     },
     click() {
       if (!this.enabled) return;
       this.init();
-      if (this.ctx.state === 'suspended') this.ctx.resume();
-      const osc = this.ctx.createOscillator();
-      const gain = this.ctx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(800, this.ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(400, this.ctx.currentTime + 0.04);
-      gain.gain.setValueAtTime(0.08, this.ctx.currentTime);
-      gain.gain.linearRampToValueAtTime(0.01, this.ctx.currentTime + 0.04);
-      osc.connect(gain);
-      gain.connect(this.ctx.destination);
-      osc.start();
-      osc.stop(this.ctx.currentTime + 0.04);
+      if (!this.ctx) return;
+      try {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(540, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(180, this.ctx.currentTime + 0.04);
+        gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.04);
+      } catch(e) {}
     }
   };
 
   function toggleAudio() {
     soundEngine.enabled = !soundEngine.enabled;
-    const label = document.querySelector('.audio-label-span');
-    const icon = document.querySelector('.audio-icon-span');
-    if (label && icon) {
-      label.textContent = soundEngine.enabled ? 'الصوت: نشط' : 'الصوت: معطل';
-      icon.textContent = soundEngine.enabled ? '🔊' : '🔇';
+    const icons = document.querySelectorAll('.audio-icon-span');
+    const labels = document.querySelectorAll('.audio-label-span');
+    icons.forEach(el => el.textContent = soundEngine.enabled ? '🔊' : '🔇');
+    labels.forEach(el => el.textContent = soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم');
+    if (soundEngine.enabled) soundEngine.click();
+  }
+
+  // Simulator 1 Logic: Svolta a Sinistra
+  function simulateSvolta(type) {
+    const btnD = document.getElementById('btnSvoltaDoppio');
+    const btnU = document.getElementById('btnSvoltaUnico');
+    const btnC = document.getElementById('btnSvoltaCentro');
+    const imgWrapper = document.getElementById('simSvoltaImgWrapper');
+    const badge = document.getElementById('simSvoltaBadge');
+    const text = document.getElementById('simSvoltaText');
+
+    btnD.classList.remove('active');
+    btnU.classList.remove('active');
+    btnC.classList.remove('active');
+
+    if (type === 'doppio') {
+      btnD.classList.add('active');
+      imgWrapper.innerHTML = '↩️🛣️';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      badge.textContent = 'طريق ذو اتجاهين: التمركز قرب الخط الأوسط فقط';
+      text.innerHTML = '<strong>القاعدة الوزارية الصارمة:</strong> في الطرق ذات الاتجاهين، تقترب من الخط الأوسط الفاصل (Asse mediano) دون أن تتجاوزه، وتترك مسار الحافة اليمنى لليمين، وتعطي الأسبقية للمركبات القادمة في الاتجاه المعاكس ولليمين قبل إتمام الانعطاف.';
+    } else if (type === 'unico') {
+      btnU.classList.add('active');
+      imgWrapper.innerHTML = '⬅️🛣️';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'طريق ذو اتجاه واحد: الالتصاق بالحافة اليسرى تماماً';
+      text.innerHTML = '<strong>القاعدة في الاتجاه الواحد:</strong> تقترب تماماً من الحافة اليسرى للشارع (Margine sinistro) قبل التقاطع، لإفساح الحارة اليمنى للراغبين بالاستمرار للأمام أو اليمين، وتنعطف دون خشية أي مرور معاكس.';
+    } else {
+      btnC.classList.add('active');
+      imgWrapper.innerHTML = '🔄❌';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      badge.textContent = 'العبور أمام مركز التقاطع دون الدوران حوله';
+      text.innerHTML = '<strong>التقاطعات العادية بدون دوار:</strong> في التقاطعات الحرة، تنعطف لليسار بالمرور أمام مركز التقاطع (Svoltare a sinistra lasciando il centro dell'incrocio alla propria destra)، بحيث تنعطف السيارتان المتقابلتان وجهاً لوجه دون الالتفاف حول بعضهما.';
+    }
+    soundEngine.click();
+  }
+
+  // Simulator 2 Logic: Uso Corsie
+  function simulateCorsia(type) {
+    const btnM = document.getElementById('btnCorsiaMarcia');
+    const btnS = document.getElementById('btnCorsiaSorpasso');
+    const btnF = document.getElementById('btnCorsiaFile');
+    const imgWrapper = document.getElementById('simCorsiaImgWrapper');
+    const badge = document.getElementById('simCorsiaBadge');
+    const text = document.getElementById('simCorsiaText');
+
+    btnM.classList.remove('active');
+    btnS.classList.remove('active');
+    btnF.classList.remove('active');
+
+    if (type === 'marcia') {
+      btnM.classList.add('active');
+      imgWrapper.innerHTML = '🛣️🚗';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      badge.textContent = 'المسار الأيمن إلزامي للسير العادي';
+      text.innerHTML = '<strong>الحكم التشريعي:</strong> يلتزم السائق بالسير في المسار الحر الأيمن دائماً. القيادة في المسارات الوسطى أو اليسرى دون حاجة لتجاوز سيارات أخرى تعتبر مخالفة صريحة لكود السير وتعرضك لغرامة وخصم نقاط!';
+    } else if (type === 'sorpasso') {
+      btnS.classList.add('active');
+      imgWrapper.innerHTML = '🏎️💨';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'المسار الأيسر: للتجاوز فقط ثم العودة فوراً لليمين';
+      text.innerHTML = '<strong>قاعدة التجاوز:</strong> المسارات اليسرى تخصص للمناورة السريعة؛ بمجرد إتمام التجاوز وترك مسافة كافية، يلزم السائق بالعودة إلى المسار الأيمن دون الاستمرار في حجز المسار الأيسر.';
+    } else {
+      btnF.classList.add('active');
+      imgWrapper.innerHTML = '🚗🚗🚗';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'الصفوف المتوازية: مسموحة فقط في الاختناق والازدحام';
+      text.innerHTML = '<strong>الصفوف المتوازية (File parallele):</strong> استثناء مشروط بوجود كثافة مرورية عالية تحرك السيارات في طوابير متجاورة ببطء، ولا يجوز افتعالها بقرار فردي من السائق.';
+    }
+    soundEngine.click();
+  }
+
+  // Simulator 3 Logic: Inversione
+  function simulateInv(type) {
+    const btnC = document.getElementById('btnInvConsentita');
+    const btnD = document.getElementById('btnInvDosso');
+    const btnA = document.getElementById('btnInvAutostrada');
+    const imgWrapper = document.getElementById('simInvImgWrapper');
+    const badge = document.getElementById('simInvBadge');
+    const text = document.getElementById('simInvText');
+
+    btnC.classList.remove('active');
+    btnD.classList.remove('active');
+    btnA.classList.remove('active');
+
+    if (type === 'consentita') {
+      btnC.classList.add('active');
+      imgWrapper.innerHTML = '🔄✅';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      badge.textContent = 'دوران مسموح: طريق مستقيم، رؤية واسعة، وخط متقطع';
+      text.innerHTML = '<strong>الشروط القانونية الكاملة:</strong> يُسمح بالدوران للخلف فقط عند توافر الرؤية الكاملة لمسافة كافية، عدم وجود خط أبيض متصل يفصل الاتجاهين، عدم تعطيل حركة السير، وإعطاء الأسبقية التامة للقادمين من كلا الاتجاهين.';
+    } else if (type === 'dosso') {
+      btnD.classList.add('active');
+      imgWrapper.innerHTML = '⛰️❌';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'عند قمة المطلع: محظور قطعياً وبأقصى درجات الشدة';
+      text.innerHTML = '<strong>الخطر القاتل:</strong> قمة المطلع (Dosso) تحجب الرؤية تماماً وتمنع رؤية السيارات القادمة في الاتجاه المعاكس؛ الدوران للخلف هنا تصرف انتحاري يعاقب عليه القانون بشدة.';
+    } else {
+      btnA.classList.add('active');
+      imgWrapper.innerHTML = '🛣️🛑';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'في الأوتوستراد: جريمة مرورية كبرى وسحب رخصة فوري';
+      text.innerHTML = '<strong>العقوبة القصوى:</strong> الدوران للخلف أو السير عكس الاتجاه في الأوتوستراد جريمة خطيرة توجب سحب الرخصة فورياً وغرامات مالية باهظة وحجز المركبة.';
+    }
+    soundEngine.click();
+  }
+
+  // Filter Pills Logic
+  function filterCards(category, btn) {
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    soundEngine.click();
+
+    const cards = document.querySelectorAll('.signal-card');
+    cards.forEach(card => {
+      if (category === 'all') {
+        card.style.display = 'flex';
+      } else if (card.getAttribute('data-category') === category) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (category === 'glossary') {
+      const el = document.getElementById('glossary-section');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
   }
 
-  function openMobileNav() {
-    const overlay = document.getElementById('mobileDrawerOverlay');
-    if (overlay) {
-      overlay.classList.add('active');
-      document.body.classList.add('nav-scroll-lock');
-    }
-  }
-
-  function closeMobileNav() {
-    const overlay = document.getElementById('mobileDrawerOverlay');
-    if (overlay) {
-      overlay.classList.remove('active');
-      document.body.classList.remove('nav-scroll-lock');
-    }
-  }
-
-  // Desktop Chapters Dropdown Toggle & Outside Click
+  // Desktop Dropdown
   function toggleNavDropdown(e) {
     if (e) e.stopPropagation();
     const menu = document.getElementById('navDropdownMenu');
@@ -1488,12 +2090,46 @@
     const wrapper = document.querySelector('.nav-dropdown-wrapper');
     const menu = document.getElementById('navDropdownMenu');
     if (menu && menu.classList.contains('active')) {
-      if (wrapper && !wrapper.contains(e.target)) {
-        menu.classList.remove('active');
-      }
+      if (wrapper && !wrapper.contains(e.target)) menu.classList.remove('active');
     }
   });
 
+  // Mobile Drawer Navigation (Apple HIG)
+  function toggleMobileNav() {
+    const btn = document.getElementById('nav-hamburger-btn');
+    const panel = document.getElementById('mobile-drawer-panel');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    if (!btn || !panel) return;
+    const isOpening = !panel.classList.contains('is-active');
+    if (isOpening) {
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-expanded', 'true');
+      panel.classList.add('is-active');
+      if (overlay) overlay.classList.add('is-active');
+      document.body.classList.add('nav-scroll-lock');
+    } else {
+      closeMobileNav();
+    }
+    soundEngine.click();
+  }
+
+  function closeMobileNav() {
+    const btn = document.getElementById('nav-hamburger-btn');
+    const panel = document.getElementById('mobile-drawer-panel');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    if (btn) {
+      btn.classList.remove('is-active');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    if (panel) panel.classList.remove('is-active');
+    if (overlay) overlay.classList.remove('is-active');
+    document.body.classList.remove('nav-scroll-lock');
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMobileNav();
+    if (e.key === 'm' || e.key === 'M') toggleAudio();
+  });
 </script>
 
 </body>

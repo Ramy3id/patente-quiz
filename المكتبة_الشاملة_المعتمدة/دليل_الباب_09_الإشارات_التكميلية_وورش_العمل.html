@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="dark">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>دليل الباب 09: الإشارات التكميلية وورش العمل والتحويلات | Patente B Pro</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دليل الباب 09: الإشارات التكميلية وعلامات ورش العمل وأشغال الطرق | Patente B Pro</title>
+  <meta name="description" content="الدليل الهندسي الشامل للباب التاسع من رخصة القيادة الإيطالية: شواخص حواف الطرق، شواخص المنعطفات، شواخص الأنفاق والجبال، علامات ورش العمل، والمحاكيات التفاعلية.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+
   :root {
     --bg-base: #09090b;
     --bg-surface: rgba(24, 24, 27, 0.75);
@@ -32,11 +34,7 @@
     --font-mono: 'JetBrains Mono', monospace;
   }
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
   html, body {
     background-color: var(--bg-base);
@@ -48,7 +46,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Body Scroll Lock when Drawer is open */
   body.nav-scroll-lock {
     overflow: hidden !important;
     touch-action: none;
@@ -57,9 +54,7 @@
   /* Portal Nav Header (Strict 54px, Apple HIG) */
   .unified-portal-nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     height: var(--nav-base-height);
     background: rgba(15, 15, 18, 0.82);
     backdrop-filter: blur(20px);
@@ -94,7 +89,6 @@
     border-radius: 6px;
   }
 
-  /* Desktop Core 3 Links */
   .desktop-nav-links {
     display: flex;
     align-items: center;
@@ -124,7 +118,6 @@
     border-color: rgba(245, 158, 11, 0.25);
   }
 
-  /* Desktop Controls (Left in RTL) */
   .desktop-nav-controls {
     display: flex;
     align-items: center;
@@ -152,7 +145,6 @@
     border-color: rgba(255, 255, 255, 0.2);
   }
 
-  /* Chapters Dropdown */
   .nav-dropdown-wrapper {
     position: relative;
     display: inline-block;
@@ -199,9 +191,7 @@
     z-index: 1100;
     direction: rtl;
   }
-  .nav-dropdown-menu.active {
-    display: flex;
-  }
+  .nav-dropdown-menu.active { display: flex; }
   .nav-dropdown-item {
     display: flex;
     align-items: center;
@@ -238,11 +228,7 @@
     color: #fff;
     -webkit-tap-highlight-color: transparent;
   }
-  .hamburger-box {
-    width: 20px;
-    height: 14px;
-    position: relative;
-  }
+  .hamburger-box { width: 20px; height: 14px; position: relative; }
   .hamburger-line {
     position: absolute;
     width: 100%;
@@ -255,16 +241,9 @@
   .line-mid { top: 6px; }
   .line-bot { top: 12px; }
 
-  .nav-hamburger-btn.is-active .line-top {
-    transform: translateY(6px) rotate(45deg);
-  }
-  .nav-hamburger-btn.is-active .line-mid {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-  .nav-hamburger-btn.is-active .line-bot {
-    transform: translateY(-6px) rotate(-45deg);
-  }
+  .nav-hamburger-btn.is-active .line-top { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger-btn.is-active .line-mid { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger-btn.is-active .line-bot { transform: translateY(-6px) rotate(-45deg); }
 
   /* Mobile Drawer Panel */
   .mobile-drawer-overlay {
@@ -278,16 +257,12 @@
     opacity: 0;
     transition: opacity 0.25s ease;
   }
-  .mobile-drawer-overlay.is-active {
-    display: block;
-    opacity: 1;
-  }
+  .mobile-drawer-overlay.is-active { display: block; opacity: 1; }
   .mobile-drawer-panel {
     display: none;
     position: fixed;
     top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
-    left: 0;
-    right: 0;
+    left: 0; right: 0;
     max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
     background: rgba(15, 15, 18, 0.94);
     backdrop-filter: blur(28px);
@@ -303,17 +278,8 @@
     opacity: 0;
     transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
   }
-  .mobile-drawer-panel.is-active {
-    display: block;
-    transform: translateY(0);
-    opacity: 1;
-  }
-  .mobile-nav-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    list-style: none;
-  }
+  .mobile-drawer-panel.is-active { display: block; transform: translateY(0); opacity: 1; }
+  .mobile-nav-list { display: flex; flex-direction: column; gap: 8px; list-style: none; }
   .mobile-nav-link {
     display: flex;
     align-items: center;
@@ -343,255 +309,351 @@
 
   /* Hero Section */
   .chapter-hero {
-    background: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.12), transparent 70%),
+    background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12), transparent 70%),
                 linear-gradient(180deg, rgba(24, 24, 27, 0.7) 0%, rgba(18, 18, 20, 0.9) 100%);
     border: 1px solid var(--border-subtle);
     border-radius: 24px;
     padding: 40px 32px;
     margin-bottom: 32px;
+    text-align: center;
     position: relative;
     overflow: hidden;
   }
-  .hero-badge-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
+  .chapter-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), transparent);
   }
   .hero-tag {
     display: inline-flex;
     align-items: center;
     gap: 6px;
     padding: 4px 12px;
-    border-radius: 100px;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 700;
-    background: rgba(245, 158, 11, 0.12);
-    color: var(--amber-primary);
-    border: 1px solid rgba(245, 158, 11, 0.28);
-  }
-  .hero-tag.official {
-    background: rgba(16, 185, 129, 0.12);
-    color: var(--emerald-primary);
-    border-color: rgba(16, 185, 129, 0.28);
+    color: var(--sky-primary);
+    margin-bottom: 16px;
   }
   .hero-title {
     font-size: 2.2rem;
     font-weight: 900;
     color: #fff;
     margin-bottom: 8px;
-    line-height: 1.25;
+    letter-spacing: -0.02em;
   }
   .hero-subtitle {
     font-family: var(--font-mono);
-    font-size: 1.05rem;
     color: var(--sky-primary);
+    font-size: 1.05rem;
+    margin-bottom: 18px;
     direction: ltr;
-    text-align: right;
-    margin-bottom: 16px;
   }
   .hero-desc {
+    max-width: 860px;
+    margin: 0 auto 24px auto;
     color: var(--text-secondary);
-    font-size: 1.02rem;
-    max-width: 900px;
-    line-height: 1.7;
-    margin-bottom: 24px;
+    font-size: 0.98rem;
+    line-height: 1.8;
   }
-
-  /* Stats Grid */
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 14px;
-  }
-  .stat-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border-subtle);
-    border-radius: 14px;
-    padding: 16px;
-    text-align: center;
-  }
-  .stat-num {
-    font-family: var(--font-mono);
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: #fff;
-  }
-  .stat-label {
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-    margin-top: 4px;
-  }
-
-  /* Golden Rule Box */
-  .golden-rule-box {
-    background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(24, 24, 27, 0.6));
-    border: 1px solid rgba(245, 158, 11, 0.35);
-    border-radius: 16px;
-    padding: 20px 24px;
-    margin: 28px 0;
+  .hero-badges-row {
     display: flex;
-    align-items: flex-start;
-    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
   }
-  .golden-rule-icon {
-    font-size: 2rem;
-    line-height: 1;
-    flex-shrink: 0;
-  }
-  .golden-rule-content h4 {
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: var(--amber-primary);
-    margin-bottom: 6px;
-  }
-  .golden-rule-content p {
-    font-size: 0.95rem;
-    color: #e4e4e7;
-    line-height: 1.65;
-  }
-
-  /* Search & Filter Toolbar */
-  .toolbar-container {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: 18px;
-    padding: 16px;
-    margin-bottom: 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  .search-wrapper {
-    position: relative;
-    width: 100%;
-  }
-  .search-input {
-    width: 100%;
-    height: 46px;
-    background: rgba(0, 0, 0, 0.35);
-    border: 1px solid var(--border-subtle);
-    border-radius: 12px;
-    padding: 0 44px 0 16px;
-    color: #fff;
-    font-family: inherit;
-    font-size: 0.95rem;
-    outline: none;
-    transition: all 0.15s ease;
-  }
-  .search-input:focus {
-    border-color: var(--amber-primary);
-    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
-  }
-  .search-icon {
-    position: absolute;
-    right: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    pointer-events: none;
-  }
-
-  .filter-tabs {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 4px;
-    -webkit-overflow-scrolling: touch;
-  }
-  .filter-tab {
-    padding: 8px 16px;
+  .hero-stat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--border-subtle);
     border-radius: 10px;
+    font-size: 0.85rem;
+    color: #d4d4d8;
+  }
+
+  /* Golden Rules Banner */
+  .golden-rules-banner {
+    background: rgba(56, 189, 248, 0.06);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 36px;
+  }
+  .golden-rules-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--sky-primary);
+    margin-bottom: 16px;
+  }
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .rule-box {
+    background: rgba(24, 24, 27, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .rule-box h4 {
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .rule-box p {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Filter Pills */
+  .filter-pills-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    margin-bottom: 28px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filter-pill {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
     color: var(--text-secondary);
     font-size: 0.85rem;
     font-weight: 600;
-    cursor: pointer;
     white-space: nowrap;
+    cursor: pointer;
     transition: all 0.15s ease;
     font-family: inherit;
   }
-  .filter-tab:hover {
-    color: #fff;
+  .filter-pill:hover {
     background: rgba(255, 255, 255, 0.08);
+    color: #fff;
   }
-  .filter-tab.active {
-    background: var(--amber-primary);
+  .filter-pill.active {
+    background: var(--sky-primary);
+    border-color: var(--sky-primary);
     color: #000;
-    font-weight: 800;
-    border-color: var(--amber-primary);
+    font-weight: 700;
   }
 
-  /* Content Cards Grid */
+  /* Rotatoria Simulator Box */
+  .simulator-box {
+    background: linear-gradient(180deg, rgba(24, 24, 27, 0.8) 0%, rgba(18, 18, 20, 0.95) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .sim-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--sky-primary);
+    margin-bottom: 6px;
+  }
+  .sim-subtitle {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+  }
+  .sim-controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .sim-btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sim-btn:hover { background: rgba(255, 255, 255, 0.1); }
+  .sim-btn.active {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: var(--sky-primary);
+    color: var(--sky-primary);
+  }
+  .sim-output-card {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .sim-img-wrapper img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+  }
+  .sim-details { flex: 1; text-align: right; }
+  .sim-state-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .state-normal { background: rgba(245, 158, 11, 0.2); color: var(--amber-primary); }
+  .state-rot-precedence { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .sim-legal-text {
+    font-size: 0.92rem;
+    color: #e4e4e7;
+    line-height: 1.7;
+  }
+
+  /* Comparison Section: Paths */
+  .comp-section {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .comp-header { margin-bottom: 20px; text-align: right; }
+  .comp-header h3 { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+  .comp-header p { font-size: 0.9rem; color: var(--text-secondary); }
+  .comp-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .comp-card-path {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .comp-card-path img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 12px;
+  }
+  .comp-card-path h4 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .comp-card-path .path-it {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--sky-primary);
+    margin-bottom: 10px;
+  }
+  .comp-card-path p {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    text-align: right;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  /* Grid of Signals Cards */
   .section-heading {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin: 36px 0 20px 0;
-    border-bottom: 1px solid var(--border-subtle);
+    justify-content: space-between;
+    margin-bottom: 24px;
     padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
   }
-  .section-heading h2 {
-    font-size: 1.5rem;
+  .section-title {
+    font-size: 1.35rem;
     font-weight: 800;
     color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
-  .section-heading span.badge {
+  .section-badge {
     font-size: 0.8rem;
-    background: rgba(56, 189, 248, 0.15);
+    font-family: var(--font-mono);
     color: var(--sky-primary);
-    border: 1px solid rgba(56, 189, 248, 0.3);
+    background: rgba(56, 189, 248, 0.1);
     padding: 2px 8px;
     border-radius: 6px;
+    border: 1px solid rgba(56, 189, 248, 0.25);
   }
 
-  .cards-grid {
+  .signals-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
   }
 
-  /* Universal Study Card */
-  .study-card {
+  .signal-card {
     background: var(--bg-surface);
     border: 1px solid var(--border-subtle);
     border-radius: 18px;
     padding: 22px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     transition: transform 0.2s ease, border-color 0.2s ease;
-    position: relative;
-    overflow: hidden;
   }
-  .study-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(255, 255, 255, 0.18);
+  .signal-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-highlight);
   }
 
-  .card-img-wrap {
-    width: 100%;
-    min-height: 140px;
-    background: rgba(0, 0, 0, 0.4);
+  .signal-img-container {
+    background: rgba(0, 0, 0, 0.35);
     border: 1px solid var(--border-subtle);
-    border-radius: 12px;
+    border-radius: 14px;
+    height: 160px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 12px;
     margin-bottom: 16px;
+    padding: 12px;
   }
-  .card-img-wrap img {
+  .signal-img-container img {
+    max-height: 100%;
     max-width: 100%;
-    max-height: 120px;
     object-fit: contain;
-    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
   }
 
-  /* Vertical Card Header Hierarchy (Strict standard) */
+  /* Card Header Vertical Hierarchy */
   .card-header-row {
     display: flex;
     flex-direction: column;
@@ -603,7 +665,6 @@
     font-size: 1.15rem;
     font-weight: 800;
     color: #fff;
-    line-height: 1.35;
   }
   .card-it-title {
     order: 2;
@@ -614,127 +675,151 @@
     text-align: right;
   }
 
-  /* Natural Block Typography for Card Lists (Strict Zero-Flex rule) */
-  .card-points-list {
-    list-style: none;
+  .card-desc-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
     margin-bottom: 16px;
   }
+
+  /* ZERO FLEX ON LISTS (STRICT TYPOGRAPHY) */
+  .card-points-group { margin-bottom: 14px; }
+  .points-group-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .points-group-title.vero-title { color: var(--emerald-primary); }
+  .points-group-title.falso-title { color: var(--rose-primary); }
+
+  .card-points-list { list-style: none; margin: 0; padding: 0; }
   .card-points-list li {
+    display: block;
     position: relative;
     padding-right: 28px;
     line-height: 1.7;
-    display: block;
     text-align: right;
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     color: #d4d4d8;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
   .card-points-list li > span:first-child {
     position: absolute;
     right: 0;
     top: 2px;
-    font-size: 1.05rem;
+    font-size: 1rem;
     line-height: 1;
   }
 
-  .card-tag-pill {
-    display: inline-block;
-    padding: 3px 9px;
-    border-radius: 6px;
-    font-size: 0.76rem;
-    font-weight: 700;
-    margin-top: 8px;
+  .card-trap-alert {
+    background: rgba(244, 63, 94, 0.08);
+    border: 1px solid rgba(244, 63, 94, 0.22);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    color: #fca5a5;
+    line-height: 1.6;
+    margin-top: auto;
   }
-  .tag-vero {
-    background: rgba(16, 185, 129, 0.15);
-    color: var(--emerald-primary);
-    border: 1px solid rgba(16, 185, 129, 0.3);
-  }
-  .tag-falso {
-    background: rgba(244, 63, 94, 0.15);
-    color: var(--rose-primary);
-    border: 1px solid rgba(244, 63, 94, 0.3);
-  }
-  .tag-info {
-    background: rgba(245, 158, 11, 0.15);
-    color: var(--amber-primary);
-    border: 1px solid rgba(245, 158, 11, 0.3);
-  }
+  .card-trap-alert strong { color: var(--rose-primary); }
 
-  /* Comparison Table */
-  .table-wrap {
-    overflow-x: auto;
-    margin: 24px 0;
-    border-radius: 16px;
-    border: 1px solid var(--border-subtle);
+  /* Glossary Section */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
   }
-  .data-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.92rem;
+  .glossary-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+  .term-it {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--sky-primary);
+    margin-bottom: 4px;
+    direction: ltr;
     text-align: right;
   }
-  .data-table th {
-    background: rgba(255, 255, 255, 0.05);
-    color: #fff;
-    padding: 14px 16px;
+  .term-ar {
+    font-size: 1.05rem;
     font-weight: 800;
-    border-bottom: 1px solid var(--border-subtle);
+    color: #fff;
+    margin-bottom: 8px;
   }
-  .data-table td {
-    padding: 14px 16px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    color: #d4d4d8;
-  }
-  .data-table tr:hover td {
-    background: rgba(255, 255, 255, 0.02);
+  .term-def {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
   }
 
-  /* Traps Grid */
+  /* Quiz Traps Interactive Section */
+  .traps-section { margin-bottom: 50px; }
+  .traps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+  }
   .trap-card {
-    background: rgba(244, 63, 94, 0.04);
-    border: 1px solid rgba(244, 63, 94, 0.22);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
     border-radius: 16px;
     padding: 20px;
-    margin-bottom: 16px;
-  }
-  .trap-card.vero-variant {
-    background: rgba(16, 185, 129, 0.04);
-    border-color: rgba(16, 185, 129, 0.22);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
   .trap-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 10px;
   }
+  .card-tag-pill {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  .tag-vero { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .tag-falso { background: rgba(244, 63, 94, 0.2); color: var(--rose-primary); }
+
   .trap-q-it {
     font-family: var(--font-mono);
-    font-size: 0.88rem;
-    color: #fff;
-    direction: ltr;
-    text-align: right;
-    margin-bottom: 8px;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 8px 12px;
+    font-size: 0.85rem;
+    color: #e4e4e7;
+    background: rgba(0, 0, 0, 0.35);
     border-radius: 8px;
+    padding: 10px;
+    direction: ltr;
+    text-align: left;
+    line-height: 1.5;
   }
   .trap-reason {
-    font-size: 0.92rem;
-    color: #e4e4e7;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
     line-height: 1.6;
   }
+  .trap-reason strong { color: #fff; }
 
-  /* Chapter Pagination */
+  /* Pagination Bar */
   .chapter-pagination {
-    margin-top: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    flex-wrap: wrap;
-    border-top: 1px solid var(--border-subtle);
-    padding-top: 28px;
+    padding: 24px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    margin-top: 40px;
   }
   .pagination-btn {
     display: flex;
@@ -743,7 +828,7 @@
     padding: 12px 20px;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--border-subtle);
-    border-radius: 14px;
+    border-radius: 12px;
     color: #fff;
     text-decoration: none;
     font-weight: 700;
@@ -752,61 +837,45 @@
   }
   .pagination-btn:hover {
     background: rgba(255, 255, 255, 0.08);
-    border-color: var(--amber-primary);
-    transform: translateY(-2px);
+    border-color: var(--border-highlight);
   }
-  .pagination-info {
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-  }
-  .pagination-label {
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-  }
-  .pagination-title {
-    font-size: 0.95rem;
-    color: #fff;
+  .pagination-info { display: flex; flex-direction: column; text-align: right; }
+  .pagination-label { font-size: 0.75rem; color: var(--text-muted); }
+  .pagination-title { font-size: 0.92rem; color: #fff; }
+
+  /* Responsive Rules (< 768px) */
+  @media (max-width: 768px) {
+    .desktop-nav-links, .desktop-nav-controls { display: none !important; }
+    .nav-hamburger-btn { display: flex !important; }
+    .guide-container { padding-top: calc(var(--nav-base-height) + 16px); padding-left: 14px; padding-right: 14px; }
+    .hero-title { font-size: 1.6rem; }
+    .signals-grid { grid-template-columns: 1fr; }
+    .sim-output-card { flex-direction: column; text-align: center; }
+    .sim-details { text-align: center; }
+    .chapter-pagination { flex-direction: column; align-items: stretch; }
   }
 
-  /* Responsive Rules */
-  @media (max-width: 1023px) {
-    .desktop-nav-links { display: none; }
-  }
-
-  @media (max-width: 767px) {
-    .nav-hamburger-btn { display: flex; }
-    .desktop-nav-controls { display: none; }
-    .hero-title { font-size: 1.65rem; }
-    .cards-grid { grid-template-columns: 1fr; }
-    .chapter-pagination {
-      flex-direction: column;
-      align-items: stretch;
-    }
-    .pagination-btn { justify-content: center; }
-  }
-</style>
+  </style>
 </head>
 <body>
 
-<!-- Unified Portal Navigation (Strict 54px, Apple HIG) -->
-<nav class="unified-portal-nav" id="portal-nav">
-  <!-- Brand (Right in RTL) -->
-  <a href="index.html" class="nav-brand">
-    <span style="font-size:1.25rem;">🚦</span>
-    <span>Patente B Pro</span>
-    <span class="badge-tag">A2</span>
-  </a>
+<!-- Unified Top Navigation (Strict 54px) -->
+<nav class="unified-portal-nav" aria-label="شريط التنقل الموحد">
+  <div style="display:flex; align-items:center; gap:12px;">
+    <a href="index.html" class="nav-brand">
+      <span>🚦 Patente B Pro</span>
+      <span class="badge-tag" style="background:rgba(245,158,11,0.2); color:#fbbf24; border-color:rgba(245,158,11,0.35);">Cap. 09</span>
+    </a>
+  </div>
 
-  <!-- Desktop Center 3 Links -->
   <div class="desktop-nav-links">
     <a href="index.html" class="desktop-nav-link">
       <span>🏛️</span>
-      <span>فهرس المكتبة</span>
+      <span>فهرس المكتبة الشاملة</span>
     </a>
     <a href="../Capitoli_Divisi/index.html" class="desktop-nav-link">
       <span>📚</span>
-      <span>الأبواب المقسمة</span>
+      <span>الأبواب المقسمة (25)</span>
     </a>
     <a href="../Simulatore_Esame.html" class="desktop-nav-link">
       <span>⏱️</span>
@@ -814,24 +883,22 @@
     </a>
   </div>
 
-  <!-- Desktop Controls (Left in RTL) -->
   <div class="desktop-nav-controls">
-    <!-- Desktop Chapters Dropdown -->
     <div class="nav-dropdown-wrapper">
       <button class="nav-dropdown-btn" onclick="toggleNavDropdown(event)">
         <span>تصفح الأبواب (1-25)</span>
         <span style="font-size:0.75rem;">▾</span>
       </button>
       <div class="nav-dropdown-menu" id="navDropdownMenu">
-        <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
-        <a href="دليل_الباب_02_إشارات_الخطر.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
-        <a href="../Capitoli_Divisi/Capitolo_03_segnali_divieto/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
-        <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
-        <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
-        <a href="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأفقية والمطبات</span></a>
-        <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
-        <a href="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
-        <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 9: الإشارات التكميلية وورش العمل</span></a>
+        <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 01: المفاهيم العامة والواجبات</span></a>
+        <a href="دليل_الباب_02_إشارات_الخطر.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 02: إشارات الخطر</span></a>
+        <a href="دليل_الباب_03_إشارات_المنع.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 03: إشارات المنع</span></a>
+        <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 04: إشارات الإلزام</span></a>
+        <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 05: إشارات الأسبقية</span></a>
+        <a href="دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 06: العلامات الأرضية والعوائق</span></a>
+        <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 07: الإشارات الضوئية والشرطي</span></a>
+        <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 08: إشارات الإرشاد والمعلومات</span></a>
+        <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 09: الإشارات التكميلية وورش العمل</span></a>
         <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
         <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة ومخاطرها</span></a>
         <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
@@ -850,15 +917,13 @@
         <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
       </div>
     </div>
-
-    <!-- Web Audio Synthesizer Toggle -->
     <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
       <span class="audio-icon-span">🔊</span>
       <span class="audio-label-span">الصوت نشط</span>
     </button>
   </div>
 
-  <!-- Animated Hamburger Button (Only visible on Mobile < 768px) -->
+  <!-- Animated Hamburger Button (Apple HIG - Mobile < 768px) -->
   <button class="nav-hamburger-btn" id="nav-hamburger-btn" onclick="toggleMobileNav()" aria-label="قائمة التنقل" aria-expanded="false">
     <div class="hamburger-box">
       <span class="hamburger-line line-top"></span>
@@ -868,848 +933,1103 @@
   </button>
 </nav>
 
-<!-- Mobile Navigation Drawer Overlay & Panel -->
+<!-- Mobile Overlay & Drawer -->
 <div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
 <div class="mobile-drawer-panel" id="mobile-drawer-panel">
   <div class="mobile-nav-list">
-    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📑</span>
-      <span>فهرس المكتبة الشاملة المعتمدة</span>
-    </a>
-    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📚</span>
-      <span>مذاكرة الأبواب المقسمة (25 باب)</span>
-    </a>
-    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>⏱️</span>
-      <span>محاكي الامتحان الوزاري (20 دقيقة)</span>
-    </a>
-    <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="mobile-nav-link active" onclick="closeMobileNav()">
-      <span>📖</span>
-      <span>دليل الباب 09 (الإشارات التكميلية وورش العمل)</span>
-    </a>
-    <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📖</span>
-      <span>دليل الباب 10 (اللوحات الإضافية الملحقة بالإشارات)</span>
-    </a>
-    <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📖</span>
-      <span>دليل الباب 11 (حدود السرعة ومخاطرها)</span>
-    </a>
+    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📚</span><span>مذاكرة الأبواب المقسمة (25 باب)</span></a>
+    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">⏱️</span><span>محاكي الامتحان الوزاري</span></a>
+    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📑</span><span>فهرس المكتبة الشاملة</span></a>
+    <div class="mobile-nav-divider"></div>
+    <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 08: إشارات الإرشاد والمعلومات</span></a>
+    <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="mobile-nav-link active" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 09: الإشارات التكميلية وورش العمل</span></a>
+    <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 10: اللوحات الإضافية</span></a>
   </div>
 </div>
 
-<!-- Main Guide Content -->
 <main class="guide-container">
 
-  <!-- Hero Banner -->
-  <header class="chapter-hero">
-    <div class="hero-badge-row">
-      <span class="hero-tag">📘 الباب التاسع (Capitolo 09)</span>
-      <span class="hero-tag official">✅ معتمد رسمياً من بنك الوزارة</span>
-      <span class="hero-tag">📐 إشارات تكميلية وورش عمل مؤقتة</span>
-    </div>
-    <h1 class="hero-title">دليل وقاموس الباب التاسع: الإشارات التكميلية وعلامات ورش العمل والتحويلات</h1>
-    <div class="hero-subtitle">Capitolo 09: Segnali complementari, segni temporanei e di cantiere</div>
+  <!-- HERO SECTION -->
+  <section class="chapter-hero">
+    <div class="hero-tag">🚧 🏗️ المرجع المعتمد للدراسة والامتحان الوزاري</div>
+    <h1 class="hero-title">الباب 09: الإشارات التكميلية وعلامات ورش العمل وأشغال الطرق</h1>
+    <div class="hero-subtitle">Capitolo 09: Segnali complementari, delineatori e cantieri stradali</div>
     <p class="hero-desc">
-      الدليل التفاعلي الشامل لدراسة أوتاد حواف الطرق، أسهم المنعطفات الحادة (Chevron)، عوارض السكك الحديدية، وكافة إشارات ورش العمل ذات الخلفية الصفراء ومعدات التوجيه المؤقتة. مصمم وفق أحدث المعايير مع تفكيك دقيق لفخاخ الامتحانات الرسمية.
+      الدليل الهندسي والشامل لكود السير الإيطالي: شواخص حواف الطرق (Delineatori di margine)، شواخص المنعطفات الحادة (Delineatori di curva stretta) في الاتجاه الواحد والاتجاهين، شواخص الأنفاق والجبال الثلجية، علامات ورش العمل الصفراء (Cantieri stradali)، الحواجز والمخاريط الفوسفورية (Barriere e Coni)، شاشات ورش العمل المتحركة، إشارات تنظيم السير المتناوب (Senso unico alternato)، ولوحات إغلاق وتوزيع المسارات.
     </p>
 
-    <!-- Stats Matrix -->
-    <div class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-num">181</div>
-        <div class="stat-label">سؤالاً وزارياً رسمياً</div>
+    <div class="hero-badges-row">
+      <div class="hero-stat-badge"><span>📊</span> <span>181 سؤالاً وزارياً معتمداً</span></div>
+      <div class="hero-stat-badge"><span>⚠️</span> <span>12 فخاً وزارياً دقيقاً</span></div>
+      <div class="hero-stat-badge"><span>🚧</span> <span>19 لوحة وشاخصاً رسمياً</span></div>
+      <div class="hero-stat-badge"><span>🎯</span> <span>دقة 100% كود السير 2026</span></div>
+    </div>
+  </section>
+
+  <!-- GOLDEN RULES BANNER -->
+  <section class="golden-rules-banner">
+    <div class="golden-rules-title">
+      <span>⭐</span>
+      <span>القواعد الذهبية الأربع للباب 09 (Regole d'Oro)</span>
+    </div>
+    <div class="rules-grid">
+      <div class="rule-box">
+        <h4><span>1️⃣</span> سيادة الخلفية الصفراء لورش العمل</h4>
+        <p>أي علامة أو تخطيط ذو خلفية صفراء (Giallo) يمثل حالة مؤقتة ناتجة عن ورش العمل؛ <strong>يلغي ويتقدم قانونياً</strong> على الإشارات والتخطيطات البيضاء الدائمة، ويفرض تخفيض السرعة الفوري والانتباه للعمال والآليات.</p>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">19</div>
-        <div class="stat-label">صورة ولوحة معتمدة</div>
+      <div class="rule-box">
+        <h4><span>2️⃣</span> قاعدة ألوان عواكس حواف الطريق</h4>
+        <p>في شواخص الحواف (Fig. 290): <strong>اليمين دائماً عاكس أحمر (Rosso a destra)</strong>. واليسار أبيض (Bianco) في الطرق ذات الاتجاهين؛ بينما تكون العواكس حمراء بالجهتين أو صفراء في الأنفاق أحادية الاتجاه.</p>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">12</div>
-        <div class="stat-label">مصطلحاً إيطالياً محورياً</div>
+      <div class="rule-box">
+        <h4><span>3️⃣</span> تمييز شواخص المنحنيات باللون</h4>
+        <p>الأسهم البيضاء على خلفية سوداء (Fig. 289) مخصصة حصراً لـ <strong>الاتجاه الواحد (Senso unico)</strong>. بينما الأسهم الحمراء على خلفية بيضاء (Fig. 293) مخصصة لـ <strong>الاتجاهين (Doppio senso)</strong>.</p>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">8</div>
-        <div class="stat-label">فخاخ وزارية متكررة</div>
+      <div class="rule-box">
+        <h4><span>4️⃣</span> المخاريط مقابل الحواجز</h4>
+        <p>المخاريط البرتقالية (Coni Fig. 278) مخصصة للأعمال المؤقتة والطارئة <strong>قصيرة المدى</strong>؛ بينما الحواجز المخططة بالأحمر والأبيض (Barriere Fig. 276) تفرض <strong>إغلاقاً عرضياً كاملاً وقاطعاً</strong> لنهر الطريق.</p>
       </div>
     </div>
-  </header>
+  </section>
 
-  <!-- Golden Rule Box -->
-  <div class="golden-rule-box">
-    <div class="golden-rule-icon">💡</div>
-    <div class="golden-rule-content">
-      <h4>القاعدة الذهبية للباب التاسع (La Regola d'Oro)</h4>
-      <p>
-        <strong>الخلفية الصفراء (Fondo Giallo)</strong> تدل قطيعاً وحتماً على أن الإشارة <strong>مؤقتة (Temporaneo)</strong> مرتبطة بوجود <strong>ورشة عمل أو أعمال صيانة على الطريق (Cantiere stradale)</strong>. تفرض الإشارات ذات الخلفية الصفراء توخي الحذر الشديد وخفض السرعة والانتباه للعمال ومعدات الصيانة. في المقابل، مخاريط المرور (Coni) مخصصة حصراً للأعمال <strong>قصيرة المدى (Breve durata)</strong> ولا تُستخدم أبداً للأعمال طويلة المدى!
+  <!-- INTERACTIVE SIMULATORS -->
+
+  <!-- SIMULATOR 1: Delineatori di Margine -->
+  <section class="simulator-box" id="sim-margine">
+    <div class="sim-header">
+      <div>
+        <h3 class="sim-title">🎮 محاكي شواخص حواف الطريق (Delineatori di Margine)</h3>
+        <p class="sim-subtitle">اختبر الفرق الحاسم في ألوان العواكس الليلية بين الطريق ذو الاتجاهين والطريق ذو الاتجاه الواحد والأنفاق</p>
+      </div>
+      <span class="sim-badge">محاكي الرؤية الليلية</span>
+    </div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnMargDoppio" onclick="simulateMargine('doppio')">طريق ذو اتجاهين (Doppio Senso)</button>
+      <button class="sim-btn" id="btnMargUnico" onclick="simulateMargine('unico')">طريق ذو اتجاه واحد (Senso Unico)</button>
+      <button class="sim-btn" id="btnMargGalleria" onclick="simulateMargine('galleria')">نفق اتجاه واحد (Galleria)</button>
+    </div>
+    <div class="sim-output-card">
+      <div class="sim-img-wrapper" id="simMargImgWrapper">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/290.png" alt="Delineatori di margine">
+      </div>
+      <div class="sim-details">
+        <div class="sim-state-badge state-rot-precedence" id="simMargBadge">طريق ذو اتجاهين: أحمر على اليمين وأبيض على اليسار</div>
+        <p class="sim-legal-text" id="simMargText">
+          <strong>القاعدة الوزارية الصارمة:</strong> في الطرق ذات الاتجاهين (Doppio Senso)، يحمل العمود الأبيض عاكساً أحمر (Rosso) في جهة اليمين، وعاكساً أبيض (Bianco) في جهة اليسار لتنبيه السائق بحدود نهر الطريق وتجنب الخروج عن الأسفلت ليلاً.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR 2: Delineatori di Curva -->
+  <section class="simulator-box" id="sim-curve">
+    <div class="sim-header">
+      <div>
+        <h3 class="sim-title">🎮 محاكي شواخص المنعطفات الحادة والتقاطعات</h3>
+        <p class="sim-subtitle">قارن بين شاخص المنعطف في الاتجاه الواحد، المنعطف في الاتجاهين، وتقاطع حرف T</p>
+      </div>
+      <span class="sim-badge">محاكي المنحنيات</span>
+    </div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnCurvaDoppio" onclick="simulateCurva('doppio')">منعطف اتجاهين (Fig. 293)</button>
+      <button class="sim-btn" id="btnCurvaUnico" onclick="simulateCurva('unico')">منعطف اتجاه واحد (Fig. 289)</button>
+      <button class="sim-btn" id="btnCurvaT" onclick="simulateCurva('t')">تقاطع حرف T (Fig. 294)</button>
+    </div>
+    <div class="sim-output-card">
+      <div class="sim-img-wrapper" id="simCurvaImgWrapper">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/293.png" alt="Curva doppio senso">
+      </div>
+      <div class="sim-details">
+        <div class="sim-state-badge state-rot-precedence" id="simCurvaBadge">أسهم حمراء وبيضاء = طريق ذو اتجاهين</div>
+        <p class="sim-legal-text" id="simCurvaText">
+          <strong>الوضع القانوني:</strong> شواخص متتابعة بأسهم حمراء على خلفية بيضاء ترشد السائق لمسار المنحنى الخطر في الطرق ذات الاتجاهين (Doppio Senso) وتنبه لخطورة التجاوز وقوة الطرد المركزي.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR 3: Cantieri e Barriere -->
+  <section class="simulator-box" id="sim-cantieri">
+    <div class="sim-header">
+      <div>
+        <h3 class="sim-title">🎮 محاكي أدوات ورش العمل والمرور المتناوب</h3>
+        <p class="sim-subtitle">تعرف على أدوات تنظيم السير في مواقع الأشغال: الحاجز المغلق، المخاريط، والورشة المتحركة</p>
+      </div>
+      <span class="sim-badge">محاكي ورش العمل</span>
+    </div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnCantiereBarriera" onclick="simulateCantiere('barriera')">حاجز الإغلاق التام (Fig. 276)</button>
+      <button class="sim-btn" id="btnCantiereCono" onclick="simulateCantiere('cono')">مخاريط المسارات (Fig. 278)</button>
+      <button class="sim-btn" id="btnCantiereMobile" onclick="simulateCantiere('mobile')">ورشة عمل متحركة (Fig. 280)</button>
+    </div>
+    <div class="sim-output-card">
+      <div class="sim-img-wrapper" id="simCantiereImgWrapper">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/276.png" alt="Barriera normale">
+      </div>
+      <div class="sim-details">
+        <div class="sim-state-badge state-normal" id="simCantiereBadge">إغلاق كامل لنهر الطريق أو المسار</div>
+        <p class="sim-legal-text" id="simCantiereText">
+          <strong>الحكم التشريعي:</strong> حاجز طولي مخطط بالأحمر والأبيض يوضع عرضياً ليحظر قطعياً عبور أي مركبة بسبب أعمال حفر أو انهيارات، وتثبت عليه مصابيح حمراء ثابتة أو وامضة ليلاً.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- COMPARISON SECTION -->
+
+  <!-- COMPARISON SECTION -->
+  <section class="comp-section">
+    <div class="comp-header">
+      <h3>🔍 مصفوفة المقارنة البصرية: فك التشابهات الأكثر إرباكاً في الامتحان</h3>
+      <p>أبرز 4 مقارنات ثنائية يركز عليها واضعو الامتحان الوزاري للتمييز بين شواخص وعلامات الباب 09</p>
+    </div>
+    <div class="comp-grid-4">
+      <!-- Comp 1 -->
+      <div class="comp-card-path">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/289.png" alt="Senso Unico">
+        <h4>منعطف الاتجاه الواحد</h4>
+        <div class="path-it">Senso Unico (Fig. 289)</div>
+        <p><strong>العلامة:</strong> أسهم بيضاء على خلفية سوداء عاكسة.<br><strong>الدلالة:</strong> السير في اتجاه واحد فقط ولا توجد حركة سير قادمة في الاتجاه المعاكس.</p>
+      </div>
+
+      <!-- Comp 2 -->
+      <div class="comp-card-path">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/293.png" alt="Doppio Senso">
+        <h4>منعطف الاتجاهين</h4>
+        <div class="path-it">Doppio Senso (Fig. 293)</div>
+        <p><strong>العلامة:</strong> أسهم حمراء على خلفية بيضاء عاكسة.<br><strong>الدلالة:</strong> الطريق يسير في الاتجاهين ويحظر قطعياً غزو المسار المعاكس في المنحنى.</p>
+      </div>
+
+      <!-- Comp 3 -->
+      <div class="comp-card-path">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/278.png" alt="Cono">
+        <h4>المخروط البرتقالي</h4>
+        <div class="path-it">Cono di delimitazione (Fig. 278)</div>
+        <p><strong>الاستخدام:</strong> للأعمال السريعة وقصيرة المدى (Breve durata) وتحديد انحراف المسارات المؤقتة الفورية.</p>
+      </div>
+
+      <!-- Comp 4 -->
+      <div class="comp-card-path">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/276.png" alt="Barriera">
+        <h4>الحاجز المخطط العرضي</h4>
+        <div class="path-it">Barriera normale (Fig. 276)</div>
+        <p><strong>الاستخدام:</strong> لإغلاق مسار أو كامل الطريق عرضياً ومنع المرور التام، مع تزويده بإضاءة حمراء ليلاً.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FILTER PILLS -->
+  <div class="filter-pills-bar">
+    <button class="filter-pill active" onclick="filterCards('all', this)">جميع الإشارات والشواخص (19)</button>
+    <button class="filter-pill" onclick="filterCards('delineatori', this)">شواخص المنعطفات وحواف الطريق</button>
+    <button class="filter-pill" onclick="filterCards('cantieri', this)">إشارات ورش العمل والمسارات</button>
+    <button class="filter-pill" onclick="filterCards('barriere', this)">الحواجز والمخاريط والعوائق</button>
+    <button class="filter-pill" onclick="filterCards('glossary', this)">القاموس وفخاخ الوزارة</button>
+  </div>
+
+  <!-- SIGNALS GRID -->
+  <div class="signals-grid">
+
+    <!-- Card 144 -->
+    <div class="signal-card" data-category="delineatori">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/144.png" alt="Pannello integrativo tornante (Figura 144)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة ترقيم المنعطفات الحادة</h3>
+        <span class="card-it-title">Pannello integrativo tornante (Figura 144)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة مكملة توضع أسفل إشارة المنعطف الخطر (Curva pericolosa) في الطرق الجبلية؛ تشير إلى وجود منعطف حاد جداً (Tornante) وتحدد رقمه التتابعي أو عدد المنعطفات المتتالية لتنبيه السائق لضرورة تخفيض السرعة واستخدام الغيار المناسب.
       </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il pannello raffigurato indica la vicinanza di una curva stretta</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello raffigurato indica la vicinanza di una curva stretta</span></li>
+          <li><span>•</span> <strong>Il pannello raffigurato indica il numero progressivo di una curva pericolosa</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello raffigurato indica il numero progressivo di una curva pericolosa</span></li>
+          <li><span>•</span> <strong>Il pannello raffigurato indica il primo di una serie di tornanti (curve a raggio ridotto)</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello raffigurato indica il primo di una serie di tornanti (curve a raggio ridotto)</span></li>
+          <li><span>•</span> <strong>Il pannello raffigurato, in una serie di tornanti, ne indica il numero progressivo</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello raffigurato, in una serie di tornanti, ne indica il numero progressivo</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il pannello raffigurato indica una zona a circolazione rotatoria (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello raffigurato indica che fra un chilometro troveremo un tornante (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello raffigurato indica i chilometri da fare per poter tornare indietro (خطأ FALSO)</li>
+          <li><span>•</span> Il pannello raffigurato indica il numero di incroci superati (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: لا تشير اللوحة إلى ميل الطريق أو انحداره، بل ترقم المنعطف الحاد فقط (Tornante).
+      </div>
     </div>
+
+    <!-- Card 251 -->
+    <div class="signal-card" data-category="cantieri">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/251.png" alt="Direzione obbligatoria autocarri in cantiere (Figura 251)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">اتجاه إلزامي لمركبات النقل الثقيل لورش العمل</h3>
+        <span class="card-it-title">Direzione obbligatoria autocarri in cantiere (Figura 251)</span>
+      </div>
+      <p class="card-desc-text">
+        إشارة مربعة بخلفية صفراء تحمل رمز شاحنة وسهم اتجاه إلزامي؛ تفرض على مركبات نقل البضائع التي يزيد وزنها الإجمالي عن 3.5 طن اتباع المسار المحدد للدخول أو الخروج من موقع ورش العمل وأشغال الطرق وتفادي عرقلة السير العادي.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il segnale raffigurato indica la direzione consigliata per gli autocarri di massa complessiva a pieno carico superiore a 3,5 tonnellate</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica la direzione consigliata per gli autocarri di massa complessiva a pieno carico superiore a 3,5 tonnellate</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato indica la categoria di veicoli a cui è consigliata la svolta</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica la categoria di veicoli a cui è consigliata la svolta</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato è installato nel punto della deviazione consigliata per autocarri che superano 3,5 tonnellate</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato è installato nel punto della deviazione consigliata per autocarri che superano 3,5 tonnellate</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato può essere preceduto da un segnale di preavviso</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato può essere preceduto da un segnale di preavviso</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il segnale raffigurato indica che è vietato svoltare a sinistra (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato indica un'area di sosta per gli autocarri (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato indica la direzione da seguire per arrivare in una discarica (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato indica una strada a senso unico sulla destra, riservata solo agli autocarri (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: الإلزام يسري حصراً على مركبات نقل البضائع المخصصة (> 3.5 طن) ولا يشمل سيارات الركوب العادية أو الأوتوبيسات.
+      </div>
+    </div>
+
+    <!-- Card 275 -->
+    <div class="signal-card" data-category="cantieri">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/275.png" alt="Lavori in corso (Figura 275)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">إشارة ورش العمل وأشغال الطرق المؤقتة</h3>
+        <span class="card-it-title">Lavori in corso (Figura 275)</span>
+      </div>
+      <p class="card-desc-text">
+        إشارة خطر مثلثة ذات خلفية صفراء برمز عامل يحفر؛ تعلن عن الاقتراب من موقع ورش عمل أو صيانة على الطريق أو بجواره، وتلزم بتخفيض فوري للسرعة والانتباه لوجود عمال ومعدات أو بقايا ركام وأتربة على نهر الطريق.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il segnale raffigurato preavvisa lavori in corso</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato preavvisa lavori in corso</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato preavvisa cantieri di lavoro</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato preavvisa cantieri di lavoro</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato preavvisa eventuali depositi temporanei di materiali o macchinari</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato preavvisa eventuali depositi temporanei di materiali o macchinari</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato preavvisa la eventuale presenza di uomini che lavorano presso o sulla carreggiata</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato preavvisa la eventuale presenza di uomini che lavorano presso o sulla carreggiata</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il segnale raffigurato impone di dare la precedenza ai veicoli che escono dal cantiere (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato preavvisa l'obbligo di dare la precedenza ai veicoli che provengono in senso opposto (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato obbliga a invertire il senso di marcia nelle ore di lavoro degli operai (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato obbliga a dare la precedenza agli addetti ai lavori (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: الخلفية الصفراء تعني أن موقع العمل مؤقت وتلغي أي قواعد سرعة دائمة متعارضة معها.
+      </div>
+    </div>
+
+    <!-- Card 276 -->
+    <div class="signal-card" data-category="barriere">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/276.png" alt="Barriera normale a strisce bianche e rosse (Figura 276)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الحاجز العرضي المخطط لإغلاق الطريق</h3>
+        <span class="card-it-title">Barriera normale a strisce bianche e rosse (Figura 276)</span>
+      </div>
+      <p class="card-desc-text">
+        حاجز طولي مخطط بأشرطة بيضاء وحمراء عاكسة؛ يوضع عرضياً لإغلاق مسار أو كامل نهر الطريق أمام حركة المرور بسبب ورش عمل أو حوادث أو انهيارات، ويحظر قطعياً تجاوزه أو المرور من خلفه.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>La barriera raffigurata segnala un'area occupata da un cantiere stradale</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">La barriera raffigurata segnala un'area occupata da un cantiere stradale</span></li>
+          <li><span>•</span> <strong>La barriera raffigurata delimita un'area dove si stanno svolgendo lavori stradali</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">La barriera raffigurata delimita un'area dove si stanno svolgendo lavori stradali</span></li>
+          <li><span>•</span> <strong>La barriera raffigurata è posta ai bordi di un cantiere stradale</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">La barriera raffigurata è posta ai bordi di un cantiere stradale</span></li>
+          <li><span>•</span> <strong>La barriera raffigurata può utilizzarsi nei passaggi a livello quando le sbarre sono guaste</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">La barriera raffigurata può utilizzarsi nei passaggi a livello quando le sbarre sono guaste</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> La barriera raffigurata si trova all'ingresso di un'autorimessa (خطأ FALSO)</li>
+          <li><span>•</span> La barriera raffigurata segnala un parcheggio riservato ai veicoli per lavori stradali (خطأ FALSO)</li>
+          <li><span>•</span> La barriera raffigurata si trova nei caselli autostradali per delimitare le corsie (خطأ FALSO)</li>
+          <li><span>•</span> La barriera raffigurata segnala una curva pericolosa (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: الحاجز المخطط يمنع المرور قطعياً ولا يترك أي مجال للاجتهاد أو العبور المؤقت.
+      </div>
+    </div>
+
+    <!-- Card 278 -->
+    <div class="signal-card" data-category="barriere">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/278.png" alt="Cono di delimitazione (Figura 278)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">المخاريط العاكسة لتحديد المسارات المؤقتة</h3>
+        <span class="card-it-title">Cono di delimitazione (Figura 278)</span>
+      </div>
+      <p class="card-desc-text">
+        مخروط بلاستيكي برتقالي بمطاط أبيض عاكس؛ يستخدم لتحديد المسارات المؤقتة، الفصل بين اتجاهات السير في أعمال الصيانة قصيرة المدى، أو تحديد مسار تحويلة عاجلة. يتميز بسهولة النقل والتركيب الفوري.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il cono raffigurato può delimitare zone di lavoro di breve durata</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il cono raffigurato può delimitare zone di lavoro di breve durata</span></li>
+          <li><span>•</span> <strong>Il cono raffigurato si può usare per segnalare deviazioni provvisorie</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il cono raffigurato si può usare per segnalare deviazioni provvisorie</span></li>
+          <li><span>•</span> <strong>Il cono raffigurato si può usare per indicare aree interessate da incidenti</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il cono raffigurato si può usare per indicare aree interessate da incidenti</span></li>
+          <li><span>•</span> <strong>Il cono raffigurato può indicare separazione provvisoria dei sensi di marcia</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il cono raffigurato può indicare separazione provvisoria dei sensi di marcia</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il cono raffigurato si usa per indicare un parcheggio riservato (خطأ FALSO)</li>
+          <li><span>•</span> Il cono raffigurato si può usare in presenza di lavori stradali superiori a 10 giorni (خطأ FALSO)</li>
+          <li><span>•</span> Il cono raffigurato si usa su strade dove avvengono abbondanti nevicate (خطأ FALSO)</li>
+          <li><span>•</span> Il cono raffigurato separa la carreggiata dalla pista ciclabile (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: المخاريط مخصصة للأعمال المؤقتة وقصيرة المدى (Breve durata)، وليست حواجز ثابتة دائمة.
+      </div>
+    </div>
+
+    <!-- Card 279 -->
+    <div class="signal-card" data-category="cantieri">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/279.png" alt="Passaggio obbligatorio per veicoli operativi (Figura 279)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة ممر المركبات بجانب ورش العمل</h3>
+        <span class="card-it-title">Passaggio obbligatorio per veicoli operativi (Figura 279)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة توجيهية صفراء بها أسهم ترشد السائقين للمسار المفتوح للعبور بجانب منطقة العمل مع تحذيرهم من نقاط خروج ودخول آليات الصيانة الثقيلة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il segnale raffigurato può essere posto sui veicoli per lavori stradali, fermi o in lento movimento</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato può essere posto sui veicoli per lavori stradali, fermi o in lento movimento</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato indica il lato dal quale il veicolo su cui è posto deve essere sorpassato</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica il lato dal quale il veicolo su cui è posto deve essere sorpassato</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato può essere posto sui veicoli per la manutenzione stradale in sosta sulla carreggiata</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato può essere posto sui veicoli per la manutenzione stradale in sosta sulla carreggiata</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato può essere posto su alcuni veicoli per lavori stradali, che procedono a bassa velocità</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato può essere posto su alcuni veicoli per lavori stradali, che procedono a bassa velocità</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il segnale raffigurato indica di sorpassare l'ostacolo sulla sinistra (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato indica di svoltare subito a destra (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato indica corsia di destra chiusa per manutenzione stradale (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato obbliga a sostare a destra (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: تلزم باتباع اتجاه السهم الموضح حول منطقة العمل وتمنع الانحراف نحو الجانب المغلق.
+      </div>
+    </div>
+
+    <!-- Card 280 -->
+    <div class="signal-card" data-category="cantieri">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/280.png" alt="Cantiere mobile con segnale di passaggio obbligatorio (Figura 280)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">ورشة العمل المتحركة مع سهم إلزامي</h3>
+        <span class="card-it-title">Cantiere mobile con segnale di passaggio obbligatorio (Figura 280)</span>
+      </div>
+      <p class="card-desc-text">
+        شاحنة صيانة تحمل لوحة صفراء كبيرة وسهماً ضوئياً وامضاً يشير للاتجاه الإلزامي للتجاوز؛ تتحرك ببطء لتنفيذ أعمال دهان الخطوط أو تنظيف الحواف أو إصلاح الإنارة وتلزم السائقين بالانتقال للمسار المجاور.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il segnale raffigurato preavvisa un cantiere mobile con strettoia a sinistra</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato preavvisa un cantiere mobile con strettoia a sinistra</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato può essere installato su un veicolo per preavvisare un cantiere stradale</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato può essere installato su un veicolo per preavvisare un cantiere stradale</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato indica le corsie disponibili per la circolazione</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica le corsie disponibili per la circolazione</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato indica una diminuzione da tre a due corsie</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica una diminuzione da tre a due corsie</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il segnale raffigurato indica quanti veicoli possono transitare contemporaneamente (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato indica una piazzola di sosta sul lato sinistro (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: يجب تجاوز شاحنة الصيانة من جهة السهم الوامض حصراً مع توخي الحذر الشديد من سرعتها البطيئة.
+      </div>
+    </div>
+
+    <!-- Card 283 -->
+    <div class="signal-card" data-category="cantieri">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/283.png" alt="Deviazione per mezzi pesanti (Figura 283)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة تحويل مسار مركبات النقل الثقيل</h3>
+        <span class="card-it-title">Deviazione per mezzi pesanti (Figura 283)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة إرشادية ذات خلفية صفراء ترشد سائقي الشاحنات ومركبات الوزن الثقيل إلى مسار بديل إجباري لتجنب المرور في موقع ورشة العمل أو الجسور الضعيفة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il segnale raffigurato indica ai veicoli di massa effettiva superiore a 7 tonnellate diretti a Lucca di cambiare strada</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica ai veicoli di massa effettiva superiore a 7 tonnellate diretti a Lucca di cambiare strada</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato consente agli autocarri di massa a pieno carico inferiore a 7 tonnellate di proseguire diritto</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato consente agli autocarri di massa a pieno carico inferiore a 7 tonnellate di proseguire diritto</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato non consente ai veicoli di massa effettiva superiore a 7 tonnellate diretti a Lucca di proseguire diritto</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato non consente ai veicoli di massa effettiva superiore a 7 tonnellate diretti a Lucca di proseguire diritto</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato indica una limitazione di transito su un tratto di strada per i veicoli di massa effettiva superiore a 7 tonnellate</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica una limitazione di transito su un tratto di strada per i veicoli di massa effettiva superiore a 7 tonnellate</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il segnale raffigurato indica, a tutti i veicoli, che non è possibile proseguire diritto per Lucca (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato obbliga tutti i veicoli a svoltare a destra al bivio seguente (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato vieta il sorpasso agli autoveicoli di massa totale superiore a 7 tonnellate (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato vieta il transito ai veicoli che superano 7 metri di lunghezza (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: المسار البديل إلزامي للمركبات الموضحة بالرمز فقط وتستمر المركبات الأخرى في مسارها ما لم يُذكر غير ذلك.
+      </div>
+    </div>
+
+    <!-- Card 285 -->
+    <div class="signal-card" data-category="cantieri">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/285.png" alt="Corsia chiusa per lavori e riduzione corsie (Figura 285)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة إغلاق مسار وانحياز حركة السير</h3>
+        <span class="card-it-title">Corsia chiusa per lavori e riduzione corsie (Figura 285)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة صفراء توضح انخفاض عدد مسارات الطريق من مسارين إلى مسار واحد أو من 3 إلى 2 بسبب ورش العمل؛ تلزم السائقين بالاندماج المبكر في المسار المفتوح بنظام التناوب (Cerniera).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il segnale raffigurato indica la chiusura della corsia di destra per lavori in corso</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica la chiusura della corsia di destra per lavori in corso</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato indica una diminuzione da due a una corsia di marcia</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica una diminuzione da due a una corsia di marcia</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato è posto in vicinanza di un cantiere stradale</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato è posto in vicinanza di un cantiere stradale</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato può essere completato con pannello che indica la distanza dal punto di chiusura della corsia</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato può essere completato con pannello che indica la distanza dal punto di chiusura della corsia</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il segnale raffigurato indica la possibilità di sorpassare a destra (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato preannuncia uno svincolo che consente l'inversione di marcia (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato si trova in vicinanza di un incrocio (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato indica una piazzola per la fermata degli autobus (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: تفرض الاندماج الحذر بدون استعجال وتمنع مواصلة السير في المسار المغلق حتى نهايته بسرعة عالية.
+      </div>
+    </div>
+
+    <!-- Card 288 -->
+    <div class="signal-card" data-category="cantieri">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/288.png" alt="Uso delle corsie disponibili in presenza di cantiere (Figura 288)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوحة المسارات المتاحة وتوزيع اتجاهات السير</h3>
+        <span class="card-it-title">Uso delle corsie disponibili in presenza di cantiere (Figura 288)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة صفراء تحدد بدقة توزيع المسارات المؤقتة وكيفية استخدامها وتفرض على فئات معينة من المركبات التزام مسارات محددة طبقاً لعرض المسار أو حمولة الطريق.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il segnale raffigurato, posto in presenza di lavori stradali, indica alle categorie di veicoli quali corsie possono occupare</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato, posto in presenza di lavori stradali, indica alle categorie di veicoli quali corsie possono occupare</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato viene utilizzato per indicare l'uso delle corsie</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato viene utilizzato per indicare l'uso delle corsie</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato indica ai veicoli su quali corsie debbono circolare</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica ai veicoli su quali corsie debbono circolare</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato indica agli autocarri di massa complessiva superiore a 3,5 tonnellate quale corsia debbono percorrere</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica agli autocarri di massa complessiva superiore a 3,5 tonnellate quale corsia debbono percorrere</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il segnale raffigurato indica l'avvicinarsi di un casello autostradale (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato obbliga gli autocarri a circolare per file parallele (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato indica che gli autocarri debbono solo sorpassare a destra (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato vieta ai motocicli di circolare sulla corsia di sinistra (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: قد تحدد مساراً للمركبات الخفيفة وتمنع المركبات العريضة أو الثقيلة من دخوله.
+      </div>
+    </div>
+
+    <!-- Card 289 -->
+    <div class="signal-card" data-category="delineatori">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/289.png" alt="Delineatori modulari di curva per senso unico (Figura 289)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">شواخص المنعطفات الحادة في الطرق ذات الاتجاه الواحد</h3>
+        <span class="card-it-title">Delineatori modulari di curva per senso unico (Figura 289)</span>
+      </div>
+      <p class="card-desc-text">
+        سلسلة شواخص متتالية تحمل رؤوس أسهم بيضاء على خلفية سوداء عاكسة؛ تستخدم حصراً في الطرق ذات الاتجاه الواحد (Senso Unico) أو منحنيات وصلات الأوتوستراد لتوضيح اتجاه وانحناء المنعطف ليلاً وفي الضباب.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>I delineatori raffigurati sono usati ai lati della carreggiata di strade a senso unico</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">I delineatori raffigurati sono usati ai lati della carreggiata di strade a senso unico</span></li>
+          <li><span>•</span> <strong>I delineatori raffigurati sono dei segnali complementari</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">I delineatori raffigurati sono dei segnali complementari</span></li>
+          <li><span>•</span> <strong>I delineatori raffigurati sono posti ai margini di una strada o di una carreggiata a senso unico</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">I delineatori raffigurati sono posti ai margini di una strada o di una carreggiata a senso unico</span></li>
+          <li><span>•</span> <strong>I delineatori raffigurati servono a visualizzare meglio l'andamento della strada</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">I delineatori raffigurati servono a visualizzare meglio l'andamento della strada</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> I delineatori raffigurati sono posti su strada a doppio senso (خطأ FALSO)</li>
+          <li><span>•</span> I delineatori raffigurati si trovano prima di un attraversamento pedonale (خطأ FALSO)</li>
+          <li><span>•</span> I delineatori raffigurati sono posti al centro della carreggiata (خطأ FALSO)</li>
+          <li><span>•</span> I delineatori raffigurati dividono la carreggiata in corsie (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان الحاسم: أسود وأبيض = اتجاه واحد (Senso Unico). بينما أحمر وأبيض = اتجاهين (Doppio Senso)!
+      </div>
+    </div>
+
+    <!-- Card 290 -->
+    <div class="signal-card" data-category="delineatori">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/290.png" alt="Delineatori normali di margine (Figura 290)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">شواخص حواف وجوانب الطريق العادية</h3>
+        <span class="card-it-title">Delineatori normali di margine (Figura 290)</span>
+      </div>
+      <p class="card-desc-text">
+        أعمدة بيضاء مثبتة على جانبي الطريق؛ تحمل عاكساً أحمر (Rosso) على الجانب الأيمن وعاكساً أبيض (Bianco) على الجانب الأيسر في الطرق ذات الاتجاهين؛ لتحديد حدود نهر الطريق بدقة ليلاً.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>I delineatori raffigurati sono utili soprattutto nei casi di scarsa visibilità</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">I delineatori raffigurati sono utili soprattutto nei casi di scarsa visibilità</span></li>
+          <li><span>•</span> <strong>I delineatori raffigurati sono dei segnali complementari</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">I delineatori raffigurati sono dei segnali complementari</span></li>
+          <li><span>•</span> <strong>I delineatori raffigurati sono posti ai margini di una strada a doppio senso</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">I delineatori raffigurati sono posti ai margini di una strada a doppio senso</span></li>
+          <li><span>•</span> <strong>I delineatori raffigurati servono a visualizzare meglio l'andamento della strada</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">I delineatori raffigurati servono a visualizzare meglio l'andamento della strada</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> I delineatori raffigurati sono utili solo nelle ore notturne (خطأ FALSO)</li>
+          <li><span>•</span> I delineatori raffigurati vengono posti a distanza di almeno 100 metri l’uno dall’altro (خطأ FALSO)</li>
+          <li><span>•</span> I delineatori raffigurati sono posti al centro della carreggiata (خطأ FALSO)</li>
+          <li><span>•</span> I delineatori raffigurati dividono la carreggiata in corsie (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان الذهبي: على اليمين أحمر دائماً (Rosso a destra)، وعلى اليسار أبيض في الاتجاهين (Bianco a sinistra)!
+      </div>
+    </div>
+
+    <!-- Card 291 -->
+    <div class="signal-card" data-category="delineatori">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/291.png" alt="Delineatori di margine per gallerie (Figura 291)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">شواخص حواف الأنفاق المضيئة</h3>
+        <span class="card-it-title">Delineatori di margine per gallerie (Figura 291)</span>
+      </div>
+      <p class="card-desc-text">
+        عناصر عاكسة مثبتة على جدران الأنفاق والممرات المغطاة؛ تكون عاكسة باللون الأصفر في الأنفاق ذات الاتجاه الواحد، أو بلوني الأحمر والأبيض في الأنفاق ذات الاتجاهين لتوضيح حيز السير الآمن وتفادي الاصطدام بالجدران.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il delineatore raffigurato è posto ai lati delle gallerie a senso unico</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato è posto ai lati delle gallerie a senso unico</span></li>
+          <li><span>•</span> <strong>Il delineatore raffigurato è un segnale complementare posto nelle gallerie a senso unico</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato è un segnale complementare posto nelle gallerie a senso unico</span></li>
+          <li><span>•</span> <strong>Il delineatore raffigurato si può trovare anche per evidenziare deviazioni o strettoie della carreggiata</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato si può trovare anche per evidenziare deviazioni o strettoie della carreggiata</span></li>
+          <li><span>•</span> <strong>Il delineatore raffigurato è un segnale complementare</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato è un segnale complementare</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il delineatore raffigurato è usato per indicare un incrocio a senso unico (خطأ FALSO)</li>
+          <li><span>•</span> Il delineatore raffigurato indica una strada chiusa (خطأ FALSO)</li>
+          <li><span>•</span> Il delineatore raffigurato è posto al centro della carreggiata per indicare un ostacolo (خطأ FALSO)</li>
+          <li><span>•</span> Il delineatore raffigurato divide la carreggiata in corsie (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: العواكس الصفراء على الجانبين تشير إلى أن النفق ذو اتجاه واحد حصراً (Senso Unico).
+      </div>
+    </div>
+
+    <!-- Card 292 -->
+    <div class="signal-card" data-category="delineatori">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/292.png" alt="Delineatori per strade di montagna innevate (Figura 292)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">شواخص الطرق الجبلية المعرضة لتراكم الثلوج</h3>
+        <span class="card-it-title">Delineatori per strade di montagna innevate (Figura 292)</span>
+      </div>
+      <p class="card-desc-text">
+        أعمدة طويلة جداً ومخططة بالأصفر والأسود أو الأحمر والأبيض؛ تثبت على أطراف الطرق الجبلية لتظل مرئية بوضوح حتى عند تراكم الثلوج الكثيفة، وترشد كاسحات الثلوج والسائقين لمسار الطريق وتمنع السقوط في المنحدرات.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il delineatore raffigurato è posto ai lati della carreggiata nelle strade di montagna soggette ad innevamento</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato è posto ai lati della carreggiata nelle strade di montagna soggette ad innevamento</span></li>
+          <li><span>•</span> <strong>Il delineatore raffigurato è un segnale complementare</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato è un segnale complementare</span></li>
+          <li><span>•</span> <strong>Il delineatore raffigurato è posto ai lati della carreggiata su strade di montagna</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato è posto ai lati della carreggiata su strade di montagna</span></li>
+          <li><span>•</span> <strong>Il delineatore raffigurato viene utilizzato per rendere meglio visibili i bordi della carreggiata di una strada innevata</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato viene utilizzato per rendere meglio visibili i bordi della carreggiata di una strada innevata</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il delineatore raffigurato è posto alla fermata degli autobus (خطأ FALSO)</li>
+          <li><span>•</span> Il delineatore raffigurato è posto al centro della carreggiata (خطأ FALSO)</li>
+          <li><span>•</span> Il delineatore raffigurato si trova in vicinanza di un attraversamento pedonale (خطأ FALSO)</li>
+          <li><span>•</span> Il delineatore raffigurato è usato come paletto di ancoraggio per lasciare in sosta le biciclette (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: ارتفاعها الشاهق صُمم خصيصاً لمقاومة الغمر بالثلوج وإرشاد آليات إزالة الثلج (Spazzaneve).
+      </div>
+    </div>
+
+    <!-- Card 293 -->
+    <div class="signal-card" data-category="delineatori">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/293.png" alt="Delineatore modulare di curva stretta a doppio senso (Figura 293)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">شواخص المنعطفات الحادة في الطرق ذات الاتجاهين</h3>
+        <span class="card-it-title">Delineatore modulare di curva stretta a doppio senso (Figura 293)</span>
+      </div>
+      <p class="card-desc-text">
+        شواخص تحمل أسهم chevron حمراء على خلفية بيضاء؛ تثبت متتابعة على القوس الخارجي للمنعطفات الحادة الخطيرة في الطرق ذات الاتجاهين (Doppio Senso) لتوجيه نظر السائق ومساعدته في تقدير زاوية الانحناء.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il delineatore raffigurato è posto nelle curve strette e con mancanza di visibilità</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato è posto nelle curve strette e con mancanza di visibilità</span></li>
+          <li><span>•</span> <strong>Il delineatore raffigurato si trova, di norma, dopo il segnale CURVA PERICOLOSA A SINISTRA</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato si trova, di norma, dopo il segnale CURVA PERICOLOSA A SINISTRA</span></li>
+          <li><span>•</span> <strong>Il delineatore raffigurato, se di colore bianco e rosso, indica una curva provvisoria a sinistra</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato, se di colore bianco e rosso, indica una curva provvisoria a sinistra</span></li>
+          <li><span>•</span> <strong>Il delineatore raffigurato è usato per segnalare una curva pericolosa</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato è usato per segnalare una curva pericolosa</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il delineatore raffigurato indica un cantiere stradale (خطأ FALSO)</li>
+          <li><span>•</span> Il delineatore raffigurato segnala una strada dove si trovano salite e discese (خطأ FALSO)</li>
+          <li><span>•</span> Il delineatore raffigurato indica gli ostacoli sporgenti sulla carreggiata (خطأ FALSO)</li>
+          <li><span>•</span> Il delineatore raffigurato segnala una curva pericolosa a destra (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: أبيض وأحمر = طريق ذو اتجاهين (Doppio Senso). تُنبه لقوة الطرد المركزي وضرورة البقاء في المسار الأيمن.
+      </div>
+    </div>
+
+    <!-- Card 294 -->
+    <div class="signal-card" data-category="delineatori">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/294.png" alt="Delineatore per incrocio a T (Figura 294)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">شاخص التقاطعات المغلقة على شكل حرف T</h3>
+        <span class="card-it-title">Delineatore per incrocio a T (Figura 294)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة عريضة مخططة بأسهم بيضاء وحمراء تشير في كلا الاتجاهين الأيمن والأيسر؛ توضع مباشرة أمام السائق القادم في نهاية طريق مغلق يفرض الانعطاف إما يميناً أو يساراً ويحظر التقدم للأمام مباشرة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il delineatore raffigurato indica di svoltare a destra o a sinistra</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato indica di svoltare a destra o a sinistra</span></li>
+          <li><span>•</span> <strong>Il delineatore raffigurato ha le punte delle frecce che segnalano le direzioni possibili</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato ha le punte delle frecce che segnalano le direzioni possibili</span></li>
+          <li><span>•</span> <strong>Il delineatore raffigurato è installato ad un incrocio a forma di "T"</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato è installato ad un incrocio a forma di "T"</span></li>
+          <li><span>•</span> <strong>Il delineatore raffigurato è posto in un incrocio dove non è possibile proseguire diritto</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato è posto in un incrocio dove non è possibile proseguire diritto</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il delineatore raffigurato indica un passaggio a livello (خطأ FALSO)</li>
+          <li><span>•</span> Il delineatore raffigurato indica un ponte mobile (خطأ FALSO)</li>
+          <li><span>•</span> Il delineatore raffigurato indica una strada chiusa per lavori in corso (خطأ FALSO)</li>
+          <li><span>•</span> Il delineatore raffigurato indica un aumento del numero di corsie della strada (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: تعلن نهاية الطريق المباشر وضرورة التوقف والانعطاف الإجباري يميناً أو يساراً.
+      </div>
+    </div>
+
+    <!-- Card 295 -->
+    <div class="signal-card" data-category="delineatori">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/295.png" alt="Delineatori modulari per curve provvisorie (Figura 295)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الشواخص التتابعية للمنحنيات والتحويلات المؤقتة</h3>
+        <span class="card-it-title">Delineatori modulari per curve provvisorie (Figura 295)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحات إرشادية بألوان أصفر وأسود أو أصفر وأحمر؛ تثبت في مسارات التحويلات المؤقتة وحول ورش العمل لتحذير السائق من انحناء مسار التحويلة بصورة حادة ومفاجئة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il delineatore raffigurato si trova in serie di più elementi per evidenziare una curva pericolosa</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato si trova in serie di più elementi per evidenziare una curva pericolosa</span></li>
+          <li><span>•</span> <strong>Il delineatore raffigurato è un segnale complementare</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato è un segnale complementare</span></li>
+          <li><span>•</span> <strong>Il delineatore raffigurato è usato per migliorare la visibilità delle curve</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato è usato per migliorare la visibilità delle curve</span></li>
+          <li><span>•</span> <strong>Il delineatore raffigurato indica una curva pericolosa a destra</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato indica una curva pericolosa a destra</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il delineatore raffigurato indica una curva pericolosa a sinistra (خطأ FALSO)</li>
+          <li><span>•</span> Il delineatore raffigurato si trova 150 metri prima di una curva (خطأ FALSO)</li>
+          <li><span>•</span> Il delineatore raffigurato è posto all'ingresso di una galleria (خطأ FALSO)</li>
+          <li><span>•</span> Il delineatore raffigurato viene usato nei passaggi a livello, quando le barriere sono guaste (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: الخلفية الصفراء تؤكد أن المنعطف ناتج عن تحويلة ورش عمل مؤقتة وليس تخطيطاً هندسياً دائماً.
+      </div>
+    </div>
+
+    <!-- Card 297 -->
+    <div class="signal-card" data-category="cantieri">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/297.png" alt="Preavviso semaforo temporaneo di cantiere (Figura 297)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الإشعار المسبق بإشارة المرور لورش العمل</h3>
+        <span class="card-it-title">Preavviso semaforo temporaneo di cantiere (Figura 297)</span>
+      </div>
+      <p class="card-desc-text">
+        إشارة خطر مثلثة صفراء بداخلها رمز إشارة مرور ثلاثية وقرص أصفر وامض في المنتصف؛ تعلن عن الاقتراب من إشارة مرور ضوئية مؤقتة تنظم السير بنظام الاتجاه المتناوب (Senso unico alternato) في موقع عمل ضيق.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il segnale raffigurato preavvisa un impianto semaforico in presenza di un cantiere stradale</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato preavvisa un impianto semaforico in presenza di un cantiere stradale</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato si può trovare sia su strade urbane che extraurbane</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato si può trovare sia su strade urbane che extraurbane</span></li>
+          <li><span>•</span> <strong>Il segnale raffigurato può essere posto prima del restringimento di carreggiata per lavori in corso</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato può essere posto prima del restringimento di carreggiata per lavori in corso</span></li>
+          <li><span>•</span> <strong>Nel segnale raffigurato il disco al centro è a luce gialla lampeggiante</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Nel segnale raffigurato il disco al centro è a luce gialla lampeggiante</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il segnale raffigurato preavvisa un semaforo che regola il traffico in transito su ponti mobili o girevoli (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato preavvisa la presenza di un segnale di STOP (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato preavvisa l'accesso al pontile d'imbarco delle navi traghetto (خطأ FALSO)</li>
+          <li><span>•</span> Il segnale raffigurato preavvisa un attraversamento ferroviario senza barriere (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: القرص الأصفر الوامض يعني وجود إشارة مرور مؤقتة لورش العمل ويجب الاستعداد للتوقف التام.
+      </div>
+    </div>
+
+    <!-- Card 299 -->
+    <div class="signal-card" data-category="barriere">
+      <div class="signal-img-container">
+        <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/299.png" alt="Delineatore di ostacolo verticale (Figura 299)">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">شاخص تحديد العوائق الرأسية وجزر المرور</h3>
+        <span class="card-it-title">Delineatore di ostacolo verticale (Figura 299)</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة مستطيلة مخططة بأشرطة مائلة بيضاء وسوداء أو صفراء وسوداء؛ تثبت مباشرة على العوائق الرأسية كأعمدة الجسور، مداخل الأنفاق، أو حواف الجزر المرورية لتنبيه السائق لوجود عائق في نهر الطريق.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il delineatore raffigurato viene utilizzato per segnalare un ostacolo</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato viene utilizzato per segnalare un ostacolo</span></li>
+          <li><span>•</span> <strong>Il delineatore raffigurato viene posto all'interno della carreggiata, in presenza di un ostacolo</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato viene posto all'interno della carreggiata, in presenza di un ostacolo</span></li>
+          <li><span>•</span> <strong>Il delineatore raffigurato è rifrangente, per una migliore visibilità nelle ore notturne</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato è rifrangente, per una migliore visibilità nelle ore notturne</span></li>
+          <li><span>•</span> <strong>Il delineatore raffigurato può segnalare l'inizio di un'isola di traffico</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato può segnalare l'inizio di un'isola di traffico</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il delineatore raffigurato è dotato di luce propria (خطأ FALSO)</li>
+          <li><span>•</span> Il delineatore raffigurato è posto ai lati della strada (خطأ FALSO)</li>
+          <li><span>•</span> Il delineatore raffigurato divide la carreggiata da una pista ciclabile (خطأ FALSO)</li>
+          <li><span>•</span> Il delineatore raffigurato presegnala una corsia riservata agli autobus o taxi (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: اتجاه ميل الخطوط يرشد السائق لجهة العبور الآمنة بعيداً عن جسم العائق الصلب.
+      </div>
+    </div>
+
   </div>
 
-  <!-- Search & Filter Toolbar -->
-  <div class="toolbar-container">
-    <div class="search-wrapper">
-      <input type="text" id="chapterSearch" class="search-input" placeholder="ابحث عن أي إشارة، وتد، مصطلح إيطالي، أو كلمة مفتاحية (مثل: Cono, Chevron, Delineatore, Fondo giallo)..." oninput="filterCards()">
-      <span class="search-icon">🔍</span>
-    </div>
-    <div class="filter-tabs">
-      <button class="filter-tab active" data-filter="all" onclick="setFilter('all', this)">كل العناصر (19)</button>
-      <button class="filter-tab" data-filter="margine" onclick="setFilter('margine', this)">أوتاد الحواف والعوائق (5)</button>
-      <button class="filter-tab" data-filter="curve" onclick="setFilter('curve', this)">المنعطفات والشيفرون (4)</button>
-      <button class="filter-tab" data-filter="cantiere" onclick="setFilter('cantiere', this)">ورش العمل والتحويلات (5)</button>
-      <button class="filter-tab" data-filter="attrezzature" onclick="setFilter('attrezzature', this)">المعدات والأجهزة (5)</button>
-      <button class="filter-tab" data-filter="traps" onclick="setFilter('traps', this)">فخاخ الوزارة (8)</button>
-    </div>
-  </div>
+  <!-- INTERACTIVE GLOSSARY -->
 
-  <!-- SECTION 1: Delineatori di Margine ed Ostacoli -->
-  <section class="content-section" data-category="margine">
+  <section class="glossary-section" id="glossary-section">
     <div class="section-heading">
-      <h2>أوتاد حواف الطريق وتحديد العوائق (Delineatori di Margine ed Ostacoli)</h2>
-      <span class="badge">5 لوحات وعلامات</span>
+      <h2 class="section-title">📖 قاموس المصطلحات والمفاهيم الإيطالية المعتمدة (16 مصطلحاً)</h2>
     </div>
-
-    <div class="cards-grid">
-      <!-- Card: Fig. 290 -->
-      <article class="study-card" data-tags="delineatori margine doppio senso 290 احمر ابيض اتجاهين">
-        <div>
-          <div class="card-img-wrap">
-            <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/290.png" alt="Delineatori per carreggiata a doppio senso">
-          </div>
-          <div class="card-header-row">
-            <h3 class="card-ar-title">أوتاد حواف الطريق ذي الاتجاهين</h3>
-            <div class="card-it-title">Delineatori normali di margine a doppio senso (Fig. 290)</div>
-          </div>
-          <ul class="card-points-list">
-            <li><span>📍</span> توضع على جانبي الطريق ذي الاتجاهين (Doppio senso) لتحديد حدوده ليلاً وفي حالات ضعف الرؤية (الضباب والمطر).</li>
-            <li><span>🔴</span> <strong>جهة اليمين:</strong> يثبت عاكس <strong>أحمر (Rosso)</strong>.</li>
-            <li><span>⚪</span> <strong>جهة اليسار:</strong> يثبت عاكس <strong>أبيض (Bianco)</strong>.</li>
-            <li><span>⚠️</span> <strong>فخ امتحاني:</strong> القول بأن اللون الأبيض على اليمين إجابة خاطئة FALSO.</li>
-          </ul>
-        </div>
-        <div>
-          <span class="card-tag-pill tag-info">يمين أحمر • يسار أبيض</span>
-          <span class="card-tag-pill tag-vero">VERO: Doppio Senso</span>
-        </div>
-      </article>
-
-      <!-- Card: Fig. 289 -->
-      <article class="study-card" data-tags="delineatori margine senso unico 289 احمر يمين يسار اتجاه واحد">
-        <div>
-          <div class="card-img-wrap">
-            <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/289.png" alt="Delineatori per strada a senso unico">
-          </div>
-          <div class="card-header-row">
-            <h3 class="card-ar-title">أوتاد حواف الطريق ذي الاتجاه الواحد</h3>
-            <div class="card-it-title">Delineatori di margine per senso unico (Fig. 289)</div>
-          </div>
-          <ul class="card-points-list">
-            <li><span>📍</span> تستخدم على جوانب الطرق ذات الاتجاه الواحد (Strade a senso unico) أو في الطرق المقسمة (Carreggiate separate).</li>
-            <li><span>🔴</span> <strong>كلا الجانبين:</strong> يثبت عاكس <strong>أحمر على اليمين وأحمر على اليسار (Rosso sia a destra che a sinistra)</strong>.</li>
-            <li><span>🚗</span> تدل السائق على أنه يسير في طريق ذي اتجاه واحد ولا توجد حركة سير مقابلة من الأمام.</li>
-          </ul>
-        </div>
-        <div>
-          <span class="card-tag-pill tag-info">أحمر على الجانبين</span>
-          <span class="card-tag-pill tag-vero">VERO: Senso Unico</span>
-        </div>
-      </article>
-
-      <!-- Card: Fig. 291 -->
-      <article class="study-card" data-tags="delineatori galleria 291 انفاق عواكس صفراء">
-        <div>
-          <div class="card-img-wrap">
-            <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/291.png" alt="Delineatori per gallerie">
-          </div>
-          <div class="card-header-row">
-            <h3 class="card-ar-title">عواكس جدران الأنفاق المضيئة</h3>
-            <div class="card-it-title">Delineatori per gallerie (Fig. 291)</div>
-          </div>
-          <ul class="card-points-list">
-            <li><span>🚇</span> تثبت على جدران الأنفاق (Gallerie) لتحديد مسار نهر الطريق والمنحنيات الداخلية بدقة.</li>
-            <li><span>🟡</span> في الأنفاق ذات الاتجاه الواحد تكون العواكس <strong>صفراء على اليمين وصفراء على اليسار (Gialli su ambo i lati)</strong>.</li>
-            <li><span>💡</span> تتميز بقدرتها العالية على عكس أضواء المصابيح في الظلام الدامس.</li>
-          </ul>
-        </div>
-        <div>
-          <span class="card-tag-pill tag-info">خاص بالأنفاق</span>
-          <span class="card-tag-pill tag-vero">VERO: Gallerie</span>
-        </div>
-      </article>
-
-      <!-- Card: Fig. 292 -->
-      <article class="study-card" data-tags="delineatori montagna neve 292 جبال ثلوج اعمدة مرتفعة">
-        <div>
-          <div class="card-img-wrap">
-            <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/292.png" alt="Delineatori per strade di montagna innevate">
-          </div>
-          <div class="card-header-row">
-            <h3 class="card-ar-title">أوتاد طرق الجبال وتراكم الثلوج</h3>
-            <div class="card-it-title">Delineatori per strade di montagna innevate (Fig. 292)</div>
-          </div>
-          <ul class="card-points-list">
-            <li><span>🏔️</span> أعمدة اسطوانية مرتفعة مقلمة بالأصفر والأسود (A strisce gialle e nere).</li>
-            <li><span>❄️</span> توضع على جوانب الطرق المعرضة لتساقط الثلوج الكثيفة لتحديد حدود الأسفلت عند تغطيته بالثلج.</li>
-            <li><span>🚜</span> تساعد كاسحات الثلوج (Spazzaneve) والسائقين في معرفة حافة الطريق ومنع الانزلاق في المنحدرات.</li>
-          </ul>
-        </div>
-        <div>
-          <span class="card-tag-pill tag-info">طرق ثلجية وجبلية</span>
-          <span class="card-tag-pill tag-vero">VERO: Strade Innevate</span>
-        </div>
-      </article>
-
-      <!-- Card: Fig. 299 -->
-      <article class="study-card" data-tags="delineatore ostacolo 299 عوائق حواجز خطوط مائلة">
-        <div>
-          <div class="card-img-wrap">
-            <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/299.png" alt="Delineatore di ostacolo">
-          </div>
-          <div class="card-header-row">
-            <h3 class="card-ar-title">لوحة تحديد العوائق الرأسية</h3>
-            <div class="card-it-title">Delineatore di ostacolo (Fig. 299)</div>
-          </div>
-          <ul class="card-points-list">
-            <li><span>🚧</span> يثبت مباشرة على العوائق الموجودة داخل أو بجوار مسار السير (أعمدة الجسور، الجزر المرورية).</li>
-            <li><span>📐</span> يحتوي على خطوط مائلة بالأبيض والأسود أو الأبيض والأحمر توجه السائق للابتعاد عن العائق.</li>
-            <li><span>⚠️</span> لا يحدد سرعة الطريق، وإنما يحذر من الاصطدام المادي بالبروزات الهندسية.</li>
-          </ul>
-        </div>
-        <div>
-          <span class="card-tag-pill tag-info">تحديد العوائق</span>
-          <span class="card-tag-pill tag-vero">VERO: Segnalazione Ostacoli</span>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- SECTION 2: Delineatori di Curva Stretta (Chevron) -->
-  <section class="content-section" data-category="curve">
-    <div class="section-heading">
-      <h2>أسهم ومنعطفات الطرق الخطيرة (Delineatori di Curva Stretta)</h2>
-      <span class="badge">4 لوحات إرشادية</span>
-    </div>
-
-    <div class="cards-grid">
-      <!-- Card: Fig. 293 -->
-      <article class="study-card" data-tags="chevron curva stretta permanente 293 منعطف دائم ابيض واسود">
-        <div>
-          <div class="card-img-wrap">
-            <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/293.png" alt="Delineatore di curva stretta permanente">
-          </div>
-          <div class="card-header-row">
-            <h3 class="card-ar-title">أسهم المنعطف الحاد الدائم (Chevron عادي)</h3>
-            <div class="card-it-title">Delineatore modulare di curva stretta (Fig. 293)</div>
-          </div>
-          <ul class="card-points-list">
-            <li><span>↩️</span> يثبت في المنعطفات الخطيرة وضعيفة الرؤية كعنصر تكميلي بعد إشارة الخطر المثلثة.</li>
-            <li><span>⚪⚫</span> <strong>الألوان:</strong> سهم <strong>أبيض على خلفية سوداء (Bianco e Nero)</strong> للدلالة على منعطف دائم وعادي.</li>
-            <li><span>➡️</span> تشير رؤوس الأسهم إلى الاتجاه الإلزامي للمنعطف (يميناً أو يساراً).</li>
-            <li><span>🔁</span> يركب في سلسلة من عدة وحدات (Serie di più elementi) على طول قوس المنحنى.</li>
-          </ul>
-        </div>
-        <div>
-          <span class="card-tag-pill tag-info">أبيض وأسود = دائم</span>
-          <span class="card-tag-pill tag-vero">VERO: Curva Permanente</span>
-        </div>
-      </article>
-
-      <!-- Card: Fig. 295 -->
-      <article class="study-card" data-tags="chevron temporaneo cantiere 295 منعطف مؤقت اصفر واسود ورشة">
-        <div>
-          <div class="card-img-wrap">
-            <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/295.png" alt="Delineatore di curva temporanea in cantiere">
-          </div>
-          <div class="card-header-row">
-            <h3 class="card-ar-title">أسهم المنعطف المؤقت في مناطق الورش</h3>
-            <div class="card-it-title">Delineatore di curva temporanea da cantiere (Fig. 295)</div>
-          </div>
-          <ul class="card-points-list">
-            <li><span>🚧</span> <strong>الألوان:</strong> سهم <strong>أسود على خلفية صفراء (Giallo e Nero)</strong>.</li>
-            <li><span>🟡</span> تدل الخلفية الصفراء على أن المنعطف ناتج عن <strong>تحويلة مؤقتة أو ورشة عمل (Deviazione / Cantiere)</strong>.</li>
-            <li><span>⚠️</span> يفرض خفض السرعة بشكل أكبر من المنعطف العادي لاحتمال وجود عمال وأرضية خشنة أو غير معبدة.</li>
-          </ul>
-        </div>
-        <div>
-          <span class="card-tag-pill tag-info">أصفر وأسود = مؤقت</span>
-          <span class="card-tag-pill tag-vero">VERO: Curva Temporanea</span>
-        </div>
-      </article>
-
-      <!-- Card: Fig. 294 -->
-      <article class="study-card" data-tags="intersezione a t biforcazione 294 تقاطع مفترق يمين يسار">
-        <div>
-          <div class="card-img-wrap">
-            <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/294.png" alt="Delineatore per intersezione a T">
-          </div>
-          <div class="card-header-row">
-            <h3 class="card-ar-title">لوحة التقاطع على شكل حرف T والمفترقات</h3>
-            <div class="card-it-title">Delineatore per intersezione a T (Fig. 294)</div>
-          </div>
-          <ul class="card-points-list">
-            <li><span>🔀</span> لوحة برؤوس أسهم ثنائية تشير إلى اليمين واليسار معاً على خلفية سوداء وبيضاء.</li>
-            <li><span>🛑</span> توضع في نهاية طريق ينتهي بتقاطع متعامد على شكل حرف T، حيث يستحيل المضي للأمام.</li>
-            <li><span>↪️</span> تفرض الانعطاف إما يميناً أو يساراً وتحذر السائق من الاستمرار في السير مستقيماً.</li>
-          </ul>
-        </div>
-        <div>
-          <span class="card-tag-pill tag-info">تقاطع T ومفترق طرق</span>
-          <span class="card-tag-pill tag-vero">VERO: Intersezione a T</span>
-        </div>
-      </article>
-
-      <!-- Card: Fig. 144 -->
-      <article class="study-card" data-tags="pannelli distanziometrici 144 سكة حديد عوارض 150 100 50">
-        <div>
-          <div class="card-img-wrap">
-            <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/144.png" alt="Pannelli distanziometrici per passaggio a livello">
-          </div>
-          <div class="card-header-row">
-            <h3 class="card-ar-title">عوارض مسافات السكة الحديد والجسور</h3>
-            <div class="card-it-title">Pannelli distanziometrici (Fig. 144)</div>
-          </div>
-          <ul class="card-points-list">
-            <li><span>🚂</span> لوحات مستطيلة بيضاء بها خطوط حمراء مائلة نحو نهر الطريق لتقدير المسافة حتى معبر القطار.</li>
-            <li><span>3️⃣</span> <strong>3 خطوط حمراء:</strong> توضع أسفل إشارة الخطر على بعد <strong>150 متراً</strong>.</li>
-            <li><span>2️⃣</span> <strong>خطان أحمران:</strong> توضع بمفردها على بعد <strong>100 متر</strong>.</li>
-            <li><span>1️⃣</span> <strong>خط واحد أحمر:</strong> توضع على بعد <strong>50 متراً</strong> من القضبان.</li>
-          </ul>
-        </div>
-        <div>
-          <span class="card-tag-pill tag-info">150م • 100م • 50م</span>
-          <span class="card-tag-pill tag-vero">VERO: Passaggio a Livello</span>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- SECTION 3: Segnali di Cantiere e Deviazioni -->
-  <section class="content-section" data-category="cantiere">
-    <div class="section-heading">
-      <h2>إشارات وعلامات ورش العمل والتحويلات (Segnali di Cantiere e Deviazioni)</h2>
-      <span class="badge">5 إشارات ذات خلفية صفراء</span>
-    </div>
-
-    <div class="cards-grid">
-      <!-- Card: Fig. 275 -->
-      <article class="study-card" data-tags="lavori in corso cantiere 275 اشغال جارية خلفية صفراء">
-        <div>
-          <div class="card-img-wrap">
-            <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/275.png" alt="Segnale di lavori in corso">
-          </div>
-          <div class="card-header-row">
-            <h3 class="card-ar-title">إشارة أشغال جارية على الطريق</h3>
-            <div class="card-it-title">Lavori in corso (Fig. 275)</div>
-          </div>
-          <ul class="card-points-list">
-            <li><span>🚧</span> مثلث تحذيري بخلفية صفراء وإطار أحمر يحذر من وجود <strong>ورشة عمل أو عمال على الطريق</strong>.</li>
-            <li><span>⚠️</span> قد يتواجد ركام، أتربة، أو آلات صيانة على قارعة الطريق.</li>
-            <li><span>🛑</span> يلزم بتخفيض السرعة والحذر الشديد والانتباه لإشارات العمال الموجهين.</li>
-          </ul>
-        </div>
-        <div>
-          <span class="card-tag-pill tag-info">خلفية صفراء = أشغال</span>
-          <span class="card-tag-pill tag-vero">VERO: Fondo Giallo</span>
-        </div>
-      </article>
-
-      <!-- Card: Fig. 285 -->
-      <article class="study-card" data-tags="chiusura corsia destra 285 غلق الحارة اليمنى تقليص مسارات">
-        <div>
-          <div class="card-img-wrap">
-            <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/285.png" alt="Chiusura della corsia di destra">
-          </div>
-          <div class="card-header-row">
-            <h3 class="card-ar-title">إغلاق الحارة اليمنى لأعمال الصيانة</h3>
-            <div class="card-it-title">Chiusura corsia di destra per lavori (Fig. 285)</div>
-          </div>
-          <ul class="card-points-list">
-            <li><span>📉</span> تشير إلى <strong>تقليص عدد الحارات المتاحة</strong> بسبب ورشة عمل تغلق الحارة اليمنى.</li>
-            <li><span>⬅️</span> تلزم المركبات في الحارة اليمنى بالانتقال المبكر والآمن نحو الحارة اليسرى دون إرباك حركة السير.</li>
-            <li><span>⚠️</span> <strong>فخ امتحاني:</strong> لا تعني أن الطريق ذو اتجاه واحد، بل تدل على نقصان حارة واحدة فقط.</li>
-          </ul>
-        </div>
-        <div>
-          <span class="card-tag-pill tag-info">نقصان حارات</span>
-          <span class="card-tag-pill tag-vero">VERO: Riduzione Corsie</span>
-        </div>
-      </article>
-
-      <!-- Card: Fig. 280 -->
-      <article class="study-card" data-tags="cantiere mobile strettoia sinistra 280 ورشة متحركة تضييق يسار">
-        <div>
-          <div class="card-img-wrap">
-            <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/280.png" alt="Cantiere mobile con strettoia a sinistra">
-          </div>
-          <div class="card-header-row">
-            <h3 class="card-ar-title">ورشة عمل متحركة مع تضييق المسار يساراً</h3>
-            <div class="card-it-title">Cantiere mobile con strettoia a sinistra (Fig. 280)</div>
-          </div>
-          <ul class="card-points-list">
-            <li><span>🚜</span> تحذر مسبقاً من ورشة عمل غير ثابتة (Cantiere mobile) مثل دهان الخطوط أو صيانة الحواف.</li>
-            <li><span>⬅️</span> تدل على تضييق نهر الطريق من جهة اليسار وتنبيه السائقين للانحياز لليمين بحذر.</li>
-            <li><span>💡</span> غالباً ما تترافق مع أضواء صفراء ومّاضة وعربات تسبق موقع الصيانة.</li>
-          </ul>
-        </div>
-        <div>
-          <span class="card-tag-pill tag-info">ورشة صيانة متحركة</span>
-          <span class="card-tag-pill tag-vero">VERO: Cantiere Mobile</span>
-        </div>
-      </article>
-
-      <!-- Card: Fig. 283 -->
-      <article class="study-card" data-tags="deviazione autocarri 7t 283 تحويل شاحنات 7 طن">
-        <div>
-          <div class="card-img-wrap">
-            <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/283.png" alt="Deviazione consigliata per autocarri oltre 7t">
-          </div>
-          <div class="card-header-row">
-            <h3 class="card-ar-title">تحويل السير الإلزامي للشاحنات فوق 7 أطنان</h3>
-            <div class="card-it-title">Itinerario per autocarri superiori a 7t (Fig. 283)</div>
-          </div>
-          <ul class="card-points-list">
-            <li><span>🚛</span> إشارة بخلفية صفراء مخصصة لمركبات نقل البضائع التي تزيد كتلتها الفعلية عن <strong>7 أطنان (Superiore a 7 tonnellate)</strong>.</li>
-            <li><span>↪️</span> ترشدها للمسار البديل الإلزامي لتفادي الدخول في منطقة ضيقة أو جسور لا تتحمل الأوزان الثقيلة في الورشة.</li>
-            <li><span>🚗</span> <strong>لا تنطبق على السيارات العادية (Autovetture)</strong> ولا تجبرها على التحويل.</li>
-          </ul>
-        </div>
-        <div>
-          <span class="card-tag-pill tag-info">شاحنات > 7 أطنان فقط</span>
-          <span class="card-tag-pill tag-vero">VERO: Solo Autocarri > 7t</span>
-        </div>
-      </article>
-
-      <!-- Card: Fig. 251 & 288 -->
-      <article class="study-card" data-tags="uso corsie cantiere autocarri 3.5t 251 288 استخدام الحارات">
-        <div>
-          <div class="card-img-wrap">
-            <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/288.png" alt="Uso corsie in presenza di cantiere stradale">
-          </div>
-          <div class="card-header-row">
-            <h3 class="card-ar-title">استخدام الحارات وتوجيه المسارات في الورش</h3>
-            <div class="card-it-title">Uso corsie e itinerario di cantiere (Fig. 288 / 251)</div>
-          </div>
-          <ul class="card-points-list">
-            <li><span>🛣️</span> تحدد توزيع المركبات على الحارات المتاحة داخل منطقة العمل.</li>
-            <li><span>🚚</span> تفرض على الشاحنات الكبيرة (فوق 3.5 طن) السير في حارة معينة أو اتخاذ مخرج مسبق.</li>
-            <li><span>⚠️</span> تمنع الشاحنات من استخدام الحارة اليسرى إذا كانت ضيقة ومخصصة فقط للمركبات الخفيفة.</li>
-          </ul>
-        </div>
-        <div>
-          <span class="card-tag-pill tag-info">توزيع الحارات المؤقت</span>
-          <span class="card-tag-pill tag-vero">VERO: Corsie Disponibili</span>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- SECTION 4: Attrezzature e Dispositivi di Cantiere -->
-  <section class="content-section" data-category="attrezzature">
-    <div class="section-heading">
-      <h2>معدات وأجهزة ورش العمل والسلامة (Attrezzature e Dispositivi)</h2>
-      <span class="badge">5 معدات محورية</span>
-    </div>
-
-    <div class="cards-grid">
-      <!-- Card: Fig. 278 (Cono) -->
-      <article class="study-card" data-tags="cono segnalazione breve durata 278 مخروط اعمال قصيرة فقط">
-        <div>
-          <div class="card-img-wrap">
-            <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/278.png" alt="Cono di segnalazione">
-          </div>
-          <div class="card-header-row">
-            <h3 class="card-ar-title">مخروط المرور (Cono di segnalazione)</h3>
-            <div class="card-it-title">Cono stradale a strisce bianche e rosse (Fig. 278)</div>
-          </div>
-          <ul class="card-points-list">
-            <li><span>⏱️</span> <strong>القاعدة المطلقة:</strong> مخصص حصراً للأعمال <strong>قصيرة المدى (Lavori di breve durata)</strong> أو الحوادث المؤقتة.</li>
-            <li><span>🔴⚪</span> مقلم باللونين الأحمر والأبيض ومصنوع من البلاستيك المرن لامتصاص الصدمات.</li>
-            <li><span>❌</span> <strong>فخ وزاري حاسم:</strong> القول بأنه يستخدم للأعمال طويلة المدى (Lavori di lunga durata) هو <strong>FALSO قطعي</strong>!</li>
-          </ul>
-        </div>
-        <div>
-          <span class="card-tag-pill tag-info">قصيرة المدى فقط (Breve durata)</span>
-          <span class="card-tag-pill tag-falso">FALSO: Lunga Durata</span>
-        </div>
-      </article>
-
-      <!-- Card: Fig. 276 (Barriera) -->
-      <article class="study-card" data-tags="barriera stradale rossa bianca 276 حواجز اغلاق الطريق">
-        <div>
-          <div class="card-img-wrap">
-            <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/276.png" alt="Barriera di delimitazione cantiere">
-          </div>
-          <div class="card-header-row">
-            <h3 class="card-ar-title">الحاجز الشريطي لإغلاق الطريق (Barriera)</h3>
-            <div class="card-it-title">Barriera stradale a strisce bianche e rosse (Fig. 276)</div>
-          </div>
-          <ul class="card-points-list">
-            <li><span>🚫</span> شريط حاجز مقلم بالأحمر والأبيض لإغلاق الشارع أو جزء منه أمام حركة السير.</li>
-            <li><span>🚧</span> يحدد حدود منطقة ورشة العمل التي يُحظر على المركبات والمشاة دخولها.</li>
-            <li><span>💡</span> يزود ليلاً بفوانيس أو لمبات حمراء ثابتة (Luci rosse fisse) للتنبيه في الظلام.</li>
-          </ul>
-        </div>
-        <div>
-          <span class="card-tag-pill tag-info">إغلاق وتحديد الورش</span>
-          <span class="card-tag-pill tag-vero">VERO: Chiusura Carreggiata</span>
-        </div>
-      </article>
-
-      <!-- Card: Fig. 279 (Freccia Lampeggiante) -->
-      <article class="study-card" data-tags="freccia direzionale lampeggiante 279 سهم ومّاض صيانة متنقلة">
-        <div>
-          <div class="card-img-wrap">
-            <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/279.png" alt="Segnale con freccia direzionale lampeggiante">
-          </div>
-          <div class="card-header-row">
-            <h3 class="card-ar-title">شاحنة الصيانة ذات السهم الومّاض</h3>
-            <div class="card-it-title">Freccia direzionale lampeggiante su veicolo (Fig. 279)</div>
-          </div>
-          <ul class="card-points-list">
-            <li><span>🚛</span> يثبت على خلفية شاحنات ورش العمل الثابتة أو بطيئة الحركة على الطرق السريعة.</li>
-            <li><span>💡</span> يتكون من سهم ضوئي ومّاض أصفر يشير إلى جانب التجاوز المتاح والإلزامي.</li>
-            <li><span>⚠️</span> يلزم السائقين بتغيير الحارة مبكراً وتجنب الاصطدام بمركبة العمل من الخلف.</li>
-          </ul>
-        </div>
-        <div>
-          <span class="card-tag-pill tag-info">توجيه التجاوز بأمان</span>
-          <span class="card-tag-pill tag-vero">VERO: Svolta Obbligatoria</span>
-        </div>
-      </article>
-
-      <!-- Card: Fig. 297 (Semaforo Temporaneo) -->
-      <article class="study-card" data-tags="semaforo temporaneo senso unico alternato 297 اشارة ضوئية مؤقتة تناوب">
-        <div>
-          <div class="card-img-wrap">
-            <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/297.png" alt="Semaforo temporaneo da cantiere">
-          </div>
-          <div class="card-header-row">
-            <h3 class="card-ar-title">الإشارة الضوئية المؤقتة للورش</h3>
-            <div class="card-it-title">Impianto semaforico temporaneo da cantiere (Fig. 297)</div>
-          </div>
-          <ul class="card-points-list">
-            <li><span>🚦</span> إشارة ضوئية ثلاثية الألوان ذات هيكل متحرك توضع عند تضييق الطريق بسبب أشغال الحفر.</li>
-            <li><span>🔄</span> وظيفتها الأساسية: تنظيم حركة المرور <strong>بالتناوب (Senso unico alternato)</strong> عندما لا يتسع المسار لمرور مركبتين معاً.</li>
-            <li><span>🟡</span> يسبقها عادة لوحة تحذيرية بخلفية صفراء مزودة بقرص أصفر ومّاض في المنتصف.</li>
-          </ul>
-        </div>
-        <div>
-          <span class="card-tag-pill tag-info">تنظيم التناوب المؤقت</span>
-          <span class="card-tag-pill tag-vero">VERO: Senso Unico Alternato</span>
-        </div>
-      </article>
-
-      <!-- Card: Luci Gialle Lampeggianti -->
-      <article class="study-card" data-tags="luci gialle lampeggianti اضواء صفراء وماضة تحذير ضباب ليل">
-        <div>
-          <div class="card-img-wrap" style="background:rgba(245,158,11,0.08);">
-            <div style="font-size:3.5rem; color:var(--amber-primary);">💡⚡</div>
-          </div>
-          <div class="card-header-row">
-            <h3 class="card-ar-title">الأضواء الصفراء الومّاضة للورش</h3>
-            <div class="card-it-title">Luci gialle lampeggianti di pericolo</div>
-          </div>
-          <ul class="card-points-list">
-            <li><span>✨</span> أضواء صفراء تنبض باستمرار لتنبيه السائقين لوجود خطر مؤقت على مسافة قريبة.</li>
-            <li><span>🌫️</span> تكون بالغة الأهمية أثناء الليل، وفي الضباب الكثيف، وعند الاقتراب المفاجئ من التحويلات.</li>
-            <li><span>⚠️</span> لا تمنح حق الأسبقية، بل تفرض أقصى درجات اليقظة والانتباه للعمال ومعدات الحفر.</li>
-          </ul>
-        </div>
-        <div>
-          <span class="card-tag-pill tag-info">تنبيه فائق في الظلام</span>
-          <span class="card-tag-pill tag-vero">VERO: Pericolo Temporaneo</span>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- SECTION 5: Comprehensive Comparison Table -->
-  <section class="content-section">
-    <div class="section-heading">
-      <h2>مصفوفة المقارنة والفروق الجوهرية في الباب التاسع (Confronto Diretto)</h2>
-      <span class="badge">قواعد ذهبية للامتحان</span>
-    </div>
-
-    <div class="table-wrap">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>العنصر / الإشارة</th>
-            <th>الخصائص البصرية والألوان</th>
-            <th>الاستخدام المعتمد قانونياً</th>
-            <th>الفخ الشائع في الامتحان الوزاري</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>أوتاد الطريق ذي الاتجاهين (Fig. 290)</strong></td>
-            <td>أحمر على اليمين • أبيض على اليسار</td>
-            <td>تحديد حافتي الطريق ذي الاتجاهين ليلاً</td>
-            <td>FALSO: يزعمون أن الأبيض على اليمين أو كلا الجانبين أحمر.</td>
-          </tr>
-          <tr>
-            <td><strong>أوتاد الطريق ذي الاتجاه الواحد (Fig. 289)</strong></td>
-            <td>أحمر على اليمين • أحمر على اليسار</td>
-            <td>تحديد حواف الطرق ذات الاتجاه الواحد أو المنفصلة</td>
-            <td>FALSO: يزعمون أنه طريق ذو اتجاهين مع حركة مقابلة.</td>
-          </tr>
-          <tr>
-            <td><strong>شيفرون المنعطف الدائم (Fig. 293)</strong></td>
-            <td>أبيض على خلفية سوداء (Bianco/Nero)</td>
-            <td>تحديد مسار المنعطفات الحادة الخطيرة الدائمة</td>
-            <td>FALSO: يزعمون أنه يشير لمنعطف مؤقت في ورشة عمل.</td>
-          </tr>
-          <tr>
-            <td><strong>شيفرون المنعطف المؤقت (Fig. 295)</strong></td>
-            <td>أسود على خلفية صفراء (Giallo/Nero)</td>
-            <td>تحديد منعطف تحويلة أشغال الورش المؤقتة</td>
-            <td>FALSO: يزعمون أنه علامة دائمة لا تتطلب خفض سرعة إضافي.</td>
-          </tr>
-          <tr>
-            <td><strong>مخروط المرور (Fig. 278)</strong></td>
-            <td>أحمر وأبيض مخروطي مطاطي</td>
-            <td>أعمال الصيانة والحوادث <strong>قصيرة المدى فقط</strong></td>
-            <td>FALSO: يُستخدم للأعمال طويلة المدى (Lunga durata).</td>
-          </tr>
-          <tr>
-            <td><strong>الحواجز الشريطية (Fig. 276)</strong></td>
-            <td>أحمر وأبيض شريطي عريض</td>
-            <td>إغلاق الشارع كلياً أو جزئياً وتحديد منطقة الورشة</td>
-            <td>FALSO: يُسمح بتخطيها إذا كانت الطريق خالية من العمال.</td>
-          </tr>
-          <tr>
-            <td><strong>عوارض السكة الحديد (Fig. 144)</strong></td>
-            <td>3 خطوط (150م) • خطان (100م) • خط (50م)</td>
-            <td>تقدير المسافة المتبقية لمعبر القطار أو الجسر المتحرك</td>
-            <td>FALSO: الخط الأول يوضع على بعد 50 متراً من محطة القطار.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- SECTION 6: Dictionary of 12 Essential Terms -->
-  <section class="content-section">
-    <div class="section-heading">
-      <h2>قاموس المصطلحات الإيطالية الـ 12 المعتمد (Dizionario dei Termini)</h2>
-      <span class="badge">المصطلحات المفتاحية</span>
-    </div>
-
-    <div class="cards-grid">
-      <div class="study-card">
-        <div class="card-header-row">
-          <h3 class="card-ar-title">1. الإشارات التكميلية</h3>
-          <div class="card-it-title">Segnali complementari</div>
-        </div>
-        <p style="font-size:0.92rem; color:#d4d4d8;">أدوات بصرية تكميلية توضع لتوضيح مسار الطريق ليلاً أو عند المنعطفات والعوائق وتنبيه السائق للمسار الصحيح.</p>
+    <div class="glossary-grid">
+      <div class="glossary-card">
+        <div class="glossary-term-it">Delineatori di Margine</div>
+        <div class="glossary-term-ar">شواخص حواف الطريق</div>
+        <div class="glossary-def">أعمدة عاكسة لتحديد حواف الطريق ليلاً (أحمر يميناً وأبيض يساراً).</div>
       </div>
-
-      <div class="study-card">
-        <div class="card-header-row">
-          <h3 class="card-ar-title">2. أوتاد حواف الطريق</h3>
-          <div class="card-it-title">Delineatori di margine</div>
-        </div>
-        <p style="font-size:0.92rem; color:#d4d4d8;">أعمدة تثبت على حافة الأسفلت مزودة بعواكس ضوئية ترشد السائقين في الظلام وحالات انعدام الرؤية.</p>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Delineatori di Curva</div>
+        <div class="glossary-term-ar">شواخص المنعطفات</div>
+        <div class="glossary-def">أسهم تتابعية توضح حدة واتجاه المنحنى (أبيض وأسود لاتجاه واحد، أحمر وأبيض لاتجاهين).</div>
       </div>
-
-      <div class="study-card">
-        <div class="card-header-row">
-          <h3 class="card-ar-title">3. الخلفية الصفراء</h3>
-          <div class="card-it-title">Fondo giallo</div>
-        </div>
-        <p style="font-size:0.92rem; color:#d4d4d8;">السمة البصرية القانونية القاطعة التي تدل على أن الإشارة مؤقتة ومرتبطة بأشغال وورش صيانة الطرق.</p>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Senso Unico Alternato</div>
+        <div class="glossary-term-ar">السير المتناوب</div>
+        <div class="glossary-def">تنظيم حركة المرور بالتناوب في مسار واحد ضيق بسبب ورش العمل بإشارات ضوئية أو أعلام.</div>
       </div>
-
-      <div class="study-card">
-        <div class="card-header-row">
-          <h3 class="card-ar-title">4. مخاريط المرور</h3>
-          <div class="card-it-title">Coni di segnalazione</div>
-        </div>
-        <p style="font-size:0.92rem; color:#d4d4d8;">أدوات مطاطية لتحديد مناطق العمل قصيرة المدى وتغيير المسار المؤقت أو تحديد موقع الحوادث الطارئة.</p>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Tornante</div>
+        <div class="glossary-term-ar">منعطف حاد جبلي</div>
+        <div class="glossary-def">منعطف شديد الانحناء بزاوية تقارب 180 درجة في الطرق الجبلية المرتفعة.</div>
       </div>
-
-      <div class="study-card">
-        <div class="card-header-row">
-          <h3 class="card-ar-title">5. ورشة عمل على الطريق</h3>
-          <div class="card-it-title">Cantiere stradale</div>
-        </div>
-        <p style="font-size:0.92rem; color:#d4d4d8;">منطقة أشغال عامة تشهد عمليات حفر أو تعبيد أو دهان أسفلت وتفرض تخفيض السرعة والحذر الشديد.</p>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Barriera Normale</div>
+        <div class="glossary-term-ar">الحاجز العرضي</div>
+        <div class="glossary-def">حاجز مخطط بالأحمر والأبيض لإغلاق نهر الطريق تماماً أمام حركة المرور.</div>
       </div>
-
-      <div class="study-card">
-        <div class="card-header-row">
-          <h3 class="card-ar-title">6. أسهم المنعطف الحاد</h3>
-          <div class="card-it-title">Delineatore di curva stretta (Chevron)</div>
-        </div>
-        <p style="font-size:0.92rem; color:#d4d4d8;">لوحات سهمية متتالية ترشد السائق لاتجاه الانحناء في المنعطفات الخطيرة ضعيفة الرؤية.</p>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Coni di Delimitazione</div>
+        <div class="glossary-term-ar">المخاريط التحذيرية</div>
+        <div class="glossary-def">مخاريط برتقالية وبيضاء لتحديد مسارات السير المؤقتة في الأعمال السريعة.</div>
       </div>
-
-      <div class="study-card">
-        <div class="card-header-row">
-          <h3 class="card-ar-title">7. تحويل مسار السير</h3>
-          <div class="card-it-title">Deviazione</div>
-        </div>
-        <p style="font-size:0.92rem; color:#d4d4d8;">مسار بديل إلزامي للمركبات نتيجة إغلاق الطريق الأصلي جزئياً أو كلياً لأعمال الصيانة.</p>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Cantiere Stradale</div>
+        <div class="glossary-term-ar">ورشة عمل طرقية</div>
+        <div class="glossary-def">موقع أعمال صيانة أو إنشاءات على الطريق يتميز بوجود علامات صفراء وعمال ومعدات.</div>
       </div>
-
-      <div class="study-card">
-        <div class="card-header-row">
-          <h3 class="card-ar-title">8. تضييق نهر الطريق</h3>
-          <div class="card-it-title">Restringimento di carreggiata</div>
-        </div>
-        <p style="font-size:0.92rem; color:#d4d4d8;">نقصان في عرض نهر الطريق أو تقليص عدد الحارات المتاحة نتيجة إشغال جانب من الطريق بالورش.</p>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Cantiere Mobile</div>
+        <div class="glossary-term-ar">ورشة عمل متحركة</div>
+        <div class="glossary-def">شاحنة صيانة بطيئة تحمل سهماً ضوئياً وامضاً لتوجيه حركة المرور وتغيير المسار.</div>
       </div>
-
-      <div class="study-card">
-        <div class="card-header-row">
-          <h3 class="card-ar-title">9. الحواجز الشريطية</h3>
-          <div class="card-it-title">Barriere stradali bianche e rosse</div>
-        </div>
-        <p style="font-size:0.92rem; color:#d4d4d8;">ألواح حمراء وبيضاء تمنع كلياً أو جزئياً المرور وتحدد الحيز الجغرافي الخطر لورش العمل.</p>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Deviazione</div>
+        <div class="glossary-term-ar">تحويلة مسار</div>
+        <div class="glossary-def">مسار بديل مؤقت يتم إنشاؤه لتجاوز منطقة ورش العمل أو الجسور المغلقة.</div>
       </div>
-
-      <div class="study-card">
-        <div class="card-header-row">
-          <h3 class="card-ar-title">10. الضوء الأصفر الومّاض</h3>
-          <div class="card-it-title">Luce gialla lampeggiante</div>
-        </div>
-        <p style="font-size:0.92rem; color:#d4d4d8;">وسيلة تنبيه بصرية قوية تحذر السائقين من وجود خطر داهم أو ورشة عمل قريبة ليلاً وفي الضباب.</p>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Corsia Chiusa</div>
+        <div class="glossary-term-ar">مسار مغلق</div>
+        <div class="glossary-def">إغلاق مسار من مسارات الطريق بسبب الصيانة وإلزام السائقين بالاندماج في المسار الآخر.</div>
       </div>
-
-      <div class="study-card">
-        <div class="card-header-row">
-          <h3 class="card-ar-title">11. السهم الاتجاهي الومّاض</h3>
-          <div class="card-it-title">Freccia direzionale lampeggiante</div>
-        </div>
-        <p style="font-size:0.92rem; color:#d4d4d8;">نظام ضوئي على مركبات الصيانة المتنقلة يلزم السائقين بتجاوز الشاحنة من الاتجاه المحدد بالسهم.</p>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Bandiera Rossa / Gialla</div>
+        <div class="glossary-term-ar">أعلام تنظيم المرور</div>
+        <div class="glossary-def">أعلام يستخدمها عمال الورش يدوياً لتنظيم السير المتناوب (الأحمر قف، الأصفر انتبه).</div>
       </div>
-
-      <div class="study-card">
-        <div class="card-header-row">
-          <h3 class="card-ar-title">12. الإشارة الضوئية المؤقتة</h3>
-          <div class="card-it-title">Semaforo temporaneo</div>
-        </div>
-        <p style="font-size:0.92rem; color:#d4d4d8;">جهاز إشارات ضوئية ثلاثية متنقل ينظم حركة المرور التبادلي (التناوب) في المسارات الضيقة المؤقتة.</p>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Delineatore per Incrocio a T</div>
+        <div class="glossary-term-ar">شاخص تقاطع T</div>
+        <div class="glossary-def">شاخص مزدوج الأسهم يوضع أمام القادم في طريق مغلق يفرض الانعطاف يميناً أو يساراً.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Delineatori per Neve</div>
+        <div class="glossary-term-ar">شواخص الطرق الثلجية</div>
+        <div class="glossary-def">أعمدة طويلة جداً ومخططة بالأصفر والأسود تظل مرئية فوق تراكمات الثلوج الجبلية.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Luce Gialla Lampeggiante</div>
+        <div class="glossary-term-ar">الضوء الأصفر الوامض</div>
+        <div class="glossary-def">ضوء تحذيري وسط إشارة المرور المؤقتة ينبه لوجود إشارة تنظيم سير قادمة.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Delineatori di Ostacolo</div>
+        <div class="glossary-term-ar">شواخص العوائق</div>
+        <div class="glossary-def">لوحات مخططة بالأسود والأبيض أو الأصفر توضع على أعمدة الجسور وجزر المرور لتفادي الاصطدام.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Riduzione Corsie</div>
+        <div class="glossary-term-ar">تقليص عدد المسارات</div>
+        <div class="glossary-def">لوحة تبين انخفاض مسارات السير وتفرض تطبيق قاعدة السوستة (Cerniera) في الاندماج.</div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 7: 8 Ministerial Traps (Trappole d'Esame) -->
-  <section class="content-section" data-category="traps">
+
+  <!-- MINISTERIAL TRAPS -->
+
+  <section class="traps-section">
     <div class="section-heading">
-      <h2>فخاخ الوزارة الـ 8 المباشرة وتحليل VERO / FALSO (Trappole d'Esame)</h2>
-      <span class="badge">الأسئلة الأكثر إيقاعاً بالطلاب</span>
+      <h2 class="section-title">⚠️ بنك الفخاخ الوزارية الـ 12 المعتمدة (Ministerial Traps)</h2>
     </div>
-
-    <!-- Trap 1 -->
-    <div class="trap-card">
-      <div class="trap-header">
-        <span style="font-weight:800; color:var(--rose-primary);">❌ فخ مدة استخدام المخاريط (Coni)</span>
-        <span class="card-tag-pill tag-falso">FALSO</span>
+    <div class="traps-grid">
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #1</span>
+          <span class="trap-verdict">خطأ قطعي (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"I delineatori di margine raffigurati hanno elementi rifrangenti gialli su entrambi i lati nelle strade a doppio senso."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> في الطرق ذات الاتجاهين (Doppio senso)، العواكس تكون حمراء على اليمين (Rosso a destra) وبيضاء على اليسار (Bianco a sinistra). العواكس الصفراء المزدوجة تستخدم فقط في الأنفاق أحادية الاتجاه!
+        </div>
       </div>
-      <div class="trap-q-it">"Il cono raffigurato può essere usato per delimitare cantieri di lavoro di lunga durata."</div>
-      <div class="trap-reason">
-        <strong>التصحيح القانوني:</strong> خطأ قاطع (FALSO). مخاريط المرور مخصصة حصراً للأعمال <strong>قصيرة المدى (Breve durata)</strong> أو لحالات الطوارئ السريعة، ولا يجوز إطلاقاً استخدامها للورش طويلة المدى التي تتطلب حواجز شريطية ثابتة.
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #2</span>
+          <span class="trap-verdict">فخ كلاسيكي (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Il delineatore modulare di curva con frecce nere su fondo bianco indica una curva pericolosa su strada a doppio senso di circolazione."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> الأسهم البيضاء على خلفية سوداء (Fig. 289) مخصصة حصراً للطرق ذات الاتجاه الواحد (Senso unico). المنعطف في الاتجاهين يحمل أسهماً حمراء على خلفية بيضاء (Fig. 293).
+        </div>
       </div>
-    </div>
-
-    <!-- Trap 2 -->
-    <div class="trap-card vero-variant">
-      <div class="trap-header">
-        <span style="font-weight:800; color:var(--emerald-primary);">✅ ألوان عواكس الطريق ذي الاتجاهين</span>
-        <span class="card-tag-pill tag-vero">VERO</span>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #3</span>
+          <span class="trap-verdict">خطأ صريح (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Il cono di delimitazione può essere usato per segnalare deviazioni permanenti e definitive del traffico."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> المخاريط (Coni) مخصصة حصراً للأعمال المؤقتة وقصيرة المدى (Breve durata) ولا تستخدم إطلاقاً للتحويلات الدائمة أو المستمرة.
+        </div>
       </div>
-      <div class="trap-q-it">"I delineatori di margine per strade a doppio senso hanno elementi rifrangenti rossi a destra e bianchi a sinistra."</div>
-      <div class="trap-reason">
-        <strong>التصحيح القانوني:</strong> صحيح (VERO). في الطريق ذي الاتجاهين، يكون العاكس أحمر دائماً على جهة اليمين، وأبيض على جهة اليسار بالنسبة لاتجاه السير.
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #4</span>
+          <span class="trap-verdict">خطأ شائع (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"I delineatori per strade di montagna innevate indicano la pendenza della salita o della discesa."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> الأعمدة الطويلة المخططة (Fig. 292) تحدد حدود نهر الطريق لتظل مرئية لكاسحات الثلوج (Spazzaneve) والسائقين عند تراكم الثلج، ولا علاقة لها بقياس انحدار الطريق.
+        </div>
       </div>
-    </div>
-
-    <!-- Trap 3 -->
-    <div class="trap-card">
-      <div class="trap-header">
-        <span style="font-weight:800; color:var(--rose-primary);">❌ عواكس الطريق ذي الاتجاه الواحد</span>
-        <span class="card-tag-pill tag-falso">FALSO</span>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #5</span>
+          <span class="trap-verdict">خطأ (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Il pannello TORNANTE indica che la strada è chiusa per neve."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> لوحة Tornante ترقم وتحدد المنعطفات الجبلية الحادة المتعاقبة فقط ولا تعني إغلاق الطريق أبداً.
+        </div>
       </div>
-      <div class="trap-q-it">"Nelle carreggiate a senso unico i delineatori di margine sono bianchi su entrambi i lati."</div>
-      <div class="trap-reason">
-        <strong>التصحيح القانوني:</strong> خطأ (FALSO). في الطرق ذات الاتجاه الواحد (Senso unico) تكون العواكس <strong>حمراء على كلا الجانبين (Rossi su ambo i lati)</strong> وليست بيضاء!
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #6</span>
+          <span class="trap-verdict">فخ خطير (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"In presenza di segnali stradali gialli di cantiere, i segnali bianchi permanenti mantengono la priorità assoluta."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> علامات ورش العمل المؤقتة ذات الخلفية الصفراء (Giallo) تتقدم وتلغي أي علامات بيضاء دائمة تتعارض معها قانونياً!
+        </div>
       </div>
-    </div>
-
-    <!-- Trap 4 -->
-    <div class="trap-card">
-      <div class="trap-header">
-        <span style="font-weight:800; color:var(--rose-primary);">❌ دلالة الشيفرون أصفر وأسود</span>
-        <span class="card-tag-pill tag-falso">FALSO</span>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #7</span>
+          <span class="trap-verdict">مستحيل وخطأ (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Il delineatore per incrocio a T consente di proseguire diritto se non sopraggiungono altri veicoli."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> تقاطع T يعني وجود حائط أو نهاية للطريق أمامك مباشرة؛ المتابعة للأمام تعني الاصطدام، ويجب الانعطاف إما يميناً أو يساراً حصراً.
+        </div>
       </div>
-      <div class="trap-q-it">"Il delineatore modulare di curva con frecce nere su fondo giallo segnala una curva pericolosa permanente."</div>
-      <div class="trap-reason">
-        <strong>التصحيح القانوني:</strong> خطأ (FALSO). الأسود على خلفية صفراء يعني دائماً أن المنعطف <strong>مؤقت (Temporaneo)</strong> مرتبط بورشة عمل أو تحويلة، بينما المنعطف الدائم يكون أبيض على أسود.
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #8</span>
+          <span class="trap-verdict">خطأ قطعي (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"La barriera con strisce bianche e rosse consente il transito solo ai residenti e ai motocicli."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> الحاجز المخطط بالأحمر والأبيض (Fig. 276) يغلق الطريق تماماً أمام جميع المركبات دون أي استثناء لأي فئة.
+        </div>
       </div>
-    </div>
-
-    <!-- Trap 5 -->
-    <div class="trap-card vero-variant">
-      <div class="trap-header">
-        <span style="font-weight:800; color:var(--emerald-primary);">✅ وظيفة السهم الومّاض على شاحنة الصيانة</span>
-        <span class="card-tag-pill tag-vero">VERO</span>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #9</span>
+          <span class="trap-verdict">خطأ جسيم (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Il cantiere mobile con freccia impone di superare il veicolo operatore sia a destra che a sinistra indistintamente."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> يجب المرور من جهة السهم الوامض الموضح على اللوحة فقط؛ المرور من الجانب الآخر يؤدي للاصطدام بمنطقة العمل أو العمال.
+        </div>
       </div>
-      <div class="trap-q-it">"Il segnale raffigurato con freccia lampeggiante indica il lato dal quale il veicolo su cui è applicato deve essere superato."</div>
-      <div class="trap-reason">
-        <strong>التصحيح القانوني:</strong> صحيح (VERO). السهم الضوئي الومّاض يرشد السائقين بوضوح إلى الجانب المتاح والمفتوح الذي يجب تجاوزه من خلاله لتفادي الاصطدام.
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #10</span>
+          <span class="trap-verdict">خطأ وزاري (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Il segnale di preavviso semaforo di cantiere presenta una luce rossa fissa al centro del triangolo."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> القرص في منتصف إشارة التحذير المؤقتة (Fig. 297) هو ضوء أصفر وامض (Giallo lampeggiante) لتنبيه السائق بوجود إشارة ضوئية قادمة.
+        </div>
       </div>
-    </div>
-
-    <!-- Trap 6 -->
-    <div class="trap-card">
-      <div class="trap-header">
-        <span style="font-weight:800; color:var(--rose-primary);">❌ تطبيق تحويلة الشاحنات على السيارات</span>
-        <span class="card-tag-pill tag-falso">FALSO</span>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #11</span>
+          <span class="trap-verdict">خطأ مطلق (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"I delineatori per gallerie hanno elementi rifrangenti blu per indicare la presenza di ghiaccio."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> لا توجد عواكس زرقاء في كود السير لهذه الشواخص؛ عواكس الأنفاق صفراء في الاتجاه الواحد، أو حمراء وبيضاء في الاتجاهين.
+        </div>
       </div>
-      <div class="trap-q-it">"Il segnale di deviazione per autocarri oltre 7t obbliga tutti i veicoli a svoltare."</div>
-      <div class="trap-reason">
-        <strong>التصحيح القانوني:</strong> خطأ (FALSO). الإشارة موجهة ومخصصة حصراً للشاحنات ومركبات نقل البضائع التي تزيد كتلتها عن 7 أطنان، ولا تلزم سيارات الركوب العادية (Autovetture).
-      </div>
-    </div>
-
-    <!-- Trap 7 -->
-    <div class="trap-card vero-variant">
-      <div class="trap-header">
-        <span style="font-weight:800; color:var(--emerald-primary);">✅ ترتيب عوارض السكة الحديد (Fig. 144)</span>
-        <span class="card-tag-pill tag-vero">VERO</span>
-      </div>
-      <div class="trap-q-it">"Il pannello distanziometrico con una sola barra rossa è quello più vicino al passaggio a livello, a circa 50 metri."</div>
-      <div class="trap-reason">
-        <strong>التصحيح القانوني:</strong> صحيح (VERO). اللوحة ذات الخط الواحد هي الأقرب لمعبر السكة الحديد على بعد 50 متراً، بينما اللوحة ذات الخطين على بعد 100م، واللوحة ذات 3 خطوط على بعد 150م.
-      </div>
-    </div>
-
-    <!-- Trap 8 -->
-    <div class="trap-card">
-      <div class="trap-header">
-        <span style="font-weight:800; color:var(--rose-primary);">❌ سرعة السير في مناطق الورش</span>
-        <span class="card-tag-pill tag-falso">FALSO</span>
-      </div>
-      <div class="trap-q-it">"In presenza di lavori in corso è consentito mantenere la velocità massima della strada se la corsia è libera."</div>
-      <div class="trap-reason">
-        <strong>التصحيح القانوني:</strong> خطأ (FALSO). وجود ورشة عمل يفرض دائماً تخفيض السرعة والالتزام بحدود السرعة المؤقتة المحددة على الطريق مهما بدت الحارة خالية.
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #12</span>
+          <span class="trap-verdict">خطأ كارثي (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Il segnale di corsia chiusa per lavori consente di continuare la marcia sulla corsia interrotta fino al cantiere senza rallentare."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> يفرض تخفيض السرعة الفوري والاندماج المبكر في المسار المفتوح وفق مبدأ السوستة (Cerniera) لتفادي التوقف المفاجئ وحوادث الاصطدام الخلفي.
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 8: Serial Chapter Pagination -->
+
+  <!-- SERIAL CHAPTER PAGINATION -->
   <nav class="chapter-pagination">
-    <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="pagination-btn prev-btn">
+    <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="pagination-btn prev-btn" onclick="soundEngine.click()">
       <span class="pagination-icon">→</span>
       <div class="pagination-info">
         <span class="pagination-label">الباب السابق</span>
-        <span class="pagination-title">الباب 8: الإشارات الإرشادية والمعلومات</span>
+        <span class="pagination-title">الباب 08: إشارات الإرشاد والمعلومات</span>
       </div>
     </a>
 
-    <a href="index.html" class="pagination-btn index-btn">
+    <a href="index.html" class="pagination-btn index-btn" onclick="soundEngine.click()">
       <span class="pagination-icon">🏛️</span>
       <div class="pagination-info">
         <span class="pagination-label">الرجوع للمكتبة</span>
@@ -1717,10 +2037,10 @@
       </div>
     </a>
 
-    <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="pagination-btn next-btn">
+    <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="pagination-btn next-btn" onclick="soundEngine.click()">
       <div class="pagination-info">
         <span class="pagination-label">الباب التالي</span>
-        <span class="pagination-title">الباب 10: اللوحات الإضافية الملحقة</span>
+        <span class="pagination-title">الباب 10: اللوحات الإضافية الملحقة بالإشارات</span>
       </div>
       <span class="pagination-icon">←</span>
     </a>
@@ -1729,7 +2049,7 @@
 </main>
 
 <script>
-  // Unified Web Audio API Synthesizer Sound Engine
+  // Unified Web Audio API Sound Engine
   const soundEngine = window.soundEngine || {
     ctx: null,
     enabled: true,
@@ -1738,79 +2058,180 @@
         const AudioCtx = window.AudioContext || window.webkitAudioContext;
         if (AudioCtx) this.ctx = new AudioCtx();
       }
+      if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
     },
     click() {
       if (!this.enabled) return;
       this.init();
       if (!this.ctx) return;
-      if (this.ctx.state === 'suspended') this.ctx.resume();
-      const osc = this.ctx.createOscillator();
-      const gain = this.ctx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(800, this.ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(400, this.ctx.currentTime + 0.05);
-      gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.05);
-      osc.connect(gain);
-      gain.connect(this.ctx.destination);
-      osc.start();
-      osc.stop(this.ctx.currentTime + 0.05);
-    },
-    correct() {
-      if (!this.enabled) return;
-      this.init();
-      if (!this.ctx) return;
-      if (this.ctx.state === 'suspended') this.ctx.resume();
-      const now = this.ctx.currentTime;
-      const osc = this.ctx.createOscillator();
-      const gain = this.ctx.createGain();
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(523.25, now);
-      osc.frequency.setValueAtTime(659.25, now + 0.08);
-      osc.frequency.setValueAtTime(783.99, now + 0.16);
-      gain.gain.setValueAtTime(0.08, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
-      osc.connect(gain);
-      gain.connect(this.ctx.destination);
-      osc.start(now);
-      osc.stop(now + 0.28);
+      try {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(540, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(180, this.ctx.currentTime + 0.04);
+        gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.04);
+      } catch(e) {}
     }
   };
 
   function toggleAudio() {
     soundEngine.enabled = !soundEngine.enabled;
-    const btn = document.querySelector('.nav-audio-btn');
-    const icon = btn.querySelector('.audio-icon-span');
-    const label = btn.querySelector('.audio-label-span');
-    if (soundEngine.enabled) {
-      icon.textContent = '🔊';
-      label.textContent = 'الصوت نشط';
-      soundEngine.click();
-    } else {
-      icon.textContent = '🔇';
-      label.textContent = 'الصوت مكتوم';
-    }
+    const icons = document.querySelectorAll('.audio-icon-span');
+    const labels = document.querySelectorAll('.audio-label-span');
+    icons.forEach(el => el.textContent = soundEngine.enabled ? '🔊' : '🔇');
+    labels.forEach(el => el.textContent = soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم');
+    if (soundEngine.enabled) soundEngine.click();
   }
 
-  // Desktop Dropdown Controller
-  function toggleNavDropdown(e) {
-    e.stopPropagation();
-    const menu = document.getElementById('navDropdownMenu');
-    if (menu) menu.classList.toggle('active');
+  // Simulator 1 Logic: Delineatori Margine
+  function simulateMargine(type) {
+    const btnD = document.getElementById('btnMargDoppio');
+    const btnU = document.getElementById('btnMargUnico');
+    const btnG = document.getElementById('btnMargGalleria');
+    const imgWrapper = document.getElementById('simMargImgWrapper');
+    const badge = document.getElementById('simMargBadge');
+    const text = document.getElementById('simMargText');
+
+    btnD.classList.remove('active');
+    btnU.classList.remove('active');
+    btnG.classList.remove('active');
+
+    if (type === 'doppio') {
+      btnD.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/290.png" alt="Delineatori di margine">';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      badge.textContent = 'طريق ذو اتجاهين: أحمر على اليمين وأبيض على اليسار';
+      text.innerHTML = '<strong>القاعدة الوزارية الصارمة:</strong> في الطرق ذات الاتجاهين (Doppio Senso)، يحمل العمود الأبيض عاكساً أحمر (Rosso) في جهة اليمين، وعاكساً أبيض (Bianco) في جهة اليسار لتنبيه السائق بحدود نهر الطريق وتجنب الخروج عن الأسفلت ليلاً.';
+    } else if (type === 'unico') {
+      btnU.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/290.png" alt="Delineatori senso unico" style="filter: hue-rotate(180deg);">';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'طريق ذو اتجاه واحد: عاكسان حمراوان على اليمين وعاكسان أبيضان أو حمراوان على اليسار';
+      text.innerHTML = '<strong>الوضع في الاتجاه الواحد:</strong> يوضح حافة الطريق المخصصة للحركة في اتجاه واحد فقط؛ وتكون العواكس مميزة لتأكيد عدم وجود حركة سير مقابلة قادمة في وجه السائق.';
+    } else {
+      btnG.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/291.png" alt="Delineatori gallerie">';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'نفق اتجاه واحد: عواكس صفراء مضيئة على الجانبين';
+      text.innerHTML = '<strong>عواكس الأنفاق (Fig. 291):</strong> عواكس مستطيلة صفراء مضيئة مثبتة على الجدران لكلا الجانبين، تشير قطعياً إلى أن النفق ذو اتجاه واحد (Senso unico) وترشد مسار المركبة بدقة.';
+    }
     soundEngine.click();
   }
 
+  // Simulator 2 Logic: Delineatori Curva
+  function simulateCurva(type) {
+    const btnD = document.getElementById('btnCurvaDoppio');
+    const btnU = document.getElementById('btnCurvaUnico');
+    const btnT = document.getElementById('btnCurvaT');
+    const imgWrapper = document.getElementById('simCurvaImgWrapper');
+    const badge = document.getElementById('simCurvaBadge');
+    const text = document.getElementById('simCurvaText');
+
+    btnD.classList.remove('active');
+    btnU.classList.remove('active');
+    btnT.classList.remove('active');
+
+    if (type === 'doppio') {
+      btnD.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/293.png" alt="Curva doppio senso">';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      badge.textContent = 'أسهم حمراء وبيضاء = طريق ذو اتجاهين';
+      text.innerHTML = '<strong>الوضع القانوني:</strong> شواخص متتابعة بأسهم حمراء على خلفية بيضاء ترشد السائق لمسار المنحنى الخطر في الطرق ذات الاتجاهين (Doppio Senso) وتنبه لخطورة التجاوز وقوة الطرد المركزي.';
+    } else if (type === 'unico') {
+      btnU.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/289.png" alt="Curva senso unico">';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'أسهم بيضاء وسوداء = طريق ذو اتجاه واحد';
+      text.innerHTML = '<strong>الوضع القانوني:</strong> شواخص بأسهم بيضاء على خلفية سوداء عاكسة؛ تستخدم حصراً في الطرق ذات الاتجاه الواحد (Senso Unico) أو منحنيات وصلات الأوتوستراد.';
+    } else {
+      btnT.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/294.png" alt="Incrocio a T">';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      badge.textContent = 'شاخص تقاطع T = انعطاف إلزامي يميناً أو يساراً';
+      text.innerHTML = '<strong>الوضع القانوني (Fig. 294):</strong> لوحة عريضة بأسهم متعاكسة تنبه السائق لنهاية الطريق المباشر وضرورة التوقف والانعطاف الإجباري إما يميناً أو يساراً مع حظر مواصلة السير للأمام.';
+    }
+    soundEngine.click();
+  }
+
+  // Simulator 3 Logic: Cantieri e Barriere
+  function simulateCantiere(type) {
+    const btnB = document.getElementById('btnCantiereBarriera');
+    const btnC = document.getElementById('btnCantiereCono');
+    const btnM = document.getElementById('btnCantiereMobile');
+    const imgWrapper = document.getElementById('simCantiereImgWrapper');
+    const badge = document.getElementById('simCantiereBadge');
+    const text = document.getElementById('simCantiereText');
+
+    btnB.classList.remove('active');
+    btnC.classList.remove('active');
+    btnM.classList.remove('active');
+
+    if (type === 'barriera') {
+      btnB.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/276.png" alt="Barriera normale">';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'إغلاق كامل لنهر الطريق أو المسار';
+      text.innerHTML = '<strong>الحكم التشريعي:</strong> حاجز طولي مخطط بالأحمر والأبيض يوضع عرضياً ليحظر قطعياً عبور أي مركبة بسبب أعمال حفر أو انهيارات، وتثبت عليه مصابيح حمراء ثابتة أو وامضة ليلاً.';
+    } else if (type === 'cono') {
+      btnC.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/278.png" alt="Cono">';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      badge.textContent = 'تحديد مسارات مؤقتة وأعمال قصيرة المدى';
+      text.innerHTML = '<strong>الحكم التشريعي:</strong> مخاريط برتقالية وبيضاء عاكسة تستخدم للأعمال المؤقتة والطارئة وقصيرة المدى لتحديد المسارات المسموحة والتحويلات السريعة، وتمنع تجاوزها نحو منطقة الخطر.';
+    } else {
+      btnM.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/280.png" alt="Cantiere mobile">';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      badge.textContent = 'ورشة عمل متحركة مع سهم توجيه إلزامي';
+      text.innerHTML = '<strong>الحكم التشريعي:</strong> شاحنة صيانة بطيئة تحمل سهماً ضوئياً وامضاً يشير للمسار الإلزامي للتجاوز؛ تلزم السائقين بالانتقال للمسار المجاور وتوخي الحذر البالغ.';
+    }
+    soundEngine.click();
+  }
+
+  // Filter Pills Logic
+  function filterCards(category, btn) {
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    soundEngine.click();
+
+    const cards = document.querySelectorAll('.signal-card');
+    cards.forEach(card => {
+      if (category === 'all') {
+        card.style.display = 'flex';
+      } else if (card.getAttribute('data-category') === category) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (category === 'glossary') {
+      const el = document.getElementById('glossary-section');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // Desktop Dropdown
+  function toggleNavDropdown(e) {
+    if (e) e.stopPropagation();
+    const menu = document.getElementById('navDropdownMenu');
+    if (menu) menu.classList.toggle('active');
+  }
   document.addEventListener('click', function(e) {
     const wrapper = document.querySelector('.nav-dropdown-wrapper');
     const menu = document.getElementById('navDropdownMenu');
     if (menu && menu.classList.contains('active')) {
-      if (wrapper && !wrapper.contains(e.target)) {
-        menu.classList.remove('active');
-      }
+      if (wrapper && !wrapper.contains(e.target)) menu.classList.remove('active');
     }
   });
 
-  // Mobile Drawer Controller (Apple HIG Compliant)
+  // Mobile Drawer Navigation (Apple HIG)
   function toggleMobileNav() {
     const btn = document.getElementById('nav-hamburger-btn');
     const panel = document.getElementById('mobile-drawer-panel');
@@ -1842,62 +2263,11 @@
     document.body.classList.remove('nav-scroll-lock');
   }
 
-  window.toggleMobileNav = toggleMobileNav;
-  window.closeMobileNav = closeMobileNav;
-
-  // Filter Tabs & Search Functionality
-  let currentFilter = 'all';
-
-  function setFilter(filter, btn) {
-    currentFilter = filter;
-    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-    btn.classList.add('active');
-    soundEngine.click();
-    filterCards();
-  }
-
-  function filterCards() {
-    const query = (document.getElementById('chapterSearch').value || '').trim().toLowerCase();
-    const cards = document.querySelectorAll('.study-card, .trap-card');
-    const sections = document.querySelectorAll('.content-section');
-
-    sections.forEach(sec => {
-      const cat = sec.getAttribute('data-category');
-      let visibleInSection = 0;
-
-      sec.querySelectorAll('.study-card, .trap-card').forEach(card => {
-        const text = (card.innerText || '').toLowerCase();
-        const tags = (card.getAttribute('data-tags') || '').toLowerCase();
-        const matchesQuery = !query || text.includes(query) || tags.includes(query);
-        const matchesCat = (currentFilter === 'all') || (cat === currentFilter);
-
-        if (matchesQuery && matchesCat) {
-          card.style.display = '';
-          visibleInSection++;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-
-      if (visibleInSection > 0 || (currentFilter === 'all' && !query && !cat)) {
-        sec.style.display = '';
-      } else {
-        sec.style.display = 'none';
-      }
-    });
-  }
-
-  // Keyboard Shortcuts
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      closeMobileNav();
-      const menu = document.getElementById('navDropdownMenu');
-      if (menu) menu.classList.remove('active');
-    }
-    if ((e.key === 'm' || e.key === 'M') && e.target.tagName !== 'INPUT') {
-      toggleAudio();
-    }
+    if (e.key === 'Escape') closeMobileNav();
+    if (e.key === 'm' || e.key === 'M') toggleAudio();
   });
 </script>
+
 </body>
 </html>

@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="dark">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>دليل وقاموس الباب الحادي عشر: حدود السرعة ومخاطرها — Patente B Pro</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دليل الباب 11: حدود السرعة ومخاطرها وضوابط التهدئة | Patente B Pro</title>
+  <meta name="description" content="الدليل الهندسي الشامل للباب الحادي عشر من رخصة القيادة الإيطالية: الحدود العامة للسرعة، قيود السائقين الجدد، المطر والطقس السيئ، قواعد مزلقانات القطار، والمحاكيات التفاعلية.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+
   :root {
     --bg-base: #09090b;
     --bg-surface: rgba(24, 24, 27, 0.75);
@@ -18,137 +20,131 @@
     --text-secondary: #a1a1aa;
     --text-muted: #71717a;
     --emerald-primary: #10b981;
+    --emerald-dark: #059669;
     --emerald-glow: rgba(16, 185, 129, 0.25);
-    --amber-primary: #f59e0b;
-    --indigo-primary: #6366f1;
-    --sky-primary: #38bdf8;
     --rose-primary: #f43f5e;
-    --purple-primary: #a855f7;
-    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    --rose-glow: rgba(244, 63, 94, 0.25);
+    --amber-primary: #f59e0b;
+    --amber-glow: rgba(245, 158, 11, 0.25);
+    --sky-primary: #38bdf8;
+    --sky-glow: rgba(56, 189, 248, 0.25);
+    --indigo-primary: #6366f1;
     --nav-base-height: 54px;
+    --font-sans: 'Cairo', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   html, body {
-    overflow-x: hidden !important;
-    width: 100% !important;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
     background-color: var(--bg-base);
     color: var(--text-primary);
-    font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-sans);
     line-height: 1.6;
-    min-height: 100vh;
-    background-image: 
-      radial-gradient(ellipse at 50% -10%, rgba(99, 102, 241, 0.12), transparent 60%),
-      radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.05), transparent 40%);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
   }
 
   body.nav-scroll-lock {
     overflow: hidden !important;
-    touch-action: none !important;
+    touch-action: none;
   }
 
-  /* Top Navigation */
+  /* Portal Nav Header (Strict 54px, Apple HIG) */
   .unified-portal-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
-    max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
-    background: rgba(9, 9, 11, 0.85);
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-base-height);
+    background: rgba(15, 15, 18, 0.82);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-subtle);
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
+    padding: 0 16px;
     padding-top: env(safe-area-inset-top, 0px);
-    box-sizing: border-box;
   }
 
   .nav-brand {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #fff;
-    white-space: nowrap;
+    gap: 8px;
     text-decoration: none;
-    flex-shrink: 0;
-  }
-  .nav-brand .badge-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    padding: 2px 7px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid var(--border-subtle);
-    border-radius: 6px;
-    color: var(--text-secondary);
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.05rem;
   }
 
-  .nav-desktop-tabs {
+  .badge-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--amber-primary);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    padding: 2px 7px;
+    border-radius: 6px;
+  }
+
+  .desktop-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .desktop-nav-link {
     display: flex;
     align-items: center;
     gap: 6px;
-  }
-  .nav-tab-desktop {
-    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 8px;
     color: var(--text-secondary);
-    padding: 7px 13px;
-    border-radius: 9px;
-    font-size: 0.84rem;
+    text-decoration: none;
+    font-size: 0.86rem;
     font-weight: 600;
-    transition: all 0.15s;
+    transition: all 0.15s ease;
     border: 1px solid transparent;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    white-space: nowrap;
   }
-  .nav-tab-desktop:hover {
+  .desktop-nav-link:hover {
     color: #fff;
     background: rgba(255, 255, 255, 0.05);
     border-color: var(--border-subtle);
   }
-  .nav-tab-desktop.active {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border-color: var(--border-highlight);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), 0 2px 8px rgba(0,0,0,0.4);
+  .desktop-nav-link.active {
+    color: var(--amber-primary);
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.25);
   }
 
-  .nav-desktop-actions {
+  .desktop-nav-controls {
     display: flex;
     align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
+    gap: 10px;
   }
+
   .nav-audio-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-subtle);
-    color: var(--text-secondary);
-    border-radius: 9px;
-    padding: 6px 12px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
+    height: 34px;
     display: flex;
     align-items: center;
     gap: 6px;
-    transition: all 0.15s;
-    white-space: nowrap;
+    padding: 0 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #e4e4e7;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
   }
-  .nav-audio-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
-  .nav-audio-btn:active { transform: scale(0.96); }
+  .nav-audio-btn:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
 
-  /* Desktop Chapters Dropdown */
   .nav-dropdown-wrapper {
     position: relative;
     display: inline-block;
@@ -213,62 +209,55 @@
     color: #fff;
   }
   .nav-dropdown-item.active {
-    background: rgba(56, 189, 248, 0.12);
-    color: #38bdf8;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--amber-primary);
     font-weight: 700;
   }
 
-  /* Animated Hamburger Button */
+  /* Hamburger Button (< 768px) */
   .nav-hamburger-btn {
     display: none;
-    width: 42px;
-    height: 42px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
     cursor: pointer;
+    padding: 0;
     align-items: center;
     justify-content: center;
-    padding: 0;
-    z-index: 1002;
-    transition: background 0.15s, transform 0.15s;
+    color: #fff;
+    -webkit-tap-highlight-color: transparent;
   }
-  .nav-hamburger-btn:active { transform: scale(0.92); }
-  .hamburger-box {
-    width: 20px;
-    height: 14px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+  .hamburger-box { width: 20px; height: 14px; position: relative; }
   .hamburger-line {
-    display: block;
+    position: absolute;
     width: 100%;
     height: 2px;
-    background-color: #fff;
+    background: #f4f4f5;
     border-radius: 2px;
-    transition: transform 0.28s var(--ease-spring), opacity 0.2s, background-color 0.2s;
+    transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
   }
-  .nav-hamburger-btn.is-active .line-top { transform: translateY(6px) rotate(45deg); background-color: #38bdf8; }
-  .nav-hamburger-btn.is-active .line-mid { opacity: 0; transform: scaleX(0); }
-  .nav-hamburger-btn.is-active .line-bot { transform: translateY(-6px) rotate(-45deg); background-color: #38bdf8; }
+  .line-top { top: 0; }
+  .line-mid { top: 6px; }
+  .line-bot { top: 12px; }
 
-  /* Mobile Drawer Overlay & Panel */
+  .nav-hamburger-btn.is-active .line-top { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger-btn.is-active .line-mid { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger-btn.is-active .line-bot { transform: translateY(-6px) rotate(-45deg); }
+
+  /* Mobile Drawer Panel */
   .mobile-drawer-overlay {
     display: none;
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.65);
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     z-index: 998;
     opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s var(--ease-spring);
+    transition: opacity 0.25s ease;
   }
-  .mobile-drawer-overlay.is-active { display: block; opacity: 1; pointer-events: auto; }
-
+  .mobile-drawer-overlay.is-active { display: block; opacity: 1; }
   .mobile-drawer-panel {
     display: none;
     position: fixed;
@@ -285,416 +274,656 @@
     padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    transform: translateY(-100%);
+    transform: translateY(-10px);
     opacity: 0;
-    pointer-events: none;
-    transition: transform 0.32s var(--ease-spring), opacity 0.22s ease;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
   }
-  .mobile-drawer-panel.is-active { display: block; transform: translateY(0); opacity: 1; pointer-events: auto; }
-
+  .mobile-drawer-panel.is-active { display: block; transform: translateY(0); opacity: 1; }
   .mobile-nav-list { display: flex; flex-direction: column; gap: 8px; list-style: none; }
   .mobile-nav-link {
-    min-height: 48px;
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 0 16px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 12px 14px;
+    min-height: 48px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
     color: #e4e4e7;
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     font-weight: 600;
   }
   .mobile-nav-link.active {
-    background: rgba(56, 189, 248, 0.12);
-    border-color: rgba(56, 189, 248, 0.3);
-    color: #fff;
-  }
-  .mobile-drawer-footer {
-    display: flex; gap: 10px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border-subtle);
-  }
-  .mobile-control-btn {
-    min-height: 48px; flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
-    background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-subtle); border-radius: 12px;
-    color: #fff; font-size: 0.88rem; font-weight: 600; cursor: pointer;
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.35);
+    color: var(--amber-primary);
   }
 
   /* Main Container */
-  .container {
-    max-width: 1240px;
-    margin: 32px auto;
-    padding: 0 24px 60px;
+  .guide-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: calc(var(--nav-base-height) + 28px) 20px 80px 20px;
   }
 
-  .content-sheet {
-    background: var(--bg-surface);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+  /* Hero Section */
+  .chapter-hero {
+    background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12), transparent 70%),
+                linear-gradient(180deg, rgba(24, 24, 27, 0.7) 0%, rgba(18, 18, 20, 0.9) 100%);
     border: 1px solid var(--border-subtle);
     border-radius: 24px;
-    padding: 40px;
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+    padding: 40px 32px;
+    margin-bottom: 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
   }
-
-  .header-card {
-    border-bottom: 1px solid var(--border-subtle);
-    padding-bottom: 24px;
-    margin-bottom: 30px;
+  .chapter-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), transparent);
   }
-  .header-card .badge-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: #38bdf8;
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
     background: rgba(56, 189, 248, 0.12);
-    border: 1px solid rgba(56, 189, 248, 0.25);
-    padding: 4px 10px;
-    border-radius: 8px;
-    display: inline-block;
-    margin-bottom: 14px;
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--sky-primary);
+    margin-bottom: 16px;
   }
-  .main-title {
-    font-size: 2.1rem;
-    font-weight: 800;
+  .hero-title {
+    font-size: 2.2rem;
+    font-weight: 900;
     color: #fff;
-    margin-bottom: 12px;
-    line-height: 1.3;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
   }
-  .sub-lead {
+  .hero-subtitle {
+    font-family: var(--font-mono);
+    color: var(--sky-primary);
     font-size: 1.05rem;
+    margin-bottom: 18px;
+    direction: ltr;
+  }
+  .hero-desc {
+    max-width: 860px;
+    margin: 0 auto 24px auto;
     color: var(--text-secondary);
-    line-height: 1.7;
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+  .hero-badges-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .hero-stat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: #d4d4d8;
   }
 
-  .callout-box {
-    background: rgba(99, 102, 241, 0.08);
-    border: 1px solid rgba(99, 102, 241, 0.2);
-    border-radius: 16px;
-    padding: 20px 24px;
-    margin-bottom: 34px;
-    font-size: 0.95rem;
-    color: #e0e7ff;
-    line-height: 1.7;
+  /* Golden Rules Banner */
+  .golden-rules-banner {
+    background: rgba(56, 189, 248, 0.06);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 36px;
   }
-
-  .section-title {
-    font-size: 1.45rem;
-    font-weight: 800;
-    color: #fff;
-    margin: 36px 0 16px;
+  .golden-rules-title {
     display: flex;
     align-items: center;
     gap: 10px;
-    border-bottom: 1px solid var(--border-subtle);
-    padding-bottom: 12px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--sky-primary);
+    margin-bottom: 16px;
   }
-
-  /* Comparison Grid & Cards (Fixed Typography Standard) */
-  .comparison-grid {
+  .rules-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 18px;
-    margin: 20px 0;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .rule-box {
+    background: rgba(24, 24, 27, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .rule-box h4 {
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .rule-box p {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
   }
 
-  .compare-card {
-    background: rgba(24, 24, 27, 0.7);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    padding: 22px 20px;
-    backdrop-filter: blur(12px);
-    transition: transform 0.2s var(--ease-spring), border-color 0.2s;
+  /* Filter Pills */
+  .filter-pills-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    margin-bottom: 28px;
+    -webkit-overflow-scrolling: touch;
   }
-  .compare-card:hover {
+  .filter-pill {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .filter-pill:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+  }
+  .filter-pill.active {
+    background: var(--sky-primary);
+    border-color: var(--sky-primary);
+    color: #000;
+    font-weight: 700;
+  }
+
+  /* Rotatoria Simulator Box */
+  .simulator-box {
+    background: linear-gradient(180deg, rgba(24, 24, 27, 0.8) 0%, rgba(18, 18, 20, 0.95) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .sim-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--sky-primary);
+    margin-bottom: 6px;
+  }
+  .sim-subtitle {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+  }
+  .sim-controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .sim-btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sim-btn:hover { background: rgba(255, 255, 255, 0.1); }
+  .sim-btn.active {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: var(--sky-primary);
+    color: var(--sky-primary);
+  }
+  .sim-output-card {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .sim-img-wrapper img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+  }
+  .sim-details { flex: 1; text-align: right; }
+  .sim-state-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .state-normal { background: rgba(245, 158, 11, 0.2); color: var(--amber-primary); }
+  .state-rot-precedence { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .sim-legal-text {
+    font-size: 0.92rem;
+    color: #e4e4e7;
+    line-height: 1.7;
+  }
+
+  /* Comparison Section: Paths */
+  .comp-section {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .comp-header { margin-bottom: 20px; text-align: right; }
+  .comp-header h3 { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+  .comp-header p { font-size: 0.9rem; color: var(--text-secondary); }
+  .comp-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .comp-card-path {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .comp-card-path img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 12px;
+  }
+  .comp-card-path h4 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .comp-card-path .path-it {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--sky-primary);
+    margin-bottom: 10px;
+  }
+  .comp-card-path p {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    text-align: right;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  /* Grid of Signals Cards */
+  .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .section-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-badge {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: var(--sky-primary);
+    background: rgba(56, 189, 248, 0.1);
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+  }
+
+  .signals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .signal-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .signal-card:hover {
     transform: translateY(-2px);
     border-color: var(--border-highlight);
   }
-  .compare-card.emerald { border-top: 3px solid var(--emerald-primary); }
-  .compare-card.amber { border-top: 3px solid var(--amber-primary); }
-  .compare-card.sky { border-top: 3px solid var(--sky-primary); }
-  .compare-card.rose { border-top: 3px solid var(--rose-primary); }
-  .compare-card.purple { border-top: 3px solid var(--purple-primary); }
 
-  /* Fixed Vertical Hierarchy in Card Headers */
+  .signal-img-container {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    padding: 12px;
+  }
+  .signal-img-container img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+  }
+
+  /* Card Header Vertical Hierarchy */
   .card-header-row {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    margin-bottom: 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    padding-bottom: 10px;
+    margin-bottom: 12px;
   }
   .card-ar-title {
     order: 1;
-    font-size: 1.05rem;
-    font-weight: 700;
+    font-size: 1.15rem;
+    font-weight: 800;
     color: #fff;
   }
   .card-it-title {
     order: 2;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #38bdf8;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--sky-primary);
     direction: ltr;
     text-align: right;
   }
 
-  /* Fixed Natural Block Text Flow in Lists (No flex word slicing!) */
-  .card-points-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    font-size: 0.92rem;
-    color: #d4d4d8;
+  .card-desc-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
   }
+
+  /* ZERO FLEX ON LISTS (STRICT TYPOGRAPHY) */
+  .card-points-group { margin-bottom: 14px; }
+  .points-group-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .points-group-title.vero-title { color: var(--emerald-primary); }
+  .points-group-title.falso-title { color: var(--rose-primary); }
+
+  .card-points-list { list-style: none; margin: 0; padding: 0; }
   .card-points-list li {
+    display: block;
     position: relative;
     padding-right: 28px;
     line-height: 1.7;
-    display: block;
     text-align: right;
+    font-size: 0.88rem;
+    color: #d4d4d8;
+    margin-bottom: 6px;
   }
   .card-points-list li > span:first-child {
     position: absolute;
     right: 0;
     top: 2px;
-    font-size: 1.05rem;
+    font-size: 1rem;
     line-height: 1;
   }
 
-  /* Tables */
-  .table-wrap {
-    overflow-x: auto;
-    border-radius: 14px;
-    border: 1px solid var(--border-subtle);
-    margin: 24px 0;
-    -webkit-overflow-scrolling: touch;
-  }
-  .data-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: right;
-    font-size: 0.92rem;
-  }
-  .data-table th {
-    background: rgba(39, 39, 42, 0.8);
-    color: #fff;
-    padding: 14px 16px;
-    font-weight: 700;
-    border-bottom: 1px solid var(--border-subtle);
-    white-space: nowrap;
-  }
-  .data-table td {
-    padding: 14px 16px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    color: #d4d4d8;
-  }
-  .data-table tr:hover td { background: rgba(255, 255, 255, 0.02); }
-
-  /* Info / Alert Boxes */
-  .highlight-box {
-    background: rgba(245, 158, 11, 0.08);
-    border: 1px solid rgba(245, 158, 11, 0.2);
-    border-radius: 14px;
-    padding: 18px 22px;
-    margin: 18px 0;
-    font-size: 0.92rem;
-    color: #fef3c7;
-    line-height: 1.7;
-  }
-  .danger-box {
+  .card-trap-alert {
     background: rgba(244, 63, 94, 0.08);
-    border: 1px solid rgba(244, 63, 94, 0.2);
+    border: 1px solid rgba(244, 63, 94, 0.22);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    color: #fca5a5;
+    line-height: 1.6;
+    margin-top: auto;
+  }
+  .card-trap-alert strong { color: var(--rose-primary); }
+
+  /* Glossary Section */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .glossary-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
     border-radius: 14px;
-    padding: 18px 22px;
-    margin: 18px 0;
-    font-size: 0.92rem;
-    color: #ffe4e6;
-    line-height: 1.7;
+    padding: 16px 18px;
+  }
+  .term-it {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--sky-primary);
+    margin-bottom: 4px;
+    direction: ltr;
+    text-align: right;
+  }
+  .term-ar {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .term-def {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
   }
 
-  /* Quiz Trap Cards */
-  .quiz-traps-grid {
+  /* Quiz Traps Interactive Section */
+  .traps-section { margin-bottom: 50px; }
+  .traps-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 16px;
-    margin: 24px 0;
+    gap: 20px;
   }
   .trap-card {
-    background: rgba(24, 24, 27, 0.7);
+    background: var(--bg-surface);
     border: 1px solid var(--border-subtle);
     border-radius: 16px;
     padding: 20px;
     display: flex;
     flex-direction: column;
+    gap: 12px;
+  }
+  .trap-header {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
   }
-  .trap-card.falso { border-left: 4px solid var(--rose-primary); }
-  .trap-badge {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    font-weight: 700;
+  .card-tag-pill {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
     padding: 3px 8px;
     border-radius: 6px;
-    display: inline-block;
-    margin-bottom: 10px;
-    width: fit-content;
   }
-  .trap-badge.falso {
-    background: rgba(244, 63, 94, 0.15);
-    border: 1px solid rgba(244, 63, 94, 0.3);
-    color: #fda4af;
-  }
-  .trap-title {
-    font-size: 0.96rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 8px;
+  .tag-vero { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .tag-falso { background: rgba(244, 63, 94, 0.2); color: var(--rose-primary); }
+
+  .trap-q-it {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: #e4e4e7;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 8px;
+    padding: 10px;
+    direction: ltr;
+    text-align: left;
     line-height: 1.5;
   }
   .trap-reason {
     font-size: 0.88rem;
-    color: #a1a1aa;
+    color: var(--text-secondary);
     line-height: 1.6;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 10px 14px;
-    border-radius: 10px;
-    margin-top: 10px;
   }
+  .trap-reason strong { color: #fff; }
 
-  /* Chapter Pagination */
+  /* Pagination Bar */
   .chapter-pagination {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    margin: 40px 0 20px;
-    padding: 16px 20px;
-    background: rgba(24, 24, 27, 0.7);
+    gap: 16px;
+    padding: 24px;
+    background: var(--bg-surface);
     border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    backdrop-filter: blur(12px);
-    flex-wrap: wrap;
+    border-radius: 18px;
+    margin-top: 40px;
   }
   .pagination-btn {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 18px;
-    border-radius: 12px;
+    padding: 12px 20px;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--border-subtle);
-    color: #f4f4f5;
+    border-radius: 12px;
+    color: #fff;
     text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 0.9rem;
     transition: all 0.15s ease;
   }
   .pagination-btn:hover {
     background: rgba(255, 255, 255, 0.08);
     border-color: var(--border-highlight);
-    color: #fff;
-    transform: translateY(-1px);
   }
-  .pagination-btn.index-btn {
-    background: rgba(56, 189, 248, 0.08);
-    border-color: rgba(56, 189, 248, 0.2);
-    color: #38bdf8;
-  }
-  .pagination-btn.disabled {
-    opacity: 0.35;
-    pointer-events: none;
-    cursor: not-allowed;
-  }
+  .pagination-info { display: flex; flex-direction: column; text-align: right; }
+  .pagination-label { font-size: 0.75rem; color: var(--text-muted); }
+  .pagination-title { font-size: 0.92rem; color: #fff; }
 
-  /* Responsive Rules */
+  /* Responsive Rules (< 768px) */
   @media (max-width: 768px) {
-    .nav-desktop-tabs, .nav-desktop-actions { display: none !important; }
-    .nav-hamburger-btn { display: flex; }
-    .nav-brand .badge-tag { display: none; }
+    .desktop-nav-links, .desktop-nav-controls { display: none !important; }
+    .nav-hamburger-btn { display: flex !important; }
+    .guide-container { padding-top: calc(var(--nav-base-height) + 16px); padding-left: 14px; padding-right: 14px; }
+    .hero-title { font-size: 1.6rem; }
+    .signals-grid { grid-template-columns: 1fr; }
+    .sim-output-card { flex-direction: column; text-align: center; }
+    .sim-details { text-align: center; }
+    .chapter-pagination { flex-direction: column; align-items: stretch; }
   }
 
-  @media (max-width: 640px) {
-    .container { padding: 0 12px 40px; margin: 12px auto; }
-    .content-sheet { padding: 22px 16px !important; border-radius: 18px !important; }
-    .main-title { font-size: 1.45rem !important; }
-    .sub-lead { font-size: 0.95rem !important; }
-    .comparison-grid, .quiz-traps-grid { grid-template-columns: 1fr !important; }
-    .chapter-pagination { flex-direction: column; gap: 10px; align-items: stretch; }
-    .pagination-btn { justify-content: center; }
-  }
-
-  @media (max-width: 1023px) {
-    .nav-dropdown-wrapper { display: none !important; }
-  }
-</style>
+  </style>
 </head>
 <body>
 
-<!-- Unified Portal Navigation -->
-<header class="unified-portal-nav" id="portal-nav">
-  <a href="index.html" class="nav-brand" onclick="soundEngine.click()">
-    <span style="font-size:1.25rem;">🚦</span>
-    <span>Patente B Pro</span>
-    <span class="badge-tag">Capitolo 11</span>
-  </a>
+<!-- Unified Top Navigation (Strict 54px) -->
+<nav class="unified-portal-nav" aria-label="شريط التنقل الموحد">
+  <div style="display:flex; align-items:center; gap:12px;">
+    <a href="index.html" class="nav-brand">
+      <span>🚦 Patente B Pro</span>
+      <span class="badge-tag" style="background:rgba(239,68,68,0.2); color:#f87171; border-color:rgba(239,68,68,0.35);">Cap. 11</span>
+    </a>
+  </div>
 
-  <!-- Desktop Tabs Menu -->
-  <nav class="nav-desktop-tabs">
-    <a href="index.html" class="nav-tab-desktop">🏛️ فهرس المكتبة</a>
-    <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 الأبواب المقسمة</a>
-    <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
+  <div class="desktop-nav-links">
+    <a href="index.html" class="desktop-nav-link">
+      <span>🏛️</span>
+      <span>فهرس المكتبة الشاملة</span>
+    </a>
+    <a href="../Capitoli_Divisi/index.html" class="desktop-nav-link">
+      <span>📚</span>
+      <span>الأبواب المقسمة (25)</span>
+    </a>
+    <a href="../Simulatore_Esame.html" class="desktop-nav-link">
+      <span>⏱️</span>
+      <span>محاكي الامتحان</span>
+    </a>
+  </div>
 
-    <!-- Desktop Chapters Dropdown -->
+  <div class="desktop-nav-controls">
     <div class="nav-dropdown-wrapper">
       <button class="nav-dropdown-btn" onclick="toggleNavDropdown(event)">
-        <span>📖 تصفح الأدلة (1-25)</span>
-        <span style="font-size:0.7rem; margin-right:4px;">▾</span>
+        <span>تصفح الأبواب (1-25)</span>
+        <span style="font-size:0.75rem;">▾</span>
       </button>
       <div class="nav-dropdown-menu" id="navDropdownMenu">
-        <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
-        <a href="دليل_الباب_02_إشارات_الخطر.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
-        <a href="دليل_الباب_03_إشارات_المنع.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
-        <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
-        <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
-        <a href="دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأرضية والعوائق</span></a>
-        <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
-        <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
-        <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: الإشارات التكميلية وورش العمل</span></a>
+        <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 01: المفاهيم العامة والواجبات</span></a>
+        <a href="دليل_الباب_02_إشارات_الخطر.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 02: إشارات الخطر</span></a>
+        <a href="دليل_الباب_03_إشارات_المنع.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 03: إشارات المنع</span></a>
+        <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 04: إشارات الإلزام</span></a>
+        <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 05: إشارات الأسبقية</span></a>
+        <a href="دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 06: العلامات الأرضية والعوائق</span></a>
+        <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 07: الإشارات الضوئية والشرطي</span></a>
+        <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 08: إشارات الإرشاد والمعلومات</span></a>
+        <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 09: الإشارات التكميلية وورش العمل</span></a>
         <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
-        <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="nav-dropdown-item active">📖 الباب 11: حدود السرعة</a>
-        <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item">📖 الباب 12: مسافة الأمان</a>
-        <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item">📖 الباب 13: قواعد السير والمسارات</a>
-        <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item">📖 الباب 14: أسبقية التقاطعات</a>
-        <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item">📖 الباب 15: التجاوز والتخطي</a>
-        <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item">📖 الباب 16: الوقوف والركن</a>
-        <a href="دليل_الأبواب_11_إلى_15_قواعد_السير_والسرعة_ومسافة_الأمان.html" class="nav-dropdown-item">📖 الأبواب 11-15: مجمع السير</a>
-        <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item">📖 الباب 17: الأوتوستراد والمقطورات</a>
-        <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item">📖 الباب 18: الأضواء والتابلوه</a>
-        <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item">📖 الباب 19: الأحزمة والخوذة والمقاعد</a>
-        <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item">📖 الباب 20: الرخص والنقاط والعقوبات</a>
-        <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item">📖 الباب 21: حوادث السير والطقس</a>
-        <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item">📖 الباب 22: الكحول والإسعافات</a>
-        <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item">📖 الباب 23: المسؤولية والتأمين</a>
-        <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item">📖 الباب 24: استهلاك الوقود والبيئة</a>
-        <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item">📖 الباب 25: الميكانيكا والصيانة</a>
+        <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 11: حدود السرعة ومخاطرها</span></a>
+        <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
+        <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
+        <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
+        <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
+        <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
+        <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
+        <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
+        <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
+        <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
+        <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: حوادث السير والطقس</span></a>
+        <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
+        <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 23: المسؤولية والتأمين RCA</span></a>
+        <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 24: استهلاك الوقود والبيئة</span></a>
+        <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
       </div>
     </div>
-  </nav>
-
-  <!-- Desktop Actions -->
-  <div class="nav-desktop-actions">
     <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
       <span class="audio-icon-span">🔊</span>
       <span class="audio-label-span">الصوت نشط</span>
     </button>
   </div>
 
-  <!-- Mobile Hamburger Button -->
+  <!-- Animated Hamburger Button (Apple HIG - Mobile < 768px) -->
   <button class="nav-hamburger-btn" id="nav-hamburger-btn" onclick="toggleMobileNav()" aria-label="قائمة التنقل" aria-expanded="false">
     <div class="hamburger-box">
       <span class="hamburger-line line-top"></span>
@@ -702,415 +931,969 @@
       <span class="hamburger-line line-bot"></span>
     </div>
   </button>
-</header>
+</nav>
 
-<!-- Mobile Navigation Drawer -->
+<!-- Mobile Overlay & Drawer -->
 <div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
 <div class="mobile-drawer-panel" id="mobile-drawer-panel">
   <div class="mobile-nav-list">
-    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📚</span><span>مذاكرة الأبواب المقسمة (25 باب)</span>
-    </a>
-    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>⏱️</span><span>محاكي الامتحان الوزاري (20 دقيقة)</span>
-    </a>
-    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📑</span><span>فهرس المكتبة الشاملة المعتمدة</span>
-    </a>
-    <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="mobile-nav-link active" onclick="closeMobileNav()">
-      <span>📖</span><span>دليل الباب 11 (حدود السرعة ومخاطرها)</span>
-    </a>
-    <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📖</span><span>دليل الباب 12 (مسافة الأمان والتوقف)</span>
-    </a>
-    <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📖</span><span>دليل الباب 13 (قواعد السير والمسارات)</span>
-    </a>
-    <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📖</span><span>دليل الباب 14 (أسبقية التقاطعات)</span>
-    </a>
-    <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📖</span><span>دليل الباب 15 (مناورة التجاوز والتخطي)</span>
-    </a>
-    <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📖</span><span>دليل الباب 16 (الوقوف والتوقف والركن)</span>
-    </a>
-    <a href="دليل_الأبواب_11_إلى_15_قواعد_السير_والسرعة_ومسافة_الأمان.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📖</span><span>دليل الأبواب 11-15 (حركة السير، السرعة، ومسافة الأمان)</span>
-    </a>
-    <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📖</span><span>دليل الباب 17 (الأوتوستراد والحمولة والمقطورات)</span>
-    </a>
-    <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📖</span><span>دليل الباب 18 (الأضواء والتابلوه والعواكس)</span>
-    </a>
-    <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📖</span><span>دليل الباب 19 (الأحزمة والخوذة والمقاعد)</span>
-    </a>
-    <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📖</span><span>دليل الباب 20 (الرخص والنقاط والعقوبات)</span>
-    </a>
-    <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📖</span><span>دليل الباب 21 (حوادث السير والظروف الجوية)</span>
-    </a>
-    <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📖</span><span>دليل الباب 22 (الكحول والمخدرات والإسعافات)</span>
-    </a>
-    <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📖</span><span>دليل الباب 23 (المسؤولية والتأمين RCA)</span>
-    </a>
-    <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📖</span><span>دليل الباب 24 (استهلاك الوقود وحماية البيئة)</span>
-    </a>
-    <a href="دليل_الباب_الأخير.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📖</span><span>دليل وقاموس الباب 25 (الميكانيكا والصيانة)</span>
-    </a>
-  </div>
-  <div class="mobile-drawer-footer">
-    <button class="mobile-control-btn" onclick="toggleAudio()">
-      <span class="audio-icon-span">🔊</span>
-      <span class="audio-label-span">الصوت نشط</span>
-    </button>
+    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📚</span><span>مذاكرة الأبواب المقسمة (25 باب)</span></a>
+    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">⏱️</span><span>محاكي الامتحان الوزاري</span></a>
+    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📑</span><span>فهرس المكتبة الشاملة</span></a>
+    <div class="mobile-nav-divider"></div>
+    <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 10: اللوحات الإضافية</span></a>
+    <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="mobile-nav-link active" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 11: حدود السرعة ومخاطرها</span></a>
+    <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 12: مسافة الأمان</span></a>
   </div>
 </div>
 
-<main class="container">
-  <article class="content-sheet">
-    <header class="header-card">
-      <div class="badge-tag">CAPITOLO 11 • CODICE DELLA STRADA 2026</div>
-      <h1 class="main-title">دليل وقاموس الباب الحادي عشر: حدود السرعة ومخاطرها</h1>
-      <p class="sub-lead">Limiti generali di velocità, Neopatentati, Categorie di veicoli e Regolazione — الدليل الشامل لفهم مصفوفة السرعات الإلزامية، قيود الطقس والمطر، فئات المركبات الخاصة، وحالات التخفيض الإجباري لمستوى A2-B1.</p>
-    </header>
+<main class="guide-container">
 
-    <div class="callout-box">
-      <strong>📊 إحصائيات الباب الرسمية في بنك الوزارة:</strong> يضم الباب الحادي عشر ما بين <strong>200 إلى 250 سؤالاً وزارياً</strong>، مع نسبة تشابه وتكرار تصل إلى <strong>35%</strong>. تعتمد الوزارة على صياغة نفس المعلومة بطرق مضللة أو تبديل الأرقام بين أنواع الطرق وفئات السائقين لتحويل الإجابة من صحيحة إلى خاطئة.
+  <!-- HERO SECTION -->
+  <section class="chapter-hero">
+    <div class="hero-tag">⚡ 🛑 المرجع المعتمد للدراسة والامتحان الوزاري</div>
+    <h1 class="hero-title">الباب 11: حدود السرعة ومخاطرها وضوابط التهدئة</h1>
+    <div class="hero-subtitle">Capitolo 11: Limiti di velocità, pericolo e regolazione della marcia</div>
+    <p class="hero-desc">
+      الدليل التشريعي والهندسي الشامل لسرعات كود السير الإيطالي: الحدود العامة لشبكة الطرق (50 / 90 / 110 / 130 كم/س)، القيود المشددة على السائقين الجدد (Neopatentati)، قواعد خفض السرعة في المطر والضباب، المواضع الحرجة الإلزامية للتهدئة والتأهب للتوقف، التصرف الآمن عند مزلقانات السكك الحديدية (Passaggi a livello)، وحظر البطء المفرط المعرقل لحركة السير.
+    </p>
+
+    <div class="hero-badges-row">
+      <div class="hero-stat-badge"><span>📊</span> <span>256 سؤالاً وزارياً معتمداً</span></div>
+      <div class="hero-stat-badge"><span>⚠️</span> <span>12 فخاً وزارياً دقيقاً</span></div>
+      <div class="hero-stat-badge"><span>⚡</span> <span>14 قاعدة ومحوراً معيارياً</span></div>
+      <div class="hero-stat-badge"><span>🎯</span> <span>دقة 100% كود السير 2026</span></div>
     </div>
+  </section>
 
-    <!-- ======================== SECTION 1 ======================== -->
-    <h2 class="section-title">⚡ أولاً: الحدود العامة والقصوى للسرعة (Limiti Generali di Velocità)</h2>
-    <p style="color:var(--text-secondary); margin-bottom:16px;">تُحدد السرعة القصوى القانونية بناءً على تصنيف الطريق الهندسي وظروف الطقس وحالة السطح الإسفلتي:</p>
-
-    <div class="table-wrap">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>نوع الطريق (Tipo di Strada)</th>
-            <th>السرعة العادية (km/h)</th>
-            <th>السرعة عند هطول المطر (In caso di pioggia)</th>
-            <th>ملاحظات وقواعد خاصة بالامتحان الوزاري</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>المناطق الحضرية</strong><br><span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#38bdf8;">Strade urbane</span></td>
-            <td><strong style="color:#10b981; font-size:1.1rem;">50 km/h</strong></td>
-            <td><strong>50 km/h</strong> (لا تتغير)</td>
-            <td>يمكن رفعها إلى <strong>70 km/h</strong> في الطرق الحضرية السريعة ذات المسارات المنفصلة بوجود لوحات خاصة تسمح بذلك.</td>
-          </tr>
-          <tr>
-            <td><strong>الطرق الخارجية الثانوية</strong><br><span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#38bdf8;">Extraurbane secondarie</span></td>
-            <td><strong style="color:#10b981; font-size:1.1rem;">90 km/h</strong></td>
-            <td><strong>90 km/h</strong> (لا تتغير في المطر!)</td>
-            <td>تشمل الطرق الإقليمية التي تربط بين المدن والبلدات. ⚠️ فخ شائع: يزعم أنها تنخفض إلى 80 عند المطر ← <strong>FALSO</strong>.</td>
-          </tr>
-          <tr>
-            <td><strong>الطرق الخارجية الرئيسية</strong><br><span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#38bdf8;">Extraurbane principali</span></td>
-            <td><strong style="color:#10b981; font-size:1.1rem;">110 km/h</strong></td>
-            <td><strong style="color:#f59e0b; font-size:1.1rem;">90 km/h</strong> (تخفيض إجباري)</td>
-            <td>طرق سريعة ذات مسارات مفصولة بحاجز (Spartitraffico)، تبدأ بعلامة زرقاء. تنخفض إجبارياً بمقدار 20 كم/س عند المطر أو الثلج.</td>
-          </tr>
-          <tr>
-            <td><strong>الطرق السريعة / الأوتوستراد</strong><br><span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#38bdf8;">Autostrade</span></td>
-            <td><strong style="color:#10b981; font-size:1.1rem;">130 km/h</strong></td>
-            <td><strong style="color:#f43f5e; font-size:1.1rem;">110 km/h</strong> (تخفيض إجباري)</td>
-            <td>الطرق السريعة الخضراء. تنخفض إجبارياً إلى 110 كم/س في حال المطر أو سوء الطقس. يمكن رفعها إلى 150 كم/س في قطاعات معينة مجهزة بـ 3 حارات و Tutor.</td>
-          </tr>
-        </tbody>
-      </table>
+  <!-- GOLDEN RULES BANNER -->
+  <section class="golden-rules-banner">
+    <div class="golden-rules-title">
+      <span>⭐</span>
+      <span>القواعد الذهبية الأربع للباب 11 (Regole d'Oro)</span>
     </div>
+    <div class="rules-grid">
+      <div class="rule-box">
+        <h4><span>1️⃣</span> مصفوفة السرعات العامة الإلزامية</h4>
+        <p>داخل المدن <strong>50 كم/س</strong> | خارج المدن ثانوي <strong>90 كم/س</strong> | خارج المدن رئيسي <strong>110 كم/س</strong> | الأوتوستراد <strong>130 كم/س</strong>.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>2️⃣</span> قاعدة السائق الجديد (3 سنوات كاملة)</h4>
+        <p>السائق الجديد في أول 3 سنوات محظور تجاوزه سرعة <strong>100 كم/س بالأوتوستراد</strong> و <strong>90 كم/س بالطرق الرئيسية</strong> مع مضاعفة خصم النقاط.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>3️⃣</span> خفض السرعة التلقائي في المطر</h4>
+        <p>بمجرد هطول المطر أو سوء الطقس: ينخفض حد الأوتوستراد إلى <strong>110 كم/س</strong>، وخارج المدن الرئيسي إلى <strong>90 كم/س</strong> تلقائياً.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>4️⃣</span> قاعدة التوقف في حدود الرؤية الصالحة</h4>
+        <p>مسافة التوقف الكلية يجب أن تكون <strong>أقصر دائماً من مسافة الرؤية الخالية</strong> أمامك؛ فإذا كانت الرؤية في الضباب 30 متراً، فالسرعة يجب أن تتيح التوقف قبل 30 متراً.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- ======================== SECTION 2 ======================== -->
-    <h2 class="section-title">🔰 ثانياً: قيود السائقين الجدد (Neopatentati — أول 3 سنوات)</h2>
-    <p style="color:var(--text-secondary); margin-bottom:16px;">يفرض قانون السير الإيطالي (Codice della Strada) قيوداً صارمة على الحاصلين حديثاً على رخصة القيادة من الفئة B خلال السنوات الثلاث الأولى من تاريخ استلام الرخصة:</p>
+  <!-- INTERACTIVE SIMULATORS -->
 
-    <div class="comparison-grid">
-      <div class="compare-card emerald">
-        <div class="card-header-row">
-          <span class="card-ar-title">الطرق الخارجية الرئيسية</span>
-          <span class="card-it-title">Strade Extraurbane Principali</span>
+  <!-- SIMULATOR 1: Limiti Stradali Generali -->
+  <section class="simulator-box" id="sim-limiti-generali">
+    <div class="sim-header">
+      <div>
+        <h3 class="sim-title">🎮 محاكي حدود السرعة القانونية حسب تصنيف الطريق</h3>
+        <p class="sim-subtitle">اختر نوع الطريق لمعرفة الحد الأقصى العادي والحد الإلزامي عند هطول الأمطار</p>
+      </div>
+      <span class="sim-badge">محاكي كود السير 2026</span>
+    </div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnRoadAutostrada" onclick="simulateRoad('autostrada')">الأوتوستراد (Autostrada)</button>
+      <button class="sim-btn" id="btnRoadPrincipale" onclick="simulateRoad('principale')">خارج المدن رئيسي (Principale)</button>
+      <button class="sim-btn" id="btnRoadSecondaria" onclick="simulateRoad('secondaria')">خارج المدن ثانوي (Secondaria)</button>
+      <button class="sim-btn" id="btnRoadUrbana" onclick="simulateRoad('urbana')">داخل المدن (Urbana)</button>
+    </div>
+    <div class="sim-output-card">
+      <div class="sim-img-wrapper" id="simRoadImgWrapper" style="font-size:3.5rem; text-align:center; min-width:110px;">
+        🛣️
+      </div>
+      <div class="sim-details">
+        <div class="sim-state-badge state-rot-precedence" id="simRoadBadge">الأوتوستراد: 130 كم/س (تنخفض لـ 110 كم/س في المطر)</div>
+        <p class="sim-legal-text" id="simRoadText">
+          <strong>الوضع القانوني:</strong> الحد الأقصى لسيارات الركوب العادية والدراجات النارية في الظروف العادية هو <strong>130 كم/س</strong>. عند هطول الأمطار أو الثلوج ينخفض فورياً إلى <strong>110 كم/س</strong>. أما السائقون الجدد (Neopatentati) فحدهم الأقصى هو <strong>100 كم/س</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR 2: Neopatentati vs Esperto -->
+  <section class="simulator-box" id="sim-neopatentati">
+    <div class="sim-header">
+      <div>
+        <h3 class="sim-title">🎮 محاكي قيود السائقين الجدد (Neopatentati - 3 Anni)</h3>
+        <p class="sim-subtitle">قارن الفارق بين سرعات السائق المتمرس والسائق الجديد في الأوتوستراد والطرق السريعة</p>
+      </div>
+      <span class="sim-badge">فخ سنوات الرخصة</span>
+    </div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnSimNeo" onclick="simulateDriver('neo')">سائق جديد (Neopatentato < 3 Anni)</button>
+      <button class="sim-btn" id="btnSimEsperto" onclick="simulateDriver('esperto')">سائق متمرس (Esperto > 3 Anni)</button>
+    </div>
+    <div class="sim-output-card">
+      <div class="sim-img-wrapper" id="simDriverImgWrapper" style="font-size:3.5rem; text-align:center; min-width:110px;">
+        🔰
+      </div>
+      <div class="sim-details">
+        <div class="sim-state-badge state-normal" id="simDriverBadge">السائق الجديد: 100 أوتوستراد | 90 رئيسي خارج المدن</div>
+        <p class="sim-legal-text" id="simDriverText">
+          <strong>القيود التشريعية الصارمة:</strong> خلال أول 3 سنوات من تاريخ الحصول على الرخصة، يُحظر على السائق الجديد تجاوز سرعة 100 كم/س في الأوتوستراد و 90 كم/س في الطرق خارج المدن الرئيسية. كما يتم <strong>مضاعفة خصم نقاط المخالفات</strong> له قانونياً!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR 3: Veicoli Speciali e Rimorchi -->
+  <section class="simulator-box" id="sim-rimorchi">
+    <div class="sim-header">
+      <div>
+        <h3 class="sim-title">🎮 محاكي سرعات المقطورات والآلات الزراعية والكواد</h3>
+        <p class="sim-subtitle">تعرف على السرعات الخاصة التي يركز عليها الامتحان لسيارات المقطورات والآلات</p>
+      </div>
+      <span class="sim-badge">محاكي الفئات الخاصة</span>
+    </div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnSimRimorchio" onclick="simulateSpecial('rimorchio')">سيارة تسحب مقطورة/كارفان</button>
+      <button class="sim-btn" id="btnSimCiclomotore" onclick="simulateSpecial('ciclomotore')">سيكلوموتوري (Ciclomotore)</button>
+      <button class="sim-btn" id="btnSimAgricola" onclick="simulateSpecial('agricola')">آلة زراعية (Macchina agricola)</button>
+      <button class="sim-btn" id="btnSimQuad" onclick="simulateSpecial('quad')">كواد غير خفيف (Quadriciclo)</button>
+    </div>
+    <div class="sim-output-card">
+      <div class="sim-img-wrapper" id="simSpecialImgWrapper" style="font-size:3.5rem; text-align:center; min-width:110px;">
+        🚙⛺
+      </div>
+      <div class="sim-details">
+        <div class="sim-state-badge state-normal" id="simSpecialBadge">مقطورة وكارفان: 80 أوتوستراد | 70 خارج المدن</div>
+        <p class="sim-legal-text" id="simSpecialText">
+          <strong>الحكم القانوني:</strong> السيارة التي تجر مقطورة أو كارفان (Roulotte) تصبح مجمع مركبات؛ سرعتها القصوى مقيدة بـ 80 كم/س في الأوتوستراد و 70 كم/س في الطرق خارج المدن (الرئيسية والثانوية)، وتلتزم بوضع قرصي السرعة 70 و 80 خلف المقطورة.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- COMPARISON SECTION -->
+
+  <!-- COMPARISON SECTION -->
+  <section class="comp-section">
+    <div class="comp-header">
+      <h3>🔍 مصفوفة المقارنة البصرية: فك تشابهات حدود السرعة الحرجة</h3>
+      <p>أبرز 4 مقارنات سرعة ثنائية يخطئ فيها معظم المتقدمين للامتحان الوزاري</p>
+    </div>
+    <div class="comp-grid-4">
+      <!-- Comp 1 -->
+      <div class="comp-card-path">
+        <div style="font-size:2.5rem; margin-bottom:8px;">🚗💨</div>
+        <h4>سيارة الركوب العادية</h4>
+        <div class="path-it">Autovettura senza rimorchio</div>
+        <p><strong>السرعة في الأوتوستراد:</strong> 130 كم/س (تنخفض لـ 110 كم/س في المطر).<br><strong>خارج المدن رئيسي:</strong> 110 كم/س (90 في المطر).</p>
+      </div>
+
+      <!-- Comp 2 -->
+      <div class="comp-card-path">
+        <div style="font-size:2.5rem; margin-bottom:8px;">🚙⛺</div>
+        <h4>سيارة تسحب كارفان</h4>
+        <div class="path-it">Autovettura con caravan / rimorchio</div>
+        <p><strong>السرعة في الأوتوستراد:</strong> 80 كم/س كحد أقصى قطعي.<br><strong>خارج المدن (الرئيسي والثانوي):</strong> 70 كم/س كحد أقصى.</p>
+      </div>
+
+      <!-- Comp 3 -->
+      <div class="comp-card-path">
+        <div style="font-size:2.5rem; margin-bottom:8px;">🔰⚡</div>
+        <h4>السائق الجديد (Neopatentato)</h4>
+        <div class="path-it">Primi 3 anni di patente B</div>
+        <p><strong>السرعة في الأوتوستراد:</strong> 100 كم/س كحد أقصى.<br><strong>خارج المدن رئيسي:</strong> 90 كم/س لمدة 3 سنوات كاملة.</p>
+      </div>
+
+      <!-- Comp 4 -->
+      <div class="comp-card-path">
+        <div style="font-size:2.5rem; margin-bottom:8px;">🚜🌾</div>
+        <h4>الآلات الزراعية (Agricole)</h4>
+        <div class="path-it">Macchine agricole gommate / cingolate</div>
+        <p><strong>بالعجلات المطاطية:</strong> 40 كم/س كحد أقصى.<br><strong>بالجنازير المعدنية:</strong> 15 كم/س كحد أقصى على الطريق.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FILTER PILLS -->
+  <div class="filter-pills-bar">
+    <button class="filter-pill active" onclick="filterCards('all', this)">جميع القواعد والمحاور (14)</button>
+    <button class="filter-pill" onclick="filterCards('limiti_generali', this)">الحدود العامة للأوتوستراد والطرق</button>
+    <button class="filter-pill" onclick="filterCards('neopatentati', this)">قيود السائقين الجدد (3 سنوات)</button>
+    <button class="filter-pill" onclick="filterCards('categorie', this)">المركبات الخاصة والمقطورات</button>
+    <button class="filter-pill" onclick="filterCards('sicurezza', this)">ضوابط التهدئة ومجال الرؤية</button>
+    <button class="filter-pill" onclick="filterCards('passaggi_livello', this)">مزلقانات القطارات</button>
+    <button class="filter-pill" onclick="filterCards('glossary', this)">القاموس وفخاخ الوزارة</button>
+  </div>
+
+  <!-- SIGNALS GRID -->
+  <div class="signals-grid">
+
+    <!-- Card 1: limiti_generali -->
+    <div class="signal-card" data-category="limiti_generali">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(239,68,68,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(239,68,68,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">⚡</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#f87171; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(248,113,113,0.3);">50 / 90 / 110 / 130 km/h</span>
         </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الحدود العامة القصوى للسرعة في إيطاليا</h3>
+        <span class="card-it-title">Limiti massimi generali di velocità (Art. 142 CdS)</span>
+      </div>
+      <p class="card-desc-text">
+        الحدود القصوى القانونية لسيارات الركوب العادية والدراجات النارية: 50 كم/س في المدن (70 في الشوارع الحضرية السريعة)، 90 كم/س في الطرق خارج المدن الثانوية، 110 كم/س في الطرق خارج المدن الرئيسية، و 130 كم/س في الأوتوستراد.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
         <ul class="card-points-list">
-          <li><span>🛑</span> <strong>الحد الأقصى المطلق:</strong> لا يجوز للسائق الجديد تجاوز <strong>90 كم/س</strong> (بدلاً من 110 كم/س المقررة لباقي السائقين).</li>
-          <li><span>⚠️</span> <strong>فخ كويز:</strong> يزعم الكويز أنه يسمح للسائق الجديد بقيادة 100 كم/س على الطرق الخارجية الرئيسية ← <strong>FALSO</strong>.</li>
+          <li><span>•</span> <strong>Il limite massimo di velocità per un'autovettura sulle autostrade è ordinariamente di 130 km/h</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">الحد الأقصى للسرعة للسيارات الملاكي على الطرق السريعة (الأوتوستراد) هو عادة 130 كم/س.</span></li>
+          <li><span>•</span> <strong>Il limite massimo di velocità per un'autovettura sulle strade extraurbane principali è ordinariamente di 110 km/h</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">الحد الأقصى للسرعة للسيارات الملاكي على الطرق الخارجية الرئيسية هو عادة 110 كم/س.</span></li>
+          <li><span>•</span> <strong>Il limite massimo di velocità per un'autovettura sulle strade extraurbane secondarie è di 90 km/h</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">الحد الأقصى للسرعة للسيارات الملاكي على الطرق الخارجية الثانوية هو 90 كم/س.</span></li>
+          <li><span>•</span> <strong>Il limite massimo di velocità per un'autovettura nei centri abitati è ordinariamente di 50 km/h</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">الحد الأقصى للسرعة للسيارات الملاكي في المناطق والتجمعات السكنية (المدن) هو عادة 50 كم/س.</span></li>
         </ul>
       </div>
-
-      <div class="compare-card sky">
-        <div class="card-header-row">
-          <span class="card-ar-title">الطرق السريعة (الأوتوستراد)</span>
-          <span class="card-it-title">Autostrade</span>
-        </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
         <ul class="card-points-list">
-          <li><span>🛑</span> <strong>الحد الأقصى المطلق:</strong> لا يجوز للسائق الجديد تجاوز <strong>100 كم/س</strong> (بدلاً من 130 كم/س المقررة لباقي السائقين).</li>
-          <li><span>🔄</span> <strong>فخ متكرر جداً:</strong> يقول السؤال: يسمح للسائق الجديد بالقيادة حتى 110 كم/س في الأوتوستراد في الظروف المثالية ← <strong>FALSO</strong> (الحد الأقصى 100 كم/س فقط).</li>
+          <li><span>•</span> Il limite massimo di velocità per un'autovettura su una qualsiasi autostrada è di 150 km/h (خطأ FALSO)</li>
+          <li><span>•</span> Il limite massimo di velocità per un'autovettura su una strada extraurbana principale è di 90 km/h (خطأ FALSO)</li>
+          <li><span>•</span> Il limite massimo di velocità per un'autovettura su una strada extraurbana secondaria è di 70 km/h (خطأ FALSO)</li>
+          <li><span>•</span> Il limite massimo di velocità per un'autovettura nei centri abitati è sempre di 70 km/h (خطأ FALSO)</li>
         </ul>
       </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: لا يجوز القيادة بسرعة 130 كم/س في الطرق خارج المدن الرئيسية (حدها 110 كم/س فقط).
+      </div>
+    </div>
 
-      <div class="compare-card amber">
-        <div class="card-header-row">
-          <span class="card-ar-title">داخل المدن والثانوية</span>
-          <span class="card-it-title">Strade Urbane e Secondarie</span>
+    <!-- Card 2: neopatentati -->
+    <div class="signal-card" data-category="neopatentati">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(239,68,68,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(239,68,68,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">🔰</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#f87171; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(248,113,113,0.3);">100 km/h Autostrada | 90 km/h Extraurbana</span>
         </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">قيود السرعة الصارمة على السائقين الجدد (Neopatentati)</h3>
+        <span class="card-it-title">Limiti di velocità per i neopatentati (Primi 3 anni)</span>
+      </div>
+      <p class="card-desc-text">
+        يخضع الحاصلون حديثاً على رخصة القيادة من فئة B لقيود سرعة مشددة خلال السنوات الثلاث الأولى من تاريخ الحصول على الرخصة: 100 كم/س كحد أقصى في الأوتوستراد (بدلاً من 130)، و 90 كم/س في الطرق خارج المدن الرئيسية (بدلاً من 110).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
         <ul class="card-points-list">
-          <li><span>✅</span> <strong>نفس الحدود العامة:</strong> يلتزم السائق الجديد بنفس السرعات العادية: <strong>50 كم/س</strong> داخل المدن، و <strong>90 كم/س</strong> في الطرق الخارجية الثانوية.</li>
-          <li><span>⚠️</span> <strong>مضاعفة خصم النقاط:</strong> في حال ارتكاب مخالفة سرعة، تُضاعف نقاط الخصم للسائقين الجدد (Doppia decurtazione punti).</li>
+          <li><span>•</span> <strong>Il limite di velocità sulle autostrade per coloro che hanno conseguito la patente da meno di 3 anni è di 100 km/h</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">الحد الأقصى للسرعة على الطرق السريعة للذين حصلوا على الرخصة منذ أقل من 3 سنوات (السائقين الجدد) هو 100 كم/س.</span></li>
+          <li><span>•</span> <strong>Il limite di velocità sulle strade extraurbane principali per coloro che hanno conseguito la patente da meno di 3 anni è di 90 km/h</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">الحد الأقصى للسرعة على الطرق الخارجية الرئيسية للذين حصلوا على الرخصة منذ أقل من 3 سنوات هو 90 كم/س.</span></li>
+          <li><span>•</span> <strong>Viaggiare ad alta velocità incide sul consumo di carburante e sull'inquinamento ambientale</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">السفر والقيادة بسرعة عالية يؤثر ويزيد من استهلاك الوقود ومن التلوث البيئي.</span></li>
+          <li><span>•</span> <strong>Brusche variazioni di velocità comportano maggior consumo di carburante</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">التغيرات الحادة والمفاجئة في السرعة تسبب استهلاكاً أكبر للوقود.</span></li>
         </ul>
       </div>
-    </div>
-
-    <!-- ======================== SECTION 3 ======================== -->
-    <h2 class="section-title">🚜 ثالثاً: قيود السرعة حسب تصنيف المركبة (Limiti per Categoria di Veicolo)</h2>
-    <p style="color:var(--text-secondary); margin-bottom:16px;">لا تطبق حدود السرعة العامة على جميع المركبات بالتساوي؛ بل تخضع بعض الفئات لقيود فنية وصناعية ثابتة:</p>
-
-    <div class="table-wrap">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>فئة المركبة (Categoria Veicolo)</th>
-            <th>السرعة القصوى المسموحة</th>
-            <th>النطاق والموقع الجغرافي</th>
-            <th>الفخاخ الامتحانية والتحذيرات</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>الموتوسيكل الصغير والفيسبا</strong><br><span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#38bdf8;">Ciclomotori (2 o 3 ruote)</span></td>
-            <td><strong style="color:#f43f5e; font-size:1.1rem;">45 km/h</strong></td>
-            <td>في جميع الطرق المسموح له بها</td>
-            <td>حد تصنيعي مطلق (Costruzione). ممنوع منعاً باتاً من دخول الأوتوستراد والطرق الرئيسية.</td>
-          </tr>
-          <tr>
-            <td><strong>الرباعيات الخفيفة</strong><br><span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#38bdf8;">Quadricicli leggeri (Minicar)</span></td>
-            <td><strong style="color:#f43f5e; font-size:1.1rem;">45 km/h</strong></td>
-            <td>في جميع الطرق</td>
-            <td>تُعامل تماماً معاملة الموتوسيكل الصغير (Ciclomotori).</td>
-          </tr>
-          <tr>
-            <td><strong>الرباعيات غير الخفيفة (الكواد)</strong><br><span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#38bdf8;">Quadricicli non leggeri (Quad)</span></td>
-            <td><strong style="color:#10b981; font-size:1.1rem;">80 km/h</strong></td>
-            <td>خارج المناطق الحضرية (Fuori dei centri urbani)</td>
-            <td>⚠️ <strong>فخ كلاسيكي:</strong> يزعم أن حدها الأقصى 70 كم/س أو 90 كم/س ← <strong>FALSO</strong> (الحد القانوني المعتمد هو 80 كم/س).</td>
-          </tr>
-          <tr>
-            <td><strong>الآلات الزراعية والإنشائية (إطارات مطاطية)</strong><br><span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#38bdf8;">Macchine agricole/operatrici gommate</span></td>
-            <td><strong style="color:#f59e0b; font-size:1.1rem;">40 km/h</strong></td>
-            <td>على الطرق العامة المفتوحة</td>
-            <td>إذا كانت مزودة بإطارات هوائية مطاطية (Pneumatici).</td>
-          </tr>
-          <tr>
-            <td><strong>الآلات الزراعية والإنشائية (مجنزرة)</strong><br><span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#38bdf8;">Macchine agricole/operatrici a cingoli</span></td>
-            <td><strong style="color:#f43f5e; font-size:1.1rem;">15 km/h</strong></td>
-            <td>على الطرق العامة المفتوحة</td>
-            <td>نظراً لثقل الجنازير المعدنية وتأثيرها على الأسفلت (A cingoli = 15 km/h).</td>
-          </tr>
-          <tr>
-            <td><strong>السيارات الساحبة للمقطورات والكرفان</strong><br><span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:#38bdf8;">Autovettura con rimorchio / Caravan</span></td>
-            <td><strong style="color:#38bdf8; font-size:1.1rem;">70 / 80 km/h</strong></td>
-            <td>70 خارج المدن • 80 في الأوتوستراد</td>
-            <td>⚠️ فخ خطير: تنخفض سرعة السيارة بمجرد سحب مقطورة إلى 70 كم/س خارج المدن و 80 كم/س على الأوتوستراد.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- ======================== SECTION 4 ======================== -->
-    <h2 class="section-title">🛑 رابعاً: حالات تخفيض السرعة الإجبارية والإعاقة (Regolazione della Velocità)</h2>
-    <p style="color:var(--text-secondary); margin-bottom:16px;">لا تعني لوحة السرعة القصوى أنه يجب القيادة بها دائماً؛ بل يجب على السائق تكييف وضبط سرعته (Regolare la velocità) وفقاً لمقتضيات السلامة:</p>
-
-    <div class="comparison-grid">
-      <div class="compare-card rose">
-        <div class="card-header-row">
-          <span class="card-ar-title">مواضع التخفيض الإجباري للسرعة</span>
-          <span class="card-it-title">Casi di Forte Rallentamento</span>
-        </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
         <ul class="card-points-list">
-          <li><span>🌫️</span> <strong>ضعف الرؤية (Scarsa visibilità):</strong> عند وجود ضباب كثيف، أمطار غزيرة، غبار، أو في أوقات الليل.</li>
-          <li><span>🔄</span> <strong>المنعطفات والمنحدرات (Curve e discese):</strong> قبل الدخول في المنعطف، وفي المنحدرات الشديدة لتفادي إجهاد الفرامل.</li>
-          <li><span>🏫</span> <strong>أماكن المشاة والمدارس:</strong> قرب المدارس، أماكن تجمع الأطفال، مواقف الحافلات، ومعابر المشاة.</li>
-          <li><span>📐</span> <strong>التقاطعات والممرات الضيقة:</strong> عند الاقتراب من التقاطعات حتى لو كانت لك الأسبقية، وفي الأجزاء الضيقة من الطريق (Strettoie).</li>
-          <li><span>🛑</span> <strong>الانبهار بالضوء (Abbagliamento):</strong> إذا تعرضت لانبهار من أضواء سيارة قادمة بالاتجاه المعاكس، يجب التباطؤ تدريجياً حتى التوقف دون فرملة مفاجئة.</li>
+          <li><span>•</span> I tratti di strada in curva debbono essere percorsi con il pedale della frizione abbassato (خطأ FALSO)</li>
+          <li><span>•</span> Il limite di velocità sulle autostrade per coloro che hanno conseguito la patente da meno di tre anni è di 110 km/h (خطأ FALSO)</li>
+          <li><span>•</span> Il limite di velocità sulle strade extraurbane principali per coloro che hanno conseguito la patente da meno di 3 anni è di 110 km/h (خطأ FALSO)</li>
         </ul>
       </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> أشهر فخ في الوزارة: مدة قيود السرعة على السائق الجديد هي 3 سنوات كاملة وليس سنة واحدة (السنة الواحدة تخص نسبة القوة إلى الوزن kW/t فقط)!
+      </div>
+    </div>
 
-      <div class="compare-card amber">
-        <div class="card-header-row">
-          <span class="card-ar-title">جريمة الإعاقة المرورية</span>
-          <span class="card-it-title">Intralcio alla Circolazione</span>
+    <!-- Card 3: meteo_avverso -->
+    <div class="signal-card" data-category="sicurezza">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(239,68,68,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(239,68,68,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">🌧️</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#f87171; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(248,113,113,0.3);">110 km/h Autostrada | 90 km/h Extraurbana</span>
         </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">خفض حدود السرعة في الظروف الجوية السيئة والأمطار</h3>
+        <span class="card-it-title">Riduzione dei limiti di velocità in caso di precipitazioni atmosferiche</span>
+      </div>
+      <p class="card-desc-text">
+        عند هطول الأمطار أو الثلوج أو البرد، تنخفض الحدود القصوى العامة تلقائياً وإلزامياً: في الأوتوستراد تنخفض من 130 إلى 110 كم/س، وفي الطرق خارج المدن الرئيسية تنخفض من 110 إلى 90 كم/س لتفادي الانزلاق.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
         <ul class="card-points-list">
-          <li><span>🐢</span> <strong>حظر السرعة شديدة البطء:</strong> يُحظر تماماً السير ببطء مفرط بدون مبرر مقنع (Velocità eccessivamente ridotta).</li>
-          <li><span>💥</span> <strong>خطر الاصطدام الخلفي:</strong> السرعة البطيئة غير المبررة تشكل خطراً جسيماً وتسبب إعاقة لحركة السير (Intralcio) وتزيد من خطر حوادث الاصطدام الخلفي (Tamponamento).</li>
-          <li><span>⚠️</span> <strong>فخ كويز:</strong> السرعة البطيئة مسموحة دائماً لكونها تضمن الأمان ← <strong>FALSO</strong> (تسبب إعاقة وحوادث).</li>
+          <li><span>•</span> <strong>E' obbligatorio ridurre la velocità e all'occorrenza fermarsi quando riesce malagevole l'incrocio con altri veicoli</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">من الإلزامي تخفيض السرعة والتوقف عند الضرورة عندما يكون التقابل والتلاقي مع مركبات أخرى عسيراً أو صعباً.</span></li>
+          <li><span>•</span> <strong>E' obbligatorio ridurre la velocità e all'occorrenza fermarsi in prossimità degli attraversamenti pedonali</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">من الإلزامي تخفيض السرعة والتوقف عند الضرورة بالقرب من ممرات عبور المشاة.</span></li>
+          <li><span>•</span> <strong>E' obbligatorio ridurre la velocità e all'occorrenza fermarsi quando i pedoni, che sono sul percorso, tardano a scansarsi</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">من الإلزامي تخفيض السرعة والتوقف عند اللزوم عندما يتأخر المشاة الموجودون على مسار الطريق في إخلائه.</span></li>
+          <li><span>•</span> <strong>E' obbligatorio ridurre la velocità e all'occorrenza fermarsi quando i pedoni, che sono sul percorso, danno segni d'incertezza</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">من الإلزامي تخفيض السرعة والتوقف عند الضرورة عندما يُظهر المشاة علامات التردد والارتباك في مسارهم.</span></li>
         </ul>
       </div>
-    </div>
-
-    <!-- ======================== SECTION 5 ======================== -->
-    <h2 class="section-title">📖 خامساً: قاموس المصطلحات الفنية (إيطالي - عربي) — مستوى A2</h2>
-    <p style="color:var(--text-secondary); margin-bottom:16px;">أهم المفردات الوزارية التي تتكرر في بنك أسئلة الباب الحادي عشر:</p>
-
-    <div class="table-wrap">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>المصطلح بالإيطالية</th>
-            <th>الترجمة الدقيقة بالعربية</th>
-            <th>السياق الامتحاني والفخ الوزاري</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong style="font-family:'JetBrains Mono'; color:#38bdf8;">Limiti di velocità</strong></td>
-            <td>حدود السرعة القانونية</td>
-            <td>تنقسم إلى حدود عامة للطريق، وحدود خاصة بالمركبة، وحدود للسائق الجديد.</td>
-          </tr>
-          <tr>
-            <td><strong style="font-family:'JetBrains Mono'; color:#f43f5e;">Intralcio alla circolazione</strong></td>
-            <td>إعاقة / عرقلة حركة السير</td>
-            <td>تحدث عند القيادة بسرعة بطيئة مفرطة بدون سبب، وهي ممنوعة قانونياً.</td>
-          </tr>
-          <tr>
-            <td><strong style="font-family:'JetBrains Mono'; color:#10b981;">Neopatentati</strong></td>
-            <td>السائقون الجدد (أول 3 سنوات)</td>
-            <td>تطبق عليهم قيود: 100 كم/س في الأوتوستراد و 90 كم/س في الطرق الخارجية الرئيسية.</td>
-          </tr>
-          <tr>
-            <td><strong style="font-family:'JetBrains Mono'; color:#f59e0b;">In caso di pioggia</strong></td>
-            <td>في حالة هطول المطر</td>
-            <td>تخفض السرعة في الأوتوستراد إلى 110 كم/س وفي الرئيسي إلى 90 كم/س (الثانوي لا يتغير).</td>
-          </tr>
-          <tr>
-            <td><strong style="font-family:'JetBrains Mono'; color:#a855f7;">Regolare la velocità</strong></td>
-            <td>تعديل وضبط السرعة</td>
-            <td>تخفيض السرعة بما يتناسب مع حالة الطريق، الحمولة، الطقس، ومدى الرؤية.</td>
-          </tr>
-          <tr>
-            <td><strong style="font-family:'JetBrains Mono'; color:#38bdf8;">Quadricicli non leggeri</strong></td>
-            <td>الرباعيات غير الخفيفة (الكواد)</td>
-            <td>حدها الأقصى خارج المدن 80 كم/س (فخ: يكتب 70 كم/س).</td>
-          </tr>
-          <tr>
-            <td><strong style="font-family:'JetBrains Mono'; color:#10b981;">Macchine operatrici</strong></td>
-            <td>الآلات الإنشائية / العاملة</td>
-            <td>حدها 40 كم/س بالمطاط، و 15 كم/س إذا كانت مجنزرة (A cingoli).</td>
-          </tr>
-          <tr>
-            <td><strong style="font-family:'JetBrains Mono'; color:#f43f5e;">Spazio di visibilità</strong></td>
-            <td>مدى الرؤية المتاحة</td>
-            <td>يجب أن تكون السرعة مضبوطة بحيث تمكن من إيقاف المركبة ضمن مسافة الرؤية المتاحة.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- ======================== SECTION 6 ======================== -->
-    <h2 class="section-title">🎯 سادساً: بنك فخاخ الكويزات الوزارية (Trappole dei Quiz)</h2>
-    <p style="color:var(--text-secondary); margin-bottom:16px;">أشهر الفخاخ التي يسقط فيها الطلاب في امتحانات الباب الحادي عشر الرسمية:</p>
-
-    <div class="quiz-traps-grid">
-      <div class="trap-card falso">
-        <div>
-          <span class="trap-badge falso">FALSO ❌</span>
-          <div class="trap-title">الفخ 1: يزعم السؤال أن الحد الأقصى للسرعة للرباعيات غير الخفيفة (Quadricicli non leggeri) هو 70 كم/س خارج المدن.</div>
-        </div>
-        <div class="trap-reason">
-          <strong>التعليل الوزاري:</strong> FALSO ❌ — الحد القانوني المعتمد للرباعيات غير الخفيفة خارج المناطق الحضرية هو <strong>80 كم/س</strong>، ورقم 70 هو الفخ الشائع.
-        </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> E' obbligatorio ridurre la velocità e all'occorrenza fermarsi in corrispondenza dei passi carrabili (خطأ FALSO)</li>
+          <li><span>•</span> E' obbligatorio ridurre la velocità e all'occorrenza fermarsi in prossimità delle fermate degli autobus (خطأ FALSO)</li>
+          <li><span>•</span> E' obbligatorio ridurre la velocità e all'occorrenza fermarsi ogni volta che si percorre un cavalcavia (خطأ FALSO)</li>
+          <li><span>•</span> E' obbligatorio ridurre la velocità e all'occorrenza fermarsi in prossimità degli autovelox (خطأ FALSO)</li>
+        </ul>
       </div>
-
-      <div class="trap-card falso">
-        <div>
-          <span class="trap-badge falso">FALSO ❌</span>
-          <div class="trap-title">الفخ 2: يُسمح للسائق الجديد (Neopatentato) بالقيادة بسرعة 110 كم/س على الأوتوستراد في الأيام المشمسة والظروف الجيدة.</div>
-        </div>
-        <div class="trap-reason">
-          <strong>التعليل الوزاري:</strong> FALSO ❌ — الحد الأقصى المطلق للسائق الجديد في أول 3 سنوات على الأوتوستراد هو <strong>100 كم/س فقط</strong>، ولا يرتفع أبداً مهما كانت الظروف الجوية ممتازة.
-        </div>
-      </div>
-
-      <div class="trap-card falso">
-        <div>
-          <span class="trap-badge falso">FALSO ❌</span>
-          <div class="trap-title">الفخ 3: في حالة المطر، تنخفض السرعة القصوى في الطرق الخارجية الثانوية (Extraurbane secondarie) إلى 80 كم/س.</div>
-        </div>
-        <div class="trap-reason">
-          <strong>التعليل الوزاري:</strong> FALSO ❌ — التخفيض الإجباري بسبب المطر ينطبق فقط على <strong>الأوتوستراد (إلى 110)</strong> و <strong>الطرق الخارجية الرئيسية (إلى 90)</strong>. أما الثانوية فحدها 90 كم/س ولا يوجد نص بتخفيضها قانونياً لـ 80.
-        </div>
-      </div>
-
-      <div class="trap-card falso">
-        <div>
-          <span class="trap-badge falso">FALSO ❌</span>
-          <div class="trap-title">الفخ 4: السرعة البطيئة جداً (Velocità eccessivamente bassa) مسموحة دائماً في كل الحالات لكونها تضمن السلامة التامة.</div>
-        </div>
-        <div class="trap-reason">
-          <strong>التعليل الوزاري:</strong> FALSO ❌ — القيادة ببطء مفرط بدون مبرر مقنع تسبب إعاقة خطيرة لحركة المرور (Intralcio) وتزيد من خطر حوادث الاصطدام الخلفي المفاجئ.
-        </div>
-      </div>
-
-      <div class="trap-card falso">
-        <div>
-          <span class="trap-badge falso">FALSO ❌</span>
-          <div class="trap-title">الفخ 5: الحد الأقصى للسرعة داخل المناطق الحضرية (Centri urbani) هو 50 كم/س بشكل مطلق ولا يمكن رفعه أبداً.</div>
-        </div>
-        <div class="trap-reason">
-          <strong>التعليل الوزاري:</strong> FALSO ❌ — يمكن رفع الحد الأقصى داخل المدن إلى <strong>70 كم/س</strong> في الطرق الحضرية العريضة ذات المسارات المفصولة والمجهزة بإشارات تسمح بذلك.
-        </div>
-      </div>
-
-      <div class="trap-card falso">
-        <div>
-          <span class="trap-badge falso">FALSO ❌</span>
-          <div class="trap-title">الفخ 6: سيارة تسحب كرفان أو مقطورة يمكنها السير بسرعة 130 كم/س على الأوتوستراد ما دامت المقطورة خفيفة.</div>
-        </div>
-        <div class="trap-reason">
-          <strong>التعليل الوزاري:</strong> FALSO ❌ — أي سيارة تسحب مقطورة أو كرفان ينخفض حد سرعتها على الأوتوستراد إجبارياً إلى <strong>80 كم/س فقط</strong>، وإلى <strong>70 كم/س</strong> خارج المدن.
-        </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: الخفض إلزامي بمجرد هطول المطر حتى لو لم تكن هناك إشارة إلكترونية تخبرك بذلك.
       </div>
     </div>
 
-    <!-- Chapter Pagination -->
-    <nav class="chapter-pagination">
-      <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="pagination-btn prev-btn">
-        <span class="pagination-icon">→</span>
-        <div class="pagination-info">
-          <span class="pagination-label">الباب السابق</span>
-          <span class="pagination-title">الباب 10: اللوحات الإضافية</span>
+    <!-- Card 4: limiti_veicoli_speciali -->
+    <div class="signal-card" data-category="categorie">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(239,68,68,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(239,68,68,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">🚛</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#f87171; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(248,113,113,0.3);">80 km/h Autostrada | 70 km/h Extraurbana</span>
         </div>
-      </a>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">حدود السرعة الخاصة بالمركبات الثقيلة والمقطورات</h3>
+        <span class="card-it-title">Limiti particolari per categorie di veicoli (Rimorchi e pesanti)</span>
+      </div>
+      <p class="card-desc-text">
+        السيارات التي تسحب مقطورات (Rimorchi / Caravan / Roulotte) أو الشاحنات التي يزيد وزنها عن 3.5 طن: حدها الأقصى 80 كم/س في الأوتوستراد و 70 كم/س خارج المدن. السيكلوموتوري حده 45 كم/س، والآلات الزراعية 40 كم/س (15 كم/س إذا كانت بجنازير).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Sulle autostrade, il limite massimo di velocità è di 80 km/h per le autovetture che trainano un rimorchio per il trasporto di cavalli</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">على الطرق السريعة، الحد الأقصى للسرعة هو 80 كم/س للسيارات التي تجر مقطورة لنقل الخيول.</span></li>
+          <li><span>•</span> <strong>Il limite massimo di velocità sulle strade extraurbane secondarie è di 70 km/h per le autovetture che trainano un rimorchio per il trasporto di motocicli</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">الحد الأقصى للسرعة على الطرق الخارجية الثانوية هو 70 كم/س للسيارات التي تجر مقطورة لنقل الدراجات النارية.</span></li>
+          <li><span>•</span> <strong>Si deve, in particolare, regolare la velocità in presenza di lavori in corso</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">يجب، على وجه الخصوص، ضبط وتخفيض السرعة في وجود أعمال صيانة وطرق قيد التنفيذ.</span></li>
+          <li><span>•</span> <strong>Si deve, in particolare, regolare la velocità se si incontra sulla strada il segnale di veicolo fermo (triangolo mobile di pericolo)</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">يجب ضبط السرعة بشكل خاص في وجود حيوانات على الطريق أو على حوافه.</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Sulle autostrade a quattro corsie è consentito viaggiare fino a 170 km/h (خطأ FALSO)</li>
+          <li><span>•</span> Sulle autostrade è consentito superare, nelle ore notturne, la velocità di 130 km/h, purché si usino i proiettori a luce abbagliante (خطأ FALSO)</li>
+          <li><span>•</span> In autostrada, nella corsia riservata al sorpasso, non è consentito superare la velocità di 110 km/h (خطأ FALSO)</li>
+          <li><span>•</span> Nelle autostrade, il limite massimo di velocità è di 150 km/h nelle ore diurne e di 130 km/h in quelle notturne (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: السيارة التي تسحب كارفان تعامل معاملة مجمع المركبات وتسير بحد أقصى 80 كم/س في الأوتوستراد و 70 كم/س خارج المدن.
+      </div>
+    </div>
 
-      <a href="index.html" class="pagination-btn index-btn">
-        <span class="pagination-icon">🏛️</span>
-        <div class="pagination-info">
-          <span class="pagination-label">المكتبة الشاملة</span>
-          <span class="pagination-title">فهرس الأدلة المعتمدة</span>
+    <!-- Card 5: regolazione_velocita -->
+    <div class="signal-card" data-category="sicurezza">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(239,68,68,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(239,68,68,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">👁️</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#f87171; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(248,113,113,0.3);">Sicurezza & Campo di visibilità</span>
         </div>
-      </a>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الواجب القانوني لضبط السرعة وفق الظروف (Regolazione)</h3>
+        <span class="card-it-title">Obbligo generale di regolare la velocità (Art. 141 CdS)</span>
+      </div>
+      <p class="card-desc-text">
+        يجب على السائق ضبط سرعته باستمرار بما يتناسب مع: مدى الرؤية، حالة الطريق، حمولة السيارة وحالتها الميكانيكية، الكثافة المرورية، وحالة الطقس؛ بحيث يكون قادراً دائماً على إيقاف المركبة في حدود مجال الرؤية الآمن وتفادي أي عائق يمكن توقعه.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Il conducente deve regolare la velocità in relazione alle caratteristiche del veicolo</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">يجب على السائق ضبط وتكييف السرعة بما يتناسب مع خصائص ومواصفات المركبة (مثل نوعها، أبعادها، وقوة كبحها).</span></li>
+          <li><span>•</span> <strong>Il conducente deve regolare la velocità in relazione allo stato del veicolo</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">يجب على السائق ضبط السرعة بما يتناسب مع الحالة الفنية والميكانيكية للمركبة (مثل كفاءة الفرامل وتآكل الإطارات).</span></li>
+          <li><span>•</span> <strong>Il conducente deve regolare la velocità in relazione al carico del veicolo</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">يجب على السائق ضبط السرعة بما يتناسب مع حمولة المركبة ووزنها.</span></li>
+          <li><span>•</span> <strong>Il conducente deve regolare la velocità in relazione alle caratteristiche della strada</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">يجب على السائق ضبط السرعة بما يتناسب مع خصائص الطريق (كالعرض، الاستقامة، المنعطفات والمنحدرات).</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Il conducente deve regolare la velocità tenendo conto esclusivamente dei limiti massimi (خطأ FALSO)</li>
+          <li><span>•</span> Il conducente deve regolare la velocità in relazione alla propria abilità alla guida (خطأ FALSO)</li>
+          <li><span>•</span> Il conducente deve regolare la velocità in relazione alla marca dei pneumatici (خطأ FALSO)</li>
+          <li><span>•</span> Il conducente deve regolare la velocità in relazione alla distanza del luogo da raggiungere (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: لا يكفي الالتزام بالحد الأقصى المكتوب في اللوحة، بل يجب تخفيض السرعة دون هذا الحد إذا كانت ظروف الطريق أو الرؤية تقتضي ذلك.
+      </div>
+    </div>
 
-      <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="pagination-btn next-btn">
-        <div class="pagination-info">
-          <span class="pagination-label">الباب التالي</span>
-          <span class="pagination-title">الباب 12: مسافة الأمان ⏭️</span>
+    <!-- Card 6: moderazione_punti_critici -->
+    <div class="signal-card" data-category="sicurezza">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(239,68,68,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(239,68,68,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">⚠️</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#f87171; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(248,113,113,0.3);">Curve, Incroci, Scuole, Discese</span>
         </div>
-        <span class="pagination-icon">←</span>
-      </a>
-    </nav>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">المواضع الحرجة الإلزامية لتهدئة وإبطاء السرعة</h3>
+        <span class="card-it-title">Tratti di strada ove è obbligatorio moderare la velocità</span>
+      </div>
+      <p class="card-desc-text">
+        يلزم القانون بالتهدئة الشديدة للسرعة والتأهب للتوقف عند: المنحنيات، التقاطعات والميادين، قرب المدارس وأماكن وجود الأطفال، معابر المشاة، الطرق الضيقة أو المزدحمة، المنحدرات الشديدة، ليلاً عند انبهار البصر، وعند وجود حيوانات على الطريق.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>La velocità deve essere particolarmente moderata in prossimità di un incrocio</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">يجب تهدئة السرعة وتخفيضها بشكل خاص عند الاقتراب من أي تقاطع.</span></li>
+          <li><span>•</span> <strong>La velocità deve essere particolarmente moderata nelle strettoie</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">يجب تهدئة السرعة وتخفيضها بشكل خاص في المضائق ومقاطع الطريق الضيقة.</span></li>
+          <li><span>•</span> <strong>La velocità deve essere particolarmente moderata quando risulta difficoltoso l'incrocio con altri veicoli</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">يجب تهدئة السرعة وتخفيضها بشكل خاص عندما يصبح التقابل والتلاقي مع مركبات أخرى صعباً.</span></li>
+          <li><span>•</span> <strong>La velocità deve essere particolarmente moderata nei tratti di strada in cui manca la visibilità (curve, dossi)</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">يجب تهدئة السرعة بشكل خاص في مقاطع الطريق التي تنعدم أو تقل فيها الرؤية (كالمنعطفات وقمم المرتفعات).</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> La velocità deve essere particolarmente moderata subito dopo il tramonto del sole (خطأ FALSO)</li>
+          <li><span>•</span> La velocità deve essere particolarmente moderata subito dopo un incrocio (خطأ FALSO)</li>
+          <li><span>•</span> Si deve regolare la velocità in base alla fretta del conducente (خطأ FALSO)</li>
+          <li><span>•</span> Si deve tenere una velocità adeguata solo alle nostre condizioni di salute (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: يلزم تخفيض السرعة الشديد حتى التوقف عند رؤية طفل بمفرده أو شخص تبدو عليه علامات التردد في عبور الشارع.
+      </div>
+    </div>
 
-  </article>
+    <!-- Card 7: intralcio_velocita_ridotta -->
+    <div class="signal-card" data-category="sicurezza">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(239,68,68,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(239,68,68,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">🐢</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#f87171; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(248,113,113,0.3);">No Intralcio ingiustificato</span>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">حظر السرعة البطيئة غير المبررة وعرقلة السير</h3>
+        <span class="card-it-title">Divieto di velocità eccessivamente ridotta e intralcio alla circolazione</span>
+      </div>
+      <p class="card-desc-text">
+        يحظر كود السير القيادة بسرعة مفرطة في البطء دون سبب وجيه أو مشروع، لأن ذلك يتسبب في عرقلة حركة المرور الطبيعية (Intralcio) واستفزاز السائقين الآخرين للقيام بتجاوزات خطرة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: السرعة البطيئة جداً بدون مبرر تعتبر مخالفة مرورية وتعيق انسيابية حركة السير.
+      </div>
+    </div>
+
+    <!-- Card 8: spazio_visibilita_arresto -->
+    <div class="signal-card" data-category="sicurezza">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(239,68,68,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(239,68,68,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">🎯</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#f87171; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(248,113,113,0.3);">Spazio di arresto < Spazio visibile</span>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">التوقف التام في حدود مجال الرؤية الصالح</h3>
+        <span class="card-it-title">Arresto del veicolo entro i limiti del campo di visibilità</span>
+      </div>
+      <p class="card-desc-text">
+        المبدأ الذهبي للسلامة: يجب أن تكون مسافة التوقف الكلية للسيارة أقصر دائماً من المسافة المرئية الخالية أمام السائق؛ ففي الضباب الكثيف (رؤية 30 متراً) يجب القيادة بسرعة تسمح بالتوقف قبل 30 متراً.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>In caso di arresto forzato di un veicolo sui binari di un passaggio a livello, bisogna spostarlo, spingendolo quanto prima fuori dai binari</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">في حالة التوقف الاضطراري للمركبة على قضبان مزلقان القطار، يجب إبعادها بدفعها بأسرع ما يمكن خارج القضبان.</span></li>
+          <li><span>•</span> <strong>In caso di arresto forzato di un veicolo sui binari di un passaggio a livello, se non è possibile spostarlo subito dai binari, bisogna far scendere immediatamente tutte le persone che si trovano a bordo, e avvisare la stazione ferroviaria</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">في حالة التوقف الاضطراري على القضبان، إذا تعذر إبعاد المركبة فوراً، يجب إنزال جميع الركاب فوراً وإخطار محطة القطار.</span></li>
+          <li><span>•</span> <strong>In caso di arresto forzato del veicolo sui binari ferroviari di un passaggio a livello, bisogna fare in modo che i conducenti dei veicoli su rotaie siano avvisati in tempo utile del pericolo</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">في حالة التوقف الاضطراري على قضبان القطار، يجب العمل على تنبيه وإشعار سائقي القطارات بالخطر في الوقت المناسب.</span></li>
+          <li><span>•</span> <strong>Se si percorre una lunga discesa con il cambio in folle e a motore spento, diventa difficoltoso muovere lo sterzo se il veicolo è dotato di servosterzo</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">في المنحدرات الشديدة والطويلة، يجب استخدام فرامل المحرك مع تعشيق غيار منخفض لتفادي سخونة الفرامل.</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Se si percorre una lunga discesa con il cambio in folle e a motore spento, si ha un sovraccarico di corrente elettrica (خطأ FALSO)</li>
+          <li><span>•</span> Se si percorre una lunga discesa con il cambio in folle e a motore spento, si può avere un'anomalia al differenziale (خطأ FALSO)</li>
+          <li><span>•</span> Per una maggiore sicurezza, è conveniente percorrere le lunghe discese con il cambio in folle e a motore spento, risparmiando così anche carburante (خطأ FALSO)</li>
+          <li><span>•</span> Se si percorre una lunga discesa con il cambio in folle e a motore spento, conviene estrarre la chiave di accensione del veicolo (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: القيادة بسرعة 50 كم/س في ضباب لا تتجاوز رؤيته 15 متراً تعتبر مخالفة جسيمة لعدم القدرة على التوقف في حدود الرؤية.
+      </div>
+    </div>
+
+    <!-- Card 9: contrassegni_velocita -->
+    <div class="signal-card" data-category="categorie">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(239,68,68,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(239,68,68,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">⭕</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#f87171; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(248,113,113,0.3);">Dischi posteriori (Art. 142)</span>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">أقراص وعلامات السرعة القصوى خلف المركبات</h3>
+        <span class="card-it-title">Contrassegni di velocità sulla parte posteriore dei veicoli</span>
+      </div>
+      <p class="card-desc-text">
+        أقراص دائرية بيضاء بإطار أحمر تثبت في الجزء الخلفي من فئات معينة من المركبات (الشاحنات الثقيلة والمقطورات): القرص الأيسر يحدد السرعة القصوى خارج المدن (مثلاً 70 أو 80)، والقرص الأيمن يحدد السرعة في الأوتوستراد (مثلاً 80 أو 100).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>I contrassegni rappresentati in figura sono applicati sulla parte posteriore di alcune categorie di veicoli</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">الملصقات والعلامات الموضحة في الشكل توضع وتلصق على الجزء الخلفي لبعض فئات المركبات.</span></li>
+          <li><span>•</span> <strong>I contrassegni rappresentati in figura indicano le velocità massime consentite al veicolo sul quale sono applicati</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">العلامات الموضحة في الشكل تشير إلى السرعات القصوى المسموحة للمركبة التي وُضعت عليها.</span></li>
+          <li><span>•</span> <strong>I contrassegni rappresentati in figura sono applicati ad alcuni autobus</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">الملصقات والعلامات الموضحة في الشكل توضع وتطبق على بعض فئات الحافلات (الأوتوبيسات).</span></li>
+          <li><span>•</span> <strong>La velocità deve essere diminuita in caso di traffico misto (presenza di veicoli lenti e veloci o di animali e pedoni che occupano la strada)</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">يجب تخفيض السرعة في حالة حركة المرور المختلطة (وجود مركبات بطيئة وسريعة أو حيوانات ومشاة يشغلون الطريق).</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> I contrassegni rappresentati in figura sono applicati su autocarri di massa complessiva fino a 3,5 tonnellate (خطأ FALSO)</li>
+          <li><span>•</span> I contrassegni rappresentati in figura sono applicati su autocaravan di massa totale fino a 3,5 tonnellate (خطأ FALSO)</li>
+          <li><span>•</span> I contrassegni rappresentati in figura sono applicati sui motocicli di cilindrata superiore a 150 cm3 (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: لا توضع هذه الأقراص على سيارات الركوب العادية (Autovetture) ولا على الدراجات النارية.
+      </div>
+    </div>
+
+    <!-- Card 10: passaggi_a_livello -->
+    <div class="signal-card" data-category="passaggi_livello">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(239,68,68,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(239,68,68,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">🚂</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#f87171; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(248,113,113,0.3);">Passaggi a livello (Pl)</span>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">قواعد السلوك والسرعة عند مزلقانات السكك الحديدية</h3>
+        <span class="card-it-title">Comportamento in prossimità e attraversamento di passaggi a livello</span>
+      </div>
+      <p class="card-desc-text">
+        عند الاقتراب من مزلقان القطار (Passaggio a livello): يجب تخفيض السرعة للتأكد من حالة المزلقان، ويحظر قطعياً العبور إذا بدأت الحواجز بالهبوط أو أضاءت الأضواء الحمراء أو انطلقت الصفارة الصوتية؛ وإذا تعطلت المركبة فوق القضبان يجب إخلاء الركاب فوراً وبذل كل الجهد لتحذير سائق القطار ودفع السيارة خارج القضبان.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Nel caso in cui, a un passaggio a livello, ci si trova ancora sui binari col proprio veicolo quando le barriere cominciano a chiudersi, occorre mantenere la calma e sgomberare in qualunque modo la sede ferroviaria</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">في حالة التواجد على قضبان مزلقان القطار لحظة بدء إغلاق الحواجز، يجب التزام الهدوء وإخلاء السكة الحديدية بأي طريقة كانت.</span></li>
+          <li><span>•</span> <strong>Nel caso in cui, a un passaggio a livello, ci si trova ancora sui binari col proprio veicolo quando le barriere cominciano a chiudersi, occorre sgomberare in qualunque modo la sede ferroviaria, se necessario anche sfondando le barriere</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">إذا تواجدت بالمركبة على قضبان المزلقان عند بدء إغلاق الحواجز، يجب إخلاء خط السكة بأي طريقة، وإذا لزم الأمر حتى باقتحام وكسر الحواجز.</span></li>
+          <li><span>•</span> <strong>Nel caso in cui, per un guasto al veicolo, si rimane bloccati sulla sede ferroviaria di un passaggio a livello, occorre adoperarsi per rimuovere il veicolo al più presto, ad esempio facendosi trainare da altri utenti</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">في حالة التعطل على قضبان مزلقان القطار، يجب العمل على إزالة المركبة بأسرع ما يمكن، كأن نطلب قطرها وجرها من مستخدمين آخرين.</span></li>
+          <li><span>•</span> <strong>Nel caso in cui, per un guasto alla propria autovettura, si rimane bloccati sulla sede ferroviaria di un passaggio a livello, occorre adoperarsi per rimuovere il veicolo al più presto, ad esempio facendosi aiutare da altri utenti a spingere il veicolo fuori dalla linea ferroviaria</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">في حالة تعطل سيارتنا على قضبان مزلقان القطار، يجب العمل على إزالتها بأسرع وقت، كطلب مساعدة الآخرين لدفعها خارج خط السكة.</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Nel caso in cui, a un passaggio a livello, ci si trova ancora sui binari col proprio veicolo quando le barriere cominciano a chiudersi, occorre scendere e abbandonare rapidamente il veicolo per mettersi in salvo (خطأ FALSO)</li>
+          <li><span>•</span> Nel caso in cui, a un passaggio a livello, ci si trova ancora sui binari col proprio veicolo quando le barriere cominciano a chiudersi, se si sta trainando un rimorchio occorre sganciarlo rapidamente e abbandonarlo sui binari per salvare almeno la motrice (خطأ FALSO)</li>
+          <li><span>•</span> Nel caso in cui, per un guasto al veicolo, si rimane bloccati sulla sede ferroviaria di un passaggio a livello, occorre scaricare rapidamente il veicolo per salvare almeno il carico (خطأ FALSO)</li>
+          <li><span>•</span> Nel caso in cui, per un guasto alla propria autovettura, si rimane bloccati sulla sede ferroviaria di un passaggio a livello, occorre svuotare rapidamente il serbatoio per evitare incendi in caso di collisione col treno (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: يحظر تماماً التجاوز قرب أو فوق المزلقان غير المزود بحواجز، ويحظر الوقوف أو التوقف أو الرجوع للخلف فوق القضبان.
+      </div>
+    </div>
+
+    <!-- Card 11: abbagliamento_notturno -->
+    <div class="signal-card" data-category="sicurezza">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(239,68,68,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(239,68,68,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">💡</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#f87171; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(248,113,113,0.3);">Abbagliamento e cecità temporanea</span>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">التهدئة الفورية عند انبهار البصر بالأضواء ليلاً</h3>
+        <span class="card-it-title">Comportamento in caso di abbagliamento notturno da veicoli incrocianti</span>
+      </div>
+      <p class="card-desc-text">
+        عند انبهار عين السائق بالأضواء العالية (Abbaglianti) لمركبة قادمة في الاتجاه المقابل: يجب تجنب التحديق المباشر في مصدر الضوء وتوجيه النظر نحو الخط الأبيض لحافة الطريق اليمنى، مع التهدئة الفورية والتدرج في التوقف دون استخدام الفرملة العنيفة المفاجئة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: لا يجوز الرد بإشعال الأضواء العالية عمداً في وجه السائق الآخر لأن ذلك يضاعف خطر الحادث للطرفين!
+      </div>
+    </div>
+
+    <!-- Card 12: macchine_parcheggiate -->
+    <div class="signal-card" data-category="sicurezza">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(239,68,68,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(239,68,68,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">🚪</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#f87171; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(248,113,113,0.3);">Portiere & Pedoni nascosti</span>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الحذر من السيارات المتوقفة وفتح الأبواب الفجائي</h3>
+        <span class="card-it-title">Attenzione ai veicoli parcheggiati e apertura improvvisa portiere</span>
+      </div>
+      <p class="card-desc-text">
+        عند السير بجوار سيارات متوقفة أو مركونة: يجب ترك مسافة جانبية آمنة لا تقل عن متر واحد، والتهدئة تحسباً لفتح مفاجئ للأبواب أو خروج مباغت لأحد المشاة أو الأطفال من بين السيارات.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>Passare molto vicino ad un'auto parcheggiata, a bordo della quale si trovano ancora persone, può essere pericoloso, per la possibile apertura imprudente delle portiere</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">المرور بمحاذاة سيارة مركونة على مقربة شديدة وبداخلها أشخاص قد يكون خطيراً لاحتمال فتح الأبواب برعونة وعدم انتباه.</span></li>
+          <li><span>•</span> <strong>Può essere pericoloso circolare troppo vicino alle auto parcheggiate, perché potrebbero impedire la vista di un disabile in carrozzella o di un pedone che spinge un passeggino per bambini, che sono in procinto di attraversare</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">قد يكون السير بالقرب الشديد من السيارات المركونة خطيراً لأنها قد تحجب رؤية شخص معاق على كرسي متحرك أو أحد المشاة يدفع عربة أطفال على وشك العبور.</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> Passare molto vicino ad un'auto parcheggiata, a bordo della quale si trovano ancora persone, non rappresenta un grave pericolo se avviene a bassa velocità (خطأ FALSO)</li>
+          <li><span>•</span> Passare molto vicino ad un'auto parcheggiata, a bordo della quale si trovano ancora persone, è pericoloso solo se una delle portiere risulta già aperta (خطأ FALSO)</li>
+          <li><span>•</span> Passare molto vicino ad un'auto parcheggiata, a bordo della quale si trovano ancora persone, è pericoloso solo se il conducente ed alcuni passeggeri sono già scesi (خطأ FALSO)</li>
+          <li><span>•</span> Passare molto vicino ad un'auto parcheggiata, a bordo della quale si trovano ancora persone, può essere pericoloso, solo se si viaggia ad alta velocità (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: السائق الذي يفتح باب سيارته أو يسمح للركاب بالنزول دون التأكد من خلو المسار يتحمل المسؤولية الكاملة عن أي اصطدام.
+      </div>
+    </div>
+
+    <!-- Card 13: pallone_carreggiata -->
+    <div class="signal-card" data-category="sicurezza">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(239,68,68,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(239,68,68,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">⚽</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#f87171; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(248,113,113,0.3);">Pallone = Bambino in arrivo</span>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">فخ الكرة المتدحرجة في نهر الطريق</h3>
+        <span class="card-it-title">Pallone che rotola sulla carreggiata e pericolo bambini</span>
+      </div>
+      <p class="card-desc-text">
+        رؤية كرة تتدحرج عبر نهر الطريق تعني حتمياً وبنسبة 99% وجود طفل يركض خلفها لجمعها دون اكتراث بالمرور؛ يفرض القانون التوقف الفوري أو التهدئة القصوى حتى لو لم يكن الطفل مرئياً لحظة تدحرج الكرة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> <strong>In un centro abitato, se si vede un pallone rotolare sulla carreggiata, bisogna diminuire subito la velocità</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">داخل المناطق السكنية، إذا رأينا كرة تتدحرج على نهر الطريق، يجب تخفيض السرعة على الفور.</span></li>
+          <li><span>•</span> <strong>In un centro abitato, se si vede un pallone rotolare sulla carreggiata, bisogna rallentare per potersi fermare, se necessario</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">داخل المناطق السكنية، إذا رأينا كرة تتدحرج على نهر الطريق، يجب التباطؤ لنتمكن من التوقف التام إذا لزم الأمر.</span></li>
+          <li><span>•</span> <strong>In un centro abitato, se si vede un pallone rotolare sulla carreggiata, bisogna prevedere anche il possibile attraversamento della strada da parte di un bambino</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">داخل المناطق السكنية، إذا رأينا كرة تتدحرج على نهر الطريق، يجب توقع احتمالية عبور طفل للطريق أيضاً.</span></li>
+          <li><span>•</span> <strong>In un centro abitato, se si vede un pallone rotolare sulla carreggiata, bisogna rallentare progressivamente, per evitare di essere tamponati dal veicolo che segue</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">داخل المناطق السكنية، إذا رأينا كرة تتدحرج على نهر الطريق، يجب التباطؤ بشكل تدريجي لتفادي صدمنا من المركبة التي في الخلف.</span></li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+          <li><span>•</span> In un centro abitato, se si vede un pallone rotolare sulla carreggiata, bisogna sterzare bruscamente (خطأ FALSO)</li>
+          <li><span>•</span> In una strada a doppio senso di circolazione, se si vede un pallone rotolare sulla carreggiata, bisogna scansarlo, anche invadendo la corsia opposta (خطأ FALSO)</li>
+          <li><span>•</span> In un centro abitato, se si vede un pallone rotolare sulla carreggiata, non occorre rallentare, per evitare di essere tamponati dal veicolo che segue (خطأ FALSO)</li>
+          <li><span>•</span> In un centro abitato, se si vede un pallone rotolare sulla carreggiata, bisogna azionare immediatamente la segnalazione luminosa di pericolo (خطأ FALSO)</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> أشهر فخ سلوكي: لا يكفي إطلاق آلة التنبيه (الكلاكس) ومواصلة السير، بل يجب التهدئة الشديدة والاستعداد للتوقف التام.
+      </div>
+    </div>
+
+    <!-- Card 14: autostrada_terza_corsia -->
+    <div class="signal-card" data-category="limiti_generali">
+      <div class="signal-img-container">
+        <div class="badge-visual-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:160px; background:radial-gradient(circle, rgba(239,68,68,0.18) 0%, rgba(15,23,42,0.95) 75%); border-radius:12px; border:1px solid rgba(239,68,68,0.25);">
+          <span style="font-size:3.2rem; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">🛣️</span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:0.85rem; font-weight:700; color:#f87171; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:6px; margin-top:6px; border:1px solid rgba(248,113,113,0.3);">150 km/h Condizioni eccezionali</span>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">السرعة في المسار الثالث بالأوتوستراد (150 km/h الاستثنائية)</h3>
+        <span class="card-it-title">Possibile elevazione a 150 km/h in autostrada a tre corsie</span>
+      </div>
+      <p class="card-desc-text">
+        يجوز للشركات المالكة للأوتوستراد رفع الحد الأقصى إلى 150 كم/س في مقاطع محددة بشروط صارمة مجتمعة: طريق بـ 3 مسارات على الأقل في كل اتجاه، وجود جهاز كاشف السرعة الآلي (Tutor)، وسجل حوادث منخفض، ومناخ صحو.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <ul class="card-points-list">
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <ul class="card-points-list">
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الامتحان: السرعة 150 ليست قاعدة عامة في الأوتوستراد ذي الثلاث حارات، بل هي استثناء نادر لا يسري إلا بوجود لوحة صريحة تعلنه.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- INTERACTIVE GLOSSARY -->
+
+  <section class="glossary-section" id="glossary-section">
+    <div class="section-heading">
+      <h2 class="section-title">📖 قاموس المصطلحات والمفاهيم الإيطالية المعتمدة للباب 11 (16 مصطلحاً)</h2>
+    </div>
+    <div class="glossary-grid">
+      <div class="glossary-card">
+        <div class="glossary-term-it">Limite di Velocità</div>
+        <div class="glossary-term-ar">حد السرعة الأقصى</div>
+        <div class="glossary-def">السرعة القصوى المسموح بها قانوناً في مقطع معين من الطريق.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Neopatentato</div>
+        <div class="glossary-term-ar">السائق الجديد</div>
+        <div class="glossary-def">السائق في السنوات الـ 3 الأولى من حصوله على الرخصة (يخضع لحد 100 أوتوستراد و 90 رئيسي).</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Spazio di Visibilità</div>
+        <div class="glossary-term-ar">مسافة الرؤية</div>
+        <div class="glossary-def">المسافة الصالحة الممتدة أمام السائق الخالية من العوائق والتي يجب أن يتوقف قبل نهايتها.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Intralcio alla Circolazione</div>
+        <div class="glossary-term-ar">عرقلة حركة السير</div>
+        <div class="glossary-def">القيادة ببطء مفرط دون مبرر مما يعطل الحركة ويزيد مخاطر الحوادث.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Strade Extraurbane Principali</div>
+        <div class="glossary-term-ar">الطرق خارج المدن الرئيسية</div>
+        <div class="glossary-def">طرق سريعة مفصولة بحاجز أوسط وحدها العام 110 كم/س (90 في المطر).</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Strade Extraurbane Secondarie</div>
+        <div class="glossary-term-ar">الطرق خارج المدن الثانوية</div>
+        <div class="glossary-def">طرق ذات مسار واحد في كل اتجاه وحدها الأقصى العام 90 كم/س.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Autostrada</div>
+        <div class="glossary-term-ar">الأوتوستراد (طريق السيار)</div>
+        <div class="glossary-def">طريق سريع مغلق وحدها العام 130 كم/س (110 في المطر و 100 للسائقين الجدد).</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Contrassegni di Velocità</div>
+        <div class="glossary-term-ar">أقراص السرعة الخلفية</div>
+        <div class="glossary-def">شواخص دائرية تثبت خلف الشاحنات والمقطورات لتحديد سرعاتها القصوى.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Passaggio a Livello</div>
+        <div class="glossary-term-ar">مزلقان السكة الحديدية</div>
+        <div class="glossary-def">تقاطع سطحي على نفس المستوى بين الطريق العام وخطوط السكك الحديدية.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Precipitazioni Atmosferiche</div>
+        <div class="glossary-term-ar">التقلبات الجوية والأمطار</div>
+        <div class="glossary-def">هطول المطر أو الثلج الذي يفرض خفض السرعة فوراً بمقدار 20 كم/س على الأقل.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Abbagliamento</div>
+        <div class="glossary-term-ar">انبهار البصر بالضوء</div>
+        <div class="glossary-def">فقدان مؤقت للرؤية نتيجة الأضواء العالية للمركبات المقابلة يفرض التهدئة والتوقف.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Tutor / Safety Tutor</div>
+        <div class="glossary-term-ar">نظام توتور للسرعة</div>
+        <div class="glossary-def">رادار يقيس متوسط السرعة بين نقطتين في الأوتوستراد وليس السرعة اللحظية فقط.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Arresto del Veicolo</div>
+        <div class="glossary-term-ar">التوقف التام للمركبة</div>
+        <div class="glossary-def">سكون المركبة الكامل عند وجود خطر مفاجئ أو إشارة توقف.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Zona a Traffico Limitato (ZTL)</div>
+        <div class="glossary-term-ar">منطقة المرور المحدود</div>
+        <div class="glossary-def">مناطق داخل المدن تمنع دخول السيارات غير المصرح لها في ساعات محددة.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Zona 30</div>
+        <div class="glossary-term-ar">منطقة الـ 30 كم/س</div>
+        <div class="glossary-def">أحياء سكنية محددة بحد أقصى 30 كم/س لحماية المشاة والأطفال وراكبي الدراجات.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="glossary-term-it">Cerniera</div>
+        <div class="glossary-term-ar">قاعدة السوستة (الاندماج بالتناوب)</div>
+        <div class="glossary-def">الاندماج التبادلي بين مسارين عند تضييق الطريق لتفادي الاختناقات.</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- MINISTERIAL TRAPS -->
+
+  <section class="traps-section">
+    <div class="section-heading">
+      <h2 class="section-title">⚠️ بنك الفخاخ الوزارية الـ 12 المعتمدة للباب 11 (Ministerial Traps)</h2>
+    </div>
+    <div class="traps-grid">
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #1</span>
+          <span class="trap-verdict">خطأ جسيم ومضحك (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Il limite massimo di velocità sulle autostrade è di 130 km/h per tutti i veicoli, compresi i ciclomotori."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> السيكلوموتوري (Ciclomotori) محظور دخولها للأوتوستراد أصلاً، وحد سرعتها الأقصى القانوني هو 45 كم/س فقط!
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #2</span>
+          <span class="trap-verdict">فخ كلاسيكي (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Un neopatentato di patente B può circolare a 130 km/h in autostrada se il veicolo è dotato di ABS."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> الحد الأقصى للسائق الجديد في أول 3 سنوات هو 100 كم/س في الأوتوستراد مهما كانت تجهيزات وأنظمة الأمان في السيارة.
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #3</span>
+          <span class="trap-verdict">صحيح قطعي (VERO)</span>
+        </div>
+        <div class="trap-q-it">"In caso di pioggia, il limite di velocità sulle autostrade scende automaticamente a 110 km/h."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> قاعدة وزارية صارمة: في الأوتوستراد تنخفض السرعة من 130 إلى 110 كم/س فور هطول الأمطار، وفي الطرق الرئيسية من 110 إلى 90 كم/س.
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #4</span>
+          <span class="trap-verdict">خطأ بالأرقام (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Sulle strade extraurbane secondarie il limite massimo generale di velocità per le autovetture è di 110 km/h."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> الحد الأقصى في الطرق خارج المدن الثانوية (Secondarie) هو 90 كم/س فقط. الحد 110 كم/س مخصص للطرق الرئيسية (Principali).
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #5</span>
+          <span class="trap-verdict">خطأ شنيع (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"In prossimità delle scuole è sufficiente suonare il clacson per non ridurre la velocità."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> استخدام آلة التنبيه محظور في المدن إلا للضرورة القصوى، وقرب المدارس يجب تخفيض السرعة والاستعداد للتوقف التام.
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #6</span>
+          <span class="trap-verdict">صحيح قطعي (VERO)</span>
+        </div>
+        <div class="trap-q-it">"Il conducente deve regolare la velocità in modo da non costituire pericolo per la sicurezza delle persone."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> نص المادة 141 من كود السير الإيطالي: ضبط السرعة واجب مستمر لتفادي أي خطر على الأشخاص والممتلكات.
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #7</span>
+          <span class="trap-verdict">محظور قانوناً (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"È consentito viaggiare a velocità talmente ridotta da costituire intralcio o pericolo per il normale flusso del traffico."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> البطء المفرط غير المبرر محظور قانوناً ويعتبر مخالفة مرورية لعرقلته حركة السير وتسببه في حوادث التجاوز الخاطئ.
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #8</span>
+          <span class="trap-verdict">فخ خطير (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Se un veicolo incrociante aziona i fari abbaglianti, il conducente deve a sua volta accendere gli abbaglianti per farsi vedere."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> لا يجوز الرد بالمثل لأن ذلك يعمي السائقين معاً! الواجب هو النظر لخط الحافة الأيمن والتهدئة الفورية.
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #9</span>
+          <span class="trap-verdict">خطأ كارثي (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Un'autovettura che traina una roulotte può viaggiare a 130 km/h in autostrada."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> السيارة بسحب كارفان تصبح مجمع مركبات (Complesso di veicoli) وحدها الأقصى هو 80 كم/س في الأوتوستراد و 70 كم/س خارج المدن.
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #10</span>
+          <span class="trap-verdict">جريمة وفخ قاتل (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Nei passaggi a livello con semibarriere, si può passare a zig-zag tra le semibarriere abbassate se il treno non si vede."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> المرور المتعرج بين الحواجز النصفية الهابطة جريمة ومخاطرة قاتلة وممنوع قطعياً تحت طائلة سحب الرخصة الفوري.
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #11</span>
+          <span class="trap-verdict">صحيح قطعي (VERO)</span>
+        </div>
+        <div class="trap-q-it">"La velocità deve essere particolarmente moderata nei tratti di strada fiancheggiati da edifici."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> وجود المباني على جانبي الطريق يعني احتمال خروج مفاجئ للمشاة والأطفال والسيارات من الأبواب والجراجات.
+        </div>
+      </div>
+      <div class="trap-card">
+        <div class="trap-card-header">
+          <span class="trap-num">فخ وزاري #12</span>
+          <span class="trap-verdict">فخ تعميم (FALSO)</span>
+        </div>
+        <div class="trap-q-it">"Sulle autostrade a tre corsie, il limite massimo di velocità è sempre e ovunque di 150 km/h."</div>
+        <div class="trap-reason">
+          <strong>التعليل القانوني المعتمد:</strong> السرعة 150 كم/س ليست قاعدة تلقائية، بل استثناء نادر جداً يتطلب وجود لوحة صريحة وكاميرات تاليتور وتاريخ حوادث منخفض.
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SERIAL CHAPTER PAGINATION -->
+  <nav class="chapter-pagination">
+    <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="pagination-btn prev-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">→</span>
+      <div class="pagination-info">
+        <span class="pagination-label">الباب السابق</span>
+        <span class="pagination-title">الباب 10: اللوحات الإضافية الملحقة بالإشارات</span>
+      </div>
+    </a>
+
+    <a href="index.html" class="pagination-btn index-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">🏛️</span>
+      <div class="pagination-info">
+        <span class="pagination-label">الرجوع للمكتبة</span>
+        <span class="pagination-title">فهرس الأبواب الشاملة</span>
+      </div>
+    </a>
+
+    <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="pagination-btn next-btn" onclick="soundEngine.click()">
+      <div class="pagination-info">
+        <span class="pagination-label">الباب التالي</span>
+        <span class="pagination-title">الباب 12: مسافة الأمان والعوامل المؤثرة</span>
+      </div>
+      <span class="pagination-icon">←</span>
+    </a>
+  </nav>
+
 </main>
 
 <script>
-  // Unified Sound Engine (Web Audio API Synthesizer)
+  // Unified Web Audio API Sound Engine
   const soundEngine = window.soundEngine || {
     ctx: null,
     enabled: true,
@@ -1129,8 +1912,8 @@
         const osc = this.ctx.createOscillator();
         const gain = this.ctx.createGain();
         osc.type = 'sine';
-        osc.frequency.setValueAtTime(520, this.ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.04);
+        osc.frequency.setValueAtTime(540, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(180, this.ctx.currentTime + 0.04);
         gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
         gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
         osc.connect(gain);
@@ -1141,17 +1924,152 @@
     }
   };
 
-  // Toggle Audio Sound
-  window.toggleAudio = function() {
+  function toggleAudio() {
     soundEngine.enabled = !soundEngine.enabled;
     const icons = document.querySelectorAll('.audio-icon-span');
     const labels = document.querySelectorAll('.audio-label-span');
     icons.forEach(el => el.textContent = soundEngine.enabled ? '🔊' : '🔇');
     labels.forEach(el => el.textContent = soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم');
     if (soundEngine.enabled) soundEngine.click();
-  };
+  }
 
-  // Desktop Chapters Dropdown Toggle & Outside Click
+  // Simulator 1 Logic: Road Types
+  function simulateRoad(type) {
+    const btnA = document.getElementById('btnRoadAutostrada');
+    const btnP = document.getElementById('btnRoadPrincipale');
+    const btnS = document.getElementById('btnRoadSecondaria');
+    const btnU = document.getElementById('btnRoadUrbana');
+    const imgWrapper = document.getElementById('simRoadImgWrapper');
+    const badge = document.getElementById('simRoadBadge');
+    const text = document.getElementById('simRoadText');
+
+    btnA.classList.remove('active');
+    btnP.classList.remove('active');
+    btnS.classList.remove('active');
+    btnU.classList.remove('active');
+
+    if (type === 'autostrada') {
+      btnA.classList.add('active');
+      imgWrapper.innerHTML = '🛣️';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      badge.textContent = 'الأوتوستراد: 130 كم/س (تنخفض لـ 110 كم/س في المطر)';
+      text.innerHTML = '<strong>الوضع القانوني:</strong> الحد الأقصى لسيارات الركوب العادية في الظروف العادية هو <strong>130 كم/س</strong>. عند هطول الأمطار أو الثلوج ينخفض فورياً إلى <strong>110 كم/س</strong>. أما السائقون الجدد فحدهم الأقصى هو <strong>100 كم/س</strong>.';
+    } else if (type === 'principale') {
+      btnP.classList.add('active');
+      imgWrapper.innerHTML = '🛣️';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      badge.textContent = 'خارج المدن رئيسي: 110 كم/س (تنخفض لـ 90 كم/س في المطر)';
+      text.innerHTML = '<strong>الوضع القانوني:</strong> الطرق خارج المدن الرئيسية (Extraurbane Principali - ذات نهرين مفصولين) حدها العام <strong>110 كم/س</strong> في الجو الصحو، و <strong>90 كم/س</strong> في المطر أو للسائقين الجدد.';
+    } else if (type === 'secondaria') {
+      btnS.classList.add('active');
+      imgWrapper.innerHTML = '🚗';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'خارج المدن ثانوي: 90 كم/س ثابتاً';
+      text.innerHTML = '<strong>الوضع القانوني:</strong> الطرق خارج المدن الثانوية (Extraurbane Secondarie - بنهر طريق مشترك) حدها الأقصى لسيارات الركوب هو <strong>90 كم/س</strong> ولا يتغير في المطر.';
+    } else {
+      btnU.classList.add('active');
+      imgWrapper.innerHTML = '🏙️';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'داخل المدن والمناطق العمرانية: 50 كم/س';
+      text.innerHTML = '<strong>الوضع القانوني:</strong> الحد العام داخل المراكز العمرانية هو <strong>50 كم/س</strong>، ويمكن رفعه بحد أقصى إلى 70 كم/س في الشوارع الحضرية السريعة المجهزة بموجب لوحات صريحة.';
+    }
+    soundEngine.click();
+  }
+
+  // Simulator 2 Logic: Driver Types
+  function simulateDriver(type) {
+    const btnN = document.getElementById('btnSimNeo');
+    const btnE = document.getElementById('btnSimEsperto');
+    const imgWrapper = document.getElementById('simDriverImgWrapper');
+    const badge = document.getElementById('simDriverBadge');
+    const text = document.getElementById('simDriverText');
+
+    btnN.classList.remove('active');
+    btnE.classList.remove('active');
+
+    if (type === 'neo') {
+      btnN.classList.add('active');
+      imgWrapper.innerHTML = '🔰';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'السائق الجديد: 100 أوتوستراد | 90 رئيسي خارج المدن';
+      text.innerHTML = '<strong>القيود التشريعية الصارمة:</strong> خلال أول 3 سنوات من تاريخ الحصول على الرخصة، يُحظر على السائق الجديد تجاوز سرعة 100 كم/س في الأوتوستراد و 90 كم/س في الطرق خارج المدن الرئيسية، مع مضاعفة خصم النقاط.';
+    } else {
+      btnE.classList.add('active');
+      imgWrapper.innerHTML = '🏎️';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      badge.textContent = 'السائق المتمرس: 130 أوتوستراد | 110 رئيسي خارج المدن';
+      text.innerHTML = '<strong>الوضع بعد مرور 3 سنوات:</strong> يتمتع السائق بالحدود القصوى العامة لكود السير الإيطالي (130 أوتوستراد و 110 رئيسي)، وتخصم منه النقاط بالقيمة الفردية العادية.';
+    }
+    soundEngine.click();
+  }
+
+  // Simulator 3 Logic: Special Vehicles
+  function simulateSpecial(type) {
+    const btnR = document.getElementById('btnSimRimorchio');
+    const btnC = document.getElementById('btnSimCiclomotore');
+    const btnA = document.getElementById('btnSimAgricola');
+    const btnQ = document.getElementById('btnSimQuad');
+    const imgWrapper = document.getElementById('simSpecialImgWrapper');
+    const badge = document.getElementById('simSpecialBadge');
+    const text = document.getElementById('simSpecialText');
+
+    btnR.classList.remove('active');
+    btnC.classList.remove('active');
+    btnA.classList.remove('active');
+    btnQ.classList.remove('active');
+
+    if (type === 'rimorchio') {
+      btnR.classList.add('active');
+      imgWrapper.innerHTML = '🚙⛺';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'مقطورة وكارفان: 80 أوتوستراد | 70 خارج المدن';
+      text.innerHTML = '<strong>الحكم القانوني:</strong> السيارة التي تجر مقطورة أو كارفان (Roulotte) تصبح مجمع مركبات؛ سرعتها القصوى مقيدة بـ 80 كم/س في الأوتوستراد و 70 كم/س في الطرق خارج المدن.';
+    } else if (type === 'ciclomotore') {
+      btnC.classList.add('active');
+      imgWrapper.innerHTML = '🛵';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      badge.textContent = 'سيكلوموتوري: 45 كم/س كحد أقصى قطعي في كل مكان';
+      text.innerHTML = '<strong>الحكم القانوني:</strong> محركات حتى 50cc محددة بالبناء الفني بحد أقصى 45 كم/س، ومحظور عليها قطعياً دخول الأوتوستراد والطرق السريعة الرئيسية.';
+    } else if (type === 'agricola') {
+      btnA.classList.add('active');
+      imgWrapper.innerHTML = '🚜';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'آلة زراعية: 40 كم/س (مطاط) | 15 كم/س (جنازير)';
+      text.innerHTML = '<strong>الحكم القانوني:</strong> الآلات الزراعية تسير بحد أقصى 40 كم/س إذا كانت بإطارات مطاطية، وتنخفض إلى 15 كم/س فقط إذا كانت مزودة بجنازير معدنية (Cingoli).';
+    } else {
+      btnQ.classList.add('active');
+      imgWrapper.innerHTML = '🏍️🛞';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      badge.textContent = 'كواد غير خفيف: 80 كم/س خارج المدن | محظور بالأوتوستراد';
+      text.innerHTML = '<strong>الحكم القانوني:</strong> الدراجات الرباعية غير الخفيفة (Quadricicli non leggeri) حدها 80 كم/س خارج المدن، ويحظر عليها السير في الأوتوستراد.';
+    }
+    soundEngine.click();
+  }
+
+  // Filter Pills Logic
+  function filterCards(category, btn) {
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    soundEngine.click();
+
+    const cards = document.querySelectorAll('.signal-card');
+    cards.forEach(card => {
+      if (category === 'all') {
+        card.style.display = 'flex';
+      } else if (card.getAttribute('data-category') === category) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (category === 'glossary') {
+      const el = document.getElementById('glossary-section');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // Desktop Dropdown
   function toggleNavDropdown(e) {
     if (e) e.stopPropagation();
     const menu = document.getElementById('navDropdownMenu');
@@ -1165,7 +2083,7 @@
     }
   });
 
-  // Mobile Navigation Drawer Controller (Apple HIG Compliant)
+  // Mobile Drawer Navigation (Apple HIG)
   function toggleMobileNav() {
     const btn = document.getElementById('nav-hamburger-btn');
     const panel = document.getElementById('mobile-drawer-panel');
@@ -1181,7 +2099,7 @@
     } else {
       closeMobileNav();
     }
-    if (soundEngine.click) soundEngine.click();
+    soundEngine.click();
   }
 
   function closeMobileNav() {
@@ -1199,6 +2117,7 @@
 
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeMobileNav();
+    if (e.key === 'm' || e.key === 'M') toggleAudio();
   });
 </script>
 
