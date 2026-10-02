@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>دليل وقاموس الباب 08: إشارات الإرشاد والمعلومات | رخصة القيادة الإيطالية Patente B Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-base: #09090b;
+    --bg-surface: rgba(24, 24, 27, 0.75);
+    --bg-surface-elevated: rgba(39, 39, 42, 0.85);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(255, 255, 255, 0.16);
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --emerald-primary: #10b981;
+    --rose-primary: #f43f5e;
+    --amber-primary: #f59e0b;
+    --sky-primary: #38bdf8;
+    --indigo-primary: #818cf8;
+    --cyan-primary: #06b6d4;
+    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    --nav-base-height: 54px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image: 
+      radial-gradient(ellipse at 50% -10%, rgba(56, 189, 248, 0.08), transparent 60%),
+      radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.04), transparent 40%);
+  }
+  body.nav-scroll-lock {
+    overflow: hidden !important;
+    touch-action: none !important;
+    -webkit-overflow-scrolling: auto !important;
+  }
+
+  /* Portal Navigation Header (Apple HIG Compliant & Mobile Frozen 54px) */
+  .unified-portal-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
+    max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
+    background: rgba(9, 9, 11, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    padding-top: env(safe-area-inset-top, 0px);
+    box-sizing: border-box;
+    transition: background 0.25s var(--ease-spring), border-color 0.25s;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .nav-brand .badge-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    padding: 2px 7px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #a1a1aa;
+  }
+
+  /* Desktop Tabs */
+  .nav-desktop-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 auto;
+  }
+  .nav-tab-desktop {
+    text-decoration: none;
+    color: #a1a1aa;
+    padding: 7px 13px;
+    border-radius: 9px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .nav-tab-desktop:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  .nav-tab-desktop.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), 0 2px 8px rgba(0,0,0,0.4);
+  }
+
+  /* Desktop Actions */
+  .nav-desktop-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .nav-audio-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #a1a1aa;
+    border-radius: 8px;
+    padding: 6px 11px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+  .nav-audio-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Chapters Dropdown */
+  .nav-dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  .nav-dropdown-btn {
+    height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: #e4e4e7;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+  .nav-dropdown-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.22);
+    color: #fff;
+  }
+  .nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 290px;
+    max-height: 480px;
+    overflow-y: auto;
+    background: rgba(18, 18, 22, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    display: none;
+    z-index: 1001;
+    padding: 6px;
+  }
+  .nav-dropdown-menu.active { display: block; }
+  .nav-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #a1a1aa;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: all 0.12s;
+  }
+  .nav-dropdown-item:hover, .nav-dropdown-item.active {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+  }
+  .nav-dropdown-item.active {
+    color: #38bdf8;
+    font-weight: 700;
+  }
+
+  /* Hamburger Button */
+  .nav-hamburger-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    margin-right: -8px;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+  }
+  .nav-hamburger-box {
+    width: 20px;
+    height: 14px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .nav-hamburger-line {
+    width: 100%;
+    height: 2px;
+    background-color: #f4f4f5;
+    border-radius: 2px;
+    transition: transform 0.28s var(--ease-spring), opacity 0.2s ease, background-color 0.2s;
+  }
+  .nav-hamburger-btn.is-active .line-top {
+    transform: translateY(6px) rotate(45deg);
+    background-color: #38bdf8;
+  }
+  .nav-hamburger-btn.is-active .line-mid {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .nav-hamburger-btn.is-active .line-bot {
+    transform: translateY(-6px) rotate(-45deg);
+    background-color: #38bdf8;
+  }
+
+  /* Mobile Drawer Overlay */
+  .mobile-drawer-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s var(--ease-spring);
+  }
+  .mobile-drawer-overlay.is-active {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .mobile-drawer-panel {
+    display: none;
+    position: fixed;
+    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
+    left: 0; right: 0;
+    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
+    background: rgba(15, 15, 18, 0.94);
+    backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    z-index: 999;
+    padding: 16px 20px 24px;
+    overflow-y: auto;
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.32s var(--ease-spring), opacity 0.22s ease;
+  }
+  .mobile-drawer-panel.is-active {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .mobile-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+  }
+  .mobile-nav-link {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: #f4f4f5;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+  .mobile-nav-link.active {
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.28);
+    color: #38bdf8;
+  }
+  .mobile-drawer-footer {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .mobile-control-btn {
+    min-height: 48px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #f4f4f5;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  @media (max-width: 860px) {
+    .nav-desktop-tabs { display: none !important; }
+    .nav-desktop-actions .nav-dropdown-wrapper { display: none !important; }
+    .nav-hamburger-btn { display: flex !important; }
+  }
+
+  /* Main Container */
+  .guide-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+  }
+
+  /* Hero Banner */
+  .hero-banner {
+    background: linear-gradient(180deg, rgba(24, 24, 27, 0.8) 0%, rgba(15, 15, 18, 0.6) 100%);
+    border: 1px solid var(--border-highlight);
+    border-radius: 24px;
+    padding: 36px 30px;
+    margin-bottom: 36px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+  .hero-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .badge-sky {
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: #7dd3fc;
+  }
+  .badge-emerald {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #6ee7b7;
+  }
+  .badge-amber {
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    color: #fcd34d;
+  }
+  .hero-title {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 8px;
+    color: #fff;
+  }
+  .hero-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    direction: ltr;
+    text-align: right;
+  }
+  .hero-desc {
+    color: #d4d4d8;
+    font-size: 0.96rem;
+    line-height: 1.7;
+    max-width: 900px;
+  }
+
+  /* Section Styling */
+  .content-section {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(12px);
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 14px;
+  }
+  .section-icon {
+    font-size: 1.6rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-highlight);
+    border-radius: 12px;
+  }
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  /* Grid Layouts */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  /* Comparison & Info Cards */
+  .feature-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 22px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .feature-card:hover {
+    border-color: rgba(255, 255, 255, 0.16);
+    transform: translateY(-2px);
+  }
+  .feature-card.highlight-sky {
+    border-color: rgba(56, 189, 248, 0.3);
+    background: rgba(56, 189, 248, 0.03);
+  }
+  .feature-card.highlight-emerald {
+    border-color: rgba(16, 185, 129, 0.3);
+    background: rgba(16, 185, 129, 0.03);
+  }
+  .feature-card.highlight-amber {
+    border-color: rgba(245, 158, 11, 0.3);
+    background: rgba(245, 158, 11, 0.03);
+  }
+
+  /* Vertical Comparison Header (Standardized) */
+  .comparison-header-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 14px;
+  }
+  .header-ar-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #f4f4f5;
+  }
+  .header-it-subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #38bdf8;
+    letter-spacing: -0.01em;
+  }
+
+  /* Bulletproof Typography List Rule (Prevents Arabic splitting) */
+  .card-points-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card-points-list li {
+    position: relative;
+    padding-right: 28px;
+    line-height: 1.7;
+    display: block;
+    text-align: right;
+    font-size: 0.92rem;
+    color: #d4d4d8;
+  }
+  .card-points-list li .point-icon {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    font-size: 1.05rem;
+  }
+  .card-points-list li strong {
+    color: #fff;
+  }
+
+  /* Sign Image Box */
+  .sign-img-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    margin-bottom: 14px;
+    min-height: 120px;
+  }
+  .sign-img-wrapper img {
+    max-width: 100%;
+    max-height: 110px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+  }
+
+  /* Color Codes Matrix Table */
+  .color-matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 14px;
+  }
+  .color-matrix-table th, .color-matrix-table td {
+    padding: 12px 14px;
+    text-align: right;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.9rem;
+  }
+  .color-matrix-table th {
+    background: rgba(255, 255, 255, 0.04);
+    color: #fff;
+    font-weight: 700;
+  }
+  .color-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.8rem;
+  }
+  .pill-green { background: #15803d; color: #fff; }
+  .pill-blue { background: #1d4ed8; color: #fff; }
+  .pill-white { background: #f4f4f5; color: #18181b; }
+  .pill-yellow { background: #eab308; color: #18181b; }
+  .pill-brown { background: #78350f; color: #fff; }
+  .pill-black { background: #27272a; color: #fbbf24; border: 1px solid #fbbf24; }
+
+  /* Dictionary Table */
+  .dict-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  .dict-table th, .dict-table td {
+    padding: 12px 14px;
+    text-align: right;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.9rem;
+  }
+  .dict-table th {
+    background: rgba(255, 255, 255, 0.04);
+    color: #fff;
+  }
+  .dict-it-term {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: #38bdf8;
+    direction: ltr;
+    display: inline-block;
+  }
+
+  /* Interactive Quiz Cards */
+  .quiz-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .quiz-q-it {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.94rem;
+    color: #f4f4f5;
+    margin-bottom: 8px;
+    direction: ltr;
+    text-align: left;
+    line-height: 1.5;
+  }
+  .quiz-q-ar {
+    font-size: 0.92rem;
+    color: #a1a1aa;
+    margin-bottom: 14px;
+    line-height: 1.6;
+  }
+  .quiz-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .quiz-btn {
+    flex: 1;
+    min-height: 44px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+    font-size: 0.92rem;
+  }
+  .quiz-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  .quiz-feedback {
+    display: none;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-top: 10px;
+  }
+  .quiz-feedback.is-correct {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #a7f3d0;
+  }
+  .quiz-feedback.is-wrong {
+    background: rgba(244, 63, 94, 0.15);
+    border: 1px solid rgba(244, 63, 94, 0.3);
+    color: #fda4af;
+  }
+
+  /* Chapter Pagination */
+  .chapter-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 40px 0 20px;
+    padding: 16px 20px;
+    background: rgba(24, 24, 27, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    flex-wrap: wrap;
+  }
+  .pagination-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #f4f4f5;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: all 0.2s var(--ease-spring);
+  }
+  .pagination-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.16);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+  .pagination-btn.index-btn {
+    background: rgba(56, 189, 248, 0.08);
+    border-color: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+  }
+  .pagination-info {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+  .pagination-label {
+    font-size: 0.75rem;
+    color: #a1a1aa;
+    text-transform: uppercase;
+  }
+  .pagination-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<!-- Unified Navigation Bar (54px Mobile Freeze & Apple HIG Hamburger) -->
+<nav class="unified-portal-nav" aria-label="شريط التنقل الرئيسي">
+  <a href="index.html" class="nav-brand" onclick="soundEngine.click()">
+    <span>🇮🇹 Patente B Pro</span>
+    <span class="badge-tag">Capitolo 08</span>
+  </a>
+
+  <!-- Desktop Tabs -->
+  <div class="nav-desktop-tabs">
+    <a href="index.html" class="nav-tab-desktop">
+      <span>🏛️</span>
+      <span>المكتبة الشاملة</span>
+    </a>
+    <a href="../Simulatore_Esame.html" class="nav-tab-desktop">
+      <span>⏱️</span>
+      <span>محاكي الامتحان (20 دقيقة)</span>
+    </a>
+    <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">
+      <span>📚</span>
+      <span>مذاكرة الأبواب المقسمة</span>
+    </a>
+  </div>
+
+  <!-- Desktop Actions (Dropdown + Audio) -->
+  <div class="nav-desktop-actions">
+    <div class="nav-dropdown-wrapper">
+      <button class="nav-dropdown-btn" onclick="toggleNavDropdown(event)">
+        <span>📖 تصفح الأدلة (1-25)</span>
+        <span>▾</span>
+      </button>
+      <div class="nav-dropdown-menu" id="navDropdownMenu">
+        <a href="../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة للطريق</span></a>
+        <a href="../Capitoli_Divisi/Capitolo_02_segnali_pericolo/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
+        <a href="../Capitoli_Divisi/Capitolo_03_segnali_divieto/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
+        <a href="../Capitoli_Divisi/Capitolo_04_segnali_obbligo/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
+        <a href="../Capitoli_Divisi/Capitolo_05_segnali_precedenza/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
+        <a href="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأرضية والعوائق</span></a>
+        <a href="../Capitoli_Divisi/Capitolo_07_semafori_vigili/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
+        <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
+        <a href="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: إشارات الورش والتحويلات</span></a>
+        <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
+        <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة ومخاطرها</span></a>
+        <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
+        <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
+        <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
+        <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
+        <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
+        <a href="دليل_الأبواب_11_إلى_15_قواعد_السير_والسرعة_ومسافة_الأمان.html" class="nav-dropdown-item"><span>📖</span> <span>دليل الأبواب 11-15 الشامل</span></a>
+        <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
+        <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء والتابلوه</span></a>
+        <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 19: الأحزمة والخوذة</span></a>
+        <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 20: الرخص والنقاط</span></a>
+        <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: الحوادث والطقس</span></a>
+        <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 22: الكحول والإسعافات</span></a>
+        <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 23: التأمين RCA</span></a>
+        <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 24: البيئة والوقود</span></a>
+        <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 25: الميكانيكا والصيانة</span></a>
+      </div>
+    </div>
+
+    <button class="nav-audio-btn" onclick="toggleAudio()" title="تشغيل/كتم المؤثرات الصوتية">
+      <span class="audio-icon-span">🔊</span>
+      <span class="audio-label-span">الصوت نشط</span>
+    </button>
+  </div>
+
+  <!-- Mobile Hamburger (Apple HIG 3-line) -->
+  <button class="nav-hamburger-btn" id="nav-hamburger-btn" onclick="toggleMobileNav()" aria-label="فتح القائمة">
+    <div class="nav-hamburger-box">
+      <span class="nav-hamburger-line line-top"></span>
+      <span class="nav-hamburger-line line-mid"></span>
+      <span class="nav-hamburger-line line-bot"></span>
+    </div>
+  </button>
+</nav>
+
+<!-- Backdrop Blur Drawer (< 768px) -->
+<div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
+<div class="mobile-drawer-panel" id="mobile-drawer-panel">
+  <div class="mobile-nav-list">
+    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">🏛️</span>
+      <span>المكتبة الشاملة المعتمدة</span>
+    </a>
+    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">⏱️</span>
+      <span>محاكي الامتحان الوزاري</span>
+    </a>
+    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📚</span>
+      <span>مذاكرة الأبواب المقسمة (1-25)</span>
+    </a>
+    <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="mobile-nav-link active" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 08 (الإشارات الإرشادية)</span>
+    </a>
+    <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 10 (اللوحات الإضافية)</span>
+    </a>
+    <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>دليل الباب 11 (حدود السرعة ومخاطرها)</span>
+    </a>
+  </div>
+  <div class="mobile-drawer-footer">
+    <button class="mobile-control-btn" onclick="toggleAudio()">
+      <span class="audio-icon-span">🔊</span>
+      <span class="audio-label-span">الصوت نشط</span>
+    </button>
+    <div class="mobile-control-btn" style="cursor: default; opacity: 0.85;">
+      <span>🇮🇹 Patente B Pro</span>
+    </div>
+  </div>
+</div>
+
+<!-- Main Content Area -->
+<main class="guide-container">
+
+  <!-- HERO BANNER -->
+  <header class="hero-banner">
+    <div class="hero-badges">
+      <span class="hero-badge badge-sky">CAPITOLO 08</span>
+      <span class="hero-badge badge-emerald">SEGNALI DI INDICAZIONE</span>
+      <span class="hero-badge badge-amber">250 - 300 سؤال وزاري</span>
+    </div>
+    <h1 class="hero-title">دليل وقاموس الباب الثامن: إشارات الإرشاد والمعلومات</h1>
+    <div class="hero-subtitle">Segnali di Indicazione: Colori, Centri Abitati, Servizi e Corsie</div>
+    <p class="hero-desc">
+      المرجع الشامل والمعتمد لشرح كافة إشارات الإرشاد والمعلومات في قانون المرور الإيطالي: فك شفرة الألوان الستة الحاكمة، قواعد دخول ومغادرة التجمعات السكنية (Centro Abitato)، إشارات اختيار وتوزيع الحارات، دلالات أرقام الطرق، إشارات الخدمات، مواقف السيارات، وساعة الوقوف (Disco Orario).
+    </p>
+  </header>
+
+  <!-- SECTION 1: PANORAMICA E STATISTICHE -->
+  <section class="content-section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <h2 class="section-title">1. نظرة عامة وإحصائيات الباب الوزارية (Panoramica e Statistiche)</h2>
+    </div>
+    <div class="grid-3">
+      <div class="feature-card highlight-sky">
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">إجمالي الأسئلة في بنك الوزارة</span>
+          <span class="header-it-subtitle">Listato Ufficiale Ministeriale</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">🔢</span> يضم بنك الأسئلة المعتمد ما بين <strong>250 إلى 300 سؤالاً</strong> يغطي جميع أنواع اللوحات الإرشادية.</li>
+          <li><span class="point-icon">⚖️</span> تركز الأسئلة على الآثار القانونية المترتبة على اللوحة (السرعة، أولوية المرور، الحظر، وطبيعة الطريق).</li>
+        </ul>
+      </div>
+
+      <div class="feature-card highlight-amber">
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">نسبة التكرار والتشابه</span>
+          <span class="header-it-subtitle">Ripetizioni e Trabocchetti (~35%)</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">🔁</span> تصل نسبة التكرار إلى نحو <strong>35%</strong> حيث تتكرر القواعد الأساسية بصيغ لغوية متباينة لاختبار دقة التركيز.</li>
+          <li><span class="point-icon">⚠️</span> الفخ الأبرز يكمن في الخلط بين دلالات الألوان (أخضر، أزرق، أبيض) والخلط بين بداية المدينة ونهايتها.</li>
+        </ul>
+      </div>
+
+      <div class="feature-card highlight-emerald">
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">مستوى اللغة ومنهجية الدراسة</span>
+          <span class="header-it-subtitle">Livello Linguistico A2 - B1</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">🎯</span> صُمم هذا الدليل بلغة عربية تقنية واضحة تناسب الدارسين من مستويات A2 في الإيطالية.</li>
+          <li><span class="point-icon">💡</span> القاعدة الذهبية: الإشارة الإرشادية ترشد وتقدم معلومات، لكنها قد تفرض قيوداً قانونية فورية ومباشرة!</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: COLOR CODES MATRIX -->
+  <section class="content-section">
+    <div class="section-header">
+      <span class="section-icon">🎨</span>
+      <h2 class="section-title">2. مصفوفة دلالات الألوان في الإشارات الإرشادية (Color Codes Matrix)</h2>
+    </div>
+    <p style="color: #a1a1aa; font-size: 0.94rem; margin-bottom: 16px;">
+      الألوان في إشارات الإرشاد الإيطالية ليست للزينة، بل هي رموز قانونية تحدد تصنيف الطريق وحد السرعة الواجب احترامه فور رؤيتها:
+    </p>
+
+    <div style="overflow-x: auto;">
+      <table class="color-matrix-table">
+        <thead>
+          <tr>
+            <th>اللون وخلفية الإشارة</th>
+            <th>نوع الطريق / الوجهة (Significato)</th>
+            <th>حد السرعة العام الافتراضي</th>
+            <th>ملاحظات وقواعد الامتحان الوزاري</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="color-pill pill-green">🟢 أخضر (Verde)</span></td>
+            <td><strong>طريق سريع (Autostrada)</strong> أو الاتجاه المؤدي إليه</td>
+            <td>130 كم/س (110 كم/س عند المطر)</td>
+            <td>توضع أيضاً داخل المدن لتوجيه السائقين نحو بوابات الأوتوستراد (Casello).</td>
+          </tr>
+          <tr>
+            <td><span class="color-pill pill-blue">🔵 أزرق (Blu)</span></td>
+            <td><strong>طرق خارج المدن (Strade Extraurbane)</strong></td>
+            <td>90 كم/س (ثانوي) أو 110 كم/س (رئيسي)</td>
+            <td>تستخدم لكافة وجهات السفر بين المدن والقرى على شبكة الطرق الإقليمية والقومية.</td>
+          </tr>
+          <tr>
+            <td><span class="color-pill pill-white">⚪ أبيض (Bianco)</span></td>
+            <td><strong>شوارع داخل المدن (Strade Urbane) ومرافق محلية</strong></td>
+            <td>50 كم/س (أو 70 كم/س إذا رُفع بلوحة)</td>
+            <td>تستخدم لأسماء المدن، الشوارع الحضرية، المراكز الإدارية، المقابر، والمستشفيات.</td>
+          </tr>
+          <tr>
+            <td><span class="color-pill pill-yellow">🟡 أصفر (Giallo)</span></td>
+            <td><strong>ورش عمل وأشغال وتحويلات مؤقتة (Cantiere / Deviazione)</strong></td>
+            <td>حسب ما تحدده لوحة المنع المرافقة</td>
+            <td>تلغي مؤقتاً الإشارات الدائمة وتسبق مناطق التحويلات وأعمال الصيانة الحية.</td>
+          </tr>
+          <tr>
+            <td><span class="color-pill pill-brown">🟤 بني (Marrone)</span></td>
+            <td><strong>معالم سياحية، تاريخية، ثقافية، وجغرافية (Località turistiche)</strong></td>
+            <td>حسب الطريق المقام عليه الإشارة</td>
+            <td>تشير للمنتزهات القومية، المتاحف، الآثار، الفنادق الجبلية، والتخييم.</td>
+          </tr>
+          <tr>
+            <td><span class="color-pill pill-black">⚫ أسود / رمادي</span></td>
+            <td><strong>مناطق صناعية وحرفية وتجارية (Zone industriali / commerciali)</strong></td>
+            <td>حسب اللوائح المحلية</td>
+            <td>تحدد مناطق المعارض، الموانئ، المستودعات، والمجمعات الحرفية.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SECTION 3: INIZIO E FINE CENTRO ABITATO SIMULATOR -->
+  <section class="content-section">
+    <div class="section-header">
+      <span class="section-icon">🏙️</span>
+      <h2 class="section-title">3. محاكي بداية ونهاية التجمعات السكنية (Inizio e Fine Centro Abitato)</h2>
+    </div>
+
+    <div class="grid-2">
+      <!-- Card: Inizio Centro Abitato -->
+      <div class="feature-card highlight-sky">
+        <div class="sign-img-wrapper">
+          <img src="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/immagini/207.png" alt="Inizio Centro Abitato (Figura 207)" onerror="this.onerror=null; this.src='https://placehold.co/180x60/ffffff/000000?text=VERONA';">
+        </div>
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">بداية التجمع السكني (المدينة)</span>
+          <span class="header-it-subtitle">Inizio Centro Abitato (Figura 207)</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">⚡</span> <strong>حد السرعة القانوني:</strong> يصبح تلقائياً <strong>50 كم/س</strong> لجميع المركبات، إلا إذا وُضعت لوحة ترفعها لـ 70 كم/س في شوارع معينة.</li>
+          <li><span class="point-icon">🔇</span> <strong>حظر الكلاكس تماماً (Uso del clacson vietato):</strong> يمنع استخدام آلة التنبيه الصوتية منعاً باتاً داخل المدينة، ويُستثنى فقط حالتان: خطر وقوع حادث وشيك، أو نقل مصابين/مرضى في حالة خطرة إلى المستشفى.</li>
+          <li><span class="point-icon">🚌</span> <strong>أسبقية الحافلات (Precedenza autobus):</strong> يجب على السائقين إعطاء الأسبقية وتسهيل إعادة انطلاق حافلات النقل العام وسيارات النقل المدرسي عند مغادرتها لمواقفها.</li>
+          <li><span class="point-icon">💡</span> <strong>إضاءة المركبة:</strong> يجب استخدام أضواء التقاطع (Anabbaglianti) نصف ساعة بعد الغروب حتى نصف ساعة قبل الشروق أو في الأنفاق.</li>
+        </ul>
+      </div>
+
+      <!-- Card: Fine Centro Abitato -->
+      <div class="feature-card highlight-emerald">
+        <div class="sign-img-wrapper">
+          <img src="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/immagini/183.png" alt="Fine Centro Abitato (Figura 183)" onerror="this.onerror=null; this.src='https://placehold.co/180x60/ffffff/dc2626?text=VERONA+X';">
+        </div>
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">نهاية التجمع السكني والعودة للخارجي</span>
+          <span class="header-it-subtitle">Fine Centro Abitato (Figura 183)</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">🚀</span> <strong>عودة السرعة العامة:</strong> ينتهي حد 50 كم/س وتعود السرعة للحد الخارجي العام <strong>90 كم/س</strong> (على الطرق الثانوية) أو 110 كم/س (على الطرق الرئيسية ما لم ينص على غير ذلك).</li>
+          <li><span class="point-icon">📢</span> <strong>انتهاء حظر الكلاكس:</strong> يجوز استخدام المنبه الصوتي خارج المدينة عند الضرورة القصوى لتنبيه السائقين أثناء التجاوز نهاراً في المنعطفات الخطرة.</li>
+          <li><span class="point-icon">📍</span> <strong>لوحة التأكيد والمسافات (Pannello distanziometrico):</strong> غالباً ما يُلحق بهذه الإشارة أو يتبعها لوحة زرقاء أو خضراء توضح أسماء المدن القادمة والمسافة المتبقية بالكيلومترات (Segnale di conferma).</li>
+          <li><span class="point-icon">❌</span> <strong>فخ الامتحان الوزاري:</strong> الإشارة لا تعني انتهاء كافة قواعد المرور، بل تعني انتهاء القواعد الخاصة بالمدن فقط!</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: HIGHWAY IDENTIFICATION & ROUTE SIGNS -->
+  <section class="content-section">
+    <div class="section-header">
+      <span class="section-icon">🛣️</span>
+      <h2 class="section-title">4. ترقيم الطرق وإشارات الأوتوستراد (Identificazione Strade e Segnali Autostradali)</h2>
+    </div>
+
+    <div class="grid-3">
+      <div class="feature-card">
+        <div class="sign-img-wrapper">
+          <img src="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/immagini/200.png" alt="Autostrada A (Figura 200)" onerror="this.onerror=null; this.src='https://placehold.co/120x60/15803d/ffffff?text=A1';">
+        </div>
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">ترقيم الأوتوستراد الوطني</span>
+          <span class="header-it-subtitle">Identificazione Autostrada (Figura 200)</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">🟢</span> لوحة خضراء مثمنة الشكل بحرف <strong>A</strong> ورقم الطريق (مثل A1, A4).</li>
+          <li><span class="point-icon">🚗</span> تطبق عليها كافة قواعد الأوتوستراد الصارمة: حد السرعة 130 كم/س وحظر المركبات البطيئة.</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="sign-img-wrapper">
+          <img src="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/immagini/199.png" alt="Itinerario Internazionale E (Figura 199)" onerror="this.onerror=null; this.src='https://placehold.co/120x60/15803d/ffffff?text=E45';">
+        </div>
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">شبكة الطرق الأوروبية الدولية</span>
+          <span class="header-it-subtitle">Itinerario Internazionale (Figura 199)</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">🇪🇺</span> لوحة خضراء مستطيلة بحرف <strong>E</strong> تدل على محور دولي أوروبي عابر للحدود.</li>
+          <li><span class="point-icon">🗺️</span> قد تتزامن اللوحة E مع لوحة الأوتوستراد A أو طريق قومي SS في المسار المشترك.</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="sign-img-wrapper">
+          <img src="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/immagini/206.png" alt="Progressiva Chilometrica (Figura 206)" onerror="this.onerror=null; this.src='https://placehold.co/120x60/15803d/ffffff?text=Km+54';">
+        </div>
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">المسافة الكيلومترية ومسافة المخرج</span>
+          <span class="header-it-subtitle">Segnale di Progressiva (Figura 206)</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">📏</span> الرقم بالأعلى يوضح الكيلومتر المقطوع من بداية الطريق السريع.</li>
+          <li><span class="point-icon">🆘</span> الرقم بالسهم يوضح المسافة المتبقية لأقرب مخرج أو محطة وقود أو نجدة.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: INTERSECTIONS & PRESELECTION -->
+  <section class="content-section">
+    <div class="section-header">
+      <span class="section-icon">🔀</span>
+      <h2 class="section-title">5. إشارات التقاطعات والاختيار المسبق للحارات (Intersezioni e Preselezione)</h2>
+    </div>
+
+    <div class="grid-2">
+      <!-- Card: Preavviso Intersezione -->
+      <div class="feature-card">
+        <div class="sign-img-wrapper">
+          <img src="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/immagini/166.png" alt="Preavviso Intersezione (Figura 166)" onerror="this.onerror=null; this.src='https://placehold.co/180x80/27272a/ffffff?text=Preavviso+Incrocio';">
+        </div>
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">إشعار مسبق بالتقاطع الحضري والريفي</span>
+          <span class="header-it-subtitle">Preavviso di Intersezione (Figura 166 / 170)</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">📍</span> توضح شكلياً تخطيط التقاطع القادم وتسمي الوجهات المختلفة قبل الوصول إليها بمسافة آمنة.</li>
+          <li><span class="point-icon">🎨</span> دلالة الألوان داخل المخطط: مستطيل أخضر يوجه للأوتوستراد، مستطيل أزرق للمدن الخارجية، وأبيض للمناطق المحلية.</li>
+          <li><span class="point-icon">🔄</span> لوحة الدوار (Rotatoria - شكل 168): ترسم سهماً دائرياً وتبين المخارج والمدن لكل اتجاه.</li>
+        </ul>
+      </div>
+
+      <!-- Card: Corsie di Preselezione -->
+      <div class="feature-card">
+        <div class="sign-img-wrapper">
+          <img src="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/immagini/171.png" alt="Preselezione (Figura 171)" onerror="this.onerror=null; this.src='https://placehold.co/180x80/1d4ed8/ffffff?text=Corsie+Preselezione';">
+        </div>
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">حارات الاختيار المسبق قبل التقاطع</span>
+          <span class="header-it-subtitle">Corsie di Preselezione (Figura 171 / 172)</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">🚦</span> ترشد السائق للتموضع في الحارة المتوافقة مع اتجاه سيره المفضل قبل الوصول للتقاطع.</li>
+          <li><span class="point-icon">🔒</span> <strong>القاعدة الإلزامية:</strong> بمجرد أن يتحول الخط الأرضي الفاصل بين الحارات من متقطع (Discontinua) إلى متصل (Continua)، <strong>يُحظر منعاً باتاً تغيير الحارة</strong> ويجب الالتزام بالاتجاه المحدد للحارة!</li>
+          <li><span class="point-icon">➡️</span> الحارة اليمينية للانعطاف يميناً، والوسطى للمضي قدماً، واليسرى للانعطاف يساراً.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: LANE UTILIZATION & SPECIAL ROADS -->
+  <section class="content-section">
+    <div class="section-header">
+      <span class="section-icon">🛣️</span>
+      <h2 class="section-title">6. توزيع الحارات والسرعات والطرق المخصصة (Corsie e Strade Riservate)</h2>
+    </div>
+
+    <div class="grid-3">
+      <!-- Card: Velocità Minima per Corsia -->
+      <div class="feature-card">
+        <div class="sign-img-wrapper">
+          <img src="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/immagini/243.png" alt="Velocità Minima Corsie (Figura 243)" onerror="this.onerror=null; this.src='https://placehold.co/160x70/1d4ed8/ffffff?text=Corsie+60+90';">
+        </div>
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">السرعات الدنيا الإلزامية للحارات</span>
+          <span class="header-it-subtitle">Velocità Minima Obbligatoria (Figura 243)</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">🐢</span> الحارة اليمنى مخصصة لكافة المركبات العادية دون إلزام بحد أدنى للسرعة.</li>
+          <li><span class="point-icon">⚡</span> الحارات الوسطى واليسرى تتضمن دوائر زرقاء بحدود دنيا (مثل 60 و 90 كم/س)؛ يمنع السير فيها لمن لا تستطيع مركبته بلوغ هذه السرعة.</li>
+        </ul>
+      </div>
+
+      <!-- Card: Corsia Riservata Autobus -->
+      <div class="feature-card">
+        <div class="sign-img-wrapper">
+          <img src="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/immagini/245.png" alt="Corsia Riservata Bus (Figura 245)" onerror="this.onerror=null; this.src='https://placehold.co/160x70/1d4ed8/ffffff?text=Corsia+BUS';">
+        </div>
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">حارة مخصصة للحافلات ومركبات الخدمة</span>
+          <span class="header-it-subtitle">Corsia Riservata Autobus (Figura 245)</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">🚌</span> حارة محجوزة حصرياً لوسائل النقل الجماعي (Autobus) وسيارات الأجرة (Taxi).</li>
+          <li><span class="point-icon">🚫</span> <strong>يمنع منعاً كلياً</strong> سير أو وقوف السيارات الخاصة والموتوسيكلات فيها حتى لو كان التوقف لحظياً!</li>
+        </ul>
+      </div>
+
+      <!-- Card: Strada Riservata Veicoli a Motore -->
+      <div class="feature-card">
+        <div class="sign-img-wrapper">
+          <img src="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/immagini/228.png" alt="Strada Riservata Motore (Figura 228)" onerror="this.onerror=null; this.src='https://placehold.co/160x70/1d4ed8/ffffff?text=Auto+Strada+Riservata';">
+        </div>
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">طريق مخصص للمركبات ذات المحرك</span>
+          <span class="header-it-subtitle">Strada Riservata Veicoli a Motore (Figura 228)</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">🚗</span> سيارة بيضاء على خلفية زرقاء: طريق مفتوح فقط للسيارات والدراجات النارية المؤهلة.</li>
+          <li><span class="point-icon">🚷</span> <strong>ممنوع الدخول:</strong> المشاة، الدراجات الهوائية (Biciclette)، وعربات الجر، والدراجات البخارية الصغيرة (Ciclomotori).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: SERVICES & PARKING -->
+  <section class="content-section">
+    <div class="section-header">
+      <span class="section-icon">⛽</span>
+      <h2 class="section-title">7. إشارات الخدمات ومواقف السيارات وساعة الوقوف (Servizi e Parcheggio)</h2>
+    </div>
+
+    <div class="grid-2">
+      <!-- Card: Segnali di Servizio -->
+      <div class="feature-card highlight-sky">
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">إشارات الخدمات ومحطات الشحن والطوارئ</span>
+          <span class="header-it-subtitle">Segnali di Servizio Utile</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">⛽</span> <strong>محطة وقود (Rifornimento - شكل 254):</strong> تزود بالبنزين والديزل، وتوضح المسافة المتبقية بالمتر أو الكيلومتر.</li>
+          <li><span class="point-icon">🔌</span> <strong>محطة شحن كهربائي (Ricarica veicoli elettrici):</strong> مخصصة حصرياً للمركبات الكهربائية أثناء عملية الشحن الفعلي للبطارية فقط.</li>
+          <li><span class="point-icon">🏥</span> <strong>مستشفى (Ospedale - شكل 214):</strong> توجب على السائقين التزام الهدوء التام وعدم إحداث ضجيج بالمحرك أو المنبه الصوتي.</li>
+          <li><span class="point-icon">🚑</span> <strong>قسم الطوارئ والإسعاف (Pronto Soccorso - شكل 210):</strong> صليب أحمر مع هلال أو سرير، يدل على وجود خدمة طوارئ طبية على مدار 24 ساعة.</li>
+          <li><span class="point-icon">🆘</span> <strong>هاتف طوارئ (Posto SOS - شكل 220):</strong> لطلب النجدة والمساعدة الفنية السريعة على الطرق السريعة.</li>
+        </ul>
+      </div>
+
+      <!-- Card: Parcheggio e Disco Orario -->
+      <div class="feature-card highlight-emerald">
+        <div class="comparison-header-vertical">
+          <span class="header-ar-title">مواقف السيارات (P) وساعة الوقوف (Disco Orario)</span>
+          <span class="header-it-subtitle">Regolamentazione del Parcheggio</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span class="point-icon">🅿️</span> <strong>لوحة الموقف (Parcheggio - حرف P):</strong> ساحة مخصصة لانتظار السيارات، قد تكون مجانية أو مدفوعة بتعريفة (Parcometro).</li>
+          <li><span class="point-icon">⏰</span> <strong>ساعة الوقوف (Disco Orario):</strong> عند وجود لوحة قرص الوقت، <strong>يلتزم السائق بضبط وإبراز وقت بدء الوقوف</strong> بوضوح خلف الزجاج الأمامي للمركبة.</li>
+          <li><span class="point-icon">⚒️</span> <strong>أيام العمل (Giorni lavorativi):</strong> رمز المطرقتين يحدد سريان التوقيت من الاثنين إلى السبت فقط.</li>
+          <li><span class="point-icon">✝️</span> <strong>أيام العطلات والأعياد (Giorni festivi):</strong> رمز الصليب اللاتيني يحدد سريان اللائحة في أيام الآحاد والعطلات الرسمية.</li>
+          <li><span class="point-icon">📐</span> <strong>هندسة ركن السيارات:</strong>
+            - عمودي على الرصيف: <em>A pettine (على شكل مشط)</em>.<br>
+            - مائل بزاوية: <em>A spina di pesce (على شكل شوكة سمكة)</em>.<br>
+            - موازي للرصيف في طابور: <em>In fila (على خط واحد)</em>.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: TECHNICAL DICTIONARY -->
+  <section class="content-section">
+    <div class="section-header">
+      <span class="section-icon">📖</span>
+      <h2 class="section-title">8. قاموس المصطلحات الفنية الـ 10 الحاكمة (Dizionario Tecnico)</h2>
+    </div>
+
+    <div style="overflow-x: auto;">
+      <table class="dict-table">
+        <thead>
+          <tr>
+            <th>المصطلح الإيطالي (Termine)</th>
+            <th>الترجمة العربية الدقيقة</th>
+            <th>الشرح العملي وموضع الفخ في أسئلة الامتحان الوزاري</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="dict-it-term">Segnali di indicazione</span></td>
+            <td>إشارات إرشادية / معلوماتية</td>
+            <td>ترشد السائق وتحدد الوجهات، وتلزم باحترام القواعد الخاصة بطبيعة كل طريق وألوانه.</td>
+          </tr>
+          <tr>
+            <td><span class="dict-it-term">Preavviso di intersezione</span></td>
+            <td>إشعار مسبق بالتقاطع</td>
+            <td>توضع قبل التقاطع لتوضيح مسارات الوجهات ولا تعفي السائق من احترام إشارات الأسبقية.</td>
+          </tr>
+          <tr>
+            <td><span class="dict-it-term">Centro abitato</span></td>
+            <td>تجمع سكني / مدينة</td>
+            <td>منطقة تبدأ بلوحة بيضاء، وتفرض سرعة 50 كم/س وحظراً للكلاكس وأسبقية لحافلات النقل.</td>
+          </tr>
+          <tr>
+            <td><span class="dict-it-term">Fine centro abitato</span></td>
+            <td>نهاية التجمع السكني</td>
+            <td>لوحة مشطوبة بالأحمر، تعيد حد السرعة إلى 90 كم/س للطرق الخارجية وتنهي حظر الكلاكس.</td>
+          </tr>
+          <tr>
+            <td><span class="dict-it-term">Deviazione</span></td>
+            <td>تحويل مسار السير</td>
+            <td>تكون بخلفية صفراء وتفرض خط سير بديل بسبب وجود ورش عمل أو عوائق في الطريق الأصلي.</td>
+          </tr>
+          <tr>
+            <td><span class="dict-it-term">Cantiere stradale</span></td>
+            <td>ورشة أشغال طرق</td>
+            <td>ترتبط بالإشارات الصفراء، ويجب عندها توخي الحذر ومراعاة العمال والآليات المتحركة.</td>
+          </tr>
+          <tr>
+            <td><span class="dict-it-term">Località turistica</span></td>
+            <td>موقع سياحي أو تاريخي</td>
+            <td>لوحة خلفيتها بنية دائماً، وفخ الامتحان يدعي أنها ترمز للمناطق الصناعية (Falso).</td>
+          </tr>
+          <tr>
+            <td><span class="dict-it-term">Disco orario</span></td>
+            <td>ساعة الوقوف / قرص الوقت</td>
+            <td>أداة إلزامية لتحديد وقت الوصول في المواقف محددة المدة تفادياً لغرامات التجاوز الزمني.</td>
+          </tr>
+          <tr>
+            <td><span class="dict-it-term">Pronto Soccorso</span></td>
+            <td>قسم الطوارئ الطبية</td>
+            <td>لوحة بخلفية بيضاء وصليب أحمر، وتدل على مستشفى مجهز لاستقبال الحالات الحرجة 24/7.</td>
+          </tr>
+          <tr>
+            <td><span class="dict-it-term">Ricarica veicoli elettrici</span></td>
+            <td>شحن المركبات الكهربائية</td>
+            <td>موقف خاص مخصص حصرياً للمركبات أثناء عملية الشحن الكهربائي الفعلي فقط.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SECTION 9: QUIZ TRAPS -->
+  <section class="content-section">
+    <div class="section-header">
+      <span class="section-icon">🎯</span>
+      <h2 class="section-title">9. فخاخ الامتحان الوزارية الـ 7 المعتمدة (Trappole dei Quiz)</h2>
+    </div>
+    <p style="color: #a1a1aa; font-size: 0.94rem; margin-bottom: 20px;">
+      اختبر فهمك الفوري لأخطر الأسئلة الوزارية التي تتكرر باستمرار في اختبارات Patente B الرسمية:
+    </p>
+
+    <!-- Quiz 1 -->
+    <div class="quiz-card" data-correct="Falso">
+      <div class="quiz-q-it">1. Il segnale di fine centro abitato impone il limite massimo di velocità di 50 km/h.</div>
+      <div class="quiz-q-ar">1. تشير لوحة نهاية التجمع السكني (Fine centro abitato) إلى فرض حد أقصى للسرعة يبلغ 50 كم/ساعة.</div>
+      <div class="quiz-buttons">
+        <button class="quiz-btn" onclick="checkQuiz(this, 'Vero')">VERO ✅</button>
+        <button class="quiz-btn" onclick="checkQuiz(this, 'Falso')">FALSO ❌</button>
+      </div>
+      <div class="quiz-feedback" data-feedback>
+        <strong>الإجابة: FALSO ❌</strong><br>
+        <strong>التعليل القانوني:</strong> العكس هو الصحيح تماماً! إشارة نهاية المدينة تعني انتهاء حد 50 كم/س الخاص بالمدن، والعودة إلى الحد العام للطرق الخارجية خارج المدن وهو 90 كم/س.
+      </div>
+    </div>
+
+    <!-- Quiz 2 -->
+    <div class="quiz-card" data-correct="Falso">
+      <div class="quiz-q-it">2. Nei centri abitati è sempre consentito l'uso del clacson per avvisare gli altri veicoli prima di un sorpasso.</div>
+      <div class="quiz-q-ar">2. داخل التجمعات السكنية، يُسمح دائماً باستخدام آلة التنبيه (الكلاكس) لتحذير المركبات الأخرى قبل مناورة التجاوز.</div>
+      <div class="quiz-buttons">
+        <button class="quiz-btn" onclick="checkQuiz(this, 'Vero')">VERO ✅</button>
+        <button class="quiz-btn" onclick="checkQuiz(this, 'Falso')">FALSO ❌</button>
+      </div>
+      <div class="quiz-feedback" data-feedback>
+        <strong>الإجابة: FALSO ❌</strong><br>
+        <strong>التعليل القانوني:</strong> استخدام المنبه الصوتي داخل المدن محظور بشكل عام (Vietato di norma) ولا يجوز للتجاوز؛ ويُسمح به فقط في الطوارئ القصوى ونقل المصابين والمرضى الخطرين.
+      </div>
+    </div>
+
+    <!-- Quiz 3 -->
+    <div class="quiz-card" data-correct="Vero">
+      <div class="quiz-q-it">3. Il segnale verde di indicazione autostradale può trovarsi anche su strade urbane per indicare la direzione verso l'autostrada.</div>
+      <div class="quiz-q-ar">3. إشارة الإرشاد الخضراء الخاصة بالأوتوستراد يمكن أن توجد أيضاً على طرق المدن لتوضيح الاتجاه المؤدي إلى الطريق السريع.</div>
+      <div class="quiz-buttons">
+        <button class="quiz-btn" onclick="checkQuiz(this, 'Vero')">VERO ✅</button>
+        <button class="quiz-btn" onclick="checkQuiz(this, 'Falso')">FALSO ❌</button>
+      </div>
+      <div class="quiz-feedback" data-feedback>
+        <strong>الإجابة: VERO ✅</strong><br>
+        <strong>التعليل القانوني:</strong> علامات الإرشاد تتلون بلون الطريق الذي ترشد إليه حتى لو كانت مثبتة على طريق آخر ذي تصنيف مختلف؛ لذا توضع اللوحات الخضراء داخل المدن لترشد السائق إلى مدخل الأوتوستراد.
+      </div>
+    </div>
+
+    <!-- Quiz 4 -->
+    <div class="quiz-card" data-correct="Falso">
+      <div class="quiz-q-it">4. La corsia riservata agli autobus può essere utilizzata da tutti i veicoli per effettuare la sosta rapida.</div>
+      <div class="quiz-q-ar">4. الحارة المخصصة للحافلات (Corsia riservata) يجوز استخدامها من قبل جميع المركبات لإجراء توقف سريع (Sosta rapida).</div>
+      <div class="quiz-buttons">
+        <button class="quiz-btn" onclick="checkQuiz(this, 'Vero')">VERO ✅</button>
+        <button class="quiz-btn" onclick="checkQuiz(this, 'Falso')">FALSO ❌</button>
+      </div>
+      <div class="quiz-feedback" data-feedback>
+        <strong>الإجابة: FALSO ❌</strong><br>
+        <strong>التعليل القانوني:</strong> الحارة المخصصة للحافلات محجوزة حصرياً للنقل العام وسيارات الأجرة المرخصة، ويُحظر سير أو وقوف أو توقف المركبات الخاصة بها قطعياً لتفادي تعطيل حركة النقل العام.
+      </div>
+    </div>
+
+    <!-- Quiz 5 -->
+    <div class="quiz-card" data-correct="Vero">
+      <div class="quiz-q-it">5. Il segnale di parcheggio con pannello integrativo di disco orario impone di indicare l'ora di arrivo.</div>
+      <div class="quiz-q-ar">5. إشارة موقف السيارات الملحق بها لوحة قرص الوقت (Disco orario) تفرض إظهار ساعة الوصول بوضوح.</div>
+      <div class="quiz-buttons">
+        <button class="quiz-btn" onclick="checkQuiz(this, 'Vero')">VERO ✅</button>
+        <button class="quiz-btn" onclick="checkQuiz(this, 'Falso')">FALSO ❌</button>
+      </div>
+      <div class="quiz-feedback" data-feedback>
+        <strong>الإجابة: VERO ✅</strong><br>
+        <strong>التعليل القانوني:</strong> عندما تفرض لوحة الموقف ساعة الوقوف (Disco orario)، يكون السائق ملزماً قانوناً بضبط وقت وصوله وإبراز القرص خلف الزجاج الأمامي ليتمكن المراقب من احتساب المدة المسموحة.
+      </div>
+    </div>
+
+    <!-- Quiz 6 -->
+    <div class="quiz-card" data-correct="Falso">
+      <div class="quiz-q-it">6. Il segnale con sfondo marrone indica località industriali e artigianali.</div>
+      <div class="quiz-q-ar">6. الإشارة ذات الخلفية البنية تشير إلى مناطق صناعية وحرفية.</div>
+      <div class="quiz-buttons">
+        <button class="quiz-btn" onclick="checkQuiz(this, 'Vero')">VERO ✅</button>
+        <button class="quiz-btn" onclick="checkQuiz(this, 'Falso')">FALSO ❌</button>
+      </div>
+      <div class="quiz-feedback" data-feedback>
+        <strong>الإجابة: FALSO ❌</strong><br>
+        <strong>التعليل القانوني:</strong> الخلفية البنية (Sfondo marrone) مخصصة فقط للمعالم السياحية والتاريخية والمنتزهات، بينما المناطق الصناعية والحرفية يُستعمل لها اللون الأسود/الرمادي أو الأبيض.
+      </div>
+    </div>
+
+    <!-- Quiz 7 -->
+    <div class="quiz-card" data-correct="Falso">
+      <div class="quiz-q-it">7. Il segnale di strada riservata ai veicoli a motore consente il transito a tutti i tipi di veicoli, inclusi ciclomotori e velocipedi.</div>
+      <div class="quiz-q-ar">7. إشارة طريق مخصص للمركبات ذات المحرك تسمح بمرور جميع المركبات بما في ذلك الدراجات البخارية الصغيرة والدراجات الهوائية.</div>
+      <div class="quiz-buttons">
+        <button class="quiz-btn" onclick="checkQuiz(this, 'Vero')">VERO ✅</button>
+        <button class="quiz-btn" onclick="checkQuiz(this, 'Falso')">FALSO ❌</button>
+      </div>
+      <div class="quiz-feedback" data-feedback>
+        <strong>الإجابة: FALSO ❌</strong><br>
+        <strong>التعليل القانوني:</strong> هذه الطريق مخصصة فقط للسيارات والدراجات النارية السريعة؛ ويُحظر فيها سير الدراجات الهوائية (Velocipedi)، والمشاة، والدراجات البخارية الصغيرة (Ciclomotori).
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: CHAPTER PAGINATION -->
+  <nav class="chapter-pagination" aria-label="التنقل بين فصول المكتبة">
+    <a href="../Capitoli_Divisi/Capitolo_07_semafori_vigili/index.html" class="pagination-btn prev-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">→</span>
+      <div class="pagination-info">
+        <span class="pagination-label">الباب السابق</span>
+        <span class="pagination-title">الباب 7: الإشارات الضوئية والشرطي</span>
+      </div>
+    </a>
+
+    <a href="index.html" class="pagination-btn index-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">🏛️</span>
+      <div class="pagination-info">
+        <span class="pagination-label">المكتبة الشاملة</span>
+        <span class="pagination-title">فهرس الأدلة المعتمدة</span>
+      </div>
+    </a>
+
+    <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="pagination-btn next-btn" onclick="soundEngine.click()">
+      <div class="pagination-info">
+        <span class="pagination-label">الباب التالي</span>
+        <span class="pagination-title">الباب 9: الإشارات التكميلية وورش العمل</span>
+      </div>
+      <span class="pagination-icon">←</span>
+    </a>
+  </nav>
+
+</main>
+
+<script>
+  // Unified Web Audio API Sound Engine
+  const soundEngine = window.soundEngine || {
+    ctx: null,
+    enabled: true,
+    init() {
+      if (!this.ctx) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) this.ctx = new AudioCtx();
+      }
+      if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
+    },
+    click() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
+      try {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(520, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.04);
+        gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.04);
+      } catch(e) {}
+    },
+    correct() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
+      try {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(440, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(880, this.ctx.currentTime + 0.12);
+        gain.gain.setValueAtTime(0.1, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.15);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.15);
+      } catch(e) {}
+    },
+    wrong() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
+      try {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(280, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(120, this.ctx.currentTime + 0.18);
+        gain.gain.setValueAtTime(0.12, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.2);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.2);
+      } catch(e) {}
+    }
+  };
+
+  // Toggle Audio
+  window.toggleAudio = function() {
+    soundEngine.enabled = !soundEngine.enabled;
+    const icons = document.querySelectorAll('.audio-icon-span');
+    const labels = document.querySelectorAll('.audio-label-span');
+    icons.forEach(el => el.textContent = soundEngine.enabled ? '🔊' : '🔇');
+    labels.forEach(el => el.textContent = soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم');
+    if (soundEngine.enabled) soundEngine.click();
+  };
+
+  // Desktop Dropdown Controller
+  function toggleNavDropdown(e) {
+    if (e) e.stopPropagation();
+    const menu = document.getElementById('navDropdownMenu');
+    if (menu) menu.classList.toggle('active');
+  }
+  document.addEventListener('click', function(e) {
+    const wrapper = document.querySelector('.nav-dropdown-wrapper');
+    const menu = document.getElementById('navDropdownMenu');
+    if (menu && menu.classList.contains('active')) {
+      if (wrapper && !wrapper.contains(e.target)) menu.classList.remove('active');
+    }
+  });
+
+  // Mobile Drawer Controller (Apple HIG)
+  function toggleMobileNav() {
+    const btn = document.getElementById('nav-hamburger-btn');
+    const panel = document.getElementById('mobile-drawer-panel');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    if (!btn || !panel) return;
+    const isOpening = !panel.classList.contains('is-active');
+    if (isOpening) {
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-expanded', 'true');
+      panel.classList.add('is-active');
+      if (overlay) overlay.classList.add('is-active');
+      document.body.classList.add('nav-scroll-lock');
+    } else {
+      closeMobileNav();
+    }
+    if (soundEngine.click) soundEngine.click();
+  }
+
+  function closeMobileNav() {
+    const btn = document.getElementById('nav-hamburger-btn');
+    const panel = document.getElementById('mobile-drawer-panel');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    if (btn) {
+      btn.classList.remove('is-active');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    if (panel) panel.classList.remove('is-active');
+    if (overlay) overlay.classList.remove('is-active');
+    document.body.classList.remove('nav-scroll-lock');
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMobileNav();
+  });
+
+  // Interactive Quiz Handler
+  function checkQuiz(btn, chosen) {
+    const card = btn.closest('.quiz-card');
+    if (!card) return;
+    const correct = card.getAttribute('data-correct');
+    const feedback = card.querySelector('[data-feedback]');
+    const isMatch = chosen.toLowerCase() === correct.toLowerCase();
+
+    card.querySelectorAll('.quiz-btn').forEach(b => {
+      b.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+      b.style.background = 'rgba(255, 255, 255, 0.04)';
+    });
+
+    if (isMatch) {
+      btn.style.borderColor = '#10b981';
+      btn.style.background = 'rgba(16, 185, 129, 0.18)';
+      if (feedback) {
+        feedback.className = 'quiz-feedback is-correct';
+        feedback.style.display = 'block';
+      }
+      soundEngine.correct();
+    } else {
+      btn.style.borderColor = '#f43f5e';
+      btn.style.background = 'rgba(244, 63, 94, 0.18)';
+      if (feedback) {
+        feedback.className = 'quiz-feedback is-wrong';
+        feedback.style.display = 'block';
+      }
+      soundEngine.wrong();
+    }
+  }
+</script>
+
+</body>
+</html>
