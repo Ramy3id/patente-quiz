@@ -3,518 +3,147 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>دليل الباب 20: رخص القيادة، نظام النقاط، والعقوبات — Patente B Pro</title>
+<title>دليل وقاموس الباب 20: رخص القيادة ونظام النقاط والعقوبات | Patente B Pro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+
   :root {
     --bg-base: #09090b;
     --bg-surface: rgba(24, 24, 27, 0.75);
+    --bg-surface-elevated: rgba(39, 39, 42, 0.85);
     --border-subtle: rgba(255, 255, 255, 0.08);
     --border-highlight: rgba(255, 255, 255, 0.16);
     --text-primary: #f4f4f5;
     --text-secondary: #a1a1aa;
     --text-muted: #71717a;
     --emerald-primary: #10b981;
+    --emerald-dark: #059669;
+    --emerald-glow: rgba(16, 185, 129, 0.25);
     --rose-primary: #f43f5e;
+    --rose-glow: rgba(244, 63, 94, 0.25);
     --amber-primary: #f59e0b;
+    --amber-glow: rgba(245, 158, 11, 0.25);
     --sky-primary: #38bdf8;
-    --indigo-primary: #818cf8;
-    --purple-primary: #a855f7;
-    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    --sky-glow: rgba(56, 189, 248, 0.25);
+    --indigo-primary: #6366f1;
     --nav-base-height: 54px;
+    --font-sans: 'Cairo', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
+  html, body {
     background-color: var(--bg-base);
     color: var(--text-primary);
-    font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-sans);
     line-height: 1.6;
-    min-height: 100vh;
     overflow-x: hidden;
-    background-image: 
-      radial-gradient(ellipse at 50% -10%, rgba(168, 85, 247, 0.08), transparent 60%),
-      radial-gradient(circle at 10% 90%, rgba(56, 189, 248, 0.04), transparent 40%);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
   }
 
   body.nav-scroll-lock {
     overflow: hidden !important;
-    touch-action: none !important;
-    -webkit-overflow-scrolling: auto !important;
+    touch-action: none;
   }
 
-  /* Apple HIG Responsive Top Navigation */
+  /* Portal Nav Header (Strict 54px, Apple HIG) */
   .unified-portal-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px)) !important;
-    max-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
-    background: rgba(9, 9, 11, 0.85);
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-base-height);
+    background: rgba(15, 15, 18, 0.82);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid var(--border-subtle);
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
+    padding: 0 16px;
     padding-top: env(safe-area-inset-top, 0px);
-    box-sizing: border-box;
-    direction: rtl;
   }
 
   .nav-brand {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #fff;
-    white-space: nowrap;
+    gap: 8px;
     text-decoration: none;
-    flex-shrink: 0;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.05rem;
   }
-  .nav-brand .badge-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
+
+  .badge-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--amber-primary);
+    border: 1px solid rgba(245, 158, 11, 0.3);
     padding: 2px 7px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 6px;
-    color: #a1a1aa;
   }
 
-  .nav-desktop-tabs {
+  .desktop-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .desktop-nav-link {
     display: flex;
     align-items: center;
     gap: 6px;
-  }
-  .nav-tab-desktop {
-    text-decoration: none;
-    color: #a1a1aa;
-    padding: 7px 13px;
-    border-radius: 9px;
-    font-size: 0.84rem;
-    font-weight: 600;
-    transition: all 0.15s;
-    border: 1px solid transparent;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    white-space: nowrap;
-  }
-  .nav-tab-desktop:hover {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  .nav-tab-desktop.active {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.16);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.15), 0 2px 8px rgba(0,0,0,0.3);
-  }
-
-  .nav-desktop-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .nav-audio-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #e4e4e7;
-    border-radius: 9px;
-    padding: 7px 12px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.15s;
-  }
-  .nav-audio-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
-  .nav-audio-btn:active { transform: scale(0.96); }
-
-  .nav-hamburger-btn {
-    display: none;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    color: #f4f4f5;
-    border-radius: 9px;
-    width: 40px;
-    height: 40px;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    flex-shrink: 0;
-  }
-  .hamburger-box { width: 18px; height: 12px; position: relative; }
-  .hamburger-line {
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background: #f4f4f5;
-    border-radius: 2px;
-    transition: all 0.25s var(--ease-spring);
-  }
-  .line-top { top: 0; }
-  .line-mid { top: 5px; }
-  .line-bot { top: 10px; }
-  .nav-hamburger-btn.is-active .line-top { transform: translateY(5px) rotate(45deg); }
-  .nav-hamburger-btn.is-active .line-mid { opacity: 0; }
-  .nav-hamburger-btn.is-active .line-bot { transform: translateY(-5px) rotate(-45deg); }
-
-  .mobile-drawer-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 998;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-  .mobile-drawer-overlay.is-active { opacity: 1; pointer-events: auto; }
-
-  .mobile-drawer-panel {
-    position: fixed;
-    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
-    left: 0;
-    right: 0;
-    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
-    background: rgba(15, 15, 18, 0.94);
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-    z-index: 999;
-    transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.32s var(--ease-spring), opacity 0.25s ease;
-    overflow-y: auto;
-    direction: rtl;
-  }
-  .mobile-drawer-panel.is-active {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .mobile-nav-list { padding: 12px 16px; display: flex; flex-direction: column; gap: 4px; }
-  .mobile-nav-link {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 14px;
-    border-radius: 10px;
-    text-decoration: none;
-    color: #e4e4e7;
-    font-size: 0.92rem;
-    font-weight: 600;
-    min-height: 48px;
-    transition: background 0.15s;
-  }
-  .mobile-nav-link:hover { background: rgba(255, 255, 255, 0.06); color: #fff; }
-  .mobile-nav-link.active {
-    background: rgba(168, 85, 247, 0.15);
-    color: #f3e8ff;
-    border: 1px solid rgba(168, 85, 247, 0.3);
-  }
-  .mobile-drawer-footer {
-    padding: 12px 16px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  /* Layout Container */
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 32px 20px 80px;
-  }
-
-  /* Hero Section */
-  .hero-card {
-    background: linear-gradient(135deg, rgba(168, 85, 247, 0.08), rgba(24, 24, 27, 0.7));
-    border: 1px solid rgba(168, 85, 247, 0.25);
-    border-radius: 20px;
-    padding: 36px 30px;
-    margin-bottom: 30px;
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(12px);
-  }
-  .hero-card::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    left: -50px;
-    width: 140px;
-    height: 140px;
-    background: radial-gradient(circle, rgba(168, 85, 247, 0.2), transparent 70%);
-    pointer-events: none;
-  }
-  .hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: #f3e8ff;
-    background: rgba(168, 85, 247, 0.15);
-    border: 1px solid rgba(168, 85, 247, 0.3);
-    padding: 4px 12px;
-    border-radius: 30px;
-    margin-bottom: 16px;
-  }
-  .hero-title {
-    font-size: 1.85rem;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 8px;
-    line-height: 1.3;
-  }
-  .hero-subtitle {
-    font-size: 1rem;
-    color: #c084fc;
-    font-weight: 600;
-    margin-bottom: 20px;
-    font-family: 'JetBrains Mono', monospace;
-  }
-  .hero-desc {
-    color: #d4d4d8;
-    font-size: 0.96rem;
-    line-height: 1.7;
-    max-width: 900px;
-  }
-
-  /* Stats Grid */
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-    margin: 24px 0 32px;
-  }
-  .stat-card {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: 14px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.2s;
-  }
-  .stat-card:hover { transform: translateY(-2px); border-color: var(--border-highlight); }
-  .stat-val {
-    font-size: 2rem;
-    font-weight: 800;
-    font-family: 'JetBrains Mono', monospace;
-    background: linear-gradient(135deg, #d8b4fe, #a855f7);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .stat-label {
-    font-size: 0.85rem;
+    padding: 6px 14px;
+    border-radius: 8px;
     color: var(--text-secondary);
-    margin-top: 4px;
+    text-decoration: none;
+    font-size: 0.86rem;
     font-weight: 600;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+  .desktop-nav-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-subtle);
+  }
+  .desktop-nav-link.active {
+    color: var(--amber-primary);
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.25);
   }
 
-  /* Section Title */
-  .section-title {
-    font-size: 1.35rem;
-    font-weight: 800;
-    color: #fff;
-    margin: 40px 0 20px;
+  .desktop-nav-controls {
     display: flex;
     align-items: center;
     gap: 10px;
-    border-bottom: 1px solid var(--border-subtle);
-    padding-bottom: 10px;
-  }
-  .section-title span.badge {
-    font-size: 0.78rem;
-    padding: 2px 10px;
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.08);
-    color: #a1a1aa;
   }
 
-  /* Content Cards */
-  .rule-card {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    padding: 24px;
-    margin-bottom: 20px;
-    backdrop-filter: blur(10px);
-  }
-  .rule-card.highlight { border-right: 4px solid var(--purple-primary); }
-  .rule-card.warning { border-right: 4px solid var(--rose-primary); }
-  .rule-card.info { border-right: 4px solid var(--sky-primary); }
-  .rule-card.success { border-right: 4px solid var(--emerald-primary); }
-  .rule-card.amber { border-right: 4px solid var(--amber-primary); }
-
-  .rule-card-header {
+  .nav-audio-btn {
+    height: 34px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 14px;
-  }
-  .rule-card-title {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .it-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.82rem;
-    padding: 3px 8px;
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.06);
-    color: #cbd5e1;
-  }
-
-  /* Dictionary & Comparison Tables */
-  .dict-table-wrap {
-    overflow-x: auto;
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    margin: 20px 0;
-  }
-  .dict-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.9rem;
-    text-align: right;
-  }
-  .dict-table th {
-    background: rgba(255, 255, 255, 0.04);
-    padding: 14px 18px;
-    font-weight: 700;
-    color: #e4e4e7;
-    border-bottom: 1px solid var(--border-subtle);
-    white-space: nowrap;
-  }
-  .dict-table td {
-    padding: 13px 18px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    color: #d4d4d8;
-  }
-  .dict-table tr:hover td {
-    background: rgba(255, 255, 255, 0.02);
-  }
-  .audio-speak-btn {
+    gap: 6px;
+    padding: 0 12px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #e2e8f0;
-    border-radius: 6px;
-    padding: 3px 8px;
-    font-size: 0.78rem;
-    cursor: pointer;
-    margin-right: 6px;
-    transition: all 0.15s;
-  }
-  .audio-speak-btn:hover {
-    background: rgba(168, 85, 247, 0.2);
-    color: #f3e8ff;
-  }
-
-  /* Interactive Quiz */
-  .quiz-card {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    padding: 22px;
-    margin-bottom: 16px;
-  }
-  .quiz-q-num {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--purple-primary);
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .quiz-text-it {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 6px;
-    direction: ltr;
-    text-align: left;
-    font-family: system-ui, sans-serif;
-  }
-  .quiz-text-ar {
-    font-size: 0.92rem;
-    color: #a1a1aa;
-    margin-bottom: 16px;
-  }
-  .quiz-btn-group {
-    display: flex;
-    gap: 12px;
-  }
-  .quiz-opt-btn {
-    flex: 1;
-    padding: 10px;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 0.95rem;
-    cursor: pointer;
-    border: 1px solid var(--border-subtle);
-    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
     color: #e4e4e7;
-    transition: all 0.15s;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
   }
-  .quiz-opt-btn:hover { background: rgba(255, 255, 255, 0.1); }
-  .quiz-feedback {
-    margin-top: 14px;
-    padding: 12px 14px;
-    border-radius: 10px;
-    font-size: 0.88rem;
-    line-height: 1.5;
-    display: none;
-  }
-  .quiz-card.answered-correct .quiz-feedback {
-    display: block;
-    background: rgba(16, 185, 129, 0.12);
-    border: 1px solid rgba(16, 185, 129, 0.3);
-    color: #6ee7b7;
-  }
-  .quiz-card.answered-wrong .quiz-feedback {
-    display: block;
-    background: rgba(244, 63, 94, 0.12);
-    border: 1px solid rgba(244, 63, 94, 0.3);
-    color: #fca5a5;
+  .nav-audio-btn:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.2);
   }
 
-  @media (max-width: 900px) {
-    .nav-desktop-tabs { display: none !important; }
-    .nav-desktop-actions { display: none !important; }
-    .nav-hamburger-btn { display: flex !important; }
-  }
-  @media (max-width: 600px) {
-    .hero-title { font-size: 1.45rem; }
-    .hero-card { padding: 24px 18px; }
-    .rule-card { padding: 18px 14px; }
-  }
-
-  /* ==========================================================================
-     Desktop Chapters Dropdown & Pagination (Declutter Architecture)
-     ========================================================================== */
   .nav-dropdown-wrapper {
     position: relative;
     display: inline-block;
@@ -561,9 +190,7 @@
     z-index: 1100;
     direction: rtl;
   }
-  .nav-dropdown-menu.active {
-    display: flex;
-  }
+  .nav-dropdown-menu.active { display: flex; }
   .nav-dropdown-item {
     display: flex;
     align-items: center;
@@ -581,138 +208,751 @@
     color: #fff;
   }
   .nav-dropdown-item.active {
-    background: rgba(56, 189, 248, 0.12);
-    color: #38bdf8;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--amber-primary);
     font-weight: 700;
   }
 
-  /* Chapter Pagination */
+  /* Hamburger Button (< 768px) */
+  .nav-hamburger-btn {
+    display: none;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .hamburger-box { width: 20px; height: 14px; position: relative; }
+  .hamburger-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #f4f4f5;
+    border-radius: 2px;
+    transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  }
+  .line-top { top: 0; }
+  .line-mid { top: 6px; }
+  .line-bot { top: 12px; }
+
+  .nav-hamburger-btn.is-active .line-top { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger-btn.is-active .line-mid { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger-btn.is-active .line-bot { transform: translateY(-6px) rotate(-45deg); }
+
+  /* Mobile Drawer Panel */
+  .mobile-drawer-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .mobile-drawer-overlay.is-active { display: block; opacity: 1; }
+  .mobile-drawer-panel {
+    display: none;
+    position: fixed;
+    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
+    left: 0; right: 0;
+    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
+    background: rgba(15, 15, 18, 0.94);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
+    z-index: 999;
+    padding: 16px;
+    padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  }
+  .mobile-drawer-panel.is-active { display: block; transform: translateY(0); opacity: 1; }
+  .mobile-nav-list { display: flex; flex-direction: column; gap: 8px; list-style: none; }
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    min-height: 48px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: #e4e4e7;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+  .mobile-nav-link.active {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.35);
+    color: var(--amber-primary);
+  }
+
+  /* Main Container */
+  .guide-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: calc(var(--nav-base-height) + 28px) 20px 80px 20px;
+  }
+
+  /* Hero Section */
+  .chapter-hero {
+    background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12), transparent 70%),
+                linear-gradient(180deg, rgba(24, 24, 27, 0.7) 0%, rgba(18, 18, 20, 0.9) 100%);
+    border: 1px solid var(--border-subtle);
+    border-radius: 24px;
+    padding: 40px 32px;
+    margin-bottom: 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), transparent);
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--sky-primary);
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .hero-subtitle {
+    font-family: var(--font-mono);
+    color: var(--sky-primary);
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+    direction: ltr;
+  }
+  .hero-desc {
+    max-width: 860px;
+    margin: 0 auto 24px auto;
+    color: var(--text-secondary);
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+  .hero-badges-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .hero-stat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: #d4d4d8;
+  }
+
+  /* Golden Rules Banner */
+  .golden-rules-banner {
+    background: rgba(56, 189, 248, 0.06);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 36px;
+  }
+  .golden-rules-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--sky-primary);
+    margin-bottom: 16px;
+  }
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .rule-box {
+    background: rgba(24, 24, 27, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .rule-box h4 {
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .rule-box p {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Filter Pills */
+  .filter-pills-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    margin-bottom: 28px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filter-pill {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .filter-pill:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+  }
+  .filter-pill.active {
+    background: var(--sky-primary);
+    border-color: var(--sky-primary);
+    color: #000;
+    font-weight: 700;
+  }
+
+  /* Rotatoria Simulator Box */
+  .simulator-box {
+    background: linear-gradient(180deg, rgba(24, 24, 27, 0.8) 0%, rgba(18, 18, 20, 0.95) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .sim-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--sky-primary);
+    margin-bottom: 6px;
+  }
+  .sim-subtitle {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+  }
+  .sim-controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .sim-btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sim-btn:hover { background: rgba(255, 255, 255, 0.1); }
+  .sim-btn.active {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: var(--sky-primary);
+    color: var(--sky-primary);
+  }
+  .sim-output-card {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .sim-img-wrapper img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+  }
+  .sim-details { flex: 1; text-align: right; }
+  .sim-state-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .state-normal { background: rgba(245, 158, 11, 0.2); color: var(--amber-primary); }
+  .state-rot-precedence { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .sim-legal-text {
+    font-size: 0.92rem;
+    color: #e4e4e7;
+    line-height: 1.7;
+  }
+
+  /* Comparison Section: Paths */
+  .comp-section {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .comp-header { margin-bottom: 20px; text-align: right; }
+  .comp-header h3 { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+  .comp-header p { font-size: 0.9rem; color: var(--text-secondary); }
+  .comp-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .comp-card-path {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .comp-card-path img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 12px;
+  }
+  .comp-card-path h4 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .comp-card-path .path-it {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--sky-primary);
+    margin-bottom: 10px;
+  }
+  .comp-card-path p {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    text-align: right;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  /* Grid of Signals Cards */
+  .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .section-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-badge {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: var(--sky-primary);
+    background: rgba(56, 189, 248, 0.1);
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+  }
+
+  .signals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .signal-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .signal-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-highlight);
+  }
+
+  .signal-img-container {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    padding: 12px;
+  }
+  .signal-img-container img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+  }
+
+  /* Card Header Vertical Hierarchy */
+  .card-header-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+  .card-ar-title {
+    order: 1;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  .card-it-title {
+    order: 2;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--sky-primary);
+    direction: ltr;
+    text-align: right;
+  }
+
+  .card-desc-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  /* ZERO FLEX ON LISTS (STRICT TYPOGRAPHY) */
+  .card-points-group { margin-bottom: 14px; }
+  .points-group-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .points-group-title.vero-title { color: var(--emerald-primary); }
+  .points-group-title.falso-title { color: var(--rose-primary); }
+
+  .card-points-list { list-style: none; margin: 0; padding: 0; }
+  .card-points-list li {
+    display: block;
+    position: relative;
+    padding-right: 28px;
+    line-height: 1.7;
+    text-align: right;
+    font-size: 0.88rem;
+    color: #d4d4d8;
+    margin-bottom: 6px;
+  }
+  .card-points-list li > span:first-child {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .card-trap-alert {
+    background: rgba(244, 63, 94, 0.08);
+    border: 1px solid rgba(244, 63, 94, 0.22);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    color: #fca5a5;
+    line-height: 1.6;
+    margin-top: auto;
+  }
+  .card-trap-alert strong { color: var(--rose-primary); }
+
+  /* Glossary Section */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .glossary-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+  .term-it {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--sky-primary);
+    margin-bottom: 4px;
+    direction: ltr;
+    text-align: right;
+  }
+  .term-ar {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .term-def {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Quiz Traps Interactive Section */
+  .traps-section { margin-bottom: 50px; }
+  .traps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+  }
+  .trap-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .trap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card-tag-pill {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  .tag-vero { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .tag-falso { background: rgba(244, 63, 94, 0.2); color: var(--rose-primary); }
+
+  .trap-q-it {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: #e4e4e7;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 8px;
+    padding: 10px;
+    direction: ltr;
+    text-align: left;
+    line-height: 1.5;
+  }
+  .trap-reason {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .trap-reason strong { color: #fff; }
+
+  /* Pagination Bar */
   .chapter-pagination {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    margin: 40px 0 20px;
-    padding: 16px 20px;
-    background: rgba(24, 24, 27, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    backdrop-filter: blur(12px);
-    flex-wrap: wrap;
+    gap: 16px;
+    padding: 24px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    margin-top: 40px;
   }
   .pagination-btn {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 18px;
-    border-radius: 12px;
+    padding: 12px 20px;
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #f4f4f5;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    color: #fff;
     text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 0.9rem;
     transition: all 0.15s ease;
   }
   .pagination-btn:hover {
     background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.16);
-    color: #fff;
-    transform: translateY(-1px);
+    border-color: var(--border-highlight);
   }
-  .pagination-btn.index-btn {
-    background: rgba(56, 189, 248, 0.08);
-    border-color: rgba(56, 189, 248, 0.2);
-    color: #38bdf8;
-  }
-  .pagination-btn.disabled {
-    opacity: 0.35;
-    pointer-events: none;
-    cursor: not-allowed;
-  }
-  .pagination-info {
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-  }
-  .pagination-label {
-    font-size: 0.72rem;
-    color: #a1a1aa;
-    font-weight: 500;
-  }
-  .pagination-title {
-    font-size: 0.85rem;
-    color: #fff;
-    font-weight: 700;
+  .pagination-info { display: flex; flex-direction: column; text-align: right; }
+  .pagination-label { font-size: 0.75rem; color: var(--text-muted); }
+  .pagination-title { font-size: 0.92rem; color: #fff; }
+
+  /* Responsive Rules (< 768px) */
+  @media (max-width: 768px) {
+    .desktop-nav-links, .desktop-nav-controls { display: none !important; }
+    .nav-hamburger-btn { display: flex !important; }
+    .guide-container { padding-top: calc(var(--nav-base-height) + 16px); padding-left: 14px; padding-right: 14px; }
+    .hero-title { font-size: 1.6rem; }
+    .signals-grid { grid-template-columns: 1fr; }
+    .sim-output-card { flex-direction: column; text-align: center; }
+    .sim-details { text-align: center; }
+    .chapter-pagination { flex-direction: column; align-items: stretch; }
   }
 
-  @media (max-width: 1023px) {
-    .nav-dropdown-wrapper {
-      display: none !important;
-    }
-  }
 
+/* Custom enhancements for badge containers in Chapter 20 */
+.badge-visual-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.badge-visual-icon {
+  font-size: 3.5rem;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+}
+.badge-visual-code {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--amber-primary);
+  background: rgba(245, 158, 11, 0.12);
+  padding: 2px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
 </style>
 </head>
 <body>
 
-<!-- Unified Apple HIG Navigation Bar -->
-<nav class="unified-portal-nav" aria-label="شريط التنقل الرئيسي">
-  <a href="index.html" class="nav-brand">
-    <span>Patente B Pro</span>
-    <span class="badge-tag">الباب 20</span>
-  </a>
+<!-- Unified Top Navigation (54px) -->
+<nav class="unified-portal-nav" aria-label="شريط التنقل الموحد">
+  <div style="display:flex; align-items:center; gap:12px;">
+    <a href="index.html" class="nav-brand">
+      <span>🚦 Patente B Pro</span>
+      <span class="badge-tag" style="background:rgba(245, 158, 11, 0.15); color:var(--amber-primary); border-color:rgba(245, 158, 11, 0.35);">الباب 20</span>
+    </a>
+  </div>
 
-    <!-- Core 3 Desktop Navigation Tabs -->
-  <nav class="nav-desktop-tabs">
-    <a href="index.html" class="nav-tab-desktop">🏛️ فهرس المكتبة</a>
-    <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 الأبواب المقسمة</a>
-    <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
-  </nav>
+  <div class="desktop-nav-links">
+    <a href="index.html" class="desktop-nav-link">
+      <span>🏛️</span>
+      <span>فهرس المكتبة الشاملة</span>
+    </a>
+    <a href="../Capitoli_Divisi/index.html" class="desktop-nav-link">
+      <span>📚</span>
+      <span>الأبواب المقسمة (25)</span>
+    </a>
+    <a href="../Simulatore_Esame.html" class="desktop-nav-link">
+      <span>⏱️</span>
+      <span>محاكي الامتحان</span>
+    </a>
+  </div>
 
-  <div class="nav-desktop-actions">
-    <!-- Desktop Chapters Dropdown -->
+  <div class="desktop-nav-controls">
     <div class="nav-dropdown-wrapper">
       <button class="nav-dropdown-btn" onclick="toggleNavDropdown(event)">
         <span>تصفح الأبواب (1-25)</span>
         <span style="font-size:0.75rem;">▾</span>
       </button>
       <div class="nav-dropdown-menu" id="navDropdownMenu">
-      <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
-      <a href="دليل_الباب_02_إشارات_الخطر.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_03_segnali_divieto/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
-      <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
-      <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_06_segnaletica_orizzontale_ostacoli/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأفقية والمطبات</span></a>
-      <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_08_segnali_indicazione/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
-      <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: الإشارات التكميلية وورش العمل</span></a>
-      <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
-      <a href="../Capitoli_Divisi/Capitolo_11_limiti_di_velocita/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة</span></a>
-      <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
-      <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
-      <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
-      <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
-      <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
-      <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
-      <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
-      <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
-      <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
-      <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: حوادث السير والطقس</span></a>
-      <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
-      <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 23: المسؤولية والتأمين RCA</span></a>
-      <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 24: استهلاك الوقود والبيئة</span></a>
-      <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
+        <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
+        <a href="دليل_الباب_02_إشارات_الخطر.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
+        <a href="دليل_الباب_03_إشارات_المنع.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
+        <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
+        <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
+        <a href="دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأرضية والعوائق</span></a>
+        <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
+        <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
+        <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: الإشارات التكميلية وورش العمل</span></a>
+        <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
+        <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة ومخاطرها</span></a>
+        <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
+        <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
+        <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
+        <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
+        <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
+        <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
+        <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
+        <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
+        <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
+        <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: حوادث السير والطقس</span></a>
+        <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
+        <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 23: المسؤولية والتأمين RCA</span></a>
+        <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 24: استهلاك الوقود والبيئة</span></a>
+        <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
       </div>
     </div>
-
     <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
       <span class="audio-icon-span">🔊</span>
       <span class="audio-label-span">الصوت نشط</span>
     </button>
   </div>
 
-  <button class="nav-hamburger-btn" id="nav-hamburger-btn" onclick="toggleMobileNav()" aria-label="قائمة التنقل">
+  <button class="nav-hamburger-btn" id="nav-hamburger-btn" onclick="toggleMobileNav()" aria-label="قائمة التنقل" aria-expanded="false">
     <div class="hamburger-box">
       <span class="hamburger-line line-top"></span>
       <span class="hamburger-line line-mid"></span>
@@ -721,724 +961,1666 @@
   </button>
 </nav>
 
-<!-- Backdrop Blur Overlay -->
+<!-- Mobile Overlay & Drawer -->
 <div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
-
-<!-- Slide-Down Glassmorphic Drawer Panel -->
 <div class="mobile-drawer-panel" id="mobile-drawer-panel">
   <div class="mobile-nav-list">
-    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📚</span>
-      <span>مذاكرة الأبواب المقسمة (25 باب)</span>
-    </a>
-    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">⏱️</span>
-      <span>محاكي الامتحان الوزاري (20 دقيقة)</span>
-    </a>
-    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📑</span>
-      <span>فهرس المكتبة الشاملة المعتمدة</span>
-    </a>
-    <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 17 (الأوتوستراد والحمولة والمقطورات)</span>
-    </a>
-    <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 18 (الأضواء والتابلوه والعواكس)</span>
-    </a>
-    <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 19 (الأحزمة والخوذة والمقاعد)</span>
-    </a>
-    <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="mobile-nav-link active" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 20 (الرخص والنقاط والعقوبات)</span>
-    </a>
-    <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 21 (حوادث السير والطقس الصعب)</span>
-    </a>
-    <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 22 (الكحول والمخدرات والإسعافات)</span>
-    </a>
-    <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 23 (المسؤولية والتأمين RCA)</span>
-    </a>
-    <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل الباب 24 (البيئة واستهلاك الوقود)</span>
-    </a>
-    <a href="دليل_الباب_الأخير.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>دليل وقاموس الباب 25 (الميكانيكا والصيانة)</span>
-    </a>
-  </div>
-  <div class="mobile-drawer-footer">
-    <button class="nav-audio-btn" onclick="toggleAudio()">
-      <span class="audio-icon-span">🔊</span>
-      <span class="audio-label-span">الصوت نشط</span>
-    </button>
+    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📚</span><span>مذاكرة الأبواب المقسمة (25 باب)</span></a>
+    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">⏱️</span><span>محاكي الامتحان الوزاري</span></a>
+    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📑</span><span>فهرس المكتبة الشاملة</span></a>
+    <div class="mobile-nav-divider"></div>
+    <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 19: أحزمة الأمان والخوذة</span></a>
+    <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="mobile-nav-link active" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 20: رخص القيادة والعقوبات</span></a>
+    <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 21: حوادث السير والطقس</span></a>
+    <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
+    <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 23: المسؤولية والتأمين RCA</span></a>
+    <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 24: استهلاك الوقود والبيئة</span></a>
+    <a href="دليل_الباب_الأخير.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
   </div>
 </div>
 
-<main class="container">
+<main class="guide-container">
 
-  <!-- Hero Card -->
-  <section class="hero-card">
-    <div class="hero-tag">⚖️ الدليل الاستراتيجي الوزاري المعتمد — A2</div>
-    <h1 class="hero-title">دليل وقاموس الباب 20: رخص القيادة، نظام النقاط، والعقوبات</h1>
-    <div class="hero-subtitle">Capitolo 20: Patente di guida, categorie, patente a punti, documenti e sanzioni</div>
+  <!-- HERO SECTION -->
+  <section class="chapter-hero">
+    <div class="hero-tag">🪪 المرجع المعتمد للدراسة والامتحان الوزاري</div>
+    <h1 class="hero-title">الباب 20: رخص القيادة، نظام رصيد النقاط، والعقوبات</h1>
+    <div class="hero-subtitle">Capitolo 20: Patenti di guida, patente a punti, documenti e sanzioni</div>
     <p class="hero-desc">
-      يشكل هذا الباب الإطار القانوني الصارم لحق قيادة المركبات في إيطاليا: تفصيل فئات الرخص السبع (بما فيها B1 المهملة)، شروط الورقة الوردية والمرافق، جدول تجديد الصلاحية حتى ما بعد سن الـ 80، قواعد النقاط وسقف الخصم الأقصى (15 نقطة)، والتمييز الجذري بين السحب (Ritiro)، التعليق (Sospensione)، والإلغاء النهائي (Revoca).
+      الدليل القانوني والهندسي الشامل لفئات رخص القيادة الإيطالية (AM, A1, A2, A, B, B96, BE)، تصريح التدريب (Foglio Rosa)، القيود المشددة على السائقين الجدد (Neopatentati)، آليات خصم ومضاعفة النقاط واستعادتها، والتمييز الجذري القاطع بين العقوبات الإدارية والتحفظية الأربع: السحب (Ritiro)، التعليق (Sospensione)، الإلغاء (Revoca)، وإعادة الفحص (Revisione).
     </p>
+
+    <div class="hero-stats-banner">
+      <div class="stat-badge">
+        <span class="stat-num">234</span>
+        <span class="stat-label">سؤالاً وزارياً رسمياً</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-num">12</span>
+        <span class="stat-label">فخاً وزارياً دقيقاً</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-num">18</span>
+        <span class="stat-label">بطاقة تفصيلية شاملة</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">مطابقة معايير كود السير 2026</span>
+      </div>
+    </div>
   </section>
 
-  <!-- Stats Grid -->
-  <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-val">234</div>
-      <div class="stat-label">سؤالاً في بنك الوزارة الرسمي</div>
+  <!-- GOLDEN RULES BANNER -->
+  <section class="golden-rules-banner">
+    <div class="golden-rules-title">
+      <span>⭐</span>
+      <span>القواعد الذهبية الأربع للباب 20 (Regole d'Oro)</span>
     </div>
-    <div class="stat-card">
-      <div class="stat-val">18</div>
-      <div class="stat-label">موضوعاً فرعياً معتمداً</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-val">15</div>
-      <div class="stat-label">الحد الأقصى للخصم المتزامن للجدد</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-val">~35%</div>
-      <div class="stat-label">نسبة تشابه صيغ الأسئلة</div>
-    </div>
-  </div>
-
-  <!-- Module 1: Categorie di Patente -->
-  <h2 class="section-title">
-    <span>🪪</span>
-    <span>المحور الأول: فئات رخص القيادة والأعمار المعتمدة (Categorie di Patente)</span>
-    <span class="badge">Categorie & Abilitazioni</span>
-  </h2>
-
-  <div class="dict-table-wrap">
-    <table class="dict-table">
-      <thead>
-        <tr>
-          <th>فئة الرخصة</th>
-          <th>السن الأدنى</th>
-          <th>المركبات المصرح بقيادتها</th>
-          <th>الفخاخ الوزارية الحاسمة</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong style="color:#c084fc;">Patente AM</strong></td>
-          <td>14 سنة</td>
-          <td>الدراجات الصغيرة Ciclomotori حتى 50 سم³ والسرعة 45 كم/س، والرباعيات الخفيفة Quadricicli leggeri.</td>
-          <td><strong style="color:#f87171;">فخ الركاب:</strong> لا يجوز نقل راكب إلا بعد إتمام <span style="color:#fff; text-decoration:underline;">16 سنة على الأقل</span> وكون المركبة معتمدة لشخصين!</td>
-        </tr>
-        <tr>
-          <td><strong style="color:#c084fc;">Patente A1</strong></td>
-          <td>16 سنة</td>
-          <td>دراجات نارية حتى 125 سم³، قوة 11 kW، نسبة قوة/وزن 0.1 kW/kg، وتريسيكل حتى 15 kW.</td>
-          <td>تسمح بقيادة الآلات الزراعية التي لا تتجاوز أبعاد الدراجة النارية.</td>
-        </tr>
-        <tr>
-          <td><strong style="color:#c084fc;">Patente A2</strong></td>
-          <td>18 سنة</td>
-          <td>دراجات نارية بقوة لا تتجاوز 35 kW، ونسبة قوة/وزن لا تتجاوز 0.2 kW/kg.</td>
-          <td>شرط ألا تكون مشتقة من دراجة تنتج أكثر من ضعف قوتها الأصلية.</td>
-        </tr>
-        <tr>
-          <td><strong style="color:#c084fc;">Patente A (Libera)</strong></td>
-          <td>24 سنة (أو 20)</td>
-          <td>جميع الدراجات النارية بدون أي حد للقوة أو السعة.</td>
-          <td>يمكن الحصول عليها في سن 20 سنة بشرط حيازة رخصة A2 لعامين على الأقل. التريسيكل أكثر من 15 kW يتطلب 21 سنة.</td>
-        </tr>
-        <tr>
-          <td><strong style="color:#c084fc;">Patente B1 (حصرية)</strong></td>
-          <td>16 سنة</td>
-          <td>الرباعيات غير الخفيفة Quadricicli non leggeri (الـ Quad) حتى 15 kW وكتلة فارغة 450 كجم (أو 600 كجم للبضائع).</td>
-          <td><strong style="color:#f87171;">فخ وزاري شهير:</strong> رخصة B1 <span style="color:#fff; text-decoration:underline;">لا تسمح نهائياً بقيادة أي دراجة نارية</span> ذات عجلتين (Motocicli)!</td>
-        </tr>
-        <tr>
-          <td><strong style="color:#c084fc;">Patente B</strong></td>
-          <td>18 سنة</td>
-          <td>سيارات حتى 3.5 طن (3500 كجم) و 9 مقاعد (8 ركاب + السائق). مقطورة خفيفة (750 كجم) أو ثقيلة بشرط وزن المجموعة لا يتجاوز 3.5 طن.</td>
-          <td>داخل إيطاليا فقط: تقود دراجات A1 (حتى 125 سم³)، وجميع الآلات الزراعية، والآلات الإنشائية غير الاستثنائية.</td>
-        </tr>
-        <tr>
-          <td><strong style="color:#c084fc;">Codice 96 (B96)</strong></td>
-          <td>18 سنة</td>
-          <td>سيارة فئة B + مقطورة تزيد عن 750 كجم، ووزن المجموعة بين 3.500 كجم و 4.250 كجم.</td>
-          <td>تتطلب اجتياز اختبار سلوك وقيادة عملي مخصص.</td>
-        </tr>
-        <tr>
-          <td><strong style="color:#c084fc;">Patente BE</strong></td>
-          <td>18 سنة</td>
-          <td>سيارة فئة B + مقطورة حتى 3.5 طن؛ وزن المجموعة الإجمالي يصل حتى 7 طن (7.000 كجم).</td>
-          <td>الوزن الإجمالي الأقصى 7 طن (3.5 طن قاطرة + 3.5 طن مقطورة).</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Module 2: Foglio Rosa & Rinnovo -->
-  <h2 class="section-title">
-    <span>🗓️</span>
-    <span>المحور الثاني: تصريح التدريب ورخصة التمرين وجدول التجديد</span>
-    <span class="badge">Foglio Rosa & Rinnovo</span>
-  </h2>
-
-  <div class="rule-card highlight">
-    <div class="rule-card-header">
-      <div class="rule-card-title">
-        <span>📄 تصريح التدريب (Il Foglio Rosa) — القواعد الوزارية الصارمة</span>
+    <div class="rules-grid">
+      <div class="rule-box">
+        <h4><span>1️⃣</span> قاعدة فئات الرخص والمركبات المسموحة</h4>
+        <p>رخصة B تقود سيارات حتى 3.500 كجم و 9 مقاعد مع السائق ومقطورة خفيفة (750 كجم) وموتوسيكلات 125 cc (11 kW) داخل إيطاليا فقط. كود 96 يرفع المجموع إلى 4.250 كجم، بينما رخصة BE تقود مقطورات حتى 3.500 كجم (مجموع 7.000 كجم).</p>
       </div>
-      <span class="it-tag">Validità 12 Mesi</span>
+      <div class="rule-box">
+        <h4><span>2️⃣</span> قاعدة السائق الجديد ومضاعفة خصم النقاط</h4>
+        <p>الرصيد الابتدائي 20 نقطة. يُضاعف الخصم بالكامل للسائقين الجدد (Neopatentati) في أول 3 سنوات (خصم 5 يصبح 10، وخصم 10 يصبح 20!). والحد الأقصى للخصم في الواقعة الواحدة 15 نقطة ما لم تكن هناك عقوبة سحب أو تعليق.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>3️⃣</span> التمييز الجذري بين العقوبات الأربع</h4>
+        <p>السحب (Ritiro) إجراء فوري تحفظي للشرطة (انتهاء الصلاحية/عدم ارتداء النظارة). التعليق (Sospensione) حرمان مؤقت بقرار المحافظ (المعاكسة/السرعة العالية/الكحول). الإلغاء (Revoca) إلغاء نهائي للرخصة. الفحص (Revisione) إعادة اختبار الشك في اللياقة أو نفاد النقاط (0).</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>4️⃣</span> وثائق السير الثلاث الإلزامية وتصريح التدريب</h4>
+        <p>أثناء القيادة يجب حمل: 1) رخصة القيادة، 2) رخصة تسيير المركبة (Carta di circolazione / DU)، 3) شهادة التأمين RCA (صالحة رقمياً على الهاتف). وتصريح التدريب (Foglio rosa) صالح 12 شهراً ويتطلب مرافقاً مؤهلاً وعلامة P.</p>
+      </div>
     </div>
-    <ul style="color:#d4d4d8; padding-right:20px; line-height:1.8; font-size:0.92rem;">
-      <li><strong>فترة الصلاحية:</strong> صالح لمدة <strong style="color:#fff;">12 شهراً</strong> من تاريخ صدوره.</li>
-      <li><strong>محاولات الامتحان:</strong> يتيح إجراء الاختبار العملي حتى <strong style="color:#fff;">3 مرات كحد أقصى</strong>.</li>
-      <li><strong>شروط المرافق (L'accompagnatore):</strong>
-        <ul>
-          <li>يجب أن يجلس بجوار المتدرب في المقعد الأمامي لمراقبته والتدخل بالفرامل عند اللزوم.</li>
-          <li>ألا يزيد عمره عن <strong style="color:#fde047;">65 سنة</strong>.</li>
-          <li>أن يحمل رخصة قيادة فئة B منذ <strong style="color:#fde047;">10 سنوات على الأقل</strong>، أو يحمل رخصة من فئة أعلى (C, D).</li>
+  </section>
+
+  <!-- SIMULATOR 1: License Categories Explorer -->
+  <section class="simulator-box" id="sim-patenti">
+    <div class="sim-title">
+      <span>🪪</span>
+      <span>المحاكي التفاعلي 1: مستكشف فئات الرخص والمركبات المسموحة (Categorie di Patente)</span>
+    </div>
+    <div class="sim-subtitle">اختر فئة الرخصة لاستكشاف السن الأدنى، المركبات المسموح بقيادتها، القيود القانونية، وفخاخ الامتحان:</div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnPatAM" onclick="simPatente('AM')">AM (14 سنة)</button>
+      <button class="sim-btn" id="btnPatA1" onclick="simPatente('A1')">A1 (16 سنة)</button>
+      <button class="sim-btn" id="btnPatA2" onclick="simPatente('A2')">A2 (18 سنة)</button>
+      <button class="sim-btn" id="btnPatA" onclick="simPatente('A')">A غير مقيدة (24/20 سنة)</button>
+      <button class="sim-btn" id="btnPatB1" onclick="simPatente('B1')">B1 (16 سنة)</button>
+      <button class="sim-btn" id="btnPatB" onclick="simPatente('B')">B القياسية (18 سنة)</button>
+      <button class="sim-btn" id="btnPatB96" onclick="simPatente('B96')">B96 (4.250 kg)</button>
+      <button class="sim-btn" id="btnPatBE" onclick="simPatente('BE')">BE (7.000 kg)</button>
+    </div>
+    <div class="sim-output-card" id="patenteOutput">
+      <div class="sim-badge" id="patenteBadge" style="background:rgba(56, 189, 248, 0.15); color:var(--sky-primary); border:1px solid rgba(56, 189, 248, 0.35);">
+        🛵 فئة AM
+      </div>
+      <div class="sim-details">
+        <h4 id="patenteTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">رخصة AM - سيكلوموتوري وميكروكار (Ciclomotori e Quadricicli leggeri)</h4>
+        <p id="patenteDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
+          <strong>السن الأدنى:</strong> 14 سنة.<br>
+          <strong>المركبات المسموحة:</strong> دراجات بخارية 2 و 3 عجلات سعة محركها لا تتجاوز 50 سم مكعب، سرعتها القصوى 45 كم/ساعة، والمركبات الرباعية الخفيفة (Quadricicli leggeri / Minicar) بقدرة قصوى 6 كيلووات ووزن فارغ لا يتجاوز 425 كجم.<br>
+          <strong>نقل الركاب:</strong> يُسمح بنقل راكب إضافي فقط إذا كان سن السائق 16 سنة على الأقل والمركبة معتمدة لنقل راكبين.<br>
+          <strong>فخ الامتحان:</strong> رخصة AM لا تتيح قيادة دراجات نارية 125 cc ولا كوادريكلي ثقيلة!
+        </p>
+        <div class="sim-warning-box" id="patenteWarning" style="margin-top:10px; padding:10px 14px; background:rgba(244,63,94,0.1); border-right:3px solid var(--rose-primary); border-radius:8px; font-size:0.86rem; color:#fecdd3;">
+          ⚠️ <strong>تنبيه الامتحان الوزاري:</strong> لا يُشترط الحصول على رخصة AM قبل التقديم على رخصة B؛ فرخصة B تشمل تلقائياً صلاحية قيادة مركبات AM في كافة دول الاتحاد الأوروبي.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR 2: Points Deduction & Neopatentati Multiplier -->
+  <section class="simulator-box" id="sim-punti">
+    <div class="sim-title">
+      <span>🔢</span>
+      <span>المحاكي التفاعلي 2: حاسبة خصم النقاط ومضاعفة السائق الجديد (Calcolatore Punti Patente)</span>
+    </div>
+    <div class="sim-subtitle">حدد نوع السائق ونوع المخالفة المرتكبة لحساب رصيد النقاط المحسوم والعقوبة الإضافية فورياً:</div>
+    <div class="sim-controls" style="margin-bottom:12px;">
+      <span style="font-size:0.88rem; color:var(--text-muted); margin-left:8px; align-self:center;">صفة السائق:</span>
+      <button class="sim-btn active" id="btnDriverOrd" onclick="setDriverType('ord')">سائق معتاد (أكثر من 3 سنوات)</button>
+      <button class="sim-btn" id="btnDriverNeo" onclick="setDriverType('neo')">سائق جديد (Neopatentato - أول 3 سنوات)</button>
+    </div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnInfPrecedenza" onclick="simInfraction('precedenza')">عدم إعطاء الأسبقية (-5)</button>
+      <button class="sim-btn" id="btnInfCinture" onclick="simInfraction('cinture')">عدم ربط حزام الأمان (-5)</button>
+      <button class="sim-btn" id="btnInfCellulare" onclick="simInfraction('cellulare')">استخدام الهاتف أثناء القيادة (-5)</button>
+      <button class="sim-btn" id="btnInfVelocita" onclick="simInfraction('velocita')">تجاوز السرعة بأكثر من 40 كم/س (-6)</button>
+      <button class="sim-btn" id="btnInfContromano" onclick="simInfraction('contromano')">السير عكس الاتجاه في المنحنيات (-10)</button>
+    </div>
+    <div class="sim-output-card" id="puntiOutput">
+      <div class="sim-badge" id="puntiBadge" style="background:rgba(244, 63, 94, 0.15); color:var(--rose-primary); border:1px solid rgba(244, 63, 94, 0.35);">
+        خصم -5 نقاط
+      </div>
+      <div class="sim-details">
+        <h4 id="puntiTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">مخالفة: عدم إعطاء أسبقية المرور (Mancata precedenza)</h4>
+        <p id="puntiDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
+          <strong>الخصم القانوني للسائق المعتاد:</strong> يتم خصم <strong>5 نقاط</strong> من رصيد الرخصة.<br>
+          <strong>الرصيد المتبقي (افتراض رصيد 20):</strong> يتبقى 15 نقطة.<br>
+          <strong>استعادة النقاط:</strong> يمكن استعادة 6 نقاط عبر حضور دورات تدريبية خاصة في مدارس تعليم القيادة المعتمدة، أو استعادة الرصيد إلى 20 نقطة تلقائياً بعد مرور سنتين كاملتين دون ارتكاب أي مخالفة تتضمن خصم نقاط.
+        </p>
+        <div class="sim-warning-box" id="puntiWarning" style="margin-top:10px; padding:10px 14px; background:rgba(245, 158, 11, 0.1); border-right:3px solid var(--amber-primary); border-radius:8px; font-size:0.86rem; color:#fde68a;">
+          💡 <strong>معلومة ذهبية:</strong> الحد الأقصى للنقاط التي يمكن جمعها بالمكافأة هو 30 نقطة (+2 نقطة كل سنتين التزام).
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR 3: Sanctions Decision Tree -->
+  <section class="simulator-box" id="sim-sanzioni">
+    <div class="sim-title">
+      <span>⚖️</span>
+      <span>المحاكي التفاعلي 3: شجرة التمييز بين العقوبات الأربع (Ritiro, Sospensione, Revoca, Revisione)</span>
+    </div>
+    <div class="sim-subtitle">اضغط لمعرفة الفارق الجوهري بين العقوبات الأربع ومن يصدرها وحالات تطبيقها في الامتحان:</div>
+    <div class="sim-controls">
+      <button class="sim-btn active" id="btnSanzRitiro" onclick="simSanzione('ritiro')">1. السحب الفوري (Ritiro)</button>
+      <button class="sim-btn" id="btnSanzSospensione" onclick="simSanzione('sospensione')">2. التعليق المؤقت (Sospensione)</button>
+      <button class="sim-btn" id="btnSanzRevoca" onclick="simSanzione('revoca')">3. الإلغاء الدائم (Revoca)</button>
+      <button class="sim-btn" id="btnSanzRevisione" onclick="simSanzione('revisione')">4. إعادة الفحص (Revisione)</button>
+    </div>
+    <div class="sim-output-card" id="sanzioniOutput">
+      <div class="sim-badge" id="sanzioniBadge" style="background:rgba(245, 158, 11, 0.15); color:var(--amber-primary); border:1px solid rgba(245, 158, 11, 0.35);">
+        سحب فوري (Ritiro)
+      </div>
+      <div class="sim-details">
+        <h4 id="sanzioniTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">سحب الرخصة الميداني (Il Ritiro della patente)</h4>
+        <p id="sanzioniDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
+          <strong>طبيعة الإجراء:</strong> تدبير إداري تحفظي يقوم به ضابط الشرطة مباشرة على الطريق لمنع السائق من مواصلة القيادة.<br>
+          <strong>أشهر الحالات الوزارية:</strong> 1) القيادة برخصة منتهية الصلاحية (Scaduta di validità)، 2) القيادة بدون ارتداء النظارات الطبية المسجلة بكود خاص في الرخصة، 3) الامتناع عن ترتيب الحمولة غير الآمنة بعد إنذار الشرطة، 4) وقوع حادث سير نتجت عنه إصابات بدنية لأشخاص.<br>
+          <strong>استرجاع الرخصة:</strong> تُسترد بمجرد زوال سبب السحب (مثل تجديد الفحص الطبي للرخصة المنتهية أو تقديم ما يفيد تصحيح الوضع).
+        </p>
+        <div class="sim-warning-box" id="sanzioniWarning" style="margin-top:10px; padding:10px 14px; background:rgba(244,63,94,0.1); border-right:3px solid var(--rose-primary); border-radius:8px; font-size:0.86rem; color:#fecdd3;">
+          ❌ <strong>فخ امتحاني:</strong> القيادة برخصة منتهية الصلاحية تؤدي إلى سحبها (Ritiro) وليس إلغائها (Revoca) ولا تعليقها (Sospensione)!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON SECTION -->
+  <section class="comp-section" id="comp-categories">
+    <div class="comp-header">
+      <h3>المقارنة البصرية الحاسمة: أوزان المقطورات وقيود السائقين الجدد والعقوبات</h3>
+      <p>الفروق الدقيقة التي يركز عليها واضع الامتحان الوزاري للتمييز بين فئات الرخص والإجراءات القانونية</p>
+    </div>
+    <div class="comp-grid-4">
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">🚗 + 🚛</div>
+        <h4>Patente B vs B96 vs BE</h4>
+        <div class="comp-tag" style="background:rgba(56,189,248,0.15); color:var(--sky-primary);">أوزان المقطورات</div>
+        <p>• <strong>Patente B:</strong> مقطورة خفيفة (حتى 750 كجم) دائماً، أو مقطورة ثقيلة بشرط ألا يتجاوز مجموع المركبة والمقطورة 3.500 كجم.<br>• <strong>Codice 96:</strong> يرفع مجموع المقطورة الثقيلة والسيارة حتى 4.250 كجم (باختبار قيادة عملي).<br>• <strong>Patente BE:</strong> سيارة فئة B ومقطورة تصل حتى 3.500 كجم بمجموع كلي حتى 7.000 كجم.</p>
+      </div>
+
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">🪪 📄</div>
+        <h4>تصريح التدريب (Foglio Rosa)</h4>
+        <div class="comp-tag" style="background:rgba(245,158,11,0.15); color:var(--amber-primary);">صلاحية 12 شهراً</div>
+        <p>• يتيح التدريب العملي على قيادة السيارات برفقة مرافق لا يتجاوز عمره 65 عاماً وحاصل على رخصة B منذ 10 سنوات على الأقل أو رخصة من فئة أعلى (C أو D).<br>• يجب وضع لوحة بالحرف "P" باللون الأسود على خلفية بيضاء عاكسة في الأمام والخلف.<br>• يمنح حتى 3 محاولات للاختبار العملي.</p>
+      </div>
+
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">⏱️ ⚡</div>
+        <h4>قيود السائق الجديد (Neopatentati)</h4>
+        <div class="comp-tag" style="background:rgba(244,63,94,0.15); color:var(--rose-primary);">أول 3 سنوات</div>
+        <p>• <strong>السرعة القصوى:</strong> 100 كم/س في الأوتوستراد (بدلاً من 130)، و 90 كم/س على الطرق السريعة الرئيسية (بدلاً من 110) لمدة 3 سنوات.<br>• <strong>النقاط:</strong> مضاعفة خصم النقاط (Raddoppio dei punti) لأي مخالفة خلال السنوات الـ 3 الأولى.<br>• <strong>السنة الأولى:</strong> حظر قيادة سيارات تزيد قدرتها عن 55 kW لكل طن أو قدرة مطلقة 70 kW.</p>
+      </div>
+
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">⚖️ 🛑</div>
+        <h4>السحب (Ritiro) vs التعليق (Sospensione)</h4>
+        <div class="comp-tag" style="background:rgba(16,185,129,0.15); color:var(--emerald-primary);">طبيعة العقوبة</div>
+        <p>• <strong>السحب (Ritiro):</strong> إجراء وقائي مؤقت فوري يتخذه رجل الشرطة فوراً (مثل انتهاء صلاحية الرخصة أو نسيان النظارة أو وجود جرحى).<br>• <strong>التعليق (Sospensione):</strong> عقوبة تصدر بقرار من المحافظ (Prefetto) أو القاضي لمدة محددة (أيام إلى شهور) لمخالفات خطيرة كالكحول والسرعة الفائقة والمعاكسة.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER PILLS BAR -->
+  <div class="filter-pills-bar">
+    <button class="filter-pill active" onclick="filterCards('all', this)">جميع البطاقات (18)</button>
+    <button class="filter-pill" onclick="filterCards('patenti-moto', this)">رخص الدراجات (AM, A1, A2, A)</button>
+    <button class="filter-pill" onclick="filterCards('patenti-auto', this)">رخص السيارات (B1, B, B96, BE)</button>
+    <button class="filter-pill" onclick="filterCards('foglio-rosa', this)">تصريح التدريب والسائق الجديد</button>
+    <button class="filter-pill" onclick="filterCards('punti', this)">نظام رصيد النقاط (Punti)</button>
+    <button class="filter-pill" onclick="filterCards('sanzioni', this)">العقوبات (سحب، تعليق، إلغاء، فحص)</button>
+    <button class="filter-pill" onclick="filterCards('documenti', this)">المستندات والتراخيص والتجديد</button>
+  </div>
+
+  <!-- SIGNALS GRID (18 DETAILED CARDS) -->
+  <div class="section-heading">
+    <div class="section-badge">الشرح التفصيلي لبطاقات الباب 20</div>
+    <h2 class="section-title">البطاقات المعرفية المعتمدة لرخص القيادة والعقوبات</h2>
+  </div>
+
+  <div class="signals-grid">
+
+    <!-- CARD: AM - 14 Anni -->
+    <div class="signal-card" data-category="patenti-moto">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🛵</div>
+          <div class="badge-visual-code">AM - 14 Anni</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">رخصة القيادة فئة AM (الدراجات الصغيرة وسيارات الميني كار)</h3>
+        <span class="card-it-title">Patente di guida della categoria AM</span>
+      </div>
+      <p class="card-desc-text">
+        الرخصة التأسيسية التي تمكن من قيادة السيكلوموتوري بمحرك احتراق داخلي حتى 50 سم مكعب، أو محرك كهربائي حتى 4 كيلووات، وسرعة قصوى لا تتجاوز 45 كم/ساعة، بالإضافة إلى سيارات الميني كار (Quadricicli leggeri) بقدرة قصوى 6 كيلووات ووزن فارغ لا يتجاوز 425 كجم.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تتيح قيادة السيكلوموتوري ذي العجلتين أو الثلاث عجلات بسرعة قصوى لا تزيد عن 45 كم/ساعة وسعة محرك لا تزيد عن 50 سم مكعب (Il conseguimento della patente AM abilita alla guida di ciclomotori a due o tre ruote)</li>
+          <li><span>✅</span> تتيح قيادة المركبات الرباعية الخفيفة (Quadricicli leggeri) ذات الكتلة الفارغة حتى 425 كجم وقدرة قصوى حتى 6 كيلووات (Abilita alla guida di quadricicli leggeri)</li>
+          <li><span>✅</span> يمكن استخراجها عند إتمام 14 سنة من العمر، ولكن لا يجوز نقل راكب إضافي إلا إذا بلغ السائق 16 سنة وكانت المركبة مرخصة لذلك (Il trasporto di un passeggero su ciclomotore è consentito solo se il conducente ha almeno 16 anni)</li>
         </ul>
-      </li>
-      <li><strong style="color:#f87171;">⚠️ العقوبة:</strong> القيادة بالورقة الوردية بدون مرافق مستوفٍ للشروط تستوجب <span style="color:#fff; text-decoration:underline;">سحب الورقة الوردية فوراً (Ritiro)</span> وحجز المركبة إدارياً لمدة 3 أشهر!</li>
-    </ul>
-  </div>
-
-  <div class="rule-card info">
-    <div class="rule-card-header">
-      <div class="rule-card-title">
-        <span>🔄 جدول فترات تجديد الرخصة (Validità delle Patenti A e B)</span>
       </div>
-      <span class="it-tag">Allineamento Compleanno</span>
-    </div>
-    <div class="dict-table-wrap">
-      <table class="dict-table">
-        <thead>
-          <tr>
-            <th>الفئة العمرية للسائق</th>
-            <th>فترة صلاحية الرخصة</th>
-            <th>ملاحظات الفحص الطبي</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>حتى سن 50 سنة (Fino a 50 anni)</td>
-            <td><strong style="color:#34d399;">كل 10 سنوات (10 anni)</strong></td>
-            <td>فحص طبي دوري لتأكيد اللياقة البصرية والبدنية.</td>
-          </tr>
-          <tr>
-            <td>من 50 إلى 70 سنة (Tra 50 e 70 anni)</td>
-            <td><strong style="color:#fbbf24;">كل 5 سنوات (5 anni)</strong></td>
-            <td>تجدد كل 5 سنوات بعد سن الخمسين.</td>
-          </tr>
-          <tr>
-            <td>من 70 إلى 80 سنة (Tra 70 e 80 anni)</td>
-            <td><strong style="color:#f87171;">كل 3 سنوات (3 anni)</strong></td>
-            <td>فخ وزاري: لا تجدد كل 5 سنوات فوق السبعين بل كل 3 سنوات!</td>
-          </tr>
-          <tr>
-            <td>أكثر من 80 سنة (Oltre 80 anni)</td>
-            <td><strong style="color:#f43f5e;">كل سنتين (2 anni)</strong></td>
-            <td>فحص دوري مشدد كل سنتين.</td>
-          </tr>
-          <tr>
-            <td>الرخصة الخاصة لذوي الإعاقة (Patente Speciale BS)</td>
-            <td><strong style="color:#38bdf8;">كل 5 سنوات (5 anni)</strong></td>
-            <td>صلاحيتها 5 سنوات حتى سن 70 سنة (أمام لجنة طبية محلية).</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p style="color:#d4d4d8; font-size:0.88rem; margin-top:8px;">
-      🎂 <strong>قاعدة تاريخ الميلاد (Allineamento al compleanno):</strong> ينص القانون الإيطالي على أن تاريخ انتهاء صلاحية الرخصة يتزامن مع نفس يوم وشهر عيد ميلاد حاملها عند أول تجديد.
-    </p>
-  </div>
 
-  <!-- Module 3: Patente a Punti -->
-  <h2 class="section-title">
-    <span>🔢</span>
-    <span>المحور الثالث: نظام رصيد النقاط والسائقون الجدد — 38 سؤالاً</span>
-    <span class="badge">Patente a Punti & Neopatentati</span>
-  </h2>
-
-  <div class="rule-card amber">
-    <div class="rule-card-header">
-      <div class="rule-card-title">
-        <span>قواعد رصيد النقاط والخصم والمكافآت (I Punti Patente)</span>
-      </div>
-      <span class="it-tag">20 Punti Iniziali</span>
-    </div>
-    <ul style="color:#d4d4d8; padding-right:20px; line-height:1.8; font-size:0.92rem;">
-      <li><strong>الرصيد المبدئي:</strong> يُمنح كل سائق رصيداً مبدئياً قدره <strong style="color:#fff;">20 نقطة</strong>.</li>
-      <li><strong>السائقون الجدد (Neopatentati):</strong> خلال <strong style="color:#fde047;">السنوات الثلاث الأولى</strong> من الحصول على الرخصة، يُطبق عليهم <span style="color:#f87171; font-weight:700;">ضعف الخصم (Doppia decurtazione)</span> لكل مخالفة تستوجب خصم نقاط!</li>
-      <li><strong style="color:#f87171;">⚠️ فخ الحد الأقصى للخصم المتزامن (Massimo 15 punti):</strong>
-        إذا ارتكب السائق عدة مخالفات في نفس اللحظة وتم ضبطها معاً، <strong style="color:#fff;">فإن الحد الأقصى لما يمكن خصمه هو 15 نقطة فقط</strong>، 
-        <span style="color:#fca5a5;">إلا في حالة واحدة:</span> إذا كانت إحدى المخالفات تستوجب بذاتها تعليق الرخصة (Sospensione) أو إلغاءها (Revoca)، فعندئذ يمكن خصم كامل رصيد النقاط (حتى 20 نقطة أو أكثر).
-      </li>
-      <li><strong>نظام استعادة النقاط وزيادتها (Recupero e Bonus):</strong>
-        <ul>
-          <li>حضور دورة تدريبية مخصصة في مدرسة القيادة يتيح استعادة <strong style="color:#34d399;">6 نقاط</strong> (بحد أقصى لبلوغ 20 نقطة).</li>
-          <li>إذا كان الرصيد أقل من 20 نقطة ومرت <strong style="color:#34d399;">سنتان كاملتان دون ارتكاب أي مخالفة</strong>، يُعاد الرصيد تلقائياً إلى 20 نقطة كاملة.</li>
-          <li><strong>مكافأة السائق الملتزم (Bonus):</strong> السائق الذي يملك 20 نقطة ولم يرتكب مخالفات لمدة عامين، يُمنح <strong style="color:#34d399;">نقطتين إضافيتين كل سنتين</strong> حتى يصل للحد الأقصى وهو <strong style="color:#34d399;">30 نقطة</strong>.</li>
-          <li>للسائق الجديد (Neopatentato): يمنح <strong style="color:#34d399;">نقطة واحدة سنوياً</strong> عن كل سنة التزام كامل خلال أول 3 سنوات (بحد أقصى 3 نقاط بونص).</li>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تتيح رخصة AM قيادة الدراجات النارية سعة 125 سم مكعب (La patente AM abilita alla guida di motocicli fino a 125 cm3) ❌</li>
+          <li><span>❌</span> يُشترط الحصول المسبق على رخصة AM للتمكن من التقديم على رخصة B (E' necessario possedere la patente AM per poter conseguire la patente B) ❌</li>
+          <li><span>❌</span> تسمح بقيادة سيارات الركاب العادية بشرط أن يقودها السائق نهاراً فقط ❌</li>
         </ul>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Module 4: The 4 Sanzioni -->
-  <h2 class="section-title">
-    <span>⚖️</span>
-    <span>المحور الرابع: التمييز الجذري بين العقوبات الأربع (Le Sanzioni Accessorie)</span>
-    <span class="badge">Ritiro, Sospensione, Revoca, Revisione</span>
-  </h2>
-
-  <div class="dict-table-wrap">
-    <table class="dict-table">
-      <thead>
-        <tr>
-          <th>نوع العقوبة</th>
-          <th>طبيعتها القانونية</th>
-          <th>أشهر الحالات الإلزامية في الامتحان</th>
-          <th>كيف تنتهي العقوبة؟</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong style="color:#f59e0b;">سحب الرخصة (Ritiro)</strong></td>
-          <td>إجراء إداري فوري مؤقت يتم فيه حجز بطاقة الرخصة في الحال من الشرطة.</td>
-          <td>
-            1. القيادة برخصة منتهية الصلاحية (Patente scaduta).<br>
-            2. قيادة المتدرب بدون مرافق مؤهل.<br>
-            3. عدم تسوية الحمولة المائلة والخطرة بعد التنبيه.<br>
-            4. عدم إجراء فحص المراجعة في الموعد المحدد.
-          </td>
-          <td>تنتهي فور إزالة سبب المخالفة (تجديد الرخصة، تسوية الحمولة).</td>
-        </tr>
-        <tr>
-          <td><strong style="color:#f43f5e;">تعليق الرخصة (Sospensione)</strong></td>
-          <td>تجميد مؤقت للرخصة ومنع القيادة لفترة زمنية محددة (من شهر إلى سنوات).</td>
-          <td>
-            1. تجاوز السرعة بأكثر من 40 كم/س.<br>
-            2. القيادة تحت تأثير الكحول أو المخدرات.<br>
-            3. السير في مسار الطوارئ بالأوتوستراد دون سبب.<br>
-            4. السير عكس الاتجاه في المنعطفات والمطالع.<br>
-            5. الهروب بعد حادث به مصابون (Fuga e omissione soccorso).<br>
-            6. تكرار المخالفة خلال عامين (Recidiva biennale): كقطع الإشارة مرتين، أو عدم ربط الحزام مرتين.
-          </td>
-          <td>تسترد الرخصة بعد انتهاء فترة العقوبة المحددة في القرار.</td>
-        </tr>
-        <tr>
-          <td><strong style="color:#ef4444;">إلغاء الرخصة (Revoca)</strong></td>
-          <td>إلغاء نهائي وتام للرخصة وإسقاطها واعتبارها كأن لم تكن إطلاقاً.</td>
-          <td>
-            1. الفقدان الدائم والنهائي للشروط البدنية أو النفسية.<br>
-            2. القيادة أثناء فترة تعليق الرخصة (Guida con patente sospesa).<br>
-            3. الرسوب في اختبار المراجعة (Bocciatura alla revisione).<br>
-            4. السير عكس الاتجاه أو الرجوع للخلف والدوران في الأوتوستراد.<br>
-            5. استبدالها برخصة أجنبية (Conversione).
-          </td>
-          <td>لا تُسترد! يجب بدء إجراءات رخصة جديدة تماماً من الصفر بعد مرور المدة القانونية.</td>
-        </tr>
-        <tr>
-          <td><strong style="color:#38bdf8;">مراجعة الرخصة (Revisione)</strong></td>
-          <td>إلزام السائق بإعادة الخضوع للفحص الطبي أو إعادة امتحاني النظري والعملي.</td>
-          <td>
-            1. عند نفاد رصيد النقاط بالكامل (وصول الرصيد إلى 0).<br>
-            2. ارتكاب 3 مخالفات كل منها 5 نقاط فأكثر في غضون 12 شهراً.<br>
-            3. الشك في استمرار اللياقة البدنية أو النفسية أو الفنية.
-          </td>
-          <td>إذا اجتاز الاختبار بنجاح يحتفظ برخصته؛ وإذا رسب يتم إلغاؤها فوراً (Revoca).</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Module 5: Documenti e Targhe -->
-  <h2 class="section-title">
-    <span>📋</span>
-    <span>المحور الخامس: المستندات الإلزامية ولوحات المركبات (Documenti e Targhe)</span>
-    <span class="badge">Documenti di Circolazione & Targhe</span>
-  </h2>
-
-  <div class="rule-card info">
-    <div class="rule-card-title" style="margin-bottom:10px;">📄 المستندات الإلزامية التي يجب حملها أثناء القيادة:</div>
-    <ul style="color:#d4d4d8; padding-right:20px; line-height:1.8; font-size:0.92rem;">
-      <li><strong>رخصة القيادة (Patente di guida):</strong> سارية المفعول ومتناسبة مع فئة المركبة.</li>
-      <li><strong>رخصة السير / الوثيقة الموحدة (Carta di circolazione / Documento Unico):</strong> تثبت تسجيل المركبة وبياناتها الفنية وبيانات المالك وفحصها الدوري (Revisione periodica).</li>
-      <li><strong>شهادة التأمين (Certificato di assicurazione):</strong> تثبت وجود وثيقة تأمين مسؤولية مدنية (RCA) سارية.</li>
-      <li><strong style="color:#fde047;">ملاحظة:</strong> ملصق التأمين المطبوع على الزجاج (Contrassegno) لم يعد إلزامياً، ولكن شهادة التأمين (Certificato) إجبارية.</li>
-    </ul>
-  </div>
-
-  <div class="rule-card success">
-    <div class="rule-card-title" style="margin-bottom:10px;">🏷️ القواعد الوزارية للوحات التسجيل (Targhe dei veicoli) — 6 أسئلة:</div>
-    <ul style="color:#d4d4d8; padding-right:20px; line-height:1.8; font-size:0.92rem;">
-      <li>يجب أن تزود السيارات بلوحة أمامية ولوحة خلفية؛ أما المقطورات والدراجات النارية فتحمل لوحة خلفية فقط.</li>
-      <li>يجب أن تكون اللوحات <strong style="color:#fff;">نظيفة دائماً، مثبتة بإحكام، ومقروءة بوضوح</strong> دون أي أوساخ تعيق قراءة الحروف والأرقام.</li>
-      <li><strong style="color:#f87171;">محظورات خطيرة:</strong> يُمنع تزوير اللوحات، أو طلاؤها بمواد عاكسة للضوء لإخفائها، أو كتابة لوحة باليد من الورق أو الكرتون. السير بلوحة مزورة يعرض السائق للمسؤولية الجنائية ومصادرة المركبة.</li>
-    </ul>
-  </div>
-
-  <!-- Bilingual Dictionary -->
-  <h2 class="section-title">
-    <span>📖</span>
-    <span>القاموس التقني المبوب ثنائي اللغة (A2)</span>
-    <span class="badge">Glossario Ufficiale</span>
-  </h2>
-
-  <div class="dict-table-wrap">
-    <table class="dict-table">
-      <thead>
-        <tr>
-          <th>المصطلح بالإيطالية</th>
-          <th>الترجمة بالعربية</th>
-          <th>ملاحظات الامتحان</th>
-          <th>استماع</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong style="color:#fff;">Patente di guida</strong></td>
-          <td>رخصة القيادة</td>
-          <td>وثيقة رسمية تثبت الأهلية لقيادة فئة محددة من المركبات.</td>
-          <td><button class="audio-speak-btn" onclick="speakText('Patente di guida')">🔊 نطق</button></td>
-        </tr>
-        <tr>
-          <td><strong style="color:#fff;">Foglio rosa</strong></td>
-          <td>تصريح التدريب (الورقة الوردية)</td>
-          <td>صالحة 12 شهراً، 3 محاولات، وتتطلب مرافقاً عمره حتى 65 سنة.</td>
-          <td><button class="audio-speak-btn" onclick="speakText('Foglio rosa')">🔊 نطق</button></td>
-        </tr>
-        <tr>
-          <td><strong style="color:#fff;">Neopatentato</strong></td>
-          <td>السائق الجديد (أول 3 سنوات)</td>
-          <td>خصم مضاعف للنقاط، وقيود خاصة على السرعة وقوة المحرك.</td>
-          <td><button class="audio-speak-btn" onclick="speakText('Neopatentato')">🔊 نطق</button></td>
-        </tr>
-        <tr>
-          <td><strong style="color:#fff;">Decurtazione punti</strong></td>
-          <td>خصم / استقطاع النقاط</td>
-          <td>أقصى حد متزامن 15 نقطة، ما لم تكن هناك عقوبة تعليق أو إلغاء.</td>
-          <td><button class="audio-speak-btn" onclick="speakText('Decurtazione punti')">🔊 نطق</button></td>
-        </tr>
-        <tr>
-          <td><strong style="color:#fff;">Ritiro della patente</strong></td>
-          <td>سحب الرخصة الإجرائي الفوري</td>
-          <td>إجراء إداري مؤقت (مثل انتهاء الصلاحية أو القيادة بدون مرافق).</td>
-          <td><button class="audio-speak-btn" onclick="speakText('Ritiro della patente')">🔊 نطق</button></td>
-        </tr>
-        <tr>
-          <td><strong style="color:#fff;">Sospensione della patente</strong></td>
-          <td>تعليق الرخصة المؤقت</td>
-          <td>تجميد مؤقت لمدد محددة نتيجة مخالفات جسيمة (السرعة، الكحول).</td>
-          <td><button class="audio-speak-btn" onclick="speakText('Sospensione della patente')">🔊 نطق</button></td>
-        </tr>
-        <tr>
-          <td><strong style="color:#fff;">Revoca della patente</strong></td>
-          <td>الإلغاء النهائي والإسقاط</td>
-          <td>إلغاء تام وإسقاط كامل للرخصة ولا تُسترد أبداً.</td>
-          <td><button class="audio-speak-btn" onclick="speakText('Revoca della patente')">🔊 نطق</button></td>
-        </tr>
-        <tr>
-          <td><strong style="color:#fff;">Revisione della patente</strong></td>
-          <td>مراجعة الأهلية (إعادة الامتحان)</td>
-          <td>إعادة فحص طبي أو امتحاني نظري وعملي عند الصفر أو الشك.</td>
-          <td><button class="audio-speak-btn" onclick="speakText('Revisione della patente')">🔊 نطق</button></td>
-        </tr>
-        <tr>
-          <td><strong style="color:#fff;">Quadricicli non leggeri</strong></td>
-          <td>الرباعيات غير الخفيفة (فئة B1)</td>
-          <td>قوة حتى 15 kW وكتلة 450 كجم، وتتطلب رخصة B1 في سن 16.</td>
-          <td><button class="audio-speak-btn" onclick="speakText('Quadricicli non leggeri')">🔊 نطق</button></td>
-        </tr>
-        <tr>
-          <td><strong style="color:#fff;">Carta di circolazione</strong></td>
-          <td>رخصة السير (وثيقة تسجيل المركبة)</td>
-          <td>تحدد البيانات الفنية، الحمولة، وعدد المقاعد المعتمدة.</td>
-          <td><button class="audio-speak-btn" onclick="speakText('Carta di circolazione')">🔊 نطق</button></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Trappole dei Quiz -->
-  <h2 class="section-title">
-    <span>🎯</span>
-    <span>جدول الفخاخ الوزارية المقارنة (Vero / Falso)</span>
-    <span class="badge">Trappole dei Quiz</span>
-  </h2>
-
-  <div class="rule-card" style="border-right: 4px solid var(--rose-primary);">
-    <div style="display:flex; flex-direction:column; gap:16px;">
-      
-      <div style="border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom:12px;">
-        <div style="color:#f87171; font-weight:700; margin-bottom:4px;">❌ عبارة Falsa شهيرة:</div>
-        <p style="color:#fff; direction:ltr; text-align:left; font-family:system-ui; font-size:0.92rem;">"La patente di categoria B1 abilita a condurre i motocicli di cilindrata fino a 125 cm3 e potenza fino a 11 kW."</p>
-        <p style="color:#a1a1aa; font-size:0.86rem; margin-top:4px;"><strong>التعليل الصحيح:</strong> خطأ؛ رخصة B1 مخصصة حصرياً للرباعيات غير الخفيفة (Quad) ولا تسمح أبداً بقيادة دراجات نارية ذات عجلتين (Motocicli).</p>
       </div>
 
-      <div style="border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom:12px;">
-        <div style="color:#f87171; font-weight:700; margin-bottom:4px;">❌ عبارة Falsa شهيرة:</div>
-        <p style="color:#fff; direction:ltr; text-align:left; font-family:system-ui; font-size:0.92rem;">"Se si commettono contemporaneamente più violazioni che comportano perdita di punti, possono essere decurtati al massimo 20 punti."</p>
-        <p style="color:#a1a1aa; font-size:0.86rem; margin-top:4px;"><strong>التعليل الصحيح:</strong> خطأ؛ الحد الأقصى لما يمكن خصمه عند تعدد المخالفات هو <strong>15 نقطة</strong> (ما لم تكن هناك مخالفة تستوجب التعليق أو الإلغاء).</p>
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> واضع الامتحان يدعي أن رخصة AM تتيح قيادة دراجات نارية خفيفة (Motocicli leggeri)؛ وهذا خطأ فادح لأن الدراجات النارية تتطلب على الأقل رخصة A1!
+      </div>
+    </div>
+
+    <!-- CARD: A1 - 16 Anni -->
+    <div class="signal-card" data-category="patenti-moto">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🏍️</div>
+          <div class="badge-visual-code">A1 - 16 Anni</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">رخصة القيادة فئة A1 (الدراجات النارية الخفيفة 125 cc)</h3>
+        <span class="card-it-title">Patente di guida della categoria A1</span>
+      </div>
+      <p class="card-desc-text">
+        تمنح لمن بلغ 16 سنة، وتتيح قيادة الدراجات النارية (Motocicli) بسعة اسطوانة لا تتجاوز 125 سم مكعب وقدرة لا تزيد عن 11 كيلووات مع نسبة قدرة/وزن لا تتعدى 0.1 kW/kg، بالإضافة إلى التريسيكل (Tricicli a motore) بقدرة لا تتجاوز 15 كيلووات، والآلات الزراعية المعتادة.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تتيح قيادة دراجات نارية بسعة محرك قصوى 125 سم مكعب وقدرة قصوى 11 كيلووات (Abilita a guidare motocicli di cilindrata fino a 125 cm3 e potenza non superiore a 11 kW)</li>
+          <li><span>✅</span> تتيح قيادة التريسيكل ثلاثي العجلات بقدرة قصوى لا تتجاوز 15 كيلووات (Abilita alla guida di tricicli a motore di potenza non superiore a 15 kW)</li>
+          <li><span>✅</span> تتيح قيادة الآلات الزراعية التي لا تتجاوز حدود الأبعاد والكتلة المقررة للدراجات النارية (Macchine agricole che rientrano nei limiti di sagoma e massa dei motoveicoli)</li>
+        </ul>
       </div>
 
-      <div style="border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom:12px;">
-        <div style="color:#f87171; font-weight:700; margin-bottom:4px;">❌ عبارة Falsa شهيرة:</div>
-        <p style="color:#fff; direction:ltr; text-align:left; font-family:system-ui; font-size:0.92rem;">"La patente di guida di categoria B ha validità di cinque anni se rilasciata o confermata a chi ha superato i 70 anni di età."</p>
-        <p style="color:#a1a1aa; font-size:0.86rem; margin-top:4px;"><strong>التعليل الصحيح:</strong> خطأ؛ لمن هم بين 70 و 80 سنة تكون صلاحية الرخصة <strong>3 سنوات فقط</strong>، وفوق 80 سنة تكون <strong>سنتين فقط</strong>.</p>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تتيح رخصة A1 قيادة أي دراجة نارية مهما بلغت قدرتها بشرط وجود ناقل حركة أوتوماتيكي ❌</li>
+          <li><span>❌</span> تسمح بقيادة سيارات الركوب حتى وزن 3.500 كجم إذا كان السائق برفقة مدرب ❌</li>
+          <li><span>❌</span> تتيح قيادة الدراجات النارية ذات سعة 150 سم مكعب على الطرق السريعة (Autostrade) ❌</li>
+        </ul>
       </div>
 
-      <div>
-        <div style="color:#34d399; font-weight:700; margin-bottom:4px;">✅ عبارة Vera حاسمة:</div>
-        <p style="color:#fff; direction:ltr; text-align:left; font-family:system-ui; font-size:0.92rem;">"La revoca della patente è disposta quando il titolare, sottoposto ad esame di revisione, non risulti più idoneo."</p>
-        <p style="color:#a1a1aa; font-size:0.86rem; margin-top:4px;"><strong>التعليل الصحيح:</strong> صحيح؛ الرسوب في اختبار المراجعة يستوجب الإلغاء النهائي والفوري للرخصة (Revoca).</p>
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> انتبه: رخصة A1 تمنع السير على الأوتوستراد لأن الدراجات النارية المسموح بدخولها الأوتوستراد يجب ألا تقل سعتها عن 150 سم مكعب (أو 11 كيلووات كهربائية)!
+      </div>
+    </div>
+
+    <!-- CARD: A2 - 18 Anni -->
+    <div class="signal-card" data-category="patenti-moto">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🏍️</div>
+          <div class="badge-visual-code">A2 - 18 Anni</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">رخصة القيادة فئة A2 (الدراجات النارية المتوسطة 35 kW)</h3>
+        <span class="card-it-title">Patente di guida della categoria A2</span>
+      </div>
+      <p class="card-desc-text">
+        تمنح عند سن 18 سنة، وتتيح قيادة دراجات نارية بقدرة قصوى لا تتجاوز 35 كيلووات (حوالي 48 حصاناً)، وبنسبة قدرة إلى وزن لا تتجاوز 0.2 kW/kg، بشرط ألا تكون الدراجة مشتقة من طراز أصلي ينتج أكثر من ضعف هذه القدرة (أي لا تتجاوز قدرة النسخة الأصلية 70 kW).
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تتيح قيادة دراجات نارية بقدرة قصوى لا تتجاوز 35 كيلووات وبنسبة قدرة إلى وزن لا تتجاوز 0.2 كيلووات/كجم (Abilita a guidare motocicli di potenza non superiore a 35 kW)</li>
+          <li><span>✅</span> يشترط ألا تكون الدراجة مشتقة من نسخة تنتج أكثر من ضعف القدرة المقررة أي أكثر من 70 كيلووات (Non derivati da una versione che sviluppa oltre il doppio della potenza)</li>
+          <li><span>✅</span> تشمل تلقائياً صلاحية قيادة المركبات التي تتيحها رخصتا AM و A1 (Comprende le categorie AM e A1)</li>
+        </ul>
       </div>
 
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تتيح قيادة جميع أنواع الدراجات النارية بدون أي حد أقصى للقدرة بمجرد بلوغ سن العشرين ❌</li>
+          <li><span>❌</span> تسمح بقيادة سيارات نقل البضائع حتى حمولة 1.5 طن ❌</li>
+          <li><span>❌</span> تمنح لحاملها حق قيادة الدراجات النارية المشتقة من محركات بقوة 90 كيلووات بعد ترويضها وخفض قدرتها ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> القاعدة الصارمة: الدراجة المعدلة والمروضة لا يمكن قيادتها برخصة A2 إذا كان محركها الأصلي من المصنع يتجاوز 70 kW!
+      </div>
+    </div>
+
+    <!-- CARD: A - Senza Limiti -->
+    <div class="signal-card" data-category="patenti-moto">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🏍️</div>
+          <div class="badge-visual-code">A - Senza Limiti</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">رخصة القيادة فئة A الحرة (الدراجات النارية الكبيرة بدون قيود)</h3>
+        <span class="card-it-title">Patente di guida della categoria A (senza limitazioni)</span>
+      </div>
+      <p class="card-desc-text">
+        الرخصة الكاملة للدراجات النارية؛ تتيح قيادة كافة الدراجات النارية بدون أي سقف للقدرة أو سعة المحرك. يمكن الحصول عليها عبر المسار المباشر عند سن 24 سنة، أو عند سن 20 سنة لمن يحمل رخصة A2 منذ سنتين على الأقل. كما تتيح قيادة التريسيكل بقوة تتجاوز 15 كيلووات عند بلوغ سن 21 سنة.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تتيح قيادة جميع أنواع الدراجات النارية بدون أي قيود على سعة المحرك أو القدرة القصوى (Abilita a guidare tutti i motocicli senza limitazioni di cilindrata e potenza)</li>
+          <li><span>✅</span> يمكن الحصول عليها بالوصول المباشر (Accesso diretto) عند سن 24 سنة على الأقل (Accesso diretto a 24 anni)</li>
+          <li><span>✅</span> يمكن استخراجها عند سن 20 سنة بشرط حيازة رخصة A2 لمدة سنتين كاملتين على الأقل (A 20 anni se titolare di patente A2 da almeno 2 anni)</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تمنح رخصة A الحرة تلقائياً لكل من يحمل رخصة B لمدة 3 سنوات دون اختبار ❌</li>
+          <li><span>❌</span> تتيح قيادة الشاحنات الخفيفة والحافلات الصغيرة حتى 16 راكباً ❌</li>
+          <li><span>❌</span> تسمح بقيادة التريسيكل ذي القدرة الأعلى من 15 kW عند سن 18 عاماً (بل يشترط 21 عاماً) ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> فخ شائع: رخصة B تتيح في إيطاليا فقط قيادة دراجات نارية حتى 125 cc و 11 kW فقط، ولا تعادل رخصة A الكاملة أبداً!
+      </div>
+    </div>
+
+    <!-- CARD: B1 - 16 Anni -->
+    <div class="signal-card" data-category="patenti-auto">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🚙</div>
+          <div class="badge-visual-code">B1 - 16 Anni</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">رخصة القيادة فئة B1 (المركبات الرباعية الثقيلة غير الخفيفة)</h3>
+        <span class="card-it-title">Patente di guida della categoria B1</span>
+      </div>
+      <p class="card-desc-text">
+        تمنح لمن أتم 16 سنة، وتتيح قيادة المركبات الرباعية غير الخفيفة (Quadricicli non leggeri / Quad) بقدرة محرك قصوى 15 كيلووات، ووزن فارغ لا يتجاوز 450 كجم لنقل الأشخاص (أو 600 كجم لنقل البضائع).
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تتيح قيادة الكوادريكلي غير الخفيف (Quadricicli non leggeri) بقدرة قصوى لا تتجاوز 15 كيلووات (Abilita alla guida di quadricicli diversi da quelli leggeri di potenza fino a 15 kW)</li>
+          <li><span>✅</span> تحدد الكتلة الفارغة القصوى للمركبة بـ 450 كجم لنقل الأشخاص أو 600 كجم لنقل البضائع (Massa a vuoto non superiore a 450 kg per trasporto persone o 600 kg per merci)</li>
+          <li><span>✅</span> تتيح أيضاً قيادة المركبات التي تقودها رخصة AM (Comprende la patente AM)</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تتيح رخصة B1 قيادة الدراجات النارية سعة 125 سم مكعب (La patente B1 abilita alla guida di motocicli fino a 125 cm3) ❌</li>
+          <li><span>❌</span> تتيح قيادة سيارات الركاب العادية بشرط ألا تزيد سرعتها عن 80 كم/س ❌</li>
+          <li><span>❌</span> تمنح حاملها صلاحية قيادة الشاحنات الصغيرة لنقل الأثاث ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> أخطر فخ في B1: رخصة B1 لا تتيح قيادة دراجات نارية (Motocicli 125 cc) إطلاقاً، بل تختص بالمركبات رباعية العجلات (Quad) فقط!
+      </div>
+    </div>
+
+    <!-- CARD: Patente B -->
+    <div class="signal-card" data-category="patenti-auto">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🚗</div>
+          <div class="badge-visual-code">Patente B</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">رخصة القيادة فئة B (السيارات القياسية والمركبات المسموحة)</h3>
+        <span class="card-it-title">Patente di guida della categoria B</span>
+      </div>
+      <p class="card-desc-text">
+        الرخصة الأساسية للمركبات؛ تمنح لمن أتم 18 سنة وتتيح قيادة السيارات ومركبات نقل البضائع التي لا تتجاوز كتلتها الإجمالية القصوى 3.500 كجم وعدد ركاب لا يتجاوز 8 بالإضافة إلى السائق (إجمالي 9 مقاعد). مع السماح بمقطورة خفيفة (حتى 750 كجم) دائماً، أو مقطورة أثقل بشرط ألا يتجاوز مجموع المركبة والمقطورة 3.500 كجم.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تتيح قيادة سيارات ركاب وشاحنات خفيفة بكتلة إجمالية قصوى (Massa complessiva) لا تتجاوز 3.500 كجم ومقاعد لا تزيد عن 8 مقاعد بدون السائق (Autoveicoli con massa non superiore a 3.500 kg e max 8 persone escluso il conducente)</li>
+          <li><span>✅</span> تتيح قطر مقطورة خفيفة حتى 750 كجم دائماً، أو مقطورة غير خفيفة بشرط ألا يتجاوز الوزن الإجمالي للمجمع 3.500 كجم (Rimorchio non leggero purché il complesso non superi 3.500 kg)</li>
+          <li><span>✅</span> تتيح داخل إيطاليا فقط قيادة دراجات نارية فئة A1 (حتى 125 cc و 11 kW)، والتريسيكل فوق 15 kW لمن بلغ 21 سنة (In Italia abilita a guidare motocicli della categoria A1)</li>
+          <li><span>✅</span> تتيح قيادة الآلات الزراعية (جميعها بما فيها الاستثنائية) والآلات الإنشائية غير الاستثنائية (Tutte le macchine agricole e macchine operatrici non eccezionali)</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تتيح رخصة B قيادة حافلات صغيرة تتسع لـ 12 راكباً بالإضافة إلى السائق ❌</li>
+          <li><span>❌</span> تتيح قيادة سيارات نقل البضائع حتى كتلة 5.000 كجم بشرط عدم وجود مقطورة ❌</li>
+          <li><span>❌</span> تتيح قيادة الدراجات النارية الكبيرة من فئة A بدون أي قيود داخل وخارج إيطاليا ❌</li>
+          <li><span>❌</span> تتيح قيادة الآلات الإنشائية الاستثنائية (Macchine operatrici eccezionali) ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> ركز جيداً: رخصة B تقود الآلات الزراعية الاستثنائية (Eccezionali) نعم! ولكنها لا تقود الآلات الإنشائية/التشغيلية الاستثنائية إطلاقاً (فقط غير الاستثنائية)!
+      </div>
+    </div>
+
+    <!-- CARD: Codice 96 -->
+    <div class="signal-card" data-category="patenti-auto">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🚙 🚛</div>
+          <div class="badge-visual-code">Codice 96</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">رخصة B مع الكود المنسق 96 (مجمعات حتى 4.250 كجم)</h3>
+        <span class="card-it-title">Patente di guida B con codice armonizzato 96</span>
+      </div>
+      <p class="card-desc-text">
+        امتداد تخصصي لرخصة B يتم الحصول عليه باجتياز اختبار سلوك وقيادة عملي؛ يتيح قيادة سيارة من فئة B تسحب مقطورة يتجاوز وزنها 750 كجم بحيث يتراوح الوزن الإجمالي الكلي للمجمع بين 3.500 كجم و 4.250 كجم.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تتيح قيادة مجمع مركبات يتكون من سيارة سحب فئة B ومقطورة غير خفيفة يزيد وزنها عن 750 كجم بحيث يتجاوز الوزن الكلي 3.500 كجم ولا يزيد عن 4.250 كجم (Complesso veicolare di massa compresa tra 3.500 kg e 4.250 kg)</li>
+          <li><span>✅</span> يمكن الحصول عليها بالتزامن مع اختبار رخصة B أو في وقت لاحق بعد اجتياز اختبار عملي خاص (Si ottiene superando una prova pratica di guida)</li>
+          <li><span>✅</span> لا تتطلب اجتياز اختبار نظري جديد إذا كان المتقدم حاملاً بالفعل لرخصة B (Non richiede un nuovo esame di teoria)</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تتيح قيادة مجمعات مركبات بكتلة إجمالية تصل إلى 6.000 كجم ❌</li>
+          <li><span>❌</span> تمنح حاملها تلقائياً صلاحية قيادة الشاحنات الثقيلة فئة C1 ❌</li>
+          <li><span>❌</span> تُمنح تلقائياً بمجرد مرور 5 سنوات على حيازة رخصة B بدون أي اختبار عملي ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> احفظ الرقم الذهبي لكود 96: 4.250 كجم (4.25 طن) هو الحد الأقصى المطلق للمجمع!
+      </div>
+    </div>
+
+    <!-- CARD: Patente BE -->
+    <div class="signal-card" data-category="patenti-auto">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🚛 🚜</div>
+          <div class="badge-visual-code">Patente BE</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">رخصة القيادة فئة BE (مجمعات المقطورات الثقيلة حتى 7.000 كجم)</h3>
+        <span class="card-it-title">Patente di guida della categoria BE</span>
+      </div>
+      <p class="card-desc-text">
+        رخصة المقطورات الكبيرة؛ تمنح لمن يحمل رخصة B وتتيح قطر مقطورة ثقيلة تصل كتلتها الإجمالية حتى 3.500 كجم بواسطة سيارة من فئة B، بحيث يمكن أن تصل الكتلة الإجمالية للمجمع كاملاً إلى 7.000 كجم (7 أطنان).
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تتيح قيادة مجمع مكون من سيارة سحب فئة B ومقطورة أو نصف مقطورة لا تتجاوز كتلتها 3.500 كجم (Motrice di categoria B con rimorchio fino a 3.500 kg)</li>
+          <li><span>✅</span> يمكن أن تصل الكتلة الإجمالية للمجمع ككل إلى 7.000 كجم كحد أقصى (Massa massima del complesso fino a 7.000 kg)</li>
+          <li><span>✅</span> تتطلب حيازة رخصة B واجتياز اختبار تكميلي نظري وعملي على مجمع مقطورة (Richiede esame teorico e pratico specifico)</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تتيح قيادة شاحنات ثقيلة بكتلة مفردة تتجاوز 3.500 كجم بدون مقطورة ❌</li>
+          <li><span>❌</span> تمنح حاملها صلاحية قيادة الحافلات العامة لنقل الركاب ❌</li>
+          <li><span>❌</span> تسمح بسحب مقطورات وزنها 5.000 كجم خلف سيارة عادية ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> المقطورة المسحوبة برخصة BE لا يمكن أبداً أن تتجاوز 3.500 كجم بمفردها؛ فإذا زادت المقطورة عن ذلك تصبح تابعة لفئات C1E أو CE!
+      </div>
+    </div>
+
+    <!-- CARD: Foglio Rosa -->
+    <div class="signal-card" data-category="foglio-rosa">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">📄 🚗</div>
+          <div class="badge-visual-code">Foglio Rosa</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">تصريح التدريب المؤقت (Foglio Rosa) وقواعد القيادة المرافقة</h3>
+        <span class="card-it-title">Autorizzazione ad esercitarsi alla guida (Foglio rosa)</span>
+      </div>
+      <p class="card-desc-text">
+        وثيقة تمنح للمتدرب بعد اجتياز الامتحان النظري بنجاح، تتيح له التدرب العملي على السيارة لمدة 12 شهراً مع إمكانية خوض الاختبار العملي حتى 3 مرات. يشترط التدرب بجوار مرافق مؤهل ووضع لوحة الحرف 'P'.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تبلغ مدة صلاحية تصريح الفوليو روزا 12 شهراً وتتيح إجراء الاختبار العملي حتى 3 مرات كحد أقصى (Validità di 12 mesi e consente fino a tre prove pratiche)</li>
+          <li><span>✅</span> يشترط أن يكون المرافق حاملاً لرخصة قيادة من نفس الفئة لمدة 10 سنوات على الأقل أو رخصة من فئة أعلى، وألا يتجاوز عمره 65 عاماً (Accompagnatore con patente da almeno 10 anni o superiore ed età non oltre 65 anni)</li>
+          <li><span>✅</span> يجب تعليق لوحة بالحرف 'P' بأبعاد معتمدة باللون الأسود على خلفية بيضاء عاكسة في الجهتين الأمامية والخلفية للمركبة أثناء التدريب (Contrassegno con la lettera P retroriflettente)</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تتيح ورقة الفوليو روزا القيادة المنفردة بدون مرافق أثناء ساعات النهار فقط ❌</li>
+          <li><span>❌</span> يمكن للمرافق أن يكون حاملاً لرخصة B منذ سنتين فقط إذا كان حاصلاً على 30 نقطة ❌</li>
+          <li><span>❌</span> يسمح للمتدرب بالسير على الطرق السريعة بدون وجود المرافق بجواره ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> انتبه: المرافق يجب ألا يزيد عمره عن 65 سنة إذا كان معه رخصة B فقط؛ وإذا كان هناك راكب إضافي في الخلف، يجب أن يكون المرافق في المقعد الأمامي بجوار المتدرب!
+      </div>
+    </div>
+
+    <!-- CARD: Neopatentati 3 Anni -->
+    <div class="signal-card" data-category="foglio-rosa">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">⚡ 🛑</div>
+          <div class="badge-visual-code">Neopatentati 3 Anni</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">ضوابط السائقين الجدد (Neopatentati): السرعة والقدرة ومضاعفة العقوبات</h3>
+        <span class="card-it-title">Limitazioni per i neopatentati (primi tre anni)</span>
+      </div>
+      <p class="card-desc-text">
+        تفرض المادة 117 من كود السير قيوداً صارمة على السائق في السنوات الثلاث الأولى من حصوله على رخصة B: حدود سرعة مخفضة، مضاعفة لنقاط الخصم، ونسبة كحول معدومة 0.0 g/l، بالإضافة لقيود قدرة المحرك في السنة الأولى.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يحدد الحد الأقصى للسرعة للسائق الجديد في أول 3 سنوات بـ 100 كم/س على الأوتوستراد و 90 كم/س على الطرق السريعة الخارجية الرئيسية (Limiti di 100 km/h in autostrada e 90 km/h su strade extraurbane principali per 3 anni)</li>
+          <li><span>✅</span> تضاعف جميع نقاط الخصم المقررة قانوناً عند ارتكاب السائق الجديد لأي مخالفة خلال السنوات الـ 3 الأولى (Decurtazione dei punti raddoppiata per le violazioni commesse nei primi 3 anni)</li>
+          <li><span>✅</span> في السنة الأولى للرخصة B، يحظر قيادة سيارات ركاب تزيد نسبة قدرتها إلى وزنها عن 55 كيلووات/طن أو قدرة مطلقة تزيد عن 70 كيلووات (Limitazione di potenza specifica di 55 kW/t e potenza max 70 kW per il primo anno)</li>
+          <li><span>✅</span> يحظر تماماً على السائق الجديد تناول أي نسبة من الكحول قبل القيادة ويجب أن تكون النسبة في الدم 0.0 جرام/لتر (Tasso alcolemico zero assoluto)</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تنتهي قيود السائق الجديد على السرعة بعد مرور 6 أشهر فقط من اجتياز الامتحان ❌</li>
+          <li><span>❌</span> يسمح للسائق الجديد بالسير بسرعة 130 كم/س على الأوتوستراد إذا كانت السيارة مزودة بنظام تحديد المواقع GPS ❌</li>
+          <li><span>❌</span> لا تطبق قاعدة مضاعفة خصم النقاط على السائق الجديد إذا سدد الغرامة المالية خلال 5 أيام ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> فخ ذهبي: قيود السرعة المخفضة (100/90) ومضاعفة النقاط تستمر 3 سنوات كاملة، بينما قيد قدرة السيارة (kW) مدته سنة واحدة فقط (في التعديلات الأساسية)!
+      </div>
+    </div>
+
+    <!-- CARD: Patente a Punti -->
+    <div class="signal-card" data-category="punti">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">💯 🔢</div>
+          <div class="badge-visual-code">Patente a Punti</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">نظام رصيد النقاط (Patente a Punti): الرصيد والخصم والمكافأة</h3>
+        <span class="card-it-title">Il sistema della patente a punti: credito, decurtazione e bonus</span>
+      </div>
+      <p class="card-desc-text">
+        نظام رقمي يمنح كل رخصة قيادة رصيداً ابتدائياً قدره 20 نقطة. تخصم النقاط عند ارتكاب مخالفات كود السير، مع إمكانية زيادة الرصيد بالمكافأة حتى 30 نقطة، وفرض اختبار إعادة الفحص الإلزامي عند نفاد الرصيد إلى الصفر.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يمنح حامل رخصة القيادة رصيداً ابتدائياً قدره 20 نقطة (Ogni patente è dotata di un punteggio iniziale di 20 punti)</li>
+          <li><span>✅</span> تتراوح نقاط الخصم لكل مخالفة من نقطة واحدة إلى 10 نقاط كحد أقصى للمخالفة المنفردة (Decurtazione da 1 a 10 punti per singola violazione)</li>
+          <li><span>✅</span> إذا تم ارتكاب عدة مخالفات في نفس الوقت دون أن تستوجب أي منها سحب أو تعليق الرخصة، فإن الحد الأقصى للخصم الإجمالي لا يتجاوز 15 نقطة (Decurtazione massima di 15 punti per più violazioni contemporanee)</li>
+          <li><span>✅</span> يمنح السائق مكافأة قدرها نقطتان كل سنتين إذا لم يرتكب أي مخالفات تتضمن خصم نقاط، وذلك حتى حد أقصى 30 نقطة (Bonus di 2 punti ogni 2 anni fino al massimo di 30 punti)</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> الحد الأقصى للنقاط التي يمكن جمعها في رصيد الرخصة هو 40 نقطة ❌</li>
+          <li><span>❌</span> إذا وصلت النقاط إلى الصفر يتم إلغاء الرخصة نهائياً وتمنع القيادة مدى الحياة ❌</li>
+          <li><span>❌</span> يتم خصم النقاط فوراً من مالك المركبة حتى لو أثبت بالوثائق الرسمية هوية الشخص الآخر الذي كان يقود ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> انتبه للحد الأقصى للمخالفات المتعددة في نفس الوقت: 15 نقطة كحد أقصى، إلا إذا كانت إحدى المخالفات تستوجب السحب (Ritiro) أو التعليق (Sospensione) فعندها يخصم المجموع كاملاً!
+      </div>
+    </div>
+
+    <!-- CARD: Recupero Punti -->
+    <div class="signal-card" data-category="punti">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🔄 📚</div>
+          <div class="badge-visual-code">Recupero Punti</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">استعادة النقاط ودورات التأهيل (Recupero dei Punti)</h3>
+        <span class="card-it-title">Recupero dei punti e corsi di aggiornamento</span>
+      </div>
+      <p class="card-desc-text">
+        الآليات المعتمدة قانونياً لتعويض النقاط المخصومة قبل الوصول للصفر؛ إما عبر الانتظام التلقائي بالسلوك الإيجابي لمدة سنتين كاملتين، أو بالالتحاق بالدورات التدريبية المعتمدة في مدارس تعليم القيادة (Autoscuole).
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> إذا انخفض الرصيد وبقي السائق لمدة سنتين كاملتين دون ارتكاب أي مخالفة تستوجب الخصم، يعود رصيده تلقائياً إلى 20 نقطة (Ripristino a 20 punti dopo due anni senza infrazioni)</li>
+          <li><span>✅</span> يمكن لحامل رخصة B استعادة 6 نقاط عبر حضور دورات تدريبية خاصة في مدارس السياقة المعتمدة (Frequenza di appositi corsi per recuperare fino a 6 punti)</li>
+          <li><span>✅</span> يحق للسائق الجديد الذي لم يرتكب مخالفات خلال السنوات الـ 3 الأولى الحصول على نقطة واحدة إضافية كل عام كمكافأة تشجيعية (Bonus di 1 punto all'anno per neopatentati virtuosi)</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تتيح الدورات التدريبية استعادة 15 نقطة دفعة واحدة لحامل رخصة B ❌</li>
+          <li><span>❌</span> يمكن استعادة النقاط المخصومة بمجرد دفع غرامة مضاعفة في البريد أو البنك دون انتظار ❌</li>
+          <li><span>❌</span> يعود الرصيد إلى 30 نقطة تلقائياً بعد مرور عام واحد من السلوك الملتزم ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> رخصة B تستعيد عبر الدورة 6 نقاط كحد أقصى (بينما الرخص المهنية C و D تستعيد 9 نقاط). والدورة لا تعيد الرصيد إلى 20 تلقائياً بل تزيد الرصيد بمقدار 6 نقاط فقط!
+      </div>
+    </div>
+
+    <!-- CARD: Ritiro della Patente -->
+    <div class="signal-card" data-category="sanzioni">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🛑 👮</div>
+          <div class="badge-visual-code">Ritiro della Patente</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">سحب الرخصة الفوري والميداني (Il Ritiro della Patente)</h3>
+        <span class="card-it-title">Il ritiro della patente di guida</span>
+      </div>
+      <p class="card-desc-text">
+        إجراء إداري تحفظي فوري يتخذه رجل الشرطة في موقع المخالفة لمنع السائق من القيادة نظراً لزوال صلاحية الوثيقة أو وجود خلل مباشر يتطلب تصحيحاً فورياً.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يتم سحب الرخصة فوراً إذا كان السائق يقود برخصة منتهية الصلاحية الطبية (Guida con patente scaduta di validità)</li>
+          <li><span>✅</span> يتم سحب الرخصة فوراً إذا كان السائق لا يرتدي النظارات الطبية أو العدسات الملزم بها وفق الكود المسجل في رخصته (Mancato uso di lenti correttive prescritte)</li>
+          <li><span>✅</span> يتم السحب عند وقوع حادث مروري أسفر عن إصابات بدنية لأشخاص أو وفيات (Incidente stradale con lesioni a persone)</li>
+          <li><span>✅</span> يتم السحب إذا رفض السائق أو عجز عن تعديل الحمولة وتوزيعها بشكل آمن بعد إنذاره رسمياً من الشرطة (Mancata sistemazione del carico)</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يتم سحب الرخصة عند ارتكاب مخالفة الوقوف الممنوع لأول مرة في وسط المدينة ❌</li>
+          <li><span>❌</span> سحب الرخصة يعني شطبها نهائياً وإلزام السائق بدخول مدرسة القيادة من الصفر ❌</li>
+          <li><span>❌</span> يتم سحب الرخصة لأن السائق لم يغسل السيارة وكانت الأبواب متسخة ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> تذكر دائماً: السحب (Ritiro) مؤقت وميداني ويزول بتصحيح السبب (تجديد الكشف الطبي، ارتداء النظارة، ترتيب الحمولة)!
+      </div>
+    </div>
+
+    <!-- CARD: Sospensione Patente -->
+    <div class="signal-card" data-category="sanzioni">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">⛔ ⏳</div>
+          <div class="badge-visual-code">Sospensione Patente</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">تعليق الرخصة المؤقت (La Sospensione della Patente)</h3>
+        <span class="card-it-title">La sospensione della patente di guida</span>
+      </div>
+      <p class="card-desc-text">
+        عقوبة إدارية إضافية مؤقتة تصدر بقرار من المحافظ (Prefetto) أو مدير هيئة المرور (Motorizzazione) أو القاضي الجنائي، تحرم السائق من حقه في القيادة لفترة زمنية محددة (من 15 يوماً حتى عدة سنوات) لارتكابه مخالفات جسيمة تهدد السلامة العامة.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يتم تعليق الرخصة عند القيادة تحت تأثير الكحول بتجاوز الحد المسموح به قانوناً أو تحت تأثير المخدرات (Guida in stato di ebbrezza o sotto l'effetto di stupefacenti)</li>
+          <li><span>✅</span> يتم التعليق عند تجاوز السرعة المقررة بأكثر من 40 كم/ساعة (Superamento dei limiti di velocità di oltre 40 km/h)</li>
+          <li><span>✅</span> يتم التعليق عند السير في الاتجاه المعاكس في المنحنيات أو عند قمم المرتفعات أو في الطرق المقسمة (Circolazione contromano in curve o dossi)</li>
+          <li><span>✅</span> يتم التعليق عند الهروب دون تقديم المساعدة في حادث ألحق أضراراً جسيمة بالمركبات، أو في حالات التكرار (Recidiva) لنفس المخالفة خلال سنتين</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يتم تعليق الرخصة إذا لم يحمل السائق الفكة الكافية لدفع رسوم الأوتوستراد ❌</li>
+          <li><span>❌</span> تعليق الرخصة يعني فقدان السائق للياقته البدنية بشكل دائم لا رجعة فيه ❌</li>
+          <li><span>❌</span> يتم تعليق الرخصة في كل مرة يتم فيها خصم نقطة واحدة فقط من رصيد النقاط ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> فخ خطير: القيادة أثناء فترة تعليق الرخصة لا تؤدي لتعليقها مجدداً، بل تؤدي فوراً إلى إلغائها النهائي (Revoca) ومصادرة المركبة!
+      </div>
+    </div>
+
+    <!-- CARD: Revoca della Patente -->
+    <div class="signal-card" data-category="sanzioni">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">❌ 🚫</div>
+          <div class="badge-visual-code">Revoca della Patente</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الإلغاء الدائم للرخصة (La Revoca della Patente)</h3>
+        <span class="card-it-title">La revoca della patente di guida</span>
+      </div>
+      <p class="card-desc-text">
+        أقصى عقوبة قانونية تسلط على رخصة القيادة؛ وتعني الإلغاء التام والمطلق لسند القيادة وإسقاط حق السائق فيه نهائياً، بحيث لا يمكنه استعادة القيادة إلا بالتقديم من الصفر للحصول على رخصة جديدة بعد انقضاء المدد القانونية المقررة.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يتم إلغاء الرخصة عند الفقدان الدائم والنهائي لمتطلبات اللياقة البدنية أو النفسية اللازمة للقيادة (Perdita permanente dei requisiti fisici o psichici)</li>
+          <li><span>✅</span> يتم الإلغاء عند القيادة أثناء فترة تعليق الرخصة أو الحرمان منها (Circolazione durante il periodo di sospensione della patente)</li>
+          <li><span>✅</span> يتم الإلغاء عند الدوران للخلف (Inversione) أو السير المعاكس في مسارات الأوتوستراد أو الطرق السريعة (Inversione del senso di marcia in autostrada)</li>
+          <li><span>✅</span> يتم الإلغاء عند الرسوب في اختبار إعادة الفحص (Revisione della patente)</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يتم إلغاء الرخصة عند القيادة برخصة منتهية الصلاحية لمدة أسبوع (بل سحب Ritiro) ❌</li>
+          <li><span>❌</span> يتم إلغاء الرخصة عند نسيان بطاقة تسيير المركبة في المنزل (بل غرامة إدارية) ❌</li>
+          <li><span>❌</span> يتم إلغاء الرخصة عند عدم ربط حزام الأمان في المقعد الخلفي ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> احذر الخلط بين الإلغاء (Revoca) وإعادة الفحص (Revisione): الفحص يطلب إعادة الاختبار؛ وإذا رسب السائق في الاختبار يتم إلغاء الرخصة (Revoca) فوراً!
+      </div>
+    </div>
+
+    <!-- CARD: Revisione Patente -->
+    <div class="signal-card" data-category="sanzioni">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">🔍 📋</div>
+          <div class="badge-visual-code">Revisione Patente</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">إعادة الفحص والتقييم (La Revisione della Patente)</h3>
+        <span class="card-it-title">La revisione della patente di guida</span>
+      </div>
+      <p class="card-desc-text">
+        إجراء إداري تلزم به هيئة المرور (Motorizzazione) أو المحافظ السائق بالخضوع مجدداً إما لفحص طبي شامل للتحقق من اللياقة الصحية، أو لاختبار نظري وعملي كامل خلال 30 يوماً للتأكد من أهليته الفنية للقيادة بأمان.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يتم فرض إعادة الفحص وجوباً عند استنفاد ونفاد كامل رصيد نقاط الرخصة إلى الصفر (Azzeramento totale dei punti patente)</li>
+          <li><span>✅</span> يتم فرض إعادة الفحص إذا ارتكب السائق 3 مخالفات تستوجب كل منها خصم 5 نقاط على الأقل خلال مدة 12 شهراً متتالية (Tre infrazioni da almeno 5 punti in un anno)</li>
+          <li><span>✅</span> يتم فرضها عند الشك المبرر في استمرار تمتع السائق بالمتطلبات البدنية أو العقلية (Dubbi sui requisiti fisici o psichici)</li>
+          <li><span>✅</span> إذا لم يتقدم السائق للاختبار الطبي أو الفني خلال 30 يوماً من إخطاره، يتم تعليق رخصته لحين اجتياز الاختبار بنجاح</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يتم طلب إعادة الفحص كلما ارتكب السائق مخالفة سرعة تزيد عن 10 كم/س ❌</li>
+          <li><span>❌</span> إعادة الفحص تعني سحب السيارة ومصادرتها وبيعها في المزاد العلني فوراً ❌</li>
+          <li><span>❌</span> يتم طلب إعادة الفحص لأن السائق لم يقم بإجراء صيانة دورية لزيت المحرك ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> القاعدة الرقمية لإعادة الفحص: 1) رصيد النقاط وصل إلى الصفر، أو 2) ارتكاب 3 مخالفات كل منها تخصم 5 نقاط فأكثر في غضون عام واحد!
+      </div>
+    </div>
+
+    <!-- CARD: Documenti a Bordo -->
+    <div class="signal-card" data-category="documenti">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">📑 📱</div>
+          <div class="badge-visual-code">Documenti a Bordo</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">وثائق السير الإلزامية على متن المركبة (Documenti di Circolazione)</h3>
+        <span class="card-it-title">I documenti obbligatori durante la circolazione</span>
+      </div>
+      <p class="card-desc-text">
+        الوثائق الرسمية الثلاث التي يلزم السائق قانوناً بحيازتها وإبرازها عند كل استيقاف من أجهزة الشرطة، مع التطورات الرقمية الحديثة المتعلقة بملصق وشهادة التأمين.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يجب على السائق أن يحمل معه دائماً رخصة قيادة سارية ومناسبة لنوع المركبة التي يقودها (Patente di guida in stato di validità)</li>
+          <li><span>✅</span> يجب حمل رخصة التسيير الأصلية للمركبة أو الوثيقة الموحدة (Carta di circolazione / Documento Unico DU)</li>
+          <li><span>✅</span> يجب حمل شهادة التأمين الإجباري ضد المسؤولية المدنية RCA، ويقبل رسمياً إبرازها بصيغة رقمية على شاشة الهاتف المحمول (Certificato di assicurazione RCA, anche in formato digitale su smartphone)</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يلزم السائق بوضع ملصق التأمين الورقي (Contrassegno) على الزجاج الأمامي للسيارة تحت طائلة الغرامة (تم إلغاء إلزامية الملصق الورقي وأصبح الفحص إلكترونياً) ❌</li>
+          <li><span>❌</span> يجب حمل إيصال سداد ضريبة الملكية السنوية (Bollo auto) وعرضه لشرطة المرور على الطريق ❌</li>
+          <li><span>❌</span> يكفي حمل صورة ضوئية عادية غير مصدقة على ورقة عادية بدلاً من رخصة القيادة الأصلية ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> فخ امتحاني متكرر جداً: ضريبة الملكية (Bollo) لا يلزم حملها على الطريق! وملصق التأمين على الزجاج (Contrassegno) لم يعد إلزامياً، ولكن يجب إبراز شهادة التأمين (Certificato) ورقياً أو رقمياً!
+      </div>
+    </div>
+
+    <!-- CARD: Validità e Rinnovo -->
+    <div class="signal-card" data-category="documenti">
+      <div class="signal-img-container">
+        <div class="badge-visual-container">
+          <div class="badge-visual-icon">📅 🎂</div>
+          <div class="badge-visual-code">Validità e Rinnovo</div>
+        </div>
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">فترات صلاحية وتجديد رخصة القيادة فئة B حسب العمر</h3>
+        <span class="card-it-title">Validità e conferma di validità della patente B</span>
+      </div>
+      <p class="card-desc-text">
+        الجداول الزمنية القانونية لتجديد اللياقة الطبية وسريان رخصة القيادة B تبعاً للفئات العمرية للسائق، وتوافق تاريخ التجديد مع يوم عيد ميلاد حاملها.
+      </p>
+
+      <div class="card-points-group">
+        <div class="points-group-title vero-title">
+          <span>✅</span>
+          <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تجدد رخصة القيادة B كل 10 سنوات للأشخاص حتى سن 50 عاماً (Valida per 10 anni fino a 50 anni di età)</li>
+          <li><span>✅</span> تجدد كل 5 سنوات للأشخاص الذين تتراوح أعمارهم بين 50 و 70 عاماً (Valida per 5 anni dai 50 ai 70 anni)</li>
+          <li><span>✅</span> تجدد كل 3 سنوات للأشخاص الذين تتراوح أعمارهم بين 70 و 80 عاماً (Valida per 3 anni dai 70 agli 80 anni)</li>
+          <li><span>✅</span> تجدد كل سنتين للأشخاص الذين تتجاوز أعمارهم 80 عاماً (Valida per 2 anni oltre gli 80 anni di età)</li>
+          <li><span>✅</span> تاريخ انتهاء صلاحية الرخصة يتزامن قانوناً مع تاريخ يوم وشهر ميلاد حامل الرخصة بعد التجديد الأول (Allineamento con la data del compleanno)</li>
+        </ul>
+      </div>
+
+      <div class="card-points-group">
+        <div class="points-group-title falso-title">
+          <span>❌</span>
+          <span>الفخاخ والادعاءات المغلوطة بالامتحان (FALSO):</span>
+        </div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تظل رخصة القيادة صالحة مدى الحياة دون الحاجة لأي فحص طبي بعد سن الأربعين ❌</li>
+          <li><span>❌</span> تجدد رخصة القيادة للأشخاص فوق 80 سنة كل 5 سنوات إذا كانوا يمارسون الرياضة ❌</li>
+          <li><span>❌</span> القيادة برخصة منتهية الصلاحية لمدة يوم واحد لا تعتبر مخالفة قانونية ❌</li>
+        </ul>
+      </div>
+
+      <div class="card-trap-alert">
+        ⚠️ <strong>فخ الامتحان الوزاري:</strong> احفظ تسلسل التجديد: 10 سنوات (حتى 50) -> 5 سنوات (50-70) -> 3 سنوات (70-80) -> سنتان (فوق 80)!
+      </div>
+    </div>
+  </div><!-- /signals-grid -->
+
+  <!-- GLOSSARY SECTION -->
+  <div class="section-heading" id="glossary-section">
+    <div class="section-badge">المعجم اللغوي والقانوني للباب 20</div>
+    <h2 class="section-title">قاموس المصطلحات الإيطالية لرخص القيادة والعقوبات</h2>
+  </div>
+
+  <div class="glossary-grid">
+    <div class="glossary-card">
+      <div class="term-it">Patente a punti</div>
+      <div class="term-ar">رخصة القيادة بالنقاط</div>
+      <div class="term-def">نظام ترخيص ذكي يبدأ برصيد 20 نقطة تخصم منه النقاط عند ارتكاب المخالفات، وتضاف نقاط مكافأة كل سنتين في حال عدم ارتكاب أي مخالفة حتى سقف 30 نقطة.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Decurtazione dei punti</div>
+      <div class="term-ar">خصم النقاط</div>
+      <div class="term-def">حسم جزء من رصيد النقاط المسجل على الرخصة (من 1 إلى 10 نقاط)، ويتم مضاعفة قيمة الخصم للسائقين الجدد (Neopatentati) في السنوات الثلاث الأولى.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Ritiro della patente</div>
+      <div class="term-ar">سحب الرخصة الميداني</div>
+      <div class="term-def">إجراء تحفظي فوري يتخذه ضابط الشرطة على الطريق عند وجود سبب يمنع السائق مؤقتاً من القيادة، كأن تكون الرخصة منتهية الصلاحية أو عند عدم استخدام النظارات الطبية المقررة.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Sospensione della patente</div>
+      <div class="term-ar">تعليق الرخصة المؤقت</div>
+      <div class="term-def">عقوبة إدارية مؤقتة تصدر عن المحافظ (Prefetto) أو القضاء لفترة زمنية محددة نتيجة ارتكاب مخالفات جسيمة كالسرعة الزائدة أو الكحول أو السير عكس الاتجاه في المنحنيات.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Revoca della patente</div>
+      <div class="term-ar">إلغاء الرخصة الدائم</div>
+      <div class="term-def">إسقاط نهائي وتام لسند القيادة يمنع السائق من القيادة نهائياً إلا بعد تقديم طلب جديد واجتياز كافة الاختبارات من الصفر، ويطبق عند الفقدان الدائم للياقة البدنية أو تكرار مخالفات كبرى.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Revisione della patente</div>
+      <div class="term-ar">إعادة فحص وتقييم الرخصة</div>
+      <div class="term-def">إلزام السائق بالخضوع مجدداً لفحص طبي أو اختبار نظري وعملي خلال 30 يوماً للتأكد من أهليته، ويطبق وجوباً عند استنفاد النقاط إلى الصفر أو تكرار مخالفات جسيمة.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Neopatentato</div>
+      <div class="term-ar">السائق الجديد</div>
+      <div class="term-def">السائق في السنوات الثلاث الأولى من حصوله على رخصة القيادة؛ يخضع لقيود سرعة خاصة (100 في الأوتوستراد و90 خارج المدن)، وتضاعف ضده نقاط الخصم، ونسبة كحول معدومة 0.0.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Foglio rosa</div>
+      <div class="term-ar">تصريح التدريب (الورقة الوردية)</div>
+      <div class="term-def">تصريح مؤقت صالح لمدة 12 شهراً يمنح بعد اجتياز الامتحان النظري، للتدرب على قيادة السيارة برفقة مرافق مؤهل، ويتيح خوض الاختبار العملي حتى 3 مرات.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Accompagnatore</div>
+      <div class="term-ar">المرافق المؤهل قانوناً</div>
+      <div class="term-def">الشخص الجالس بجوار المتدرب أثناء القيادة؛ يشترط ألا يتجاوز عمره 65 عاماً وأن يكون حاملاً لرخصة B منذ 10 سنوات على الأقل أو حاملاً لرخصة أعلى (C أو D).</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Contrassegno "P"</div>
+      <div class="term-ar">لوحة المبتدئ (Principiante)</div>
+      <div class="term-def">لوحة مكتوب عليها الحرف "P" باللون الأسود على خلفية بيضاء عاكسة للضوء تثبت أمام وخلف المركبة أثناء تدريب حامل تصريح الفوليو روزا.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Carta di circolazione / DU</div>
+      <div class="term-ar">رخصة التسيير / الوثيقة الموحدة</div>
+      <div class="term-def">الوثيقة الرسمية الصادرة عن وزارة النقل التي تثبت تسجيل المركبة وتحدد خصائصها الفنية وكتلتها وأبعادها وأسماء المالكين، وتلزم حيازتها أثناء السير.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Certificato di assicurazione RCA</div>
+      <div class="term-ar">شهادة التأمين الإجباري</div>
+      <div class="term-def">شهادة تثبت وجود تغطية تأمينية سارية للمسؤولية المدنية؛ يلزم حملها وعرضها لرجال الشرطة، ويقبل قانوناً عرضها بصيغة رقمية على الهاتف الذكي.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Fermo amministrativo</div>
+      <div class="term-ar">الحجز الإداري على المركبة</div>
+      <div class="term-def">عقوبة ملحقة تمنع حركة المركبة واستخدامها لفترة محددة وتلزم بركنها في مكان خاص أو محطة حجز مع وضع شمع وأقفال تأمينية.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Sequestro del veicolo</div>
+      <div class="term-ar">التحفظ والمصادرة على المركبة</div>
+      <div class="term-def">إجراء أمني وقضائي للتحفظ على المركبة لمنع التصرف فيها تمهيداً لمصادرتها النهائية (Confisca) وبيعها لحساب الدولة في مخالفات خطيرة كالقيادة بدون تأمين.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Codice armonizzato 96</div>
+      <div class="term-ar">الكود الأوروبي المنسق 96</div>
+      <div class="term-def">ترخيص خاص يثبت على رخصة B بعد اختبار عملي، يتيح سحب مقطورة ثقيلة بحيث يصل الوزن الكلي للمجمع إلى 4.250 كجم.</div>
+    </div>
+
+    <div class="glossary-card">
+      <div class="term-it">Allineamento compleanno</div>
+      <div class="term-ar">مزامنة التجديد مع عيد الميلاد</div>
+      <div class="term-def">القاعدة القانونية التي تنص على أن موعد تجديد صلاحية رخصة القيادة B يتوافق دائماً مع تاريخ يوم وشهر ميلاد حامل الرخصة.</div>
     </div>
   </div>
 
-  <!-- Interactive Quiz -->
-  <h2 class="section-title">
-    <span>📝</span>
-    <span>كويز تفاعلي رسمي لاختبار الفهم (5 أسئلة وزارية)</span>
-    <span class="badge">Quiz Ufficiale</span>
-  </h2>
-
-  <!-- Q1 -->
-  <div class="quiz-card" id="q-card-1">
-    <div class="quiz-q-num">السؤال 1 من 5 • كود وزاري 2001</div>
-    <div class="quiz-text-it">"La patente di categoria B1 può essere conseguita a 16 anni di età."</div>
-    <div class="quiz-text-ar">يمكن الحصول على رخصة القيادة من فئة B1 في سن 16 سنة.</div>
-    <div class="quiz-btn-group">
-      <button class="quiz-opt-btn" onclick="checkAnswer(1, true, true, 'إجابة صحيحة (Vero)! السن القانوني الأدنى للحصول على رخصة B1 هو 16 سنة وتتيح قيادة الرباعيات غير الخفيفة (Quad).')">Vero (صحيح)</button>
-      <button class="quiz-opt-btn" onclick="checkAnswer(1, false, true, 'خطأ! العبارة صحيحة تماماً (Vero)؛ رخصة B1 تُمنح في سن 16 سنة.')">Falso (خطأ)</button>
+  <!-- TRAPS SECTION -->
+  <div class="traps-section" id="traps-section">
+    <div class="section-heading">
+      <div class="section-badge">الفخاخ الامتحانية الوزارية الرسمية</div>
+      <h2 class="section-title">أخطر 12 فخاً وزارياً في الباب 20 يقع فيها الطلاب</h2>
     </div>
-    <div class="quiz-feedback" id="q-fb-1"></div>
+
+    <div class="traps-grid">
+      <!-- Trap 1 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ القيادة برخصة منتهية الصلاحية</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"La revoca della patente è disposta quando il conducente guida con patente la cui validità è scaduta"</p>
+        <p class="trap-quiz-trans">«تقرر المحكمة إلغاء الرخصة نهائياً (Revoca) عندما يقود السائق برخصة منتهية الصلاحية»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة تماماً (FALSO). انتهاء صلاحية الرخصة يؤدي إلى سحبها الفوري (Ritiro) من قبل الشرطة حتى يتم إجراء الفحص الطبي للتجديد، ولا يؤدي إطلاقاً إلى الإلغاء الدائم (Revoca) ولا إلى التعليق (Sospensione).
+        </div>
+      </div>
+
+      <!-- Trap 2 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ إلزامية ملصق التأمين الورقي</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"E' obbligatorio esporre sul parabrezza dell'autoveicolo il contrassegno cartaceo dell'assicurazione"</p>
+        <p class="trap-quiz-trans">«يلزم قانوناً وضع الملصق الورقي لشهادة التأمين على الزجاج الأمامي للمركبة»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). تم إلغاء إلزامية عرض الملصق الورقي (Contrassegno) على الزجاج الأمامي منذ عام 2015؛ وأصبح التحقق يتم إلكترونياً بقراءة اللوحة، ولكن يجب حمل شهادة التأمين (Certificato) ورقياً أو رقمياً على الهاتف.
+        </div>
+      </div>
+
+      <!-- Trap 3 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ رخصة B1 والدراجات النارية</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"La patente di guida della categoria B1 abilita alla guida dei motocicli leggeri di cilindrata fino a 125 cm3"</p>
+        <p class="trap-quiz-trans">«تتيح رخصة القيادة فئة B1 قيادة الدراجات النارية الخفيفة حتى سعة 125 سم مكعب»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة جداً (FALSO). رخصة B1 مخصصة حصرياً للمركبات رباعية العجلات غير الخفيفة (Quadricicli non leggeri) بقدرة حتى 15 kW، ولا تسمح إطلاقاً بقيادة الدراجات النارية ذات العجلتين حتى لو كانت 125 cc (التي تتطلب رخصة A1 أو B).
+        </div>
+      </div>
+
+      <!-- Trap 4 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ الحد الأقصى لرصيد النقاط بالمكافأة</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"I punti della patente possono essere incrementati fino a raggiungere un massimo complessivo di 40 punti"</p>
+        <p class="trap-quiz-trans">«يمكن زيادة نقاط رصيد الرخصة بنظام المكافأة لتصل إلى حد أقصى قدره 40 نقطة»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). الحد الأقصى المطلق للنقاط التراكمية بالمكافأة هو 30 نقطة فقط (+2 نقطة كل عامين التزام تام، أو +1 نقطة سنوياً للسائق الجديد).
+        </div>
+      </div>
+
+      <!-- Trap 5 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ السير عكس الاتجاه على الأوتوستراد</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"La revoca della patente è disposta quando il conducente, in autostrada, inverte il senso di marcia o percorre la carreggiata contro mano"</p>
+        <p class="trap-quiz-trans">«تقرر السلطات إلغاء الرخصة نهائياً (Revoca) عندما يقوم السائق في الأوتوستراد بالدوران العكسي أو السير في الاتجاه المعاكس»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة تماماً (VERO). الدوران للخلف (Inversione) أو السير المعاكس في الطرق السريعة والأوتوستراد يعتبر جريمة مرورية كبرى يعاقب عليها بالإلغاء النهائي الفوري للرخصة وغرامة قاسية وحجز المركبة.
+        </div>
+      </div>
+
+      <!-- Trap 6 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ سن المرافق في تصريح التدريب</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"La persona che funge da istruttore alla guida con foglio rosa deve avere un'età non superiore a 70 anni"</p>
+        <p class="trap-quiz-trans">«يجب ألا يتجاوز عمر الشخص المرافق للمتدرب الحامل للفوليو روزا سن 70 عاماً»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). السن الأقصى القانوني للمرافق هو 65 عاماً (Non superiore a 65 anni)، ويشترط أن يكون حاصلاً على رخصة B منذ 10 سنوات على الأقل أو رخصة أعلى.
+        </div>
+      </div>
+
+      <!-- Trap 7 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ إيصال ضريبة ملكية السيارة (Bollo)</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Il conducente deve obbligatoriamente tenere a bordo del veicolo la ricevuta di pagamento della tassa automobilistica (bollo)"</p>
+        <p class="trap-quiz-trans">«يلزم السائق بحمل إيصال سداد ضريبة المركبة (البولو) على متن السيارة أثناء السير»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). ضريبة السيارات (Bollo) هي ضريبة ملكية محلية تتبع الأقاليم، ولا يلزم أبداً حمل إيصال سدادها أثناء القيادة ولا تطلبه شرطة المرور عند نقاط التفتيش.
+        </div>
+      </div>
+
+      <!-- Trap 8 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ شروط إعادة الفحص (Revisione)</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"La revisione della patente può essere disposta quando il titolare incorre, nell'arco di un anno, in tre infrazioni da almeno 5 punti"</p>
+        <p class="trap-quiz-trans">«يمكن فرض إعادة فحص الرخصة عندما يرتكب حاملها خلال عام واحد ثلاث مخالفات تستوجب كل منها خصم 5 نقاط على الأقل»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة تماماً (VERO). هذه إحدى أهم حالات إعادة الفحص الفني؛ ارتكاب 3 مخالفات بقيمة 5 نقاط فأكثر في غضون 12 شهراً يعرض السائق حتماً لاختبار فحص اللياقة.
+        </div>
+      </div>
+
+      <!-- Trap 9 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ سرعة السائق الجديد على الأوتوستراد</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Per i primi tre anni dal conseguimento della patente B, il conducente può viaggiare in autostrada fino a 110 km/h"</p>
+        <p class="trap-quiz-trans">«في السنوات الثلاث الأولى من استخراج رخصة B، يجوز للسائق السير على الأوتوستراد بسرعة حتى 110 كم/س»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). السرعة القصوى للسائق الجديد على الأوتوستراد هي 100 كم/ساعة فقط (وليس 110)، بينما سرعته القصوى على الطرق السريعة الرئيسية خارج المدن هي 90 كم/ساعة (وليس 100 أو 110).
+        </div>
+      </div>
+
+      <!-- Trap 10 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ استعادة النقاط عبر الدورات التدريبية</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"La frequenza di apposito corso presso un'autoscuola consente a chi ha la patente B di recuperare fino a 10 punti"</p>
+        <p class="trap-quiz-trans">«حضور دورة تدريبية خاصة في مدرسة تعليم القيادة يتيح لحامل رخصة B استعادة حتى 10 نقاط»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). دورات التأهيل لحاملي رخصة القيادة B و A تتيح استعادة 6 نقاط فقط كحد أقصى (بينما استعادة 9 نقاط مخصصة فقط للرخص المهنية العليا C و D).
+        </div>
+      </div>
+
+      <!-- Trap 11 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ الآلات الزراعية والإنشائية برخصة B</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"Con la patente B si possono guidare tutte le macchine agricole, comprese quelle eccezionali, ma solo le macchine operatrici non eccezionali"</p>
+        <p class="trap-quiz-trans">«برخصة B يمكن قيادة جميع الآلات الزراعية بما فيها الاستثنائية، ولكن فقط الآلات الإنشائية غير الاستثنائية»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة تماماً (VERO). هذه من أدق نقاط الامتحان الوزاري: الآلات الزراعية (Macchine agricole) مسموحة كلها حتى الاستثنائية؛ أما الآلات الإنشائية (Macchine operatrici) فلا يسمح بقيادة الاستثنائية منها إلا برخصة فئة C1 أو C!
+        </div>
+      </div>
+
+      <!-- Trap 12 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ صلاحية رخصة B في السفر بالدراجات النارية</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"La patente di guida della categoria B abilita alla guida di motocicli fino a 125 cm3 in tutti i Paesi dell'Unione Europea"</p>
+        <p class="trap-quiz-trans">«تتيح رخصة القيادة فئة B قيادة الدراجات النارية حتى 125 سم مكعب في كافة دول الاتحاد الأوروبي»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). قيادة الدراجات النارية حتى 125 سم مكعب (فئة A1) برخصة B هي ميزة سارية حصرياً داخل الأراضي الإيطالية فقط (Solo sul territorio nazionale italiano)، ولا تسري خارج إيطاليا إلا بوجود رخصة A1 المستقلة!
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- Q2 -->
-  <div class="quiz-card" id="q-card-2">
-    <div class="quiz-q-num">السؤال 2 من 5 • كود وزاري 2002</div>
-    <div class="quiz-text-it">"Se si commettono contemporaneamente più violazioni che comportano perdita di punti sulla patente, possono essere decurtati al massimo 15 punti, salvo che si tratti di infrazioni che comportano la sospensione della patente."</div>
-    <div class="quiz-text-ar">إذا ارتكب السائق عدة مخالفات في وقت واحد تستوجب خصم نقاط، يمكن خصم 15 نقطة كحد أقصى، إلا إذا كانت إحدى المخالفات تستوجب تعليق الرخصة.</div>
-    <div class="quiz-btn-group">
-      <button class="quiz-opt-btn" onclick="checkAnswer(2, true, true, 'إجابة صحيحة (Vero)! هذا هو السقف القانوني المحدد بـ 15 نقطة للمخالفات المتعددة في وقت واحد.')">Vero (صحيح)</button>
-      <button class="quiz-opt-btn" onclick="checkAnswer(2, false, true, 'خطأ! العبارة صحيحة تماماً (Vero)؛ الحد الأقصى للخصم المتزامن هو 15 نقطة بالفعل.')">Falso (خطأ)</button>
-    </div>
-    <div class="quiz-feedback" id="q-fb-2"></div>
-  </div>
+  <!-- CHAPTER PAGINATION -->
+  <nav class="chapter-pagination">
+    <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="pagination-btn prev-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">→</span>
+      <div class="pagination-info">
+        <span class="pagination-label">الباب السابق</span>
+        <span class="pagination-title">الباب 19: أحزمة الأمان والخوذة</span>
+      </div>
+    </a>
 
-  <!-- Q3 -->
-  <div class="quiz-card" id="q-card-3">
-    <div class="quiz-q-num">السؤال 3 من 5 • كود وزاري 2003</div>
-    <div class="quiz-text-it">"La patente di guida di categoria B ha validità di tre anni se rilasciata o confermata a chi ha una età compresa fra i 70 e gli 80 anni."</div>
-    <div class="quiz-text-ar">رخصة القيادة فئة B تكون صالحة لمدة ثلاث سنوات إذا تم إصدارها أو تجديدها لمن يتراوح عمرهم بين 70 و 80 سنة.</div>
-    <div class="quiz-btn-group">
-      <button class="quiz-opt-btn" onclick="checkAnswer(3, true, true, 'إجابة صحيحة (Vero)! بين سن 70 و 80 سنة تجدد الرخصة كل 3 سنوات فقط.')">Vero (صحيح)</button>
-      <button class="quiz-opt-btn" onclick="checkAnswer(3, false, true, 'خطأ! العبارة صحيحة (Vero)؛ مدة صلاحية الرخصة للفئة بين 70 و 80 سنة هي 3 سنوات.')">Falso (خطأ)</button>
-    </div>
-    <div class="quiz-feedback" id="q-fb-3"></div>
-  </div>
+    <a href="index.html" class="pagination-btn index-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">🏛️</span>
+      <div class="pagination-info">
+        <span class="pagination-label">العودة</span>
+        <span class="pagination-title">فهرس المكتبة الشاملة</span>
+      </div>
+    </a>
 
-  <!-- Q4 -->
-  <div class="quiz-card" id="q-card-4">
-    <div class="quiz-q-num">السؤال 4 من 5 • كود وزاري 2004</div>
-    <div class="quiz-text-it">"La patente di categoria B1 abilita a condurre i motocicli di cilindrata fino a 125 cm3."</div>
-    <div class="quiz-text-ar">رخصة القيادة فئة B1 تتيح قيادة الدراجات النارية ذات سعة تصل إلى 125 سم³.</div>
-    <div class="quiz-btn-group">
-      <button class="quiz-opt-btn" onclick="checkAnswer(4, true, false, 'خطأ! العبارة خاطئة (Falso)؛ رخصة B1 لا تتيح قيادة أي دراجات نارية (Motocicli)، بل الرباعيات فقط.')">Vero (صحيح)</button>
-      <button class="quiz-opt-btn" onclick="checkAnswer(4, false, false, 'إجابة صحيحة (Falso)! رخصة B1 لا تسمح بقيادة دراجات نارية ثنائية العجلات أبداً، بل رخصة A1 هي التي تتيح ذلك.')">Falso (خطأ)</button>
-    </div>
-    <div class="quiz-feedback" id="q-fb-4"></div>
-  </div>
-
-  <!-- Q5 -->
-  <div class="quiz-card" id="q-card-5">
-    <div class="quiz-q-num">السؤال 5 من 5 • كود وزاري 2005</div>
-    <div class="quiz-text-it">"La revoca della patente è disposta quando il titolare guida nonostante abbia la patente sospesa."</div>
-    <div class="quiz-text-ar">يتم إلغاء الرخصة (Revoca) نهائياً عندما يقود حاملها المركبة على الرغم من أن رخصته معلقة (موقوفة).</div>
-    <div class="quiz-btn-group">
-      <button class="quiz-opt-btn" onclick="checkAnswer(5, true, true, 'إجابة صحيحة (Vero)! القيادة أثناء سريان تعليق الرخصة تُعد انتهاكاً جسيماً يترتب عليه إلغاء الرخصة نهائياً.')">Vero (صحيح)</button>
-      <button class="quiz-opt-btn" onclick="checkAnswer(5, false, true, 'خطأ! العبارة صحيحة تماماً (Vero)؛ القيادة أثناء التعليق تؤدي حتماً إلى إلغاء الرخصة نهائياً (Revoca).')">Falso (خطأ)</button>
-    </div>
-    <div class="quiz-feedback" id="q-fb-5"></div>
-  </div>
+    <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="pagination-btn next-btn" onclick="soundEngine.click()">
+      <div class="pagination-info" style="text-align:left;">
+        <span class="pagination-label">الباب التالي</span>
+        <span class="pagination-title">الباب 21: حوادث السير وظروف الطقس</span>
+      </div>
+      <span class="pagination-icon">←</span>
+    </a>
+  </nav>
 
 </main>
 
+<!-- JAVASCRIPT & SOUND ENGINE -->
 <script>
-// Mobile Drawer Controller
-function toggleMobileNav() {
-  const btn = document.getElementById('nav-hamburger-btn');
-  const panel = document.getElementById('mobile-drawer-panel');
-  const overlay = document.getElementById('mobile-drawer-overlay');
-  if (!btn || !panel) return;
-  const isOpening = !panel.classList.contains('is-active');
-  if (isOpening) {
-    btn.classList.add('is-active');
-    btn.setAttribute('aria-expanded', 'true');
-    panel.classList.add('is-active');
-    if (overlay) overlay.classList.add('is-active');
-    document.body.classList.add('nav-scroll-lock');
-  } else {
-    closeMobileNav();
-  }
-  if (window.soundEngine && typeof window.soundEngine.click === 'function') {
-    window.soundEngine.click();
-  }
-}
-
-function closeMobileNav() {
-  const btn = document.getElementById('nav-hamburger-btn');
-  const panel = document.getElementById('mobile-drawer-panel');
-  const overlay = document.getElementById('mobile-drawer-overlay');
-  if (btn) {
-    btn.classList.remove('is-active');
-    btn.setAttribute('aria-expanded', 'false');
-  }
-  if (panel) panel.classList.remove('is-active');
-  if (overlay) overlay.classList.remove('is-active');
-  document.body.classList.remove('nav-scroll-lock');
-}
-
-// Audio Engine
-window.soundEngine = window.soundEngine || {
-  ctx: null,
-  enabled: true,
-  init() {
-    if (!this.ctx) {
-      const AudioCtx = window.AudioContext || window.webkitAudioContext;
-      if (AudioCtx) this.ctx = new AudioCtx();
-    }
-    if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
-  },
-  click() {
-    if (!this.enabled) return;
-    this.init();
-    if (!this.ctx) return;
-    try {
+  // Unified Web Audio API Sound Engine
+  const soundEngine = window.soundEngine || {
+    ctx: null,
+    enabled: true,
+    init() {
+      if (!this.ctx) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) this.ctx = new AudioCtx();
+      }
+    },
+    click() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
       const osc = this.ctx.createOscillator();
       const gain = this.ctx.createGain();
       osc.type = 'sine';
-      osc.frequency.setValueAtTime(520, this.ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(140, this.ctx.currentTime + 0.04);
-      gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
+      osc.frequency.setValueAtTime(600, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(800, this.ctx.currentTime + 0.05);
+      gain.gain.setValueAtTime(0.15, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.05);
       osc.connect(gain);
       gain.connect(this.ctx.destination);
       osc.start();
-      osc.stop(this.ctx.currentTime + 0.04);
-    } catch(e) {}
-  },
-  success() {
-    if (!this.enabled) return;
-    this.init();
-    if (!this.ctx) return;
-    try {
+      osc.stop(this.ctx.currentTime + 0.05);
+    },
+    success() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
       const now = this.ctx.currentTime;
       const osc = this.ctx.createOscillator();
       const gain = this.ctx.createGain();
       osc.type = 'triangle';
-      osc.frequency.setValueAtTime(440, now);
-      osc.frequency.exponentialRampToValueAtTime(880, now + 0.12);
-      gain.gain.setValueAtTime(0.1, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+      osc.frequency.setValueAtTime(523.25, now);
+      osc.frequency.setValueAtTime(659.25, now + 0.08);
+      osc.frequency.setValueAtTime(783.99, now + 0.16);
+      gain.gain.setValueAtTime(0.2, now);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
       osc.connect(gain);
       gain.connect(this.ctx.destination);
       osc.start(now);
-      osc.stop(now + 0.25);
-    } catch(e) {}
-  },
-  error() {
-    if (!this.enabled) return;
-    this.init();
-    if (!this.ctx) return;
-    try {
+      osc.stop(now + 0.3);
+    },
+    error() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
       const now = this.ctx.currentTime;
       const osc = this.ctx.createOscillator();
       const gain = this.ctx.createGain();
       osc.type = 'sawtooth';
       osc.frequency.setValueAtTime(220, now);
-      osc.frequency.linearRampToValueAtTime(110, now + 0.15);
-      gain.gain.setValueAtTime(0.1, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+      osc.frequency.setValueAtTime(180, now + 0.1);
+      gain.gain.setValueAtTime(0.25, now);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
       osc.connect(gain);
       gain.connect(this.ctx.destination);
       osc.start(now);
       osc.stop(now + 0.25);
-    } catch(e) {}
+    },
+    toggle() {
+      this.enabled = !this.enabled;
+      return this.enabled;
+    }
+  };
+
+  function toggleAudio() {
+    const isEnabled = soundEngine.toggle();
+    const btn = document.querySelector('.nav-audio-btn');
+    const label = btn.querySelector('.audio-label-span');
+    const icon = btn.querySelector('.audio-icon-span');
+    if (isEnabled) {
+      soundEngine.click();
+      label.textContent = 'الصوت نشط';
+      icon.textContent = '🔊';
+      btn.style.borderColor = 'rgba(255, 255, 255, 0.16)';
+      btn.style.color = '#f4f4f5';
+    } else {
+      label.textContent = 'مكتوم';
+      icon.textContent = '🔇';
+      btn.style.borderColor = 'rgba(244, 63, 94, 0.4)';
+      btn.style.color = '#f43f5e';
+    }
   }
-};
 
-function toggleAudio() {
-  window.soundEngine.enabled = !window.soundEngine.enabled;
-  const icons = document.querySelectorAll('.audio-icon-span');
-  const labels = document.querySelectorAll('.audio-label-span');
-  icons.forEach(el => el.textContent = window.soundEngine.enabled ? '🔊' : '🔇');
-  labels.forEach(el => el.textContent = window.soundEngine.enabled ? 'الصوت نشط' : 'الصوت مكتوم');
-  if (window.soundEngine.enabled) window.soundEngine.click();
-}
-
-// Web Speech API for Italian pronunciation
-function speakText(italianText) {
-  if (!('speechSynthesis' in window)) {
-    alert('خاصية النطق غير مدعومة في متصفحك.');
-    return;
+  // Mobile Navigation
+  function toggleMobileNav() {
+    soundEngine.click();
+    const drawer = document.getElementById('mobile-drawer-panel');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    const btn = document.getElementById('nav-hamburger-btn');
+    const isOpen = drawer.classList.contains('is-open');
+    if (isOpen) {
+      closeMobileNav();
+    } else {
+      drawer.classList.add('is-open');
+      overlay.classList.add('is-open');
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
   }
-  window.speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(italianText);
-  utterance.lang = 'it-IT';
-  utterance.rate = 0.85;
-  window.speechSynthesis.speak(utterance);
-}
 
-// Quiz validation
-function checkAnswer(qId, userChoice, correctChoice, explanation) {
-  const card = document.getElementById(`q-card-${qId}`);
-  const fb = document.getElementById(`q-fb-${qId}`);
-  if (!card || !fb) return;
-
-  const isCorrect = (userChoice === correctChoice);
-  fb.textContent = explanation;
-
-  if (isCorrect) {
-    card.className = 'quiz-card answered-correct';
-    if (window.soundEngine) window.soundEngine.success();
-  } else {
-    card.className = 'quiz-card answered-wrong';
-    if (window.soundEngine) window.soundEngine.error();
+  function closeMobileNav() {
+    const drawer = document.getElementById('mobile-drawer-panel');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    const btn = document.getElementById('nav-hamburger-btn');
+    if (drawer) drawer.classList.remove('is-open');
+    if (overlay) overlay.classList.remove('is-open');
+    if (btn) {
+      btn.classList.remove('is-active');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    document.body.style.overflow = '';
   }
-}
 
-  // Desktop Chapters Dropdown Toggle & Outside Click
+  // Desktop Dropdown
   function toggleNavDropdown(e) {
-    if (e) e.stopPropagation();
+    e.stopPropagation();
+    soundEngine.click();
     const menu = document.getElementById('navDropdownMenu');
-    if (menu) menu.classList.toggle('active');
+    menu.classList.toggle('show');
   }
-  document.addEventListener('click', function(e) {
-    const wrapper = document.querySelector('.nav-dropdown-wrapper');
+
+  window.addEventListener('click', function(e) {
     const menu = document.getElementById('navDropdownMenu');
-    if (menu && menu.classList.contains('active')) {
-      if (wrapper && !wrapper.contains(e.target)) {
-        menu.classList.remove('active');
-      }
+    if (menu && menu.classList.contains('show')) {
+      menu.classList.remove('show');
     }
   });
 
-</script>
+  // Filter Cards
+  function filterCards(category, btn) {
+    soundEngine.click();
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cards = document.querySelectorAll('.signals-grid .signal-card');
+    cards.forEach(card => {
+      if (category === 'all' || card.getAttribute('data-category') === category) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
 
+  // SIMULATOR 1: Patenti
+  const patentiData = {
+    'AM': {
+      badge: '🛵 فئة AM (14 سنة)',
+      title: 'رخصة AM - سيكلوموتوري وميكروكار (Ciclomotori e Quadricicli leggeri)',
+      desc: '<strong>السن الأدنى:</strong> 14 سنة.<br><strong>المركبات المسموحة:</strong> دراجات بخارية 2 و 3 عجلات سعة محركها لا تتجاوز 50 سم مكعب، وسرعتها القصوى 45 كم/ساعة، والمركبات الرباعية الخفيفة (Quadricicli leggeri / Minicar) بقدرة قصوى 6 كيلووات ووزن فارغ لا يتجاوز 425 كجم.<br><strong>نقل الركاب:</strong> يُسمح بنقل راكب إضافي فقط إذا كان سن السائق 16 سنة على الأقل والمركبة معتمدة لنقل راكبين.<br><strong>فخ الامتحان:</strong> رخصة AM لا تتيح قيادة دراجات نارية 125 cc ولا كوادريكلي ثقيلة!',
+      warning: '⚠️ <strong>تنبيه الامتحان الوزاري:</strong> لا يُشترط الحصول على رخصة AM قبل التقديم على رخصة B؛ فرخصة B تشمل تلقائياً صلاحية قيادة مركبات AM في كافة دول الاتحاد الأوروبي.'
+    },
+    'A1': {
+      badge: '🏍️ فئة A1 (16 سنة)',
+      title: 'رخصة A1 - دراجات نارية خفيفة 125 cc (Motocicli leggeri)',
+      desc: '<strong>السن الأدنى:</strong> 16 سنة.<br><strong>المركبات المسموحة:</strong> دراجات نارية حتى 125 سم مكعب وقدرة لا تتجاوز 11 كيلووات مع نسبة قدرة/وزن لا تتعدى 0.1 kW/kg، وتريسيكل ثلاثي العجلات حتى قدرة 15 كيلووات، وآلات زراعية في حدود أبعاد الدراجات.<br><strong>حظر الأوتوستراد:</strong> يمنع السير بالدراجات النارية التابعة لـ A1 على الأوتوستراد والطرق السريعة الرئيسية لأن الأوتوستراد يشترط سعة لا تقل عن 150 سم مكعب.',
+      warning: '❌ <strong>فخ امتحاني متكرر:</strong> رخصة A1 لا تتيح قيادة الدراجات النارية الكبيرة مهما كان ناقل الحركة أوتوماتيكياً!'
+    },
+    'A2': {
+      badge: '🏍️ فئة A2 (18 سنة)',
+      title: 'رخصة A2 - دراجات نارية متوسطة حتى 35 kW',
+      desc: '<strong>السن الأدنى:</strong> 18 سنة.<br><strong>المركبات المسموحة:</strong> دراجات نارية بقدرة قصوى لا تتجاوز 35 كيلووات ونسبة قدرة إلى وزن لا تتجاوز 0.2 kW/kg، بشرط ألا تكون مشتقة من محرك ينتج أكثر من 70 kW.<br><strong>التدرج:</strong> بعد حيازة رخصة A2 لمدة سنتين كاملتين، يمكن الحصول على رخصة A غير المقيدة عند سن 20 سنة باجتياز اختبار عملي.',
+      warning: '⚠️ <strong>القاعدة الصارمة:</strong> الدراجة المعدلة لا يمكن قيادتها برخصة A2 إذا كان محركها الأصلي من المصنع يتجاوز 70 kW!'
+    },
+    'A': {
+      badge: '🏍️ فئة A حرة (24/20 سنة)',
+      title: 'رخصة A غير المقيدة (Tutti i motocicli senza limiti)',
+      desc: '<strong>السن الأدنى:</strong> 24 سنة بالوصول المباشر (Direct Access)، أو 20 سنة لمن يحمل رخصة A2 منذ سنتين على الأقل.<br><strong>المركبات المسموحة:</strong> كافة أنواع الدراجات النارية بدون أي سقف للقدرة أو السعة، والتريسيكل ثلاثي العجلات بقدرة أعلى من 15 كيلووات (بشرط سن 21 عاماً).',
+      warning: '💡 <strong>معلومة ذهبية:</strong> رخصة B تتيح قيادة دراجات A1 (125 cc) داخل إيطاليا فقط، ولا تعادل رخصة A الكاملة إطلاقاً!'
+    },
+    'B1': {
+      badge: '🚙 فئة B1 (16 سنة)',
+      title: 'رخصة B1 - كوادريكلي غير خفيف (Quadricicli non leggeri / Quad)',
+      desc: '<strong>السن الأدنى:</strong> 16 سنة.<br><strong>المركبات المسموحة:</strong> مركبات رباعية غير خفيفة بقدرة محرك حتى 15 كيلووات، وكتلة فارغة لا تتجاوز 450 كجم لنقل الأشخاص أو 600 كجم لنقل البضائع.<br><strong>الحظر القاطع:</strong> رخصة B1 لا تتيح قيادة الدراجات النارية (Motocicli 125 cc) ولا سيارات الركاب العادية.',
+      warning: '❌ <strong>أخطر فخ في B1:</strong> رخصة B1 لا تتيح قيادة أي دراجة نارية بعجلتين مهما كانت سعتها!'
+    },
+    'B': {
+      badge: '🚗 فئة B (18 سنة)',
+      title: 'رخصة B القياسية - سيارات الركاب والشاحنات حتى 3.500 كجم',
+      desc: '<strong>السن الأدنى:</strong> 18 سنة.<br><strong>المركبات المسموحة:</strong> مركبات بكتلة إجمالية حتى 3.500 كجم وعدد ركاب حتى 8 مقاعد بدون السائق. مقطورة خفيفة (750 كجم) دائماً، أو مقطورة أثقل بشرط ألا يتجاوز مجموع المجمع 3.500 كجم.<br><strong>الآلات:</strong> جميع الآلات الزراعية (حتى الاستثنائية)، والآلات الإنشائية غير الاستثنائية.<br><strong>الموتوسيكلات:</strong> فئة A1 (125 cc) داخل إيطاليا فقط.',
+      warning: '🎯 <strong>القاعدة الذهبية:</strong> رخصة B تقود الآلات الزراعية الاستثنائية، لكنها لا تقود الآلات الإنشائية الاستثنائية إطلاقاً!'
+    },
+    'B96': {
+      badge: '🚙 🚛 كود 96 (4.250 kg)',
+      title: 'رخصة B مع الكود 96 - مجمعات المقطورات حتى 4.250 كجم',
+      desc: '<strong>السن الأدنى:</strong> 18 سنة (باختبار عملي خاص).<br><strong>المركبات المسموحة:</strong> سيارة سحب فئة B تسحب مقطورة يتجاوز وزنها 750 كجم، بحيث يتراوح الوزن الإجمالي الكلي للمجمع بين 3.500 كجم و 4.250 كجم.',
+      warning: '⚖️ <strong>الرقم المعتمد:</strong> 4.250 كجم هو الحد الأقصى المطلق لمجمع كود 96.'
+    },
+    'BE': {
+      badge: '🚛 🚜 فئة BE (7.000 kg)',
+      title: 'رخصة BE - المقطورات الثقيلة حتى 3.500 كجم (مجموع 7.000 كجم)',
+      desc: '<strong>المتطلبات:</strong> حيازة رخصة B واجتياز اختبار تخصصي.<br><strong>المركبات المسموحة:</strong> سيارة فئة B ومقطورة أو نصف مقطورة بكتلة تصل حتى 3.500 كجم، بحيث يصل الوزن الكلي للمجمع إلى 7.000 كجم (7 أطنان).',
+      warning: '⚠️ <strong>فخ امتحاني:</strong> المقطورة بمفردها برخصة BE لا يمكن أن تزيد عن 3.500 كجم!'
+    }
+  };
+
+  function simPatente(code) {
+    soundEngine.click();
+    document.querySelectorAll('#sim-patenti .sim-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('btnPat' + code).classList.add('active');
+    const data = patentiData[code];
+    document.getElementById('patenteBadge').innerHTML = data.badge;
+    document.getElementById('patenteTitle').textContent = data.title;
+    document.getElementById('patenteDesc').innerHTML = data.desc;
+    document.getElementById('patenteWarning').innerHTML = data.warning;
+  }
+
+  // SIMULATOR 2: Points Calculator
+  let currentDriverType = 'ord';
+  let currentInfraction = 'precedenza';
+
+  const infractionsData = {
+    'precedenza': { title: 'عدم إعطاء أسبقية المرور (Mancata precedenza)', base: 5, rule: 'خصم 5 نقاط للسائق المعتاد، و 10 نقاط للسائق الجديد.' },
+    'cinture': { title: 'عدم ربط حزام الأمان (Mancato uso cinture)', base: 5, rule: 'خصم 5 نقاط للسائق المعتاد، و 10 نقاط للسائق الجديد، مع تعليق الرخصة عند التكرار في سنتين.' },
+    'cellulare': { title: 'استخدام الهاتف المحمول أثناء القيادة (Uso del cellulare)', base: 5, rule: 'خصم 5 نقاط للسائق المعتاد، و 10 نقاط للسائق الجديد، مع تعليق فوري للرخصة عند تكرار المخالفة.' },
+    'velocita': { title: 'تجاوز السرعة بأكثر من 40 كم/س (Eccesso di velocità oltre 40 km/h)', base: 6, rule: 'خصم 6 نقاط للسائق المعتاد (12 للسائق الجديد) بالإضافة إلى تعليق الرخصة من 1 إلى 3 أشهر.' },
+    'contromano': { title: 'السير عكس الاتجاه في المنحنيات أو المرتفعات (Contromano in curve)', base: 10, rule: 'خصم 10 نقاط كاملة للسائق المعتاد؛ وللسائق الجديد تخصم 20 نقطة دفعة واحدة فيصفر رصيده فوراً وتفرض عليه إعادة الفحص (Revisione)!' }
+  };
+
+  function setDriverType(type) {
+    soundEngine.click();
+    currentDriverType = type;
+    document.getElementById('btnDriverOrd').classList.toggle('active', type === 'ord');
+    document.getElementById('btnDriverNeo').classList.toggle('active', type === 'neo');
+    updatePuntiSim();
+  }
+
+  function simInfraction(inf) {
+    soundEngine.click();
+    currentInfraction = inf;
+    document.querySelectorAll('#sim-punti .sim-controls:nth-child(4) .sim-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('btnInf' + inf.charAt(0).toUpperCase() + inf.slice(1)).classList.add('active');
+    updatePuntiSim();
+  }
+
+  function updatePuntiSim() {
+    const data = infractionsData[currentInfraction];
+    const deduction = currentDriverType === 'neo' ? data.base * 2 : data.base;
+    const remaining = Math.max(0, 20 - deduction);
+
+    document.getElementById('puntiBadge').innerHTML = `خصم -${deduction} نقطة ${currentDriverType === 'neo' ? '(مضاعف x2)' : ''}`;
+    document.getElementById('puntiTitle').textContent = `مخالفة: ${data.title}`;
+    
+    let descHtml = `<strong>نوع السائق:</strong> ${currentDriverType === 'neo' ? 'سائق جديد (Neopatentato - أول 3 سنوات)' : 'سائق معتاد (أكثر من 3 سنوات)'}.<br>`;
+    descHtml += `<strong>الخصم المطبق:</strong> تم خصم <strong>${deduction} نقطة</strong> (${currentDriverType === 'neo' ? `${data.base} × 2 مضاعف` : `${data.base} نقاط أساسية`}).<br>`;
+    descHtml += `<strong>الرصيد المتبقي (من رصيد 20):</strong> يتبقى <strong>${remaining} نقطة</strong>.<br>`;
+    descHtml += `<strong>القاعدة القانونية:</strong> ${data.rule}`;
+    document.getElementById('puntiDesc').innerHTML = descHtml;
+
+    if (remaining === 0) {
+      document.getElementById('puntiWarning').innerHTML = '🚨 <strong>إنذار خطير:</strong> نفاد الرصيد إلى الصفر يوجب حتماً الخضوع لاختبار إعادة الفحص الشامل (Revisione della patente) خلال 30 يوماً وإلا يتم تعليق الرخصة!';
+      document.getElementById('puntiWarning').style.background = 'rgba(244,63,94,0.15)';
+      document.getElementById('puntiWarning').style.borderRightColor = 'var(--rose-primary)';
+      document.getElementById('puntiWarning').style.color = '#fecdd3';
+    } else {
+      document.getElementById('puntiWarning').innerHTML = '💡 <strong>معلومة ذهبية:</strong> استعادة النقاط تتم إما تلقائياً بالالتزام سنتين دون مخالفات (تعود 20 نقطة)، أو عبر دورة تدريبية (تستعيد 6 نقاط).';
+      document.getElementById('puntiWarning').style.background = 'rgba(245,158,11,0.1)';
+      document.getElementById('puntiWarning').style.borderRightColor = 'var(--amber-primary)';
+      document.getElementById('puntiWarning').style.color = '#fde68a';
+    }
+  }
+
+  // SIMULATOR 3: Sanctions
+  const sanzioniData = {
+    'ritiro': {
+      badge: 'سحب فوري (Ritiro)',
+      title: 'سحب الرخصة الميداني (Il Ritiro della patente)',
+      desc: '<strong>طبيعة الإجراء:</strong> تدبير إداري تحفظي يقوم به ضابط الشرطة مباشرة على الطريق لمنع السائق من مواصلة القيادة.<br><strong>أشهر الحالات الوزارية:</strong> 1) القيادة برخصة منتهية الصلاحية (Scaduta di validità)، 2) القيادة بدون ارتداء النظارات الطبية المسجلة بكود خاص في الرخصة، 3) الامتناع عن ترتيب الحمولة غير الآمنة بعد إنذار الشرطة، 4) وقوع حادث سير نتجت عنه إصابات بدنية لأشخاص.<br><strong>استرجاع الرخصة:</strong> تُسترد بمجرد زوال سبب السحب (مثل تجديد الفحص الطبي للرخصة المنتهية أو تقديم ما يفيد تصحيح الوضع).',
+      warning: '❌ <strong>فخ امتحاني:</strong> القيادة برخصة منتهية الصلاحية تؤدي إلى سحبها (Ritiro) وليس إلغائها (Revoca) ولا تعليقها (Sospensione)!'
+    },
+    'sospensione': {
+      badge: 'تعليق مؤقت (Sospensione)',
+      title: 'تعليق الرخصة المؤقت (La Sospensione della patente)',
+      desc: '<strong>طبيعة الإجراء:</strong> عقوبة إدارية إضافية صادرة عن المحافظ (Prefetto) أو مدير هيئة المرور أو القاضي لمدة محددة (أيام إلى شهور أو سنوات).<br><strong>أشهر الحالات الوزارية:</strong> 1) القيادة تحت تأثير الكحول أو المخدرات، 2) تجاوز السرعة بأكثر من 40 كم/س، 3) السير عكس الاتجاه في المنحنيات أو المرتفعات، 4) الهروب عند وقوع حادث فيه أضرار جسيمة، 5) تكرار مخالفات الهاتف أو حزام الأمان في غضون سنتين.',
+      warning: '⚠️ <strong>تحذير صارم:</strong> القيادة أثناء فترة تعليق الرخصة تؤدي فوراً إلى إلغائها النهائي (Revoca) ومصادرة المركبة!'
+    },
+    'revoca': {
+      badge: 'إلغاء دائم (Revoca)',
+      title: 'الإلغاء الدائم للرخصة (La Revoca della patente)',
+      desc: '<strong>طبيعة الإجراء:</strong> العقوبة الأقصى؛ تعني إسقاط سند القيادة وإلغاء صلاحية السائق بشكل نهائي ومطلق.<br><strong>أشهر الحالات الوزارية:</strong> 1) الفقدان الدائم لمتطلبات اللياقة البدنية أو النفسية، 2) القيادة أثناء فترة التعليق، 3) الدوران للخلف (Inversione) أو السير المعاكس على الأوتوستراد، 4) الرسوب في اختبار إعادة الفحص (Revisione).',
+      warning: '🛑 <strong>لا عودة فورية:</strong> بعد الإلغاء، لا يمكن القيادة إلا بالبدء من الصفر كطالب جديد بعد انقضاء المهلة المحددة قانوناً.'
+    },
+    'revisione': {
+      badge: 'إعادة فحص (Revisione)',
+      title: 'إعادة الفحص والتقييم (La Revisione della patente)',
+      desc: '<strong>طبيعة الإجراء:</strong> إلزام السائق بالخضوع مجدداً لفحص طبي أو إعادة اختباره نظرياً وعملياً خلال 30 يوماً للتحقق من أهليته المستمرة للقيادة.<br><strong>أشهر الحالات الوزارية:</strong> 1) استنفاد رصيد النقاط كاملاً إلى الصفر، 2) ارتكاب 3 مخالفات بقيمة 5 نقاط فأكثر في عام واحد، 3) الشك المبرر في اللياقة العقلية أو الجسدية بعد حادث خطير.',
+      warning: '🎯 <strong>المهلة القانونية:</strong> إذا لم يخضع السائق للاختبار خلال 30 يوماً من إخطاره، يتم تعليق رخصته حتى يجتاز الاختبار!'
+    }
+  };
+
+  function simSanzione(type) {
+    soundEngine.click();
+    document.querySelectorAll('#sim-sanzioni .sim-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('btnSanz' + type.charAt(0).toUpperCase() + type.slice(1)).classList.add('active');
+    const data = sanzioniData[type];
+    document.getElementById('sanzioniBadge').innerHTML = data.badge;
+    document.getElementById('sanzioniTitle').textContent = data.title;
+    document.getElementById('sanzioniDesc').innerHTML = data.desc;
+    document.getElementById('sanzioniWarning').innerHTML = data.warning;
+  }
+</script>
 </body>
 </html>
