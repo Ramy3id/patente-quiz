@@ -2,2143 +2,3101 @@
 ### السير على الطرق السريعة وقواعد متنوعة
 
 - 📁 **المجلد المحلي للباب:** `Capitolo_17_norme_varie_autostrade_pannelli`
+- 📊 **إجمالي الأسئلة المعتمدة والمشروحة:** 332 سؤالاً وزارياً
 
 ## 📌 Ingombro carreggiata caduta carico (5 domande)
 
 **1.** Nel caso di ingombro della carreggiata per caduta accidentale del carico il conducente deve provvedere a rimuovere il carico, se possibile
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** في حالة إشغال وعرقلة نهر الطريق بسبب سقوط حمولة بشكل عرضي، يجب على السائق العمل على إزالة الحمولة إن أمكن ذلك.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص المادة 161 من كود السير على أنه عند سقوط الحمولة على نهر الطريق، يجب على السائق اتخاذ جميع التدابير الفورية لإخلاء مسار السير وإزالة العائق لحماية حركة المرور من الحوادث.
+- **⚠️ كشف الفخ:** إزالة الحمولة الساقطة واجب فوري على السائق متى كان ذلك في مقدوره واستطاعته (Se possibile).
+- **🔑 الكلمات المفتاحية:** `{'it': 'ingombro della carreggiata', 'ar': 'إشغال نهر الطريق'}` | `{'it': 'caduta accidentale del carico', 'ar': 'سقوط عرضي للحمولة'}` | `{'it': 'rimuovere il carico', 'ar': 'إزالة الحمولة'}`
 
 ---
 
 **2.** Su strada extraurbana, nel caso di ingombro della carreggiata per caduta accidentale del carico, il conducente deve presegnalare l'ostacolo mediante il segnale di veicolo fermo (triangolo)
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على الطرق خارج المراكز السكنية، في حالة عرقلة نهر الطريق بسبب سقوط الحمولة، يجب على السائق الإشارة المسبقة إلى العائق بواسطة إشارة المركبة المتوقفة (المثلث العاكس).
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ يفرض القانون وضع مثلث الخطر العاكس (Segnale mobile di pericolo) خارج المدن لتنبيه السائقين القادمين من مسافة كافية بوجود حمولة ساقطة تعيق المسار.
+- **⚠️ كشف الفخ:** المثلث العاكس إلزامي خارج المراكز السكنية لتنبيه القادمين عن أي حمولة ساقطة تعطل السير.
+- **🔑 الكلمات المفتاحية:** `{'it': 'strada extraurbana', 'ar': 'طريق خارج المراكز السكنية'}` | `{'it': "presegnalare l'ostacolo", 'ar': 'الإشارة المسبقة للعائق'}` | `{'it': 'segnale di veicolo fermo (triangolo)', 'ar': 'مثلث الخطر العاكس'}`
 
 ---
 
 **3.** Nel caso di ingombro della carreggiata per caduta accidentale del carico il conducente deve rendere sollecitamente libero, per quanto possibile, il transito
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** في حالة إشغال وعرقلة نهر الطريق بسبب سقوط حمولة بشكل عرضي، يجب على السائق جعل حركة المرور سالكة وحرة على وجه السرعة، بقدر الإمكان.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تفرض قواعد المرور الإسراع في فتح مسار آمن لمرور المركبات (Rendere sollecitamente libero il transito) لتفادي التكدس والاصطدامات المتتالية.
+- **⚠️ كشف الفخ:** السرعة في إخلاء الطريق واجب أمني قطعي لضمان سيولة وسلامة السير.
+- **🔑 الكلمات المفتاحية:** `{'it': 'sollecitamente libero', 'ar': 'سالكاً وحراً على وجه السرعة'}` | `{'it': 'transito', 'ar': 'حركة المرور/العبور'}`
 
 ---
 
 **4.** Nel caso di ingombro della carreggiata per caduta accidentale del carico il conducente deve presegnalare l'ostacolo mediante il segnale di STOP
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** في حالة عرقلة نهر الطريق بسبب سقوط الحمولة، يجب على السائق الإشارة المسبقة إلى العائق بواسطة إشارة قف (STOP).
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ إشارة قف (STOP) هي إشارة عمودية تنظيمية مثبتة على الأرض عند التقاطعات؛ والإشارة المسبقة للعوائق الطارئة تتم حصرياً بواسطة المثلث المتنقل العاكس (Triangolo mobile di pericolo).
+- **⚠️ كشف الفخ:** لا توجد إشارة STOP متنقلة في السيارة؛ الإشارة الإلزامية هي مثلث الخطر العاكس.
+- **🔑 الكلمات المفتاحية:** `{'it': 'segnale di STOP', 'ar': 'إشارة قف (فخ مضحك)'}` | `{'it': "presegnalare l'ostacolo", 'ar': 'الإشارة المسبقة للعائق'}`
 
 ---
 
 **5.** Nel caso di ingombro della carreggiata per caduta accidentale del carico il conducente deve restare a bordo del veicolo in attesa dei soccorsi
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** في حالة عرقلة نهر الطريق بسبب سقوط الحمولة، يجب على السائق البقاء على متن المركبة في انتظار وصول النجدة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ البقاء داخل السيارة دون فعل شيء يعرض الجميع للخطر؛ بل يجب ارتداء السترة العاكسة، والنزول لتأمين المكان بوضع المثلث العاكس، ومحاولة إزالة العائق عن مسار السير.
+- **⚠️ كشف الفخ:** البقاء داخل السيارة سلبية خطيرة ومخالفة صريحة؛ يجب النزول بالسترة وتأمين الطريق ووضع المثلث.
+- **🔑 الكلمات المفتاحية:** `{'it': 'restare a bordo', 'ar': 'البقاء على متن المركبة (خطأ)'}` | `{'it': 'attesa dei soccorsi', 'ar': 'انتظار النجدة'}`
 
 ---
-
 
 ## 📌 Ingombro avaria (8 domande)
 
 **6.** In caso di ingombro della carreggiata per avaria del veicolo, il conducente deve sollecitamente rendere libero il transito per il traffico sopraggiungente
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** في حالة إشغال وعرقلة نهر الطريق بسبب عطل في المركبة، يجب على السائق أن يجعل حركة المرور سالكة وحرة بسرعة لحركة السير القادمة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص المادة 161 على واجب السائق في إخلاء نهر الطريق فوراً عند تعطل سيارته، بنقلها إلى حارة الطوارئ أو مساحة التوقف أو الحافة اليمنى لعدم سد الطريق في وجه المركبات القادمة.
+- **⚠️ كشف الفخ:** إخلاء مسار المرور فور تعطل السيارة التزام قانوني صارم.
+- **🔑 الكلمات المفتاحية:** `{'it': 'avaria del veicolo', 'ar': 'عطل في المركبة'}` | `{'it': 'sollecitamente libero il transito', 'ar': 'تحرير حركة السير بسرعة'}`
 
 ---
 
 **7.** In caso di ingombro della carreggiata per avaria del veicolo, il conducente deve spingere il veicolo stesso fuori della carreggiata o, se ciò non è possibile, collocarlo sul margine destro della carreggiata
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** في حالة عرقلة نهر الطريق بسبب عطل في المركبة، يجب على السائق دفع المركبة خارج نهر الطريق أو، إذا لم يكن ذلك ممكناً، وضعها على الحافة اليمنى لنهر الطريق.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الهدف الأساسي هو إخراج السيارة العاطلة تماماً خارج نهر الطريق (Fuori della carreggiata)، وإذا تعذر ذلك، فيجب إلصاقها بأقصى الحافة اليمنى لتقليل إعاقة مسارات السير لأدنى حد.
+- **⚠️ كشف الفخ:** الأولوية لإخراج السيارة كلياً عن نهر الطريق؛ والبديل هو أقصى اليمين.
+- **🔑 الكلمات المفتاحية:** `{'it': 'fuori della carreggiata', 'ar': 'خارج نهر الطريق'}` | `{'it': 'margine destro', 'ar': 'الحافة اليمنى'}`
 
 ---
 
 **8.** In caso di ingombro della carreggiata per caduta del carico o per qualsiasi altra causa, il conducente deve rimuovere l'ingombro, per quanto possibile
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** في حالة إشغال نهر الطريق بسبب سقوط الحمولة أو لأي سبب آخر، يجب على السائق إزالة العائق، بقدر الإمكان.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ إزالة العوائق التي تسبب فيها السائق (حمولة، أجزاء مركبة، إلخ) واجب قانوني مباشر لتفادي تعريض مستخدمي الطريق الآخرين لحوادث مروعة.
+- **⚠️ كشف الفخ:** إزالة العائق واجبة أياً كان سبب سقوطه أو حدوثه.
+- **🔑 الكلمات المفتاحية:** `{'it': "rimuovere l'ingombro", 'ar': 'إزالة العائق/الإشغال'}` | `{'it': 'qualsiasi altra causa', 'ar': 'أي سبب آخر'}`
 
 ---
 
 **9.** Su strada extraurbana, nel caso di incidente che provochi l'ingombro della carreggiata per la presenza di veicoli danneggiati che non è possibile rimuovere, il conducente o i passeggeri devono presegnalare la zona mediante il segnale triangolare mobile di pericolo
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على الطرق خارج المراكز السكنية، في حالة وقوع حادث يتسبب في عرقلة نهر الطريق بسبب وجود مركبات متضررة يتعذر إزالتها، يجب على السائق أو الركاب الإشارة المسبقة للمنطقة بواسطة مثلث الخطر العاكس المتنقل.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ إذا تعذر نقل السيارات المحطمة بعد الحادث، يلزم القانون السائق أو الركاب بحماية الموقع ووضع مثلث الخطر العاكس على بعد 50 متراً على الأقل لتنبيه القادمين وتفادي اصطدامات كارثية إضافية.
+- **⚠️ كشف الفخ:** عند تعذر تحريك المركبات المصابة: وضع المثلث واجب على السائق أو الركاب فوراً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'strada extraurbana', 'ar': 'طريق خارج المراكز السكنية'}` | `{'it': 'veicoli danneggiati non rimovibili', 'ar': 'مركبات متضررة يتعذر إزالتها'}` | `{'it': 'segnale triangolare mobile', 'ar': 'مثلث الخطر العاكس المتنقل'}`
 
 ---
 
 **10.** In caso di ingombro della carreggiata per avaria del veicolo, il conducente non è tenuto a spostarlo, in attesa dei soccorsi, se il traffico è scarso
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** في حالة عرقلة نهر الطريق بسبب عطل المركبة، لا يلزم السائق بنقلها، في انتظار وصول النجدة، إذا كانت حركة المرور ضعيفة وقليلة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ واجب نقل المركبة وتفريغ نهر الطريق قائم دائماً وملزم قانوناً حتى لو كانت حركة السير ضعيفة (Anche con traffico scarso)؛ فالسيارة المتوقفة في مسار السير تشكل فخاً مميتاً لأي مركبة قادمة.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (non è tenuto a spostarlo se il traffico è scarso)؛ قلة الحركة لا تعفي أبداً من نقل السيارة وإخلاء الطريق.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non è tenuto a spostarlo', 'ar': 'غير ملزم بنقلها (خطأ)'}` | `{'it': 'traffico è scarso', 'ar': 'حركة المرور ضعيفة'}`
 
 ---
 
 **11.** Nel caso di ingombro della carreggiata per caduta accidentale del carico il conducente deve evitare di spostarlo per consentire la ricostruzione corretta dell'accaduto
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** في حالة عرقلة نهر الطريق بسبب سقوط الحمولة عرضياً، يجب على السائق تجنب نقلها للسماح بإعادة بناء ملابسات الحادث بشكل صحيح.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ إخلاء الطريق وتأمين سلامة الأرواح مقدم على كل شيء؛ ولا تُترك الحمولة في منتصف الطريق بحجة معاينة الشرطة، بل يجب نقلها فوراً لتأمين حركة المرور.
+- **⚠️ كشف الفخ:** تأمين الطريق وإزالة الحمولة أولوية قصوى ولا تُترك الحمولة لانتظار التحقيق كحوادث الوفيات.
+- **🔑 الكلمات المفتاحية:** `{'it': 'evitare di spostarlo', 'ar': 'تجنب نقلها (خطأ صريح)'}` | `{'it': "ricostruzione dell'accaduto", 'ar': 'إعادة بناء ملابسات الحادث'}`
 
 ---
 
 **12.** Nel caso di ingombro della carreggiata per avaria del veicolo che non è possibile spostare, il conducente deve informare l'organo di polizia, senza dover opportunamente presegnalare la zona.
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** في حالة عرقلة نهر الطريق بسبب عطل في المركبة يتعذر نقلها، يجب على السائق إبلاغ جهاز الشرطة، دون الحاجة إلى الإشارة المسبقة المناسبة للمنطقة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ الإشارة المسبقة بوضع المثلث العاكس وارتداء السترة واجب أمني فوري لا يسقط أبداً، ويجب القيام به قبل وأثناء إبلاغ الشرطة لمنع وقوع حوادث أثناء انتظار الدورية.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (senza dover opportunamente presegnalare)؛ وضع المثلث إلزامي وحتمي.
+- **🔑 الكلمات المفتاحية:** `{'it': 'senza presegnalare', 'ar': 'دون إشارة مسبقة (خطأ فادح)'}` | `{'it': 'organo di polizia', 'ar': 'جهاز الشرطة'}`
 
 ---
 
 **13.** Nel caso di ingombro della carreggiata per caduta del carico non removibile, il conducente può evitare di informare un organo di polizia se presegnala la zona con efficaci segnali manuali
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** في حالة عرقلة نهر الطريق بسقوط حمولة غير قابلة للإزالة، يمكن للسائق تجنب إبلاغ الشرطة إذا قام بالإشارة المسبقة للمنطقة بإشارات يدوية فعالة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ إذا كانت الحمولة ثقيلة وغير قابلة للإزالة، فإن إبلاغ الشرطة وهيئة إدارة الطريق إلزامي وفوري لطلب آليات التدخل وإغلاق المسار؛ والإشارات اليدوية لا تعفي من إبلاغ السلطات أبداً.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (può evitare di informare la polizia)؛ إبلاغ الشرطة إلزامي عند تعذر إزالة العائق.
+- **🔑 الكلمات المفتاحية:** `{'it': 'evitare di informare la polizia', 'ar': 'تجنب إبلاغ الشرطة (خطأ)'}` | `{'it': 'carico non removibile', 'ar': 'حمولة غير قابلة للإزالة'}`
 
 ---
-
 
 ## 📌 Caduta spargimento materie pericolose (7 domande)
 
 **14.** Chiunque non abbia potuto evitare la caduta o lo spargimento di materie viscide, infiammabili o comunque pericolose, deve, tra l'altro, presegnalare la zona con il segnale mobile di pericolo anche in mezzo alla carreggiata
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** كل من يتعذر عليه تجنب سقوط أو تناثر مواد لزجة أو قابلة للاشتعال أو خطيرة عموماً، يجب عليه من بين أمور أخرى، الإشارة المسبقة للمنطقة بواسطة مثلث الخطر المتنقل حتى في منتصف نهر الطريق.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص المادة 161 على أنه عند تسرب مواد تزليق أو وقود أو مواد خطيرة، يُسمح بل ويجب وضع مثلث الخطر المتنقل في منتصف نهر الطريق (Anche in mezzo alla carreggiata) إذا لزم الأمر لتحذير السائقين من بقعة الخطر.
+- **⚠️ كشف الفخ:** المثلث يوضع حتى في منتصف نهر الطريق عند انتشار مواد زلقة أو خطيرة لتحذير الجميع.
+- **🔑 الكلمات المفتاحية:** `{'it': 'materie viscide, infiammabili', 'ar': 'مواد لزجة، قابلة للاشتعال'}` | `{'it': 'anche in mezzo alla carreggiata', 'ar': 'حتى في منتصف نهر الطريق'}` | `{'it': 'segnale mobile di pericolo', 'ar': 'مثلث الخطر المتنقل'}`
 
 ---
 
 **15.** Chiunque non abbia potuto evitare la caduta o lo spargimento di materie pericolose, deve, tra l'altro, eseguire segnali manuali per impedire il transito dei veicoli dalla parte dove non è stato posto il segnale mobile di pericolo
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** كل من يتعذر عليه تجنب سقوط أو تناثر مواد خطيرة، يجب عليه من بين أمور أخرى، القيام بإشارات يدوية لمنع مرور المركبات من الجهة التي لم يُوضع فيها مثلث الخطر المتنقل.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ في الطرق ذات الاتجاهين أو عند تعذر تغطية كل المسارات بالمثلث، يجب على السائق (مع ارتداء السترة) توجيه إشارات يدوية لتنبيه ومنع السائقين القادمين من الاتجاه المقابل من الدخول في منطقة الخطر.
+- **⚠️ كشف الفخ:** الإشارات اليدوية مطلوبة لتغطية الجانب الذي لا يوجد به مثلث الخطر.
+- **🔑 الكلمات المفتاحية:** `{'it': 'segnali manuali', 'ar': 'إشارات يدوية'}` | `{'it': 'impedire il transito', 'ar': 'منع المرور/العبور'}` | `{'it': 'parte dove non è posto il segnale', 'ar': 'الجهة التي لم يوضع بها المثلث'}`
 
 ---
 
 **16.** Chiunque non abbia potuto evitare la caduta o lo spargimento di materie viscide, infiammabili o pericolose, deve, tra l'altro, rimuoverle o spargere sul terreno, se possibile, sabbia, terra, segatura o altro materiale idoneo a ripristinare l'aderenza
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** كل من يتعذر عليه تجنب سقوط أو تناثر مواد لزجة أو سريعة الاشتعال أو خطيرة، يجب عليه من بين أمور أخرى، إزالتها أو نثر الرمل أو التراب أو نشارة الخشب أو أي مادة مناسبة أخرى على الأرض، إن أمكن، لاستعادة الالتصاق.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ يفرض كود السير نثر مواد ماصة كالأتربة أو الرمل أو النشارة (Sabbia, terra, segatura) لامتصاص الزيوت والشحوم واستعادة احتكاك الإطارات بالأرض ومنع انزلاق السيارات المارة.
+- **⚠️ كشف الفخ:** نثر الرمل أو النشارة تصرف قانوني وموصى به لمعادلة الزيوت والمواد الزلقة المسكوبة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'spargere sabbia, terra, segatura', 'ar': 'نثر الرمل، التراب، نشارة الخشب'}` | `{'it': "ripristinare l'aderenza", 'ar': 'استعادة الالتصاق'}`
 
 ---
 
 **17.** Su strada extraurbana, chiunque non abbia potuto evitare la caduta o lo spargimento di materie viscide, infiammabili o comunque pericolose deve, tra l'altro, presegnalare la zona con il segnale mobile di pericolo posto anche in mezzo alla carreggiata
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على الطرق خارج المراكز السكنية، كل من يتعذر عليه تجنب سقوط أو تناثر مواد لزجة أو قابلة للاشتعال أو خطيرة عموماً، يجب عليه الإشارة المسبقة للمنطقة بواسطة مثلث الخطر المتنقل الموضوع حتى في منتصف نهر الطريق.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ خارج المدن تتضاعف السرعات ويزداد خطر الانزلاق، ووضع المثلث حتى في وسط الطريق لتنبيه حركة المرور سريعاً واجب قطعي في مثل هذه الطوارئ.
+- **⚠️ كشف الفخ:** تأكيد على مشروعية ووجوب وضع المثلث في وسط نهر الطريق في حالات الزيوت والمواد الخطيرة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'strada extraurbana', 'ar': 'طريق خارج المراكز السكنية'}` | `{'it': 'anche in mezzo alla carreggiata', 'ar': 'حتى في منتصف نهر الطريق'}`
 
 ---
 
 **18.** Il conducente di un autoveicolo che non abbia potuto evitare lo spargimento di materie pericolose, può evitare di presegnalare la zona con il segnale mobile di pericolo se esegue segnali sonori per allontanare gli altri veicoli
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** سائق المركبة الذي يتعذر عليه تجنب تناثر مواد خطيرة، يمكنه تجنب الإشارة المسبقة للمنطقة بمثلث الخطر إذا قام بإطلاق إشارات صوتية (كلاكس) لإبعاد المركبات الأخرى.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ آلة التنبيه الصوتية لا تغني مطلقاً عن مثلث الخطر العاكس؛ فالصوت مخصص للطوارئ اللحظية ولا يمكن للسائق إطلاق النفير باستمرار، كما أنه لا يحذر السائقين القادمين من مسافات بعيدة.
+- **⚠️ كشف الفخ:** الكلاكس لا يعفي أبداً من وضع مثلث الخطر المتنقل.
+- **🔑 الكلمات المفتاحية:** `{'it': 'segnali sonori', 'ar': 'إشارات صوتية (بديل باطل)'}` | `{'it': 'evitare di presegnalare', 'ar': 'تجنب الإشارة المسبقة'}`
 
 ---
 
 **19.** Chiunque non abbia potuto evitare la caduta di materie viscide, deve deviare il traffico in attesa che l'ente proprietario della strada intervenga per ripristinare le condizioni ottimali
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** كل من يتعذر عليه تجنب سقوط مواد لزجة، يجب عليه تحويل مسار حركة المرور في انتظار تدخل الجهة المالكة للطريق لاستعادة الظروف المثالية.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ السائق العادي لا يملك أي سلطة قانونية لتحويل مسار حركة المرور (Deviare il traffico)؛ فهذا اختصاص حصري لرجال الشرطة وهيئة الطرق؛ دور السائق ينحصر في التحذير والتبليغ ونثر الرمل وإزالة ما يستطيعه.
+- **⚠️ كشف الفخ:** تحويل حركة المرور (Deviare il traffico) عمل سيادي لرجال الشرطة وليس من صلاحيات السائقين.
+- **🔑 الكلمات المفتاحية:** `{'it': 'deviare il traffico', 'ar': 'تحويل مسار المرور (ليس من اختصاصه)'}` | `{'it': 'ente proprietario', 'ar': 'الجهة المالكة للطريق'}`
 
 ---
 
 **20.** Chiunque non abbia potuto evitare la caduta o lo spargimento di materie pericolose deve, tra l'altro, eseguire segnali manuali atti a segnalare il pericolo, solo dalla parte dove è stato posto il segnale triangolare mobile di pericolo
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** كل من يتعذر عليه تجنب سقوط أو تناثر مواد خطيرة، يجب عليه إجراء إشارات يدوية لتنبيه الخطر، فقط من الجهة التي وُضع فيها مثلث الخطر المتنقل.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ الإشارات اليدوية مطلوبة تحديداً من الجهة الأخرى التي لم يوضع فيها المثلث لتأمينها وتنبيه القادمين منها، وليس من نفس جهة المثلث الذي يتولى التحذير بذاته.
+- **⚠️ كشف الفخ:** الكلمة المصيدة هي (solo dalla parte dove è stato posto il segnale)؛ بل الإشارة اليدوية للجهة الخالية من المثلث.
+- **🔑 الكلمات المفتاحية:** `{'it': 'solo dalla parte dove è posto', 'ar': 'فقط من جهة المثلث (فخ الحصر الخطأ)'}` | `{'it': 'segnali manuali', 'ar': 'إشارات يدوية'}`
 
 ---
-
 
 ## 📌 Segnale mobile triangolare (15 domande)
 
 **21.** Fuori dei centri abitati, di notte, quando mancano o sono insufficienti le luci posteriori di posizione o di emergenza, è obbligatorio presegnalare il veicolo, fermo sulla carreggiata, con il segnale triangolare mobile di pericolo
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** خارج المراكز السكنية، ليلاً، عندما تكون أضواء الموضع الخلفية أو أضواء الطوارئ غائبة أو غير كافية، يكون إلزامياً الإشارة المسبقة للمركبة المتوقفة على نهر الطريق بمثلث الخطر المتنقل.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص المادة 162 من كود السير على وجوب استخدام مثلث الخطر المتنقل ليلاً خارج المدن عند انعدام أو عدم كفاية أضواء السيارة الخلفية لحماية المركبة من الاصطدام الخلفي.
+- **⚠️ كشف الفخ:** خارج المدن + ليلاً + غياب أضواء الموضع الخلفية = مثلث الخطر إلزامي قطعاً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'fuori dei centri abitati, di notte', 'ar': 'خارج المراكز السكنية ليلاً'}` | `{'it': 'luci posteriori insufficienti', 'ar': 'أضواء خلفية غير كافية'}` | `{'it': 'obbligatorio presegnalare', 'ar': 'إلزامي الإشارة المسبقة'}`
 
 ---
 
 **22.** Fuori dei centri abitati, di notte, è obbligatorio presegnalare con il segnale triangolare mobile di pericolo ogni carico caduto accidentalmente dal veicolo sulla carreggiata
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** خارج المراكز السكنية، ليلاً، يكون من الإلزامي الإشارة المسبقة بمثلث الخطر المتنقل عن كل حمولة سقطت عرضياً من المركبة على نهر الطريق.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ سقوط الحمولة ليلاً على نهر الطريق خارج المدن يمثل عائقاً غير مضاء وظلاماً دامساً، ويفرض القانون وضع المثلث فوراً لتحذير السائقين القادمين وتفادي الاصطدام بها.
+- **⚠️ كشف الفخ:** كل حمولة ساقطة ليلاً خارج المدن تلزم وضع مثلث الخطر دون استثناء.
+- **🔑 الكلمات المفتاحية:** `{'it': 'ogni carico caduto', 'ar': 'كل حمولة ساقطة'}` | `{'it': 'obbligatorio presegnalare', 'ar': 'إلزامي الإشارة المسبقة'}`
 
 ---
 
 **23.** Fuori dei centri abitati, è obbligatorio anche di giorno presegnalare un veicolo fermo sulla carreggiata mediante il segnale triangolare di pericolo quando non può essere visto nettamente a 100 metri di distanza
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** خارج المراكز السكنية، يكون إلزامياً حتى في ساعات النهار الإشارة المسبقة لمركبة متوقفة على نهر الطريق بواسطة مثلث الخطر، عندما يتعذر رؤيتها بوضوح من مسافة 100 متر.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ يفرض القانون استخدام المثلث نهاراً خارج المدن إذا حالت المنعطفات، أو المطالع، أو الضباب، أو الظروف الجوية دون رؤية المركبة بوضوح من مسافة لا تقل عن 100 متر.
+- **⚠️ كشف الفخ:** احفظ المسافة القانونية: الرؤية من أقل من 100 متر نهاراً توجب وضع المثلث فوراً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'anche di giorno', 'ar': 'حتى نهاراً'}` | `{'it': 'visto nettamente a 100 metri', 'ar': 'رؤيته بوضوح من مسافة 100 متر'}`
 
 ---
 
 **24.** Fuori dei centri abitati è obbligatorio, anche di giorno, presegnalare un carico accidentalmente caduto sulla carreggiata mediante il segnale triangolare mobile di pericolo, quando l’ingombro non può essere visto nettamente a 100 metri di distanza
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** خارج المراكز السكنية، يكون إلزامياً حتى في النهار الإشارة المسبقة لحمولة سقطت عرضياً على نهر الطريق بواسطة مثلث الخطر، عندما يتعذر رؤية العائق بوضوح من مسافة 100 متر.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ نفس القاعدة تسري تماماً على الحمولة الساقطة؛ فإذا كانت غير مرئية بوضوح للقادمين من مسافة 100 متر، وجب وضع المثلث نهاراً خارج المراكز السكنية.
+- **⚠️ كشف الفخ:** قاعدة الـ 100 متر نهاراً تنطبق بالتساوي على المركبة العاطلة وعلى الحمولة الساقطة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'carico accidentalmente caduto', 'ar': 'حمولة سقطت عرضياً'}` | `{'it': '100 metri di distanza', 'ar': 'مسافة 100 متر'}`
 
 ---
 
 **25.** Il segnale mobile triangolare di pericolo fa parte dell'equipaggiamento obbligatorio degli autoveicoli
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** مثلث الخطر العاكس المتنقل يعد جزءاً من التجهيزات الإلزامية للمركبات الآلية (السيارات والشاحنات).
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص المادة 162 على أن وجود مثلث الخطر المعتمد على متن جميع المركبات الآلية (باستثناء الدراجات النارية ذات العجلتين) إلزامي قانوناً ويعاقب بغرامة على عدم وجوده.
+- **⚠️ كشف الفخ:** المثلث إلزامي في تجهيزات كل سيارة (Equipaggiamento obbligatorio).
+- **🔑 الكلمات المفتاحية:** `{'it': 'equipaggiamento obbligatorio', 'ar': 'تجهيزات إلزامية'}` | `{'it': 'autoveicoli', 'ar': 'مركبات آلية/سيارات'}`
 
 ---
 
 **26.** Il segnale mobile triangolare di pericolo deve essere posto dietro al veicolo o all'ostacolo da segnalare, ad almeno 50 metri
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب وضع مثلث الخطر المتنقل خلف المركبة أو العائق المراد الإشارة إليه، على مسافة لا تقل عن 50 متراً.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ ينص كود السير على أن المسافة الفاصلة بين المثلث ومؤخرة المركبة أو العائق يجب ألا تقل عن 50 متراً (Almeno 50 metri) لتمكين القادمين من الفرملة الآمنة في الوقت المناسب.
+- **⚠️ كشف الفخ:** المسافة خلف السيارة = 50 متراً على الأقل؛ ومسافة رؤيته للقادمين = 100 متر على الأقل.
+- **🔑 الكلمات المفتاحية:** `{'it': 'posto dietro', 'ar': 'يوضع خلف'}` | `{'it': 'almeno 50 metri', 'ar': '50 متراً على الأقل'}`
 
 ---
 
 **27.** Nel caso di intersezione a distanza inferiore a 50 metri, il segnale mobile triangolare di pericolo deve essere posto dietro al veicolo nella posizione più idonea ad essere avvistato
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** في حالة وجود تقاطع على مسافة تقل عن 50 متراً، يجب وضع مثلث الخطر المتنقل خلف المركبة في الموضع الأنسب ليتمكن القادمون من رصده ورؤيته.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ إذا كان هناك تقاطع قريب قبل الوصول لمسافة الـ 50 متراً، يُوضع المثلث قبل التقاطع أو في الموضع الهندسي الأكثر وضوحاً ليراه السائقون المنعطفون في التقاطع قبل مفاجأتهم بالعائق.
+- **⚠️ كشف الفخ:** وجود تقاطع قريب يفرض وضع المثلث في أنسب مكان للرؤية لتفادي الاصطدام المفاجئ.
+- **🔑 الكلمات المفتاحية:** `{'it': 'intersezione a distanza inferiore a 50 metri', 'ar': 'تقاطع على مسافة أقل من 50 متراً'}` | `{'it': 'posizione più idonea ad essere avvistato', 'ar': 'الموضع الأنسب لرصده'}`
 
 ---
 
 **28.** Il segnale mobile triangolare di pericolo deve essere posto sulla carreggiata in modo che sia visibile ad una distanza di almeno 100 metri dai veicoli sopraggiungenti
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب وضع مثلث الخطر المتنقل على نهر الطريق بحيث يكون مرئياً من مسافة لا تقل عن 100 متر بواسطة المركبات القادمة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ يشترط القانون أن يوضع المثلث على استقامة تكفل رؤيته للقادمين من مسافة لا تقل عن 100 متر (Visibile ad almeno 100 metri) لمنحهم مسافة استجابة كافية للتوقف أو تغيير المسار بأمان.
+- **⚠️ كشف الفخ:** رقم قياسي للحفظ: رؤية المثلث للقادمين = 100 متر على الأقل.
+- **🔑 الكلمات المفتاحية:** `{'it': 'visibile ad una distanza di almeno 100 metri', 'ar': 'مرئياً من مسافة 100 متر على الأقل'}` | `{'it': 'veicoli sopraggiungenti', 'ar': 'المركبات القادمة'}`
 
 ---
 
 **29.** Fuori dei centri abitati, di notte, quando mancano o sono insufficienti le luci posteriori di posizione o di emergenza, è consigliabile presegnalare il veicolo fermo sulla carreggiata, con il segnale triangolare mobile di pericolo
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** خارج المراكز السكنية، ليلاً، عندما تغيب أو تكون غير كافية أضواء الموضع الخلفية، يُستحسن الإشارة المسبقة للمركبة المتوقفة بمثلث الخطر.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ استخدام المثلث في هذه الظروف ليس مجرد أمر مستحسن أو اختياري (Consigliabile)، بل هو واجب وإلزام قانوني قطعي (Obbligatorio) تترتب عليه مخالفة صريحة.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (consigliabile)؛ بل هو إلزامي وإجباري (Obbligatorio).
+- **🔑 الكلمات المفتاحية:** `{'it': 'consigliabile', 'ar': 'مستحسن (خطأ، بل إلزامي)'}` | `{'it': 'obbligatorio', 'ar': 'إلزامي'}`
 
 ---
 
 **30.** Il triangolo mobile di pericolo deve essere obbligatoriamente usato per segnalare il veicolo fermo per avaria di notte, se l'ostacolo non è visibile ad almeno 150 metri di distanza
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يجب استخدام مثلث الخطر المتنقل إلزامياً للإشارة إلى مركبة متوقفة لعطل ليلاً، إذا كان العائق غير مرئي من مسافة 150 متراً على الأقل.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ المسافة القانونية المحددة للرؤية في كود السير هي 100 متر (Almeno 100 metri) وليست 150 متراً.
+- **⚠️ كشف الفخ:** الرقم الخادع هو 150 متراً؛ النص القانوني يحدد المسافة بـ 100 متر فقط.
+- **🔑 الكلمات المفتاحية:** `{'it': '150 metri', 'ar': '150 متراً (رقم خادع)'}` | `{'it': '100 metri', 'ar': '100 متر (الرقم الصحيح)'}`
 
 ---
 
 **31.** Fuori dei centri abitati, è facoltativo presegnalare, anche di giorno, un carico accidentalmente caduto sulla carreggiata mediante il segnale di pericolo, quando non può essere visto nettamente a 100 metri di distanza
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** خارج المراكز السكنية، يكون اختيارياً الإشارة المسبقة، حتى في النهار، لحمولة سقطت عرضياً عندما يتعذر رؤيتها بوضوح من مسافة 100 متر.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ الإشارة المسبقة بالنهار عند تعذر الرؤية من 100 متر واجبة وإلزامية (Obbligatorio) وليست اختيارية (Facoltativo).
+- **⚠️ كشف الفخ:** الكلمة المصيدة هي (facoltativo)؛ الإشارة المسبقة إجبارية متى انعدمت الرؤية من 100 متر.
+- **🔑 الكلمات المفتاحية:** `{'it': 'facoltativo', 'ar': 'اختياري (خطأ صريح)'}` | `{'it': 'obbligatorio', 'ar': 'إلزامي'}`
 
 ---
 
 **32.** Di notte, quando mancano o sono insufficienti le luci posteriori di posizione o di emergenza, è obbligatorio presegnalare il veicolo fermo con il segnale triangolare mobile di pericolo anche nei centri abitati
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** ليلاً، عندما تغيب أو تكون غير كافية أضواء الموضع الخلفية أو أضواء الطوارئ، يكون إلزامياً الإشارة المسبقة للمركبة المتوقفة بمثلث الخطر حتى داخل المراكز السكنية.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ استخدام مثلث الخطر المتنقل غير إلزامي داخل المراكز السكنية (Nei centri abitati)؛ بل هو مخصص حصرياً للطرق خارج المراكز السكنية حيث تكون السرعات عالية.
+- **⚠️ كشف الفخ:** المثلث غير إلزامي داخل المدن والمراكز السكنية إطلاقاً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'anche nei centri abitati', 'ar': 'حتى داخل المراكز السكنية (خطأ)'}` | `{'it': 'fuori dei centri abitati', 'ar': 'خارج المراكز السكنية فقط'}`
 
 ---
 
 **33.** Di notte, quando mancano o sono insufficienti le luci posteriori di posizione, è obbligatorio presegnalare velocipedi, ciclomotori e motocicli fermi con il segnale triangolare mobile di pericolo anche nei centri abitati
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** ليلاً، عند غياب أضواء الموضع الخلفية، يكون إلزامياً الإشارة المسبقة للدراجات الهوائية والدرجات الصغيرة والدراجات النارية المتوقفة بمثلث الخطر حتى داخل المراكز السكنية.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ مركبات العجلتين (دراجات عادية، سيكلوموتوري، وموتوسيكلات) غير ملزمة بحمل أو وضع مثلث الخطر إطلاقاً، ولا يُستخدم المثلث داخل المدن أساساً.
+- **⚠️ كشف الفخ:** مركبات العجلتين معفاة تماماً من مثلث الخطر.
+- **🔑 الكلمات المفتاحية:** `{'it': 'velocipedi, ciclomotori e motocicli', 'ar': 'دراجات هوائية، صغيرة، ونارية (معفاة)'}` | `{'it': 'triangolo', 'ar': 'المثلث'}`
 
 ---
 
 **34.** Il segnale mobile triangolare di pericolo deve essere posto sul carico accidentalmente caduto sulla carreggiata
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يجب وضع مثلث الخطر المتنقل فوق الحمولة التي سقطت عرضياً على نهر الطريق مباشرة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ وضع المثلث فوق الحمولة سيعرض السائقين القادمين للاصطدام بهما معاً لعدم وجود مسافة تحذير؛ بل يجب وضعه 'خلف' العائق بمسافة 50 متراً على الأقل على أرضية المسار.
+- **⚠️ كشف الفخ:** يوضع المثلث 'خلف' العائق على بعد 50 متراً، وليس 'فوقه' (Sul carico).
+- **🔑 الكلمات المفتاحية:** `{'it': 'posto sul carico', 'ar': 'يوضع فوق الحمولة (خطأ فادح)'}` | `{'it': 'posto dietro', 'ar': 'يوضع خلفها'}`
 
 ---
 
 **35.** Il segnale mobile triangolare di pericolo deve essere posto sulla carreggiata in modo che sia visibile ad una distanza di almeno 50 metri dai veicoli sopraggiungenti
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يجب وضع مثلث الخطر المتنقل على نهر الطريق بحيث يكون مرئياً من مسافة لا تقل عن 50 متراً بواسطة المركبات القادمة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ مسافة رؤية المثلث للقادمين يجب ألا تقل عن 100 متر (Almeno 100 metri)؛ أما الـ 50 متراً فهي المسافة الفاصلة بين المثلث ومؤخرة العائق نفسه.
+- **⚠️ كشف الفخ:** لا تخلط بين الرقمين: مسافة وضعه خلف السيارة = 50 متراً؛ ومسافة رؤيته للقادمين = 100 متر.
+- **🔑 الكلمات المفتاحية:** `{'it': 'visibile ad almeno 50 metri', 'ar': 'مرئياً من 50 متراً (خطأ، الصحيح 100)'}` | `{'it': 'visibilità', 'ar': 'الرؤية'}`
 
 ---
-
 
 ## 📌 Posizione triangolo (4 domande)
 
 **36.** Il segnale mobile triangolare di pericolo deve essere posto sulla corsia occupata dal veicolo fermo o dal carico caduto
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب وضع مثلث الخطر المتنقل على نفس المسار (الحارة) المشغول بالمركبة المتوقفة أو بالحمولة الساقطة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ يوضع المثلث في مسار السير المغلق لإنذار السائقين القادمين في نفس الحارة بضرورة تخفيف السرعة وتغيير مسارهم لتفادي العائق في الوقت المناسب.
+- **⚠️ كشف الفخ:** يوضع المثلث في نفس الحارة التي يوجد بها العائق.
+- **🔑 الكلمات المفتاحية:** `{'it': 'sulla corsia occupata', 'ar': 'على المسار المشغول بالعائق'}` | `{'it': 'segnale mobile di pericolo', 'ar': 'مثلث الخطر'}`
 
 ---
 
 **37.** Il segnale mobile triangolare di pericolo deve essere posto sulla carreggiata ad almeno un metro dal bordo esterno di essa
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب وضع مثلث الخطر المتنقل على نهر الطريق على مسافة لا تقل عن متر واحد من الحافة الخارجية لنهر الطريق.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ ينص كود السير على وضع المثلث داخل الحارة بمسافة متر واحد على الأقل من الحافة اليمنى الخارجية لنهر الطريق (Almeno un metro dal bordo esterno) لضمان وقوعه في مجال الرؤية المباشر لمصابيح سيارات القادمين.
+- **⚠️ كشف الفخ:** المسافة الجانبية للمثلث: متر واحد على الأقل من الحافة الخارجية لنهر الطريق.
+- **🔑 الكلمات المفتاحية:** `{'it': 'almeno un metro dal bordo esterno', 'ar': 'متر واحد على الأقل من الحافة الخارجية'}` | `{'it': 'carreggiata', 'ar': 'نهر الطريق'}`
 
 ---
 
 **38.** Nel caso di carreggiata a più corsie, il segnale mobile triangolare di pericolo deve essere posto sulla corsia immediatamente a sinistra del veicolo fermo o del carico caduto
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** في حالة نهر الطريق متعدد المسارات، يجب وضع مثلث الخطر على المسار الواقع مباشرة إلى يسار المركبة المتوقفة أو الحمولة الساقطة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ يوضع المثلث في نفس المسار المشغول بالعائق؛ ووضعه في المسار المجاور الأيسر سيغلق مساراً سالكاً ويضلل السائقين القادمين ويتسبب في حوادث إضافية.
+- **⚠️ كشف الفخ:** المثلث يوضع دائماً في المسار المشغول بالعائق، وليس في المسار الأيسر المجاور السالك.
+- **🔑 الكلمات المفتاحية:** `{'it': 'corsia a sinistra', 'ar': 'المسار الأيسر (خطأ)'}` | `{'it': 'corsia occupata', 'ar': 'المسار المشغول'}`
 
 ---
 
 **39.** Il segnale mobile triangolare di pericolo deve essere posto sulla carreggiata ad almeno un metro dalla striscia di separazione dei sensi di marcia
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يجب وضع مثلث الخطر المتنقل على نهر الطريق على مسافة لا تقل عن متر واحد من خط الفصل بين اتجاهي السير.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ يحدد القانون المسافة بـ 'متر واحد على الأقل من الحافة الخارجية لنهر الطريق' (Bordo esterno di essa)، ولا يحددها بالنسبة لخط المنتصف الفاصل بين الاتجاهين إطلاقاً.
+- **⚠️ كشف الفخ:** المتر يُقاس من الحافة الخارجية لليمين (Bordo esterno) وليس من خط المنتصف (Striscia di separazione).
+- **🔑 الكلمات المفتاحية:** `{'it': 'striscia di separazione', 'ar': 'خط الفصل بين الاتجاهين (موقع خطأ)'}` | `{'it': 'bordo esterno', 'ar': 'الحافة الخارجية'}`
 
 ---
-
 
 ## 📌 Giubbotto alta visibilita (7 domande)
 
 **40.** Durante le operazioni di presegnalazione con il segnale mobile di pericolo il conducente deve rendersi visibile indossando il giubbotto o le bretelle retroriflettenti ad alta visibilità
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** أثناء عمليات الإشارة المسبقة بمثلث الخطر المتنقل، يجب على السائق جعل نفسه مرئياً بارتداء السترة أو الأحزمة العاكسة عالية الوضوح.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تلزم المادة 162 السائق بارتداء سترة الأمان الفسفورية العاكسة (Giubbotto o bretelle retroriflettenti) قبل النزول من السيارة لوضع أو جلب المثلث خارج المدن ليلاً أو في ظروف الرؤية الضعيفة.
+- **⚠️ كشف الفخ:** ارتداء السترة العاكسة إلزامي لحماية حياة السائق أثناء وضع المثلث.
+- **🔑 الكلمات المفتاحية:** `{'it': 'giubbotto o bretelle retroriflettenti', 'ar': 'السترة أو الأحزمة العاكسة'}` | `{'it': 'alta visibilità', 'ar': 'عالية الوضوح'}`
 
 ---
 
 **41.** Il giubbotto o le bretelle retroriflettenti ad alta visibilità da usare durante le operazioni di presegnalazione con il segnale mobile di pericolo devono essere di tipo approvato
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** السترة أو الأحزمة العاكسة عالية الوضوح الواجب استخدامها أثناء الإشارة المسبقة بمثلث الخطر يجب أن تكون من النوع المعتمد رسمياً.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ يجب أن تكون السترة معتمدة ومطابقة للمواصفات الأوروبية (Tipo approvato / Marchio CE) ومزودة بشرائط عاكسة ومصنوعة من ألوان فسفورية معتمدة (أصفر، برتقالي، أو أحمر).
+- **⚠️ كشف الفخ:** السترة يجب أن تكون معتمدة رسمياً (Tipo approvato).
+- **🔑 الكلمات المفتاحية:** `{'it': 'tipo approvato', 'ar': 'نوع معتمد'}` | `{'it': 'giubbotto retroriflettente', 'ar': 'السترة العاكسة'}`
 
 ---
 
 **42.** Durante le operazioni di presegnalazione con il segnale mobile di pericolo il conducente deve indossare il giubbotto ad alta visibilità anche se si trova sulle corsie di emergenza o sulle piazzole di sosta
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** أثناء عمليات الإشارة المسبقة بمثلث الخطر المتنقل، يجب على السائق ارتداء السترة عالية الوضوح حتى لو كان متواجداً على حارات الطوارئ أو مساحات التوقف الجانبية.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ حارات الطوارئ ومساحات التوقف على الطرق السريعة تقع بمحاذاة حركة مرور فائقة السرعة؛ لذا فإن ارتداء السترة إلزامي قطعي للنزول في أي من هذه الأماكن لحماية حياة الشخص من الدهس.
+- **⚠️ كشف الفخ:** السترة إلزامية حتى في حارة الطوارئ ومساحات التوقف (Piazzole di sosta).
+- **🔑 الكلمات المفتاحية:** `{'it': 'anche se si trova', 'ar': 'حتى لو كان متواجداً'}` | `{'it': 'corsie di emergenza', 'ar': 'حارات الطوارئ'}` | `{'it': 'piazzole di sosta', 'ar': 'مساحات التوقف الجانبية'}`
 
 ---
 
 **43.** Per effettuare le operazioni di presegnalazione con il segnale mobile di pericolo è vietato al conducente scendere dal veicolo e circolare sulla strada senza indossare il giubbotto ad alta visibilità
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** للقيام بعمليات الإشارة المسبقة بمثلث الخطر، يُحظر على السائق النزول من المركبة والسير على الطريق دون ارتداء السترة عالية الوضوح.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ النزول من السيارة والسير على الأسفلت ليلاً أو في الرؤية المحدودة خارج المدن بدون سترة عاكسة محظور تماماً ويعاقب عليه القانون بخصم نقاط وغرامة مالية.
+- **⚠️ كشف الفخ:** يمنع النزول كلياً قبل ارتداء السترة أولاً وأنت داخل مقصورة السيارة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'vietato scendere', 'ar': 'يحظر النزول'}` | `{'it': 'senza indossare il giubbotto', 'ar': 'دون ارتداء السترة'}`
 
 ---
 
 **44.** Durante le operazioni di presegnalazione con il segnale mobile di pericolo è facoltativo l'uso del giubbotto o delle bretelle retroriflettenti ad alta visibilità
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** أثناء عمليات الإشارة المسبقة بمثلث الخطر المتنقل، يكون اختيارياً استخدام السترة أو الأحزمة العاكسة عالية الوضوح.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ استخدام السترة العاكسة ليس اختيارياً إطلاقاً، بل هو إلزامي وإجباري قانوناً لحماية الأرواح من حوادث الدهس الليلية.
+- **⚠️ كشف الفخ:** الكلمة المصيدة هي (facoltativo)؛ السترة إلزامية وليست خياراً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'facoltativo', 'ar': 'اختياري (خطأ)'}` | `{'it': 'giubbotto', 'ar': 'السترة'}`
 
 ---
 
 **45.** Durante le operazioni di presegnalazione con il segnale mobile di pericolo il conducente non deve indossare il giubbotto ad alta visibilità se si trova sulle corsie di emergenza o sulle piazzole di sosta
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** أثناء عمليات الإشارة المسبقة بمثلث الخطر المتنقل، لا يجب على السائق ارتداء السترة عالية الوضوح إذا كان متواجداً على حارات الطوارئ أو مساحات التوقف.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ التواجد على حارة الطوارئ أو مساحات التوقف على الطرق السريعة خطير للغاية، والسترة إلزامية فيها بلا استثناء.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي النفي (non deve indossare)؛ بل يرتديها حتماً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non deve indossare', 'ar': 'لا يجب عليه ارتداء (خطأ)'}` | `{'it': 'corsie di emergenza', 'ar': 'حارات الطوارئ'}`
 
 ---
 
 **46.** Il conducente deve indossare il giubbotto ad alta visibilità di notte, anche nei centri abitati, qualora debba fermarsi sulla carreggiata perché il suo veicolo ha un guasto
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يجب على السائق ارتداء السترة عالية الوضوح ليلاً، حتى داخل المراكز السكنية، إذا اضطر للتوقف على نهر الطريق بسبب عطل في مركبته.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ ينص القانون على إلزامية السترة خارج المراكز السكنية (Fuori dei centri abitati) فقط، ولا يلزم ارتداؤها داخل المدن والمراكز السكنية المضاءة بشبكة إنارة عامة.
+- **⚠️ كشف الفخ:** السترة العاكسة غير إلزامية داخل المراكز السكنية (Nei centri abitati).
+- **🔑 الكلمات المفتاحية:** `{'it': 'anche nei centri abitati', 'ar': 'حتى داخل المراكز السكنية (خطأ)'}` | `{'it': 'giubbotto ad alta visibilità', 'ar': 'السترة عالية الوضوح'}`
 
 ---
-
 
 ## 📌 Divieto circolazione (12 domande)
 
 **47.** Sulle autostrade e strade extraurbane principali è vietata la circolazione di velocipedi, ciclomotori, motocicli di cilindrata inferiore a 150 cm3
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على الطرق السريعة (أوتوستراد) والطرق الرئيسية خارج المدن، يحظر سير الدراجات الهوائية، والدراجات الصغيرة (السيكلوموتوري)، والدراجات النارية ذات سعة محرك أقل من 150 سم مكعب.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص المادة 175 على حظر المركبات البطيئة؛ الدراجات الهوائية والدرجات الصغيرة (Ciclomotori) والدراجات النارية الأقل من 150 سم مكعب (Meno di 150 cm3) ممنوعة تماماً لبطء سرعتها وحماية لها من حوادث الدهس.
+- **⚠️ كشف الفخ:** الدراجات النارية المسموح بها في الأوتوستراد يجب أن تكون سعتها 150 سم³ فأكثر (150 cm³ o superiore).
+- **🔑 الكلمات المفتاحية:** `{'it': 'vietata la circolazione', 'ar': 'يحظر السير'}` | `{'it': 'velocipedi, ciclomotori', 'ar': 'دراجات هوائية، سيكلوموتوري'}` | `{'it': 'inferiore a 150 cm3', 'ar': 'أقل من 150 سم³'}`
 
 ---
 
 **48.** Sulle autostrade e strade extraurbane principali è vietata la circolazione di autovetture che non sono in grado di sviluppare per costruzione la velocità in piano di almeno 80 km/h
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على الطرق السريعة والطرق الرئيسية خارج المدن، يحظر سير سيارات الركوب التي لا تستطيع بحكم تصميمها وتصنيعها تطوير سرعة على أرض مستوية لا تقل عن 80 كم/س.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ يُشترط لدخول الطريق السريع أن تكون المركبة قادرة تصنيعياً على السير بسرعة 80 كم/س على الأقل في المستوى الأفقي، لمنع إعاقة التدفق السريع لحركة المرور.
+- **⚠️ كشف الفخ:** الحد الأدنى لسرعة المركبة تصنيعياً لدخول الأوتوستراد هو 80 كم/س على الأقل (Almeno 80 km/h).
+- **🔑 الكلمات المفتاحية:** `{'it': 'almeno 80 km/h', 'ar': '80 كم/س على الأقل'}` | `{'it': 'sviluppare per costruzione', 'ar': 'تطويرها بحكم التصنيع'}` | `{'it': 'autostrade', 'ar': 'طرق سريعة'}`
 
 ---
 
 **49.** Sulle autostrade e strade extraurbane principali è vietata la circolazione di macchine agricole
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على الطرق السريعة والطرق الرئيسية خارج المدن، يحظر سير الآلات الزراعية.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الآلات الزراعية (Macchine agricole) بطيئة الحركة وثقيلة الحجم ومحظور سيرها تماماً على شبكة الطرق السريعة والرئيسية.
+- **⚠️ كشف الفخ:** الجرارات والآلات الزراعية ممنوعة تماماً من الأوتوستراد.
+- **🔑 الكلمات المفتاحية:** `{'it': 'macchine agricole', 'ar': 'آلات زراعية'}` | `{'it': 'vietata la circolazione', 'ar': 'يحظر السير'}`
 
 ---
 
 **50.** Sulle autostrade e strade extraurbane principali è vietata la circolazione di veicoli con carico disordinato e non solidamente assicurato o sporgente oltre i limiti consentiti
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على الطرق السريعة والطرق الرئيسية خارج المدن، يحظر سير المركبات ذات الحمولة غير المرتبة وغير المثبتة بإحكام أو البارزة بما يتجاوز الحدود المسموح بها.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الحمولة غير المثبتة أو الفوضوية تشكل خطراً هائلاً بالسقوط تحت تأثير السرعة العالية ومقاومة الهواء، لذا يُحظر دخولها الطريق السريع تماماً.
+- **⚠️ كشف الفخ:** الحمولة غير المحكمة التثبيت أو المتجاوزة للأبعاد ممنوعة من دخول الأوتوستراد.
+- **🔑 الكلمات المفتاحية:** `{'it': 'carico disordinato', 'ar': 'حمولة غير مرتبة/فوضوية'}` | `{'it': 'non solidamente assicurato', 'ar': 'غير مثبتة بإحكام'}` | `{'it': 'sporgente oltre i limiti', 'ar': 'بارزة عن الحدود المسموحة'}`
 
 ---
 
 **51.** Sulle autostrade e strade extraurbane principali è vietata la circolazione di veicoli a tenuta non stagna e con carico scoperto, se trasportano materiali che possono disperdersi
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على الطرق السريعة والطرق الرئيسية خارج المدن، يحظر سير المركبات غير محكمة الإغلاق وذات الحمولة المكشوفة، إذا كانت تنقل مواد قابلة للتطاير والتناثر.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ شاحنات الرمال أو الحصى أو الحبوب المكشوفة تتناثر منها المواد بفعل الرياح الصدمية على السرعات العالية، مما يعمي السائقين الآخرين ويكسر زجاجهم، لذا يحظر سيرها دون تغطية محكمة (Telo di copertura).
+- **⚠️ كشف الفخ:** الحمولات المتطايرة المكشوفة ممنوعة قطعياً من الطريق السريع.
+- **🔑 الكلمات المفتاحية:** `{'it': 'tenuta non stagna', 'ar': 'غير محكمة الإغلاق'}` | `{'it': 'carico scoperto', 'ar': 'حمولة مكشوفة'}` | `{'it': 'possono disperdersi', 'ar': 'يمكن أن تتناثر/تتطاير'}`
 
 ---
 
 **52.** Sulle autostrade e strade extraurbane principali è vietata la circolazione di veicoli le cui condizioni di uso, equipaggiamento e gommatura possono costituire pericolo per la circolazione
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على الطرق السريعة والطرق الرئيسية خارج المدن، يحظر سير المركبات التي يمكن أن تشكل ظروف استخدامها أو تجهيزاتها أو إطاراتها خطراً على حركة المرور.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ المركبات المتهالكة أو ذات الإطارات الممسوحة أو التالفة أو بدون أضواء سليمة تشكل قنبلة موقوتة على الطرق السريعة، ويمنعها القانون من السير.
+- **⚠️ كشف الفخ:** الحالة الفنية السيئة للمركبة وإطاراتها تمنعها قانوناً من دخول الطرق السريعة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'condizioni di uso, equipaggiamento e gommatura', 'ar': 'ظروف الاستخدام والتجهيزات والإطارات'}` | `{'it': 'costituire pericolo', 'ar': 'تشكل خطراً'}`
 
 ---
 
 **53.** Sulle autostrade e strade extraurbane principali è vietata la circolazione di autobus per trasporto di studenti
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** على الطرق السريعة والطرق الرئيسية خارج المدن، يحظر سير حافلات نقل الطلاب (أوتوبيس المدرسة).
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ حافلات المدارس (Scuolabus / Autobus per studenti) مركبات نظامية معتمدة وقادرة على السير بالسرعات المطلوبة ومسموح لها تماماً بالسير على الطرق السريعة.
+- **⚠️ كشف الفخ:** حافلات نقل الطلاب مسموح لها بالسير على الأوتوستراد دون أي حظر.
+- **🔑 الكلمات المفتاحية:** `{'it': 'autobus per trasporto di studenti', 'ar': 'حافلات نقل الطلاب (مسموح لها)'}` | `{'it': 'vietata', 'ar': 'ممنوعة (خطأ)'}`
 
 ---
 
 **54.** Sulle autostrade e strade extraurbane principali è consigliabile evitare la circolazione di veicoli a tenuta non stagna e con carico scoperto, se trasportano materiali che possono disperdersi
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** على الطرق السريعة والطرق الرئيسية خارج المدن، يُستحسن تجنب سير المركبات غير محكمة الإغلاق وذات الحمولة المكشوفة، إذا كانت تنقل مواد قابلة للتطاير.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ الأمر ليس مجرد توصية أو استحسان (Consigliabile)، بل هو حظر وقانون صارم (Vietata la circolazione) يعاقب من يخالفه.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (consigliabile)؛ بل السير ممنوع ومحظور قانوناً (Vietato).
+- **🔑 الكلمات المفتاحية:** `{'it': 'è consigliabile evitare', 'ar': 'يستحسن تجنب (خطأ، بل ممنوع)'}` | `{'it': 'vietata', 'ar': 'ممنوع قانوناً'}`
 
 ---
 
 **55.** Sulle autostrade e strade extraurbane principali è vietata la circolazione di veicoli che trasportano animali vivi.
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** على الطرق السريعة والطرق الرئيسية خارج المدن، يحظر سير المركبات التي تنقل حيوانات حية.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ نقل الحيوانات الحية (شاحنات المواشي وسيارات الخيول وغيرها) مسموح به تماماً على الطرق السريعة بشرط استخدام مركبات مخصصة ومستوفية للشروط الصحية وقواعد السلامة.
+- **⚠️ كشف الفخ:** نقل الحيوانات الحية مسموح به في الأوتوستراد بالمركبات المهيأة لذلك.
+- **🔑 الكلمات المفتاحية:** `{'it': 'trasportano animali vivi', 'ar': 'تنقل حيوانات حية'}` | `{'it': 'vietata', 'ar': 'ممنوعة (خطأ)'}`
 
 ---
 
 **56.** Sono ammessi a circolare su autostrade e strade extraurbane principali i ciclomotori che sviluppano una velocità di almeno 50 km/h
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يُسمح لها بالسير على الطرق السريعة والطرق الرئيسية خارج المدن الدراجات الصغيرة (السيكلوموتوري) التي تطور سرعة لا تقل عن 50 كم/س.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ جميع فئات الدراجات الصغيرة (Ciclomotori) ممنوعة قطعياً من دخول الطرق السريعة مهما بلغت سرعتها، كما أن حد سرعتها التصنيعي القانوني هو 45 كم/س أصلاً.
+- **⚠️ كشف الفخ:** السيكلوموتوري ممنوعة كلياً وبلا أي استثناء من الأوتوستراد.
+- **🔑 الكلمات المفتاحية:** `{'it': 'ciclomotori', 'ar': 'سيكلوموتوري (ممنوعة كلياً)'}` | `{'it': 'ammessi a circolare', 'ar': 'مسموح لها بالسير (خطأ صريح)'}`
 
 ---
 
 **57.** Sono ammesse a circolare su autostrade e strade extraurbane principali le macchine agricole, non trainanti un rimorchio
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يُسمح لها بالسير على الطرق السريعة والطرق الرئيسية خارج المدن الآلات الزراعية، التي لا تجر مقطورة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ الآلات الزراعية بجميع أنواعها (سواء بمقطورة أو بدون مقطورة) محظورة تماماً من دخول الطرق السريعة والرئيسية خارج المدن.
+- **⚠️ كشف الفخ:** الآلات الزراعية ممنوعة من الأوتوستراد حتى لو كانت بمفردها وبدون مقطورة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'macchine agricole non trainanti', 'ar': 'آلات زراعية بدون مقطورة'}` | `{'it': 'ammesse', 'ar': 'مسموح لها (خطأ)'}`
 
 ---
 
 **58.** Sono ammessi a circolare su autostrade e strade extraurbane principali i veicoli non muniti di pneumatici, se assicurati
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يُسمح لها بالسير على الطرق السريعة والطرق الرئيسية خارج المدن المركبات غير المزودة بإطارات هوائية، إذا كانت مؤمنة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ المركبات ذات العجلات الحديدية أو المجنزرة أو الخالية من الإطارات المطاطية ممنوعة تماماً من الطرق السريعة لما تسببه من بطء شديد وتدمير لطبقة الأسفلت.
+- **⚠️ كشف الفخ:** المركبات بدون إطارات ممنوعة قطعياً ولا يشفع لها التأمين.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non muniti di pneumatici', 'ar': 'غير مزودة بإطارات'}` | `{'it': 'ammesse', 'ar': 'مسموح لها (خطأ)'}`
 
 ---
-
 
 ## 📌 Traino veicoli avaria (6 domande)
 
 **59.** Sulle autostrade e strade extraurbane principali è vietata la circolazione di pedoni e animali, ad eccezione delle aree di servizio e delle aree di sosta
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على الطرق السريعة والطرق الرئيسية خارج المدن، يحظر سير المشاة والحيوانات، باستثناء مناطق الخدمة ومساحات التوقف.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ السير على نهر الطريق أو الأكتاف أو حارة الطوارئ محظور على المشاة والحيوانات؛ ويقتصر وجودهم المسموح به حصرياً على استراحات الخدمات ومواقف السيارات (Aree di servizio e aree di sosta).
+- **⚠️ كشف الفخ:** المشاة والحيوانات ممنوعون كلياً إلا داخل باحات الاستراحات ومحطات الوقود.
+- **🔑 الكلمات المفتاحية:** `{'it': 'vietata la circolazione di pedoni e animali', 'ar': 'يحظر سير المشاة والحيوانات'}` | `{'it': 'ad eccezione delle aree di servizio', 'ar': 'باستثناء مناطق الخدمة'}`
 
 ---
 
 **60.** Nelle aree di servizio e nelle aree di sosta delle autostrade e delle strade extraurbane principali gli animali possono circolare solo se debitamente custoditi
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** في مناطق الخدمة ومساحات التوقف على الطرق السريعة والطرق الرئيسية خارج المدن، يمكن للحيوانات التنقل فقط إذا كانت خاضعة للحراسة والرعاية الواجبة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ في الاستراحات ومحطات الوقود يُسمح بوجود الحيوانات الأليفة بشرط إمساكها بالمقود (Al guinzaglio) أو وضعها في أقفاص لمنع هروبها أو اندفاعها نحو مسار الطريق السريع.
+- **⚠️ كشف الفخ:** الحيوانات في مناطق الخدمة مسموح بها بشرط الحراسة والربط بإحكام (Debitamente custoditi).
+- **🔑 الكلمات المفتاحية:** `{'it': 'debitamente custoditi', 'ar': 'خاضعة للحراسة الواجبة'}` | `{'it': 'aree di servizio', 'ar': 'مناطق الخدمة'}`
 
 ---
 
 **61.** Lungo le corsie di emergenza delle autostrade i pedoni possono transitare solo per raggiungere i punti per le richieste di soccorso
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على طول حارات الطوارئ في الطرق السريعة، يمكن للمشاة المرور والتحرك فقط للوصول إلى نقاط طلب النجدة (أعمدة الاستغاثة SOS).
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ المشي على حارة الطوارئ محظور بشكل عام، والحالة الاستثنائية الوحيدة المسموح بها هي نزول شخص مترجلاً والتوجه نحو عمود نجدة الطوارئ (Colonnina SOS) لطلب الإنقاذ.
+- **⚠️ كشف الفخ:** السير في حارة الطوارئ مسموح فقط لغرض واحد: الذهاب لكابينة هاتف الطوارئ SOS.
+- **🔑 الكلمات المفتاحية:** `{'it': 'corsie di emergenza', 'ar': 'حارات الطوارئ'}` | `{'it': 'richieste di soccorso', 'ar': 'طلبات النجدة (SOS)'}`
 
 ---
 
 **62.** In autostrada, il traino di veicoli in avaria su carreggiate, rampe, svincoli, aree di servizio o di parcheggio è consentito solo ai veicoli di soccorso autorizzati
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على الطريق السريع، يسمح بقطر وسحب المركبات المعطلة على نهور الطرق والمنحدرات والتقاطعات ومناطق الخدمة أو المواقف فقط لمركبات الإغاثة والإنقاذ المصرح لها.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ يحظر تماماً على السائقين العاديين قطر سيارة بواسطة سيارة أخرى في الأوتوستراد وباحاته وملحقاته؛ وخدمة السحب مقتصرة حصرياً على أوناش الإنقاذ المرخصة والمعتمدة (Soccorso stradale autorizzato).
+- **⚠️ كشف الفخ:** القطر بين السيارات الخاصة ممنوع تماماً على الأوتوستراد بجميع مرافقه؛ فقط أوناش الإنقاذ.
+- **🔑 الكلمات المفتاحية:** `{'it': 'traino di veicoli in avaria', 'ar': 'قطر المركبات المعطلة'}` | `{'it': 'solo ai veicoli di soccorso autorizzati', 'ar': 'فقط لمركبات الإغاثة المصرح لها'}`
 
 ---
 
 **63.** Sulle autostrade e strade extraurbane principali è vietata la circolazione di pedoni e animali, anche nelle aree di servizio e nelle aree di sosta
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** على الطرق السريعة والطرق الرئيسية خارج المدن، يحظر سير المشاة والحيوانات، حتى في مناطق الخدمة ومساحات التوقف.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ مناطق الخدمة ومساحات التوقف مخصصة لاستراحة المسافرين ومرافقهم وحيواناتهم الأليفة المحروسة، وليست محظورة عليهم.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (anche nelle aree di servizio)؛ بل هي مسموحة ومخصصة لهم هناك.
+- **🔑 الكلمات المفتاحية:** `{'it': 'anche nelle aree di servizio', 'ar': 'حتى بمناطق الخدمة (خطأ)'}` | `{'it': 'pedoni e animali', 'ar': 'المشاة والحيوانات'}`
 
 ---
 
 **64.** Nelle aree di servizio e nelle aree di sosta delle autostrade e delle strade extraurbane principali gli animali non possono circolare neppure se debitamente custoditi
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** في مناطق الخدمة ومساحات التوقف على الطرق السريعة، لا يجوز للحيوانات التنقل حتى لو كانت خاضعة للحراسة الواجبة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ يُسمح للحيوانات بالتحرك في مناطق الخدمة طالما كانت مربوطة ومحروسة برعاية أصحابها.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي النفي (neppure se debitamente custoditi)؛ بل مسموح بها إذا كانت محروسة ومربوطة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'neppure se debitamente custoditi', 'ar': 'ولا حتى إن كانت محروسة (خطأ)'}` | `{'it': 'animali', 'ar': 'الحيوانات'}`
 
 ---
-
 
 ## 📌 Aree servizio (8 domande)
 
 **65.** Sulle carreggiate, sulle rampe, sugli svincoli, sulle aree di servizio o di parcheggio e in ogni altra pertinenza autostradale è vietato richiedere o concedere passaggi
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على نهور الطرق، والمنحدرات، والمحاور الفرعية، ومناطق الخدمة أو مواقف السيارات وفي أي مرفق آخر تابع للطريق السريع، يُحظر طلب أو إعطاء التوصيلات (الأوتوستوب).
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص المادة 175 على حظر ظاهرة الأوتوستوب كلياً على الأوتوستراد ومرافقه ومحطات وقوده (Vietato richiedere o concedere passaggi)، لمنع الجرائم وحوادث الدهس وضمان الأمن العام.
+- **⚠️ كشف الفخ:** الأوتوستوب (طلب التوصيلة أو منحها) ممنوع قطعياً في جميع مرافق الطريق السريع بلا استثناء.
+- **🔑 الكلمات المفتاحية:** `{'it': 'richiedere o concedere passaggi', 'ar': 'طلب أو منح التوصيلات (الأوتوستوب)'}` | `{'it': 'vietato', 'ar': 'ممنوع'}`
 
 ---
 
 **66.** Nelle aree di servizio o di parcheggio delle autostrade e in ogni altra pertinenza autostradale è possibile svolgere attività commerciali solo se autorizzate dall'ente proprietario della strada
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** في مناطق الخدمة أو مواقف السيارات على الطرق السريعة وفي أي مرفق آخر تابع لها، يمكن ممارسة الأنشطة التجارية فقط إذا كانت مصرحة ومرخصة من الجهة المالكة للطريق.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ البيع والتجارة في مرافق الطرق السريعة منظم ومقيد بتراخيص رسمية صادرة عن هيئة إدارة الطريق السريع لمنع العشوائية والباعة الجائلين وتأمين السلامة.
+- **⚠️ كشف الفخ:** التجارة والأنشطة مسموحة فقط بترخيص من الجهة المالكة للطريق.
+- **🔑 الكلمات المفتاحية:** `{'it': 'attività commerciali', 'ar': 'أنشطة تجارية'}` | `{'it': "autorizzate dall'ente proprietario", 'ar': 'مرخصة من الجهة المالكة'}`
 
 ---
 
 **67.** Sulle carreggiate, sulle rampe, sugli svincoli, sulle aree di servizio o di parcheggio e in ogni altra pertinenza autostradale è consentito campeggiare, solo nelle aree a ciò destinate e per il periodo stabilito dall'ente proprietario della strada
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على نهور الطرق ومناطق الخدمة أو المواقف وأي مرافق تابعة للطريق السريع، يُسمح بالتخييم فقط في المناطق المخصصة لذلك وللفترة المحددة من الجهة المالكة للطريق.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ التخييم العشوائي ممنوع تماماً؛ ويُسمح فقط بنصب الخيام أو ركن الكرفانات للإقامة في الساحات المجهزة والمعلنة رسمياً من هيئة الطريق وللمدة المحددة.
+- **⚠️ كشف الفخ:** التخييم مسموح فقط في الأماكن المخصصة حصرياً وللفترة المحددة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'campeggiare', 'ar': 'التخييم'}` | `{'it': 'solo nelle aree a ciò destinate', 'ar': 'فقط في المساحات المخصصة لذلك'}`
 
 ---
 
 **68.** Nelle aree di servizio delle autostrade, il conducente non deve lasciare in sosta il veicolo per più di 24 ore
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** في مناطق الخدمة على الطرق السريعة، يجب على السائق ألا يترك المركبة متوقفة لأكثر من 24 ساعة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الحد الأقصى القانوني المسموح به لركن وتوقف السيارة في مناطق الخدمة والاستراحات على الطرق السريعة هو 24 ساعة (Non più di 24 ore)؛ والتوقف لأكثر من ذلك يعد مخالفة يؤدي لسحب السيارة وحجزها.
+- **⚠️ كشف الفخ:** المدة القصوى للتوقف في استراحات الأوتوستراد هي 24 ساعة بالضبط.
+- **🔑 الكلمات المفتاحية:** `{'it': 'aree di servizio', 'ar': 'مناطق الخدمة'}` | `{'it': 'sosta per più di 24 ore', 'ar': 'توقف لأكثر من 24 ساعة'}` | `{'it': 'non deve lasciare', 'ar': 'يجب ألا يترك'}`
 
 ---
 
 **69.** Nelle autostrade è consentito concedere passaggi a persone invalide
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** على الطرق السريعة، يُسمح بمنح وتوفير التوصيل للأشخاص ذوي الإعاقة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ حظر طلب أو منح التوصيل (Passaggi) على الطرق السريعة مطلق وعام لأسباب أمنية وقانونية صارمة، ولا توجد استثناءات لحاملي بطاقات الإعاقة؛ ومساعدتهم تتم باستدعاء أجهزة النجدة.
+- **⚠️ كشف الفخ:** حظر التوصيل (الأوتوستوب) مطلق ولا يُستثنى منه أي شخص.
+- **🔑 الكلمات المفتاحية:** `{'it': 'persone invalide', 'ar': 'أشخاص ذوو إعاقة'}` | `{'it': 'consentito passaggi', 'ar': 'مسموح التوصيل (خطأ)'}`
 
 ---
 
 **70.** Sulle aree di servizio delle autostrade o di parcheggio è consentito chiedere e concedere passaggi.
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** في مناطق الخدمة ومواقف السيارات على الطرق السريعة، يُسمح بطلب ومنح التوصيلات.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ الحظر يشمل صراحة باحات ومحطات ومواقف ومناطق الخدمة التابعة للأوتوستراد بالكامل.
+- **⚠️ كشف الفخ:** الأوتوستوب ممنوع في مناطق الخدمة أيضاً وليس فقط على الطريق السريع نفسه.
+- **🔑 الكلمات المفتاحية:** `{'it': 'consentito chiedere passaggi', 'ar': 'مسموح طلب التوصيل (خطأ كلي)'}` | `{'it': 'aree di parcheggio', 'ar': 'مواقف السيارات'}`
 
 ---
 
 **71.** Sulle aree di servizio o di parcheggio delle autostrade e delle strade extraurbane principali è consentito campeggiare
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** في مناطق الخدمة أو مواقف السيارات على الطرق السريعة والطرق الرئيسية خارج المدن، يُسمح بالتخييم بحرية.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ التخييم ممنوع في مواقف السيارات العادية ومناطق الخدمة؛ ويسمح به فقط في المناطق المهيأة والمخصصة رسمياً والمحددة بلوحات خاصة.
+- **⚠️ كشف الفخ:** لا يُسمح بالتخييم في أي منطقة خدمة؛ بل فقط في الساحات المخصصة رسمياً للتخييم.
+- **🔑 الكلمات المفتاحية:** `{'it': 'consentito campeggiare', 'ar': 'مسموح التخييم (خطأ كتعميم)'}` | `{'it': 'aree di servizio', 'ar': 'مناطق الخدمة'}`
 
 ---
 
 **72.** Nelle aree di servizio e di parcheggio delle autostrade la durata massima per la sosta di un veicolo è di tre ore
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** في مناطق الخدمة ومواقف السيارات على الطرق السريعة، المدة القصوى لتوقف المركبة هي ثلاث ساعات.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ المدة القصوى للتوقف في مناطق الخدمة ومواقف الأوتوستراد هي 24 ساعة (Ventiquattro ore)؛ أما الـ 3 ساعات فهي الحد الأقصى للتوقف الاضطراري على حارة الطوارئ (Corsia di emergenza).
+- **⚠️ كشف الفخ:** فخ الخلط بين المدد: مناطق الخدمة = 24 ساعة؛ حارة الطوارئ = 3 ساعات كحد أقصى.
+- **🔑 الكلمات المفتاحية:** `{'it': 'tre ore', 'ar': 'ثلاث ساعات (فخ الخلط مع حارة الطوارئ)'}` | `{'it': '24 ore', 'ar': '24 ساعة (الصحيح لمناطق الخدمة)'}`
 
 ---
-
 
 ## 📌 Proiettori anabbaglianti (2 domande)
 
 **73.** Durante la marcia sulle autostrade e strade extraurbane principali è obbligatorio l'uso dei proiettori anabbaglianti anche di giorno
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** أثناء السير على الطرق السريعة والطرق الرئيسية خارج المدن، يكون إلزامياً استخدام الأضواء المنخفضة (الكشافات العادية) حتى في ساعات النهار.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص المادة 152 من كود السير على وجوب إضاءة المصابيح المنخفضة (Anabbaglianti) نهاراً وليلاً على جميع الطرق السريعة والطرق خارج المراكز السكنية لجميع المركبات ذات المحرك لزيادة وضوح الرؤية.
+- **⚠️ كشف الفخ:** خارج المدن وعلى الأوتوستراد: إضاءة النور الواطي إجبارية حتى في وضح النهار والشمس ساطعة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'proiettori anabbaglianti', 'ar': 'الكشافات المنخفضة'}` | `{'it': 'anche di giorno', 'ar': 'حتى نهاراً'}` | `{'it': "obbligatorio l'uso", 'ar': 'استخدامها إلزامي'}`
 
 ---
 
 **74.** Durante la marcia sulle autostrade e strade extraurbane principali l'uso dei proiettori anabbaglianti è facoltativo in condizioni di perfetta visibilità
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** أثناء السير على الطرق السريعة والطرق الرئيسية خارج المدن، يكون استخدام الأضواء المنخفضة اختيارياً في ظروف الرؤية التامة والمثالية.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ إضاءة المصابيح المنخفضة خارج المدن وعلى الأوتوستراد إلزامية بشكل دائم ومطلق (Obbligatorio)، ولا تسقط أو تصبح اختيارية أبداً حتى لو كانت الرؤية مثالية في وضح النهار.
+- **⚠️ كشف الفخ:** الكلمة المصيدة هي (facoltativo)؛ النور الواطي إلزامي في كل الأوقات خارج المدن.
+- **🔑 الكلمات المفتاحية:** `{'it': 'facoltativo', 'ar': 'اختياري (خطأ)'}` | `{'it': 'perfetta visibilità', 'ar': 'رؤية مثالية'}`
 
 ---
-
 
 ## 📌 Retromarcia inversione marcia (9 domande)
 
 **75.** Sulle carreggiate, sulle rampe e sugli svincoli di autostrade e strade extraurbane principali è vietato invertire il senso di marcia e attraversare lo spartitraffico, anche all'altezza dei varchi
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على نهور الطرق والمنحدرات والتقاطعات الفرعية للطرق السريعة والطرق الرئيسية خارج المدن، يُحظر عكس اتجاه السير (الدوران للخلف) وعبور الجزيرة الوسطية حتى عند فتحات العبور.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص المادة 176 على حظر صارم لليوتيرن (Inversione di marcia) على الطرق السريعة؛ والفتحات الموجودة في الجزيرة الوسطية مخصصة حصرياً لمركبات الشرطة والطوارئ؛ ومخالفة ذلك جريمة يعاقب عليها بسحب الرخصة وحجز السيارة وغرامة باهظة.
+- **⚠️ كشف الفخ:** الدوران للخلف في الأوتوستراد ممنوع قطعياً حتى عند فتحات الجزيرة الوسطية (All'altezza dei varchi).
+- **🔑 الكلمات المفتاحية:** `{'it': 'invertire il senso di marcia', 'ar': 'عكس اتجاه السير/اليوتيرن'}` | `{'it': 'attraversare lo spartitraffico', 'ar': 'عبور الجزيرة الوسطية'}` | `{'it': "anche all'altezza dei varchi", 'ar': 'حتى عند فتحات العبور'}`
 
 ---
 
 **76.** Sulle carreggiate, sulle rampe e sugli svincoli di autostrade e strade extraurbane principali è vietato percorrere la carreggiata o parte di essa nel senso di marcia opposto a quello consentito
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على نهور الطرق والمنحدرات والتقاطعات الفرعية للطرق السريعة والطرق الرئيسية، يُحظر السير على نهر الطريق أو أي جزء منه في الاتجاه المعاكس للاتجاه المسموح به.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ السير عكس الاتجاه (Senso opposto) في الطرق السريعة يعد من أخطر الجرائم المرورية القاتلة ويُعاقب عليه بأشد العقوبات الجنائية والإدارية.
+- **⚠️ كشف الفخ:** السير عكس الاتجاه ممنوع مطلقاً ويعرض للموت الفوري.
+- **🔑 الكلمات المفتاحية:** `{'it': 'senso di marcia opposto', 'ar': 'اتجاه السير المعاكس'}` | `{'it': 'vietato percorrere', 'ar': 'يحظر السير'}`
 
 ---
 
 **77.** Sulle carreggiate, sulle rampe e sugli svincoli di autostrade e strade extraurbane principali è vietato effettuare la retromarcia
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على نهور الطرق والمنحدرات والتقاطعات الفرعية للطرق السريعة والطرق الرئيسية خارج المدن، يُحظر الرجوع إلى الخلف.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ يُحظر تماماً الرجوع للخلف (Retromarcia) على الطرق السريعة، حتى لو أخطأ السائق مخرج الطريق؛ ويجب عليه المتابعة للأمام حتى المخرج التالي مهما بعدت المسافة.
+- **⚠️ كشف الفخ:** الرجوع للخلف (Retromarcia) ممنوع قطعياً حتى عند تفويت المخرج ببضعة أمتار.
+- **🔑 الكلمات المفتاحية:** `{'it': 'effettuare la retromarcia', 'ar': 'الرجوع للخلف'}` | `{'it': 'vietato', 'ar': 'محظور/ممنوع'}`
 
 ---
 
 **78.** E' consentito circolare sulle corsie per la sosta di emergenza delle autostrade e strade extraurbane principali per arrestarsi per avaria del veicolo
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يُسمح بالسير على حارات التوقف الاضطراري (حارات الطوارئ) في الطرق السريعة والرئيسية للتوقف بسبب عطل في المركبة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الغرض المخصص لحارة الطوارئ (Corsia di emergenza) هو إتاحة مسار آمن للمركبات المعطلة أو في حالات الإعياء للوصول لمكان التوقف والانتظار دون عرقلة مسارات السير السريعة.
+- **⚠️ كشف الفخ:** حارة الطوارئ مخصصة للتوقف عند العطل أو المرض المفاجئ.
+- **🔑 الكلمات المفتاحية:** `{'it': 'corsie per la sosta di emergenza', 'ar': 'حارات التوقف الاضطراري'}` | `{'it': 'arrestarsi per avaria', 'ar': 'التوقف بسبب العطل'}`
 
 ---
 
 **79.** Sulle corsie per le soste di emergenza delle autostrade è vietato effettuare la retromarcia
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على حارات التوقف الاضطراري في الطرق السريعة، يُحظر إجراء الرجوع إلى الخلف.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الرجوع للخلف ممنوع على حارة الطوارئ بنفس درجة تحريمه على نهر الطريق؛ لأن حارة الطوارئ مخصصة للمرور السريع لسيارات الإسعاف والشرطة والإطفاء.
+- **⚠️ كشف الفخ:** الرجوع للخلف ممنوع حتى داخل حارة الطوارئ.
+- **🔑 الكلمات المفتاحية:** `{'it': 'corsie per le soste di emergenza', 'ar': 'حارات التوقف الاضطراري'}` | `{'it': 'vietato effettuare la retromarcia', 'ar': 'يحظر الرجوع للخلف'}`
 
 ---
 
 **80.** Sulle carreggiate, sulle rampe e sugli svincoli di autostrade e strade extraurbane principali il conducente può invertire il senso di marcia adottando tutti gli accorgimenti necessari
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** على نهور الطرق والمنحدرات والتقاطعات للطرق السريعة والطرق الرئيسية، يجوز للسائق عكس اتجاه السير باتخاذ جميع الاحتياطات اللازمة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ لا توجد أي احتياطات تبيح عكس اتجاه السير (Inversione) على الطرق السريعة؛ الحظر مطلق ونهائي وعكس الاتجاه جريمة لا مبرر لها.
+- **⚠️ كشف الفخ:** الاحتياطات والحذر لا يجيزان أبداً فعل شيء محظور قطعياً كاليوتيرن في الأوتوستراد.
+- **🔑 الكلمات المفتاحية:** `{'it': 'può invertire', 'ar': 'يجوز له عكس الاتجاه (خطأ فادح)'}` | `{'it': 'accorgimenti necessari', 'ar': 'الاحتياطات اللازمة'}`
 
 ---
 
 **81.** Sulle carreggiate, sulle rampe e sugli svincoli di autostrade e strade extraurbane principali il conducente può invertire il senso di marcia in casi di particolare emergenza
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** على نهور الطرق والمنحدرات والتقاطعات الفرعية للطرق السريعة، يجوز للسائق عكس اتجاه السير في حالات الطوارئ الخاصة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ لا تجيز أي حالة طوارئ خاصة للسائق العادي عكس اتجاه السير في الأوتوستراد؛ والوحيدون المسموح لهم بذلك هم مركبات الشرطة والإسعاف المشغلة للواحات الزرقاء وصفارات الإنذار.
+- **⚠️ كشف الفخ:** حالات الطوارئ الخاصة لا تبيح للسائق الدوران للخلف؛ بل يجب مواصلة السير لأقرب مخرج.
+- **🔑 الكلمات المفتاحية:** `{'it': 'casi di particolare emergenza', 'ar': 'حالات الطوارئ الخاصة (استثناء باطل)'}` | `{'it': 'invertire il senso', 'ar': 'عكس اتجاه السير'}`
 
 ---
 
 **82.** Sulle carreggiate, sulle rampe e sugli svincoli di autostrade e strade extraurbane principali il conducente può procedere in senso contrario al normale flusso del traffico, per brevi tratti
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** على نهور الطرق والمنحدرات والتقاطعات للطرق السريعة، يجوز للسائق السير في الاتجاه المعاكس لتدفق حركة المرور الطبيعية، لمسافات قصيرة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ يحظر السير عكس الاتجاه ولو لمتر واحد (Nemmeno per brevi tratti)؛ فهذا تصرف انتحاري يؤدي لاصطدامات مروعة ومباشرة بالسيارات المسرعة.
+- **⚠️ كشف الفخ:** لا توجد مسافة قصيرة مسموحة؛ السير عكس الاتجاه محظور كلياً ولو لشبر واحد.
+- **🔑 الكلمات المفتاحية:** `{'it': 'per brevi tratti', 'ar': 'لمسافات قصيرة (فخ)'}` | `{'it': 'senso contrario', 'ar': 'اتجاه معاكس'}`
 
 ---
 
 **83.** Sulle autostrade e strade extraurbane principali il conducente può utilizzare la corsia di emergenza se il traffico è intenso
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** على الطرق السريعة والطرق الرئيسية خارج المدن، يجوز للسائق استخدام حارة الطوارئ إذا كانت حركة المرور كثيفة ومزدحمة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ حارة الطوارئ لا تُستخدم للسير في الزحام؛ بل تظل خالية لمرور سيارات النجدة؛ والاستثناء الوحيد في الزحام هو الخروج من الأوتوستراد عند الوصول للوحة الـ 500 متر قبل المخرج فقط.
+- **⚠️ كشف الفخ:** كثافة السير لا تبيح السير في حارة الطوارئ؛ السير فيها محظور ويعاقب بغرامة قاسية وسحب رخصة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'traffico è intenso', 'ar': 'المرور كثيف'}` | `{'it': 'utilizzare la corsia di emergenza', 'ar': 'استخدام حارة الطوارئ (ممنوع)'}`
 
 ---
-
 
 ## 📌 Ingorgo uscita immissione (8 domande)
 
 **84.** Sulle autostrade e sulle strade extraurbane principali il conducente che percorre la corsia di accelerazione deve dare la precedenza ai veicoli in circolazione sulle corsie di marcia
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على الطرق السريعة والطرق الرئيسية خارج المدن، يجب على السائق الذي يسير على مسار التسارع إعطاء الأسبقية للمركبات السائرة على مسارات السير العادية.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ مسار التسارع (Corsia di accelerazione) مخصص لزيادة السرعة والاندماج؛ وتنص المادة 154 على وجوب إعطاء الأسبقية لحركة المرور الجارية على المسار الأيمن وعدم إرباك تدفقها.
+- **⚠️ كشف الفخ:** الداخل إلى الطريق السريع من مسار التسارع ملزم بإعطاء الأسبقية دائماً لحركة السير الرئيسية.
+- **🔑 الكلمات المفتاحية:** `{'it': 'corsia di accelerazione', 'ar': 'مسار التسارع'}` | `{'it': 'dare la precedenza', 'ar': 'إعطاء الأسبقية'}` | `{'it': 'corsie di marcia', 'ar': 'مسارات السير العادية'}`
 
 ---
 
 **85.** Sulle autostrade e sulle strade extraurbane principali, per uscire dalla carreggiata il conducente deve impegnare per tempo la corsia di destra, e quindi immettersi nella corsia di decelerazione dal suo inizio
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على الطرق السريعة والطرق الرئيسية خارج المدن، للخروج من نهر الطريق يجب على السائق التزام المسار الأيمن في الوقت المناسب، ثم الاندماج في مسار التباطؤ منذ بدايته.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تفرض القواعد الانتقال للمسار الأيمن قبل المخرج بمسافة كافية، والدخول في مسار التباطؤ (Corsia di decelerazione) من نقطة بدايته تماماً للفرملة الآمنة خارج مسار السير السريع.
+- **⚠️ كشف الفخ:** الدخول لمسار التباطؤ يجب أن يتم 'من بدايته' (Dal suo inizio)، ويحظر قطعه في منتصفه.
+- **🔑 الكلمات المفتاحية:** `{'it': 'uscire dalla carreggiata', 'ar': 'الخروج من نهر الطريق'}` | `{'it': 'corsia di decelerazione dal suo inizio', 'ar': 'مسار التباطؤ من بدايته'}`
 
 ---
 
 **86.** Sulle autostrade e sulle strade extraurbane principali il conducente deve segnalare tempestivamente il cambiamento di corsia servendosi degli indicatori di direzione
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على الطرق السريعة والطرق الرئيسية خارج المدن، يجب على السائق الإشارة في الوقت المناسب إلى تغيير المسار باستخدام مؤشرات الاتجاه (الغماز).
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تشغيل إشارات الاتجاه (Freccia) في وقت مبكر إلزامي قبل أي تغيير للمسار لتنبيه السائقين القادمين بسرعات عالية في المرايا وتفادي المفاجآت.
+- **⚠️ كشف الفخ:** استخدام الغماز إلزامي دائماً عند تغيير الحارات على الأوتوستراد.
+- **🔑 الكلمات المفتاحية:** `{'it': 'cambiamento di corsia', 'ar': 'تغيير المسار'}` | `{'it': 'indicatori di direzione', 'ar': 'مؤشرات الاتجاه (الغماز)'}`
 
 ---
 
 **87.** In caso di ingorgo su strade extraurbane principali o autostrade, se la corsia di emergenza manca o non è sufficiente alla circolazione dei veicoli di polizia o di soccorso, il conducente del veicolo che occupa la prima corsia di destra deve disporsi il più vicino possibile alla striscia di sinistra
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** في حالة حدوث اختناق وتكدس مروري على الطرق الرئيسية أو الطرق السريعة، إذا كانت حارة الطوارئ غائبة أو غير كافية لمرور مركبات الشرطة أو النجدة، يجب على سائق المركبة التي تشغل أول مسار جهة اليمين أن يقف في أقرب موضع ممكن من الخط الأيسر لمساره.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص اللوائح على أنه عند تعذر مرور مركبات الإسعاف على اليمين لغياب حارة الطوارئ، يلتصق سائقو المسار الأيمن يسار حارتهم وسائقو المسارات الأخرى بأطرافهم لإنشاء ممر إنقاذ أوسط آمن.
+- **⚠️ كشف الفخ:** سائق الحارة الأولى جهة اليمين يلتصق بالخط الأيسر لحارته لفتح مسار الإنقاذ عند غياب حارة الطوارئ.
+- **🔑 الكلمات المفتاحية:** `{'it': 'in caso di ingorgo', 'ar': 'في حالة الاختناق المروري'}` | `{'it': 'corsia di emergenza manca', 'ar': 'حارة الطوارئ غائبة'}` | `{'it': 'vicino possibile alla striscia di sinistra', 'ar': 'أقرب ما يمكن للخط الأيسر'}`
 
 ---
 
 **88.** In caso di ingorgo il conducente può transitare sulla corsia per la sosta di emergenza solo per uscire dall'autostrada, a partire dal cartello di preavviso di uscita posto a 500 metri dallo svincolo
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** في حالة حدوث اختناق وتكدس مروري، يجوز للسائق السير على حارة التوقف الاضطراري فقط للخروج من الطريق السريع، بدءاً من شاخصة التنبيه المسبق بالمخرج الموضوعة على مسافة 500 متر من التقاطع الفرعي.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ في حالات الزحام والتوقف التام، يُسمح قانوناً باستخدام حارة الطوارئ استثنائياً للراغبين في الخروج من الأوتوستراد فقط بدءاً من لوحة الـ 500 متر قبل المخرج لتخفيف الزحام وتسهيل الخروج.
+- **⚠️ كشف الفخ:** استثناء رسمي شهير: السير في حارة الطوارئ بالزحام مسموح فقط للخروج وبدءاً من لوحة 500 متر.
+- **🔑 الكلمات المفتاحية:** `{'it': 'transitare sulla corsia di emergenza', 'ar': 'السير على حارة الطوارئ'}` | `{'it': "solo per uscire dall'autostrada", 'ar': 'فقط للخروج من الأوتوستراد'}` | `{'it': 'cartello a 500 metri', 'ar': 'لوحة 500 متر'}`
 
 ---
 
 **89.** Sulle autostrade e sulle strade extraurbane principali, per uscire dalla carreggiata il conducente può immettersi nella corsia di decelerazione anche nel tratto successivo al suo inizio
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** على الطرق السريعة والطرق الرئيسية خارج المدن، للخروج من نهر الطريق يجوز للسائق الاندماج في مسار التباطؤ حتى في المقطع التالي لبدايته.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ يجب الدخول في مسار التباطؤ من نقطة بدايته تماماً؛ والدخول المتأخر عبر الخطوط المتصلة أو الانعطاف المفاجئ يسبب حوادث اصطدام عنيفة بالمركبات القادمة خلفه.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (anche nel tratto successivo al suo inizio)؛ يجب الدخول من البداية حصرياً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'tratto successivo al suo inizio', 'ar': 'المقطع التالي لبدايته (خطأ)'}` | `{'it': 'corsia di decelerazione', 'ar': 'مسار التباطؤ'}`
 
 ---
 
 **90.** Sulle autostrade e sulle strade extraurbane principali se il traffico non è intenso il conducente non ha l'obbligo di servirsi degli indicatori di direzione per segnalare il cambiamento di corsia
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** على الطرق السريعة والطرق الرئيسية خارج المدن، إذا لم تكن حركة المرور كثيفة، فلا يلتزم السائق باستخدام مؤشرات الاتجاه للإشارة إلى تغيير المسار.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ استخدام الغماز (Indicatori di direzione) إلزامي قانوناً في كل الأوقات وعند كل تغيير للمسار، بغض النظر عن كثافة السير (حتى لو كان الطريق خالياً تماماً).
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي النفي (non ha l'obbligo se il traffico non è intenso)؛ الغماز إلزامي دائماً.
+- **🔑 الكلمات المفتاحية:** `{'it': "non ha l'obbligo", 'ar': 'ليس ملزماً (خطأ)'}` | `{'it': 'indicatori di direzione', 'ar': 'مؤشرات الاتجاه'}`
 
 ---
 
 **91.** Sulle autostrade e sulle strade extraurbane principali è consentita la marcia per file parallele anche in assenza di traffico
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** على الطرق السريعة والطرق الرئيسية خارج المدن، يُسمح بالسير في صفوف متوازية حتى في غياب حركة المرور الكثيفة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ السير في صفوف متوازية (File parallele) مسموح به فقط عندما تأذن به الشرطة أو في حالات الزحام والاختناق المروري الشديد؛ أما في حركة السير العادية فيجب الالتزام بالمسار الأيمن والتجاوز من اليسار.
+- **⚠️ كشف الفخ:** الصفوف المتوازية لا تجوز في الطرق السريعة الخالية من الزحام.
+- **🔑 الكلمات المفتاحية:** `{'it': 'file parallele', 'ar': 'صفوف متوازية'}` | `{'it': 'anche in assenza di traffico', 'ar': 'حتى في غياب الزحام (خطأ)'}`
 
 ---
-
 
 ## 📌 Rampe svincoli autostradali (6 domande)
 
 **92.** Sulle carreggiate, sulle rampe e sugli svincoli delle autostrade è consentito sostare solo in situazioni di emergenza dovute a malessere del conducente o dei passeggeri oppure ad inefficienza del veicolo
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على نهور الطرق والمنحدرات والتقاطعات الفرعية للطرق السريعة، يُسمح بالتوقف والركن فقط في حالات الطوارئ الناتجة عن وعكة صحية وإعياء للسائق أو الركاب أو تعطل المركبة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص المادة 176 على حظر التوقف والركن تماماً على الأوتوستراد، ويُستثنى من ذلك حصرياً حالتان: العطل الميكانيكي للمركبة (Inefficienza del veicolo) أو المرض المفاجئ للسائق أو الركاب (Malessere).
+- **⚠️ كشف الفخ:** التوقف الطارئ على الأوتوستراد مبرر فقط بحالتين: عطل في السيارة أو مرض مفاجئ للإنسان.
+- **🔑 الكلمات المفتاحية:** `{'it': 'situazioni di emergenza', 'ar': 'حالات الطوارئ'}` | `{'it': 'malessere del conducente o passeggeri', 'ar': 'وعكة صحية للسائق أو الركاب'}` | `{'it': 'inefficienza del veicolo', 'ar': 'عطل/عدم كفاءة المركبة'}`
 
 ---
 
 **93.** Sulle carreggiate, sulle rampe e sugli svincoli delle autostrade è consentito, nel caso di malessere di un passeggero, fermarsi sulla corsia per la sosta di emergenza
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على نهور الطرق والمنحدرات والتقاطعات الفرعية للطرق السريعة، يُسمح، في حالة حدوث وعكة صحية لأحد الركاب، بالتوقف على حارة التوقف الاضطراري.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الوعكة الصحية لأي راكب (وليس السائق فقط) تندرج قانوناً تحت مسمى طوارئ السلامة المبررة للتوقف المؤقت على حارة الطوارئ.
+- **⚠️ كشف الفخ:** إعياء الراكب مبرر قانوني سليم للتوقف على حارة الطوارئ.
+- **🔑 الكلمات المفتاحية:** `{'it': 'malessere di un passeggero', 'ar': 'وعكة صحية لأحد الركاب'}` | `{'it': 'corsia di emergenza', 'ar': 'حارة الطوارئ'}`
 
 ---
 
 **94.** Sulle carreggiate, sulle rampe e sugli svincoli delle autostrade la sosta di emergenza non deve superare il tempo strettamente necessario e non deve protrarsi comunque oltre tre ore
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على نهور الطرق والمنحدرات والتقاطعات الفرعية للطرق السريعة، يجب ألا يتجاوز التوقف الاضطراري الوقت الضروري تماماً ويجب ألا يمتد في جميع الأحوال لأكثر من ثلاث ساعات.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الحد الأقصى المطلق للتوقف الاضطراري على حارة الطوارئ هو 3 ساعات (Non oltre tre ore)؛ وبعدها يُلزم السائق بنقل المركبة أو تتدخل أجهزة المرور لقطرها وحجزها لحماية المسار.
+- **⚠️ كشف الفخ:** الحد الأقصى للتوقف على حارة الطوارئ هو 3 ساعات فقط (وليس 24 ساعة).
+- **🔑 الكلمات المفتاحية:** `{'it': 'tempo strettamente necessario', 'ar': 'الوقت الضروري تماماً'}` | `{'it': 'non oltre tre ore', 'ar': 'لا يتجاوز ثلاث ساعات'}`
 
 ---
 
 **95.** In caso di malessere di un passeggero durante la circolazione sulla carreggiata autostradale, è consentito fermarsi sulla corsia per la sosta di emergenza
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** في حالة حدوث وعكة صحية لأحد الركاب أثناء السير على نهر الطريق السريع، يُسمح بالتوقف على مسار التوقف الاضطراري.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ توقف السيارة لحماية صحة وسلامة الراكب على حارة الطوارئ حق وقاعدة قانونية منصوص عليها صراحة في كود السير.
+- **⚠️ كشف الفخ:** التوقف على حارة الطوارئ جائز عند مرض أي راكب داخل السيارة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'malessere di un passeggero', 'ar': 'وعكة صحية لأحد الركاب'}` | `{'it': 'consentito fermarsi', 'ar': 'يُسمح بالتوقف'}`
 
 ---
 
 **96.** Sulle carreggiate, sulle rampe e sugli svincoli delle autostrade è vietato sostare o fermarsi, in caso di malessere dei passeggeri
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** على نهور الطرق والمنحدرات والتقاطعات للطرق السريعة، يُحظر التوقف أو الوقوف في حالة وعكة صحية للركاب.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ على العكس تماماً، يعتبر كود السير وعكة وإعياء الركاب سبباً قانونياً معتمداً يبيح التوقف الاضطراري على حارة الطوارئ.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (vietato)؛ بل هو مسموح وجائز عند مرض الركاب.
+- **🔑 الكلمات المفتاحية:** `{'it': 'vietato in caso di malessere', 'ar': 'محظور في حالة المرض (خطأ)'}` | `{'it': 'passeggeri', 'ar': 'الركاب'}`
 
 ---
 
 **97.** Sulle carreggiate, sulle rampe e sugli svincoli delle autostrade la sosta di emergenza non deve superare il tempo strettamente necessario e può protrarsi fino a 24 ore
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** على نهور الطرق والمنحدرات والتقاطعات الفرعية للطرق السريعة، يجب ألا يتجاوز التوقف الاضطراري الوقت الضروري تماماً ويمكن أن يمتد حتى 24 ساعة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ التوقف على حارة الطوارئ حده الأقصى 3 ساعات فقط؛ بينما الـ 24 ساعة تخص التوقف في مناطق الخدمة ومحطات الوقود (Aree di servizio).
+- **⚠️ كشف الفخ:** حارة الطوارئ حدها 3 ساعات فقط؛ ورقم 24 ساعة مخصص لمناطق الخدمة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'fino a 24 ore', 'ar': 'حتى 24 ساعة (خطأ على حارة الطوارئ)'}` | `{'it': 'sosta di emergenza', 'ar': 'التوقف الاضطراري'}`
 
 ---
-
 
 ## 📌 Automobilista fermo autostrada (5 domande)
 
 **98.** In autostrada è vietato dare un passaggio ad un automobilista fermo per avaria del veicolo sulla corsia di emergenza
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على الطريق السريع، يُحظر إعطاء توصيلة لسائق سيارة متوقف لعطل في مركبته على حارة الطوارئ.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ التوقف لركوب أو توصيل أشخاص على نهر أو حارة طوارئ الطريق السريع ممنوع ومحظور قطعياً، لما يسببه التوقف من خطورة بالغة لحوادث الدهس والاصطدام؛ ومساعدة السائق المعطل تتم بالاتصال بالطوارئ من أقرب نقطة.
+- **⚠️ كشف الفخ:** منح التوصيلة ممنوع في الأوتوستراد حتى لو كان الشخص معطلاً في حارة الطوارئ.
+- **🔑 الكلمات المفتاحية:** `{'it': 'vietato dare un passaggio', 'ar': 'يحظر إعطاء توصيلة'}` | `{'it': 'automobilista fermo per avaria', 'ar': 'سائق متوقف لعطل'}`
 
 ---
 
 **99.** Qualora il conducente veda un automobilista fermo con veicolo in avaria in autostrada, lo deve accompagnare fino alla stazione di servizio più vicina
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** إذا رأى السائق سيارة معطلة لسائق آخر متوقف في الطريق السريع، فيجب عليه مرافقته وتوصيله حتى أقرب محطة خدمة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ التوقف وأخذ السائق محظور تماماً؛ والتصرف القانوني الوحيد هو إبلاغ أجهزة الشرطة أو استدعاء النجدة عند الوصول لأول محطة خدمة.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (deve accompagnare)؛ لا يجوز التوقف ولا اصطحاب السائق في الأوتوستراد.
+- **🔑 الكلمات المفتاحية:** `{'it': 'deve accompagnare', 'ar': 'يجب مرافقته وتوصيله (خطأ)'}` | `{'it': 'veicolo in avaria', 'ar': 'مركبة معطلة'}`
 
 ---
 
 **100.** Qualora il conducente veda un automobilista fermo per avaria del veicolo in autostrada, si deve fermare a prestare soccorso
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** إذا رأى السائق سيارة متوقفة لعطل في الطريق السريع، فيجب عليه التوقف لتقديم النجدة والمساعدة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ التوقف العشوائي على الطريق السريع لغير أعطال مركبتك تصرف خطير جداً وممنوع قانوناً؛ وتقديم النجدة على الأوتوستراد يتم حصرياً عبر التبليغ الهاتفي لأجهزة الطوارئ.
+- **⚠️ كشف الفخ:** التوقف لمساعدة سيارة معطلة في الأوتوستراد محظور وخطير؛ بل اتصل بالشرطة (112 / 118).
+- **🔑 الكلمات المفتاحية:** `{'it': 'deve fermarsi a prestare soccorso', 'ar': 'يجب التوقف لتقديم المساعدة (خطأ بالأوتوستراد)'}` | `{'it': 'veicolo in avaria', 'ar': 'مركبة معطلة'}`
 
 ---
 
 **101.** Qualora il conducente veda un automobilista fermo per avaria del veicolo in autostrada, se lo ha superato può retrocedere con prudenza per soccorrerlo
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** إذا رأى السائق سيارة متوقفة لعطل في الطريق السريع، فإذا كان قد تجاوزها يجوز له الرجوع للخلف بحذر لنجدتها.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ الرجوع للخلف على الطريق السريع ممنوع ومجرم قطعياً تحت أي ظرف ولا مبرر له على الإطلاق.
+- **⚠️ كشف الفخ:** الرجوع للخلف (Retrocedere) في الأوتوستراد ممنوع دائماً ولا تبرره النجدة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'retrocedere con prudenza', 'ar': 'الرجوع للخلف بحذر (خطأ كارثي)'}` | `{'it': 'autostrada', 'ar': 'طريق سريع'}`
 
 ---
 
 **102.** Qualora il conducente veda un automobilista fermo in autostrada per avaria del veicolo può trainare prudentemente il veicolo, fino al primo casello di uscita
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** إذا رأى السائق سيارة متوقفة في الطريق السريع لعطل، يجوز له قطر وسحب المركبة بحذر حتى أول محطة دفع رسوم للخروج.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ قطر السيارات المعطلة على الطريق السريع مقتصر حصرياً على مركبات الإنقاذ المصرح لها (Soccorso stradale) ويحظر تماماً على السائقين العاديين.
+- **⚠️ كشف الفخ:** سحب وقطر السيارات بواسطة أشخاص عاديين في الأوتوستراد ممنوع قطعياً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'trainare prudentemente', 'ar': 'سحب وقطر بحذر (ممنوع قطعا)'}` | `{'it': 'primo casello', 'ar': 'أول كشك رسوم'}`
 
 ---
-
 
 ## 📌 Trasporto animali persone (7 domande)
 
 **103.** Tutti i passeggeri dei veicoli a motore devono prendere posto in modo da non limitare la libertà del conducente e da non impedirgli la visibilità
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب على جميع ركاب المركبات ذات المحرك الجلوس في مقاعدهم بطريقة لا تقيد حرية حركة السائق ولا تعيق رؤيته.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص المادة 169 من كود السير على وجوب جلوس الركاب بطريقة تضمن للسائق السيطرة التامة على أجهزة القيادة والمقود والرؤية الواضحة للأمام والمرايا الجانبية والداخلية.
+- **⚠️ كشف الفخ:** جلوس الركاب يجب ألا يعيق حرية السائق أو يحجب رؤيته للمرايا أو الطريق.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non limitare la libertà', 'ar': 'عدم تقييد حرية السائق'}` | `{'it': 'non impedirgli la visibilità', 'ar': 'عدم إعاقة الرؤية'}`
 
 ---
 
 **104.** Il numero massimo di posti sulle autovetture è indicato sulla carta di circolazione
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** الحد الأقصى لعدد المقاعد في سيارات الركوب مدون وموضح في رخصة تسيير المركبة (كارت السيارة).
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ بطاقة تسجيل المركبة (Carta di circolazione) تحدد بدقة عدد الركاب المصرح بنقلهم، ولا يجوز قانوناً تجاوز هذا الرقم تحت أي ظرف.
+- **⚠️ كشف الفخ:** المرجع الرسمي لعدد المقاعد المصرح بها هو كارت السيارة (Carta di circolazione).
+- **🔑 الكلمات المفتاحية:** `{'it': 'numero massimo di posti', 'ar': 'الحد الأقصى لعدد المقاعد'}` | `{'it': 'carta di circolazione', 'ar': 'رخصة السير/كارت السيارة'}`
 
 ---
 
 **105.** Sui veicoli è consentito il trasporto di un animale domestico, comunque in condizione da non costituire impedimento o pericolo per la guida
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على متن المركبات، يُسمح بنقل حيوان أليف واحد، بشرط أن يكون في وضعية لا تشكل عائقاً أو خطراً على القيادة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص المادة 169 على جواز نقل حيوان أليف واحد بحرية في السيارة طالما كان هادئاً ولا يعيق السائق ولا يقفز عليه أثناء القيادة.
+- **⚠️ كشف الفخ:** حيوان أليف واحد (Un animale domestico) مسموح به دون حاجة لقفص إذا لم يعق القيادة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'un animale domestico', 'ar': 'حيوان أليف واحد'}` | `{'it': 'non costituire impedimento o pericolo', 'ar': 'لا يشكل عائقاً أو خطراً'}`
 
 ---
 
 **106.** Sui veicoli è consentito il trasporto di animali domestici anche in numero superiore ad uno, purché custoditi in gabbia o nel vano posteriore, appositamente diviso da rete
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على متن المركبات، يُسمح بنقل حيوانات أليفة حتى لو زاد عددها عن واحد، بشرط حفظها في أقفاص أو في المقصورة الخلفية المفصولة خصيصاً بشبكة حاجز.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ عند نقل أكثر من حيوان أليف (حيوانين أو أكثر)، يلزم القانون وضعها في أقفاص أو في شنطة السيارة الخلفية المفصولة بحاجز شبكي معتمد لمنع وصولها لركاب المقصورة أو السائق.
+- **⚠️ كشف الفخ:** أكثر من حيوان أليف = قفص (Gabbia) أو شبكة عازلة (Rete divisoria) إلزامية.
+- **🔑 الكلمات المفتاحية:** `{'it': 'superiore ad uno', 'ar': 'أكثر من واحد'}` | `{'it': 'gabbia', 'ar': 'قفص'}` | `{'it': 'diviso da rete', 'ar': 'مفصول بشبكة عازلة'}`
 
 ---
 
 **107.** Il numero delle persone trasportabili sulle autovetture indicato sulla carta di circolazione non comprende il conducente
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** عدد الأشخاص المصرح بنقلهم في سيارات الركوب والمدون في رخصة السير لا يشمل السائق.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ الرقم المسجل في كارت السيارة (Posti totali) يشمل السائق دائماً؛ فإذا كانت السيارة 5 مقاعد، فهذا يعني السائق ومعه 4 ركاب.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (non comprende il conducente)؛ بل السائق مشمول دائماً في عدد المقاعد.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non comprende il conducente', 'ar': 'لا يشمل السائق (خطأ)'}` | `{'it': 'comprende il conducente', 'ar': 'يشمل السائق'}`
 
 ---
 
 **108.** Il numero delle persone trasportabili sulle autovetture può raggiungere il massimo di dieci
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** عدد الأشخاص المصرح بنقلهم في سيارات الركوب العادية (أوتوفيتورا) يمكن أن يصل إلى عشرة كحد أقصى.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ تعريف سيارة الركوب العادية (Autovettura) قانوناً هو مركبة مخصصة لنقل الأشخاص ولا تتجاوز 9 مقاعد بما في ذلك مقعد السائق؛ وإذا بلغت 10 مقاعد تصبح حافلة (Autobus).
+- **⚠️ كشف الفخ:** الحد الأقصى القانوني لمقاعد الأوتوفيتورا هو 9 مقاعد فقط (شاملاً السائق).
+- **🔑 الكلمات المفتاحية:** `{'it': 'massimo di dieci', 'ar': 'حد أقصى 10 (خطأ)'}` | `{'it': 'massimo di nove posti', 'ar': 'حد أقصى 9 مقاعد (الأوتوفيتورا)'}`
 
 ---
 
 **109.** Sui veicoli è consentito il trasporto di cani anche in numero superiore ad uno, purché adeguatamente trattenuti al guinzaglio
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** على متن المركبات، يُسمح بنقل الكلاب حتى لو زاد عددها عن واحد، بشرط تثبيتها وإمساكها بطريقة مناسبة بالمقود (سلسلة الكلب).
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ عند نقل أكثر من كلب، لا يكفي مقود أو حزام الجر العادي (Guinzaglio)؛ بل يفرض القانون وضعها في قفص مخصص أو في الصندوق الخلفي المفصول بشبكة أمان عازلة.
+- **⚠️ كشف الفخ:** المقود العادي (Guinzaglio) لا يكفي لنقل أكثر من كلب؛ يلزم قفص أو شبكة عازلة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'al guinzaglio', 'ar': 'بالمقود/السلسلة (غير كافٍ لأكثر من كلب)'}` | `{'it': 'superiore ad uno', 'ar': 'أكثر من واحد'}`
 
 ---
-
 
 ## 📌 Trasporto traino motocicli (7 domande)
 
 **110.** Sui motocicli è vietato il trasporto di minori di anni 5
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على الدراجات النارية، يُحظر نقل الأطفال القاصرين الذين تقل أعمارهم عن 5 سنوات.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص المادة 170 من كود السير صراحة على حظر ركوب الأطفال دون سن 5 سنوات على الدراجات النارية والدرجات الصغيرة (Minori di anni 5) حمايةً لسلامتهم من السقوط.
+- **⚠️ كشف الفخ:** القاعدة القانونية الصارمة: ممنوع ركوب الأطفال دون سن 5 سنوات على الموتوسيكل.
+- **🔑 الكلمات المفتاحية:** `{'it': 'minori di anni 5', 'ar': 'أقل من 5 سنوات'}` | `{'it': 'vietato il trasporto', 'ar': 'يحظر نقلهم'}` | `{'it': 'motocicli', 'ar': 'الدراجات النارية'}`
 
 ---
 
 **111.** E' vietato ai conducenti di motocicli trainare e farsi trainare da altri veicoli
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يُحظر على سائقي الدراجات النارية قَطر مركبات أخرى أو أن يتم قطر دراجاتهم بواسطة مركبات أخرى.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص المادة 170 من كود السير على حظر القطر كلياً لمركبات العجلتين؛ فلا يجوز لدراجة نارية أن تسحب أي مركبة، ولا يجوز لأي سيارة أو مركبة أخرى أن تسحب دراجة نارية، لانعدام التوازن وخطر السقوط الفوري.
+- **⚠️ كشف الفخ:** القطر (Traino) ممنوع قطعياً للدراجات النارية، سواء كانت قاطرة أو مقطورة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'vietato trainare e farsi trainare', 'ar': 'يحظر القطر أو أن تُقطر'}` | `{'it': 'motocicli', 'ar': 'الدراجات النارية'}`
 
 ---
 
 **112.** Sui motocicli è vietato trasportare oggetti che non siano solidamente assicurati
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على الدراجات النارية، يُحظر نقل الأشياء غير المثبتة بإحكام واستقرار تام.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ أي حمولة منقولة على الدراجة النارية يجب أن تكون مثبتة بإحكام في الحقائب أو على الحمالة المخصصة، لأن الأشياء السائبة قد تسقط أو تخل بتوازن الدراجة وتسبب سقوط السائق.
+- **⚠️ كشف الفخ:** نقل الأشياء السائبة أو غير المربوطة بإحكام ممنوع على الدراجات النارية.
+- **🔑 الكلمات المفتاحية:** `{'it': 'oggetti non solidamente assicurati', 'ar': 'أشياء غير مثبتة بإحكام'}` | `{'it': 'vietato trasportare', 'ar': 'يحظر نقلها'}`
 
 ---
 
 **113.** Sui motocicli è vietato trasportare oggetti che impediscano o limitino la visibilità al conducente
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على الدراجات النارية، يُحظر نقل الأشياء التي تعيق أو تقيد مجال رؤية السائق.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ يجب ألا تحجب الحمولة المنقولة رؤية السائق للأمام أو للمرايا الجانبية، وألا تمنعه من المناورة بحرية وتدوير المقود بالكامل.
+- **⚠️ كشف الفخ:** الحمولة يجب ألا تقيد حركة السائق أو تحجب رؤيته للطريق والمرايا.
+- **🔑 الكلمات المفتاحية:** `{'it': 'impediscano o limitino la visibilità', 'ar': 'تعيق أو تقيد الرؤية'}` | `{'it': 'motocicli', 'ar': 'الدراجات النارية'}`
 
 ---
 
 **114.** Sui motocicli è possibile trasportare un passeggero solo se quest'ultimo è maggiorenne
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** على الدراجات النارية، يمكن نقل راكب فقط إذا كان هذا الراكب بالغاً لسن الرشد (18 عاماً فأكثر).
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ يُسمح بنقل الركاب على الدراجة النارية المهيأة لذلك طالما بلغ عمر الراكب 5 سنوات على الأقل (Almeno 5 anni)؛ ولا يُشترط أن يكون بالغاً لسن الرشد إطلاقاً.
+- **⚠️ كشف الفخ:** الحد الأدنى لسن راكب الموتوسيكل هو 5 سنوات، وليس بلوغ سن الرشد (Maggiorenne).
+- **🔑 الكلمات المفتاحية:** `{'it': 'solo se maggiorenne', 'ar': 'فقط إذا كان بالغاً (فخ الحصر)'}` | `{'it': 'passeggero sui motocicli', 'ar': 'راكب الدراجة النارية'}`
 
 ---
 
 **115.** E' consentito ai motocicli farsi trainare, ma solo da autovetture
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يُسمح للدراجات النارية بأن يتم قطرها وسحبها، ولكن فقط بواسطة سيارات الركوب العادية.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ قطر الدراجات النارية محظور قانوناً بشكل مطلق وبلا أي استثناء (حتى بواسطة سيارات الركوب العادية) لخطورته القاتلة على توازن الدراجة.
+- **⚠️ كشف الفخ:** قطر الموتوسيكل ممنوع بأي وسيلة كانت؛ ولا استثناء لسيارات الركوب.
+- **🔑 الكلمات المفتاحية:** `{'it': 'solo da autovetture', 'ar': 'فقط من سيارات ركوب (استثناء باطل)'}` | `{'it': 'farsi trainare', 'ar': 'أن يتم قطرها'}`
 
 ---
 
 **116.** Sui motocicli è vietato trasportare oggetti che sporgano longitudinalmente rispetto alla sagoma del veicolo
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** على الدراجات النارية، يُحظر نقل الأشياء التي تبرز طولياً بالنسبة لهيكل وأبعاد المركبة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ يُسمح للحمولة بالبروز طولياً من الخلف أو الأمام على الدراجات النارية بحد أقصى 50 سم (Entro 50 cm) طالما لم تحجب الرؤية أو اللوحات والأضواء؛ وبالتالي فالبروز الطولي ليس محظوراً كلياً.
+- **⚠️ كشف الفخ:** البروز الطولي مسموح به في حدود 50 سم وليس ممنوعاً على الإطلاق.
+- **🔑 الكلمات المفتاحية:** `{'it': 'sporgano longitudinalmente', 'ar': 'تبرز طولياً'}` | `{'it': 'vietato', 'ar': 'محظور (خطأ، بل مسموح بحدود 50 سم)'}`
 
 ---
-
 
 ## 📌 Sistemazione carico veicoli (6 domande)
 
 **117.** Il carico dei veicoli deve essere sistemato in modo da evitarne la caduta o la dispersione
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب ترتيب وتثبيت حمولة المركبات بطريقة تمنع سقوطها أو تناثرها وتشتتها.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص المادة 164 من كود السير على أن سلامة تثبيت الحمولة (Sistemazione del carico) إجبارية لمنع انفلات أي جزء منها على الطريق، حمايةً للأرواح من الحوادث القاتلة.
+- **⚠️ كشف الفخ:** تأمين الحمولة لمنع سقوطها أو تطايرها القاعدة الأولى في نقل البضائع.
+- **🔑 الكلمات المفتاحية:** `{'it': 'sistemato', 'ar': 'مرتبة ومثبتة'}` | `{'it': 'evitarne la caduta o la dispersione', 'ar': 'منع سقوطها أو تناثرها'}`
 
 ---
 
 **118.** Il carico dei veicoli deve essere sistemato in modo da non diminuire la visibilità al conducente né impedirgli la libertà dei movimenti nella guida
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب ترتيب حمولة المركبات بطريقة لا تقلل من مجال رؤية السائق ولا تعيق حرية حركته في القيادة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ يجب ألا تعيق البضائع أو الحقائب داخل أو خارج السيارة حركة ذراعي وساقي السائق للوصول للدواسات وعصا السرعات، وألا تحجب رؤيته للأمام أو عبر المرايا العاكسة.
+- **⚠️ كشف الفخ:** حرية حركة السائق ووضوح الرؤية شرطان إلزاميان لا يجوز التنازل عنهما لتحميل السيارة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non diminuire la visibilità', 'ar': 'عدم تقليل الرؤية'}` | `{'it': 'libertà dei movimenti', 'ar': 'حرية الحركة'}`
 
 ---
 
 **119.** Il carico dei veicoli deve essere sistemato in modo da non compromettere la stabilità del veicolo
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب ترتيب حمولة المركبات بطريقة لا تضر ولا تخل باستقرار وثبات المركبة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ يجب توزيع وزن الحمولة بانتظام على محاور السيارة وإبقاؤها في أدنى مستوى ممكن لتفادي رفع مركز الثقل أو تركز الوزن في جانب واحد مما يسبب انقلاب المركبة أو انحرافها في المنعطفات.
+- **⚠️ كشف الفخ:** توزيع الحمولة الخاطئ يدمر استقرار السيارة وثباتها الهيدروديناميكي.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non compromettere la stabilità', 'ar': 'عدم الإخلال بالاستقرار/الثبات'}` | `{'it': 'carico dei veicoli', 'ar': 'حمولة المركبات'}`
 
 ---
 
 **120.** Il carico dei veicoli deve essere sistemato in modo da non mascherare dispositivi di illuminazione e di segnalazione visiva né le targhe di riconoscimento e i segnali fatti col braccio
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب ترتيب حمولة المركبات بطريقة لا تحجب أجهزة الإضاءة والإشارات الضوئية ولا لوحات التعرف (النمر) وإشارات الذراع اليدوية.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ يُحظر تماماً تغطية لوحات الأرقام أو الكشافات الخلفية أو الغمازات بالحمولة المنقولة أو بالدراجات المحمولة في الخلف، ويجب أن تظل مرئية ومقروءة بوضوح تام.
+- **⚠️ كشف الفخ:** حجب لوحة الأرقام أو الفوانيس بالحمولة مخالفة مرورية جسيمة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non mascherare dispositivi di illuminazione', 'ar': 'عدم حجب أجهزة الإضاءة'}` | `{'it': 'targhe di riconoscimento', 'ar': 'لوحات الأرقام'}`
 
 ---
 
 **121.** Il carico del veicolo deve essere sistemato in modo da evitarne la caduta o la dispersione solo se il conducente deve condurre il veicolo su strada extraurbana
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يجب ترتيب حمولة المركبة بطريقة تمنع سقوطها أو تناثرها فقط إذا كان السائق سيقود المركبة على طريق خارج المراكز السكنية.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ منع سقوط الحمولة واجب إلزامي على جميع الطرق دون استثناء (داخل المدن وخارجها)؛ فالخطر قائم في كل مكان ويهدد المشاة والسيارات.
+- **⚠️ كشف الفخ:** الكلمة المصيدة هي الحصر (solo su strada extraurbana)؛ تثبيت الحمولة إلزامي في كل الطرق.
+- **🔑 الكلمات المفتاحية:** `{'it': 'solo su strada extraurbana', 'ar': 'فقط خارج المدن (فخ الحصر)'}` | `{'it': 'caduta del carico', 'ar': 'سقوط الحمولة'}`
 
 ---
 
 **122.** Il carico dei veicoli deve essere sistemato in modo da non mascherare dispositivi di illuminazione e di segnalazione visiva soltanto durante la circolazione notturna
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يجب ترتيب حمولة المركبات بطريقة لا تحجب أجهزة الإضاءة والإشارات الضوئية فقط أثناء السير الليلي.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ أجهزة الإضاءة وإشارات الاتجاه (الغمازات) وأضواء الفرامل ولوحات الأرقام يجب أن تظل مكشوفة ومرئية في كل الأوقات نهاراً وليلاً.
+- **⚠️ كشف الفخ:** الكلمة المصيدة هي (soltanto durante la circolazione notturna)؛ الرؤية إلزامية نهاراً وليلاً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'soltanto durante la notte', 'ar': 'فقط أثناء الليل (خطأ)'}` | `{'it': 'dispositivi di illuminazione', 'ar': 'أجهزة الإضاءة'}`
 
 ---
-
 
 ## 📌 Sporgenza carico (9 domande)
 
 **123.** Il carico non deve superare il limite di sagoma stabilito per ogni tipo di veicolo
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب ألا تتجاوز الحمولة حدود الأبعاد القصوى (حدود القالب) المقررة لكل نوع من المركبات.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ يحدد كود السير حدوداً قصوى لأبعاد المركبة بحمولتها (Limiti di sagoma: العرض الأقصى 2.55 م، الارتفاع الأقصى 4 م)؛ وتجاوز هذه الحدود بدون تصريح نقل استثنائي محظور قانوناً.
+- **⚠️ كشف الفخ:** الحمولة يجب أن تبقى دائماً داخل حدود القالب المسموح بها قانوناً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non deve superare il limite di sagoma', 'ar': 'ألا تتجاوز حدود الأبعاد القصوى'}` | `{'it': 'tipo di veicolo', 'ar': 'نوع المركبة'}`
 
 ---
 
 **124.** Sugli autoveicoli, il carico non può sporgere longitudinalmente dalla parte anteriore
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على المركبات الآلية، لا يمكن ولا يجوز للحمولة أن تبرز طولياً من الجهة الأمامية للمركبة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص المادة 164 صراحة على حظر بروز الحمولة طولياً من مقدمة السيارة نهائياً (Sugli autoveicoli il carico non può sporgere anteriormente) لتفادي صدم المشاة أو حجب الرؤية؛ والبروز الطولي مسموح فقط من الخلف للأشياء غير القابلة للتجزئة.
+- **⚠️ كشف الفخ:** البروز من الأمام ممنوع منعاً باتاً (صفر سم)؛ البروز الطولي مسموح به من الخلف فقط.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non può sporgere anteriormente', 'ar': 'لا يجوز أن تبرز من الأمام'}` | `{'it': 'longitudinalmente', 'ar': 'طولياً'}`
 
 ---
 
 **125.** Il carico può sporgere longitudinalmente dalla parte posteriore, se costituito da cose indivisibili, fino ai 3/10 della lunghezza dell'autoveicolo
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يمكن للحمولة أن تبرز طولياً من الجهة الخلفية، إذا كانت تتكون من أشياء غير قابلة للتجزئة، حتى 3 أعشار (3/10) من طول المركبة الآلية.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ القاعدة القانونية الشهيرة تسمح ببروز الحمولة غير القابلة للتجزئة (Cose indivisibili) من الخلف فقط بحد أقصى 3/10 من الطول الكلي للسيارة، مع وجوب وضع اللوحة المربعة المخططة العاكسة للتحذير.
+- **⚠️ كشف الفخ:** احفظ النسبة الذهبية: البروز الخلفي للأشياء غير القابلة للتجزئة يصل لـ 3/10 من طول السيارة كحد أقصى.
+- **🔑 الكلمات المفتاحية:** `{'it': 'sporgere longitudinalmente', 'ar': 'تبرز طولياً'}` | `{'it': 'parte posteriore', 'ar': 'الجهة الخلفية'}` | `{'it': 'cose indivisibili', 'ar': 'أشياء غير قابلة للتجزئة'}` | `{'it': 'fino ai 3/10 della lunghezza', 'ar': 'حتى 3/10 من الطول'}`
 
 ---
 
 **126.** Sugli autoveicoli possono essere trasportate cose che sporgono lateralmente fuori della loro sagoma non più di 30 centimetri dalle luci di posizione anteriori e posteriori (comunque entro i limiti massimi di sagoma)
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على المركبات الآلية، يمكن نقل أشياء تبرز جانبياً خارج حدود هيكلها بما لا يزيد عن 30 سنتيمتراً من أضواء الموضع الأمامية والخلفية (على أن تظل ضمن الحدود القصوى للأبعاد).
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ البروز الجانبي مسموح به بشرطين: ألا يتجاوز 30 سم مقاسة من حافة مصابيح الموضع (Luci di posizione)، وألا يتجاوز العرض الكلي الأقصى المسموح به للمركبة (2.55 متر).
+- **⚠️ كشف الفخ:** البروز الجانبي المسموح به: 30 سم كحد أقصى مقاسة من لمبات الموضع الأمامية والخلفية.
+- **🔑 الكلمات المفتاحية:** `{'it': 'sporgono lateralmente', 'ar': 'تبرز جانبياً'}` | `{'it': 'non più di 30 centimetri', 'ar': 'بما لا يزيد عن 30 سم'}` | `{'it': 'luci di posizione', 'ar': 'أضواء الموضع'}`
 
 ---
 
 **127.** E' vietato trasportare o trainare cose che strisciano sul terreno, anche se in parte sostenute da ruote
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يُحظر نقل أو سحب أشياء تحتك وتزحف على الأرض، حتى لو كانت مسنودة جزئياً بعجلات.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ يمنع كود السير جر أي حمولة تحتك أو تزحف على الأسفلت (Cose che strisciano sul terreno) لما تسببه من إتلاف الطريق، وتطاير الشرر والحرائق، وفقدان السيطرة، حتى لو كان لها عجلات جزئية.
+- **⚠️ كشف الفخ:** زحف الحمولة أو احتكاكها بالأرض ممنوع تماماً تحت أي ظرف.
+- **🔑 الكلمات المفتاحية:** `{'it': 'cose che strisciano sul terreno', 'ar': 'أشياء تحتك/تزحف على الأرض'}` | `{'it': 'vietato trasportare o trainare', 'ar': 'محظور نقلها أو سحبها'}`
 
 ---
 
 **128.** Se il carico sporge oltre la sagoma del veicolo, il conducente deve adottare tutte le cautele idonee ad evitare pericolo agli altri utenti della strada
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** إذا برزت الحمولة إلى خارج أبعاد وهيكل المركبة، يجب على السائق اتخاذ جميع الاحتياطات المناسبة لتجنب تعريض مستخدمي الطريق الآخرين للخطر.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ عند وجود أي بروز نظامي للحمولة، يلزم السائق بتثبيتها جيداً ووضع اللوحات التحذيرية العاكسة والقيادة بحذر شديد مع ترك مسافات جانبية مضاعفة لحماية المارة والسيارات الأخرى.
+- **⚠️ كشف الفخ:** الحمولة البارزة توجب أقصى درجات الحيطة والتحذير بالعلامات المعتمدة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'sporge oltre la sagoma', 'ar': 'تبرز خارج أبعاد الهيكل'}` | `{'it': 'tutte le cautele idonee', 'ar': 'جميع الاحتياطات المناسبة'}`
 
 ---
 
 **129.** Il carico deve essere sistemato sul veicolo in modo da segnalarne la sporgenza posteriore con il pannello retroriflettente in figura
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
 - ![Segnale](immagini/304.png)
+- **📖 الترجمة السياقية:** يجب ترتيب الحمولة على المركبة بطريقة تتيح الإشارة إلى بروزها الخلفي بواسطة اللوحة العاكسة الموضحة في الشكل.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ نص السؤال مقلوب وخاطئ الصياغة؛ فالترتيب يجب أن يكون لمنع السقوط والإخلال بالثبات، أما اللوحة العاكسة فتوضع فقط عند وجود بروز فعلي، ولا تُرتّب الحمولة 'من أجل' الإشارة باللوحة.
+- **⚠️ كشف الفخ:** صياغة مقلوبة ومضللة لقواعد تثبيت الحمولة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'sistemato in modo da segnalarne', 'ar': 'مرتبة بحيث تشير لبروزها (صياغة مقلوبة خاطئة)'}` | `{'it': 'pannello retroriflettente', 'ar': 'اللوحة العاكسة'}`
 
 ---
 
 **130.** Il carico può sporgere lateralmente, se costituito da cose indivisibili, fino ai 3/10 della larghezza del veicolo
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يمكن للحمولة أن تبرز جانبياً، إذا كانت تتكون من أشياء غير قابلة للتجزئة، حتى 3 أعشار (3/10) من عرض المركبة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ نسبة 3/10 تخص البروز الطولي من الخلف فقط (Sporgenza longitudinale posteriore)؛ أما البروز الجانبي فلا علاقة له بنسبة 3/10، بل حده 30 سم فقط من أضواء الموضع وضمن العرض الأقصى.
+- **⚠️ كشف الفخ:** فخ الخلط بين الطول والعرض: نسبة 3/10 للطول من الخلف، وليست للعرض الجانبي إطلاقاً (حده 30 سم).
+- **🔑 الكلمات المفتاحية:** `{'it': 'lateralmente fino ai 3/10', 'ar': 'جانبياً حتى 3/10 (خلط فاضح)'}` | `{'it': 'larghezza', 'ar': 'العرض'}`
 
 ---
 
 **131.** E' consentito trasportare o trainare cose che strisciano sul terreno se in parte sostenute da ruote
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يُسمح بنقل أو سحب أشياء تحتك وتزحف على الأرض إذا كانت مسنودة جزئياً بعجلات.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ زحف واحتكاك الحمولة بالأرض محظور قطعياً ومخالف للقانون، حتى وإن كانت مدعومة جزئياً بعجلات.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (è consentito)؛ بل هو محظور تماماً (È vietato).
+- **🔑 الكلمات المفتاحية:** `{'it': 'consentito', 'ar': 'مسموح (خطأ)'}` | `{'it': 'strisciano sul terreno', 'ar': 'تزحف على الأرض'}`
 
 ---
-
 
 ## 📌 Sporgenza longitudinale (7 domande)
 
 **132.** La sporgenza longitudinale del carico, fino ai 3/10 della lunghezza del veicolo, deve essere segnalata mediante uno o due pannelli quadrangolari in figura
-
 - **الإجابة:** `VERO ✅ (صح)`
 - ![Segnale](immagini/302.png)
+- **📖 الترجمة السياقية:** البروز الطولي للحمولة، حتى 3 أعشار من طول المركبة، يجب الإشارة إليه بواسطة لوحة أو لوحتين مربعتين من النوع الموضح في الشكل.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ اللوحة المربعة ذات الخطوط المائلة البيضاء والحمراء العاكسة (Pannello per carichi sporgenti) إلزامية للإشارة إلى البروز الخلفي؛ وتوضع لوحة واحدة في المنتصف، أو لوحتان على الطرفين إذا كان البروز بعرض السيارة كاملاً.
+- **⚠️ كشف الفخ:** لوحة البروز الخلفي (Pannello carichi sporgenti) إما واحدة في المنتصف أو اثنتان عند الأطراف.
+- **🔑 الكلمات المفتاحية:** `{'it': 'sporgenza longitudinale', 'ar': 'البروز الطولي'}` | `{'it': 'fino ai 3/10', 'ar': 'حتى 3/10'}` | `{'it': 'uno o due pannelli', 'ar': 'لوحة واحدة أو لوحتان'}`
 
 ---
 
 **133.** Il pannello in figura deve essere applicato in ogni caso in cui il carico sporge posteriormente, anche se di poco
-
 - **الإجابة:** `VERO ✅ (صح)`
 - ![Segnale](immagini/302.png)
+- **📖 الترجمة السياقية:** اللوحة الموضحة في الشكل يجب وضعها وتثبيتها في كل حالة تبرز فيها الحمولة من الخلف، حتى لو كان البروز قليلاً وضئيلاً.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص اللائحة التنفيذية على وجوب تثبيت اللوحة التحذيرية المربعة المخططة عند أي بروز خلفي مهما كان بسيطاً (Anche se di poco)، مثل حاملات الدراجات الهوائية الخلفية.
+- **⚠️ كشف الفخ:** اللوحة إلزامية حتى لأصغر بروز خلفي (Anche se di poco).
+- **🔑 الكلمات المفتاحية:** `{'it': 'in ogni caso', 'ar': 'في كل حالة'}` | `{'it': 'sporge posteriormente anche se di poco', 'ar': 'تبرز من الخلف ولو قليلاً'}` | `{'it': 'pannello', 'ar': 'اللوحة'}`
 
 ---
 
 **134.** Il pannello in figura segnala carichi indivisibili che sporgono dalla parte posteriore del veicolo
-
 - **الإجابة:** `VERO ✅ (صح)`
 - ![Segnale](immagini/302.png)
+- **📖 الترجمة السياقية:** اللوحة الموضحة في الشكل تشير إلى حمولات غير قابلة للتجزئة تبرز من الجهة الخلفية للمركبة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ هذه هي الوظيفة المحددة للوحة المربعة العاكسة ذات الخطوط البيضاء والحمراء (Pannello a strisce bianche e rosse) لتحذير القادمين من الخلف بالبروز المعدني أو الخشبي.
+- **⚠️ كشف الفخ:** اللوحة تشير للحمولة البارزة من الخلف.
+- **🔑 الكلمات المفتاحية:** `{'it': 'carichi indivisibili', 'ar': 'حمولات غير قابلة للتجزئة'}` | `{'it': 'sporgono posteriormente', 'ar': 'تبرز من الخلف'}`
 
 ---
 
 **135.** Se il carico sporge longitudinalmente per l'intera larghezza della parte posteriore del veicolo, i pannelli in figura devono essere due, posti trasversalmente alle due estremità del carico
-
 - **الإجابة:** `VERO ✅ (صح)`
 - ![Segnale](immagini/302.png)
+- **📖 الترجمة السياقية:** إذا كانت الحمولة تبرز طولياً بكامل عرض الجهة الخلفية للمركبة، فيجب أن تكون اللوحات اثنتين، موضوعتين عرضياً عند طرفي الحمولة المتطرفين.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ عندما يكون البروز عريضاً وممتداً على كامل عرض مؤخرة السيارة، يفرض القانون وضع لوحتين عاكستين عند الحافتين الخارجية واليسرى واليمنى مع تشكيل نمط خطوط متقابل لتحديد كامل أبعاد البروز.
+- **⚠️ كشف الفخ:** بروز بكامل العرض = لوحتان عند الطرفين لتحديد الحواف بدقة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'intera larghezza', 'ar': 'كامل العرض'}` | `{'it': 'due pannelli', 'ar': 'لوحتان'}` | `{'it': 'due estremità del carico', 'ar': 'طرفا الحمولة'}`
 
 ---
 
 **136.** La sporgenza longitudinale del carico, fino ai 3/10 della lunghezza del veicolo, deve essere segnalata mediante uno o due pannelli in figura
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
 - ![Segnale](immagini/304.png)
+- **📖 الترجمة السياقية:** البروز الطولي للحمولة، حتى 3 أعشار من طول المركبة، يجب الإشارة إليه بواسطة لوحة أو اثنتين من النوع الموضح في الشكل (لوحة شاحنات البضائع الخطرة البرتقالية).
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ اللوحة البرتقالية الملساء مخصصة للبضائع الخطرة (ADR)، بينما لوحة الحمولة البارزة مربعة بمخطط خطوط بيضاء وحمراء مائلة عاكسة؛ الخلط بين اللوحتين خطأ فادح.
+- **⚠️ كشف الفخ:** اللوحة البرتقالية للبضائع الخطرة، وليست للحمولة البارزة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'pannelli in figura', 'ar': 'اللوحات بالشكل (خلط باللوحة البرتقالية)'}` | `{'it': 'sporgenza longitudinale', 'ar': 'البروز الطولي'}`
 
 ---
 
 **137.** Il pannello in figura segnala carichi indivisibili che sporgono dalla parte posteriore destra
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
 - ![Segnale](immagini/279.png)
+- **📖 الترجمة السياقية:** اللوحة الموضحة في الشكل تشير إلى حمولات غير قابلة للتجزئة تبرز من الجهة الخلفية اليمنى فقط.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ اللوحة تشير إلى أي حمولة بارزة من الخلف ككل ولا تقتصر على الجهة اليمنى فقط؛ وإذا كانت جهة واحدة توضع اللوحة عليها مباشرة، أما إذا امتدت فتوضع لوحتان.
+- **⚠️ كشف الفخ:** الكلمة المصيدة هي الحصر بالجهة اليمنى (parte posteriore destra).
+- **🔑 الكلمات المفتاحية:** `{'it': 'posteriore destra', 'ar': 'الخلفية اليمنى (فخ الحصر)'}` | `{'it': 'carichi indivisibili', 'ar': 'حمولات غير قابلة للتجزئة'}`
 
 ---
 
 **138.** Se il carico sporge longitudinalmente per l'intera larghezza della parte posteriore del veicolo, si devono applicare due pannelli retroriflettenti in figura
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
 - ![Segnale](immagini/305.png)
+- **📖 الترجمة السياقية:** إذا كانت الحمولة تبرز طولياً بكامل عرض الجهة الخلفية للمركبة، يجب تثبيت لوحتين عاكستين موضحين في الشكل (لوحات الشاحنات الثقيلة الصفراء والحمراء).
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ اللوحات الصفراء ذات الإطار الأحمر تخص الشاحنات الثقيلة والمقطورات (Autocarri / Rimorchi > 3.5 t)؛ أما الحمولة البارزة فلوحاتها مربعة بخطوط مائلة بيضاء وحمراء.
+- **⚠️ كشف الفخ:** فخ الخلط بين لوحة الحمولة البارزة ولوحات الشاحنات والمقطورات الخلفية.
+- **🔑 الكلمات المفتاحية:** `{'it': 'due pannelli in figura', 'ar': 'لوحتان بالشكل (خلط بلوحات الشاحنات)'}` | `{'it': 'carico sporge', 'ar': 'الحمولة تبرز'}`
 
 ---
-
 
 ## 📌 Pannelli gialli arancioni (6 domande)
 
 **139.** Il pannello arancione retroriflettente in figura segnala veicoli che stanno trasportando merci pericolose
-
 - **الإجابة:** `VERO ✅ (صح)`
 - ![Segnale](immagini/303.png)
+- **📖 الترجمة السياقية:** اللوحة البرتقالية العاكسة الموضحة في الشكل تشير إلى مركبات تنقل بضائع ومواد خطيرة (ADR).
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ اللوحة البرتقالية المستطيلة العاكسة (Pannello arancione) هي علامة تعريف إلزامية للمركبات التي تنقل مواد وبضائع خطيرة وفقاً لاتفاقية ADR الدولية.
+- **⚠️ كشف الفخ:** اللوحة البرتقالية تعني دائماً بضائع خطيرة (Merci pericolose).
+- **🔑 الكلمات المفتاحية:** `{'it': 'pannello arancione', 'ar': 'لوحة برتقالية'}` | `{'it': 'merci pericolose', 'ar': 'بضائع خطيرة (ADR)'}`
 
 ---
 
 **140.** Il pannello in figura facilita l'individuazione dalla parte posteriore di autocarri con massa a pieno carico superiore a 3,5 tonnellate
-
 - **الإجابة:** `VERO ✅ (صح)`
 - ![Segnale](immagini/304.png)
+- **📖 الترجمة السياقية:** اللوحة الموضحة في الشكل تسهل التعرف من الخلف على شاحنات البضائع ذات الوزن الإجمالي بكامل الحمولة الذي يتجاوز 3.5 طن.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ اللوحتان المستطيلتان بمخطط خطوط صفراء وحمراء مائلة (Pannelli a strisce oblique gialle e rosse) توضعان خلف شاحنات نقل البضائع الكبيرة (Autocarri > 3.5 t) لزيادة رؤيتها وتمييزها ليلاً.
+- **⚠️ كشف الفخ:** خطوط صفراء وحمراء مائلة = شاحنة بضائع فردية تزيد عن 3.5 طن (Autocarro > 3.5 t).
+- **🔑 الكلمات المفتاحية:** `{'it': 'autocarri con massa superiore a 3,5 tonnellate', 'ar': 'شاحنات بوزن أكبر من 3.5 طن'}` | `{'it': 'individuazione posteriore', 'ar': 'التعرف من الخلف'}`
 
 ---
 
 **141.** Il pannello giallo in figura posto nella parte posteriore del rimorchio individua un autotreno o un autoarticolato
-
 - **الإجابة:** `VERO ✅ (صح)`
 - ![Segnale](immagini/305.png)
+- **📖 الترجمة السياقية:** اللوحة الصفراء الموضحة في الشكل الموضوعة في الجزء الخلفي للمقطورة تميز وتحدد قطاراً طريقياً أو مركبة مفصلية (تريلا / مقطورة شاحنة).
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ اللوحة الصفراء الفسفورية ذات الإطار الأحمر العاكس (Pannello giallo con bordo rosso) توضع خلف المقطورات وشبه المقطورات للشاحنات (Rimorchi / Semirimorchi > 3.5 t) لتمييز الشاحنات المقطورة والمفصلية.
+- **⚠️ كشف الفخ:** أصفر في الوسط بإطار أحمر = مقطورة أو نصف مقطورة (Rimorchio/Semirimorchio).
+- **🔑 الكلمات المفتاحية:** `{'it': 'pannello giallo', 'ar': 'لوحة صفراء بإطار أحمر'}` | `{'it': 'rimorchio', 'ar': 'مقطورة'}` | `{'it': 'autotreno o autoarticolato', 'ar': 'قطار طريقي أو شاحنة مفصلية'}`
 
 ---
 
 **142.** Il pannello arancione retroriflettente riprodott0 in figura è collocato posteriormente per segnalare carichi sporgenti pericolosi
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
 - ![Segnale](immagini/303.png)
+- **📖 الترجمة السياقية:** اللوحة البرتقالية العاكسة الموضحة في الشكل توضع في الخلف للإشارة إلى حمولات بارزة خطيرة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ اللوحة البرتقالية مخصصة لنقل البضائع الخطيرة (صهاريج الوقود والغاز والمواد الكيميائية السامة)، ولا علاقة لها بالحمولة البارزة التي تستخدم اللوحة المخططة بالأبيض والأحمر.
+- **⚠️ كشف الفخ:** اللوحة البرتقالية للبضائع الخطرة (Merci pericolose)، وليست للحمولات البارزة (Carichi sporgenti).
+- **🔑 الكلمات المفتاحية:** `{'it': 'carichi sporgenti pericolosi', 'ar': 'حمولات بارزة خطيرة (خلط)'}` | `{'it': 'pannello arancione', 'ar': 'اللوحة البرتقالية'}`
 
 ---
 
 **143.** I pannelli in figura sono posti sulla carreggiata per segnalare un ostacolo
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
 - ![Segnale](immagini/304.png)
+- **📖 الترجمة السياقية:** اللوحات الموضحة في الشكل توضع على نهر الطريق للإشارة إلى وجود عائق.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ هذه اللوحات عاكسة وتثبت في الجزء الخلفي من الشاحنات والمقطورات، ولا توضع على أرضية نهر الطريق كعائق أو إشارة أرضية إطلاقاً.
+- **⚠️ كشف الفخ:** هذه لوحات تثبت على مؤخرة الشاحنات، وليست شواخص توضع على أرضية الطريق.
+- **🔑 الكلمات المفتاحية:** `{'it': 'poste sulla carreggiata', 'ar': 'توضع على نهر الطريق (خطأ)'}` | `{'it': 'segnalare un ostacolo', 'ar': 'للإشارة لعائق'}`
 
 ---
 
 **144.** Il pannello in figura deve essere applicato posteriormente agli autobus di massa totale superiore a 3,5 tonnellate
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
 - ![Segnale](immagini/305.png)
+- **📖 الترجمة السياقية:** اللوحة الموضحة في الشكل يجب تثبيتها في الجزء الخلفي للحافلات (الأتوبيسات) ذات الكتلة الكلية التي تزيد عن 3.5 طن.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ لوحات الخطوط الصفراء والحمراء مخصصة حصرياً لشاحنات نقل البضائع (Autocarri)، ولا توضع خلف حافلات الركاب (Autobus).
+- **⚠️ كشف الفخ:** اللوحات الصفراء والحمراء لشاحنات البضائع فقط، ولا تنطبق على الأتوبيسات.
+- **🔑 الكلمات المفتاحية:** `{'it': 'autobus', 'ar': 'حافلات (خطأ، هي للشاحنات)'}` | `{'it': 'massa superiore a 3,5 tonnellate', 'ar': 'كتلة تفوق 3.5 طن'}`
 
 ---
-
 
 ## 📌 Regole traino veicoli (9 domande)
 
 **145.** Nessun veicolo può trainare o essere trainato da più di un veicolo (salvo il caso di trasporti eccezionali)
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** لا يجوز لأي مركبة أن تجر أو أن تُجر بواسطة أكثر من مركبة واحدة (باستثناء حالات النقل الاستثنائي المرخص).
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص المادة 165 من كود السير على القاعدة الصارمة: مركبة واحدة تجر مركبة واحدة فقط؛ ويحظر تماماً جر سلسلة مركبات خلف بعضها في السير العادي.
+- **⚠️ كشف الفخ:** قاعدة القطر: مركبة واحدة تجر مركبة واحدة فقط كحد أقصى.
+- **🔑 الكلمات المفتاحية:** `{'it': 'nessun veicolo può trainare', 'ar': 'لا يجوز لأي مركبة أن تجر'}` | `{'it': 'più di un veicolo', 'ar': 'أكثر من مركبة واحدة'}`
 
 ---
 
 **146.** Un autoveicolo può trainare un veicolo che non sia un rimorchio se questo non può più circolare per avaria o per mancanza di organi essenziali
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يمكن للمركبة الآلية أن تجر مركبة أخرى لا تعتبر مقطورة إذا كانت هذه الأخيرة غير قادرة على السير لعطل أو لفقدان أجزاء ومكونات جوهرية.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ في حالات الطوارئ الطارئة على الطرق العادية، يُسمح بسحب سيارة معطلة (Avaria) بواسطة سيارة أخرى للوصول لأقرب مكان آمن أو ورشة، بشرط تحقيق وسائل الربط السليمة والتحذير.
+- **⚠️ كشف الفخ:** سحب سيارة معطلة في الطوارئ مسموح على الطرق العادية بشروط الأمان.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non sia un rimorchio', 'ar': 'ليست مقطورة (سيارة معطلة)'}` | `{'it': 'per avaria', 'ar': 'بسبب عطل'}` | `{'it': 'mancanza di organi essenziali', 'ar': 'غياب أجزاء أساسية'}`
 
 ---
 
 **147.** Il traino per situazione di emergenza di un veicolo da parte di un altro deve avvenire attraverso un solido collegamento, come fune, catena, cavo, barra rigida, purché idoneamente segnalati
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** سحب وقطر مركبة بواسطة مركبة أخرى في حالة الطوارئ يجب أن يتم عبر وسيلة ربط متينة وقوية، مثل حبل، سلسلة، كابل، أو قضيب صلب، بشرط الإشارة إليها وتوضيحها بشكل مناسب.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ يفرض القانون استخدام وسائل ربط قوية وسليمة (حبل متين أو جنزير أو واير أو عامود صلب) مع وضع قماش أو علم ملون أو إشارة واضحة عليها ليراها السائقون والمشاة ولا يعبروا بين السيارتين.
+- **⚠️ كشف الفخ:** وسيلة الربط في القطر يجب أن تكون متينة ومعلمة بإشارة واضحة (Idoneamente segnalati).
+- **🔑 الكلمات المفتاحية:** `{'it': 'solido collegamento', 'ar': 'ربط متين'}` | `{'it': 'fune, catena, cavo, barra rigida', 'ar': 'حبل، سلسلة، كابل، قضيب صلب'}` | `{'it': 'idoneamente segnalati', 'ar': 'مشار إليه وموضح بشكل مناسب'}`
 
 ---
 
 **148.** Il traino per incombente situazione di emergenza di un veicolo in avaria deve avvenire attraverso un solido collegamento, purché idoneamente segnalato per rendere i veicoli chiaramente avvistabili dagli altri utenti della strada
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** سحب مركبة معطلة في حالة طوارئ وشيكة يجب أن يتم عبر وسيلة ربط متينة، بشرط الإشارة إليها بشكل مناسب لجعل المركبتين مرئيتين بوضوح لمستخدمي الطريق الآخرين.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ وضوح وسيلة الربط وتنبيه الآخرين (بتشغيل أضواء الطوارئ الرباعية ولوحة التحذير) شرط جوهري لمنع اصطدام الدراجات أو المشاة بكابل السحب بين السيارتين.
+- **⚠️ كشف الفخ:** الهدف من تمييز وسيلة الربط هو ضمان رؤية القطر بوضوح للجميع.
+- **🔑 الكلمات المفتاحية:** `{'it': 'chiaramente avvistabili', 'ar': 'مرئية بوضوح'}` | `{'it': 'solido collegamento', 'ar': 'ربط متين'}`
 
 ---
 
 **149.** Qualora, in situazione di emergenza, il conducente traini con il suo veicolo un altro veicolo senza rispettare le prescrizioni relative alla solidità del collegamento è punito con la sottrazione di 2 punti dalla patente
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** إذا قام السائق، في حالة طوارئ، بقطر مركبة أخرى دون الالتزام بالاشتراطات المتعلقة بمتانة وسيلة الربط وإشاراتها، فيُعاقب بخصم نقطتين (2 نقطة) من رخصة القيادة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص المادة 165 من كود السير على توقيع غرامة مالية وخصم نقطتين (2 Punti) من رخصة قيادة السائق المخالف لشروط متانة وتمييز وسيلة قطر المركبة.
+- **⚠️ كشف الفخ:** عقوبة مخالفة قواعد القطر الآمن: خصم نقطتين (2 Punti) من رخصة القيادة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'sottrazione di 2 punti', 'ar': 'خصم نقطتين'}` | `{'it': 'solidità del collegamento', 'ar': 'متانة وسيلة الربط'}`
 
 ---
 
 **150.** In autostrada, un autoveicolo può trainare un veicolo che non sia un rimorchio, se questo non può più circolare per qualsiasi grave motivo
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** على الطريق السريع، يمكن للمركبة الآلية أن تجر مركبة أخرى لا تعتبر مقطورة، إذا كانت هذه الأخيرة عاجزة عن السير لأي سبب خطير.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ على الطريق السريع (In autostrada) يُحظر تماماً القطر بواسطة سيارات خاصة عادية؛ والقطر مقتصر حصرياً على أوناش وسيارات الإغاثة المرخصة (Soccorso stradale autorizzato).
+- **⚠️ كشف الفخ:** القطر بين السيارات الخاصة ممنوع نهائياً على الأوتوستراد حتى في حالات الطوارئ الخطيرة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'in autostrada', 'ar': 'على الطريق السريع (ممنوع القطر الخاص)'}` | `{'it': 'trainare un veicolo', 'ar': 'قطر مركبة'}`
 
 ---
 
 **151.** Il traino per incombente situazione di emergenza di un veicolo in avaria deve avvenire attraverso un solido collegamento, anche se non è possibile segnalarlo
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** سحب مركبة معطلة في حالة طوارئ وشيكة يجب أن يتم عبر وسيلة ربط متينة، حتى لو تعذر الإشارة إليها وتوضيحها.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ الإشارة إلى وسيلة الربط وتمييزها (بعلم أو لوحة أو أضواء) شرط إلزامي لا يجوز السحب بدونه؛ والسحب برباط غير مرئي يشكل مصيدة مميتة للمشاة والدراجات.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (anche se non è possibile segnalarlo)؛ لا يجوز القطر أبداً دون الإشارة لوسيلة الربط.
+- **🔑 الكلمات المفتاحية:** `{'it': 'anche se non è possibile segnalarlo', 'ar': 'حتى لو تعذر تمييزها (خطأ)'}` | `{'it': 'traino', 'ar': 'القطر'}`
 
 ---
 
 **152.** Durante le operazioni di traino di un veicolo in avaria, il veicolo trainato deve mantenere accese le luci posteriori in mancanza di altra idonea segnalazione
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** أثناء عمليات قطر مركبة معطلة، يجب على المركبة المقطورة إبقاء أضواء الموضع الخلفية مشتعلة في غياب أي إشارة مناسبة أخرى.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ تنص اللائحة على وجوب تشغيل أضواء الطوارئ الرباعية (Quattro frecce / Segnale luminoso di pericolo)، أو وضع لوحة الحمولة البارزة أو مثلث الخطر في الخلف؛ ولا يكفي مجرد أضواء الموضع الخلفية العادية.
+- **⚠️ كشف الفخ:** أضواء الموضع وحدها لا تكفي؛ بل يجب تشغيل أضواء الطوارئ الرباعية أو وضع لوحة المثلث/البروز الخلفي.
+- **🔑 الكلمات المفتاحية:** `{'it': 'luci posteriori in mancanza di altra segnalazione', 'ar': 'أضواء خلفية في غياب إشارات أخرى (غير كافٍ)'}` | `{'it': 'veicolo trainato', 'ar': 'المركبة المقطورة'}`
 
 ---
 
 **153.** Qualora, in situazione di emergenza, il conducente traini con il suo veicolo un altro veicolo senza rispettare le prescrizioni relative alla solidità del collegamento è punito con la sottrazione di 4 punti dalla patente
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** إذا قام السائق، في حالة طوارئ، بقطر مركبة أخرى دون الالتزام باشتراطات متانة الربط، فيُعاقب بخصم 4 نقاط من رخصة القيادة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ العقوبة المحددة في جدول المخالفات للمادة 165 هي خصم نقطتين فقط (2 punti) وليس 4 نقاط.
+- **⚠️ كشف الفخ:** الرقم الخادع هو 4 نقاط؛ العقوبة المقررة هي نقطتان (2 Punti) فقط.
+- **🔑 الكلمات المفتاحية:** `{'it': 'sottrazione di 4 punti', 'ar': 'خصم 4 نقاط (خطأ، الصحيح نقطتان)'}` | `{'it': 'patente', 'ar': 'رخصة القيادة'}`
 
 ---
-
 
 ## 📌 Ciclisti velocipedi (9 domande)
 
 **154.** Il conducente di un'autovettura deve considerare i rischi che, sulla strada, sono legati alla presenza di velocipedi, mezzi dotati di massa modesta e caratterizzati da basse velocità e possibili oscillazioni trasversali
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب على سائق سيارة الركوب أن يضع في اعتباره المخاطر المرتبطة بوجود الدراجات الهوائية على الطريق، وهي وسائل ذات كتلة ضئيلة وتتميز بسرعات منخفضة وتذبذبات وتمايلات عرضية محتملة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الدراجات الهوائية خفيفة الوزن وبطيئة وتتأرجح يمنة ويسرة للحفاظ على التوازن أو تفادي الحفر؛ ويجب على سائق السيارة الحذر الشديد وترك مسافة أمان جانبية واسعة عند الاقتراب منها.
+- **⚠️ كشف الفخ:** التمايل العرضي للدراجات الهوائية (Oscillazioni trasversali) خطر طبيعي يجب توقعه دائماً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'velocipedi', 'ar': 'دراجات هوائية'}` | `{'it': 'massa modesta', 'ar': 'كتلة ضئيلة'}` | `{'it': 'oscillazioni trasversali', 'ar': 'تذبذبات وتمايلات عرضية'}`
 
 ---
 
 **155.** Il conducente di un'autovettura o di un motociclo deve adattare la propria guida anche ai rischi legati alla presenza di velocipedi nel traffico
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب على سائق سيارة الركوب أو الدراجة النارية تكييف قيادته أيضاً مع المخاطر المرتبطة بوجود الدراجات الهوائية في حركة المرور.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الدراجات تمثل مستخدمين ضعفاء على الطريق (Utenti vulnerabili)، ويجب على جميع سائقي المركبات السريعة توقع تصرفاتهم وإبطاء السرعة ومضاعفة الانتباه عند مشاركتهم الطريق.
+- **⚠️ كشف الفخ:** تكييف أسلوب القيادة بحذر قرب الدراجات الهوائية واجب ومسؤولية مستمرة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'adattare la propria guida', 'ar': 'تكييف قيادته'}` | `{'it': 'presenza di velocipedi', 'ar': 'وجود دراجات هوائية'}`
 
 ---
 
 **156.** Il conducente di un'autovettura deve prestare particolare attenzione per la presenza nel traffico di velocipedi utilizzati da conducenti giovanissimi e inesperti o da anziani
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب على سائق سيارة الركوب إيلاء اهتمام خاص لوجود دراجات هوائية في حركة المرور يقودها سائقون صغار السن وعديمو الخبرة أو كبار في السن.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الأطفال وكبار السن قد يرتكبون أخطاء مفاجئة، كالانعطاف دون إشارة أو التردد أو السقوط المفاجئ، مما يستدعي أقصى درجات الحيطة والحذر الشديد أثناء القيادة بجوارهم.
+- **⚠️ كشف الفخ:** الأطفال والمسنون على الدراجات فئات شديدة الهشاشة تتطلب انتباهاً مضاعفاً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'giovanissimi e inesperti o da anziani', 'ar': 'صغار السن وعديمو الخبرة أو كبار السن'}` | `{'it': 'particolare attenzione', 'ar': 'اهتمام وانتباه خاص'}`
 
 ---
 
 **157.** Per un ciclista che si accinge ad effettuare una manovra è molto difficile valutare la velocità di avvicinamento dei veicoli a motore presenti nel traffico
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** بالنسبة لسائق الدراجة الهوائية الذي يوشك على القيام بمناورة، يصعب عليه للغاية تقدير سرعة اقتراب المركبات ذات المحرك الموجودة في حركة المرور.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ سائق الدراجة، خاصة إن كان صغيراً أو مسناً، يواجه صعوبة بصرية وذهنية في تقدير سرعة المركبات السريعة القادمة خلفه بدقة، مما يجعله قد يشرع في الانعطاف ظناً منه أن السيارة بعيدة.
+- **⚠️ كشف الفخ:** راكب الدراجة يعجز غالباً عن تقدير سرعة اندفاع السيارات خلفه؛ لذا يجب على سائق السيارة توقع ذلك.
+- **🔑 الكلمات المفتاحية:** `{'it': 'difficile valutare la velocità di avvicinamento', 'ar': 'صعوبة تقدير سرعة الاقتراب'}` | `{'it': 'ciclista', 'ar': 'راكب الدراجة الهوائية'}`
 
 ---
 
 **158.** Il conducente di un'autovettura deve prevedere la difficoltà di valutazione della velocità del proprio veicolo da parte di un ciclista che, trovandosi sulla stessa corsia di marcia, si accinge a svoltare a sinistra
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب على سائق سيارة الركوب أن يتوقع صعوبة تقدير سرعة مركبته من قِبل راكب دراجة هوائية متواجد في نفس مسار السير ويوشك على الانعطاف يساراً.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الانعطاف لليسار بالدراجة يتطلب قطع المسار؛ ويجب على سائق السيارة خلفه تخفيف السرعة والاستعداد للتوقف متوقعاً أن راكب الدراجة قد لا يدرك مدى سرعة اقتراب السيارة منه.
+- **⚠️ كشف الفخ:** توقع أخطاء الآخرين وضعف تقديرهم للسرعة أساس القيادة الدفاعية الوقائية.
+- **🔑 الكلمات المفتاحية:** `{'it': 'prevedere la difficoltà di valutazione', 'ar': 'توقع صعوبة التقدير'}` | `{'it': 'svoltare a sinistra', 'ar': 'الانعطاف يساراً'}`
 
 ---
 
 **159.** Il conducente deve esercitare particolare prudenza guidando in presenza di ciclista anziano che, per ispezionare la strada alle proprie spalle, esegue con difficoltà e lentezza la torsione del busto a causa dell'età avanzata
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب على السائق توخي حذر استثنائي عند القيادة بالقرب من دراج مسن، يقوم بسبب تقدمه في العمر بصعوبة وبطء بلف جذعه ورأسه لفحص الطريق خلف ظهره.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ كبار السن يعانون من محدودية حركة الرقبة والجذع، وعند التفاتهم للخلف قد يفقدون استقامة الدراجة فتنحرف دراجتهم فجأة نحو منتصف الطريق.
+- **⚠️ كشف الفخ:** التفاف الدراج المسن للنظر للخلف غالباً ما يصحبه انحراف عرضي مفاجئ لدراجته.
+- **🔑 الكلمات المفتاحية:** `{'it': 'ciclista anziano', 'ar': 'دراج مسن'}` | `{'it': 'difficoltà e lentezza la torsione del busto', 'ar': 'صعوبة وبطء في التواء الجذع'}` | `{'it': 'particolare prudenza', 'ar': 'حذر استثنائي'}`
 
 ---
 
 **160.** La presenza nel traffico extraurbano di bambini in bicicletta, anche se affiancati, non rappresenta un rischio per chi guida un autoveicolo, data la loro modesta velocità
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** وجود أطفال يركبون دراجات في حركة المرور خارج المدن، حتى لو كانوا يسيرون بجانب بعضهم، لا يمثل خطراً على قائد المركبة الآلية نظراً لسرعتهم الضئيلة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ وجود الأطفال بالدراجات خارج المدن يمثل خطراً داهماً وبالغاً؛ وسيرهم متجاورين يضيق الطريق ويزيد من احتمالية سقوط أحدهم فجأة أمام إطارات السيارات المسرعة.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي النفي (non rappresenta un rischio)؛ بل يمثل قمة الخطر.
+- **🔑 الكلمات المفتاحية:** `{'it': 'bambini in bicicletta', 'ar': 'أطفال على دراجات'}` | `{'it': 'non rappresenta un rischio', 'ar': 'لا يمثل خطراً (خطأ كلي)'}`
 
 ---
 
 **161.** I ciclisti possono viaggiare in tutta sicurezza nel traffico extraurbano perché i conducenti dei veicoli a motore sono sempre capaci di prevedere eventuali loro cadute o pericolosi sbandamenti dovuti ad irregolarità del fondo stradale
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يمكن للدراجين السير بكل أمان في حركة المرور خارج المدن لأن قائدي المركبات ذات المحرك قادرون دائماً على توقع أي سقوط محتمل أو انحرافات خطيرة ناتجة عن عيوب رصف الطريق.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ الطرق خارج المدن ذات سرعات عالية وخطر شديد على الدراجين؛ ولا يمكن لسائقي السيارات التنبؤ بكل سقطة أو حفرة؛ لذا فإن السير هناك محفوف بالمخاطر ولا يوصف بالأمان التام إطلاقاً.
+- **⚠️ كشف الفخ:** كلمة (In tutta sicurezza / sono sempre capaci) ادعاء مفرط وباطل؛ الحوادث تقع فجأة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'in tutta sicurezza', 'ar': 'بكل أمان (زعم باطل)'}` | `{'it': 'sempre capaci di prevedere', 'ar': 'قادرون دائماً على التوقع (خطأ)'}`
 
 ---
 
 **162.** La velocità di avvicinamento di un'autovettura, soprattutto su strade extraurbane, è facilmente valutabile a distanza da parte di un ciclista che procede lentamente
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** سرعة اقتراب سيارة ركوب، خاصة على الطرق خارج المراكز السكنية، يسهل تقديرها عن بعد من قِبل راكب دراجة يسير ببطء.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ تقدير سرعة سيارة مقتربة من الخلف أو المقابل من مسافة بعيدة أمر في غاية الصعوبة للدراجين والمارة، وغالباً ما يخطئون في تقديرها بسبب فارق السرعة الهائل.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (facilmente valutabile)؛ بل التقدير صعب جداً (Difficoltosa).
+- **🔑 الكلمات المفتاحية:** `{'it': 'facilmente valutabile', 'ar': 'يسهل تقديرها (خطأ)'}` | `{'it': 'velocità di avvicinamento', 'ar': 'سرعة الاقتراب'}`
 
 ---
-
 
 ## 📌 Conducente autovettura autoveicolo (9 domande)
 
 **163.** Il conducente di un'autovettura deve costantemente ricordare il rischio derivante dalla presenza nel traffico di ciclomotoristi dotati di limitata esperienza di guida a causa della giovane età
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب على سائق سيارة الركوب أن يتذكر باستمرار الخطر الناجم عن وجود قائدي دراجات صغيرة (سيكلوموتوري) في حركة المرور يتميزون بخبرة قيادة محدودة بسبب صغر سنهم.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الدراجات الصغيرة يقودها مراهقون بدءاً من سن 14 عاماً؛ وقلة خبرتهم تجعلهم يترددون أو يرتكبون مناورات مفاجئة وغير مدروسة، ويجب على السائق توقع تصرفاتهم ومضاعفة الحذر.
+- **⚠️ كشف الفخ:** سائقو السيكلوموتوري صغار السن وقليلو الخبرة يتطلبون انتباهاً خاصاً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'ciclomotoristi', 'ar': 'قائدو الدراجات الصغيرة'}` | `{'it': 'limitata esperienza di guida', 'ar': 'خبرة قيادة محدودة'}` | `{'it': 'giovane età', 'ar': 'صغر السن'}`
 
 ---
 
 **164.** La manovra di svolta a sinistra è particolarmente pericolosa per un ciclomotore che deve interferire con la traiettoria di una o più colonne di veicoli più veloci sopraggiungenti nella stessa direzione
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** مناورة الانعطاف لليسار خطيرة بشكل خاص على الدراجة الصغيرة التي يجب أن تتقاطع مع مسار رتل أو أكثر من المركبات الأسرع القادمة في نفس الاتجاه.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الانعطاف يساراً يجبر الدراجة البطيئة على قطع مسارات المركبات السريعة التي تتجاوزها، مما يعرضها للاصطدام من الخلف أو الجانب إذا لم ينتبه الجميع.
+- **⚠️ كشف الفخ:** الانعطاف لليسار من أخطر مناورات الدراجات الصغيرة على الإطلاق.
+- **🔑 الكلمات المفتاحية:** `{'it': 'svolta a sinistra', 'ar': 'الانعطاف لليسار'}` | `{'it': 'particolarmente pericolosa', 'ar': 'خطيرة بشكل خاص'}` | `{'it': 'ciclomotore', 'ar': 'دراجة صغيرة'}`
 
 ---
 
 **165.** Il conducente di autoveicolo deve valutare con prudenza, in relazione alla propria velocità, la distanza che lo separa da un ciclomotorista che si accinge a svoltare
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب على سائق المركبة الآلية أن يقدر بحذر، قياساً على سرعته، المسافة التي تفصله عن قائد دراجة صغيرة يوشك على الانعطاف.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ عند رؤية دراجة تستعد للانعطاف، يجب على سائق السيارة حساب مسافة التوقف وتخفيف السرعة فوراً وعدم المراهنة على مسافات قصيرة لتفادي صدمها.
+- **⚠️ كشف الفخ:** التقدير الحذر للمسافة والسرعة واجب أساسي عند انعطاف الدراجات.
+- **🔑 الكلمات المفتاحية:** `{'it': 'valutare con prudenza', 'ar': 'التقدير بحذر'}` | `{'it': 'distanza che lo separa', 'ar': 'المسافة الفاصلة'}` | `{'it': 'accinge a svoltare', 'ar': 'يوشك على الانعطاف'}`
 
 ---
 
 **166.** Il conducente di autoveicolo deve prevedere manovre improvvise altrui, come il procedere a zig-zag di un ciclomotore
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب على سائق المركبة الآلية أن يتوقع المناورات المفاجئة للآخرين، مثل سير الدراجة الصغيرة بنمط متعرج (زجزاج).
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ السير المتعرج (Procedere a zig-zag) شائع بين الدراجات لتفادي البالوعات أو الحفر؛ ويجب على سائق السيارة توقع هذه الانحرافات اللحظية وترك هامش أمان كافٍ.
+- **⚠️ كشف الفخ:** القيادة الدفاعية تفرض توقع المناورات المتعرجة المفاجئة للدراجات.
+- **🔑 الكلمات المفتاحية:** `{'it': 'prevedere manovre improvvise', 'ar': 'توقع المناورات المفاجئة'}` | `{'it': 'zig-zag', 'ar': 'سير متعرج (زجزاج)'}`
 
 ---
 
 **167.** Il conducente di autoveicolo o motoveicolo deve rispettare la distanza di sicurezza laterale da ciclisti o ciclomotoristi per evitare di metterne a repentaglio l'equilibrio nella guida
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب على سائق المركبة الآلية أو الدراجة النارية احترام مسافة الأمان الجانبية عن الدراجين أو سائقي الدراجات الصغيرة لتجنب تعريض توازنهم في القيادة للخطر.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ إزاحة الهواء الصدمية (Spostamento d'aria) الناتجة عن مرور سيارة قريبة ومسرعة كفيلة بإفقاد الدراج توازنه وإسقاطه أرضاً؛ لذا يلزم القانون ترك مسافة أمان جانبية واسعة (لا تقل عن 1.5 متر).
+- **⚠️ كشف الفخ:** مسافة الأمان الجانبية ضرورية لحماية توازن الدراجات الهوائية والنارية.
+- **🔑 الكلمات المفتاحية:** `{'it': 'distanza di sicurezza laterale', 'ar': 'مسافة الأمان الجانبية'}` | `{'it': 'equilibrio nella guida', 'ar': 'التوازن في القيادة'}`
 
 ---
 
 **168.** Il conducente di autoveicolo deve evitare deviazioni trasversali, anche modeste, del proprio veicolo soprattutto in presenza di ciclomotoristi o ciclisti per evitarne la possibile caduta a terra
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب على سائق المركبة الآلية تجنب الانحرافات العرضية، حتى لو كانت طفيفة، لمركبته لا سيما في وجود سائقي دراجات صغيرة أو دراجين لتجنب سقوطهم المحتمل على الأرض.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ أدنى انحراف للمقود يميناً أو يساراً قد يؤدي إلى صدم الدراج الذي يسير بمحاذاة السيارة أو إفزاعه ودفعه للاصطدام بالرصيف والسقوط.
+- **⚠️ كشف الفخ:** الانحراف العرضي المفاجئ حتى لو كان بسيطاً يشكل خطراً قاتلاً على راكبي الدراجات.
+- **🔑 الكلمات المفتاحية:** `{'it': 'evitare deviazioni trasversali', 'ar': 'تجنب الانحرافات العرضية'}` | `{'it': 'caduta a terra', 'ar': 'السقوط أرضاً'}`
 
 ---
 
 **169.** Il conducente di autoveicolo deve rispettare le norme della circolazione, ma non è tenuto a prevedere le possibili imprudenze del ciclomotorista che lo affianca sulla strada
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يجب على سائق المركبة الآلية احترام قواعد السير، لكنه غير ملزم بتوقع الحماقات والتصرفات غير الحذرة المحتملة لقائد الدراجة الصغيرة الذي يسير بجانبه على الطريق.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ المبدأ الأساسي للأمان هو القيادة الوقائية التي تفرض توقع تهور وأخطاء مستخدمي الطريق الضعفاء (Prevedere le possibili imprudenze) ومحاولة تداركها وتفاديها.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي النفي (non è tenuto a prevedere)؛ بل هو ملزم بتوقع تصرفاتهم الطائشة لحماية الأرواح.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non è tenuto a prevedere', 'ar': 'غير ملزم بالتوقع (خطأ صريح)'}` | `{'it': 'imprudenze', 'ar': 'التصرفات غير الحذرة/الرعونة'}`
 
 ---
 
 **170.** Risulta facile al conducente di un autoveicolo valutare la distanza che lo separa da un ciclomotorista che rallenta bruscamente per svoltare in una strada non sufficientemente segnalata
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يسهل على سائق المركبة الآلية تقدير المسافة التي تفصله عن قائد دراجة صغيرة يبطئ فجأة للانعطاف في طريق غير محدد بإشارات كافية.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ التباطؤ المفاجئ دون سابق إنذار يجعل تقدير مسافة التوقف أمراً صعباً جداً وقد يؤدي لاصطدام خلفي إن لم تكن مسافة الأمان كبيرة ومضاعفة.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (risulta facile)؛ بل التقدير صعب ومحفوف بالخطر.
+- **🔑 الكلمات المفتاحية:** `{'it': 'risulta facile', 'ar': 'يسهل عليه (خطأ)'}` | `{'it': 'rallenta bruscamente', 'ar': 'يبطئ فجأة'}`
 
 ---
 
 **171.** Il conducente di un'autovettura può superare a velocità sostenuta, pur rispettando i limiti, un ciclomotorista nonostante la scarsa distanza di sicurezza laterale
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يجوز لسائق سيارة الركوب تجاوز قائد دراجة صغيرة بسرعة عالية، مع التزامه بالسرعة القانونية، على الرغم من ضيق مسافة الأمان الجانبية.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ يحظر التجاوز بسرعة عالية عند ضيق المسافة الجانبية؛ لأن ضغط الهواء والاقتراب الشديد قد يسقطان قائد الدراجة تحت العجلات فوراً.
+- **⚠️ كشف الفخ:** التجاوز بمسافة جانبية ضيقة محظور وشديد الخطورة مهما كانت السرعة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'scarsa distanza di sicurezza laterale', 'ar': 'مسافة أمان جانبية ضيقة'}` | `{'it': 'superare a velocità sostenuta', 'ar': 'تجاوز بسرعة عالية (خطأ مميت)'}`
 
 ---
-
 
 ## 📌 Rischi strade extraurbane (5 domande)
 
 **172.** Il conducente di autovettura deve conoscere i rischi derivanti dalla presenza, soprattutto su strade extraurbane, di mezzi particolarmente lenti, come ciclomotori a tre ruote
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب على سائق سيارة الركوب معرفة المخاطر الناتجة عن وجود مركبات بطيئة للغاية، لا سيما على الطرق خارج المراكز السكنية، مثل الدراجات الصغيرة ذات الثلاث عجلات (الأبي / التريسيكلو).
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ المركبات ذات الثلاث عجلات (Ciclomotori a tre ruote) تسير بسرعات بطيئة جداً (أقل من 45 كم/س) خارج المدن؛ ومفاجأتها على سرعة عالية تشكل خطر اصطدام خلفي عنيف ما لم ينتبه السائق مبكراً.
+- **⚠️ كشف الفخ:** المركبات البطيئة خارج المدن تمثل عائقاً مفاجئاً يتطلب يقظة تامة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'mezzi particolarmente lenti', 'ar': 'مركبات بطيئة للغاية'}` | `{'it': 'ciclomotori a tre ruote', 'ar': 'دراجات صغيرة بثلاث عجلات'}` | `{'it': 'strade extraurbane', 'ar': 'طرق خارج المراكز السكنية'}`
 
 ---
 
 **173.** Per un'autovettura che procede a velocità sostenuta, pur rispettando i limiti su strada extraurbana a due sole corsie, un ciclomotore a tre ruote costituisce un potenziale pericolo, soprattutto se effettua manovre improvvise
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** بالنسبة لسيارة ركوب تسير بسرعة عالية، مع احترامها للحدود على طريق خارج المدن بمسارين فقط، فإن دراجة صغيرة ثلاثية العجلات تشكل خطراً محتملاً، لا سيما إذا قامت بمناورات مفاجئة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الفارق الكبير في السرعة وضيق الطريق ذي المسارين يجعل أي مناورة مفاجئة للمركبة البطيئة سبباً لحادث مروع.
+- **⚠️ كشف الفخ:** فارق السرعة الكبير على الطرق ذات المسارين يرفع احتمالية الخطر.
+- **🔑 الكلمات المفتاحية:** `{'it': 'potenziale pericolo', 'ar': 'خطر محتمل'}` | `{'it': 'manovre improvvise', 'ar': 'مناورات مفاجئة'}`
 
 ---
 
 **174.** Per il conducente di un'autovettura che procede a velocità regolare su strada extraurbana, può risultare difficoltosa la valutazione della velocità di una macchina agricola che, in genere, procede lentamente
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** بالنسبة لسائق سيارة ركوب تسير بسرعة عادية على طريق خارج المدن، قد يكون من الصعب تقدير سرعة آلة زراعية تسير ببطء في العادة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الآلات الزراعية تسير ببطء شديد وتظهر من بعيد وكأنها متوقفة، مما يخدع العين في تقدير سرعة الاقتراب الحقيقية منها قبل فوات الأوان.
+- **⚠️ كشف الفخ:** الآلات الزراعية تخدع السائقين في تقدير سرعة اقترابهم منها.
+- **🔑 الكلمات المفتاحية:** `{'it': 'difficoltosa la valutazione della velocità', 'ar': 'صعوبة تقدير السرعة'}` | `{'it': 'macchina agricola', 'ar': 'آلة زراعية'}`
 
 ---
 
 **175.** La presenza di veicoli che possono raggiungere velocità molto diverse tra loro, soprattutto su strada extraurbana, costituisce un fattore di sicurezza
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** وجود مركبات يمكن أن تطور سرعات متباينة ومختلفة جداً عن بعضها، خاصة على طريق خارج المدن، يشكل عاملاً من عوامل الأمان.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ التفاوت الكبير في السرعات (Differenze di velocità) هو أحد أكبر مسببات الحوادث والاصطدامات الخلفية، وليس عامل أمان إطلاقاً.
+- **⚠️ كشف الفخ:** اختلاف وتفاوت السرعات على الطريق يمثل خطراً جسيماً وليس عامل أمان.
+- **🔑 الكلمات المفتاحية:** `{'it': 'fattore di sicurezza', 'ar': 'عامل أمان (كذب صريح)'}` | `{'it': 'velocità molto diverse', 'ar': 'سرعات مختلفة جداً'}`
 
 ---
 
 **176.** Risulta facile la valutazione dei tempi di avvicinamento ad un veicolo lento per un'autovettura che, specialmente su strada extraurbana, viaggia a velocità sostenuta pur rispettando i limiti
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يسهل تقدير أوقات الاقتراب من مركبة بطيئة بالنسبة لسيارة ركوب تسير، لا سيما على طريق خارج المدن، بسرعة عالية مع احترامها للحدود.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ الاقتراب السريع من جسم بطيء يخدع الإدراك البصري ويصعب تقدير الوقت المتبقي للكبح بدقة؛ والزعم بسهولة التقدير خطأ فادح.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (risulta facile)؛ بل التقدير صعب وخادع للعين.
+- **🔑 الكلمات المفتاحية:** `{'it': 'risulta facile la valutazione', 'ar': 'يسهل التقدير (خطأ)'}` | `{'it': 'veicolo lento', 'ar': 'مركبة بطيئة'}`
 
 ---
-
 
 ## 📌 Massa veicoli (5 domande)
 
 **177.** Risulta maggiormente pericolosa la collisione tra veicoli dotati di masse molto diverse tra loro
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يكون الاصطدام أكثر خطورة وضرراً بين مركبات ذات كتل وأوزان متباينة ومختلفة جداً عن بعضها البعض.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ قوانين الفيزياء تؤكد أنه عند اصطدام مركبة ثقيلة (مثل شاحنة أو دفع رباعي) بمركبة خفيفة (مثل دراجة أو سيارة صغيرة)، فإن المركبة الخفيفة وركابها يمتصون كامل طاقة الصدمة التدميرية وتكون النتائج كارثية.
+- **⚠️ كشف الفخ:** اختلاف الكتلة يجعل المركبة الأخف هي الضحية الأكبر في التصادم.
+- **🔑 الكلمات المفتاحية:** `{'it': 'maggiormente pericolosa la collisione', 'ar': 'أكثر خطورة في الاصطدام'}` | `{'it': 'masse molto diverse', 'ar': 'كتل متباينة جداً'}`
 
 ---
 
 **178.** Guidando una piccola autovettura è necessario valutare i maggiori rischi derivanti da possibili tamponamenti o collisioni con autovettura di massa superiore
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** عند قيادة سيارة ركوب صغيرة، من الضروري تقدير وتقييم المخاطر الأكبر الناتجة عن الاصطدامات المحتملة من الخلف أو التصادم مع سيارة ركوب ذات كتلة ووزن أكبر.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ السيارات الصغيرة ذات مناطق تشوه محدودة وكتلة ضئيلة، وتصادمها مع سيارات أثقل يسبب أضراراً بالغة لهيكلها وركابها، مما يفرض على سائقها مضاعفة مسافات الأمان والانتباه.
+- **⚠️ كشف الفخ:** سائق السيارة الصغيرة يجب أن يكون أكثر حذراً من الاصطدام بالمركبات الأثقل.
+- **🔑 الكلمات المفتاحية:** `{'it': 'piccola autovettura', 'ar': 'سيارة ركوب صغيرة'}` | `{'it': 'massa superiore', 'ar': 'كتلة أكبر'}` | `{'it': 'maggiori rischi', 'ar': 'مخاطر أكبر'}`
 
 ---
 
 **179.** Un'autovettura dotata di notevole massa costituisce, nella circolazione, una garanzia di sicurezza anche per gli altri veicoli di dimensioni e di massa inferiori
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** سيارة الركوب ذات الوزن والكتلة الكبيرة تشكل، في حركة المرور، ضمانة أمان أيضاً للمركبات الأخرى ذات الأبعاد والكتلة الأقل.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ المركبة الثقيلة تشكل خطراً جسيماً وتهديداً للمركبات الأصغر عند الاصطدام، ولا تشكل أي ضمانة أمان للآخرين على الإطلاق.
+- **⚠️ كشف الفخ:** الكتلة الكبيرة تحمي ركابها فقط، لكنها تشكل تهديداً خطيراً للآخرين.
+- **🔑 الكلمات المفتاحية:** `{'it': 'garanzia di sicurezza per gli altri', 'ar': 'ضمان أمان للآخرين (خطأ)'}` | `{'it': 'notevole massa', 'ar': 'كتلة هائلة'}`
 
 ---
 
 **180.** I veicoli sono tanto più sicuri, nella circolazione, quanto più le loro masse sono differenziate
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** تكون المركبات أكثر أماناً في حركة المرور كلما كانت كتلها وأوزانها متباينة ومتباعدة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ تباين الكتل يزيد من فداحة الحوادث؛ والوضع الأكثر أماناً هو تجانس الكتل والسرعات على الطريق.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (più sicuri quanto più masse differenziate)؛ تباين الكتل يزيد الخطر.
+- **🔑 الكلمات المفتاحية:** `{'it': 'masse sono differenziate', 'ar': 'كتل متباينة (سبب خطر)'}` | `{'it': 'più sicuri', 'ar': 'أكثر أماناً (خطأ)'}`
 
 ---
 
 **181.** Le grandi differenze di prestazioni e di masse fra le autovetture facilitano una buona sicurezza stradale
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** الفوارق الكبيرة في الأداء والكتل بين سيارات الركوب تسهل تحقيق سلامة مرورية جيدة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ الفروق الكبيرة في التسارع والسرعة والكتلة تربك حركة السير وترفع معدلات وخطورة الحوادث ولا تسهل السلامة أبداً.
+- **⚠️ كشف الفخ:** الفروق الكبيرة في الأداء والكتلة تعقد السلامة المرورية ولا تسهلها.
+- **🔑 الكلمات المفتاحية:** `{'it': 'facilitano una buona sicurezza', 'ar': 'تسهل سلامة جيدة (خطأ)'}` | `{'it': 'grandi differenze', 'ar': 'فوارق كبيرة'}`
 
 ---
-
 
 ## 📌 Conducente fuoristrada (6 domande)
 
 **182.** Il conducente di un fuoristrada (Suv) deve guidare con la massima prudenza, consapevole che l'altezza e la massa del proprio veicolo costituiscono un potenziale pericolo per pedoni, ciclisti e autovetture di modeste dimensioni
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب على سائق سيارة الدفع الرباعي (SUV) القيادة بأقصى درجات الحذر، مدركاً أن ارتفاع وكتلة مركبته يشكلان خطراً محتملاً على المشاة وراكبي الدراجات وسيارات الركوب الصغيرة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ سيارات الدفع الرباعي والـ SUV تتميز بارتفاع مقدمتها وكتلتها الضخمة، مما يجعل صدمها للمشاة أو السيارات الصغيرة مدمراً وفتاكاً؛ ويفرض ذلك على سائقها حذراً مضاعفاً.
+- **⚠️ كشف الفخ:** ارتفاع وكتلة الـ SUV تشكل خطراً بالغاً على المشاة والسيارات الصغيرة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'fuoristrada (Suv)', 'ar': 'سيارة دفع رباعي (SUV)'}` | `{'it': 'altezza e massa', 'ar': 'الارتفاع والكتلة'}` | `{'it': 'potenziale pericolo', 'ar': 'خطر محتمل'}`
 
 ---
 
 **183.** I conducenti dei fuoristrada (Suv) debbono considerare i gravi danni che i paraurti sporgenti e rafforzati del proprio mezzo possono determinare nel caso di impatto con veicoli più piccoli
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب على قائدي سيارات الدفع الرباعي (SUV) أن يضعوا في حسبانهم الأضرار الجسيمة التي يمكن أن تسببها مصدات الصدمات البارزة والمقواة (Bull bars) لمركباتهم في حالة الاصطدام بالمركبات الأصغر.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الدعاميات والمصدات الحديدية الأمامية المقواة (Bull bars) تسحق هياكل السيارات العادية وتقتل المشاة عند الاصطدام لصلابتها المفرطة، ويجب على السائق إدراك خطورتها البالغة.
+- **⚠️ كشف الفخ:** الدعاميات الحديدية (Bull bars) تضاعف من وحشية الأضرار على المركبات الأخرى.
+- **🔑 الكلمات المفتاحية:** `{'it': 'paraurti sporgenti e rafforzati (bull bars)', 'ar': 'المصدات البارزة والمقواة'}` | `{'it': 'gravi danni', 'ar': 'أضرار جسيمة'}`
 
 ---
 
 **184.** Il conducente di fuoristrada (Suv) deve ricordare che la guida di tale veicolo è particolarmente impegnativa in città e che richiede particolari cautele soprattutto nelle manovre di emergenza
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب على سائق سيارة الدفع الرباعي (SUV) أن يتذكر أن قيادة هذه المركبة متطلبة وشاقة بشكل خاص داخل المدينة وتتطلب احتياطات خاصة لا سيما في مناورات الطوارئ.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ أبعاد الـ SUV الضخمة، ونقاطها العمياء الواسعة، وثقل وزنها، ومركز ثقلها المرتفع يجعل المناورات والفرملة الطارئة داخل شوارع المدينة المزدحمة أمراً بالغ الصعوبة والحساسية.
+- **⚠️ كشف الفخ:** قيادة الـ SUV داخل المدن صعبة وتتطلب مهارة واحتياطات مشددة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'particolarmente impegnativa in città', 'ar': 'شاقة ومتطلبة في المدينة'}` | `{'it': 'manovre di emergenza', 'ar': 'مناورات الطوارئ'}`
 
 ---
 
 **185.** La guida di un fuoristrada (Suv), dotato di massa notevole e di altezza superiore alle autovetture, garantisce la massima sicurezza per gli occupanti del veicolo stesso e per gli altri utenti della strada
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** قيادة سيارة دفع رباعي (SUV)، تتميز بكتلة هائلة وارتفاع أعلى من سيارات الركوب، تضمن أقصى درجات الأمان لركاب المركبة نفسها وللمستخدمين الآخرين للطريق.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ الـ SUV لا تضمن أقصى أمان للآخرين بل تشكل خطراً أكبر عليهم؛ كما أن مركز ثقلها المرتفع يجعلها أكثر عرضة للانقلاب (Ribaltamento)، وبالتالي لا تضمن الأمان المطلق.
+- **⚠️ كشف الفخ:** الـ SUV ليست آمنة للآخرين بل هي مصدر خطر أكبر عليهم.
+- **🔑 الكلمات المفتاحية:** `{'it': 'garantisce la massima sicurezza per gli altri', 'ar': 'تضمن أقصى أمان للآخرين (كذب صريح)'}` | `{'it': 'fuoristrada', 'ar': 'دفع رباعي'}`
 
 ---
 
 **186.** Nel caso di collisione o di tamponamento, i paraurti sporgenti e rafforzati (bull bars) rendono i fuoristrada meno pericolosi per gli altri veicoli
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** في حالة التصادم أو الاصطدام الخلفي، فإن المصدات البارزة والمقواة (Bull bars) تجعل سيارات الدفع الرباعي أقل خطورة على المركبات الأخرى.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ المصدات الحديدية المقواة تجعلها أكثر خطورة وفتكاً بكثير (Molto più pericolosi) لأنها تلغي امتصاص الصدمات وتسحق هياكل السيارات الأخرى.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (meno pericolosi)؛ بل تجعلها أكثر تدميراً وخطورة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'meno pericolosi', 'ar': 'أقل خطورة (خطأ عكسي)'}` | `{'it': 'bull bars', 'ar': 'المصدات المقواة'}`
 
 ---
 
 **187.** La guida di un fuoristrada (Suv) risulta particolarmente indicata all'interno dei centri abitati
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** قيادة سيارة الدفع الرباعي (SUV) تعتبر ملائمة ومناسبة بشكل خاص داخل المراكز السكنية.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ شوارع المدن الضيقة والمزدحمة بالمشاة والدراجات لا تلائم الحجم الضخم والنقاط العمياء لسيارات الـ SUV، وقيادتها هناك شاقة وغير مثالية.
+- **⚠️ كشف الفخ:** الـ SUV ليست ملائمة للمدن المزدحمة بل صعبة ومرهقة في المناورة والركن.
+- **🔑 الكلمات المفتاحية:** `{'it': 'particolarmente indicata', 'ar': 'ملائمة ومناسبة بشكل خاص (خطأ)'}` | `{'it': "all'interno dei centri abitati", 'ar': 'داخل المراكز السكنية'}`
 
 ---
-
 
 ## 📌 Valutazioni pericolo (3 domande)
 
 **188.** Alla guida di un'autovettura è opportuno valutare costantemente la potenziale pericolosità dei veicoli industriali e degli autobus, a causa della loro massa notevolmente maggiore
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** أثناء قيادة سيارة ركوب، من المناسب تقييم الخطر المحتمل للمركبات الصناعية (الشاحنات) والحافلات باستمرار، بسبب كتلتها الأكبر بكثير.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الشاحنات والحافلات تمتلك وزناً هائلاً ومسافة فرملة أطول ونقاطاً عمياء واسعة، ويجب على سائق السيارة توقع حركاتها وترك مسافات أمان واسعة حولها.
+- **⚠️ كشف الفخ:** المركبات الثقيلة تتطلب حذراً وتقييماً دائماً لفارق الكتلة والفرملة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'veicoli industriali e autobus', 'ar': 'مركبات صناعية وحافلات'}` | `{'it': 'massa notevolmente maggiore', 'ar': 'كتلة أكبر بكثير'}` | `{'it': 'valutare la potenziale pericolosità', 'ar': 'تقييم الخطر المحتمل'}`
 
 ---
 
 **189.** Il conducente di motociclo o di autovettura deve saper valutare nella guida gli alti rischi derivanti da autocarri, autotreni o autoarticolati che non rispettano i limiti di velocità
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب على سائق الدراجة النارية أو سيارة الركوب أن يعرف كيف يقيّم في القيادة المخاطر العالية الناتجة عن الشاحنات أو القطارات الطرقية أو التريلات التي لا تحترم حدود السرعة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ شاحنة ثقيلة مسرعة تشكل خطراً مميتاً لأن قوة اندفاعها الفيزيائية هائلة وتدمر أي شيء أمامها؛ ويجب تجنب الاصطدام بها أو التواجد في مسارها.
+- **⚠️ كشف الفخ:** الشاحنات التي تتجاوز السرعة تشكل خطراً بالغاً يجب تفاديه بوعي كامل.
+- **🔑 الكلمات المفتاحية:** `{'it': 'alti rischi', 'ar': 'مخاطر عالية'}` | `{'it': 'non rispettano i limiti di velocità', 'ar': 'لا تحترم حدود السرعة'}` | `{'it': 'autotreni o autoarticolati', 'ar': 'شاحنات ومقطورات وتريلات'}`
 
 ---
 
 **190.** Autocarri, autotreni e autoarticolati, per la loro massa notevole, non costituiscono, per un'autovettura o per un motociclo, rischi potenziali maggiori rispetto a qualsiasi altro veicolo
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** الشاحنات والقطارات الطرقية والتريلات، نظراً لكتلتها الكبيرة، لا تشكل لسيارة الركوب أو الدراجة النارية مخاطر محتملة أكبر مقارنة بأي مركبة أخرى.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ بل تشكل مخاطر مضاعفة وأكبر بكثير نظراً لقوة صدمتها الهائلة وصعوبة إيقافها ومساحة نقاطها العمياء مقارنة بالمركبات العادية.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي النفي (non costituiscono rischi maggiori)؛ بل تشكل أكبر الأخطار.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non costituiscono rischi maggiori', 'ar': 'لا تشكل مخاطر أكبر (خطأ صريح)'}` | `{'it': 'massa notevole', 'ar': 'كتلة هائلة'}`
 
 ---
-
 
 ## 📌 Campo visibilita (7 domande)
 
 **191.** Nonostante le caratteristiche costruttive del veicolo rendano possibile un adeguato campo di visibilità, durante la guida il conducente deve attentamente visualizzare l'area antistante e limitrofa
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على الرغم من أن الخصائص التصنيعية للمركبة تتيح مجال رؤية مناسب، يجب على السائق أثناء القيادة مسح ورؤية المنطقة الأمامية والمحيطة بانتباه تام.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ لا يكفي الاعتماد على اتساع الزجاج؛ بل يجب على السائق تحريك عينيه ورأسه باستمرار لمسح الطريق، والتقاطعات، والمشاة على الأرصفة في كل لحظة.
+- **⚠️ كشف الفخ:** المسح البصري النشط للمنطقة الأمامية والمحيطة واجب دائم أثناء القيادة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'campo di visibilità', 'ar': 'مجال الرؤية'}` | `{'it': 'area antistante e limitrofa', 'ar': 'المنطقة الأمامية والمحيطة'}`
 
 ---
 
 **192.** Per il conducente il campo di visibilità può essere ridotto sia da uno dei poggiatesta sia da elementi della carrozzeria della propria autovettura che possono impedire accidentalmente l'avvistamento di altri utenti della strada
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** بالنسبة للسائق، يمكن أن يقل مجال الرؤية بفعل مساند الرأس أو عناصر هيكل سيارته الخاصة التي قد تعيق عرضياً رصد مستخدمي الطريق الآخرين.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ قوائم السقف (Montanti) ومساند الرأس والمرايا تخلق نقاطاً عمياء داخلية تحجب رؤية المشاة أو راكبي الدراجات في لحظات حرجة، ويجب الانتباه لها بتحريك الرأس.
+- **⚠️ كشف الفخ:** مساند الرأس وقوائم الهيكل تقلل مجال الرؤية وتصنع نقاطاً عمياء.
+- **🔑 الكلمات المفتاحية:** `{'it': 'poggiatesta', 'ar': 'مساند الرأس'}` | `{'it': 'elementi della carrozzeria', 'ar': 'عناصر الهيكل/القوائم'}` | `{'it': 'ridotto', 'ar': 'يقل ويتقلص'}`
 
 ---
 
 **193.** Per consentire una adeguata visibilità è vietato applicare pellicole adesive sul parabrezza e sui vetri laterali anteriori dei veicoli
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** للسماح برؤية مناسبة، يُحظر وضع ملصقات أو أفلام تظليل لاصقة على الزجاج الأمامي وعلى النوافذ الجانبية الأمامية للمركبات.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ يحظر القانون تظليل أو وضع أي ملصقات أو عوازل على الزجاج الأمامي ونوافذ الأبواب الأمامية؛ لضمان رؤية السائق الخارجية ولتمكين الشرطة والآخرين من رؤية وجه السائق.
+- **⚠️ كشف الفخ:** تظليل الزجاج الأمامي والجانبي الأمامي محظور تماماً قانوناً في إيطاليا.
+- **🔑 الكلمات المفتاحية:** `{'it': 'vietato applicare pellicole adesive', 'ar': 'يحظر وضع أفلام لاصقة'}` | `{'it': 'parabrezza e vetri laterali anteriori', 'ar': 'الزجاج الأمامي والنوافذ الجانبية الأمامية'}`
 
 ---
 
 **194.** I pedoni e soprattutto i bambini rischiano di rimanere fuori dal campo visivo del conducente di un veicolo fuoristrada (Suv) a causa delle dimensioni del mezzo
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** المشاة وخاصة الأطفال معرضون لخطر البقاء خارج المجال البصري لقائد سيارة الدفع الرباعي (SUV) بسبب أبعاد وضخامة المركبة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الارتفاع العالي لغطاء محرك سيارات الـ SUV يخلق منطقة عمياء ممتدة أمام وخلف السيارة يتعذر فيها رؤية الأطفال الصغار أو العوائق المنخفضة مباشرة.
+- **⚠️ كشف الفخ:** الأطفال يختفون بسهولة في النقطة العمياء الأمامية لسيارات الـ SUV المرتفعة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'bambini rischiano', 'ar': 'الأطفال معرضون للخطر'}` | `{'it': 'fuori dal campo visivo', 'ar': 'خارج المجال البصري'}` | `{'it': 'fuoristrada (Suv)', 'ar': 'سيارة SUV'}`
 
 ---
 
 **195.** Il conducente può limitarsi ad un controllo visivo affrettato dell'area immediatamente antistante il veicolo poiché il suo mezzo dispone per costruzione di un adeguato campo di visibilità
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يمكن للسائق الاكتفاء بفحص بصري متعجل وسريع للمنطقة الواقعة أمام المركبة مباشرة لأن مركبته تتمتع بحكم تصميمها بمجال رؤية مناسب.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ النظرة المتعجلة (Controllo affrettato) خطأ جسيم وتؤدي لدهس المشاة والأطفال؛ بل يجب الفحص البصري الدقيق والمتأني قبل التحرك.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (affrettato)؛ الفحص المتعجل ممنوع ويجب التأكد التام.
+- **🔑 الكلمات المفتاحية:** `{'it': 'controllo visivo affrettato', 'ar': 'فحص بصري متعجل (خطأ)'}` | `{'it': 'limitarsi', 'ar': 'الاكتفاء'}`
 
 ---
 
 **196.** E' consentito applicare sui vetri laterali anteriori e sul parabrezza pellicole adesive, a condizione che siano di materiale rimovibile
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يُسمح بوضع أفلام لاصقة على النوافذ الجانبية الأمامية والزجاج الأمامي، بشرط أن تكون من مادة قابلة للإزالة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ وضع عوازل التعتيم على الزجاج الأمامي والجانبي الأمامي محظور تماماً بغض النظر عن كونها قابلة للإزالة أم لا.
+- **⚠️ كشف الفخ:** كون التظليل قابلاً للإزالة لا يجعله قانونياً على النوافذ الأمامية.
+- **🔑 الكلمات المفتاحية:** `{'it': 'materiale rimovibile', 'ar': 'مادة قابلة للإزالة (حجة باطلة)'}` | `{'it': 'consentito', 'ar': 'مسموح (خطأ)'}`
 
 ---
 
 **197.** I veicoli fuoristrada presentano un'altezza tale da permettere al conducente una adeguata visibilità di tutti i possibili ostacoli in basso (ad esempio, bambini)
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** تتميز سيارات الدفع الرباعي بارتفاع يسمح للسائق برؤية مناسبة لجميع العوائق المحتملة في الأسفل (مثل الأطفال).
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ ارتفاع سيارات الدفع الرباعي يحجب الرؤية عن الأجسام والعوائق المنخفضة القريبة من الصدام الأمامي والخلفي كالأطفال بدلاً من كشفها.
+- **⚠️ كشف الفخ:** الارتفاع العالي يحجب رؤية الأشياء المنخفضة (كالأطفال) ولا يسهلها.
+- **🔑 الكلمات المفتاحية:** `{'it': 'adeguata visibilità degli ostacoli in basso', 'ar': 'رؤية مناسبة للعوائق المنخفضة (خطأ عكسي)'}` | `{'it': 'bambini', 'ar': 'الأطفال'}`
 
 ---
-
 
 ## 📌 Circolazione autocarri (6 domande)
 
 **198.** Prima di riprendere la marcia, il conducente di un autocarro deve prestare particolare attenzione alla possibile presenza di un pedone o di un ciclista nella zona immediatamente antistante il proprio veicolo fermo
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** قبل استئناف السير، يجب على سائق الشاحنة الانتباه الشديد للوجود المحتمل لأحد المشاة أو راكب دراجة في المنطقة الواقعة مباشرة أمام مركبته المتوقفة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ كابينة الشاحنة المرتفعة تخلق نقطة عمياء واسعة أسفل الزجاج الأمامي مباشرة؛ لذا يجب على سائق الشاحنة التأكد والمراقبة بالمرايا الأمامية الخاصة قبل الانطلاق لعدم دهس أحد.
+- **⚠️ كشف الفخ:** المنطقة أمام الشاحنة مباشرة نقطة عمياء خطيرة للمشاة والدراجات.
+- **🔑 الكلمات المفتاحية:** `{'it': 'prima di riprendere la marcia', 'ar': 'قبل استئناف السير'}` | `{'it': 'autocarro', 'ar': 'شاحنة'}` | `{'it': 'immediatamente antistante', 'ar': 'أمام المركبة مباشرة'}`
 
 ---
 
 **199.** Il conducente di un autocarro fermo al semaforo deve prevedere la presenza di pedoni e ciclisti il cui avvistamento è precluso dalla sagoma del proprio veicolo
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب على سائق الشاحنة المتوقفة عند إشارة المرور أن يتوقع وجود مشاة وراكبي دراجات يتعذر رصدهم بسبب أبعاد وهيكل مركبته.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ عند التوقف في الإشارة يتجمع المشاة وراكبو الدراجات حول الشاحنة في نقاطها العمياء، ويجب على السائق توقع وجودهم ومراقبة محيطه بحذر شديد قبل التحرك.
+- **⚠️ كشف الفخ:** توقع وجود أشخاص في النقاط العمياء عند الإشارة واجب حتمي لسائقي الشاحنات.
+- **🔑 الكلمات المفتاحية:** `{'it': 'fermo al semaforo', 'ar': 'متوقف عند الإشارة'}` | `{'it': 'avvistamento è precluso dalla sagoma', 'ar': 'رصدهم محجوب بأبعاد الهيكل'}`
 
 ---
 
 **200.** La limitata visuale offerta dal parabrezza degli autocarri nella zona immediatamente antistante il veicolo rende pericolosa la fermata di tali mezzi in colonna, qualora siano presenti pedoni o mezzi a due ruote
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** الرؤية المحدودة التي يوفرها الزجاج الأمامي للشاحنات في المنطقة الواقعة أمام المركبة مباشرة تجعل توقف هذه المركبات في صفوف الانتظار أمراً خطيراً، في حال وجود مشاة أو مركبات ذات عجلتين.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الزاوية الميتة أمام مقدمة الشاحنة في طوابير الزحام والإشارات قد تخفي عبور المشاة أو وقوف دراجة نارية صغيرة، مما يشكل خطورة دهس بالغة عند تحرك الشاحنة.
+- **⚠️ كشف الفخ:** النقطة العمياء للشاحنات في الطوابير تجعل الاقتراب منها خطيراً للمشاة والدراجات.
+- **🔑 الكلمات المفتاحية:** `{'it': 'limitata visuale', 'ar': 'رؤية محدودة'}` | `{'it': 'fermarsi in colonna', 'ar': 'التوقف في طابور'}` | `{'it': 'mezzi a due ruote', 'ar': 'مركبات ذات عجلتين'}`
 
 ---
 
 **201.** Il campo di visibilità degli autocarri permette il controllo sicuro di tutta la zona immediatamente antistante e laterale
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** مجال رؤية الشاحنات يسمح بالسيطرة الآمنة على كامل المنطقة الواقعة أمامها مباشرة وعلى الجوانب.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ الشاحنات تمتلك أكبر نقاط عمياء (Angoli ciechi) مقارنة بأي مركبة، خاصة أمام الصدام الأمامي وبمحاذاة الأبواب الجانبية وخلف الصندوق، ولا تسيطر على كامل المنطقة إطلاقاً.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (controllo sicuro di tutta la zona)؛ الشاحنات مليئة بالنقاط العمياء.
+- **🔑 الكلمات المفتاحية:** `{'it': 'controllo sicuro di tutta la zona', 'ar': 'سيطرة آمنة على كل المنطقة (خطأ)'}` | `{'it': 'campo di visibilità degli autocarri', 'ar': 'مجال رؤية الشاحنات'}`
 
 ---
 
 **202.** Un pedone può attraversare la strada in tutta sicurezza passando a distanza ravvicinata rispetto alla parte frontale di un autocarro fermo in colonna che sta per ripartire, in quanto sicuramente avvistabile dal conducente
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يمكن للمشاة عبور الطريق بأمان تام بالمرور على مسافة قريبة جداً من مقدمة شاحنة متوقفة في طابور وتوشك على الانطلاق، لكونه بالتأكيد مرئياً للسائق.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ المرور الملاصق لمقدمة الشاحنة تصرف انتحاري؛ لأن السائق في الكابينة المرتفعة لا يرى الشخص الواقع أسفل زجاجه مباشرة، وسيدهسه فور تحركه.
+- **⚠️ كشف الفخ:** المرور بالقرب من واجهة الشاحنة خطأ قاتل؛ الشخص يختفي تماماً عن عين السائق.
+- **🔑 الكلمات المفتاحية:** `{'it': 'sicuramente avvistabile', 'ar': 'مرئي بالتأكيد (خطأ قاتل)'}` | `{'it': 'distanza ravvicinata', 'ar': 'مسافة ملاصقة/قريبة جداً'}`
 
 ---
 
 **203.** Quando stanno per riprendere la marcia dopo un arresto al semaforo, i conducenti di autocarri possono facilmente avvistare pedoni o ciclisti che affiancano e sfiorano la parte anteriore dei propri veicoli
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** عندما يوشكون على استئناف السير بعد التوقف عند الإشارة، يمكن لسائقي الشاحنات بسهولة رصد المشاة أو راكبي الدراجات الذين يحاذون ويلامسون الجزء الأمامي لمركباتهم.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ يستحيل على سائق الشاحنة رؤية من يلامس أو يقترب جداً من الجزء الأمامي للشاحنة بسبب الحاجز البصري للكابينة والمحرك؛ والزعم بسهولة رصدهم خطأ جسيم.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (facilmente avvistare)؛ بل يستحيل رصدهم بالعين المجردة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'facilmente avvistare', 'ar': 'يسهل رصدهم (خطأ)'}` | `{'it': 'sfiorano la parte anteriore', 'ar': 'يلامسون الجزء الأمامي'}`
 
 ---
-
 
 ## 📌 Giubbotto retroriflettente (7 domande)
 
 **204.** Il giubbotto o le bretelle retroriflettenti ad alta visibilità possono sostituire, in ogni caso, il triangolo mobile di pericolo
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** السترة أو الأحزمة العاكسة عالية الوضوح يمكن أن تحل محل مثلث الخطر المتنقل في جميع الأحوال.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ السترة مخصصة ليرتديها الشخص ليصبح مرئياً، بينما المثلث يوضع على بعد 50 متراً لحماية العائق والمركبة؛ ولا تحل السترة محل المثلث إطلاقاً.
+- **⚠️ كشف الفخ:** السترة شيء والمثلث شيء آخر تماماً؛ ولا يغني أحدهما عن الآخر.
+- **🔑 الكلمات المفتاحية:** `{'it': 'sostituire in ogni caso il triangolo', 'ar': 'تحل محل المثلث في كل الأحوال (خطأ)'}` | `{'it': 'giubbotto retroriflettente', 'ar': 'السترة العاكسة'}`
 
 ---
 
 **205.** Il giubbotto o le bretelle retroriflettenti ad alta visibilità possono essere solo di colore giallo
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** السترة أو الأحزمة العاكسة عالية الوضوح يمكن أن تكون باللون الأصفر فقط.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ يحدد القانون الأوروبي والإيطالي ثلاثة ألوان معتمدة للسترة العاكسة: الأصفر الفسفوري، والبرتقالي الفسفوري، والأحمر الفسفوري؛ ولا تقتصر على الأصفر فقط.
+- **⚠️ كشف الفخ:** الكلمة المصيدة هي الحصر (solo di colore giallo)؛ السترة تكون صفراء أو برتقالية أو حمراء.
+- **🔑 الكلمات المفتاحية:** `{'it': 'solo di colore giallo', 'ar': 'فقط باللون الأصفر (فخ الحصر)'}` | `{'it': 'arancione o rosso', 'ar': 'برتقالي أو أحمر'}`
 
 ---
 
 **206.** Il giubbotto retroriflettente ad alta visibilità protegge il conducente anche da rischi chimici, calore, fuoco ed elettricità
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** السترة العاكسة عالية الوضوح تحمي السائق أيضاً من المخاطر الكيميائية والحرارة والنار والكهرباء.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ السترة العاكسة مصنوعة من نسيج خفيف ومهمتها بصرية بحتة (الرؤية والانعكاس الضوئي)، وليست درعاً واقياً من المواد الكيميائية أو الحرائق أو الصعق الكهربائي.
+- **⚠️ كشف الفخ:** السترة للرؤية البصرية فقط وليست بدلة إطفاء أو وقاية كيميائية.
+- **🔑 الكلمات المفتاحية:** `{'it': 'rischi chimici, calore, fuoco', 'ar': 'مخاطر كيميائية وحرارة ونار (زعم خيالي)'}` | `{'it': 'protegge', 'ar': 'تحمي'}`
 
 ---
 
 **207.** All'interno del veicolo bisogna tenere giubbotti o bretelle retroriflettenti ad alta visibilità, in numero pari a quello dei posti disponibili
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** داخل المركبة، يجب الاحتفاظ بسترات أو أحزمة عاكسة عالية الوضوح بعدد مساوٍ لعدد المقاعد المتاحة بالمركبة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ يلزم القانون بالاحتفاظ بسترة واحدة على الأقل للسائق على متن السيارة؛ وتوفير سترات إضافية للركاب مستحسن عند نزولهم لكنه ليس إلزاماً بعدد مقاعد السيارة.
+- **⚠️ كشف الفخ:** لا يشترط القانون وجود سترات بعدد مقاعد السيارة بالكامل؛ الإلزام القانوني بسترة واحدة للسائق.
+- **🔑 الكلمات المفتاحية:** `{'it': 'pari a quello dei posti disponibili', 'ar': 'مساوٍ لعدد المقاعد (خطأ)'}` | `{'it': 'giubbotti', 'ar': 'سترات'}`
 
 ---
 
 **208.** L'obbligo di indossare il giubbotto ad alta visibilità si ha quando si sosta fuori dai centri abitati, mentre le bretelle retroriflettenti vanno indossate nelle aree urbane
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** الالتزام بارتداء السترة عالية الوضوح يكون عند التوقف خارج المراكز السكنية، بينما تُرتدى الأحزمة العاكسة في المناطق الحضرية.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ السترة أو الأحزمة بديلان متكافئان قانونياً كلاهما معتمد لنفس الغرض خارج المراكز السكنية، ولا يوجد أي تقسيم جغرافي بينهما داخل وخارج المدن.
+- **⚠️ كشف الفخ:** السترة والأحزمة متطابقتان في الاستخدام القانوني، ولا توجد قاعدة تلزم إحداهما بالمدينة والأخرى خارجها.
+- **🔑 الكلمات المفتاحية:** `{'it': 'bretelle nelle aree urbane', 'ar': 'الأحزمة بالمدن (تقسيم باطل)'}` | `{'it': 'obbligo', 'ar': 'إلزام'}`
 
 ---
 
 **209.** Il giubbotto retroriflettente ad alta visibilità serve per chiedere aiuto agli automobilisti in transito
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** السترة العاكسة عالية الوضوح تعمل وتُستخدم لطلب المساعدة من سائقي السيارات العابرين.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ وظيفة السترة هي جعلك مرئياً بوضوح لحماية حياتك من الدهس أثناء التواجد على الطريق؛ وليست إشارة أوتوستوب لطلب المساعدة من العابرين.
+- **⚠️ كشف الفخ:** السترة للأمان والرؤية، وليست إشارة شحاتة أو طلب توصيلة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'chiedere aiuto agli automobilisti', 'ar': 'طلب المساعدة من السائقين (خلط)'}` | `{'it': 'giubbotto', 'ar': 'السترة'}`
 
 ---
 
 **210.** Il giubbotto retroriflettente ad alta visibilità è utile solo quando si deve sostituire una ruota forata
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** السترة العاكسة عالية الوضوح مفيدة فقط عندما يلزم استبدال عجلة مثقوبة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ السترة إلزامية ومفيدة في جميع حالات النزول على الطرق خارج المدن ليلاً أو في الرؤية المحدودة (وضع المثلث، معاينة عطل، النزول في حارة الطوارئ)، ولا تقتصر على تغيير الإطار فقط.
+- **⚠️ كشف الفخ:** الكلمة المصيدة هي الحصر (utile solo quando si deve sostituire una ruota).
+- **🔑 الكلمات المفتاحية:** `{'it': 'solo quando si deve sostituire una ruota', 'ar': 'فقط عند تغيير العجلة (فخ الحصر)'}` | `{'it': 'giubbotto', 'ar': 'السترة'}`
 
 ---
-
 
 ## 📌 Circolazione dietro veicolo (11 domande)
 
 **211.** Circolando dietro ad un veicolo che trasporta un carico in pericolo di cadere, è opportuno aumentare la distanza di sicurezza, specie se si è in salita
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** عند السير خلف مركبة تنقل حمولة معرضة لخطر السقوط، فمن المناسب زيادة مسافة الأمان، لا سيما إذا كنا في صعود.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ في المطلع يزداد احتمال انزلاق وسقوط الحمولة للخلف بفعل الجاذبية؛ وزيادة مسافة الأمان تمنحك متسعاً ومجالاً للتوقف الآمن أو تفادي الأشياء الساقطة دون الاصطدام بها.
+- **⚠️ كشف الفخ:** في المطلع يزداد خطر تدحرج الحمولة للخلف؛ لذا زد مسافة الأمان فوراً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'carico in pericolo di cadere', 'ar': 'حمولة معرضة للسقوط'}` | `{'it': 'aumentare la distanza di sicurezza', 'ar': 'زيادة مسافة الأمان'}` | `{'it': 'in salita', 'ar': 'في صعود (مطلع)'}`
 
 ---
 
 **212.** Circolando dietro ad un veicolo che ha un carico instabile, è opportuno aumentare la distanza di sicurezza e sorpassarlo appena possibile
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** عند السير خلف مركبة ذات حمولة غير مستقرة، فمن المناسب زيادة مسافة الأمان وتجاوزها بمجرد أن يصبح ذلك ممكناً بأمان.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ البقاء خلف حمولة متأرجحة يشكل تهديداً مستمراً؛ لذا يجب الابتعاد عنها بمسافة أمان كبيرة، والقيام بتجاوزها بحذر في أقرب مكان تتوفر فيه شروط التجاوز الآمن والنظامي.
+- **⚠️ كشف الفخ:** تصرف حكيم: ابتعد بمسافة أمان أولاً، ثم تجاوزها بمجرد أن تسنح الفرصة الآمنة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'carico instabile', 'ar': 'حمولة غير مستقرة'}` | `{'it': 'aumentare la distanza', 'ar': 'زيادة المسافة'}` | `{'it': 'sorpassarlo appena possibile', 'ar': 'تجاوزه في أقرب فرصة ممكنة'}`
 
 ---
 
 **213.** Circolando dietro ad un veicolo che trasporta un carico che sta per cadere, è opportuno avvertire il conducente del potenziale pericolo
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** عند السير خلف مركبة تنقل حمولة توشك على السقوط، فمن المناسب تنبيه وتحذير سائقها من الخطر المحتمل.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ استخدام وميض الأضواء أو آلة التنبيه بلباقة لتنبيه السائق بأن حبال حمولته قد ارتخت أو توشك على السقوط واجب تضامني لحماية الطريق والجميع من كارثة محققة.
+- **⚠️ كشف الفخ:** تنبيه السائق المعرض لخطر سقوط حمولته تصرف صحيح ومطلوب.
+- **🔑 الكلمات المفتاحية:** `{'it': 'avvertire il conducente', 'ar': 'تنبيه السائق'}` | `{'it': 'sta per cadere', 'ar': 'توشك على السقوط'}`
 
 ---
 
 **214.** Circolando dietro ad un veicolo che ha un carico poco sicuro, conviene non stargli troppo vicino, così da riuscire a fermarsi in tempo, in caso di caduta della merce trasportata
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** عند السير خلف مركبة ذات حمولة غير آمنة تماماً، يستحسن عدم الاقتراب منها كثيراً، ليتسنى التمكن من التوقف في الوقت المناسب في حالة سقوط البضاعة المنقولة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ ترك مسافة فاصلة كبيرة يمنحك زمن رد فعل ومسافة فرملة كافية للتوقف قبل الوصول للأجسام الساقطة على الأسفلت.
+- **⚠️ كشف الفخ:** لا تقترب أبداً من شاحنة بحمولة مهتزة؛ مسافة الأمان هي طوق نجاتك.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non stargli troppo vicino', 'ar': 'عدم الاقتراب منها كثيراً'}` | `{'it': 'fermarsi in tempo', 'ar': 'التوقف في الوقت المناسب'}`
 
 ---
 
 **215.** Circolando dietro ad un veicolo che ha un carico instabile, bisogna stare attenti, soprattutto quando frena o svolta, per la possibile caduta della merce trasportata
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** عند السير خلف مركبة ذات حمولة غير مستقرة، يجب توخي الحذر، لا سيما عندما تفرمل أو تنعطف، لاحتمال سقوط البضاعة المنقولة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الفرملة المفاجئة تدفع الحمولة للأمام أو تقطع حبالها، والانعطاف يعرضها لقوة الطرد المركزي الجانبية؛ وتعتبر هاتان اللحظتان الأكثر حرجاً لسقوط البضائع.
+- **⚠️ كشف الفخ:** الفرملة والانعطاف هما أخطر لحظتين لسقوط الحمولة غير المستقرة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'frena o svolta', 'ar': 'تفرمل أو تنعطف'}` | `{'it': 'possibile caduta della merce', 'ar': 'سقوط محتمل للبضاعة'}`
 
 ---
 
 **216.** Circolando dietro ad un veicolo che ha un carico sporgente, può risultare difficile accorgersi che intende svoltare, se gli indicatori di direzione sono nascosti dalla merce penzolante
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** عند السير خلف مركبة ذات حمولة بارزة، قد يكون من الصعب إدراك وتوقع نيتها في الانعطاف، إذا كانت مؤشرات الاتجاه محجوبة بالبضاعة المتدلية.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تغطية الحمولة للغمازات تحرم السائقين الخلفيين من معرفة نوايا الشاحنة، مما يفرض مضاعفة الحذر والانتباه لحركات السيارة البطيئة.
+- **⚠️ كشف الفخ:** الحمولة المتدلية قد تحجب أضواء الغماز وتفاجئك بالانعطاف.
+- **🔑 الكلمات المفتاحية:** `{'it': 'indicatori di direzione nascosti', 'ar': 'مؤشرات الاتجاه محجوبة'}` | `{'it': 'intende svoltare', 'ar': 'تنوي الانعطاف'}`
 
 ---
 
 **217.** Circolando dietro ad un veicolo che trasporta un carico che sta per cadere, conviene stringersi il più vicino possibile al margine sinistro della carreggiata
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** عند السير خلف مركبة تنقل حمولة توشك على السقوط، يستحسن الالتصاق بأقرب موضع ممكن من الحافة اليسرى لنهر الطريق.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ الالتصاق باليسار يعرض السيارة لخطر الاصطدام بالمواجه في الطرق ذات الاتجاهين أو إرباك مسارات التجاوز؛ والتصرف الصحيح هو زيادة مسافة الأمان في مسارك الأيمن.
+- **⚠️ كشف الفخ:** الالتصاق باليسار خطأ خطير؛ التصرف الصحيح هو زيادة المسافة والابتعاد للخلف.
+- **🔑 الكلمات المفتاحية:** `{'it': 'margine sinistro', 'ar': 'الحافة اليسرى (خطأ)'}` | `{'it': 'stringersi', 'ar': 'الالتصاق'}`
 
 ---
 
 **218.** Circolando dietro ad un veicolo che trasporta un carico poco sicuro, conviene spostarsi lungo il margine sinistro della carreggiata
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** عند السير خلف مركبة تنقل حمولة غير آمنة، يستحسن الانتقال والتحرك على طول الحافة اليسرى لنهر الطريق.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ يجب البقاء في المسار النظامي مع زيادة مسافة الأمان والابتعاد إلى الوراء، وليس الانتقال العشوائي نحو أقصى اليسار.
+- **⚠️ كشف الفخ:** الانتقال للحافة اليسرى ليس حلاً بل يخلق خطراً إضافياً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'spostarsi lungo il margine sinistro', 'ar': 'الانتقال للحافة اليسرى (خطأ)'}` | `{'it': 'carico poco sicuro', 'ar': 'حمولة غير آمنة'}`
 
 ---
 
 **219.** Circolando dietro ad un veicolo che trasporta un carico che sta per cadere, conviene sorpassarlo subito, anche se in curva
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** عند السير خلف مركبة تنقل حمولة توشك على السقوط، يستحسن تجاوزها فوراً، حتى لو كان ذلك في منعطف.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ التجاوز في المنعطف محظور وشديد الخطورة في الطرق ذات الاتجاهين؛ ولا يبرر خطر الحمولة ارتكاب مخالفة قاتلة بالتجاوز دون رؤية كافية.
+- **⚠️ كشف الفخ:** الكلمة المصيدة هي (anche se in curva)؛ التجاوز في المنعطف ممنوع وخطير.
+- **🔑 الكلمات المفتاحية:** `{'it': 'anche se in curva', 'ar': 'حتى في المنعطف (خطأ فادح)'}` | `{'it': 'sorpassarlo subito', 'ar': 'تجاوزه فوراً'}`
 
 ---
 
 **220.** Circolando dietro ad un veicolo che trasporta un carico che sta per cadere, conviene arrestarsi bruscamente, ripartendo solo quando gli altri veicoli ci abbiano superato
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** عند السير خلف مركبة تنقل حمولة توشك على السقوط، يستحسن التوقف المفاجئ والعنيف، وعدم الانطلاق مجدداً إلا بعد أن تتجاوزنا المركبات الأخرى.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ الفرملة المفاجئة والعنيفة (Arrestarsi bruscamente) دون مبرر على الطريق تتسبب في اصطدام خلفي من السيارات القادمة وراءك؛ والتصرف السليم هو إبطاء السرعة تدريجياً وبسلاسة مع زيادة المسافة.
+- **⚠️ كشف الفخ:** التوقف المفاجئ العنيف يسبب حوادث اصطدام خلفي متتالية وممنوع.
+- **🔑 الكلمات المفتاحية:** `{'it': 'arrestarsi bruscamente', 'ar': 'التوقف المفاجئ/العنيف (خطأ)'}` | `{'it': 'carico che sta per cadere', 'ar': 'حمولة توشك على السقوط'}`
 
 ---
 
 **221.** Circolando dietro ad un veicolo che trasporta un carico instabile, bisogna diminuire la distanza di sicurezza, in modo che gli altri veicoli rinuncino al sorpasso, non essendovi spazio sufficiente
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** عند السير خلف مركبة تنقل حمولة غير مستقرة، يجب تقليل مسافة الأمان، حتى تتراجع المركبات الأخرى عن التجاوز لعدم وجود مساحة كافية.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ تقليل مسافة الأمان خلف حمولة غير مستقرة تصرف انتحاري يعرضك للاصطدام بالحمولة فور سقوطها؛ والواجب هو زيادة مسافة الأمان والابتعاد قدر الإمكان.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (diminuire la distanza)؛ بل يجب زيادتها دائماً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'diminuire la distanza', 'ar': 'تقليل المسافة (خطأ كارثي)'}` | `{'it': 'carico instabile', 'ar': 'حمولة غير مستقرة'}`
 
 ---
-
 
 ## 📌 Traino rimorchio (23 domande)
 
 **222.** Trainare un rimorchio su strade con forti salite fa aumentare la temperatura del liquido di raffreddamento del motore
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** قطر وسحب مقطورة على طرق ذات مطالع شديدة الانحدار يؤدي إلى ارتفاع درجة حرارة سائل تبريد المحرك.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الوزن الإضافي للمقطورة ومقاومة صعود المرتفعات تضع المحرك تحت إجهاد ميكانيكي وحراري شاق، مما يرفع حرارة سائل التبريد (Liquido di raffreddamento) ويستوجب مراقبة مؤشر الحرارة واستخدام غيارات منخفضة.
+- **⚠️ كشف الفخ:** سحب المقطورة في المطالع الشديدة يجهد المحرك ويسخن الردياتير.
+- **🔑 الكلمات المفتاحية:** `{'it': 'forti salite', 'ar': 'مطالع شديدة الانحدار'}` | `{'it': 'temperatura del liquido di raffreddamento', 'ar': 'حرارة سائل التبريد'}` | `{'it': 'aumentare', 'ar': 'ترتفع'}`
 
 ---
 
 **223.** Se si traina un rimorchio aumenta lo spazio di frenatura
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** إذا قمت بسحب مقطورة، فإن مسافة الفرملة تزداد.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الكتلة والقصور الذاتي الكلي للمركبة والمقطورة يزدادان بشكل ملحوظ؛ مما يتطلب طاقة أكبر لامتصاص الحركة ويطيل المسافة اللازمة للتوقف التام (Spazio di frenatura aumenta).
+- **⚠️ كشف الفخ:** سحب المقطورة يزيد دائماً مسافة الفرملة؛ لذا يلزم مضاعفة مسافة الأمان.
+- **🔑 الكلمات المفتاحية:** `{'it': 'traina un rimorchio', 'ar': 'يسحب مقطورة'}` | `{'it': 'spazio di frenatura aumenta', 'ar': 'مسافة الفرملة تزداد'}`
 
 ---
 
 **224.** Trainando un rimorchio leggero, bisogna considerare che è maggiore la forza ribaltante esercitata dal vento
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** عند سحب مقطورة خفيفة، يجب الأخذ في الحسبان أن قوة الانقلاب الناتجة عن الرياح تكون أكبر.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ المقطورات الخفيفة (مثل الكارافان وعربات الأمتعة) ذات مساحة جانبية عريضة ووزن قليل، مما يجعلها شديدة الحساسية لرياح العواصف الجانبية وعرضة للتأرجح والانقلاب (Forza ribaltante del vento).
+- **⚠️ كشف الفخ:** المقطورة الخفيفة تتأثر بالرياح الجانبية وتنقلب أسرع بكثير من المركبات الثقيلة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'rimorchio leggero', 'ar': 'مقطورة خفيفة'}` | `{'it': 'forza ribaltante del vento', 'ar': 'قوة الانقلاب الناتجة عن الرياح'}` | `{'it': 'maggiore', 'ar': 'أكبر'}`
 
 ---
 
 **225.** Per una maggiore sicurezza, è consigliabile che nel rimorchio il carico venga sistemato in modo che gli oggetti pesanti si trovino il più vicino possibile al suo asse
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** لتحقيق قدر أكبر من الأمان، يستحسن ترتيب الحمولة داخل المقطورة بحيث تتواجد الأشياء الثقيلة في أقرب موضع ممكن من محور العجلات.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تركز الأشياء الثقيلة فوق أو بالقرب من محور عجلات المقطورة (Asse) يخفض مركز الثقل ويمنع التحميل المفرط أو الرفع المعاكس لخطاف الجر، مما يضمن اتزان حركة المقطورة وثباتها خلف السيارة.
+- **⚠️ كشف الفخ:** الأوزان الثقيلة في المقطورة توضع في المنتصف بالقرب من المحور (Vicino all'asse).
+- **🔑 الكلمات المفتاحية:** `{'it': 'oggetti pesanti', 'ar': 'أشياء ثقيلة'}` | `{'it': 'vicino possibile al suo asse', 'ar': 'أقرب ما يمكن لمحور عجلاتها'}` | `{'it': 'maggiore sicurezza', 'ar': 'أمان أكبر'}`
 
 ---
 
 **226.** Alla guida di un veicolo con rimorchio, nello svoltare a destra, bisogna fare particolare attenzione a non salire con la ruota posteriore sul marciapiede
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** أثناء قيادة مركبة بمقطورة، عند الانعطاف يميناً، يجب الانتباه الشديد لعدم صعود العجلة الخلفية فوق الرصيف.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ المقطورة تقطع المنعطف وتدور في مسار داخلي أضيق من مسار السيارة القاطرة (Stringe la traiettoria)، مما يعرض عجلتها الخلفية لركوب الرصيف وصدم المشاة ما لم يوسع السائق زاوية الانعطاف قليلاً.
+- **⚠️ كشف الفخ:** المقطورة تضيق المنعطف لليمين؛ لذا انتبه من صعود عجلتها الخلفية على الرصيف.
+- **🔑 الكلمات المفتاحية:** `{'it': 'svoltare a destra', 'ar': 'الانعطاف يميناً'}` | `{'it': 'ruota posteriore sul marciapiede', 'ar': 'العجلة الخلفية على الرصيف'}` | `{'it': 'veicolo con rimorchio', 'ar': 'مركبة بمقطورة'}`
 
 ---
 
 **227.** Quando un veicolo guasto, munito di servosterzo, viene trainato, può risultare faticoso manovrare lo sterzo
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** عند قطر وسحب مركبة معطلة مزودة بمؤازر التوجيه (الباور ستيرينج)، قد يكون من الشاق والمجهد تدوير وتوجيه المقود.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ نظراً لأن محرك السيارة المعطلة يكون مطفأً أثناء القطر، فإن مضخة الباور ستيرينج تتوقف عن العمل تماماً، مما يجعل المقود ثقيلاً وقاسياً جداً ويتطلب جهداً عضلياً كبيراً من السائق الجالس بداخلها.
+- **⚠️ كشف الفخ:** توقف المحرك يعطل الباور؛ وتوجيه السيارة المعطلة يصبح شاقاً وقاسياً (Faticoso).
+- **🔑 الكلمات المفتاحية:** `{'it': 'veicolo guasto', 'ar': 'مركبة معطلة'}` | `{'it': 'servosterzo', 'ar': 'مؤازر التوجيه'}` | `{'it': 'faticoso manovrare lo sterzo', 'ar': 'شاق ومجهد تدوير المقود'}`
 
 ---
 
 **228.** Prima di trainare un rimorchio, è opportuno accertarsi che gli impianti di illuminazione e di segnalazione funzionino regolarmente
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** قبل سحب وقطر المقطورة، من المناسب التأكد من أن أجهزة الإضاءة والإشارات الضوئية تعمل بانتظام.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ توصيل القابس الكهربائي (Presa elettrica) واختبار مصابيح الفرامل، وإشارات الاتجاه (الغمازات)، وأضواء الموضع، ونور لوحة الأرقام الخلفية للمقطورة خطوة أمان إلزامية قبل التحرك.
+- **⚠️ كشف الفخ:** فحص عمل مصابيح المقطورة إلزامي قبل الانطلاق دائماً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'prima di trainare', 'ar': 'قبل القطر'}` | `{'it': 'impianti di illuminazione e segnalazione', 'ar': 'أجهزة الإضاءة والإشارات'}` | `{'it': 'funzionino regolarmente', 'ar': 'تعمل بانتظام'}`
 
 ---
 
 **229.** Prima di iniziare a trainare un rimorchio, bisogna controllare dagli specchi retrovisori che la visibilità sia adeguata
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** قبل البدء في سحب مقطورة، يجب التأكد عبر المرايا العاكسة من أن الرؤية كافية ومناسبة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ قد تحجب المقطورة أو الكارافان الرؤية من المرآة الداخلية؛ ويجب ضبط المرايا الجانبية وتركيب مرايا إضافية ممتدة (Specchi supplementari) إذا كان عرض المقطورة يتجاوز عرض السيارة لضمان كشف كامل المسار الخلفي.
+- **⚠️ كشف الفخ:** التأكد من كفاية الرؤية بالمرايا شرط أساسي قبل قطر أي مقطورة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'specchi retrovisori', 'ar': 'المرايا العاكسة'}` | `{'it': 'visibilità sia adeguata', 'ar': 'الرؤية مناسبة وكافية'}`
 
 ---
 
 **230.** Quando i rimorchi sono staccati dalla motrice, devono avere una copertura assicurativa che vale anche per il rischio statico (da fermo)
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** عندما تكون المقطورات مفصولة عن السيارة القاطرة، يجب أن يكون لها تغطية تأمينية تسري أيضاً على الخطر الساكن (أثناء التوقف وهي مفصولة).
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ أثناء سيرها وهي متصلة بالسيارة تغطيها بوليصة القاطرة؛ أما عند فصلها وركنها بمفردها على طريق عام، فيلزم القانون تأمينها ضد المسؤولية المدنية عن الحوادث المحتملة أثناء سكونها (Rischio statico: مثل تدحرجها واصطدامها بشخص).
+- **⚠️ كشف الفخ:** المقطورة المفصولة على الطريق تتطلب تأميناً مستقلاً للخطر الساكن (Rischio statico).
+- **🔑 الكلمات المفتاحية:** `{'it': 'staccati dalla motrice', 'ar': 'مفصولة عن القاطرة'}` | `{'it': 'rischio statico (da fermo)', 'ar': 'الخطر الساكن (وهي متوقفة)'}` | `{'it': 'copertura assicurativa', 'ar': 'تغطية تأمينية'}`
 
 ---
 
 **231.** I rimorchi trainati da autovetture sono muniti, in genere, di freno ad inerzia
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** المقطورات التي تجرها سيارات الركوب تكون مزودة في العادة بمكبح يعتمد على القصور الذاتي (فرامل القصور الذاتي / Freno a inerzia).
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ المقطورات الخفيفة والمتوسطة السياحية والكارافان تستخدم فرامل القصور الذاتي؛ حيث يدفع وزن المقطورة قضيب الجر للأمام عند تباطؤ السيارة مما يضغط مكابس الفرامل الميكانيكية للمقطورة تلقائياً.
+- **⚠️ كشف الفخ:** مقطورات السيارات العادية مزودة بفرامل القصور الذاتي (Freno ad inerzia).
+- **🔑 الكلمات المفتاحية:** `{'it': 'freno ad inerzia', 'ar': 'مكبح القصور الذاتي'}` | `{'it': 'rimorchi trainati da autovetture', 'ar': 'المقطورات المجرورة بسيارات الركوب'}`
 
 ---
 
 **232.** I rimorchi devono avere targa propria
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب أن تحمل المقطورات لوحة تسجيل (نمرة) خاصة بها.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ وفقاً للتعديلات الحديثة لكود السير الإيطالي، تصدر للمقطورات لوحة ترخيص صفراء خاصة بها مستقلة (Targa propria) تثبت في الخلف، ولم يعد يكتفى باللوحة المكررة فقط.
+- **⚠️ كشف الفخ:** المقطورات مركبات مستقلة ويجب أن تمتلك لوحة أرقام خاصة بها (Targa propria).
+- **🔑 الكلمات المفتاحية:** `{'it': 'targa propria', 'ar': 'لوحة خاصة بها'}` | `{'it': 'rimorchi', 'ar': 'المقطورات'}`
 
 ---
 
 **233.** Per garantire una maggiore sicurezza durante la guida di un veicolo con rimorchio, è consigliabile concentrare il carico massimo in corrispondenza del gancio di traino
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** لضمان أمان أكبر أثناء قيادة مركبة بمقطورة، يستحسن تركيز أقصى حمولة عند خطاف الجر.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ تركيز الحمل على خطاف الجر (Gancio di traino) يثقل مؤخرة السيارة ويرفع مقدمتها عن الأرض مما يفقد العجلات الأمامية التوجيه ويعطل الفرامل ويدمر نظام التعليق؛ والأصل وضع الحمل فوق محور المقطورة.
+- **⚠️ كشف الفخ:** تركيز الحمل على خطاف الجر خطأ خطير يدمر تعليق السيارة وتوجيهها.
+- **🔑 الكلمات المفتاحية:** `{'it': 'concentrare il carico massimo', 'ar': 'تركيز أقصى حمولة (خطأ فادح)'}` | `{'it': 'gancio di traino', 'ar': 'خطاف الجر'}`
 
 ---
 
 **234.** Per poter trainare un rimorchio non occorre effettuare il collegamento elettrico fra motrice e rimorchio
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** لتتمكن من سحب مقطورة، لا يلزم إجراء التوصيل الكهربائي بين السيارة القاطرة والمقطورة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ التوصيل الكهربائي إلزامي قانوناً وتقنياً لتشغيل أضواء الموضع، والغمازات، ومصابيح الفرامل، ولوحة الأرقام الخلفية للمقطورة لضمان السلامة.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي النفي (non occorre)؛ التوصيل الكهربائي إلزامي وحتمي.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non occorre collegamento elettrico', 'ar': 'لا يلزم التوصيل الكهربائي (خطأ)'}` | `{'it': 'motrice e rimorchio', 'ar': 'القاطرة والمقطورة'}`
 
 ---
 
 **235.** Per guidare un'autovettura che traina un veicolo guasto, con conducente a bordo, occorre la patente di guida della categoria E
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** لقيادة سيارة ركوب تقطر مركبة معطلة، وبداخلها سائق، يلزم الحصول على رخصة قيادة من الفئة E.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ سحب سيارة معطلة في الطوارئ لا يعتبر سحب مقطورة ولا يتطلب رخصة E؛ بل تكفي رخصة القيادة العادية من الفئة B لقيادة السيارة القاطرة.
+- **⚠️ كشف الفخ:** قطر سيارة معطلة في الطوارئ لا يحتاج رخصة E؛ رخصة B تكفي تماماً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'patente della categoria E', 'ar': 'رخصة فئة E (غير مطلوبة هنا)'}` | `{'it': 'veicolo guasto', 'ar': 'مركبة معطلة'}`
 
 ---
 
 **236.** Il conducente a bordo di un veicolo guasto, che viene trainato, può essere privo di patente di guida
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** السائق المتواجد على متن مركبة معطلة يجري سحبها، يمكن أن يكون غير حامل لرخصة قيادة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ السائق الجالس خلف مقود السيارة المقطورة يتحكم في المقود والفرامل ويقوم بقيادة فعلية على الطريق؛ لذا يشترط حتماً أن يكون حاملاً لرخصة قيادة سارية ومطابقة لنوع المركبة.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (può essere privo di patente)؛ يجب أن يحمل رخصة قيادة صالحة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'privo di patente', 'ar': 'بدون رخصة قيادة (خطأ صريح)'}` | `{'it': 'conducente a bordo', 'ar': 'السائق على متنها'}`
 
 ---
 
 **237.** Se un veicolo guasto viene trainato con le quattro ruote al suolo, occorre inserire la quarta marcia del cambio di velocità
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** إذا تم قطر مركبة معطلة وعجلاتها الأربع ملامسة للأرض، فيجب تعشيق الغيار الرابع لعلبة السرعات.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ يجب وضع ناقل الحركة في الوضع المحايد تماماً (In folle) لتدور العجلات بحرية دون دوران تروس المحرك؛ وتعشيق غيار أثناء السحب يدمر المحرك وناقل الحركة ويقفل العجلات.
+- **⚠️ كشف الفخ:** عند سحب السيارة يجب وضع الجير في الفولي (Folle) وليس في الغيار الرابع أو غيره.
+- **🔑 الكلمات المفتاحية:** `{'it': 'quarta marcia', 'ar': 'الغيار الرابع (خطأ مدمر)'}` | `{'it': 'in folle', 'ar': 'الوضع المحايد (الصحيح)'}`
 
 ---
 
 **238.** Gli organi di traino di un veicolo non devono essere periodicamente lubrificati
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** أجهزة ووصلات القطر في المركبة لا يجب تزييتها وتشحيمها بصورة دورية.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ خطاف الجر وكرة التثبيت (Sfera) والأجزاء الميكانيكية المتحركة تحتاج إلى تنظيف وتزييت وتشحيم دوري منتظم لتقليل الاحتكاك والتآكل ومنع الصدأ والكسر.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي النفي (non devono essere lubrificati)؛ بل يجب تزييتها دورياً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non devono essere lubrificati', 'ar': 'لا يجب تزييتها (خطأ)'}` | `{'it': 'organi di traino', 'ar': 'أجهزة ووصلات القطر'}`
 
 ---
 
 **239.** Gli organi di traino di un veicolo possono non essere omologati, purché vengano trainati rimorchi di massa inferiore a 750 chilogrammi
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** أجهزة القطر في المركبة يمكن ألا تكون معتمدة رسمياً، بشرط سحب مقطورات ذات كتلة تقل عن 750 كيلوجراماً.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ خطاف الجر بجميع أجزائه يجب أن يكون معتمداً رسمياً ومطابقاً للمواصفات (Omologato) ومثبتاً في بطاقة تسيير المركبة، بغض النظر عن وزن المقطورة حتى لو كانت خفيفة.
+- **⚠️ كشف الفخ:** وصلة الجر يجب أن تكون معتمدة رسمياً دائماً (Omologato) وبلا استثناء للأوزان الخفيفة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'possono non essere omologati', 'ar': 'يمكن ألا تكون معتمدة (خطأ)'}` | `{'it': 'massa inferiore a 750 kg', 'ar': 'كتلة أقل من 750 كجم'}`
 
 ---
 
 **240.** Se si traina un veicolo guasto, munito di servosterzo, lo sterzo risulterà sempre bloccato
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** إذا تم سحب مركبة معطلة مزودة بمؤازر التوجيه، فإن المقود سيظل مقفولاً دائماً.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ المقود لا يقفل إذا تم وضع مفتاح التشغيل في الكونتاكت وإدارته لفتح قفل المقود (Sbloccasterzo)؛ والمقود يظل قابلاً للتدوير وإن كان ثقيلاً لغياب الضغط الهيدروليكي.
+- **⚠️ كشف الفخ:** المقود لا يقفل إلا إذا نزع المفتاح؛ وبوجود المفتاح يظل قابلاً للتوجيه.
+- **🔑 الكلمات المفتاحية:** `{'it': 'sterzo sempre bloccato', 'ar': 'المقود مقفول دائماً (خطأ)'}` | `{'it': 'veicolo guasto', 'ar': 'مركبة معطلة'}`
 
 ---
 
 **241.** Trainando un rimorchio nelle forti discese, non occorre tener conto della forza di spinta esercitata dal rimorchio sulla motrice
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** عند سحب مقطورة في المنحدرات الشديدة، لا يلزم الأخذ في الحسبان قوة الدفع التي تمارسها المقطورة على السيارة القاطرة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ في المنحدرات يدفع وزن المقطورة السيارة القاطرة للأمام بقوة هائلة (Spinta del rimorchio)، ويجب على السائق الحذر واستخدام غيارات منخفضة وكبح مبكر للسيطرة على المركبتين.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي النفي (non occorre tener conto)؛ بل قوة دفع المقطورة عامل حاسم في المنحدرات.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non occorre tener conto', 'ar': 'لا يلزم الأخذ في الحسبان (خطأ)'}` | `{'it': 'forza di spinta', 'ar': 'قوة الدفع في المنحدر'}`
 
 ---
 
 **242.** Per trainare un rimorchio leggero non occorre effettuare il collegamento elettrico
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** لسحب مقطورة خفيفة، لا يلزم إجراء التوصيل الكهربائي.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ التوصيل الكهربائي إلزامي لجميع المقطورات بلا استثناء، حتى الخفيفة منها (Rimorchi leggeri)، لتشغيل أنوار الفرامل والإشارات واللوحة.
+- **⚠️ كشف الفخ:** التوصيل الكهربائي للمقطورة إلزامي مهما كانت خفيفة أو صغيرة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'rimorchio leggero', 'ar': 'مقطورة خفيفة'}` | `{'it': 'non occorre collegamento', 'ar': 'لا يلزم التوصيل (خطأ)'}`
 
 ---
 
 **243.** Quando si traina un veicolo guasto, occorre che la distanza fra i due veicoli sia di almeno 3 metri
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** عند قطر وسحب مركبة معطلة، يجب أن تكون المسافة بين المركبتين 3 أمتار على الأقل.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ لا يحدد كود السير مسافة رقمية ثابتة كـ 3 أمتار؛ بل يحدد شروط متانة وسيلة الربط وتمييزها الواضح بما يضمن الأمان التام والمناورة السليمة.
+- **⚠️ كشف الفخ:** رقم (3 metri) ليس شرطاً منصوصاً عليه في قواعد قطر المركبات المعطلة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'almeno 3 metri', 'ar': '3 أمتار على الأقل (رقم خادع باطل)'}` | `{'it': 'distanza fra i due veicoli', 'ar': 'المسافة بين المركبتين'}`
 
 ---
 
 **244.** Quando si traina un rimorchio, bisogna considerare che nelle curve strette la fascia di ingombro è minore
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** عند سحب مقطورة، يجب الأخذ في الاعتبار أنه في المنعطفات الضيقة يكون حيز ومساحة الإشغال أقل.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ حيز الإشغال للسيارة مع المقطورة في المنعطفات يكون أكبر وأوسع بكثير (Fascia di ingombro maggiore)، لأن المقطورة تدور في مسار دائري مختلف عن السيارة.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (minore)؛ بل حيز الإشغال يكون أكبر (Maggiore).
+- **🔑 الكلمات المفتاحية:** `{'it': 'fascia di ingombro è minore', 'ar': 'حيز الإشغال أقل (خطأ عكسي)'}` | `{'it': 'curve strette', 'ar': 'منعطفات ضيقة'}`
 
 ---
-
 
 ## 📌 Numero persone trasportabili (8 domande)
 
 **245.** Il numero di persone trasportabili sui veicoli è indicato sulla carta di circolazione
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** عدد الأشخاص المصرح بنقلهم على المركبات مدون وموضح في رخصة السير (كارت السيارة).
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ بطاقة تسجيل المركبة (Carta di circolazione) تحدد رسمياً وبدقة السعة القصوى لعدد الركاب المسموح بنقلهم على متن المركبة.
+- **⚠️ كشف الفخ:** المرجع القانوني الوحيد لعدد الركاب هو كارت السيارة (Carta di circolazione).
+- **🔑 الكلمات المفتاحية:** `{'it': 'numero di persone trasportabili', 'ar': 'عدد الأشخاص المصرح بنقلهم'}` | `{'it': 'carta di circolazione', 'ar': 'رخصة السير/كارت السيارة'}`
 
 ---
 
 **246.** Il numero massimo di posti delle autovetture è pari a nove, compreso quello del conducente
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** الحد الأقصى لعدد المقاعد في سيارات الركوب العادية (أوتوفيتورا) هو تسعة مقاعد، شاملاً مقعد السائق.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ التعريف القانوني لسيارة الركوب (Autovettura) في المادة 54 يحدد سعتها بحد أقصى تسعة مقاعد (Nove posti) بما في ذلك السائق؛ وإذا زادت أصبحت حافلة.
+- **⚠️ كشف الفخ:** سعة سيارة الركوب القصوى: 9 مقاعد شاملاً مقعد السائق.
+- **🔑 الكلمات المفتاحية:** `{'it': 'numero massimo di posti', 'ar': 'الحد الأقصى لعدد المقاعد'}` | `{'it': 'pari a nove', 'ar': 'مساوٍ لتسعة'}` | `{'it': 'compreso quello del conducente', 'ar': 'شاملاً مقعد السائق'}`
 
 ---
 
 **247.** Il numero di persone trasportabili sulle autovetture può essere al massimo di nove, compreso il conducente
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** عدد الأشخاص المصرح بنقلهم على سيارات الركوب يمكن أن يصل إلى تسعة كحد أقصى، شاملاً السائق.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تأكيد على القاعدة القانونية الثابتة: سيارات الركوب العادية مخصصة لنقل ما لا يزيد عن 9 أفراد شاملاً السائق.
+- **⚠️ كشف الفخ:** تطابق كامل مع التعريف القانوني للأوتوفيتورا.
+- **🔑 الكلمات المفتاحية:** `{'it': 'al massimo di nove', 'ar': 'تسعة كحد أقصى'}` | `{'it': 'compreso il conducente', 'ar': 'شاملاً السائق'}`
 
 ---
 
 **248.** Il numero dei posti di un veicolo è indicato sulla carta di circolazione
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** عدد المقاعد المخصصة في المركبة مدون في رخصة السير.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ البيانات الفنية المسجلة في وثيقة تسيير المركبة تتضمن صراحة عدد المقاعد المعتمدة من المصنع والمصرح بها للركاب.
+- **⚠️ كشف الفخ:** عدد المقاعد مسجل في كارت السيارة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'numero dei posti', 'ar': 'عدد المقاعد'}` | `{'it': 'carta di circolazione', 'ar': 'رخصة السير'}`
 
 ---
 
 **249.** Il numero di persone trasportabili sui motocicli è sempre di due, oltre il conducente
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** عدد الأشخاص المصرح بنقلهم على الدراجات النارية هو دائماً اثنان، بالإضافة إلى السائق.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ السعة القصوى للدراجات النارية المهيأة هي راكبان اثنان فقط (السائق ومعه راكب واحد فقط خلفه)؛ والقول باثنين بالإضافة للسائق (يعني 3 أشخاص) خطأ فادح وممنوع قانوناً.
+- **⚠️ كشف الفخ:** الدراجة النارية تسع شخصين في المجمل (السائق + راكب واحد فقط).
+- **🔑 الكلمات المفتاحية:** `{'it': 'due oltre il conducente', 'ar': 'اثنان بالإضافة للسائق (خطأ)'}` | `{'it': 'motocicli', 'ar': 'الدراجات النارية'}`
 
 ---
 
 **250.** Il numero di persone trasportabili sulle autovetture è al massimo di quattro
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** عدد الأشخاص المصرح بنقلهم على سيارات الركوب هو أربعة كحد أقصى.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ الحد الأقصى القانوني هو تسعة مقاعد (Nove posti) شاملاً السائق؛ وهناك العديد من سيارات الركوب التي تسع 5 أو 7 أو 8 أو 9 مقاعد.
+- **⚠️ كشف الفخ:** الحد الأقصى لسيارات الركوب هو 9 وليس 4.
+- **🔑 الكلمات المفتاحية:** `{'it': 'al massimo di quattro', 'ar': 'أربعة كحد أقصى (خطأ)'}` | `{'it': 'autovetture', 'ar': 'سيارات الركوب'}`
 
 ---
 
 **251.** Il numero di persone trasportabili sugli autocarri è sempre di cinque, compreso il conducente
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** عدد الأشخاص المصرح بنقلهم على شاحنات البضائع هو دائماً خمسة، شاملاً السائق.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ شاحنات البضائع (Autocarri) يحدد عدد ركابها في كارت السيارة ويكون غالباً مقعدين أو ثلاثة في الكابينة، ولا توجد قاعدة تجعلها خمسة دائماً.
+- **⚠️ كشف الفخ:** الكلمة المصيدة هي التعميم (sempre di cinque)؛ الشاحنات غالباً 2 أو 3 مقاعد فقط.
+- **🔑 الكلمات المفتاحية:** `{'it': 'sempre di cinque', 'ar': 'دائماً خمسة (خطأ كتعميم)'}` | `{'it': 'autocarri', 'ar': 'شاحنات البضائع'}`
 
 ---
 
 **252.** Il numero di persone trasportabili su un veicolo, riportato sulla carta di circolazione, non comprende il conducente
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** عدد الأشخاص المصرح بنقلهم على المركبة، الموضح في رخصة السير، لا يشمل السائق.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ الرقم المذكور في خانة المقاعد برخصة السير يشمل دائماً مقعد السائق (Compreso il conducente).
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي النفي (non comprende il conducente)؛ فالسائق مشمول دائماً في العدد.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non comprende il conducente', 'ar': 'لا يشمل السائق (خطأ)'}` | `{'it': 'carta di circolazione', 'ar': 'رخصة السير'}`
 
 ---
-
 
 ## 📌 Pannello carichi sporgenti (14 domande)
 
 **253.** Il pannello raffigurato deve essere messo all'estremità del carico che sporge dietro al veicolo
-
 - **الإجابة:** `VERO ✅ (صح)`
 - ![Segnale](immagini/302.png)
+- **📖 الترجمة السياقية:** اللوحة الموضحة في الشكل يجب وضعها عند الطرف الأقصى للحمولة التي تبرز خلف المركبة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ اللوحة المربعة ذات الخطوط المائلة البيضاء والحمراء العاكسة يجب تثبيتها في أقصى نقطة بارزة من الحمولة في الخلف لتحديد أبعادها بوضوح للقادمين.
+- **⚠️ كشف الفخ:** تثبت اللوحة في أقصى طرف بارز للحمولة (All'estremità del carico).
+- **🔑 الكلمات المفتاحية:** `{'it': 'estremità del carico', 'ar': 'طرف الحمولة الأقصى'}` | `{'it': 'sporge dietro', 'ar': 'تبرز من الخلف'}`
 
 ---
 
 **254.** Il pannello raffigurato segnala dei carichi che sporgono dalla parte posteriore del veicolo
-
 - **الإجابة:** `VERO ✅ (صح)`
 - ![Segnale](immagini/302.png)
+- **📖 الترجمة السياقية:** اللوحة الموضحة في الشكل تشير إلى حمولات تبرز من الجزء الخلفي للمركبة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ هذه هي الوظيفة القانونية المعتمدة للوحة: الإشارة إلى بروز الحمولة من خلف السيارة.
+- **⚠️ كشف الفخ:** اللوحة مخصصة للحمولة البارزة من الخلف.
+- **🔑 الكلمات المفتاحية:** `{'it': 'carichi che sporgono', 'ar': 'حمولات تبرز'}` | `{'it': 'parte posteriore', 'ar': 'الجزء الخلفي'}`
 
 ---
 
 **255.** Il pannello raffigurato deve essere retroriflettente
-
 - **الإجابة:** `VERO ✅ (صح)`
 - ![Segnale](immagini/302.png)
+- **📖 الترجمة السياقية:** اللوحة الموضحة في الشكل يجب أن تكون عاكسة للضوء.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تصنع اللوحة من مادة عاكسة عالية الكفاءة (Retroriflettente) لتعكس أضواء كشافات السيارات القادمة ليلاً وتحذرهم من مسافة بعيدة.
+- **⚠️ كشف الفخ:** اللوحة يجب أن تكون عاكسة (Retroriflettente) إجبارياً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'retroriflettente', 'ar': 'عاكسة للضوء'}` | `{'it': 'pannello', 'ar': 'اللوحة'}`
 
 ---
 
 **256.** Il pannello raffigurato va usato nel caso in cui il carico sporga dietro al veicolo, anche se di poco
-
 - **الإجابة:** `VERO ✅ (صح)`
 - ![Segnale](immagini/302.png)
+- **📖 الترجمة السياقية:** اللوحة الموضحة في الشكل تُستخدم في حالة بروز الحمولة خلف المركبة، حتى لو كان البروز قليلاً وضئيلاً.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ وضع اللوحة العاكسة إلزامي قانوناً لأي بروز خلفي مهما كان مقداره بسيطاً، ولا يعفى السائق من وضعها بحجة صغر البروز.
+- **⚠️ كشف الفخ:** اللوحة واجبة ولو كان البروز طفيفاً جداً (Anche se di poco).
+- **🔑 الكلمات المفتاحية:** `{'it': 'anche se di poco', 'ar': 'ولو قليلاً'}` | `{'it': 'sporge dietro', 'ar': 'تبرز من الخلف'}`
 
 ---
 
 **257.** Il pannello raffigurato può essere messo sui veicoli guasti, quando vengono trainati e non funzionano le luci di emergenza
-
 - **الإجابة:** `VERO ✅ (صح)`
 - ![Segnale](immagini/302.png)
+- **📖 الترجمة السياقية:** اللوحة الموضحة في الشكل يمكن وضعها على المركبات المعطلة، عندما يتم قطرها وتكون أضواء الطوارئ لا تعمل.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص المادة 165 على أنه عند قطر سيارة معطلة لا تعمل مصابيح طوارئها، يمكن وضع لوحة الحمولة البارزة العاكسة (أو مثلث الخطر) في مؤخرتها لتحذير السائقين القادمين.
+- **⚠️ كشف الفخ:** اللوحة بديل قانوني لتحذير القادمين خلف سيارة معطلة مسحوبة لا تعمل أضواؤها.
+- **🔑 الكلمات المفتاحية:** `{'it': 'veicoli guasti trainati', 'ar': 'مركبات معطلة مقطورة'}` | `{'it': 'non funzionano le luci di emergenza', 'ar': 'لا تعمل أضواء الطوارئ'}`
 
 ---
 
 **258.** Il pannello raffigurato deve essere sistemato all'estremità del carico sporgente dal veicolo, in modo che sia sempre ben visibile
-
 - **الإجابة:** `VERO ✅ (صح)`
 - ![Segnale](immagini/302.png)
+- **📖 الترجمة السياقية:** اللوحة الموضحة في الشكل يجب تثبيتها عند طرف الحمولة البارزة من المركبة، بحيث تكون دائماً واضحة الرؤية تماماً.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ يجب تثبيت اللوحة بشكل رأسي ومحكم يمنع اهتزازها أو سقوطها، مع بقائها نظيفة ومرئية في كل الأوقات لمستخدمي الطريق.
+- **⚠️ كشف الفخ:** التثبيت السليم ووضوح الرؤية شرطان حتميان للوحة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'ben visibile', 'ar': 'واضحة الرؤية تماماً'}` | `{'it': 'estremità del carico', 'ar': 'طرف الحمولة'}`
 
 ---
 
 **259.** Il pannello raffigurato invita i conducenti che stanno dietro al veicolo su cui è applicato, a circolare con particolare prudenza
-
 - **الإجابة:** `VERO ✅ (صح)`
 - ![Segnale](immagini/302.png)
+- **📖 الترجمة السياقية:** اللوحة الموضحة في الشكل تدعو السائقين المتواجدين خلف المركبة المثبتة عليها إلى السير بحذر وحيطة خاصة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ رؤية هذه اللوحة تنبه السائق الخلفي بوجود جسم صلب بارز قد لا يُرى بالعين في الظلام، وتدعوه لزيادة مسافة الأمان وعدم الاقتراب.
+- **⚠️ كشف الفخ:** اللوحة تحث السائقين الخلفيين على الحذر ومضاعفة مسافة الأمان.
+- **🔑 الكلمات المفتاحية:** `{'it': 'invita i conducenti', 'ar': 'تدعو السائقين'}` | `{'it': 'particolare prudenza', 'ar': 'حذر وحيطة خاصة'}`
 
 ---
 
 **260.** Il pannello raffigurato si usa solo se il carico sporge di oltre tre decimi della lunghezza del veicolo
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
 - ![Segnale](immagini/302.png)
+- **📖 الترجمة السياقية:** اللوحة الموضحة في الشكل تُستخدم فقط إذا برزت الحمولة لأكثر من ثلاثة أعشار من طول المركبة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ أولاً: البروز لأكثر من 3/10 محظور قانوناً كلياً؛ ثانياً: اللوحة تستخدم عند أي بروز خلفي ولو كان صغيراً جداً، وليس فقط عند 3/10.
+- **⚠️ كشف الفخ:** البروز لأكثر من 3 أعشار ممنوع أصلاً؛ واللوحة توضع لأي بروز خلفي مهما صغر.
+- **🔑 الكلمات المفتاحية:** `{'it': 'oltre tre decimi', 'ar': 'أكثر من ثلاثة أعشار (ممنوع أصلاً)'}` | `{'it': 'si usa solo se', 'ar': 'تستخدم فقط إذا (خطأ)'}`
 
 ---
 
 **261.** Il pannello raffigurato va messo anche di lato, quando il carico sporge oltre la larghezza del veicolo
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
 - ![Segnale](immagini/302.png)
+- **📖 الترجمة السياقية:** اللوحة الموضحة في الشكل توضع على الجانب أيضاً، عندما تبرز الحمولة خارج عرض المركبة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ هذه اللوحة مخصصة حصرياً للبروز الخلفي؛ أما البروز الجانبي فلا توضع له هذه اللوحة بل يجب ألا يتجاوز 30 سم وأن يكون ضمن أضواء الموضع الأمامية والخلفية.
+- **⚠️ كشف الفخ:** اللوحة لا توضع على الجوانب أبداً؛ بل تثبت في الخلف فقط.
+- **🔑 الكلمات المفتاحية:** `{'it': 'messo anche di lato', 'ar': 'توضع على الجانب أيضاً (خطأ)'}` | `{'it': 'larghezza del veicolo', 'ar': 'عرض المركبة'}`
 
 ---
 
 **262.** Il pannello raffigurato identifica gli autocarri specializzati per il trasporto di materiali da costruzione
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
 - ![Segnale](immagini/302.png)
+- **📖 الترجمة السياقية:** اللوحة الموضحة في الشكل تميز وتحدد شاحنات البضائع المتخصصة في نقل مواد البناء.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ اللوحة لا تحدد نوع الشاحنة أو حمولتها، بل تشير فقط للبروز الطولي للحمولة من الخلف لأي سيارة.
+- **⚠️ كشف الفخ:** اللوحة للحمولة البارزة وليست مخصصة لمواد البناء.
+- **🔑 الكلمات المفتاحية:** `{'it': 'materiali da costruzione', 'ar': 'مواد البناء (خلط)'}` | `{'it': 'autocarri specializzati', 'ar': 'شاحنات متخصصة'}`
 
 ---
 
 **263.** Il pannello raffigurato va messo sui veicoli che trasportano la spazzatura
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
 - ![Segnale](immagini/302.png)
+- **📖 الترجمة السياقية:** اللوحة الموضحة في الشكل يجب وضعها على المركبات التي تنقل القمامة والنفايات.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ شاحنات القمامة لا تستخدم هذه اللوحة إلا إذا كان هناك بروز خلفي؛ وهي ليست علامة لمركبات النظافة.
+- **⚠️ كشف الفخ:** اللوحة ليست لشاحنات القمامة والنفايات.
+- **🔑 الكلمات المفتاحية:** `{'it': 'trasportano la spazzatura', 'ar': 'تنقل القمامة (خلط)'}` | `{'it': 'pannello', 'ar': 'اللوحة'}`
 
 ---
 
 **264.** Il pannello raffigurato va messo sui veicoli, solo se il carico sporge di almeno 50 centimetri
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
 - ![Segnale](immagini/302.png)
+- **📖 الترجمة السياقية:** اللوحة الموضحة في الشكل يجب وضعها على المركبات، فقط إذا برزت الحمولة بمقدار 50 سنتيمتراً على الأقل.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ اللوحة إلزامية عند أي بروز خلفي ولو كان بضعة سنتيمترات قليلة (Anche se di poco)، ولا يشترط أن يبلغ 50 سم.
+- **⚠️ كشف الفخ:** الكلمة المصيدة هي الحصر برقم (almeno 50 centimetri)؛ اللوحة توضع لأي بروز مهما قل.
+- **🔑 الكلمات المفتاحية:** `{'it': 'almeno 50 centimetri', 'ar': '50 سم على الأقل (شرط باطل)'}` | `{'it': 'solo se', 'ar': 'فقط إذا'}`
 
 ---
 
 **265.** Il pannello raffigurato va messo dietro a tutti gli autocarri
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
 - ![Segnale](immagini/302.png)
+- **📖 الترجمة السياقية:** اللوحة الموضحة في الشكل يجب وضعها خلف جميع شاحنات البضائع.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ لا توضع هذه اللوحة خلف الشاحنات إلا في حالة وجود حمولة بارزة من الخلف فقط؛ والشاحنات العادية تستخدم لوحات الخطوط الصفراء والحمراء إن زادت عن 3.5 طن.
+- **⚠️ كشف الفخ:** الكلمة المصيدة هي التعميم (dietro a tutti gli autocarri)؛ توضع فقط عند وجود بروز.
+- **🔑 الكلمات المفتاحية:** `{'it': 'tutti gli autocarri', 'ar': 'جميع الشاحنات (فخ التعميم)'}` | `{'it': 'pannello', 'ar': 'اللوحة'}`
 
 ---
 
 **266.** Il pannello raffigurato può essere sostituito da una bandiera di colore rosso, delle dimensioni di 50x50 centimetri
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
 - ![Segnale](immagini/302.png)
+- **📖 الترجمة السياقية:** اللوحة الموضحة في الشكل يمكن استبدالها براية حمراء اللون بأبعاد 50×50 سنتيمتراً.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ يحظر استبدال اللوحة العاكسة المعتمدة بخرقة أو قماش أو راية حمراء؛ فالقانون يفرض حصرياً اللوحة المربعة المعدنية أو البلاستيكية العاكسة ذات المواصفات الرسمية.
+- **⚠️ كشف الفخ:** الراية الحمراء (Bandiera rossa) بديل باطل وممنوع قانوناً في إيطاليا.
+- **🔑 الكلمات المفتاحية:** `{'it': 'sostituito da una bandiera rossa', 'ar': 'استبدالها براية حمراء (خطأ باطل)'}` | `{'it': 'pannello', 'ar': 'اللوحة'}`
 
 ---
-
 
 ## 📌 Comportamenti guida caravan (4 domande)
 
 **267.** Nei caravan, per ridurre il rischio di ribaltamento in curva, occorre sistemare il carico degli oggetti pesanti in modo da mantenere il baricentro il più basso possibile
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** في الكارافان (مقطورات التخييم / الرولوت)، لتقليل خطر الانقلاب في المنعطفات، يجب ترتيب حمولة الأشياء الثقيلة بحيث يظل مركز الثقل في أدنى مستوى ممكن.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ خفض مركز ثقل الكارافان (Baricentro basso) بوضع الأمتعة الثقيلة على أرضية المقطورة يقلل من ذراع عزم قوة الطرد المركزي ويحميها من الانقلاب في المنحنيات.
+- **⚠️ كشف الفخ:** الأشياء الثقيلة توضع في الأسفل دائماً للحفاظ على مركز ثقل منخفض في الكارافان.
+- **🔑 الكلمات المفتاحية:** `{'it': 'caravan', 'ar': 'كارافان/مقطورة تخييم'}` | `{'it': 'baricentro il più basso possibile', 'ar': 'مركز الثقل في أدنى مستوى ممكن'}` | `{'it': 'ridurre il rischio di ribaltamento', 'ar': 'تقليل خطر الانقلاب'}`
 
 ---
 
 **268.** Nei caravan, per ridurre il rischio di ribaltamento in curva, occorre sistemare il carico in modo il più possibile equilibrato tra lato destro e sinistro
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** في الكارافان، لتقليل خطر الانقلاب في المنعطفات، يجب ترتيب الحمولة بطريقة متوازنة قدر الإمكان بين الجانبين الأيمن والأيسر.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ التوزيع المتكافئ للوزن بين جانبي الكارافان يمنع تحميل جهة على حساب الأخرى، ويضمن استقرار العجلات وتماسكها المتكافئ في المنعطفات.
+- **⚠️ كشف الفخ:** التوازن بين اليمين واليسار شرط حتمي لمنع انقلاب الكارافان.
+- **🔑 الكلمات المفتاحية:** `{'it': 'equilibrato tra lato destro e sinistro', 'ar': 'متوازن بين الجانبين الأيمن والأيسر'}` | `{'it': 'ribaltamento in curva', 'ar': 'الانقلاب في المنعطف'}`
 
 ---
 
 **269.** Il caravan non è considerato un rimorchio perché può essere adibito ad alloggio
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** الكارافان لا يعتبر مقطورة لأنه يمكن استخدامه وتخصيصه للإقامة والمبيت.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ تنص المادة 56 صراحة على أن الكارافان (Caravan / Roulotte) هو مقطورة تخييم وسكنية وتخضع لجميع القوانين والمواصفات الخاصة بالمقطورات.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي النفي (non è considerato un rimorchio)؛ الكارافان مقطورة رسمياً وقانونياً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non è considerato un rimorchio', 'ar': 'لا يعتبر مقطورة (خطأ)'}` | `{'it': 'caravan', 'ar': 'كارافان'}`
 
 ---
 
 **270.** E’ possibile alloggiare nei caravan (roulotte) durante la circolazione, purché tutti i passeggeri allaccino le cinture di sicurezza
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يُسمح بالإقامة والتواجد داخل الكارافان (الرولوت) أثناء سير المركبة، بشرط أن يربط جميع الركاب أحزمة الأمان.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ يُحظر تماماً تواجد أو ركوب أي شخص داخل الكارافان أثناء سيرها على الطريق (Vietato alloggiare durante la circolazione) لانعدام شروط الحماية وعدم وجود أحزمة؛ ويجب أن يجلس الجميع داخل السيارة القاطرة.
+- **⚠️ كشف الفخ:** التواجد داخل الكارافان أثناء السير ممنوع منعاً باتاً تحت أي ظرف.
+- **🔑 الكلمات المفتاحية:** `{'it': 'alloggiare durante la circolazione', 'ar': 'الإقامة/الركوب أثناء السير (ممنوع قطعاً)'}` | `{'it': 'caravan (roulotte)', 'ar': 'كارافان'}`
 
 ---
-
 
 ## 📌 Dotazione rimorchio (10 domande)
 
 **271.** Nel rimorchio è presente un dispositivo di sicurezza che, in caso di sganciamento accidentale, aziona automaticamente il freno di stazionamento
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** في المقطورة، يوجد جهاز أمان يقوم تلقائياً بتفعيل مكبح التثبيت (الفرامل) في حالة انفصالها وانفكاكها العرضي عن القاطرة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تزود المقطورات بكابل فولاذي أمان (Cavo di sicurezza a strappo) يشد ذراع فرامل اليد للمقطورة تلقائياً ويقفل عجلاتها فوراً إذا انفصلت عن خطاف السيارة أثناء السير لمنع تدحرجها الكارثي.
+- **⚠️ كشف الفخ:** كابل الأمان يفعل فرامل المقطورة آلياً عند انفكاكها العرضي.
+- **🔑 الكلمات المفتاحية:** `{'it': 'dispositivo di sicurezza', 'ar': 'جهاز أمان'}` | `{'it': 'sganciamento accidentale', 'ar': 'انفصال عرضي'}` | `{'it': 'aziona automaticamente il freno', 'ar': 'يفعل الفرامل تلقائياً'}`
 
 ---
 
 **272.** Nei rimorchi con freno a inerzia, dopo un prolungato periodo di inattività, i freni potrebbero aver perso efficienza a causa della ruggine
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** في المقطورات المزودة بفرامل القصور الذاتي، بعد فترة توقف طويلة عن الاستخدام، قد تفقد الفرامل كفاءتها بسبب الصدأ وتكون الصدأ.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ ركن المقطورة لشهور طويلة في الهواء الطلق يعرض الطنابير وأسلاك وكابلات الفرامل الميكانيكية للصدأ والتصلب (Ruggine)، مما يعطل حركتها ويضعف فاعلية التوقف عند إعادة استخدامها.
+- **⚠️ كشف الفخ:** التوقف الطويل يسبب الصدأ لفرامل المقطورة ويضعف كفاءتها.
+- **🔑 الكلمات المفتاحية:** `{'it': 'prolungato periodo di inattività', 'ar': 'فترة توقف طويلة'}` | `{'it': 'perso efficienza a causa della ruggine', 'ar': 'فقدان الكفاءة بسبب الصدأ'}`
 
 ---
 
 **273.** Quando si lascia un rimorchio in sosta occorre azionare la leva del freno di stazionamento e, in caso di strada in pendenza, è opportuno applicare dei cunei di arresto alle ruote
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** عند ترك مقطورة متوقفة في مكان الانتظار، يجب شد ذراع مكبح التثبيت، وفي حالة الطريق المنحدر، يستحسن وضع حواجر الإيقاف (الأوتاد الإسفينية) خلف العجلات.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ لتأمين المقطورة المنفصلة من التدحرج، يلزم شد فرامل يدها ووضع أسافين وحواجز عجلات مثلثة معدنية أو بلاستيكية (Cunei di arresto) أسفل الإطارات في المنحدرات.
+- **⚠️ كشف الفخ:** فرامل اليد + أسافين العجلات (Cunei) لتثبيت المقطورة المتوقفة في المنحدر.
+- **🔑 الكلمات المفتاحية:** `{'it': 'freno di stazionamento', 'ar': 'مكبح التثبيت'}` | `{'it': 'cunei di arresto', 'ar': 'أسافين/حواجز الإيقاف'}` | `{'it': 'strada in pendenza', 'ar': 'طريق منحدر'}`
 
 ---
 
 **274.** La frenatura del rimorchio dotato di freno a inerzia non avviene simultaneamente a quella della motrice, in quanto l'azionamento si ha solo dopo che il rimorchio ha esercitato una spinta sulla motrice
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** كبح المقطورة المزودة بفرامل القصور الذاتي لا يحدث بشكل متزامن مع كبح السيارة القاطرة، حيث يتم التفعيل فقط بعد أن تمارس المقطورة قوة دفع على السيارة القاطرة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تبدأ السيارة القاطرة بالفرملة أولاً، فتندفع المقطورة خلفها بالقصور الذاتي وتضغط على مكبس خطاف الجر، وهذا الانضغاط هو الذي يشد فرامل المقطورة بعد جزء من الثانية.
+- **⚠️ كشف الفخ:** فرامل القصور الذاتي لا تعمل بالتزامن التام بل بعد ضغط المقطورة على السيارة (Non simultaneamente).
+- **🔑 الكلمات المفتاحية:** `{'it': 'non avviene simultaneamente', 'ar': 'لا يحدث بشكل متزامن'}` | `{'it': 'freno a inerzia', 'ar': 'فرامل القصور الذاتي'}` | `{'it': 'spinta sulla motrice', 'ar': 'دفع على القاطرة'}`
 
 ---
 
 **275.** In un rimorchio dotato di freno a inerzia l’effetto della frenata avviene quando il rimorchio si avvicina alla motrice
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** في المقطورة المزودة بفرامل القصور الذاتي، يحدث تأثير الفرملة عندما تقترب المقطورة من السيارة القاطرة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ اقتراب المقطورة واندفاعها نحو مؤخرة السيارة هو الذي يضغط قضيب الكبح التلسكوبي ويفعل مكابح عجلاتها.
+- **⚠️ كشف الفخ:** الفرملة تتفعل باقتراب المقطورة وانضغاطها نحو السيارة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'quando il rimorchio si avvicina', 'ar': 'عندما تقترب المقطورة'}` | `{'it': 'freno a inerzia', 'ar': 'فرامل القصور الذاتي'}`
 
 ---
 
 **276.** Alla guida di un veicolo con rimorchio, durante una frenata in marcia rettilinea, il carico trasportato tenderà a spostarsi all’indietro
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** أثناء قيادة مركبة بمقطورة، وأثناء الفرملة في مسار مستقيم، تميل الحمولة المنقولة إلى الاندفاع والتزحزح نحو الخلف.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ عند الفرملة تندفع الحمولة نحو الأمام (In avanti) بفعل القصور الذاتي لمواصلة حركتها، وليس نحو الخلف إطلاقاً.
+- **⚠️ كشف الفخ:** الفرملة تدفع الحمولة للأمام (In avanti) وليس للخلف (All'indietro).
+- **🔑 الكلمات المفتاحية:** `{'it': "spostarsi all'indietro", 'ar': 'الاندفاع للخلف (خطأ فيزيائي)'}` | `{'it': 'frenata', 'ar': 'الفرملة'}`
 
 ---
 
 **277.** Alla guida di un veicolo con rimorchio, durante una brusca accelerazione in marcia rettilinea, il carico trasportato tenderà a spostarsi in avanti
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** أثناء قيادة مركبة بمقطورة، وأثناء التسارع المفاجئ في مسار مستقيم، تميل الحمولة المنقولة إلى الاندفاع نحو الأمام.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ عند التسارع المفاجئ تندفع الحمولة نحو الخلف (All'indietro) لمقاومة الحركة بالقصور الذاتي، وليس نحو الأمام.
+- **⚠️ كشف الفخ:** التسارع يدفع الحمولة للخلف؛ بينما الفرملة تدفعها للأمام.
+- **🔑 الكلمات المفتاحية:** `{'it': 'spostarsi in avanti', 'ar': 'الاندفاع للأمام (خطأ)'}` | `{'it': 'brusca accelerazione', 'ar': 'تسارع مفاجئ'}`
 
 ---
 
 **278.** Nelle autovetture dotate di A.B.S. non è possibile agganciare un rimorchio privo di impianto frenante
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** في سيارات الركوب المزودة بنظام ABS، لا يمكن سحب وربط مقطورة خالية من نظام الفرامل.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ يمكن للسيارات المزودة بـ ABS سحب مقطورات خفيفة خالية من الفرامل (Rimorchi non frenati fino a 750 kg) وفقاً لنسبة القطر المسموحة للسيارة في كارت تسييرها.
+- **⚠️ كشف الفخ:** وجود ABS في السيارة لا يمنع سحب مقطورات خفيفة بدون فرامل.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non è possibile agganciare', 'ar': 'لا يمكن ربط/سحب (خطأ)'}` | `{'it': 'privo di impianto frenante', 'ar': 'خالٍ من نظام الفرامل'}`
 
 ---
 
 **279.** Nei rimorchi dotati di freno a inerzia la frenatura del rimorchio avviene simultaneamente a quella della motrice
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** في المقطورات المزودة بفرامل القصور الذاتي، يحدث كبح المقطورة في وقت واحد وبالتزامن التام مع كبح السيارة القاطرة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ فرامل القصور الذاتي ميكانيكية وتعمل بتأخير طفيف ناتج عن زمن اقتراب المقطورة وضغطها للقضيب؛ لذا لا تحدث في نفس اللحظة المتزامنة تماماً.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (simultaneamente)؛ بل هناك تأخير زمني طفيف.
+- **🔑 الكلمات المفتاحية:** `{'it': 'simultaneamente', 'ar': 'بالتزامن التام (خطأ)'}` | `{'it': 'freno a inerzia', 'ar': 'فرامل القصور الذاتي'}`
 
 ---
 
 **280.** Nei rimorchi dotati di freno a inerzia il rimorchio frena circa un secondo prima della motrice
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** في المقطورات المزودة بفرامل القصور الذاتي، تفرمل المقطورة قبل السيارة القاطرة بنحو ثانية واحدة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ المقطورة لا يمكن أن تفرمل قبل السيارة أبداً؛ لأنها تستمد قوة كبحها من الاصطدام وضغط السيارة بعد أن تبدأ السيارة بالفرملة أولاً.
+- **⚠️ كشف الفخ:** المقطورة تفرمل 'بعد' السيارة وليس قبلها بثانية.
+- **🔑 الكلمات المفتاحية:** `{'it': 'prima della motrice', 'ar': 'قبل السيارة القاطرة (مستحيل فيزيائياً)'}` | `{'it': 'circa un secondo prima', 'ar': 'قبلها بنحو ثانية'}`
 
 ---
-
 
 ## 📌 Conduzione veicoli rimorchio (26 domande)
 
 **281.** Nei centri abitati il conducente non deve lasciare in sosta un rimorchio staccato dalla motrice, salvo diversa segnalazione
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** داخل المراكز السكنية، يجب على السائق ألا يترك مقطورة مفصولة عن السيارة القاطرة متوقفة في مكان الانتظار، ما لم توجد إشارات تفيد بخلاف ذلك.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص المادة 158 من كود السير على حظر ركن وتوقف المقطورات المفصولة (Rimorchio staccato) في شوارع المدن والمراكز السكنية؛ ويسمح بركنها فقط في الساحات والمواقف المخصصة المحددة بلوحات استثنائية.
+- **⚠️ كشف الفخ:** ركن المقطورة المفصولة في شوارع المدينة ممنوع تماماً إلا بوجود لوحة تسمح بذلك.
+- **🔑 الكلمات المفتاحية:** `{'it': 'centri abitati', 'ar': 'المراكز السكنية'}` | `{'it': 'rimorchio staccato dalla motrice', 'ar': 'مقطورة مفصولة عن القاطرة'}` | `{'it': 'non deve lasciare in sosta', 'ar': 'يجب ألا يتركها متوقفة'}`
 
 ---
 
 **282.** Durante la circolazione, i rimorchi devono essere assicurati con la stessa polizza della motrice
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** أثناء السير، يجب أن تكون المقطورات مؤمنة بنفس بوليصة تأمين السيارة القاطرة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ أثناء قطر المقطورة وسيرها على الطريق، يغطي التأمين الإجباري للسيارة القاطرة أي أضرار تسببها المقطورة لحركة المرور.
+- **⚠️ كشف الفخ:** أثناء السير: تأمين السيارة القاطرة يغطي المقطورة المتصلة بها.
+- **🔑 الكلمات المفتاحية:** `{'it': 'durante la circolazione', 'ar': 'أثناء السير'}` | `{'it': 'stessa polizza della motrice', 'ar': 'نفس بوليصة تأمين القاطرة'}`
 
 ---
 
 **283.** Gli specchietti esterni montati sulla motrice non devono sporgere oltre 20 centimetri dalla sagoma del veicolo (motrice o rimorchio), con riferimento al punto di maggiore larghezza
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** المرايا الخارجية المثبتة على السيارة القاطرة يجب ألا تبرز لأكثر من 20 سنتيمتراً خارج أبعاد هيكل المركبة (القاطرة أو المقطورة)، بالرجوع إلى نقطة العرض الأقصى.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ المرايا الإضافية المستخدمة لكشف جوانب الكارافان والمقطورة العريضة يُسمح ببروزها بحد أقصى 20 سم من أعرض نقطة في المركبة أو المقطورة، لمنع صدم المشاة والسيارات المقابلة.
+- **⚠️ كشف الفخ:** الحد الأقصى لبروز المرايا الإضافية هو 20 سم من أوسع نقطة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'specchietti esterni', 'ar': 'المرايا الخارجية'}` | `{'it': 'non oltre 20 centimetri', 'ar': 'لا تزيد عن 20 سم'}` | `{'it': 'punto di maggiore larghezza', 'ar': 'نقطة العرض الأقصى'}`
 
 ---
 
 **284.** Il rapporto di traino, entro i limiti di quello tecnicamente ammesso per il veicolo, non deve superare il valore di 1, nel caso di rimorchi muniti di freno di servizio e di massa fino a 3,5 tonnellate
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** نسبة القطر، ضمن حدود النسبة المسموح بها فنياً للمركبة، يجب ألا تتجاوز القيمة 1، في حالة المقطورات المزودة بمكبح خدمة وذات كتلة تصل حتى 3.5 طن.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ نسبة القطر (Rapporto di traino) هي حاصل قسمة كتلة المقطورة على كتلة القاطرة؛ وللمقطورات المزودة بفرامل خدمة هيدروليكية لا يجوز أن تتجاوز 1 (أي أن وزن المقطورة لا يتجاوز وزن القاطرة).
+- **⚠️ كشف الفخ:** نسبة القطر للمقطورات ذات فرامل الخدمة تصل حتى 1 كحد أقصى.
+- **🔑 الكلمات المفتاحية:** `{'it': 'rapporto di traino', 'ar': 'نسبة القطر'}` | `{'it': 'non deve superare 1', 'ar': 'يجب ألا تتجاوز 1'}` | `{'it': 'freno di servizio', 'ar': 'فرامل خدمة'}`
 
 ---
 
 **285.** Il massimo rapporto di traino per un rimorchio sprovvisto di qualsiasi dispositivo di frenatura è di 0,5
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** أقصى نسبة قطر لمقطورة غير مزودة بأي جهاز فرامل هي 0.5.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ إذا كانت المقطورة خالية من الفرامل كلياً (Privo di freni)، فيجب ألا يزيد وزنها عن نصف وزن السيارة القاطرة، أي أن نسبة القطر لا تتجاوز 0.5 (Rapporto di traino 0,5).
+- **⚠️ كشف الفخ:** بدون فرامل = نسبة القطر القصوى 0.5 فقط.
+- **🔑 الكلمات المفتاحية:** `{'it': 'sprovvisto di qualsiasi dispositivo di frenatura', 'ar': 'خالية من أي جهاز فرامل'}` | `{'it': 'massimo rapporto di traino è di 0,5', 'ar': 'أقصى نسبة قطر هي 0.5'}`
 
 ---
 
 **286.** Quando il gancio di traino non viene utilizzato, perché non si sta trainando un rimorchio, la sua parte sporgente dalla sagoma posteriore del veicolo deve essere sfilata, smontata o ripiegata
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** عندما لا يُستخدم خطاف الجر، لعدم سحب مقطورة، يجب سحب أو فك أو طي جزئه البارز خارج الأبعاد الخلفية للمركبة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ خطافات الجر الحديثة القابلة للفك أو الطي (Gancio sfilabile / ripiegabile) يجب فكها أو طيها عند عدم الاستخدام إذا كانت تحجب لوحة الأرقام أو تشكل بروزاً خطيراً عند الاصطدام.
+- **⚠️ كشف الفخ:** خطاف الجر غير المستخدم يجب فكه أو طيه إذا كان يحجب اللوحة أو يبرز خطراً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'quando non viene utilizzato', 'ar': 'عندما لا يستخدم'}` | `{'it': 'sfilata, smontata o ripiegata', 'ar': 'سحبها، فكها، أو طيها'}`
 
 ---
 
 **287.** I rimorchi T.A.T.S. sono destinati al trasporto di attrezzature che non devono costituire oggetto di commercio, ma essere impiegate solo per il tempo libero
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** مقطورات T.A.T.S. مخصصة لنقل معدات لا يجب أن تكون محلاً للتجارة، بل تُستخدم فقط لقضاء أوقات الفراغ والرياضة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ مقطورات نقل المعدات السياحية والرياضية (T.A.T.S.: Trasporto Attrezzature Turistiche e Sportive) مخصصة حصرياً لنقل القوارب الشخصية، الطائرات الشراعية، الخيول للفروسية، ولا يجوز استخدامها لنقل بضائع تجارية.
+- **⚠️ كشف الفخ:** مقطورات T.A.T.S مخصصة لمعدات الرياضة والترفيه الشخصية وليست للتجارة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'rimorchi T.A.T.S.', 'ar': 'مقطورات T.A.T.S.'}` | `{'it': 'tempo libero', 'ar': 'أوقات الفراغ/الترفيه'}` | `{'it': 'non oggetto di commercio', 'ar': 'ليست للتجارة'}`
 
 ---
 
 **288.** I conducenti di autoveicoli trainanti un rimorchio, quando la massa complessiva a pieno carico del complesso veicolare è superiore a 3,5 tonnellate, sono considerati in stato di ebbrezza qualora sia stato accertato un valore corrispondente ad un tasso alcolemico superiore a zero grammi per litro
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** سائقو المركبات الآلية التي تجر مقطورة، عندما تتجاوز الكتلة الإجمالية بكامل الحمولة للمجموعة 3.5 طن، يُعتبرون في حالة سكر إذا ثبت لديهم معدل كحول في الدم يتجاوز صفر جرام لكل لتر.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ وفقاً للمادة 186-bis، يخضع سائقو المجموعات التي تتجاوز 3.5 طن لقاعدة نسبة الكحول الصفرية المطلقة (Tasso alcolemico zero g/l)؛ وأي نسبة تزيد عن الصفر تعد مخالفة وجريمة سكر أثناء القيادة.
+- **⚠️ كشف الفخ:** مجموعات المركبات فوق 3.5 طن: حد الكحول هو صفر مطلق (Zero g/l).
+- **🔑 الكلمات المفتاحية:** `{'it': 'superiore a 3,5 tonnellate', 'ar': 'تتجاوز 3.5 طن'}` | `{'it': 'stato di ebbrezza', 'ar': 'حالة سكر'}` | `{'it': 'superiore a zero grammi per litro', 'ar': 'أكبر من صفر جم/لتر (نسبة صفرية)'}`
 
 ---
 
 **289.** Nelle autostrade con carreggiate a tre o più corsie, ai conducenti di complessi di veicoli di lunghezza totale superiore a 7 metri, è vietato impegnare altre corsie all’infuori delle due più vicine al bordo destro della carreggiata
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** على الطرق السريعة ذات نهور الطرق بثلاثة مسارات أو أكثر، يُحظر على سائقي مجموعات المركبات التي يتجاوز طولها الكلي 7 أمتار استخدام أي مسارات أخرى بخلاف المسارين الأقرب للحافة اليمنى لنهر الطريق.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنص المادة 176 على أن المركبات أو المجموعات (سيارة + مقطورة) التي يزيد طولها عن 7 أمتار (Più di 7 metri) محظور عليها استخدام المسار الثالث أو الرابع للتجاوز، ويجب أن تقتصر على المسارين الأول والثاني من اليمين فقط.
+- **⚠️ كشف الفخ:** طول المجموعة أكثر من 7 أمتار = مسموح فقط بالمسارين الأول والثاني من اليمين، والمسار الثالث محظور تماماً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'lunghezza superiore a 7 metri', 'ar': 'طول يتجاوز 7 أمتار'}` | `{'it': 'tre o più corsie', 'ar': 'ثلاثة مسارات أو أكثر'}` | `{'it': 'due più vicine al bordo destro', 'ar': 'المساران الأقرب للحافة اليمنى'}`
 
 ---
 
 **290.** Durante la circolazione, i rimorchi con massa massima a pieno carico fino a 3,5 tonnellate, devono essere segnalati con strisce posteriori e laterali retroriflettenti
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** أثناء السير، يجب تمييز المقطورات ذات الكتلة الإجمالية القصوى بكامل الحمولة حتى 3.5 طن بشرائط عاكسة خلفية وجانبية.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ الشرائط العاكسة المحيطية (Strisce retroriflettenti) إلزامية فقط للمركبات والمقطورات الثقيلة التي تتجاوز كتلتها 3.5 طن، وليست إلزامية للمقطورات الخفيفة حتى 3.5 طن.
+- **⚠️ كشف الفخ:** الشرائط العاكسة إلزامية للمركبات فوق 3.5 طن، وليست لما هو أقل من 3.5 طن.
+- **🔑 الكلمات المفتاحية:** `{'it': 'fino a 3,5 tonnellate', 'ar': 'حتى 3.5 طن (غير ملزمة بالشرائط)'}` | `{'it': 'strisce retroriflettenti', 'ar': 'شرائط عاكسة'}`
 
 ---
 
 **291.** E' possibile trainare rimorchi non immatricolati, se di massa inferiore ai 750 chilogrammi
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يمكن سحب مقطورات غير مسجلة (بدون لوحات تسجيل)، إذا كانت كتلتها تقل عن 750 كيلوجراماً.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ جميع المقطورات يجب أن تكون مسجلة ولها كارت تسجيل ولوحة أرقام خاصة؛ ولا يجوز سحب أي مقطورة غير مسجلة أياً كانت كتلتها.
+- **⚠️ كشف الفخ:** لا توجد مقطورة تسير بدون تسجيل ولوحة رسمية مهما كانت خفيفة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non immatricolati', 'ar': 'غير مسجلة (ممنوع)'}` | `{'it': 'massa inferiore ai 750 kg', 'ar': 'كتلة أقل من 750 كجم'}`
 
 ---
 
 **292.** Il rimorchio si considera parte integrante del veicolo se ha una massa fino a 3,5 tonnellate
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** تعتبر المقطورة جزءاً لا يتجزأ من المركبة إذا كانت كتلتها تصل حتى 3.5 طن.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ المقطورة مركبة مستقلة بذاتها وتظل مستقلة، وليست جزءاً لا يتجزأ من السيارة القاطرة، وتخضع لترخيص وتأمين وفحص خاص.
+- **⚠️ كشف الفخ:** المقطورة ليست جزءاً مدمجاً أو لا يتجزأ من السيارة بل مركبة تابعة مستقلة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'parte integrante', 'ar': 'جزء لا يتجزأ (خطأ)'}` | `{'it': 'rimorchio', 'ar': 'مقطورة'}`
 
 ---
 
 **293.** La larghezza del rimorchio non deve superare quella del veicolo trainante
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يجب ألا يتجاوز عرض المقطورة عرض المركبة القاطرة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ يمكن للمقطورة (مثل الكارافان أو ناقلات القوارب) أن تكون أعرض من السيارة القاطرة بشرط ألا تتجاوز الحد الأقصى القانوني لعرض المركبات (2.55 متر) مع تركيب مرايا رؤية ممتدة للسيارة.
+- **⚠️ كشف الفخ:** المقطورة يمكن أن تكون أعرض من السيارة القاطرة في حدود 2.55 م.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non deve superare quella del veicolo', 'ar': 'ألا يتجاوز عرض السيارة (خطأ)'}` | `{'it': 'larghezza del rimorchio', 'ar': 'عرض المقطورة'}`
 
 ---
 
 **294.** Il rimorchio è parte integrante del veicolo a cui è stato abbinato in fase di collaudo e non può essere agganciato a un altro veicolo
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** المقطورة تعد جزءاً لا يتجزأ من المركبة التي تم ربطها بها في مرحلة الاختبار الفني ولا يمكن ربطها بمركبة أخرى.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ المقطورة قابلة للفك والربط بأي مركبة أخرى مجهزة بخطاف معتمد ومستوفية لشروط الكتلة وقدرة القطر.
+- **⚠️ كشف الفخ:** المقطورة غير مقيدة بسيارة واحدة؛ بل يمكن سحبها بأي سيارة ملائمة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non può essere agganciato a un altro', 'ar': 'لا يمكن ربطها بمركبة أخرى (خطأ)'}` | `{'it': 'rimorchio', 'ar': 'مقطورة'}`
 
 ---
 
 **295.** Se si trainano caravan e rimorchi T.A.T.S. non è obbligatorio che il veicolo trainante sia munito di specchietto retrovisore destro
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** إذا تم سحب كارافان أو مقطورة T.A.T.S، فليس إلزامياً أن تكون المركبة القاطرة مزودة بمرآة رؤية خارجية يمنى.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ وجود المرآة الخارجية اليمنى واليسرى إلزامي دائماً عند سحب أي مقطورة، لا سيما إذا كانت تحجب الرؤية من المرآة الداخلية الوسطى.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي النفي (non è obbligatorio)؛ المرآة اليمنى إلزامية.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non è obbligatorio specchietto destro', 'ar': 'المرآة اليمنى غير إلزامية (خطأ)'}` | `{'it': 'caravan', 'ar': 'كارافان'}`
 
 ---
 
 **296.** Gli specchietti esterni montati sulla motrice possono sporgere fino a 50 centimetri dalla sagoma del veicolo di maggiore ingombro, qualora siano posizionati ad un’altezza da terra non superiore a 1 metro
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** المرايا الخارجية المثبتة على السيارة القاطرة يمكن أن تبرز حتى 50 سنتيمتراً خارج أبعاد المركبة، إذا كانت موضوعة على ارتفاع لا يتجاوز متراً واحداً من الأرض.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ الحد الأقصى المسموح به لبروز المرايا الخارجية الإضافية هو 20 سم فقط (20 centimetri)؛ وبروزها 50 سم محظور وخطر جداً على المارة.
+- **⚠️ كشف الفخ:** الرقم القانوني هو 20 سم فقط؛ ورقم 50 سم خادع وباطل.
+- **🔑 الكلمات المفتاحية:** `{'it': 'fino a 50 centimetri', 'ar': 'حتى 50 سم (خطأ، الصحيح 20 سم)'}` | `{'it': 'specchietti esterni', 'ar': 'المرايا الخارجية'}`
 
 ---
 
 **297.** Nel rispetto della larghezza massima stabilita per i rimorchi T.A.T.S., le imbarcazioni trasportate possono sporgere fino a 50 centimetri per ogni lato rispetto ai bordi esterni delle luci di posizione posteriori
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** مع الالتزام بالحد الأقصى للعرض المقرر لمقطورات T.A.T.S، يمكن للقوارب المنقولة أن تبرز حتى 50 سنتيمتراً لكل جانب بالنسبة للحواف الخارجية لأضواء الموضع الخلفية.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ البروز الجانبي الأقصى هو 30 سم فقط من أضواء الموضع وليس 50 سم، وضمن العرض الكلي المسموح به.
+- **⚠️ كشف الفخ:** البروز الجانبي الأقصى هو 30 سم، وليس 50 سم.
+- **🔑 الكلمات المفتاحية:** `{'it': 'fino a 50 centimetri per ogni lato', 'ar': 'حتى 50 سم لكل جانب (خطأ)'}` | `{'it': 'imbarcazioni', 'ar': 'القوارب المنقولة'}`
 
 ---
 
 **298.** Il titolare di patente di guida della categoria BE che, successivamente, consegue la patente della categoria C, può guidare anche veicoli della categoria CE
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** حامل رخصة القيادة من الفئة BE الذي يحصل لاحقاً على رخصة الفئة C، يمكنه قيادة مركبات الفئة CE أيضاً تلقائياً.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ قيادة شاحنات ثقيلة بمقطورة (CE) تتطلب اجتياز اختبار خاص للحصول على امتداد E على رخصة C؛ والحصول المسبق على BE لا يمنح ترخيص CE تلقائياً.
+- **⚠️ كشف الفخ:** امتداد E لا ينتقل تلقائياً من الفئة B إلى الفئة C.
+- **🔑 الكلمات المفتاحية:** `{'it': 'può guidare anche CE', 'ar': 'يقود CE تلقائياً (خطأ)'}` | `{'it': 'patente BE', 'ar': 'رخصة BE'}`
 
 ---
 
 **299.** Per i complessi di veicoli con rimorchi fino a 3,5 tonnellate di massa, non vige l'obbligo di apporre nella parte posteriore i contrassegni indicanti i limiti massimi di velocità specifici loro imposti
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** بالنسبة لمجموعات المركبات ذات المقطورات حتى 3.5 طن، لا يسري الالتزام بوضع الملصقات الدائرية للحدود القصوى للسرعة المقررة لها في الخلف.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ جميع مجموعات المركبات (سيارة + مقطورة) تخضع لحدود سرعة خاصة (70 كم/س خارج المدن و80 كم/س في الأوتوستراد) وتلزم بوضع ملصقات السرعة (70 و 80) خلف المقطورة.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي النفي (non vige l'obbligo)؛ ملصقات السرعة إلزامية خلف المقطورات.
+- **🔑 الكلمات المفتاحية:** `{'it': "non vige l'obbligo", 'ar': 'لا يسري الالتزام (خطأ)'}` | `{'it': 'contrassegni limiti di velocità', 'ar': 'ملصقات حدود السرعة'}`
 
 ---
 
 **300.** Quando si traina un rimorchio per trasporto di animali vivi occorre tenere in funzione la segnalazione luminosa di pericolo per segnalare agli altri conducenti di aumentare la distanza di sicurezza
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** عند سحب مقطورة لنقل الحيوانات الحية، يجب إبقاء إشارة الضوء التحذيري للخطر (أضواء الطوارئ الرباعية) مشغلة لتنبيه السائقين الآخرين لزيادة مسافة الأمان.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ أضواء الطوارئ الرباعية (Quattro frecce) مخصصة فقط للتوقف الاضطراري أو التباطؤ المفاجئ في الزحام أو السحب في الطوارئ، ولا تُشغل أثناء السير العادي لمجرد نقل حيوانات حية.
+- **⚠️ كشف الفخ:** لا تشغل أضواء الطوارئ الرباعية أثناء السير العادي لنقل الحيوانات.
+- **🔑 الكلمات المفتاحية:** `{'it': 'segnalazione luminosa di pericolo in funzione', 'ar': 'تشغيل أضواء الطوارئ (خطأ أثناء السير العادي)'}` | `{'it': 'animali vivi', 'ar': 'حيوانات حية'}`
 
 ---
 
 **301.** Quando si traina un rimorchio occorre staccare la targa della motrice e applicarla nella parte posteriore del rimorchio
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** عند سحب مقطورة، يجب فك لوحة أرقام السيارة القاطرة وتثبيتها في الجزء الخلفي للمقطورة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ لوحة أرقام السيارة تظل ثابتة ومثبتة في مكانها على السيارة القاطرة؛ بينما المقطورة تحمل لوحتها الخاصة المستقلة بها.
+- **⚠️ كشف الفخ:** لا تفك لوحة السيارة القاطرة؛ المقطورة لها لوحتها الخاصة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'staccare la targa della motrice', 'ar': 'فك لوحة القاطرة (تصرف باطل)'}` | `{'it': 'applicarla sul rimorchio', 'ar': 'تثبيتها على المقطورة'}`
 
 ---
 
 **302.** Se nella carta di circolazione manca il valore della massa rimorchiabile, ciò significa che il veicolo è atto al traino di rimorchi di qualsiasi massa
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** إذا كانت قيمة الكتلة القابلة للقطر غائبة في رخصة السير، فهذا يعني أن المركبة صالحة لسحب مقطورات من أي وزن وكتلة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ غياب قيمة الكتلة القابلة للقطر (Massa rimorchiabile) في كارت السيارة يعني أن السيارة غير مرخصة وغير مؤهلة لسحب أي مقطورة على الإطلاق.
+- **⚠️ كشف الفخ:** غياب الوزن المسموح قطره يعني منع القطر تماماً، وليس سحب أي وزن!
+- **🔑 الكلمات المفتاحية:** `{'it': 'manca il valore della massa rimorchiabile', 'ar': 'غياب قيمة الكتلة القابلة للقطر'}` | `{'it': 'qualsiasi massa', 'ar': 'أي كتلة (خطأ عكسي)'}`
 
 ---
 
 **303.** I rimorchi devono essere sottoposti a revisione periodica insieme al veicolo trainante
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** يجب إخضاع المقطورات للفحص الفني الدوري (المعاينة) مع السيارة القاطرة في نفس الوقت.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ المقطورة مركبة مستقلة ولها جدول فحص دوري (Revisione) مستقل خاص بها وفقاً لسنة تسجيلها، ولا يشترط فحصها مع نفس السيارة القاطرة.
+- **⚠️ كشف الفخ:** فحص المقطورة مستقل ولا يشترط إجراؤه مع السيارة القاطرة معاً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'insieme al veicolo trainante', 'ar': 'معاً مع السيارة القاطرة (خطأ)'}` | `{'it': 'revisione periodica', 'ar': 'الفحص الدوري'}`
 
 ---
 
 **304.** Sui rimorchi, il carico trasportato può sporgere dalla parte anteriore fino ai 3/10 della lunghezza del complesso dei veicoli
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** على المقطورات، يمكن للحمولة المنقولة أن تبرز من الجزء الأمامي حتى 3 أعشار من طول مجموعة المركبات.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ البروز من الأمام محظور كلياً؛ ونسبة 3/10 مخصصة حصرياً للبروز من الجهة الخلفية للأشياء غير القابلة للتجزئة.
+- **⚠️ كشف الفخ:** البروز من الأمام ممنوع منعاً باتاً ولا وجود لنسبة 3/10 في الأمام.
+- **🔑 الكلمات المفتاحية:** `{'it': 'sporgere dalla parte anteriore', 'ar': 'تبرز من الأمام (ممنوع)'}` | `{'it': 'tre decimi', 'ar': 'ثلاثة أعشار'}`
 
 ---
 
 **305.** Sui rimorchi leggeri, il carico trasportato può sporgere posteriormente senza obbligo di specifiche segnalazioni
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** على المقطورات الخفيفة، يمكن للحمولة المنقولة أن تبرز من الخلف دون إلزام بوضع إشارات تحذيرية محددة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ وضع اللوحة المربعة العاكسة للبروز الخلفي إلزامي لجميع المركبات والمقطورات دون استثناء لأي بروز خلفي مهما كانت المقطورة خفيفة.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (senza obbligo)؛ اللوحة العاكسة إلزامية دائماً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'senza obbligo di segnalazioni', 'ar': 'دون إلزام بإشارات (خطأ)'}` | `{'it': 'rimorchi leggeri', 'ar': 'مقطورات خفيفة'}`
 
 ---
 
 **306.** I rimorchi per il trasporto di cavalli (van) non possono circolare in autostrada
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** المقطورات المخصصة لنقل الخيول (الفان) لا يمكنها السير على الطريق السريع.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ مقطورات نقل الخيول (Van) مركبات معتمدة ومصرح لها تماماً بالسير على الطرق السريعة مع الالتزام بحدود السرعة وقواعد الأمان.
+- **⚠️ كشف الفخ:** مقطورات الخيول مسموح لها بالسير على الأوتوستراد دون حظر.
+- **🔑 الكلمات المفتاحية:** `{'it': 'trasporto di cavalli (van)', 'ar': 'نقل الخيول (فان)'}` | `{'it': 'non possono circolare in autostrada', 'ar': 'لا يمكنها السير بالأوتوستراد (خطأ)'}`
 
 ---
-
 
 ## 📌 Guida veicoli rimorchio (12 domande)
 
 **307.** Alla guida di un veicolo con rimorchio, nello svoltare a destra, bisogna fare particolare attenzione a non investire, con la ruota posteriore destra, eventuali pedoni che si trovino vicino al marciapiede
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** أثناء قيادة مركبة بمقطورة، عند الانعطاف يميناً، يجب الانتباه الشديد لعدم صدم أو دهس أي مشاة متواجدين بالقرب من الرصيف بالعجلة الخلفية اليمنى.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ مسار العجلة الخلفية اليمنى للمقطورة يضيق نحو الرصيف في المنعطف، مما يهدد بقطع أقدام أو صدم المشاة الواقفين على حافة الرصيف ما لم يراقبهم السائق بحذر بالمرايا.
+- **⚠️ كشف الفخ:** العجلة الخلفية اليمنى للمقطورة تقترب بشدة من الرصيف عند الانعطاف يميناً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'svoltare a destra', 'ar': 'الانعطاف يميناً'}` | `{'it': 'non investire con la ruota posteriore', 'ar': 'عدم صدم بالعجلة الخلفية'}` | `{'it': 'pedoni vicino al marciapiede', 'ar': 'مشاة قرب الرصيف'}`
 
 ---
 
 **308.** Quando si traina un rimorchio, bisogna considerare che nelle curve la fascia di ingombro è maggiore
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** عند سحب مقطورة، يجب الأخذ في الاعتبار أنه في المنعطفات يكون حيز ومساحة الإشغال العرضية أكبر.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ نظراً لاختلاف مسار عجلات المقطورة عن عجلات السيارة، تتسع المساحة الكلية المشغولة على نهر الطريق (Fascia di ingombro maggiore)، مما يتطلب مسافة أمان أكبر عن حواف الطريق والمسارات المجاورة.
+- **⚠️ كشف الفخ:** حيز إشغال الطريق يتسع ويزداد في المنعطفات مع المقطورة (Fascia di ingombro maggiore).
+- **🔑 الكلمات المفتاحية:** `{'it': 'fascia di ingombro è maggiore', 'ar': 'حيز الإشغال أكبر'}` | `{'it': 'nelle curve', 'ar': 'في المنعطفات'}`
 
 ---
 
 **309.** Trainando un rimorchio nelle forti discese, occorre tener conto della forza di spinta esercitata dal rimorchio sulla motrice
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** عند سحب مقطورة في المنحدرات الشديدة، يجب الأخذ في الحسبان قوة الدفع التي تمارسها المقطورة على السيارة القاطرة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ في النزول الشديد يدفع وزن المقطورة السيارة القاطرة ويزيد من سرعتها، مما يفرض تعشيق غيار منخفض لاستغلال فرملة المحرك وتفادي انزلاق المجموعة.
+- **⚠️ كشف الفخ:** قوة دفع المقطورة في المنحدر تزيد العبء على المكابح وتتطلب حذراً بالغاً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'forti discese', 'ar': 'منحدرات شديدة'}` | `{'it': 'forza di spinta', 'ar': 'قوة الدفع'}`
 
 ---
 
 **310.** Quando si traina un rimorchio, specie se carico, si ha una sensibile riduzione della capacità di accelerazione (ripresa) del veicolo
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** عند سحب مقطورة، لا سيما إذا كانت محملة، يحدث انخفاض ملموس في قدرة تسارع (عزم وانطلاق) المركبة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ زيادة الوزن الكلي تضعف تسارع السيارة وعزمها (Ripresa del veicolo)، مما يجعل الانطلاق والتجاوز يستغرقان وقتاً ومسافة أطول بكثير.
+- **⚠️ كشف الفخ:** تسارع السيارة وعزمها يضعفان بشكل ملحوظ عند سحب مقطورة محملة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'capacità di accelerazione (ripresa)', 'ar': 'قدرة التسارع/العزم'}` | `{'it': 'sensibile riduzione', 'ar': 'انخفاض ملموس'}`
 
 ---
 
 **311.** Prima di effettuare qualsiasi manovra con il rimorchio agganciato è bene accertarsi che non vi siano cose e/o persone nel raggio di manovra del complesso
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** قبل القيام بأي مناورة والمقطورة مربوطة، يستحسن التأكد من عدم وجود أشياء أو أشخاص ضمن نطاق ونصف قطر مناورة المجموعة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ عند الرجوع للخلف أو الدوران تتحرك المقطورة في زوايا عريضة قد تدهس مشاة أو تصدم عوائق تقع في النقاط العمياء، ويجب فحص محيط المناورة بالكامل أولاً.
+- **⚠️ كشف الفخ:** التأكد من خلو محيط المناورة ضرورة مطلقة قبل تحريك المقطورة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'raggio di manovra', 'ar': 'نطاق/نصف قطر المناورة'}` | `{'it': 'non vi siano cose e/o persone', 'ar': 'خلو المكان من أشخاص أو أشياء'}`
 
 ---
 
 **312.** Nelle curve il rimorchio tende a “stringere” perché percorre una traiettoria circolare con raggio inferiore alla motrice
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** في المنعطفات، تميل المقطورة إلى 'تضييق' المسار لأنها تسلك مساراً دائرياً بنصف قطر أصغر من مسار السيارة القاطرة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ العجلات الخلفية للمقطورة تقطع الزاوية وتدور في قوس داخلي ضيق (Tende a stringere)، مما يقربها من الأرصفة أو الخطوط الداخلية للمنعطف.
+- **⚠️ كشف الفخ:** المقطورة تضيق المنعطف وتسلك نصف قطر أصغر (Raggio inferiore alla motrice).
+- **🔑 الكلمات المفتاحية:** `{'it': 'tende a stringere', 'ar': 'تميل إلى تضييق المسار'}` | `{'it': 'raggio inferiore alla motrice', 'ar': 'نصف قطر أصغر من القاطرة'}`
 
 ---
 
 **313.** I movimenti del liquido che si verificano all’interno di un serbatoio vincolato ad un rimorchio durante i cambiamenti di direzione, in frenata e in accelerazione, sono le maggiori cause di instabilità dei complessi di veicoli
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** حركات السائل التي تحدث داخل صهريج مثبت بمقطورة أثناء تغيير الاتجاه والفرملة والتسارع، تعد من أكبر أسباب عدم استقرار مجموعات المركبات.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تموج السوائل داخل الخزان (Effetto sciabordio) ينقل أوزاناً مفاجئة وعنيفة بين الجوانب والأمام والخلف، مما يخل بتوازن المقطورة وقد يؤدي لانقلابها فوراً ما لم تكن هناك حواجز أمواج داخلية.
+- **⚠️ كشف الفخ:** حركة السوائل وتلاطمها داخل الصهريج من أخطر مسببات انقلاب المقطورات.
+- **🔑 الكلمات المفتاحية:** `{'it': 'movimenti del liquido', 'ar': 'حركات السائل/التلاطم'}` | `{'it': 'instabilità dei complessi', 'ar': 'عدم استقرار المجموعات'}`
 
 ---
 
 **314.** Trainando un rimorchio occorre verificare che il carico gravante sul gancio non alteri l’assetto del veicolo e l’inclinazione del fascio luminoso dei fari
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** عند سحب مقطورة، يجب التأكد من أن الحمل الواقع على خطاف الجر لا يخل باستقامة وتوازن المركبة وميلان حزمة ضوء الكشافات الأمامية.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ إذا زاد الضغط الرأسي على الخطاف، ستهبط مؤخرة السيارة وترتفع مقدمتها، مما يجعل أضواء الكشافات المنخفضة تبهر السائقين المواجهين وتفقد العجلات الأمامية التماسك.
+- **⚠️ كشف الفخ:** الوزن الزائد على الخطاف يرفع مقدمة السيارة ويحرف شعاع المصابيح للأعلى.
+- **🔑 الكلمات المفتاحية:** `{'it': 'carico gravante sul gancio', 'ar': 'الحمل الواقع على الخطاف'}` | `{'it': 'assetto del veicolo', 'ar': 'استقامة وتوازن المركبة'}` | `{'it': 'inclinazione del fascio luminoso', 'ar': 'ميلان حزمة الضوء'}`
 
 ---
 
 **315.** Nell’affrontare una curva a velocità moderata il rimorchio compie sempre lo stesso percorso fatto dalla motrice
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** عند اجتياز منعطف بسرعة معتدلة، تسلك المقطورة دائماً نفس المسار تماماً الذي سلكته السيارة القاطرة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ المقطورة لا تتبع نفس مسار السيارة أبداً في المنعطفات، بل تسلك مساراً دائرياً داخلياً أضيق (Traiettoria più interna con raggio inferiore).
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (stesso percorso)؛ فالمقطورة تسلك مساراً أضيق مختلفاً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'stesso percorso', 'ar': 'نفس المسار (خطأ)'}` | `{'it': 'curva', 'ar': 'منعطف'}`
 
 ---
 
 **316.** Durante la marcia, il rimorchio deve avere il ruotino pivottante di manovra abbassato (poggiato al suolo)
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** أثناء السير، يجب أن تكون العجلة الصغيرة الدوارة المساعدة للمناورة (عجلة الجوكي) في المقطورة منزلة للأسفل (ملامسة للأرض).
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ عجلة المناورة الصغيرة (Ruotino pivottante) مخصصة فقط لتحريك المقطورة يدوياً وهي مفصولة؛ وأثناء السير يجب رفعها وتثبيتها للأعلى تماماً حتى لا تصطدم بالأرض وتتحطم.
+- **⚠️ كشف الفخ:** أثناء السير يجب رفع عجلة الجوكي وتثبيتها للأعلى وليس إنزالها للأرض.
+- **🔑 الكلمات المفتاحية:** `{'it': 'ruotino pivottante abbassato', 'ar': 'العجلة الدوارة منزلة (خطأ فادح)'}` | `{'it': 'durante la marcia', 'ar': 'أثناء السير'}`
 
 ---
 
 **317.** Nei veicoli dotati di sensori di parcheggio non è possibile agganciare un rimorchio
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** في المركبات المزودة بحساسات ركن واصطفاف، لا يمكن ربط وسحب مقطورة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ يمكن سحب مقطورة تماماً؛ والأنظمة الحديثة تقوم بتعطيل الحساسات الخلفية آلياً عند توصيل مقبس المقطورة الكهربائي لتفادي إطلاق صفير مستمر.
+- **⚠️ كشف الفخ:** حساسات الركن لا تمنع سحب المقطورة إطلاقاً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'sensori di parcheggio', 'ar': 'حساسات الركن'}` | `{'it': 'non è possibile agganciare', 'ar': 'لا يمكن ربط مقطورة (خطأ)'}`
 
 ---
 
 **318.** Trainare un rimorchio non comporta un aumento dei consumi di carburante se si marcia a velocità moderata
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** سحب مقطورة لا يترتب عليه زيادة في استهلاك الوقود إذا تم السير بسرعة معتدلة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ سحب المقطورة يزيد دائماً من الوزن الإجمالي ومقاومة الهواء ومقاومة التدحرج، مما يرفع استهلاك الوقود حتماً حتى عند السير بسرعة معتدلة.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي النفي (non comporta aumento dei consumi)؛ سحب المقطورة يزيد الاستهلاك دائماً.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non comporta aumento dei consumi', 'ar': 'لا يسبب زيادة الاستهلاك (خطأ)'}` | `{'it': 'carburante', 'ar': 'الوقود'}`
 
 ---
-
 
 ## 📌 Carichi organi traino (10 domande)
 
 **319.** Le parti meccaniche in movimento degli organi di traino di un autoveicolo e di un rimorchio devono essere mantenute pulite e adeguatamente lubrificate
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** الأجزاء الميكانيكية المتحركة لأجهزة ووصلات القطر في المركبة الآلية والمقطورة يجب الحفاظ عليها نظيفة ومزيتة ومشحمة بشكل مناسب.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تنظيف وتشحيم كرة الجر وقفل الربط يضمن سهولة الحركة، ويمنع التآكل الميكانيكي، ويحمي من الصدأ والانفصال المفاجئ.
+- **⚠️ كشف الفخ:** النظافة والتشحيم الدوري لأجهزة القطر شرط أمان جوهري.
+- **🔑 الكلمات المفتاحية:** `{'it': 'organi di traino', 'ar': 'أجهزة القطر'}` | `{'it': 'pulite e adeguatamente lubrificate', 'ar': 'نظيفة ومزيتة بشكل مناسب'}`
 
 ---
 
 **320.** Gli organi di traino di un veicolo non devono presentare giochi, deformazioni o incrinature
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** أجهزة ووصلات القطر في المركبة يجب ألا تحتوي على فضاوة أو خلوص، أو تشوهات، أو شروخ وتصدعات.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ ظهور أي اعوجاج أو شروخ شعرية أو فراغ حركي كبير في خطاف الجر ينذر بانكساره وانفلات المقطورة في السير، ويجب تغييره فوراً.
+- **⚠️ كشف الفخ:** أجهزة القطر يجب أن تكون سليمة 100% وخالية من الشروخ والتشوهات.
+- **🔑 الكلمات المفتاحية:** `{'it': 'giochi, deformazioni o incrinature', 'ar': 'فضاوة، تشوهات أو شروخ'}` | `{'it': 'non devono presentare', 'ar': 'يجب ألا تحتوي على'}`
 
 ---
 
 **321.** Gli organi di traino di un veicolo devono consentire sufficienti oscillazioni in senso verticale tra motrice e rimorchio, in modo da poter compensare le diverse inclinazioni dei veicoli dovute ai dislivelli stradali
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** أجهزة ووصلات القطر في المركبة يجب أن تسمح بتموجات وتذبذبات رأسية كافية بين القاطرة والمقطورة، لتعويض الاختلافات في ميلان المركبتين الناتجة عن فروق مناسيب ومطبات الطريق.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ المفصل الكروي لخطاف الجر مصمم هندسياً ليمنح حرية حركة رأسية وزاوية بين السيارتين لامتصاص التغيرات عند المطبات والمنحدرات دون كسر الوصلة.
+- **⚠️ كشف الفخ:** حرية الحركة الرأسية مطلوبة لتعويض فروق ارتفاع الطريق.
+- **🔑 الكلمات المفتاحية:** `{'it': 'oscillazioni in senso verticale', 'ar': 'تذبذبات رأسية'}` | `{'it': 'dislivelli stradali', 'ar': 'فروق مناسيب الطريق'}`
 
 ---
 
 **322.** Quando si traina un rimorchio occorre verificare che il carico verticale gravante sul gancio non ecceda il limite indicato dal costruttore
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** عند سحب مقطورة، يجب التحقق من أن الحمل الرأسي الواقع على خطاف الجر لا يتجاوز الحد الموضح من الشركة الصانعة.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ الحمل الرأسي الأقصى على الكرة (Carico verticale massimo 'S') محدد في بطاقة الصانع؛ وتجاوزه يكسر الخطاف ويضر بنظام تعليق السيارة القاطرة.
+- **⚠️ كشف الفخ:** الحمل الرأسي على الخطاف يجب ألا يتجاوز حد الصانع المدون.
+- **🔑 الكلمات المفتاحية:** `{'it': 'carico verticale gravante sul gancio', 'ar': 'الحمل الرأسي على الخطاف'}` | `{'it': 'non ecceda il limite', 'ar': 'لا يتجاوز الحد'}`
 
 ---
 
 **323.** Il carico verticale massimo che può gravare sul gancio della motrice è indicato in un’ apposita targhetta applicata sul gancio di traino
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** أقصى حمل رأسي يمكن تطبيقه على خطاف السيارة القاطرة موضح في لوحة بيانات معدنية مخصصة مثبتة على خطاف الجر نفسه.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ كل خطاف جر معتمد يحمل لوحة بيانات معدنية رسمية (Targhetta di omologazione) مدون عليها الحمل الرأسي الأقصى المسموح به (قيمة S بالكيلوجرام).
+- **⚠️ كشف الفخ:** الحمل الرأسي مدون في لوحة معدنية مثبتة على خطاف الجر نفسه.
+- **🔑 الكلمات المفتاحية:** `{'it': 'carico verticale massimo', 'ar': 'أقصى حمل رأسي'}` | `{'it': 'apposita targhetta', 'ar': 'لوحة بيانات مخصصة'}` | `{'it': 'gancio di traino', 'ar': 'خطاف الجر'}`
 
 ---
 
 **324.** Gli organi di traino di un veicolo non necessitano di lubrificazione, ma devono essere periodicamente sgrassati con appositi detergenti o con benzina
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** أجهزة ووصلات القطر في المركبة لا تحتاج إلى تزييت، ولكن يجب إزالة الشحوم منها دورياً بمنظفات خاصة أو بالبنزين.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ أجهزة القطر الميكانيكية تحتاج حتماً إلى تزييت وتشحيم دائم لمنع الاحتكاك الجاف والتآكل؛ وتجريدها من الزيت بالبنزين خطأ يسرع تلفها.
+- **⚠️ كشف الفخ:** الزعم بعدم تزييتها وتنظيفها بالبنزين خطأ؛ بل التزييت مطلوب.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non necessitano di lubrificazione', 'ar': 'لا تحتاج لتزييت (خطأ)'}` | `{'it': 'sgrassati con benzina', 'ar': 'إزالة الشحم بالبنزين'}`
 
 ---
 
 **325.** Gli organi di traino di un veicolo possono non essere di tipo omologato, se destinati solo al traino di rimorchi leggeri
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** أجهزة ووصلات القطر في المركبة يمكن ألا تكون من نوع معتمد رسمياً، إذا كانت مخصصة فقط لسحب مقطورات خفيفة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ الاعتماد الرسمي (Omologazione) إلزامي قطعي لجميع خطافات ووصلات الجر دون أي استثناء لحجم أو وزن المقطورة.
+- **⚠️ كشف الفخ:** وصلات الجر يجب أن تكون معتمدة دائماً مهما كانت المقطورة خفيفة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'possono non essere omologati', 'ar': 'يمكن ألا تكون معتمدة (خطأ)'}` | `{'it': 'rimorchi leggeri', 'ar': 'مقطورات خفيفة'}`
 
 ---
 
 **326.** Per poter trainare un rimorchio leggero non occorre effettuare il collegamento elettrico fra motrice e rimorchio
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** لتتمكن من سحب مقطورة خفيفة، لا يلزم إجراء التوصيل الكهربائي بين السيارة القاطرة والمقطورة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ التوصيل الكهربائي إلزامي وحتمي لتشغيل إشارات وأضواء المقطورة الخلفية ولا تسير بدونه.
+- **⚠️ كشف الفخ:** التوصيل الكهربائي إلزامي حتى للمقطورات الخفيفة.
+- **🔑 الكلمات المفتاحية:** `{'it': 'non occorre effettuare il collegamento elettrico', 'ar': 'لا يلزم التوصيل الكهربائي (خطأ)'}` | `{'it': 'rimorchio leggero', 'ar': 'مقطورة خفيفة'}`
 
 ---
 
 **327.** In caso di rottura degli organi di traino di un veicolo, gli stessi possono essere riparati tramite saldatura presso officina specializzata
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** في حالة كسر وتلف أجهزة القطر في المركبة، يمكن إصلاحها بواسطة اللحام لدى ورشة متخصصة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ يُحظر تماماً لحام أجزاء خطاف الجر المكسورة؛ لأن اللحام يضعف البنية الجزيئية للمعدن ويعرضه للانهيار الفجائي؛ ويجب استبدال القطعة بالكامل بقطعة أصلية معتمدة جديدة.
+- **⚠️ كشف الفخ:** إصلاح خطاف الجر باللحام (Saldatura) ممنوع منعاً باتاً؛ يجب استبداله بجديد.
+- **🔑 الكلمات المفتاحية:** `{'it': 'riparati tramite saldatura', 'ar': 'إصلاحها باللحام (محظور تماماً)'}` | `{'it': 'rottura degli organi di traino', 'ar': 'كسر أجهزة القطر'}`
 
 ---
 
 **328.** Per garantire una maggiore sicurezza durante la guida di un veicolo con rimorchio, è consigliabile concentrare il carico massimo in corrispondenza del gancio di traino
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** لضمان أمان أكبر أثناء قيادة مركبة بمقطورة، يستحسن تركيز أقصى حمولة عند خطاف الجر.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ تركيز الحمل على الخطاف يدمر نظام التعليق الخلفي للقاطرة ويرفع عجلاتها الأمامية عن الأرض؛ والأصل توزيع الحمل فوق محور المقطورة.
+- **⚠️ كشف الفخ:** تركيز الحمل على خطاف الجر خطأ ميكانيكي مدمر للأمان.
+- **🔑 الكلمات المفتاحية:** `{'it': 'concentrare il carico massimo sul gancio', 'ar': 'تركيز أقصى حمولة على الخطاف (خطأ)'}` | `{'it': 'sicurezza', 'ar': 'الأمان'}`
 
 ---
-
 
 ## 📌 Utilizzo rimorchio (4 domande)
 
 **329.** Il conducente di un veicolo con rimorchio deve sistemare la merce trasportata in modo che, durante la marcia, non si verifichino spostamenti, rovesciamenti, cadute o sfregamenti
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** يجب على سائق مركبة بمقطورة ترتيب البضاعة المنقولة بحيث لا يحدث أثناء السير أي تحرك أو انقلاب أو سقوط أو احتكاك لها.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ تثبيت البضائع داخل المقطورة بحبال وأربطة محكمة يمنع تزحزحها أو انقلابها عند المنعطفات والفرملة، ويحمي استقرار المقطورة من التدهور.
+- **⚠️ كشف الفخ:** تثبيت الحمولة لمنع حركتها أو انقلابها واجب قطعي للسائق.
+- **🔑 الكلمات المفتاحية:** `{'it': 'spostamenti, rovesciamenti, cadute', 'ar': 'تحرك، انقلاب، سقوط'}` | `{'it': 'sistemare la merce', 'ar': 'ترتيب وتثبيت البضاعة'}`
 
 ---
 
 **330.** In caso di prolungata inattività del rimorchio è consigliabile, se non è possibile sollevarlo da terra, aumentare la pressione di gonfiaggio degli pneumatici e cambiare periodicamente la loro superficie di appoggio, in modo da evitare la loro ovalizzazione
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** في حالة التوقف الطويل للمقطورة عن الاستخدام، يستحسن إذا تعذر رفعها عن الأرض، زيادة ضغط نفخ الإطارات وتغيير سطح ارتكازها دورياً، لتجنب حدوث تشوه بيضاوي للإطارات.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ بقاء المقطورة ثابتة بوزنها على نقطة واحدة من الإطار لأشهر يسبب تسطح وتشوه هيكل الإطار المطاطي (Ovalizzazione)؛ وزيادة الضغط وتحريك المقطورة لتغيير زاوية الارتكاز يحمي الإطارات من التلف.
+- **⚠️ كشف الفخ:** زيادة الضغط وتغيير موضع العجلات يحمي إطارات المقطورة المخزنة من التشوه البيضاوي (Ovalizzazione).
+- **🔑 الكلمات المفتاحية:** `{'it': 'prolungata inattività', 'ar': 'توقف طويل عن الاستخدام'}` | `{'it': 'evitare la loro ovalizzazione', 'ar': 'تجنب تشوهها البيضاوي'}` | `{'it': 'aumentare la pressione', 'ar': 'زيادة الضغط'}`
 
 ---
 
 **331.** Nel caso in cui il rimorchio rimanga inattivo per lungo tempo è consigliabile, se possibile, mantenere gli pneumatici sollevati da terra, applicando appositi sostegni sotto al telaio
-
 - **الإجابة:** `VERO ✅ (صح)`
+- **📖 الترجمة السياقية:** في حال بقاء المقطورة دون استخدام لفترة طويلة، يستحسن إن أمكن إبقاء الإطارات مرفوعة عن الأرض، بوضع دعامات مخصصة تحت الشاسيه.
+- **💡 الشرح والقاعدة المرورية:** العبارة صحيحة (VERO)؛ رفع المقطورة على حوامل ودعامات (Cavalletti / Sostegni) يزيل الحمل كلياً عن العجلات وممتصات الصدمات، ويحمي الإطارات تماماً من التسطح والشيخوخة المبكرة.
+- **⚠️ كشف الفخ:** رفع المقطورة على دعامات هو أفضل حل لحماية الإطارات أثناء التخزين الطويل.
+- **🔑 الكلمات المفتاحية:** `{'it': 'mantenere gli pneumatici sollevati', 'ar': 'إبقاء الإطارات مرفوعة عن الأرض'}` | `{'it': 'sostegni sotto al telaio', 'ar': 'دعامات تحت الشاسيه'}`
 
 ---
 
 **332.** Quando si traina un rimorchio, la pressione di gonfiaggio degli pneumatici del veicolo trainante deve essere la stessa degli pneumatici del rimorchio
-
 - **الإجابة:** `FALSO ❌ (خطأ)`
+- **📖 الترجمة السياقية:** عند سحب مقطورة، يجب أن يكون ضغط نفخ إطارات المركبة القاطرة هو نفسه ضغط إطارات المقطورة.
+- **💡 الشرح والقاعدة المرورية:** العبارة خاطئة (FALSO)؛ لكل من السيارة القاطرة والمقطورة مواصفات وأوزان وأحجام إطارات وضغوط نفخ مختلفة تماماً محددة في دليل الصيانة الخاص بكل منهما، ولا يشترط تساويهما إطلاقاً.
+- **⚠️ كشف الفخ:** الكلمة الخادعة هي (deve essere la stessa)؛ فلكل مركبة أو مقطورة ضغطها الخاص المستقل.
+- **🔑 الكلمات المفتاحية:** `{'it': 'deve essere la stessa', 'ar': 'يجب أن يكون متطابقاً (خطأ)'}` | `{'it': 'pressione degli pneumatici', 'ar': 'ضغط الإطارات'}`
 
 ---
 
