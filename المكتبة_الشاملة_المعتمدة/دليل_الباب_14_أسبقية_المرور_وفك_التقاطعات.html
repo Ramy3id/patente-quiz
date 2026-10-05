@@ -856,6 +856,7 @@
   }
 
   </style>
+  <link rel="manifest" href="../manifest.json">
 </head>
 <body>
 
@@ -877,7 +878,7 @@
       <span>📚</span>
       <span>الأبواب المقسمة (25)</span>
     </a>
-    <a href="../Simulatore_Esame.html" class="desktop-nav-link">
+    <a href="scheda-esame.html" class="desktop-nav-link">
       <span>⏱️</span>
       <span>محاكي الامتحان</span>
     </a>
@@ -942,7 +943,7 @@
     <div style="display:flex; flex-direction:column; gap:8px;">
       <a href="index.html" class="desktop-nav-link" style="padding:10px 14px;">🏛️ فهرس المكتبة الشاملة</a>
       <a href="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/index.html" class="desktop-nav-link" style="padding:10px 14px;">📚 الباب 14 (المقسم)</a>
-      <a href="../Simulatore_Esame.html" class="desktop-nav-link" style="padding:10px 14px;">⏱️ محاكي الامتحان</a>
+      <a href="scheda-esame.html" class="desktop-nav-link" style="padding:10px 14px;">⏱️ محاكي الامتحان</a>
       <div style="border-top:1px solid rgba(255,255,255,0.1); margin:8px 0;"></div>
       <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="desktop-nav-link" style="padding:10px 14px; color:#38bdf8;">← الباب السابق (13)</a>
       <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="desktop-nav-link" style="padding:10px 14px; color:#ec4899;">→ الباب التالي (15)</a>
@@ -4219,5 +4220,14 @@
     document.getElementById('sim3Text').innerHTML = `<strong>القاعدة الصارمة:</strong> ${d.text}`;
   }
 </script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('../service-worker.js').catch(err => console.log('SW registration failed', err));
+      });
+    }
+  </script>
+
 </body>
 </html>

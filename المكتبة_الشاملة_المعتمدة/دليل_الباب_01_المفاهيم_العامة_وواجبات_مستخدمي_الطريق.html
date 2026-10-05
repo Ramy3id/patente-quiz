@@ -1127,6 +1127,7 @@
     .pagination-btn { width: 100%; justify-content: center; }
   }
 </style>
+  <link rel="manifest" href="../manifest.json">
 </head>
 <body>
 
@@ -1148,7 +1149,7 @@
       <span>📚</span>
       <span>مذاكرة الأبواب المقسمة</span>
     </a>
-    <a href="../Simulatore_Esame.html" class="desktop-nav-link" onclick="soundEngine.click()">
+    <a href="scheda-esame.html" class="desktop-nav-link" onclick="soundEngine.click()">
       <span>⏱️</span>
       <span>محاكي الامتحان الوزاري</span>
     </a>
@@ -1216,7 +1217,7 @@
     <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
       <span>📚</span> <span>مذاكرة الأبواب المقسمة (25 باب)</span>
     </a>
-    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
+    <a href="scheda-esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
       <span>⏱️</span> <span>محاكي الامتحان الوزاري</span>
     </a>
     <div style="height: 1px; background: rgba(255,255,255,0.08); margin: 6px 0;"></div>
@@ -2808,6 +2809,15 @@ function checkQuizAnswer(qNum, selectedAnswer, correctAnswer, explanation) {
   }
 }
 </script>
+
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('../service-worker.js').catch(err => console.log('SW registration failed', err));
+      });
+    }
+  </script>
 
 </body>
 </html>

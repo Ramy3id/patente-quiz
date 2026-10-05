@@ -951,6 +951,7 @@
   }
 
 </style>
+  <link rel="manifest" href="../manifest.json">
 </head>
 <body>
 
@@ -968,7 +969,7 @@
   <nav class="nav-desktop-tabs">
     <a href="index.html" class="nav-tab-desktop">🏛️ فهرس المكتبة</a>
     <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 الأبواب المقسمة</a>
-    <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
+    <a href="scheda-esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
   </nav>
 
   <!-- Desktop Audio Control -->
@@ -1034,7 +1035,7 @@
       <span class="nav-icon">📚</span>
       <span>مذاكرة الأبواب المقسمة (25 باب)</span>
     </a>
-    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
+    <a href="scheda-esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
       <span class="nav-icon">⏱️</span>
       <span>محاكي الامتحان الوزاري (20 دقيقة)</span>
     </a>
@@ -1117,7 +1118,7 @@
       <span class="nav-icon">📚</span>
       <span>مذاكرة الأبواب المقسمة (25 باب)</span>
     </a>
-    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
+    <a href="scheda-esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
       <span class="nav-icon">⏱️</span>
       <span>محاكي الامتحان الوزاري (20 دقيقة)</span>
     </a>
@@ -2045,6 +2046,15 @@
     }
   })();
 </script>
+
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('../service-worker.js').catch(err => console.log('SW registration failed', err));
+      });
+    }
+  </script>
 
 </body>
 </html>

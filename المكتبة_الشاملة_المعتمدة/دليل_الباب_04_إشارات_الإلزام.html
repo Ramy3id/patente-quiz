@@ -853,6 +853,7 @@
     .chapter-pagination { flex-direction: column; align-items: stretch; }
   }
 </style>
+  <link rel="manifest" href="../manifest.json">
 </head>
 <body>
 
@@ -874,7 +875,7 @@
       <span>📚</span>
       <span>الأبواب المقسمة (25)</span>
     </a>
-    <a href="../Simulatore_Esame.html" class="desktop-nav-link">
+    <a href="scheda-esame.html" class="desktop-nav-link">
       <span>⏱️</span>
       <span>محاكي الامتحان</span>
     </a>
@@ -934,7 +935,7 @@
 <div class="mobile-drawer-panel" id="mobile-drawer-panel">
   <div class="mobile-nav-list">
     <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📚</span><span>مذاكرة الأبواب المقسمة (25 باب)</span></a>
-    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">⏱️</span><span>محاكي الامتحان الوزاري</span></a>
+    <a href="scheda-esame.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">⏱️</span><span>محاكي الامتحان الوزاري</span></a>
     <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📑</span><span>فهرس المكتبة الشاملة</span></a>
     <a href="دليل_الباب_04_إشارات_الإلزام.html" class="mobile-nav-link active" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>دليل الباب 04 (إشارات الإلزام)</span></a>
     <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>دليل الباب 05 (إشارات الأسبقية)</span></a>
@@ -2409,6 +2410,15 @@
     if (e.key === 'Escape') closeMobileNav();
   });
 </script>
+
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('../service-worker.js').catch(err => console.log('SW registration failed', err));
+      });
+    }
+  </script>
 
 </body>
 </html>

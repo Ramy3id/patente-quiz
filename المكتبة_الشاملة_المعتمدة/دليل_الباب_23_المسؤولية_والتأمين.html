@@ -884,6 +884,7 @@
   border: 1px solid rgba(245, 158, 11, 0.3);
 }
 </style>
+  <link rel="manifest" href="../manifest.json">
 </head>
 <body>
 
@@ -905,7 +906,7 @@
       <span>📚</span>
       <span>الأبواب المقسمة (25)</span>
     </a>
-    <a href="../Simulatore_Esame.html" class="desktop-nav-link">
+    <a href="scheda-esame.html" class="desktop-nav-link">
       <span>⏱️</span>
       <span>محاكي الامتحان</span>
     </a>
@@ -965,7 +966,7 @@
 <div class="mobile-drawer-panel" id="mobile-drawer-panel">
   <div class="mobile-nav-list">
     <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📚</span><span>مذاكرة الأبواب المقسمة (25 باب)</span></a>
-    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">⏱️</span><span>محاكي الامتحان الوزاري</span></a>
+    <a href="scheda-esame.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">⏱️</span><span>محاكي الامتحان الوزاري</span></a>
     <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📑</span><span>فهرس المكتبة الشاملة</span></a>
     <div class="mobile-nav-divider"></div>
     <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="mobile-nav-link" onclick="closeMobileNav()"><span class="nav-icon">📖</span><span>الباب 21: حوادث السير والطقس</span></a>
@@ -2408,5 +2409,14 @@
     document.getElementById('copWarning').innerHTML = data.warning;
   }
 </script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('../service-worker.js').catch(err => console.log('SW registration failed', err));
+      });
+    }
+  </script>
+
 </body>
 </html>
