@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>بطاقات الفلاش كاردز السريعة | Patente B Pro</title>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0B0F19">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ch04_style.css">
+  <style>
+    /* تصميم Glassmorphic الخاص ببطاقات الفلاش كاردز للهواتف والديسكتوب */
+    .fc-main-container {
+      max-width: 600px;
+      margin: 16px auto 30px;
+      padding: 0 16px;
+    }
+    .flashcard-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .flashcard-progress-bar {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      margin-bottom: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+    .flashcard-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #38BDF8, #10B981);
+      transition: width 0.3s ease;
+    }
+    .flashcard-counter {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: #94A3B8;
+      margin-bottom: 16px;
+    }
+    .flashcard-card-stage {
+      width: 100%;
+      height: 480px;
+      perspective: 1000px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .flashcard-card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s;
+      cursor: grab;
+      border-radius: 24px;
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+    }
+    .flashcard-card.is-flipped {
+      transform: rotateY(180deg);
+    }
+    .flashcard-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 22px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(16px);
+      user-select: none;
+      overflow-y: auto;
+    }
+    .flashcard-back {
+      transform: rotateY(180deg);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    .flashcard-badge {
+      background: rgba(255, 255, 255, 0.08);
+      color: #94A3B8;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .flashcard-img-box {
+      max-height: 160px;
+      margin: 12px 0;
+    }
+    .flashcard-img-box img {
+      max-height: 140px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
+    }
+    .flashcard-it-text {
+      font-family: 'JetBrains Mono', sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.5;
+      margin: auto 0;
+    }
+    .flashcard-tap-hint {
+      font-size: 12px;
+      color: #64748B;
+      margin-top: 8px;
+    }
+    .flashcard-result-badge {
+      font-size: 18px;
+      font-weight: 800;
+      padding: 8px 20px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+    .badge-vero {
+      background: rgba(16, 185, 129, 0.2);
+      color: #10B981;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+    .badge-falso {
+      background: rgba(239, 68, 68, 0.2);
+      color: #EF4444;
+      border: 1px solid rgba(239, 68, 68, 0.4);
+    }
+    .flashcard-ar-translation {
+      font-size: 15px;
+      color: #38BDF8;
+      line-height: 1.6;
+      margin-bottom: 10px;
+      text-align: right;
+      width: 100%;
+    }
+    .flashcard-explanation {
+      font-size: 14px;
+      color: #CBD5E1;
+      line-height: 1.6;
+      margin-bottom: 10px;
+      text-align: right;
+      width: 100%;
+    }
+    .flashcard-trap-box {
+      background: rgba(244, 63, 94, 0.1);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      border-radius: 12px;
+      padding: 10px;
+      font-size: 13px;
+      color: #FDA4AF;
+      text-align: right;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+    .flashcard-actions {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 12px;
+      width: 100%;
+    }
+    .fc-btn {
+      padding: 14px 18px;
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .fc-btn-falso {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #EF4444;
+    }
+    .fc-btn-falso:hover {
+      background: #EF4444;
+      color: #FFFFFF;
+    }
+    .fc-btn-vero {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #10B981;
+    }
+    .fc-btn-vero:hover {
+      background: #10B981;
+      color: #FFFFFF;
+    }
+    .fc-btn-flip {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      padding: 14px 14px;
+    }
+    .flashcard-completed-box {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 40px 20px;
+      text-align: center;
+      width: 100%;
+    }
+    .fc-complete-icon {
+      font-size: 54px;
+      margin-bottom: 12px;
+    }
+    .fc-btn-restart {
+      background: linear-gradient(135deg, #38BDF8, #2563EB);
+      color: #FFFFFF;
+      margin-top: 20px;
+      width: 100%;
+    }
+    .filter-pills-wrap {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 8px 0 16px;
+      scrollbar-width: none;
+    }
+    .filter-pill-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94A3B8;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .filter-pill-btn.active {
+      background: #38BDF8;
+      color: #0B0F19;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- شريط الملاحة الموحد 54px -->
+  <nav class="unified-portal-nav">
+    <div class="nav-content-inner">
+      <div class="portal-brand">
+        <a href="index.html" class="brand-link">
+          <span class="brand-title">Patente B Pro</span>
+          <span class="ch-badge" style="background:#10B981; color:#0B0F19;">فلاش كاردز</span>
+        </a>
+      </div>
+      <div class="portal-actions">
+        <a href="scheda-esame.html" class="action-btn">📝 محاكي الامتحان</a>
+        <a href="index.html" class="action-btn">📚 الفهرس</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="fc-main-container">
+    <div class="filter-pills-wrap">
+      <button class="filter-pill-btn active" data-type="all">🔀 عشوائي شامل (50 سؤالاً)</button>
+      <button class="filter-pill-btn" data-type="srs">🧠 مراجعة أخطائي السابقة (SRS)</button>
+      <button class="filter-pill-btn" data-type="traps">⚠️ تدريب الفخاخ فقط</button>
+    </div>
+
+    <!-- حاوية عرض البطاقات بالسحب باللمس -->
+    <div id="flashcardsStage">
+      <div style="text-align:center; padding:40px; color:#94A3B8;">جاري تحميل بطاقات المراجعة السريعة...</div>
+    </div>
+  </div>
+
+  <!-- تضمين المحركات المركزية -->
+  <script src="../assets/js/flashcards-engine.js"></script>
+  <script src="../assets/js/srs-engine.js"></script>
+  <script src="../assets/js/trap-vault.js"></script>
+  <script src="../assets/js/audio-engine.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const srs = new PatenteSRSEngine();
+      const traps = new PatenteTrapEngine();
+      const audio = new PatenteAudioEngine();
+
+      let allQuestionsPool = [];
+      const stage = document.getElementById("flashcardsStage");
+
+      const fcEngine = new PatenteFlashcardsEngine(stage, {
+        onAnswer: (q, userAnswer, isCorrect) => {
+          // تسجيل في SRS وتشغيل النغمة التفاعلية
+          srs.logQuestionAttempt(q, isCorrect);
+          audio.playFeedbackTone(isCorrect ? "correct" : "error");
+        }
+      });
+
+      try {
+        const res = await fetch("../assets/all_questions.json");
+        allQuestionsPool = await res.json();
+        loadDeck("all");
+      } catch (e) {
+        stage.innerHTML = `<div style="text-align:center; color:#EF4444; padding:30px;">⚠️ تعذر تحميل بطاقات الأسئلة.</div>`;
+      }
+
+      function loadDeck(mode) {
+        let selected = [];
+        if (mode === "srs") {
+          const errors = srs.getAllErrorQuestions();
+          if (errors.length === 0) {
+            stage.innerHTML = `
+              <div class="flashcard-completed-box">
+                <div class="fc-complete-icon">🌟</div>
+                <h3>سجل أخطائك نظيف تماماً!</h3>
+                <p>لم ترتكب أي أخطاء حتى الآن، أو أنك أتقنت جميع الأسئلة السابقة.</p>
+                <button class="fc-btn fc-btn-restart" onclick="location.reload()">🔀 الانتقال للتدريب العشوائي</button>
+              </div>
+            `;
+            return;
+          }
+          selected = errors;
+        } else if (mode === "traps") {
+          selected = traps.filterTraps(allQuestionsPool).slice(0, 50);
+        } else {
+          // 50 سؤالاً عشوائياً من الـ 7,139
+          selected = [...allQuestionsPool].sort(() => 0.5 - Math.random()).slice(0, 50);
+        }
+
+        fcEngine.loadQuestions(selected);
+      }
+
+      // تفعيل أزرار الفلترة
+      document.querySelectorAll(".filter-pill-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".filter-pill-btn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          loadDeck(btn.dataset.type);
+        });
+      });
+    });
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('../service-worker.js').catch(err => console.log('SW err', err));
+      });
+    }
+  </script>
+</body>
+</html>
