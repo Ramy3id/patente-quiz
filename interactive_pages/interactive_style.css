@@ -1,0 +1,249 @@
+/* ==========================================================================
+   Patente B Pro - Unified Interactive Pages & Design System
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg-base: #0B0F19;
+  --bg-surface: rgba(15, 23, 42, 0.85);
+  --bg-surface-elevated: rgba(30, 41, 59, 0.9);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-highlight: rgba(56, 189, 248, 0.3);
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --cyan-primary: #38BDF8;
+  --emerald-primary: #10B981;
+  --rose-primary: #F43F5E;
+  --purple-primary: #A855F7;
+  --amber-primary: #F59E0B;
+  --nav-height: 56px;
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'Cairo', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(ellipse at 50% -20%, rgba(56, 189, 248, 0.12), transparent 70%),
+    radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.05), transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(244, 63, 94, 0.05), transparent 50%);
+}
+
+/* ==========================================================================
+   Navigation Bar (Apple HIG Glassmorphism)
+   ========================================================================== */
+.unified-portal-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: var(--nav-height);
+  background: rgba(11, 15, 25, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  gap: 12px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav-brand .badge-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: var(--cyan-primary);
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.nav-desktop-tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav-desktop-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-tab-desktop {
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.nav-tab-desktop:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-tab-desktop.active {
+  color: var(--cyan-primary);
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.25);
+}
+
+.action-btn.home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  margin: 12px 20px 0;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--cyan-primary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.action-btn.home-btn:hover {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: var(--border-highlight);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Image Container Standards
+   ========================================================================== */
+.flashcard-img-box, .exam-img-frame, .trap-img-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 14px auto;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  max-width: 260px;
+  max-height: 180px;
+}
+
+.flashcard-img-box img, .exam-img-frame img, .trap-img-box img {
+  max-width: 100%;
+  max-height: 160px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,0.5));
+  border-radius: 8px;
+}
+
+/* Trap Keyword Highlight */
+.trap-keyword-highlight {
+  background: rgba(244, 63, 94, 0.25);
+  color: #FDA4AF;
+  border: 1px solid rgba(244, 63, 94, 0.4);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-weight: 800;
+}
+
+/* Trap card specifics */
+.trap-card-item {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  backdrop-filter: blur(12px);
+}
+.trap-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.trap-badge {
+  background: rgba(244, 63, 94, 0.15);
+  color: #FDA4AF;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+.trap-verdict {
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+.verdict-vero {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10B981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.verdict-falso {
+  background: rgba(239, 68, 68, 0.15);
+  color: #EF4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+.trap-it-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+.trap-ar-text {
+  color: var(--cyan-primary);
+  font-size: 0.92rem;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+.trap-explanation {
+  color: #CBD5E1;
+  font-size: 0.88rem;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+.trap-box {
+  background: rgba(244, 63, 94, 0.1);
+  border: 1px solid rgba(244, 63, 94, 0.25);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  color: #FDA4AF;
+  line-height: 1.5;
+}

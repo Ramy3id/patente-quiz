@@ -8,17 +8,12 @@
   <meta name="theme-color" content="#0B0F19">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="ch04_style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/assets/index-DIYhudeG.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CceglpVi.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="interactive_style.css">
   <style>
     .dash-container {
       max-width: 960px;
-      margin: 20px auto 40px;
+      margin: 16px auto 40px;
       padding: 0 16px;
     }
     .readiness-hero {
@@ -41,9 +36,9 @@
       justify-content: center;
     }
     .gauge-svg {
-      transform: rotate(-90deg);
       width: 100%;
       height: 100%;
+      transform: rotate(-90deg);
     }
     .gauge-bg {
       fill: none;
@@ -52,66 +47,70 @@
     }
     .gauge-fill {
       fill: none;
-      stroke: #10B981;
+      stroke: #38BDF8;
       stroke-width: 12;
       stroke-linecap: round;
       stroke-dasharray: 440;
       stroke-dashoffset: 440;
-      transition: stroke-dashoffset 1s ease-in-out, stroke 0.5s;
+      transition: stroke-dashoffset 1s ease, stroke 0.5s ease;
     }
-    .gauge-percentage {
+    .gauge-center-text {
       position: absolute;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 34px;
+      font-size: 36px;
       font-weight: 800;
       color: #FFFFFF;
     }
-    .readiness-status-text {
+    .readiness-title {
       font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 8px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 6px;
     }
     .readiness-desc {
-      color: #94A3B8;
       font-size: 14px;
+      color: #94A3B8;
       max-width: 500px;
       margin: 0 auto;
     }
-    .stats-kpi-grid {
+    .stats-tri-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 16px;
       margin-bottom: 24px;
     }
-    @media (max-width: 640px) {
-      .stats-kpi-grid { grid-template-columns: 1fr; }
-    }
-    .kpi-card {
+    .stat-metric-card {
       background: rgba(15, 23, 42, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 18px;
       padding: 20px;
       text-align: center;
-      backdrop-filter: blur(12px);
     }
-    .kpi-val {
+    .stat-metric-val {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 800;
       color: #38BDF8;
       margin-bottom: 4px;
     }
-    .kpi-label {
+    .stat-metric-label {
+      font-size: 14px;
+      font-weight: 700;
       color: #94A3B8;
-      font-size: 13px;
-      font-weight: 600;
     }
     .history-card {
-      background: rgba(15, 23, 42, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 20px;
       padding: 24px;
-      backdrop-filter: blur(12px);
+    }
+    .history-title-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
     .history-item {
       display: flex;
@@ -120,32 +119,31 @@
       padding: 12px 16px;
       border-radius: 12px;
       background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
-    .history-pass { color: #10B981; font-weight: 700; }
-    .history-fail { color: #EF4444; font-weight: 700; }
+    .history-pass { color: #10B981; font-weight: 800; }
+    .history-fail { color: #EF4444; font-weight: 800; }
   </style>
 </head>
 <body>
 
   <!-- شريط الملاحة الموحد والأدوات التفاعلية -->
-<nav class="unified-portal-nav" id="portal-nav">
-  <a href="../index.html" class="nav-brand">
-    <span style="font-size:1.25rem;">🚦</span>
-    <span>Patente B Pro</span>
-    <span class="badge-tag">A2</span>
-  </a>
-  <nav class="nav-desktop-tabs">
-    <a href="scheda-esame.html" class="nav-tab-desktop">📝 الامتحان</a>
-    <a href="flashcards.html" class="nav-tab-desktop">💡 بطاقات الفلاش</a>
-    <a href="dashboard.html" class="nav-tab-desktop">📊 لوحة البيانات</a>
-    <a href="traps_and_games.html" class="nav-tab-desktop">🎮 الفخاخ والألعاب</a>
-    <a href="index.html" class="nav-tab-desktop">🏛️ أدلة الشرح</a>
-    <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 بنك الأسئلة</a>
+  <nav class="unified-portal-nav" id="portal-nav">
+    <a href="../index.html" class="nav-brand">
+      <span style="font-size:1.25rem;">🚦</span>
+      <span>Patente B Pro</span>
+      <span class="badge-tag">A2</span>
+    </a>
+    <nav class="nav-desktop-tabs">
+      <a href="scheda-esame.html" class="nav-tab-desktop">📝 الامتحان</a>
+      <a href="flashcards.html" class="nav-tab-desktop">💡 بطاقات الفلاش</a>
+      <a href="dashboard.html" class="nav-tab-desktop active">📊 لوحة البيانات</a>
+      <a href="traps_and_games.html" class="nav-tab-desktop">🎮 الفخاخ والألعاب</a>
+      <a href="index.html" class="nav-tab-desktop">🏛️ أدلة الشرح</a>
+      <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 بنك الأسئلة</a>
+    </nav>
   </nav>
-</nav>
-<a href="../index.html" class="action-btn home-btn" style="display:inline-block; margin: 10px 16px; text-decoration: none;">🏠 العودة للصفحة الرئيسة</a>
+  <a href="../index.html" class="action-btn home-btn">🏠 العودة للصفحة الرئيسة</a>
 
   <div class="dash-container">
     <!-- بطل مؤشر الجاهزية -->
@@ -155,40 +153,36 @@
           <circle class="gauge-bg" cx="80" cy="80" r="70" />
           <circle class="gauge-fill" id="gaugeCircle" cx="80" cy="80" r="70" />
         </svg>
-        <div class="gauge-percentage" id="readinessScoreVal">0%</div>
+        <div class="gauge-center-text" id="gaugeText">0%</div>
       </div>
-      <div class="readiness-status-text" id="readinessStatusText">جاري تحليل مستواك...</div>
-      <div class="readiness-desc" id="readinessDesc">
-        يقيس المؤشر نسبة جاهزيتك لاجتياز الامتحان الوزاري الرسمي بناءً على سجل امتحاناتك وسجل أخطاء التكرار المتباعد (SRS).
+      <div class="readiness-title" id="readinessStatus">ابدأ بحل أول امتحان وزاري لقياس مستواك 👏</div>
+      <div class="readiness-desc">يقيس المؤشر نسبة جاهزيتك لاجتياز الامتحان الوزاري الرسمي بناءً على سجل امتحاناتك وسجل أخطاء التكرار المتباعد (SRS).</div>
+    </div>
+
+    <!-- مقاييس الأداء الثلاثية -->
+    <div class="stats-tri-grid">
+      <div class="stat-metric-card">
+        <div class="stat-metric-val" id="valTotalExams">0</div>
+        <div class="stat-metric-label">عدد الامتحانات المنجزة</div>
+      </div>
+      <div class="stat-metric-card">
+        <div class="stat-metric-val" id="valTotalErrors" style="color:#EF4444;">0</div>
+        <div class="stat-metric-label">أخطاء قيد المراجعة في (SRS)</div>
+      </div>
+      <div class="stat-metric-card">
+        <div class="stat-metric-val" id="valPassRate" style="color:#10B981;">0%</div>
+        <div class="stat-metric-label">نسبة النجاح العامة</div>
       </div>
     </div>
 
-    <!-- بطاقات المؤشرات الأساسية -->
-    <div class="stats-kpi-grid">
-      <div class="kpi-card">
-        <div class="kpi-val" id="totalExamsVal">0</div>
-        <div class="kpi-label">عدد الامتحانات المنجزة</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-val" id="activeErrorsVal" style="color:#EF4444;">0</div>
-        <div class="kpi-label">أخطاء قيد المراجعة في (SRS)</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-val" id="passRateVal" style="color:#10B981;">0%</div>
-        <div class="kpi-label">نسبة النجاح العامة</div>
-      </div>
-    </div>
-
-    <!-- سجل الامتحانات السابقة -->
+    <!-- سجل آخر الامتحانات -->
     <div class="history-card">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-        <h3 style="margin:0; font-size:18px;">📜 سجل آخر الامتحانات الوزارية</h3>
-        <button id="btnClearData" style="background:transparent; border:none; color:#64748B; font-size:12px; cursor:pointer;">
-          🗑️ إعادة تعيين السجل
-        </button>
+      <div class="history-title-strip">
+        <div style="font-weight:800; font-size:16px;">📜 سجل آخر الامتحانات الوزارية</div>
+        <button id="btnClearHistory" style="background:none; border:none; color:#64748B; font-size:12px; cursor:pointer; font-family:inherit;">🗑️ إعادة تعيين السجل</button>
       </div>
-      <div id="examHistoryList">
-        <div style="text-align:center; padding:20px; color:#94A3B8;">لم تقم بإجراء أي امتحان بعد.</div>
+      <div id="historyList">
+        <div style="text-align:center; padding:24px; color:#64748B;">لم تقم بإجراء أي امتحان بعد.</div>
       </div>
     </div>
   </div>
@@ -198,79 +192,65 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const srs = new PatenteSRSEngine();
-      const srsStats = srs.getStats();
+      const history = JSON.parse(localStorage.getItem("patente_exam_history") || "[]");
+      const srsErrors = srs.getAllErrorQuestions();
 
-      // قراءة سجل الامتحانات
-      const examHistory = JSON.parse(localStorage.getItem("patente_b_pro_exam_history") || "[]");
-      const totalExams = examHistory.length;
+      document.getElementById("valTotalErrors").textContent = srsErrors.length;
+      document.getElementById("valTotalExams").textContent = history.length;
 
-      let passedCount = 0;
-      examHistory.forEach(e => { if (e.passed) passedCount++; });
+      let passCount = 0;
+      history.forEach(h => { if (h.passed) passCount++; });
+      const passRate = history.length > 0 ? Math.round((passCount / history.length) * 100) : 0;
+      document.getElementById("valPassRate").textContent = `${passRate}%`;
 
-      const passRate = totalExams > 0 ? Math.round((passedCount / totalExams) * 100) : 0;
-      
-      // حساب نسبة الجاهزية الذكية
-      // معادلة الجاهزية: نسبة النجاح (60%) + خلو بنك الأخطاء من الأسئلة الحرجة (40%)
+      // حساب مؤشر الجاهزية (0 - 100)
       let readiness = 0;
-      if (totalExams > 0) {
-        const errorPenalty = Math.min(40, srsStats.box1 * 2);
-        readiness = Math.max(0, Math.min(100, Math.round((passRate * 0.7) + (30 - errorPenalty))));
+      if (history.length > 0) {
+        const examWeight = Math.min(history.length * 10, 50); // حتى 5 امتحانات تعطي 50 نقطة
+        const rateWeight = (passRate / 100) * 40; // نسبة النجاح تعطي حتى 40 نقطة
+        const srsPenalty = Math.min(srsErrors.length * 2, 20); // خصم نقاط حسب أخطاء SRS المعلقة
+        readiness = Math.max(0, Math.min(100, Math.round(examWeight + rateWeight - srsPenalty + 10)));
       }
 
-      // تحديث الواجهة
-      document.getElementById("totalExamsVal").textContent = totalExams;
-      document.getElementById("activeErrorsVal").textContent = srsStats.totalErrors;
-      document.getElementById("passRateVal").textContent = `${passRate}%`;
-      document.getElementById("readinessScoreVal").textContent = `${readiness}%`;
+      document.getElementById("gaugeText").textContent = `${readiness}%`;
 
-      // تحريك دائرة الـ Gauge
+      // تحريك الدائرة
       const circle = document.getElementById("gaugeCircle");
-      const circumference = 2 * Math.PI * 70; // ~440
+      const radius = 70;
+      const circumference = 2 * Math.PI * radius; // 439.82
+      circle.style.strokeDasharray = circumference;
       const offset = circumference - (readiness / 100) * circumference;
-      circle.style.strokeDashoffset = offset;
+      setTimeout(() => {
+        circle.style.strokeDashoffset = offset;
+        if (readiness >= 80) circle.style.stroke = "#10B981";
+        else if (readiness >= 50) circle.style.stroke = "#38BDF8";
+        else circle.style.stroke = "#F59E0B";
+      }, 100);
 
-      const statusEl = document.getElementById("readinessStatusText");
-      if (readiness >= 85) {
-        statusEl.textContent = "🔥 ممتاز! أنت جاهز تماماً للامتحان الرسمي";
-        statusEl.style.color = "#10B981";
-        circle.style.stroke = "#10B981";
-      } else if (readiness >= 65) {
-        statusEl.textContent = "⚡ مستوى جيد جداً، واصل تصفية بنك الأخطاء";
-        statusEl.style.color = "#38BDF8";
-        circle.style.stroke = "#38BDF8";
-      } else if (totalExams > 0) {
-        statusEl.textContent = "⚠️ تحتاج لمزيد من الامتحانات وتثبيت القواعد";
-        statusEl.style.color = "#F59E0B";
-        circle.style.stroke = "#F59E0B";
-      } else {
-        statusEl.textContent = "👋 ابدأ بحل أول امتحان وزاري لقياس مستواك";
-        statusEl.style.color = "#94A3B8";
-      }
+      const statusEl = document.getElementById("readinessStatus");
+      if (readiness >= 85) statusEl.textContent = "🚀 مستوى ممتاز! أنت جاهز تماماً للاختبار الرسمي بالمرور";
+      else if (readiness >= 65) statusEl.textContent = "📈 أداء واعد، راجع أخطاء الـ SRS واستمر في حل المحاكي";
+      else if (readiness > 0) statusEl.textContent = "💪 بداية جيدة، ركز على بنك الفخاخ وقواعد الأسبقية";
 
       // عرض السجل
-      const listEl = document.getElementById("examHistoryList");
-      if (examHistory.length > 0) {
-        listEl.innerHTML = examHistory.map((item, idx) => `
+      const listEl = document.getElementById("historyList");
+      if (history.length > 0) {
+        listEl.innerHTML = history.slice(-5).reverse().map(item => `
           <div class="history-item">
             <div>
-              <span style="font-weight:700;">اختبار #${totalExams - idx}</span>
-              <span style="color:#64748B; font-size:12px; margin-right:8px;">${new Date(item.timestamp).toLocaleDateString('ar-EG')}</span>
+              <div style="font-weight:700; font-size:14px;">امتحان وزاري رسمي (${item.date || 'اليوم'})</div>
+              <div style="font-size:12px; color:#94A3B8;">الزمن المستغرق: ${item.duration || '20 دقيقة'}</div>
             </div>
-            <div>
-              <span style="color:#94A3B8; font-size:13px; margin-left:12px;">الأخطاء: ${item.errors} / 30</span>
-              <span class="${item.passed ? 'history-pass' : 'history-fail'}">
-                ${item.passed ? "ناجح (IDONEO) 🎉" : "راسب (RESPINTO) ❌"}
-              </span>
+            <div class="${item.passed ? 'history-pass' : 'history-fail'}">
+              ${item.passed ? 'ناجح ✅' : 'راسب ❌'} (${item.errors} أخطاء)
             </div>
           </div>
         `).join("");
       }
 
-      // مسح السجل
-      document.getElementById("btnClearData").addEventListener("click", () => {
-        if (confirm("هل تريد بالتأكيد إعادة تعيين سجل الامتحانات وبنك الأخطاء؟")) {
-          localStorage.removeItem("patente_b_pro_exam_history");
-          srs.clearVault();
+      document.getElementById("btnClearHistory").addEventListener("click", () => {
+        if (confirm("هل تريد بالتأكيد مسح سجل الامتحانات والإحصائيات؟")) {
+          localStorage.removeItem("patente_exam_history");
           location.reload();
         }
       });

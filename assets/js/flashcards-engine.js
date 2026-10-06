@@ -55,6 +55,9 @@ class PatenteFlashcardsEngine {
     const total = this.questions.length;
     const progress = Math.round(((this.currentIndex) / total) * 100);
 
+    const imgFilename = q.immagine ? q.immagine.split('/').pop().trim() : null;
+    const imgPath = imgFilename ? `../img_sign/${imgFilename}` : null;
+
     this.container.innerHTML = `
       <div class="flashcard-wrapper">
         <div class="flashcard-progress-bar">
@@ -67,7 +70,7 @@ class PatenteFlashcardsEngine {
             <!-- الوجه الأمامي: السؤال والصورة -->
             <div class="flashcard-face flashcard-front">
               <div class="flashcard-badge">اسحب لليمين VERO / لليسار FALSO</div>
-              ${q.immagine ? `<div class="flashcard-img-box"><img src="${q.immagine}" alt="Segnale" loading="lazy"></div>` : ""}
+              ${imgPath ? `<div class="flashcard-img-box"><img src="${imgPath}" alt="Segnale" loading="lazy" onerror="this.parentElement.style.display='none'"></div>` : ""}
               <div class="flashcard-it-text">${q.domanda}</div>
               <div class="flashcard-tap-hint">👆 انقر على البطاقة لقلبها وقراءة الشرح والترجمة</div>
             </div>

@@ -8,17 +8,11 @@
   <meta name="theme-color" content="#0B0F19">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="ch04_style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/assets/index-DIYhudeG.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CceglpVi.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="interactive_style.css">
   <style>
-    /* تصميم Glassmorphic الخاص ببطاقات الفلاش كاردز للهواتف والديسكتوب */
     .fc-main-container {
-      max-width: 600px;
+      max-width: 620px;
       margin: 16px auto 30px;
       padding: 0 16px;
     }
@@ -46,10 +40,11 @@
       font-size: 13px;
       color: #94A3B8;
       margin-bottom: 16px;
+      font-weight: 700;
     }
     .flashcard-card-stage {
       width: 100%;
-      height: 480px;
+      height: 500px;
       perspective: 1000px;
       margin-bottom: 24px;
       position: relative;
@@ -63,7 +58,7 @@
       cursor: grab;
       border-radius: 24px;
       border: 2px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
     }
     .flashcard-card.is-flipped {
       transform: rotateY(180deg);
@@ -80,7 +75,7 @@
       justify-content: space-between;
       align-items: center;
       text-align: center;
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.95);
       backdrop-filter: blur(16px);
       user-select: none;
       overflow-y: auto;
@@ -95,16 +90,7 @@
       padding: 6px 14px;
       border-radius: 999px;
       font-size: 13px;
-      font-weight: 600;
-    }
-    .flashcard-img-box {
-      max-height: 160px;
-      margin: 12px 0;
-    }
-    .flashcard-img-box img {
-      max-height: 140px;
-      object-fit: contain;
-      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
+      font-weight: 700;
     }
     .flashcard-it-text {
       font-family: 'JetBrains Mono', sans-serif;
@@ -181,6 +167,7 @@
       justify-content: center;
       gap: 6px;
       transition: all 0.2s;
+      font-family: inherit;
     }
     .fc-btn-falso {
       background: rgba(239, 68, 68, 0.15);
@@ -206,24 +193,6 @@
       color: #FFFFFF;
       padding: 14px 14px;
     }
-    .flashcard-completed-box {
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 20px;
-      padding: 40px 20px;
-      text-align: center;
-      width: 100%;
-    }
-    .fc-complete-icon {
-      font-size: 54px;
-      margin-bottom: 12px;
-    }
-    .fc-btn-restart {
-      background: linear-gradient(135deg, #38BDF8, #2563EB);
-      color: #FFFFFF;
-      margin-top: 20px;
-      width: 100%;
-    }
     .filter-pills-wrap {
       display: flex;
       gap: 8px;
@@ -235,38 +204,41 @@
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.1);
       color: #94A3B8;
-      padding: 6px 14px;
+      padding: 8px 16px;
       border-radius: 999px;
       font-size: 13px;
+      font-weight: 700;
       white-space: nowrap;
       cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s ease;
     }
     .filter-pill-btn.active {
       background: #38BDF8;
       color: #0B0F19;
-      font-weight: 700;
+      font-weight: 800;
     }
   </style>
 </head>
 <body>
 
   <!-- شريط الملاحة الموحد والأدوات التفاعلية -->
-<nav class="unified-portal-nav" id="portal-nav">
-  <a href="../index.html" class="nav-brand">
-    <span style="font-size:1.25rem;">🚦</span>
-    <span>Patente B Pro</span>
-    <span class="badge-tag">A2</span>
-  </a>
-  <nav class="nav-desktop-tabs">
-    <a href="scheda-esame.html" class="nav-tab-desktop">📝 الامتحان</a>
-    <a href="flashcards.html" class="nav-tab-desktop">💡 بطاقات الفلاش</a>
-    <a href="dashboard.html" class="nav-tab-desktop">📊 لوحة البيانات</a>
-    <a href="traps_and_games.html" class="nav-tab-desktop">🎮 الفخاخ والألعاب</a>
-    <a href="index.html" class="nav-tab-desktop">🏛️ أدلة الشرح</a>
-    <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 بنك الأسئلة</a>
+  <nav class="unified-portal-nav" id="portal-nav">
+    <a href="../index.html" class="nav-brand">
+      <span style="font-size:1.25rem;">🚦</span>
+      <span>Patente B Pro</span>
+      <span class="badge-tag">A2</span>
+    </a>
+    <nav class="nav-desktop-tabs">
+      <a href="scheda-esame.html" class="nav-tab-desktop">📝 الامتحان</a>
+      <a href="flashcards.html" class="nav-tab-desktop active">💡 بطاقات الفلاش</a>
+      <a href="dashboard.html" class="nav-tab-desktop">📊 لوحة البيانات</a>
+      <a href="traps_and_games.html" class="nav-tab-desktop">🎮 الفخاخ والألعاب</a>
+      <a href="index.html" class="nav-tab-desktop">🏛️ أدلة الشرح</a>
+      <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 بنك الأسئلة</a>
+    </nav>
   </nav>
-</nav>
-<a href="../index.html" class="action-btn home-btn" style="display:inline-block; margin: 10px 16px; text-decoration: none;">🏠 العودة للصفحة الرئيسة</a>
+  <a href="../index.html" class="action-btn home-btn">🏠 العودة للصفحة الرئيسة</a>
 
   <div class="fc-main-container">
     <div class="filter-pills-wrap">
@@ -298,7 +270,6 @@
 
       const fcEngine = new PatenteFlashcardsEngine(stage, {
         onAnswer: (q, userAnswer, isCorrect) => {
-          // تسجيل في SRS وتشغيل النغمة التفاعلية
           srs.logQuestionAttempt(q, isCorrect);
           audio.playFeedbackTone(isCorrect ? "correct" : "error");
         }
@@ -318,11 +289,11 @@
           const errors = srs.getAllErrorQuestions();
           if (errors.length === 0) {
             stage.innerHTML = `
-              <div class="flashcard-completed-box">
-                <div class="fc-complete-icon">🌟</div>
-                <h3>سجل أخطائك نظيف تماماً!</h3>
-                <p>لم ترتكب أي أخطاء حتى الآن، أو أنك أتقنت جميع الأسئلة السابقة.</p>
-                <button class="fc-btn fc-btn-restart" onclick="location.reload()">🔀 الانتقال للتدريب العشوائي</button>
+              <div class="flashcard-completed-box" style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 20px; padding: 40px 20px; text-align: center;">
+                <div style="font-size: 54px; margin-bottom: 12px;">🌟</div>
+                <h3 style="color:#10B981; margin-bottom:8px;">سجل أخطائك نظيف تماماً!</h3>
+                <p style="color:#94A3B8; margin-bottom:16px;">لم ترتكب أي أخطاء حتى الآن، أو أنك أتقنت جميع الأسئلة السابقة.</p>
+                <button class="fc-btn" style="background: linear-gradient(135deg, #38BDF8, #2563EB); color: #fff; width:100%;" onclick="location.reload()">🔀 الانتقال للتدريب العشوائي</button>
               </div>
             `;
             return;
@@ -331,14 +302,12 @@
         } else if (mode === "traps") {
           selected = traps.filterTraps(allQuestionsPool).slice(0, 50);
         } else {
-          // 50 سؤالاً عشوائياً من الـ 7,139
           selected = [...allQuestionsPool].sort(() => 0.5 - Math.random()).slice(0, 50);
         }
 
         fcEngine.loadQuestions(selected);
       }
 
-      // تفعيل أزرار الفلترة
       document.querySelectorAll(".filter-pill-btn").forEach(btn => {
         btn.addEventListener("click", () => {
           document.querySelectorAll(".filter-pill-btn").forEach(b => b.classList.remove("active"));

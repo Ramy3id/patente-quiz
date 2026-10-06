@@ -8,17 +8,12 @@
   <meta name="theme-color" content="#0B0F19">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="ch04_style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/assets/index-DIYhudeG.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CceglpVi.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="interactive_style.css">
   <style>
     .vault-container {
-      max-width: 900px;
-      margin: 20px auto 40px;
+      max-width: 920px;
+      margin: 16px auto 40px;
       padding: 0 16px;
     }
     .vault-tabs {
@@ -26,134 +21,87 @@
       gap: 12px;
       margin-bottom: 24px;
       justify-content: center;
+      flex-wrap: wrap;
     }
     .vault-tab-btn {
       padding: 12px 24px;
       border-radius: 14px;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 15px;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(15, 23, 42, 0.6);
+      background: rgba(15, 23, 42, 0.7);
       color: #94A3B8;
       cursor: pointer;
       transition: all 0.2s;
+      font-family: inherit;
+    }
+    .vault-tab-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #FFFFFF;
     }
     .vault-tab-btn.active {
-      background: linear-gradient(135deg, #F43F5E, #E11D48);
+      background: #F43F5E;
       color: #FFFFFF;
-      border-color: transparent;
-      box-shadow: 0 6px 20px rgba(225, 29, 72, 0.35);
+      border-color: #F43F5E;
+      box-shadow: 0 4px 20px rgba(244, 63, 94, 0.35);
     }
     .vault-tab-btn.game-tab.active {
-      background: linear-gradient(135deg, #38BDF8, #2563EB);
-      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
-    }
-
-    /* بنك الفخاخ */
-    .trap-cards-grid {
-      display: grid;
-      gap: 16px;
-    }
-    .trap-card-item {
-      background: rgba(15, 23, 42, 0.8);
-      border: 1px solid rgba(244, 63, 94, 0.25);
-      border-radius: 18px;
-      padding: 20px;
-      backdrop-filter: blur(12px);
-    }
-    .trap-card-header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-    .trap-badge {
-      background: rgba(244, 63, 94, 0.15);
-      color: #FDA4AF;
-      padding: 4px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
-    }
-    .trap-keyword-highlight {
-      background: rgba(244, 63, 94, 0.35);
-      color: #FFF;
-      padding: 2px 6px;
-      border-radius: 6px;
-      border-bottom: 2px solid #F43F5E;
-      font-weight: 800;
-    }
-    .trap-it-text {
-      font-family: 'JetBrains Mono', sans-serif;
-      font-size: 17px;
-      color: #FFFFFF;
-      font-weight: 700;
-      line-height: 1.5;
-      margin-bottom: 12px;
+      background: #38BDF8;
+      border-color: #38BDF8;
+      color: #0B0F19;
+      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.35);
     }
 
     /* لعبة المطابقة */
     .matching-game-wrap {
       background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
       padding: 24px;
       text-align: center;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.4);
     }
     .matching-header {
       display: flex;
       justify-content: space-around;
       margin-bottom: 24px;
-      font-weight: 700;
-      font-size: 16px;
+      font-size: 18px;
+      font-weight: 800;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 12px;
+      border-radius: 14px;
     }
-    .matching-timer { color: #38BDF8; font-family: 'JetBrains Mono', monospace; }
-    .matching-score { color: #F59E0B; }
-    .matching-streak { color: #10B981; }
     .matching-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
       gap: 12px;
     }
-    @media (max-width: 640px) {
-      .matching-grid { grid-template-columns: repeat(2, 1fr); }
-    }
     .match-card {
-      min-height: 100px;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(30, 41, 59, 0.8);
       border: 2px solid rgba(255, 255, 255, 0.1);
-      border-radius: 14px;
+      border-radius: 16px;
+      padding: 14px 8px;
+      min-height: 100px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 12px;
       cursor: pointer;
-      user-select: none;
       transition: all 0.2s;
+      user-select: none;
     }
     .match-card:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.3);
+      border-color: #38BDF8;
+      transform: translateY(-2px);
     }
     .match-card.is-selected {
-      border-color: #38BDF8;
-      background: rgba(56, 189, 248, 0.15);
-      transform: scale(1.02);
+      border-color: #F59E0B;
+      background: rgba(245, 158, 11, 0.15);
     }
     .match-card.is-matched {
       border-color: #10B981;
       background: rgba(16, 185, 129, 0.2);
+      opacity: 0.5;
       pointer-events: none;
-      opacity: 0.6;
-    }
-    .match-card.is-wrong {
-      border-color: #EF4444;
-      background: rgba(239, 68, 68, 0.2);
-      animation: shake 0.4s;
-    }
-    @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(-6px); }
-      75% { transform: translateX(6px); }
     }
     .match-img { max-height: 60px; object-fit: contain; }
     .match-it-text { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; color: #FFFFFF; }
@@ -163,22 +111,22 @@
 <body>
 
   <!-- شريط الملاحة الموحد والأدوات التفاعلية -->
-<nav class="unified-portal-nav" id="portal-nav">
-  <a href="../index.html" class="nav-brand">
-    <span style="font-size:1.25rem;">🚦</span>
-    <span>Patente B Pro</span>
-    <span class="badge-tag">A2</span>
-  </a>
-  <nav class="nav-desktop-tabs">
-    <a href="scheda-esame.html" class="nav-tab-desktop">📝 الامتحان</a>
-    <a href="flashcards.html" class="nav-tab-desktop">💡 بطاقات الفلاش</a>
-    <a href="dashboard.html" class="nav-tab-desktop">📊 لوحة البيانات</a>
-    <a href="traps_and_games.html" class="nav-tab-desktop">🎮 الفخاخ والألعاب</a>
-    <a href="index.html" class="nav-tab-desktop">🏛️ أدلة الشرح</a>
-    <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 بنك الأسئلة</a>
+  <nav class="unified-portal-nav" id="portal-nav">
+    <a href="../index.html" class="nav-brand">
+      <span style="font-size:1.25rem;">🚦</span>
+      <span>Patente B Pro</span>
+      <span class="badge-tag">A2</span>
+    </a>
+    <nav class="nav-desktop-tabs">
+      <a href="scheda-esame.html" class="nav-tab-desktop">📝 الامتحان</a>
+      <a href="flashcards.html" class="nav-tab-desktop">💡 بطاقات الفلاش</a>
+      <a href="dashboard.html" class="nav-tab-desktop">📊 لوحة البيانات</a>
+      <a href="traps_and_games.html" class="nav-tab-desktop active">🎮 الفخاخ والألعاب</a>
+      <a href="index.html" class="nav-tab-desktop">🏛️ أدلة الشرح</a>
+      <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 بنك الأسئلة</a>
+    </nav>
   </nav>
-</nav>
-<a href="../index.html" class="action-btn home-btn" style="display:inline-block; margin: 10px 16px; text-decoration: none;">🏠 العودة للصفحة الرئيسة</a>
+  <a href="../index.html" class="action-btn home-btn">🏠 العودة للصفحة الرئيسة</a>
 
   <div class="vault-container">
     <div class="vault-tabs">
@@ -189,7 +137,7 @@
     <!-- قسم بنك الفخاخ -->
     <div id="sectionTraps">
       <div class="trap-cards-grid" id="trapsGrid">
-        <div style="text-align:center; padding:40px; color:#94A3B8;">جاري استخراج وفلترة أصعب فخاخ الامتحان...</div>
+        <div style="text-align:center; padding:40px; color:#94A3B8;">جاري استخراج وفلترة أصعب فخاخ الامتحان مع الصور التوضيحية...</div>
       </div>
     </div>
 
@@ -205,6 +153,12 @@
   <script src="../assets/js/audio-engine.js"></script>
 
   <script>
+    function resolveImgPath(img) {
+      if (!img) return null;
+      const filename = img.split('/').pop().trim();
+      return filename ? `../img_sign/${filename}` : null;
+    }
+
     document.addEventListener("DOMContentLoaded", async () => {
       const trapsEngine = new PatenteTrapEngine();
       const audio = new PatenteAudioEngine();
@@ -226,19 +180,21 @@
         const tricky = trapsEngine.filterTraps(allQuestions).slice(0, 100);
         trapsGrid.innerHTML = tricky.map((q, idx) => {
           const highlightedText = trapsEngine.highlightTrapWords(q.domanda);
+          const imgPath = resolveImgPath(q.immagine);
           return `
             <div class="trap-card-item">
               <div class="trap-card-header">
-                <span class="trap-badge">فخ #${idx + 1} | باب ${q.capitolo_num || 1}</span>
-                <span style="font-weight:700; color:${q.risposta ? '#10B981' : '#EF4444'};">
-                  الحكم: ${q.risposta ? 'VERO' : 'FALSO'}
+                <span class="trap-badge">🚨 فخ #${idx + 1} | باب ${q.capitolo_num || 1}</span>
+                <span class="trap-verdict ${q.risposta ? 'verdict-vero' : 'verdict-falso'}">
+                  الحكم: ${q.risposta ? 'VERO (صح)' : 'FALSO (خطأ)'}
                 </span>
               </div>
+              ${imgPath ? `<div class="trap-img-box"><img src="${imgPath}" alt="Segnale" loading="lazy" onerror="this.parentElement.style.display='none'"></div>` : ''}
               <div class="trap-it-text">${highlightedText}</div>
-              <div style="color:#38BDF8; font-size:14px; margin-bottom:6px;"><strong>📖 الترجمة:</strong> ${q.traduzione}</div>
-              <div style="color:#CBD5E1; font-size:13px; margin-bottom:8px;"><strong>💡 الشرح:</strong> ${q.spiegazione}</div>
-              <div style="background:rgba(244,63,94,0.1); border:1px solid rgba(244,63,94,0.3); border-radius:10px; padding:8px; font-size:13px; color:#FDA4AF;">
-                <strong>🚨 فخ الامتحان:</strong> ${q.trabocchetto || 'انتبه لصيغة النفي أو الحصر الواردة بالنص.'}
+              <div class="trap-ar-text"><strong>📖 الترجمة:</strong> ${q.traduzione || 'غير متوفرة'}</div>
+              <div class="trap-explanation"><strong>💡 الشرح القانوني:</strong> ${q.spiegazione || 'راجع نصوص كود السير.'}</div>
+              <div class="trap-box">
+                <strong>⚠️ فخ السؤال:</strong> ${q.trabocchetto || 'انتبه لصيغة النفي أو الحصر أو الشروط الواردة بالنص.'}
               </div>
             </div>
           `;
@@ -252,20 +208,19 @@
           onGameOver: (res) => audio.playFeedbackTone(res.isWin ? "correct" : "error")
         });
 
-        // اختيار 6 عناصر مناسبة للمطابقة
+        // اختيار 6 عناصر مناسبة للمطابقة مع صور رسمية
         const sampleItems = [
-          { itText: "Carreggiata", arText: "نهر الطريق", image: null },
-          { itText: "Corsia di emergenza", arText: "مسار الطوارئ", image: null },
-          { itText: "Isola di traffico", arText: "جزيرة المرور", image: null },
-          { itText: "Distanza di sicurezza", arText: "مسافة الأمان", image: null },
-          { itText: "Freno a mano", arText: "فرامل اليد", image: null },
-          { itText: "Sorpasso in curva", arText: "التجاوز في المنعطف", image: null }
+          { itText: "Carreggiata", arText: "نهر الطريق", image: "../img_sign/550.png" },
+          { itText: "Divieto di transito", arText: "ممنوع المرور بالاتجاهين", image: "../img_sign/101.png" },
+          { itText: "Divieto di sosta", arText: "ممنوع الوقوف", image: "../img_sign/102.png" },
+          { itText: "Dare precedenza", arText: "إعطاء الأسبقية", image: "../img_sign/36.png" },
+          { itText: "Passaggio a livello", arText: "معبر سكة حديد", image: "../img_sign/10.png" },
+          { itText: "Senso unico alternato", arText: "مرور باتجاه واحد متناوب", image: "../img_sign/44.png" }
         ];
 
         matchingEngine.startNewRound(sampleItems);
       }
 
-      // التبديل بين التبويبات
       const tabTraps = document.getElementById("tabTraps");
       const tabGame = document.getElementById("tabGame");
       const secTraps = document.getElementById("sectionTraps");
