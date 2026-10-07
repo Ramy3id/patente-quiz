@@ -694,19 +694,24 @@
   }
   .kw-strip {
     display: flex;
-    gap: 6px;
+    gap: 8px;
     flex-wrap: wrap;
     margin-top: 10px;
-    direction: ltr;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
   .kw-pill {
     background: rgba(99, 102, 241, 0.15);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    color: #a5b4fc;
-    font-size: 0.76rem;
-    padding: 2px 7px;
-    border-radius: 5px;
+    border: 1px solid rgba(99, 102, 241, 0.35);
+    color: #c7d2fe;
+    font-size: 0.78rem;
+    padding: 3px 8px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .kw-pill strong {
+    color: #fbbf24;
     font-family: 'JetBrains Mono', monospace;
   }
 
@@ -1270,7 +1275,12 @@
             ${q.trabocchetto ? `<div class="trap-banner">${q.trabocchetto}</div>` : ''}
             ${q.parole_chiave && q.parole_chiave.length > 0 ? `
               <div class="kw-strip">
-                ${q.parole_chiave.map(k => `<span class="kw-pill">${k}</span>`).join('')}
+                ${q.parole_chiave.map(k => {
+                  if (typeof k === 'object' && k !== null) {
+                    return `<span class="kw-pill"><strong>${k.it || ''}</strong>: ${k.ar || ''}</span>`;
+                  }
+                  return `<span class="kw-pill">${k}</span>`;
+                }).join('')}
               </div>
             ` : ''}
           </div>
