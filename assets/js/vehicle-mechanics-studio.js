@@ -18,22 +18,23 @@ class VehicleMechanicsStudio {
     this.animationId = null;
     this.lastTime = 0;
     
-    // ABS Simulation State
+    // ABS Simulation State - AUTO PLAYING LOOP
     this.abs = {
       enabled: true,
-      speed: 90, // km/h
+      autoPlay: true,
+      speed: 90, // target speed in km/h
       roadCondition: 'asciutto', // 'asciutto' (dry), 'bagnato' (wet), 'ghiaccio' (ice)
-      carX: 60,
-      carY: 150,
+      carX: 50,
+      carY: 180, // initial lane (lower lane)
       carAngle: 0,
       currentSpeed: 90,
-      isBraking: false,
-      isFinished: false,
+      phase: 'driving', // 'driving' | 'braking' | 'finished'
       skidMarks: [],
-      steerAround: false,
       obstacleX: 680,
-      obstacleY: 150,
-      pulsingTire: 0
+      obstacleY: 180,
+      pulsingTire: 0,
+      finishTimer: 0,
+      crashFlash: 0
     };
 
     // Aquaplaning Simulation State
@@ -46,14 +47,14 @@ class VehicleMechanicsStudio {
       bubbles: []
     };
 
-    // Shock Absorbers Simulation State
+    // Shock Absorbers Simulation State - CONTINUOUS IMPULSE LOOP
     this.shocks = {
       condition: 'healthy', // 'healthy' | 'worn'
-      testType: 'braking', // 'braking' | 'cornering'
-      bodyRoll: 0, // angle in degrees
-      bodyPitch: 0, // angle in degrees
-      oscillation: 0,
-      time: 0
+      testType: 'braking', // 'braking' (pitch) | 'cornering' (roll)
+      cycleTimer: 0,
+      cycleDuration: 3.5, // seconds per bump/brake surge
+      bodyRoll: 0,
+      bodyPitch: 0
     };
 
     this.initAudio();
@@ -90,27 +91,27 @@ class VehicleMechanicsStudio {
       if (type === 'abs-pulse') {
         osc.type = 'sawtooth';
         osc.frequency.setValueAtTime(80, now);
-        osc.frequency.exponentialRampToValueAtTime(40, now + 0.08);
-        gain.gain.setValueAtTime(0.12, now);
-        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+        osc.frequency.exponentialRampToValueAtTime(40, now + 0.06);
+        gain.gain.setValueAtTime(0.08, now);
+        gain.gain.exponentialRampToValueAtTime(0.005, now + 0.06);
         osc.start(now);
-        osc.stop(now + 0.08);
+        osc.stop(now + 0.06);
       } else if (type === 'skid') {
         osc.type = 'triangle';
-        osc.frequency.setValueAtTime(220, now);
-        osc.frequency.linearRampToValueAtTime(140, now + 0.25);
-        gain.gain.setValueAtTime(0.18, now);
-        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
+        osc.frequency.setValueAtTime(180, now);
+        osc.frequency.linearRampToValueAtTime(110, now + 0.15);
+        gain.gain.setValueAtTime(0.12, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
         osc.start(now);
-        osc.stop(now + 0.25);
-      } else if (type === 'alert') {
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(880, now);
-        osc.frequency.setValueAtTime(700, now + 0.1);
-        gain.gain.setValueAtTime(0.15, now);
-        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
+        osc.stop(now + 0.15);
+      } else if (type === 'crash') {
+        osc.type = 'square';
+        osc.frequency.setValueAtTime(150, now);
+        osc.frequency.exponentialRampToValueAtTime(30, now + 0.35);
+        gain.gain.setValueAtTime(0.25, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
         osc.start(now);
-        osc.stop(now + 0.25);
+        osc.stop(now + 0.35);
       }
     } catch(e) {}
   }
@@ -122,7 +123,7 @@ class VehicleMechanicsStudio {
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; margin-bottom:18px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:14px;">
           <div>
             <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(56,189,248,0.12); color:#38bdf8; padding:4px 12px; border-radius:30px; font-size:0.82rem; font-weight:700; border:1px solid rgba(56,189,248,0.3); margin-bottom:6px;">
-              <span>🔬 مختبر الفيزياء والميكانيكا التطبيقية 60 FPS</span>
+              <span>🔬 مختبر الفيزياء والميكانيكا الحركية المباشر 60 FPS</span>
             </div>
             <h3 style="margin:0; color:#f8fafc; font-size:1.35rem; font-weight:800; display:flex; align-items:center; gap:8px;">
               <span>محاكي فيزياء وديناميكا المركبة (Simulatore Dinamica del Veicolo)</span>
@@ -146,8 +147,8 @@ class VehicleMechanicsStudio {
         <div style="position:relative; width:100%; border-radius:14px; overflow:hidden; background:#020617; border:1px solid rgba(56,189,248,0.2); box-shadow:inset 0 2px 10px rgba(0,0,0,0.6);">
           <canvas id="vmsCanvas" width="900" height="340" style="width:100%; height:auto; display:block; aspect-ratio:900/340;"></canvas>
           <div id="vmsOverlayText" style="position:absolute; bottom:12px; right:16px; left:16px; display:flex; justify-content:space-between; align-items:center; pointer-events:none; font-size:0.85rem; color:#cbd5e1; text-shadow:0 1px 3px rgba(0,0,0,0.9);">
-            <span id="vmsStatusBadge" style="background:rgba(16,185,129,0.25); border:1px solid #10b981; color:#34d399; padding:4px 10px; border-radius:6px; font-weight:700;">جاهز للاختبار</span>
-            <span id="vmsTelemetry" style="font-family:monospace; direction:ltr; color:#93c5fd;">SPD: 90 km/h | SLIP: 0%</span>
+            <span id="vmsStatusBadge" style="background:rgba(16,185,129,0.25); border:1px solid #10b981; color:#34d399; padding:4px 10px; border-radius:6px; font-weight:700;">حركة مستمرة نشطة</span>
+            <span id="vmsTelemetry" style="font-family:monospace; direction:ltr; color:#93c5fd;">SPD: 90 km/h | ABS: ACTIVE</span>
           </div>
         </div>
 
@@ -195,58 +196,84 @@ class VehicleMechanicsStudio {
 
   updateControlsUI() {
     const panel = document.getElementById('vmsControlPanel');
+    if (!panel) return;
+
     if (this.activeTab === 'abs') {
       panel.innerHTML = `
         <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:14px;">
           <!-- ABS Mode Switch -->
-          <div style="display:flex; gap:10px; align-items:center;">
+          <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
             <span style="font-weight:700; color:#e2e8f0; font-size:0.9rem;">حالة نظام ABS:</span>
-            <button id="vmsBtnAbsOn" style="padding:6px 14px; border-radius:8px; font-weight:700; font-size:0.85rem; cursor:pointer; border:1px solid #10b981; background:${this.abs.enabled ? '#10b981' : 'transparent'}; color:${this.abs.enabled ? '#fff' : '#10b981'}; transition:all 0.2s;">
-              ✅ نظام ABS نشط (مع التوجيه)
+            <button id="vmsBtnAbsOn" style="padding:7px 16px; border-radius:8px; font-weight:700; font-size:0.88rem; cursor:pointer; border:1px solid #10b981; background:${this.abs.enabled ? '#10b981' : 'transparent'}; color:${this.abs.enabled ? '#fff' : '#10b981'}; transition:all 0.2s;">
+              ✅ نظام ABS نشط (توجيه وتفادي)
             </button>
-            <button id="vmsBtnAbsOff" style="padding:6px 14px; border-radius:8px; font-weight:700; font-size:0.85rem; cursor:pointer; border:1px solid #f43f5e; background:${!this.abs.enabled ? '#f43f5e' : 'transparent'}; color:${!this.abs.enabled ? '#fff' : '#f43f5e'}; transition:all 0.2s;">
-              ❌ بدون ABS (عجلات منغلقة Blok)
+            <button id="vmsBtnAbsOff" style="padding:7px 16px; border-radius:8px; font-weight:700; font-size:0.88rem; cursor:pointer; border:1px solid #f43f5e; background:${!this.abs.enabled ? '#f43f5e' : 'transparent'}; color:${!this.abs.enabled ? '#fff' : '#f43f5e'}; transition:all 0.2s;">
+              ❌ بدون ABS (انغلاق العجلات Blok)
             </button>
           </div>
 
-          <!-- Road Condition -->
-          <div style="display:flex; gap:8px; align-items:center;">
-            <span style="font-weight:700; color:#e2e8f0; font-size:0.9rem;">حالة الطريق:</span>
-            <select id="vmsRoadSelect" style="background:#1e293b; color:#fff; border:1px solid rgba(255,255,255,0.2); padding:6px 12px; border-radius:8px; font-size:0.85rem; cursor:pointer;">
-              <option value="asciutto" ${this.abs.roadCondition==='asciutto'?'selected':''}>جاف ممتاز (Asciutto)</option>
-              <option value="bagnato" ${this.abs.roadCondition==='bagnato'?'selected':''}>مبلل بالأمطار (Bagnato)</option>
-              <option value="ghiaccio" ${this.abs.roadCondition==='ghiaccio'?'selected':''}>جليد زلق (Ghiaccio)</option>
-            </select>
+          <!-- Speed & Road Conditions -->
+          <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+            <div style="display:flex; gap:6px; align-items:center;">
+              <span style="font-weight:700; color:#e2e8f0; font-size:0.88rem;">السرعة:</span>
+              <input type="range" id="vmsAbsSpeed" min="50" max="130" step="10" value="${this.abs.speed}" style="width:110px; accent-color:#38bdf8; cursor:pointer;">
+              <span id="vmsAbsSpeedVal" style="font-family:monospace; font-weight:700; color:#38bdf8; width:55px;">${this.abs.speed} km/h</span>
+            </div>
+
+            <div style="display:flex; gap:6px; align-items:center;">
+              <span style="font-weight:700; color:#e2e8f0; font-size:0.88rem;">الطريق:</span>
+              <select id="vmsRoadSelect" style="background:#1e293b; color:#fff; border:1px solid rgba(255,255,255,0.2); padding:5px 10px; border-radius:8px; font-size:0.85rem; cursor:pointer;">
+                <option value="asciutto" ${this.abs.roadCondition==='asciutto'?'selected':''}>جاف (Asciutto)</option>
+                <option value="bagnato" ${this.abs.roadCondition==='bagnato'?'selected':''}>مبلل (Bagnato)</option>
+                <option value="ghiaccio" ${this.abs.roadCondition==='ghiaccio'?'selected':''}>جليد (Ghiaccio)</option>
+              </select>
+            </div>
           </div>
 
-          <!-- Action Buttons -->
-          <div style="display:flex; gap:8px;">
-            <button id="vmsBtnBrake" style="background:linear-gradient(135deg, #e11d48, #be123c); color:#fff; border:none; padding:8px 18px; border-radius:8px; font-weight:800; font-size:0.9rem; cursor:pointer; box-shadow:0 4px 12px rgba(225,29,72,0.4); display:flex; align-items:center; gap:6px;">
-              <span>🚨 اضغط فرملة طارئة! (Frenata di panico)</span>
+          <!-- Action & Playback Controls -->
+          <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+            <button id="vmsBtnAutoPlay" style="background:${this.abs.autoPlay ? '#0284c7' : '#334155'}; color:#fff; border:none; padding:7px 14px; border-radius:8px; font-weight:700; font-size:0.85rem; cursor:pointer;">
+              ${this.abs.autoPlay ? '⏸️ إيقاف التكرار التلقائي' : '▶️ تشغيل العرض المستمر'}
             </button>
-            <button id="vmsBtnReset" style="background:#334155; color:#f1f5f9; border:none; padding:8px 14px; border-radius:8px; font-weight:700; font-size:0.85rem; cursor:pointer;">
-              🔄 إعادة التجربة
+            <button id="vmsBtnBrakeNow" style="background:linear-gradient(135deg, #e11d48, #be123c); color:#fff; border:none; padding:7px 14px; border-radius:8px; font-weight:800; font-size:0.88rem; cursor:pointer; box-shadow:0 3px 10px rgba(225,29,72,0.4);">
+              🚨 فرملة طارئة فورية!
+            </button>
+            <button id="vmsBtnReset" style="background:#1e293b; color:#cbd5e1; border:1px solid rgba(255,255,255,0.15); padding:7px 12px; border-radius:8px; font-weight:700; font-size:0.85rem; cursor:pointer;">
+              🔄 إعادة البداية
             </button>
           </div>
         </div>
       `;
 
-      // Event listeners for ABS
+      // Event Listeners for ABS
       document.getElementById('vmsBtnAbsOn').addEventListener('click', () => {
         this.abs.enabled = true;
+        this.resetSimulation();
         this.updateControlsUI();
         this.updateExplanationUI();
       });
       document.getElementById('vmsBtnAbsOff').addEventListener('click', () => {
         this.abs.enabled = false;
+        this.resetSimulation();
         this.updateControlsUI();
         this.updateExplanationUI();
+      });
+      document.getElementById('vmsAbsSpeed').addEventListener('input', (e) => {
+        this.abs.speed = parseInt(e.target.value);
+        document.getElementById('vmsAbsSpeedVal').textContent = `${this.abs.speed} km/h`;
+        if (this.abs.phase === 'driving') {
+          this.abs.currentSpeed = this.abs.speed;
+        }
       });
       document.getElementById('vmsRoadSelect').addEventListener('change', (e) => {
         this.abs.roadCondition = e.target.value;
         this.resetSimulation();
       });
-      document.getElementById('vmsBtnBrake').addEventListener('click', () => {
+      document.getElementById('vmsBtnAutoPlay').addEventListener('click', () => {
+        this.abs.autoPlay = !this.abs.autoPlay;
+        this.updateControlsUI();
+      });
+      document.getElementById('vmsBtnBrakeNow').addEventListener('click', () => {
         this.triggerAbsBrake();
       });
       document.getElementById('vmsBtnReset').addEventListener('click', () => {
@@ -259,10 +286,10 @@ class VehicleMechanicsStudio {
           <!-- Tread Depth Presets -->
           <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
             <span style="font-weight:700; color:#e2e8f0; font-size:0.9rem;">عمق مداس الإطار (Battistrada):</span>
-            <button class="vms-tread-btn" data-depth="8.0" style="padding:6px 12px; border-radius:8px; font-size:0.82rem; font-weight:700; cursor:pointer; border:1px solid #10b981; background:${this.aqua.treadDepth===8?'#10b981':'transparent'}; color:${this.aqua.treadDepth===8?'#fff':'#10b981'};">8.0 مم (إطار جديد)</button>
-            <button class="vms-tread-btn" data-depth="4.0" style="padding:6px 12px; border-radius:8px; font-size:0.82rem; font-weight:700; cursor:pointer; border:1px solid #38bdf8; background:${this.aqua.treadDepth===4?'#38bdf8':'transparent'}; color:${this.aqua.treadDepth===4?'#fff':'#38bdf8'};">4.0 مم (إطار جيد)</button>
-            <button class="vms-tread-btn" data-depth="1.6" style="padding:6px 12px; border-radius:8px; font-size:0.82rem; font-weight:700; cursor:pointer; border:1px solid #f59e0b; background:${this.aqua.treadDepth===1.6?'#f59e0b':'transparent'}; color:${this.aqua.treadDepth===1.6?'#fff':'#f59e0b'};">1.6 مم (الحد الأدنى القانوني ⚠️)</button>
-            <button class="vms-tread-btn" data-depth="0.8" style="padding:6px 12px; border-radius:8px; font-size:0.82rem; font-weight:700; cursor:pointer; border:1px solid #ef4444; background:${this.aqua.treadDepth===0.8?'#ef4444':'transparent'}; color:${this.aqua.treadDepth===0.8?'#fff':'#ef4444'};">0.8 مم (ممسوح وتالف ❌)</button>
+            <button class="vms-tread-btn" data-depth="8.0" style="padding:6px 14px; border-radius:8px; font-size:0.85rem; font-weight:700; cursor:pointer; border:1px solid #10b981; background:${this.aqua.treadDepth===8?'#10b981':'transparent'}; color:${this.aqua.treadDepth===8?'#fff':'#10b981'};">8.0 مم (إطار جديد)</button>
+            <button class="vms-tread-btn" data-depth="4.0" style="padding:6px 14px; border-radius:8px; font-size:0.85rem; font-weight:700; cursor:pointer; border:1px solid #38bdf8; background:${this.aqua.treadDepth===4?'#38bdf8':'transparent'}; color:${this.aqua.treadDepth===4?'#fff':'#38bdf8'};">4.0 مم (إطار جيد)</button>
+            <button class="vms-tread-btn" data-depth="1.6" style="padding:6px 14px; border-radius:8px; font-size:0.85rem; font-weight:700; cursor:pointer; border:1px solid #f59e0b; background:${this.aqua.treadDepth===1.6?'#f59e0b':'transparent'}; color:${this.aqua.treadDepth===1.6?'#fff':'#f59e0b'};">1.6 مم (الحد القانوني ⚠️)</button>
+            <button class="vms-tread-btn" data-depth="0.8" style="padding:6px 14px; border-radius:8px; font-size:0.85rem; font-weight:700; cursor:pointer; border:1px solid #ef4444; background:${this.aqua.treadDepth===0.8?'#ef4444':'transparent'}; color:${this.aqua.treadDepth===0.8?'#fff':'#ef4444'};">0.8 مم (تالف ❌)</button>
           </div>
 
           <!-- Speed Slider -->
@@ -293,23 +320,23 @@ class VehicleMechanicsStudio {
       panel.innerHTML = `
         <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:14px;">
           <!-- Shocks condition -->
-          <div style="display:flex; gap:10px; align-items:center;">
+          <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
             <span style="font-weight:700; color:#e2e8f0; font-size:0.9rem;">حالة ممتص الصدمات:</span>
-            <button id="vmsBtnShockGood" style="padding:6px 14px; border-radius:8px; font-weight:700; font-size:0.85rem; cursor:pointer; border:1px solid #10b981; background:${this.shocks.condition==='healthy'?'#10b981':'transparent'}; color:${this.shocks.condition==='healthy'?'#fff':'#10b981'};">
+            <button id="vmsBtnShockGood" style="padding:7px 16px; border-radius:8px; font-weight:700; font-size:0.85rem; cursor:pointer; border:1px solid #10b981; background:${this.shocks.condition==='healthy'?'#10b981':'transparent'}; color:${this.shocks.condition==='healthy'?'#fff':'#10b981'};">
               ✅ ممتص سليم (Ammortizzatore efficiente)
             </button>
-            <button id="vmsBtnShockWorn" style="padding:6px 14px; border-radius:8px; font-weight:700; font-size:0.85rem; cursor:pointer; border:1px solid #ef4444; background:${this.shocks.condition==='worn'?'#ef4444':'transparent'}; color:${this.shocks.condition==='worn'?'#fff':'#ef4444'};">
+            <button id="vmsBtnShockWorn" style="padding:7px 16px; border-radius:8px; font-weight:700; font-size:0.85rem; cursor:pointer; border:1px solid #ef4444; background:${this.shocks.condition==='worn'?'#ef4444':'transparent'}; color:${this.shocks.condition==='worn'?'#fff':'#ef4444'};">
               ❌ ممتص تالف وفارغ (Scarico / usurato)
             </button>
           </div>
 
           <!-- Dynamic Maneuver -->
-          <div style="display:flex; gap:8px; align-items:center;">
+          <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
             <span style="font-weight:700; color:#e2e8f0; font-size:0.9rem;">المناورة الديناميكية:</span>
-            <button id="vmsBtnPitch" style="padding:6px 14px; border-radius:8px; font-size:0.85rem; font-weight:700; cursor:pointer; border:1px solid #38bdf8; background:${this.shocks.testType==='braking'?'#0284c7':'transparent'}; color:${this.shocks.testType==='braking'?'#fff':'#38bdf8'};">
+            <button id="vmsBtnPitch" style="padding:7px 14px; border-radius:8px; font-size:0.85rem; font-weight:700; cursor:pointer; border:1px solid #38bdf8; background:${this.shocks.testType==='braking'?'#0284c7':'transparent'}; color:${this.shocks.testType==='braking'?'#fff':'#38bdf8'};">
               🛑 فرملة حادة (الانغماس للأمام Beccheggio)
             </button>
-            <button id="vmsBtnRoll" style="padding:6px 14px; border-radius:8px; font-size:0.85rem; font-weight:700; cursor:pointer; border:1px solid #f59e0b; background:${this.shocks.testType==='cornering'?'#d97706':'transparent'}; color:${this.shocks.testType==='cornering'?'#fff':'#f59e0b'};">
+            <button id="vmsBtnRoll" style="padding:7px 14px; border-radius:8px; font-size:0.85rem; font-weight:700; cursor:pointer; border:1px solid #f59e0b; background:${this.shocks.testType==='cornering'?'#d97706':'transparent'}; color:${this.shocks.testType==='cornering'?'#fff':'#f59e0b'};">
               🔄 منعطف مفاجئ (التأرجح الجانبي Rollio)
             </button>
           </div>
@@ -319,25 +346,25 @@ class VehicleMechanicsStudio {
       // Event listeners for Shocks
       document.getElementById('vmsBtnShockGood').addEventListener('click', () => {
         this.shocks.condition = 'healthy';
-        this.shocks.time = 0;
+        this.shocks.cycleTimer = 0;
         this.updateControlsUI();
         this.updateExplanationUI();
       });
       document.getElementById('vmsBtnShockWorn').addEventListener('click', () => {
         this.shocks.condition = 'worn';
-        this.shocks.time = 0;
+        this.shocks.cycleTimer = 0;
         this.updateControlsUI();
         this.updateExplanationUI();
       });
       document.getElementById('vmsBtnPitch').addEventListener('click', () => {
         this.shocks.testType = 'braking';
-        this.shocks.time = 0;
+        this.shocks.cycleTimer = 0;
         this.updateControlsUI();
         this.updateExplanationUI();
       });
       document.getElementById('vmsBtnRoll').addEventListener('click', () => {
         this.shocks.testType = 'cornering';
-        this.shocks.time = 0;
+        this.shocks.cycleTimer = 0;
         this.updateControlsUI();
         this.updateExplanationUI();
       });
@@ -346,6 +373,8 @@ class VehicleMechanicsStudio {
 
   updateExplanationUI() {
     const box = document.getElementById('vmsExplanationBox');
+    if (!box) return;
+
     if (this.activeTab === 'abs') {
       if (this.abs.enabled) {
         box.style.background = 'rgba(16,185,129,0.12)';
@@ -418,16 +447,16 @@ class VehicleMechanicsStudio {
   }
 
   resetSimulation() {
-    // Reset ABS
-    this.abs.carX = 60;
-    this.abs.carY = 160;
+    // Reset ABS to start driving from left
+    this.abs.carX = 50;
+    this.abs.carY = 180; // right lane
     this.abs.carAngle = 0;
     this.abs.currentSpeed = this.abs.speed;
-    this.abs.isBraking = false;
-    this.abs.isFinished = false;
+    this.abs.phase = 'driving';
     this.abs.skidMarks = [];
-    this.abs.steerAround = false;
     this.abs.pulsingTire = 0;
+    this.abs.finishTimer = 0;
+    this.abs.crashFlash = 0;
 
     // Reset Aquaplaning
     this.aqua.bubbles = [];
@@ -441,13 +470,13 @@ class VehicleMechanicsStudio {
     }
 
     // Reset Shocks
-    this.shocks.time = 0;
+    this.shocks.cycleTimer = 0;
     this.shocks.bodyRoll = 0;
     this.shocks.bodyPitch = 0;
 
     const badge = document.getElementById('vmsStatusBadge');
     if (badge) {
-      badge.textContent = 'جاهز للاختبار';
+      badge.textContent = 'سير طبيعي على الطريق';
       badge.style.background = 'rgba(16,185,129,0.25)';
       badge.style.borderColor = '#10b981';
       badge.style.color = '#34d399';
@@ -455,19 +484,11 @@ class VehicleMechanicsStudio {
   }
 
   triggerAbsBrake() {
-    if (this.abs.isBraking && !this.abs.isFinished) return;
-    this.abs.carX = 60;
-    this.abs.carY = 160;
-    this.abs.carAngle = 0;
-    this.abs.currentSpeed = this.abs.speed;
-    this.abs.isBraking = true;
-    this.abs.isFinished = false;
-    this.abs.skidMarks = [];
-    this.abs.steerAround = this.abs.enabled; // only steer around if ABS is enabled
-
+    if (this.abs.phase === 'braking') return;
+    this.abs.phase = 'braking';
     const badge = document.getElementById('vmsStatusBadge');
     if (badge) {
-      badge.textContent = this.abs.enabled ? 'فرملة طارئة + تفادي بالعجلة!' : 'فرملة طارئة (انغلاق كامل وانزلاق مستقيم!)';
+      badge.textContent = this.abs.enabled ? '🚨 فرملة طارئة + تفادي بالمقود (ABS نشط)!' : '🚨 فرملة طارئة (انغلاق العجلات وانزلاق مستقيم!)';
       badge.style.background = this.abs.enabled ? 'rgba(56,189,248,0.25)' : 'rgba(239,68,68,0.25)';
       badge.style.borderColor = this.abs.enabled ? '#38bdf8' : '#ef4444';
       badge.style.color = this.abs.enabled ? '#7dd3fc' : '#fca5a5';
@@ -477,7 +498,7 @@ class VehicleMechanicsStudio {
 
   startLoop() {
     const loop = (timestamp) => {
-      const dt = timestamp - (this.lastTime || timestamp);
+      const dt = Math.min(50, timestamp - (this.lastTime || timestamp));
       this.lastTime = timestamp;
       this.update(dt);
       this.render();
@@ -497,96 +518,120 @@ class VehicleMechanicsStudio {
   }
 
   updateAbs(dt) {
-    if (!this.abs.isBraking || this.abs.isFinished) return;
+    const dtSec = dt / 1000;
 
-    // Deceleration factor based on road
-    let friction = 0.8;
-    if (this.abs.roadCondition === 'bagnato') friction = 0.5;
-    if (this.abs.roadCondition === 'ghiaccio') friction = 0.2;
+    // Road friction
+    let friction = 0.85;
+    if (this.abs.roadCondition === 'bagnato') friction = 0.52;
+    if (this.abs.roadCondition === 'ghiaccio') friction = 0.22;
 
-    const decelRate = (this.abs.enabled ? 32 : 26) * friction;
-    this.abs.currentSpeed = Math.max(0, this.abs.currentSpeed - (decelRate * (dt / 1000) * 2.2));
+    if (this.abs.phase === 'driving') {
+      // Car is driving at selected speed
+      const moveStep = this.abs.currentSpeed * dtSec * 3.8;
+      this.abs.carX += moveStep;
+      this.abs.carAngle = 0;
 
-    const moveStep = (this.abs.currentSpeed * (dt / 1000) * 4.8);
-    this.abs.carX += moveStep * Math.cos(this.abs.carAngle);
-    this.abs.carY += moveStep * Math.sin(this.abs.carAngle);
-
-    // If ABS is enabled: steer smoothly upwards around obstacle when approaching
-    if (this.abs.enabled) {
-      this.abs.pulsingTire += dt * 0.05;
-      if (Math.random() < 0.25) this.playChime('abs-pulse');
-
-      if (this.abs.carX > 320 && this.abs.carX < 550) {
-        // Steer left lane
-        this.abs.carAngle = -0.32;
-      } else if (this.abs.carX >= 550 && this.abs.carX < 720) {
-        // Straighten back
-        this.abs.carAngle = 0.12;
-      } else {
-        this.abs.carAngle = 0;
+      // Auto trigger brake when approaching obstacle at x=340
+      if (this.abs.carX >= 340) {
+        this.triggerAbsBrake();
       }
-    } else {
-      // Locked wheels: keep straight line, record skid marks
-      if (Math.random() < 0.1) this.playChime('skid');
-      this.abs.skidMarks.push({
-        x1: this.abs.carX - 22,
-        y1: this.abs.carY - 14,
-        x2: this.abs.carX - 22,
-        y2: this.abs.carY + 14
-      });
-      this.abs.carAngle = 0; // cannot steer at all!
+    } else if (this.abs.phase === 'braking') {
+      // Deceleration rate
+      const decel = (this.abs.enabled ? 34 : 26) * friction;
+      this.abs.currentSpeed = Math.max(0, this.abs.currentSpeed - (decel * dtSec * 2.8));
+
+      const moveStep = this.abs.currentSpeed * dtSec * 3.8;
+      this.abs.carX += moveStep * Math.cos(this.abs.carAngle);
+      this.abs.carY += moveStep * Math.sin(this.abs.carAngle);
+
+      if (this.abs.enabled) {
+        // WITH ABS: wheels pulse, driver steers to upper lane (y: 180 -> 100)
+        this.abs.pulsingTire += dt * 0.05;
+        if (Math.random() < 0.2) this.playChime('abs-pulse');
+
+        if (this.abs.carX > 340 && this.abs.carX < 500 && this.abs.carY > 105) {
+          // Turn left
+          this.abs.carAngle = -0.32;
+        } else if (this.abs.carX >= 500 && this.abs.carAngle < 0) {
+          // Straighten in overtaking lane
+          this.abs.carAngle = 0.04;
+          if (this.abs.carY <= 105) this.abs.carAngle = 0;
+        } else {
+          this.abs.carAngle = 0;
+        }
+      } else {
+        // WITHOUT ABS: wheels locked, skid marks on asphalt, cannot steer at all!
+        if (Math.random() < 0.12) this.playChime('skid');
+        this.abs.skidMarks.push({
+          x1: this.abs.carX - 24,
+          y1: this.abs.carY - 14,
+          x2: this.abs.carX - 24,
+          y2: this.abs.carY + 14
+        });
+        this.abs.carAngle = 0; // zero steering!
+      }
+
+      // Check collision or safe stop
+      const distToObstacle = Math.hypot(this.abs.carX - this.abs.obstacleX, this.abs.carY - this.abs.obstacleY);
+
+      if (!this.abs.enabled && distToObstacle < 55) {
+        // Crash into obstacle!
+        this.abs.phase = 'finished';
+        this.abs.currentSpeed = 0;
+        this.abs.crashFlash = 1.0;
+        this.playChime('crash');
+        const badge = document.getElementById('vmsStatusBadge');
+        if (badge) {
+          badge.textContent = '💥 حادث اصطدام بالعائق! العجلات انغلقت واستحال التوجيه (Bloccaggio)!';
+          badge.style.background = 'rgba(239,68,68,0.35)';
+          badge.style.borderColor = '#ef4444';
+          badge.style.color = '#f87171';
+        }
+      } else if (this.abs.currentSpeed <= 0.5) {
+        // Stopped
+        this.abs.phase = 'finished';
+        this.abs.currentSpeed = 0;
+        const badge = document.getElementById('vmsStatusBadge');
+        if (badge) {
+          if (this.abs.enabled) {
+            badge.textContent = '✅ تفادي وتوقف آمن تماماً! استمر السائق في التوجيه بفضل ABS (Sterzabilità)!';
+            badge.style.background = 'rgba(16,185,129,0.3)';
+            badge.style.borderColor = '#10b981';
+            badge.style.color = '#34d399';
+          } else {
+            badge.textContent = '⚠️ توقفت السيارة لكنها انزلقت مستقيماً وفقدت السيطرة على مسارها!';
+          }
+        }
+      }
+    } else if (this.abs.phase === 'finished') {
+      // Hold result, then loop if autoPlay is true
+      if (this.abs.crashFlash > 0) this.abs.crashFlash -= dtSec * 1.5;
+      this.abs.finishTimer += dtSec;
+      if (this.abs.autoPlay && this.abs.finishTimer > 2.8) {
+        this.resetSimulation();
+      }
     }
 
     // Telemetry display
     const telemetry = document.getElementById('vmsTelemetry');
     if (telemetry) {
-      telemetry.textContent = `SPD: ${Math.round(this.abs.currentSpeed)} km/h | ABS: ${this.abs.enabled ? 'ACTIVE' : 'LOCKED'} | FRIC: ${(friction*100)}%`;
-    }
-
-    // Check collision or safe stop
-    const distToObs = Math.hypot(this.abs.carX - this.abs.obstacleX, this.abs.carY - this.abs.obstacleY);
-    if (!this.abs.enabled && distToObs < 60) {
-      // Crash into obstacle!
-      this.abs.isFinished = true;
-      this.abs.currentSpeed = 0;
-      this.playChime('alert');
-      const badge = document.getElementById('vmsStatusBadge');
-      if (badge) {
-        badge.textContent = '💥 حادث اصطدام بالعائق! العجلات منغلقة واستحال التوجيه!';
-        badge.style.background = 'rgba(239,68,68,0.35)';
-        badge.style.color = '#f87171';
-      }
-    } else if (this.abs.currentSpeed <= 0.5) {
-      this.abs.isFinished = true;
-      this.abs.currentSpeed = 0;
-      const badge = document.getElementById('vmsStatusBadge');
-      if (badge) {
-        if (this.abs.enabled) {
-          badge.textContent = '✅ توقف آمن تماماً! تفادى السائق العائق بفضل قدرة التوجيه (Sterzabilità)';
-          badge.style.background = 'rgba(16,185,129,0.3)';
-          badge.style.color = '#34d399';
-        } else {
-          badge.textContent = '⚠️ توقفت السيارة لكنها فقدت السيطرة تماماً على مسارها!';
-        }
-      }
+      telemetry.textContent = `SPD: ${Math.round(this.abs.currentSpeed)} km/h | ABS: ${this.abs.enabled ? 'ACTIVE (Sterzabile)' : 'DISABLED (Bloccato)'} | ROAD: ${this.abs.roadCondition.toUpperCase()}`;
     }
   }
 
   updateAquaplaning(dt) {
-    // Calculate lift ratio based on speed and tread depth
-    // Critical speed: ~ 63 * sqrt(pressure), reduced significantly by shallow tread
-    // Rule: treadDepth 8mm -> aquaplaning at > 105 km/h
-    // treadDepth 1.6mm -> aquaplaning at > 75 km/h
-    // treadDepth 0.8mm -> aquaplaning at > 55 km/h
+    const dtSec = dt / 1000;
+    // Critical speed: ~ 45 + treadDepth * 7.5
     let criticalSpeed = 45 + (this.aqua.treadDepth * 7.5);
     let ratio = Math.max(0, Math.min(1, (this.aqua.speed - criticalSpeed + 20) / 35));
     this.aqua.liftAmount += (ratio - this.aqua.liftAmount) * 0.1;
 
-    this.aqua.tireRotation += (this.aqua.speed / 10) * (1 - this.aqua.liftAmount * 0.8);
+    // Continuous tire rotation
+    this.aqua.tireRotation += (this.aqua.speed * 0.08) * (1 - this.aqua.liftAmount * 0.85);
 
-    // Update bubbles
+    // Continuous bubbles/spray animation
     this.aqua.bubbles.forEach(b => {
-      b.x -= b.speed * (this.aqua.speed / 50);
+      b.x -= b.speed * (this.aqua.speed / 40);
       if (b.x < 0) b.x = 900;
     });
 
@@ -618,24 +663,27 @@ class VehicleMechanicsStudio {
   }
 
   updateShocks(dt) {
-    this.shocks.time += dt * 0.003;
+    const dtSec = dt / 1000;
+    this.shocks.cycleTimer += dtSec;
+    // Repeat cycle every 3.5 seconds
+    const t = this.shocks.cycleTimer % this.shocks.cycleDuration;
     const isWorn = this.shocks.condition === 'worn';
     
     if (this.shocks.testType === 'braking') {
-      // Pitching (Beccheggio)
+      // Pitching (Beccheggio) on braking surge
       if (isWorn) {
-        // high amplitude oscillation
-        this.shocks.bodyPitch = Math.sin(this.shocks.time * 4) * 16 * Math.exp(-this.shocks.time * 0.15);
+        // violent bounce, slow damping
+        this.shocks.bodyPitch = Math.sin(t * 7) * 15 * Math.exp(-t * 0.4);
       } else {
-        // quickly damped
-        this.shocks.bodyPitch = Math.sin(this.shocks.time * 6) * 4 * Math.exp(-this.shocks.time * 1.5);
+        // 1 smooth dip, instant damping
+        this.shocks.bodyPitch = Math.sin(t * 9) * 4.5 * Math.exp(-t * 2.2);
       }
     } else {
-      // Cornering (Rollio)
+      // Cornering (Rollio) on sudden turn
       if (isWorn) {
-        this.shocks.bodyRoll = Math.sin(this.shocks.time * 3.5) * 20 * Math.exp(-this.shocks.time * 0.12);
+        this.shocks.bodyRoll = Math.sin(t * 6) * 18 * Math.exp(-t * 0.35);
       } else {
-        this.shocks.bodyRoll = Math.sin(this.shocks.time * 5) * 5 * Math.exp(-this.shocks.time * 1.6);
+        this.shocks.bodyRoll = Math.sin(t * 8) * 5 * Math.exp(-t * 2.2);
       }
     }
 
@@ -649,10 +697,12 @@ class VehicleMechanicsStudio {
       if (isWorn) {
         badge.textContent = this.shocks.testType === 'braking' ? '⚠️ تمايل أمامي عنيف (Beccheggio) وانخفاض مدى الأضواء!' : '⚠️ ميلان جانبي خطير (Rollio) وفقدان الاتزان!';
         badge.style.background = 'rgba(239,68,68,0.25)';
+        badge.style.borderColor = '#ef4444';
         badge.style.color = '#fca5a5';
       } else {
-        badge.textContent = '✅ تماسك وتوازن مستقر (Stabilità controllata)';
+        badge.textContent = '✅ تماسك وتوازن مستقر ومخمد فوراً (Stabilità controllata)';
         badge.style.background = 'rgba(16,185,129,0.25)';
+        badge.style.borderColor = '#10b981';
         badge.style.color = '#34d399';
       }
     }
@@ -690,64 +740,92 @@ class VehicleMechanicsStudio {
     ctx.fillStyle = roadGrad;
     ctx.fillRect(0, 0, w, h);
 
-    // Lane markings
-    ctx.strokeStyle = '#475569';
+    // Road borders
+    ctx.strokeStyle = '#64748b';
     ctx.lineWidth = 4;
-    ctx.strokeRect(0, 40, w, 240);
-
-    // Center dashed line
-    ctx.strokeStyle = '#cbd5e1';
-    ctx.setLineDash([25, 20]);
-    ctx.lineWidth = 3;
     ctx.beginPath();
-    ctx.moveTo(0, 160);
-    ctx.lineTo(w, 160);
+    ctx.moveTo(0, 45);
+    ctx.lineTo(w, 45);
+    ctx.moveTo(0, 255);
+    ctx.lineTo(w, 255);
+    ctx.stroke();
+
+    // Center dashed lane separator (2 lanes: upper at y=105, lower at y=180)
+    ctx.strokeStyle = '#e2e8f0';
+    ctx.lineWidth = 3;
+    ctx.setLineDash([25, 20]);
+    // Moving dash offset to show vehicle motion!
+    const dashOffset = (this.abs.phase === 'driving' ? -Date.now() * 0.12 : 0) % 45;
+    ctx.lineDashOffset = dashOffset;
+    ctx.beginPath();
+    ctx.moveTo(0, 150);
+    ctx.lineTo(w, 150);
     ctx.stroke();
     ctx.setLineDash([]);
+    ctx.lineDashOffset = 0;
 
-    // Skid marks if any
+    // Lane labels
+    ctx.fillStyle = 'rgba(255,255,255,0.2)';
+    ctx.font = 'bold 12px Tahoma, sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText('حارة التجاوز والتفادي (Corsia di sorpasso)', w - 20, 75);
+    ctx.fillText('الحارة الأساسية (Corsia di marcia)', w - 20, 235);
+
+    // Skid marks if without ABS
     if (this.abs.skidMarks.length > 0) {
-      ctx.fillStyle = 'rgba(10, 10, 10, 0.75)';
+      ctx.fillStyle = 'rgba(10, 10, 10, 0.8)';
       this.abs.skidMarks.forEach(sm => {
-        ctx.fillRect(sm.x1, sm.y1, 10, 5);
-        ctx.fillRect(sm.x2, sm.y2, 10, 5);
+        ctx.fillRect(sm.x1, sm.y1, 8, 4);
+        ctx.fillRect(sm.x2, sm.y2, 8, 4);
       });
     }
 
-    // Draw Obstacle (e.g. stalled car or road work barrier)
+    // Draw Obstacle (at lower lane: x=680, y=180)
     ctx.save();
     ctx.translate(this.abs.obstacleX, this.abs.obstacleY);
-    // Warning barrier
+    // Warning striped barrier
     ctx.fillStyle = '#dc2626';
-    ctx.fillRect(-20, -25, 40, 50);
+    ctx.fillRect(-22, -26, 44, 52);
     ctx.fillStyle = '#ffffff';
-    ctx.fillRect(-16, -18, 32, 10);
-    ctx.fillRect(-16, 8, 32, 10);
-    // Flashing warning light
+    ctx.fillRect(-18, -20, 36, 10);
+    ctx.fillRect(-18, 10, 36, 10);
+    // Flashing warning beacon
     ctx.beginPath();
-    ctx.arc(0, -32, 8, 0, Math.PI * 2);
-    ctx.fillStyle = (Math.floor(Date.now() / 250) % 2 === 0) ? '#f59e0b' : '#78350f';
+    ctx.arc(0, -34, 8, 0, Math.PI * 2);
+    ctx.fillStyle = (Math.floor(Date.now() / 200) % 2 === 0) ? '#f59e0b' : '#78350f';
     ctx.fill();
     ctx.restore();
 
-    // Text on obstacle
     ctx.fillStyle = '#f8fafc';
     ctx.font = 'bold 11px Tahoma, sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('عائق فجائي (Ostacolo)', this.abs.obstacleX, this.abs.obstacleY + 42);
+    ctx.fillText('عائق فجائي 🛑', this.abs.obstacleX, this.abs.obstacleY + 44);
+
+    // Braking Line Marker (at x=340)
+    ctx.strokeStyle = 'rgba(245, 158, 11, 0.6)';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([6, 6]);
+    ctx.beginPath();
+    ctx.moveTo(340, 45);
+    ctx.lineTo(340, 255);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#fbbf24';
+    ctx.font = '10px Tahoma, sans-serif';
+    ctx.fillText('نقطة الفرملة الطارئة', 340, 38);
 
     // Draw Vehicle (top-down view)
     ctx.save();
     ctx.translate(this.abs.carX, this.abs.carY);
     ctx.rotate(this.abs.carAngle);
 
-    // Vehicle shadow
-    ctx.fillStyle = 'rgba(0,0,0,0.4)';
+    // Vehicle Shadow
+    ctx.fillStyle = 'rgba(0,0,0,0.45)';
     ctx.beginPath();
     ctx.roundRect(-36, -20, 72, 40, 8);
     ctx.fill();
 
-    // Vehicle body
+    // Vehicle Body
     ctx.fillStyle = this.abs.enabled ? '#0284c7' : '#e11d48';
     ctx.beginPath();
     ctx.roundRect(-34, -18, 68, 36, 6);
@@ -762,12 +840,12 @@ class VehicleMechanicsStudio {
     ctx.fillStyle = '#38bdf8';
     ctx.fillRect(14, -13, 8, 26); // front windshield
 
-    // Headlights beam
-    ctx.fillStyle = 'rgba(254, 240, 138, 0.25)';
+    // Headlight Beams
+    ctx.fillStyle = 'rgba(254, 240, 138, 0.28)';
     ctx.beginPath();
     ctx.moveTo(34, -12);
-    ctx.lineTo(130, -38);
-    ctx.lineTo(130, 38);
+    ctx.lineTo(140, -36);
+    ctx.lineTo(140, 36);
     ctx.lineTo(34, 12);
     ctx.closePath();
     ctx.fill();
@@ -779,15 +857,21 @@ class VehicleMechanicsStudio {
     ctx.fillRect(-26, -21, 14, 5); // Rear left
     ctx.fillRect(-26, 16, 14, 5);  // Rear right
 
-    // If ABS active and braking: pulsating glowing ring on wheels
-    if (this.abs.enabled && this.abs.isBraking && !this.abs.isFinished) {
+    // If ABS active and braking: pulsating green halo on wheels
+    if (this.abs.enabled && this.abs.phase === 'braking') {
       ctx.strokeStyle = '#10b981';
-      ctx.lineWidth = 2;
-      ctx.strokeRect(15, -22, 16, 7);
-      ctx.strokeRect(15, 15, 16, 7);
+      ctx.lineWidth = 2.5;
+      ctx.strokeRect(14, -23, 18, 8);
+      ctx.strokeRect(14, 14, 18, 8);
     }
 
     ctx.restore();
+
+    // Crash flash effect
+    if (this.abs.crashFlash > 0) {
+      ctx.fillStyle = `rgba(239, 68, 68, ${this.abs.crashFlash * 0.45})`;
+      ctx.fillRect(0, 0, w, h);
+    }
   }
 
   renderAquaplaning() {
@@ -877,7 +961,6 @@ class VehicleMechanicsStudio {
     // Hydrodynamic Water Wedge (Cuneo d'acqua) in front of the tire
     ctx.save();
     const wedgeX = tireCenterX + 85;
-    const wedgeY = roadY;
     if (this.aqua.liftAmount > 0.1) {
       ctx.fillStyle = 'rgba(56, 189, 248, 0.75)';
       ctx.beginPath();
@@ -1022,7 +1105,7 @@ class VehicleMechanicsStudio {
       ctx.textAlign = 'right';
       ctx.fillText('اختبار الفرملة الحادة: حركة الانغماس للأمام (Beccheggio)', w - 30, 40);
       ctx.fillStyle = this.shocks.condition === 'worn' ? '#f87171' : '#34d399';
-      ctx.fillText(this.shocks.condition === 'worn' ? '⚠️ ممتص صدمات تالف: الواجهة تهبط بعنف وتنحرف الأضواء!' : '✅ ممتص صدمات سليم: ثبات فوري ومسافة كبح قصيرة', w - 30, 68);
+      ctx.fillText(this.shocks.condition === 'worn' ? '⚠️ ممتص صدمات تالف: الواجهة تهبط بعنف وتنحرف الأضواء!' : '✅ ممتص صدمات سليم: ثبات فوري وإخماد تام', w - 30, 68);
 
     } else {
       // Rear Profile View (Rolling / Rollio)
