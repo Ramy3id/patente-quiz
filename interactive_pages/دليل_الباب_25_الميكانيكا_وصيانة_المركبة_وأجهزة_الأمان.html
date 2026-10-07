@@ -641,21 +641,22 @@
   }
 
   .signal-img-container {
-    background: rgba(0, 0, 0, 0.35);
+    background: #090d16;
     border: 1px solid var(--border-subtle);
     border-radius: 14px;
-    height: 160px;
+    height: 190px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 16px;
-    padding: 12px;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
   }
   .signal-img-container img {
     max-height: 100%;
     max-width: 100%;
-    object-fit: contain;
-    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+    object-fit: cover;
   }
 
   /* Card Header Vertical Hierarchy */
@@ -1050,6 +1051,48 @@
   font-family: var(--font-mono);
   direction: ltr;
 }
+
+/* Realistic Vehicle Parts Image Card Container */
+.vehicle-part-img-container {
+  width: 100%;
+  height: 190px;
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #090d16;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+}
+.part-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+.signal-card:hover .part-card-img {
+  transform: scale(1.06);
+}
+.part-card-tag {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #f59e0b;
+  font-family: 'Space Grotesk', -apple-system, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  pointer-events: none;
+}
+
 </style>
   <link rel="manifest" href="../manifest.json">
   <script>
@@ -1247,60 +1290,118 @@
       </div>
     </div>
 
-    <!-- Cluster Grid of 8 Glowing Lamps -->
+    <!-- Cluster Grid of 8 Glowing Lamps (Authentic ISO 2575 Symbols) -->
     <div class="cockpit-lamps-grid">
-      <!-- Lamp 1: Oil Pressure -->
+      <!-- Lamp 1: Oil Pressure (Authentic Oil Can with Drop) -->
       <button class="cockpit-lamp-btn active" id="lamp-olio" onclick="selectCockpitLamp('olio')" style="--active-color:#ef4444; --glow-color:rgba(239,68,68,0.5);">
-        <span class="cockpit-lamp-icon" style="color:#ef4444;">🛢️</span>
+        <span class="cockpit-lamp-icon">
+          <svg class="cockpit-iso-svg" viewBox="0 0 48 48" width="40" height="40">
+            <path fill="#ef4444" d="M10 24c0-3.3 2.7-6 6-6h13c3.3 0 6 2.7 6 6v10c0 2.2-1.8 4-4 4H14c-2.2 0-4-1.8-4-4V24zm25 1l8-6.5v-3.5l-9.5 5.5zM12 24v-6c0-2.2 1.8-4 4-4h4v3h-4c-.6 0-1 .4-1 1v6h-3zm29.5 2c0 2-1.6 3.5-3.5 3.5s-3.5-1.5-3.5-3.5c0-1.8 3.5-5.5 3.5-5.5s3.5 3.7 3.5 5.5z"/>
+          </svg>
+        </span>
         <span class="cockpit-lamp-label">ضغط زيت المحرك</span>
         <span class="cockpit-lamp-it">Pressione Olio</span>
       </button>
 
-      <!-- Lamp 2: Brakes / Fluid -->
+      <!-- Lamp 2: Brakes / Fluid (( ! )) -->
       <button class="cockpit-lamp-btn" id="lamp-freni" onclick="selectCockpitLamp('freni')" style="--active-color:#ef4444; --glow-color:rgba(239,68,68,0.5);">
-        <span class="cockpit-lamp-icon" style="color:#ef4444;">🛑</span>
+        <span class="cockpit-lamp-icon">
+          <svg class="cockpit-iso-svg" viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="#ef4444" stroke-width="3.5" stroke-linecap="round">
+            <circle cx="24" cy="24" r="10.5"/>
+            <path d="M8 15a18 18 0 0 0 0 18M40 15a18 18 0 0 1 0 18"/>
+            <line x1="24" y1="18.5" x2="24" y2="25"/>
+            <circle cx="24" cy="29" r="1.5" fill="#ef4444" stroke="none"/>
+          </svg>
+        </span>
         <span class="cockpit-lamp-label">الفرامل / سائل الزيت</span>
         <span class="cockpit-lamp-it">Freni / Livello MIN</span>
       </button>
 
-      <!-- Lamp 3: Coolant Temp -->
+      <!-- Lamp 3: Coolant Temp (Thermometer in Water Waves) -->
       <button class="cockpit-lamp-btn" id="lamp-temp" onclick="selectCockpitLamp('temp')" style="--active-color:#ef4444; --glow-color:rgba(239,68,68,0.5);">
-        <span class="cockpit-lamp-icon" style="color:#ef4444;">🌡️</span>
+        <span class="cockpit-lamp-icon">
+          <svg class="cockpit-iso-svg" viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M24 10v16a6 6 0 1 0 5.5-2V10a2.8 2.8 0 0 0-5.5 0z" fill="#ef4444" stroke="none"/>
+            <path d="M24 10v16a6 6 0 1 0 5.5-2V10a2.8 2.8 0 0 0-5.5 0z"/>
+            <path d="M7 36c3-2 6-2 9 0s6 2 9 0 6-2 9 0 6 2 9 0M7 42c3-2 6-2 9 0s6 2 9 0 6-2 9 0 6 2 9 0"/>
+            <line x1="33" y1="13" x2="38" y2="13"/>
+            <line x1="33" y1="18" x2="36" y2="18"/>
+          </svg>
+        </span>
         <span class="cockpit-lamp-label">حرارة مياه التبريد</span>
         <span class="cockpit-lamp-it">Temp. Radiatore</span>
       </button>
 
-      <!-- Lamp 4: Alternator / Battery -->
+      <!-- Lamp 4: Alternator / Battery (+ -) -->
       <button class="cockpit-lamp-btn" id="lamp-batt" onclick="selectCockpitLamp('batt')" style="--active-color:#ef4444; --glow-color:rgba(239,68,68,0.5);">
-        <span class="cockpit-lamp-icon" style="color:#ef4444;">🔋</span>
+        <span class="cockpit-lamp-icon">
+          <svg class="cockpit-iso-svg" viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="7" y="16" width="34" height="22" rx="3.5" fill="rgba(239,68,68,0.2)"/>
+            <path d="M13 11v5m22-5v5"/>
+            <line x1="13" y1="27" x2="19" y2="27" stroke-width="3.5"/>
+            <line x1="29" y1="27" x2="35" y2="27" stroke-width="3.5"/>
+            <line x1="32" y1="24" x2="32" y2="30" stroke-width="3.5"/>
+          </svg>
+        </span>
         <span class="cockpit-lamp-label">مولد الكهرباء (الدينامو)</span>
         <span class="cockpit-lamp-it">Alternatore / Batteria</span>
       </button>
 
-      <!-- Lamp 5: ABS Malfunction -->
+      <!-- Lamp 5: ABS Malfunction (( ABS )) -->
       <button class="cockpit-lamp-btn" id="lamp-abs" onclick="selectCockpitLamp('abs')" style="--active-color:#f59e0b; --glow-color:rgba(245,158,11,0.5);">
-        <span class="cockpit-lamp-icon" style="color:#f59e0b;">🟡</span>
+        <span class="cockpit-lamp-icon">
+          <svg class="cockpit-iso-svg" viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="#f59e0b" stroke-width="3.2" stroke-linecap="round">
+            <circle cx="24" cy="24" r="12" fill="rgba(245,158,11,0.15)"/>
+            <path d="M6 14a21 21 0 0 0 0 20M42 14a21 21 0 0 1 0 20"/>
+            <text x="24" y="28" font-size="9.5" font-weight="900" font-family="Arial Black, Impact, sans-serif" fill="#f59e0b" stroke="none" text-anchor="middle" letter-spacing="0.5">ABS</text>
+          </svg>
+        </span>
         <span class="cockpit-lamp-label">عطل نظام ABS</span>
         <span class="cockpit-lamp-it">Avaria ABS</span>
       </button>
 
-      <!-- Lamp 6: Brake Pads Worn -->
+      <!-- Lamp 6: Brake Pads Worn (Dashed Arcs) -->
       <button class="cockpit-lamp-btn" id="lamp-pastiglie" onclick="selectCockpitLamp('pastiglie')" style="--active-color:#f59e0b; --glow-color:rgba(245,158,11,0.5);">
-        <span class="cockpit-lamp-icon" style="color:#f59e0b;">⭕</span>
+        <span class="cockpit-lamp-icon">
+          <svg class="cockpit-iso-svg" viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="#f59e0b" stroke-width="3.2" stroke-linecap="round">
+            <circle cx="24" cy="24" r="10.5" fill="rgba(245,158,11,0.15)"/>
+            <path d="M7 15a19 19 0 0 0-2 4" stroke-dasharray="2 3"/>
+            <path d="M5 22a19 19 0 0 0 0 4"/>
+            <path d="M5 29a19 19 0 0 0 2 4" stroke-dasharray="2 3"/>
+            <path d="M41 15a19 19 0 0 1 2 4" stroke-dasharray="2 3"/>
+            <path d="M43 22a19 19 0 0 1 0 4"/>
+            <path d="M43 29a19 19 0 0 1-2 4" stroke-dasharray="2 3"/>
+          </svg>
+        </span>
         <span class="cockpit-lamp-label">تآكل تيل الفرامل</span>
         <span class="cockpit-lamp-it">Pastiglie Freni</span>
       </button>
 
-      <!-- Lamp 7: Seatbelts -->
+      <!-- Lamp 7: Seatbelts (Passenger with Diagonal Belt) -->
       <button class="cockpit-lamp-btn" id="lamp-cinture" onclick="selectCockpitLamp('cinture')" style="--active-color:#ef4444; --glow-color:rgba(239,68,68,0.5);">
-        <span class="cockpit-lamp-icon" style="color:#ef4444;">💺</span>
+        <span class="cockpit-lamp-icon">
+          <svg class="cockpit-iso-svg" viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="24" cy="12" r="4.5" fill="#ef4444" stroke="none"/>
+            <path d="M16 41v-9a7 7 0 0 1 7-7h2a7 7 0 0 1 7 7v9" fill="rgba(239,68,68,0.2)"/>
+            <line x1="17" y1="24" x2="31" y2="39" stroke-width="4.5"/>
+            <path d="M11 41h26"/>
+          </svg>
+        </span>
         <span class="cockpit-lamp-label">أحزمة الأمان</span>
         <span class="cockpit-lamp-it">Cinture Sicurezza</span>
       </button>
 
-      <!-- Lamp 8: Airbag -->
+      <!-- Lamp 8: Airbag (Seated Passenger Facing Inflated Cushion) -->
       <button class="cockpit-lamp-btn" id="lamp-airbag" onclick="selectCockpitLamp('airbag')" style="--active-color:#ef4444; --glow-color:rgba(239,68,68,0.5);">
-        <span class="cockpit-lamp-icon" style="color:#ef4444;">💥</span>
+        <span class="cockpit-lamp-icon">
+          <svg class="cockpit-iso-svg" viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="#ef4444" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="15" cy="14" r="4.5" fill="#ef4444" stroke="none"/>
+            <path d="M10 41v-8a6 6 0 0 1 6-6h2" fill="none"/>
+            <circle cx="31" cy="24" r="8.5" fill="rgba(239,68,68,0.25)"/>
+            <line x1="39" y1="16" x2="39" y2="32" stroke-width="3.5"/>
+            <path d="M39 24l5-2.5"/>
+          </svg>
+        </span>
         <span class="cockpit-lamp-label">عطل وسائد الهواء</span>
         <span class="cockpit-lamp-it">Avaria Airbag</span>
       </button>
@@ -1469,9 +1570,9 @@
     <!-- CARD: Impianto Frenante -->
     <div class="signal-card" data-category="freni-abs">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🛑 🚗</div>
-          <div class="badge-visual-code">Impianto Frenante</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/vehicle_parts/freni_disco.jpg" alt="Impianto frenante a disco e pastiglie" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Freni a Disco & Pastiglie</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1515,9 +1616,9 @@
     <!-- CARD: Servofreno -->
     <div class="signal-card" data-category="freni-abs">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🛑 🦶</div>
-          <div class="badge-visual-code">Servofreno</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/vehicle_parts/servofreno.jpg" alt="Servofreno a depressione e pompa freni" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Servofreno a Depressione</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1561,9 +1662,9 @@
     <!-- CARD: Sistema ABS -->
     <div class="signal-card" data-category="freni-abs">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🛑 🔄</div>
-          <div class="badge-visual-code">Sistema ABS</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/vehicle_parts/abs_modulatore.jpg" alt="Centralina e blocco idraulico ABS" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Centralina & Blocco ABS</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1607,9 +1708,9 @@
     <!-- CARD: Freno di Stazionamento -->
     <div class="signal-card" data-category="freni-abs">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🅿️ 🛑</div>
-          <div class="badge-visual-code">Freno di Stazionamento</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/vehicle_parts/freno_mano.jpg" alt="Leva del freno di stazionamento a mano" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Freno di Stazionamento (A Mano)</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1653,9 +1754,9 @@
     <!-- CARD: Battistrada Minimo -->
     <div class="signal-card" data-category="pneumatici-ruote">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🛞 📏</div>
-          <div class="badge-visual-code">Battistrada Minimo</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/vehicle_parts/battistrada_twi.jpg" alt="Battistrada pneumatici e indicatori di usura TWI" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Battistrada & Indicatore TWI (1,6 mm)</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1699,9 +1800,9 @@
     <!-- CARD: Ruotino di Scorta -->
     <div class="signal-card" data-category="pneumatici-ruote">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🛞 ⚡</div>
-          <div class="badge-visual-code">Ruotino di Scorta</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/vehicle_parts/ruotino.jpg" alt="Ruotino di soccorso temporaneo max 80 km/h" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Ruotino di Soccorso (Max 80 km/h)</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1745,9 +1846,9 @@
     <!-- CARD: Sostituzione Ruota -->
     <div class="signal-card" data-category="pneumatici-ruote">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🔧 🛞</div>
-          <div class="badge-visual-code">Sostituzione Ruota</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/vehicle_parts/cric_sostituzione.jpg" alt="Sollevamento auto con cric meccanico a pantografo" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Cric Meccanico & Serraggio a Croce</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1791,9 +1892,9 @@
     <!-- CARD: Pneumatici Tubeless -->
     <div class="signal-card" data-category="pneumatici-ruote">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🛞 🎈</div>
-          <div class="badge-visual-code">Pneumatici Tubeless</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/vehicle_parts/pneumatici_tubeless.jpg" alt="Sezione pneumatico tubeless senza camera d'aria" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Pneumatico Tubeless (Senza Camera)</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1837,9 +1938,9 @@
     <!-- CARD: Ammortizzatori Scarichi -->
     <div class="signal-card" data-category="sospensioni-sterzo">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">〰️ 🚙</div>
-          <div class="badge-visual-code">Ammortizzatori Scarichi</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/vehicle_parts/ammortizzatore.jpg" alt="Ammortizzatore idraulico e molla elicoidale MacPherson" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Ammortizzatore & Molla MacPherson</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1883,9 +1984,9 @@
     <!-- CARD: Sterzo e Servosterzo -->
     <div class="signal-card" data-category="sospensioni-sterzo">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🔄 ☸️</div>
-          <div class="badge-visual-code">Sterzo e Servosterzo</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/vehicle_parts/servosterzo.jpg" alt="Colonna di sterzo con servosterzo elettrico EPAS" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Colonna Sterzo & Servosterzo EPAS</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1929,9 +2030,9 @@
     <!-- CARD: Equilibratura e Vibrazioni -->
     <div class="signal-card" data-category="sospensioni-sterzo">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">⚖️ 🛞</div>
-          <div class="badge-visual-code">Equilibratura e Vibrazioni</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/vehicle_parts/equilibratura.jpg" alt="Pesi di piombo/zinco per equilibratura dinamica ruota" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Pesi di Equilibratura Cerchio</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1975,9 +2076,9 @@
     <!-- CARD: Livello Olio Motore -->
     <div class="signal-card" data-category="motore-liquidi">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🛢️ 📏</div>
-          <div class="badge-visual-code">Livello Olio Motore</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/vehicle_parts/asta_olio.jpg" alt="Asta graduata per controllo livello olio motore tra MIN e MAX" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Asta Graduata Olio Motore (MIN-MAX)</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -2021,9 +2122,9 @@
     <!-- CARD: Liquido Raffreddamento -->
     <div class="signal-card" data-category="motore-liquidi">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🌡️ 💧</div>
-          <div class="badge-visual-code">Liquido Raffreddamento</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/vehicle_parts/liquido_raffreddamento.jpg" alt="Vaschetta di espansione trasparente per liquido antigelo" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Vaschetta Espansione Liquido Antigelo</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -2067,9 +2168,9 @@
     <!-- CARD: Liquido Lavavetri -->
     <div class="signal-card" data-category="motore-liquidi">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">💧 ❄️</div>
-          <div class="badge-visual-code">Liquido Lavavetri</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/vehicle_parts/liquido_lavavetri.jpg" alt="Rabbocco liquido detergente lavavetri con antigelo invernale" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Vaschetta Liquido Lavacristalli</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -2113,9 +2214,9 @@
     <!-- CARD: Spie Rosse di Allarme -->
     <div class="signal-card" data-category="spie-sicurezza">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🚨 🔴</div>
-          <div class="badge-visual-code">Spie Rosse di Allarme</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/vehicle_parts/spie_rosse.jpg" alt="Quadro strumenti con spie rosse di emergenza e pericolo" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Spie Rosse Quadro Strumenti</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -2159,9 +2260,9 @@
     <!-- CARD: Spie Gialle e Ambra -->
     <div class="signal-card" data-category="spie-sicurezza">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">⚠️ 🟡</div>
-          <div class="badge-visual-code">Spie Gialle e Ambra</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/vehicle_parts/spie_gialle.jpg" alt="Spia gialla ambra avaria motore e controllo sistemi ABS" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Spie Gialle/Ambra di Avvertimento</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -2205,9 +2306,9 @@
     <!-- CARD: Interruttore Inerziale -->
     <div class="signal-card" data-category="spie-sicurezza">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">⚡ 🛑</div>
-          <div class="badge-visual-code">Interruttore Inerziale</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/vehicle_parts/interruttore_inerziale.jpg" alt="Interruttore inerziale per blocco flusso carburante post-urto" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Interruttore Inerziale Carburante</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -2251,9 +2352,9 @@
     <!-- CARD: Correttore Assetto Fari -->
     <div class="signal-card" data-category="spie-sicurezza">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">💡 📐</div>
-          <div class="badge-visual-code">Correttore Assetto Fari</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/vehicle_parts/correttore_fari.jpg" alt="Controllo e regolazione fascio luminoso proiettori anabbaglianti" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Regolazione Assetto Fari Anabbaglianti</div>
         </div>
       </div>
       <div class="card-header-row">
