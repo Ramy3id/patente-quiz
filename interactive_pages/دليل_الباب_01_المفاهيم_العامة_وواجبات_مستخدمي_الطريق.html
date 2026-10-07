@@ -1153,6 +1153,10 @@
       <span>⏱️</span>
       <span>محاكي الامتحان الوزاري</span>
     </a>
+    <a href="../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/index.html" class="desktop-nav-link" style="color:var(--emerald-primary); background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.3); font-weight:700;" onclick="soundEngine.click()">
+      <span>📝</span>
+      <span>كويز الباب الأول (531 سؤال)</span>
+    </a>
   </div>
 
   <!-- Desktop Controls & Chapter Dropdown -->
@@ -1279,6 +1283,7 @@
   <!-- QUICK NAVIGATION PILLS -->
   <nav class="quick-nav-bar" aria-label="أقسام الدليل">
     <a href="#cross-section" class="quick-pill" onclick="soundEngine.click()"><span>🛣️</span> <span>المقطع العرضي للطريق</span></a>
+    <a href="#road3d-sim" class="quick-pill" onclick="soundEngine.click()" style="background:rgba(56,189,248,0.18); border-color:#38bdf8; color:#38bdf8; font-weight:700;"><span>🎮</span> <span>المحاكي المجسم 3D</span></a>
     <a href="#simulator" class="quick-pill" onclick="soundEngine.click()"><span>🚦</span> <span>محاكي الطرق والكاريدجات</span></a>
     <a href="#vehicles" class="quick-pill" onclick="soundEngine.click()"><span>🚗</span> <span>تصنيف المركبات</span></a>
     <a href="#revisione" class="quick-pill" onclick="soundEngine.click()"><span>🔧</span> <span>حاسبة الفحص الدوري</span></a>
@@ -1421,6 +1426,22 @@
         </p>
       </div>
     </div>
+  </section>
+
+  <!-- MODULE 1.5: 3D ROAD ANATOMY & TRAFFIC FLOW SIMULATOR -->
+  <section id="road3d-sim" class="content-section">
+    <div class="section-header">
+      <div class="section-title-group">
+        <div class="section-icon">🎮</div>
+        <div>
+          <h2 class="section-title">المحاكي المجسم ثلاثي الأبعاد لمقطع الطريق ومناورات السير (3D Simulator)</h2>
+          <div style="color:var(--text-secondary); font-size:0.88rem; margin-top:2px;">محاكاة حية بحركة السيارات وزوايا رؤية 3D متعددة لكشف قواعد التجاوز، السير في المسار الأيمن، وحالات الطوارئ</div>
+        </div>
+      </div>
+      <span class="section-badge" style="background:rgba(56,189,248,0.15); color:var(--sky-primary); border:1px solid rgba(56,189,248,0.3);">3D ISOMETRIC ENGINE</span>
+    </div>
+
+    <div id="road-3d-simulator-container"></div>
   </section>
 
   <!-- MODULE 2: MULTI-CARREGGIATA INTERACTIVE SIMULATOR -->
@@ -2810,6 +2831,7 @@ function checkQuizAnswer(qNum, selectedAnswer, correctAnswer, explanation) {
 }
 </script>
 
+  <script src="../assets/js/road-3d-simulator.js"></script>
 
   <script>
     if ('serviceWorker' in navigator) {
