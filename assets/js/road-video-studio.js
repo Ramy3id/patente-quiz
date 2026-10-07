@@ -1356,41 +1356,54 @@ class PatenteVideoStudio {
       ctx.fillText("3️⃣ Corsia Sinistra (للتجاوز الإضافي)", 14, roadY - laneW * 0.9);
     }
 
-    // Slow truck moving continuously in right lane at 70 km/h
-    const truckX = (this.simTime * 0.48 + 0.22) * (w + 140) - 70;
+    // Slow truck moving continuously in right lane at steady 70 km/h
+    const truckX = w * 0.26 + this.simTime * w * 0.48;
     this.drawTruck(ctx, truckX, roadY + laneW, 0, "#64748b", "Autocarro (بطيء 70 km/h)");
 
     // Car executing the law:
+    let carX = 0;
     let carLaneY = roadY + laneW;
     let isBlinkLeft = false;
     let isBlinkRight = false;
     let steerAngle = 0;
 
-    if (this.simTime < 0.25) {
+    if (this.simTime < 0.18) {
+      // Phase 1: Approaching behind truck in right lane (safe trailing distance)
+      const t = this.simTime / 0.18;
+      carX = -60 + t * (w * 0.16 + 60);
       carLaneY = roadY + laneW;
-      isBlinkLeft = (this.simTime > 0.15);
-    } else if (this.simTime < 0.45) {
-      const tr = (this.simTime - 0.25) / 0.20;
-      const smoothP = 0.5 - 0.5 * Math.cos(Math.PI * tr);
+      isBlinkLeft = (this.simTime > 0.08);
+    } else if (this.simTime < 0.32) {
+      // Phase 2: Changing lanes to middle lane BEFORE reaching truck
+      const p = (this.simTime - 0.18) / 0.14;
+      const smoothP = 0.5 - 0.5 * Math.cos(Math.PI * p);
+      carX = w * 0.16 + p * (w * 0.14);
       carLaneY = roadY + laneW - smoothP * laneW;
-      steerAngle = -Math.sin(Math.PI * tr) * 0.10;
+      steerAngle = -Math.sin(Math.PI * p) * 0.10;
       isBlinkLeft = true;
-    } else if (this.simTime < 0.70) {
+    } else if (this.simTime < 0.68) {
+      // Phase 3: Cruising in middle lane, passing truck safely
+      const p = (this.simTime - 0.32) / 0.36;
+      carX = w * 0.30 + p * (w * 0.48);
       carLaneY = roadY;
       isBlinkLeft = false;
-      isBlinkRight = (this.simTime > 0.60);
-    } else if (this.simTime < 0.85) {
-      const tr = (this.simTime - 0.70) / 0.15;
-      const smoothP = 0.5 - 0.5 * Math.cos(Math.PI * tr);
+      isBlinkRight = (this.simTime > 0.58);
+    } else if (this.simTime < 0.82) {
+      // Phase 4: Returning to right lane with wide margin ahead of truck
+      const p = (this.simTime - 0.68) / 0.14;
+      const smoothP = 0.5 - 0.5 * Math.cos(Math.PI * p);
+      carX = w * 0.78 + p * (w * 0.16);
       carLaneY = roadY + smoothP * laneW;
-      steerAngle = Math.sin(Math.PI * tr) * 0.10;
+      steerAngle = Math.sin(Math.PI * p) * 0.10;
       isBlinkRight = true;
     } else {
+      // Phase 5: Cruising in right lane well ahead
+      const p = (this.simTime - 0.82) / 0.18;
+      carX = w * 0.94 + p * (w * 0.18);
       carLaneY = roadY + laneW;
       isBlinkRight = false;
     }
 
-    const carX = (this.simTime * 1.15) * (w + 160) - 80;
     this.drawCar(ctx, carX, carLaneY, steerAngle, "#10b981", false, isBlinkLeft, isBlinkRight, "Veicolo (سلوك مثالي 115 km/h)");
   }
 
