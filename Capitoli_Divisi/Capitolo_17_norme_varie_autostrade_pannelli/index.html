@@ -1279,6 +1279,13 @@
                   if (typeof k === 'object' && k !== null) {
                     return `<span class="kw-pill"><strong>${k.it || ''}</strong>: ${k.ar || ''}</span>`;
                   }
+                  if (typeof k === 'string') {
+                    const m = k.match(/^([^(]+)\s*\(([^)]+)\)$/);
+                    if (m) {
+                      return `<span class="kw-pill"><strong>${m[1].trim()}</strong>: ${m[2].trim()}</span>`;
+                    }
+                    return `<span class="kw-pill">${k}</span>`;
+                  }
                   return `<span class="kw-pill">${k}</span>`;
                 }).join('')}
               </div>
