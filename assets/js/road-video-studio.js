@@ -26,7 +26,7 @@ class PatenteVideoStudio {
         titleIt: "Sorpasso in curva su carreggiata a 4 corsie",
         badge: "الأكثر تكراراً في الامتحان",
         duration: "0:45",
-        youtubeId: "V5-Z2g5fUqg", // high-fidelity driving maneuver / educational animation
+        youtubeId: "3CyQRk4e1y8",
         thumbnail: "../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/immagini/550.png",
         article: "Art. 148 & Art. 143 Codice della Strada",
         summary: "شاهد كيف تتم مناورة التجاوز بأمان تام داخل نفس الاتجاه: الطريق مقسم إلى مسارين لكل اتجاه بفاصل مزدوج متصل، وبالتالي لا يلزم اجتياز الخط أو غزو مسار الاتجاه المعاكس حتى في المنعطفات الحادة أو قمم المرتفعات.",
@@ -48,7 +48,7 @@ class PatenteVideoStudio {
         titleIt: "Elementi costitutivi della strada e della carreggiata",
         badge: "التأسيس الهندسي الأول",
         duration: "0:50",
-        youtubeId: "vB3P8D6j7k0",
+        youtubeId: "fCWvB-xRAG8",
         thumbnail: "../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/immagini/302.png",
         article: "Art. 2 & Art. 3 Codice della Strada",
         summary: "فيديو ثلاثي الأبعاد يوضح الحدود الهندسية للطريق الشامل (Strada) وما يقع داخله أو يستبعد من نهر الطريق (Carreggiata) مثل الأرصفة والقوارع الجانبية ومسارات الدراجات.",
@@ -66,18 +66,18 @@ class PatenteVideoStudio {
       },
       {
         id: "carreggiate_separate",
-        title: "الطرق متعددة الأنهار والحاجز الفاصل (Fig. 552)",
-        titleIt: "Strada a due carreggiate separate da spartitraffico",
-        badge: "الشكل الوزاري 552",
+        title: "التجاوز والمنعطفات في مدارس تعليم القيادة (Autoscuola)",
+        titleIt: "Sorpasso in curva e dosso - Regole e Quiz",
+        badge: "شرح تعليمي إيطالي",
         duration: "0:40",
-        youtubeId: "8Z1eG6y3mX8",
+        youtubeId: "BjkDQd8lSkw",
         thumbnail: "../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/immagini/552.png",
-        article: "Art. 2 & Art. 143 CdS",
-        summary: "رسم متحرك يوضح كيفية عمل الحاجز الخرساني أو الأخضر (Spartitraffico) في فصل حركة المرور إلى نهرين مستقلين ذوي اتجاه واحد، وتوزيع المسارات الثلاثة في كل نهر.",
+        article: "Art. 148 CdS",
+        summary: "شرح مرئي يوضح القواعد العامة والخاصة للتجاوز في المنعطفات، مع توضيح الفارق بين الطرق ذات الاتجاهين والطرق ذات الاتجاه الواحد أو الأنهار المنفصلة.",
         keyPoints: [
-          "الحاجز الفاصل (Spartitraffico) يقسم الطريق إلى نهري طريق منفصلين تماماً.",
-          "كل نهر طريق يصبح باتجاه واحد (Senso unico) ويضم 3 مسارات.",
-          "المسار الأيمن للسير العادي، والمساران الأوسط والأيسر للتجاوز."
+          "في طريق باتجاهين ومسار واحد لكل اتجاه: يُمنع التجاوز في المنعطف نهائياً لعدم وضوح الرؤية.",
+          "في طريق بأنهار منفصلة أو مسارين لكل اتجاه: يُسمح بالتجاوز دون اجتياز الخط الفاصل.",
+          "السرعة وحالة الطقس عناصر أساسية قبل الشروع في المناورة."
         ],
         quizTrap: {
           qIt: "La strada rappresentata è composta da due carreggiate",
@@ -92,7 +92,7 @@ class PatenteVideoStudio {
         titleIt: "Corsia di emergenza: sosta e comportamento",
         badge: "قواعد الأوتوستراد",
         duration: "0:35",
-        youtubeId: "2Xy3K_9mP_0",
+        youtubeId: "Qitwu84e4bc",
         thumbnail: "../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/immagini/305.png",
         article: "Art. 176 Codice della Strada",
         summary: "محاكاة واقعية لما يجب فعله عند حدوث عطل مفاجئ (Guasto) أو وعكة صحية خطيرة (Malessere): الدخول الفوري لحارة الطوارئ، تشغيل أضواء الطوارئ الرباعية، وارتداء السترة العاكسة قبل النزول من المركبة.",
@@ -173,9 +173,9 @@ class PatenteVideoStudio {
                   <span class="vtools-tag">${clip.badge}</span>
                 </div>
                 <div class="vtools-right">
-                  <button class="vtool-action-btn" onclick="window.soundEngine && window.soundEngine.click();" title="إعادة تشغيل المقطع">
-                    <span>🔄 إعادة المقطع</span>
-                  </button>
+                  <a href="https://www.youtube.com/watch?v=${clip.youtubeId}" target="_blank" rel="noopener noreferrer" class="vtool-action-btn" style="background:rgba(239,68,68,0.18); border-color:#ef4444; color:#fca5a5;" title="فتح المقطع على YouTube">
+                    <span>▶️ تشغيل على YouTube</span>
+                  </a>
                   <a href="${clip.thumbnail}" target="_blank" class="vtool-action-btn" title="فتح الرسم الهندسي المكافئ">
                     <span>📐 المخطط الوزاري</span>
                   </a>
