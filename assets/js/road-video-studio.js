@@ -176,9 +176,17 @@ class PatenteVideoStudio {
                   <a href="https://www.youtube.com/watch?v=${clip.youtubeId}" target="_blank" rel="noopener noreferrer" class="vtool-action-btn" style="background:rgba(239,68,68,0.18); border-color:#ef4444; color:#fca5a5;" title="فتح المقطع على YouTube">
                     <span>▶️ تشغيل على YouTube</span>
                   </a>
-                  <a href="${clip.thumbnail}" target="_blank" class="vtool-action-btn" title="فتح الرسم الهندسي المكافئ">
-                    <span>📐 المخطط الوزاري</span>
-                  </a>
+                </div>
+              </div>
+
+              <!-- Embedded Official Ministerial Diagram -->
+              <div class="vstudio-fig-display-card">
+                <div class="vfig-card-header">
+                  <span class="vfig-tag">📐 المخطط الوزاري الرسمي المعتمد (Figura Ministeriale)</span>
+                  <span class="vfig-sub-tag">الرسم الهندسي المطابق لسؤال الامتحان</span>
+                </div>
+                <div class="vfig-img-frame">
+                  <img src="${clip.thumbnail}" alt="${clip.title}" class="vfig-full-img">
                 </div>
               </div>
             </div>
@@ -386,6 +394,50 @@ class PatenteVideoStudio {
         gap: 10px;
         flex-wrap: wrap;
         border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .vstudio-fig-display-card {
+        padding: 18px;
+        background: rgba(14, 14, 20, 0.95);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .vfig-card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .vfig-tag {
+        font-size: 0.82rem;
+        font-weight: 800;
+        color: #38bdf8;
+        font-family: 'JetBrains Mono', monospace;
+      }
+      .vfig-sub-tag {
+        font-size: 0.72rem;
+        color: #a1a1aa;
+      }
+      .vfig-img-frame {
+        width: 100%;
+        min-height: 180px;
+        background: #000;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .vfig-full-img {
+        max-width: 100%;
+        max-height: 240px;
+        object-fit: contain;
+        border-radius: 6px;
+        filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
       }
       .vtools-left {
         display: flex;
