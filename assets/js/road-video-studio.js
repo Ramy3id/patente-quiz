@@ -1107,13 +1107,13 @@ class PatenteVideoStudio {
       ctx.fillText("⛔ Senso Opposto (الاتجاه المقابل - خط مزدوج)", 18, getCurveY(18) - laneW * 1.4);
     }
 
-    // Car A (Blue - Cruising at 60 km/h in right lane)
-    const xA = (this.simTime * 0.65 + 0.25) * (w + 140) - 70;
+    // Car A (Blue - Cruising slowly at 50 km/h in right lane)
+    const xA = (this.simTime * 0.44 + 0.18) * (w + 140) - 70;
     const yA = getCurveY(xA) + laneW * 1.5;
     const angleA = getRoadTangentAngle(xA);
-    this.drawCar(ctx, xA, yA, angleA, "#38bdf8", false, false, false, "Veicolo A (بطيء 60 km/h)");
+    this.drawCar(ctx, xA, yA, angleA, "#38bdf8", false, false, false, "Veicolo A (بطيء 50 km/h)");
 
-    // Car B (Red - Overtaking at 85 km/h)
+    // Car B (Red - Overtaking at 90 km/h with wide safe gap)
     let laneOffsetB = laneW * 1.5; // starts in right lane
     let steerOffset = 0;
     let blinkLeft = false;
@@ -1135,7 +1135,7 @@ class PatenteVideoStudio {
       laneOffsetB = laneW * 0.5;
       blinkLeft = false;
     } else if (this.simTime < 0.88) {
-      // Transitioning back to right lane
+      // Transitioning back to right lane with large safety margin
       const p = (this.simTime - 0.72) / 0.16;
       const smoothP = 0.5 - 0.5 * Math.cos(Math.PI * p);
       laneOffsetB = laneW * 0.5 + smoothP * laneW;
@@ -1147,10 +1147,10 @@ class PatenteVideoStudio {
       blinkRight = false;
     }
 
-    const xB = (this.simTime * 1.1) * (w + 160) - 80;
+    const xB = (this.simTime * 1.15) * (w + 160) - 80;
     const yB = getCurveY(xB) + laneOffsetB;
     const angleB = getRoadTangentAngle(xB) + steerOffset;
-    this.drawCar(ctx, xB, yB, angleB, "#ef4444", false, blinkLeft, blinkRight, "Veicolo B (المتجاوز 85 km/h)");
+    this.drawCar(ctx, xB, yB, angleB, "#ef4444", false, blinkLeft, blinkRight, "Veicolo B (المتجاوز 90 km/h)");
 
     // Visual Trajectory Guide line
     if (this.showTelemetry) {
@@ -1337,9 +1337,9 @@ class PatenteVideoStudio {
       ctx.fillText("3️⃣ Corsia Sinistra (للتجاوز الإضافي)", 14, roadY - laneW * 0.9);
     }
 
-    // Slow truck in right lane
-    const truckX = (w * 0.55);
-    this.drawTruck(ctx, truckX, roadY + laneW, 0, "#64748b", "شاحنة بطيئة (80 km/h)");
+    // Slow truck moving continuously in right lane at 70 km/h
+    const truckX = (this.simTime * 0.48 + 0.22) * (w + 140) - 70;
+    this.drawTruck(ctx, truckX, roadY + laneW, 0, "#64748b", "Autocarro (بطيء 70 km/h)");
 
     // Car executing the law:
     let carLaneY = roadY + laneW;
@@ -1371,8 +1371,8 @@ class PatenteVideoStudio {
       isBlinkRight = false;
     }
 
-    const carX = (this.simTime * (w + 140) - 70);
-    this.drawCar(ctx, carX, carLaneY, steerAngle, "#10b981", false, isBlinkLeft, isBlinkRight, "Veicolo (سلوك مثالي 110 km/h)");
+    const carX = (this.simTime * 1.15) * (w + 160) - 80;
+    this.drawCar(ctx, carX, carLaneY, steerAngle, "#10b981", false, isBlinkLeft, isBlinkRight, "Veicolo (سلوك مثالي 115 km/h)");
   }
 
   /* -------------------------------------------------------------
