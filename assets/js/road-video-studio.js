@@ -1107,47 +1107,56 @@ class PatenteVideoStudio {
       ctx.fillText("⛔ Senso Opposto (الاتجاه المقابل - خط مزدوج)", 18, getCurveY(18) - laneW * 1.4);
     }
 
-    // Car A (Blue - Cruising slowly at 50 km/h in right lane)
-    const xA = (this.simTime * 0.44 + 0.18) * (w + 140) - 70;
+    // --- CAR A (Blue - Cruising steadily at 50 km/h in right lane) ---
+    const xA = w * 0.28 + this.simTime * w * 0.52;
     const yA = getCurveY(xA) + laneW * 1.5;
     const angleA = getRoadTangentAngle(xA);
     this.drawCar(ctx, xA, yA, angleA, "#38bdf8", false, false, false, "Veicolo A (بطيء 50 km/h)");
 
-    // Car B (Red - Overtaking at 90 km/h with wide safe gap)
-    let laneOffsetB = laneW * 1.5; // starts in right lane
+    // --- CAR B (Red - Overtaking at 90 km/h with guaranteed safe separation) ---
+    let xB = 0;
+    let laneOffsetB = laneW * 1.5;
     let steerOffset = 0;
     let blinkLeft = false;
     let blinkRight = false;
 
-    if (this.simTime < 0.22) {
-      // Approaching in right lane
+    if (this.simTime < 0.18) {
+      // Phase 1: Approaching from behind in right lane (maintaining safe trailing distance)
+      const t = this.simTime / 0.18;
+      xB = -60 + t * (w * 0.18 + 60);
       laneOffsetB = laneW * 1.5;
-      blinkLeft = (this.simTime > 0.10);
-    } else if (this.simTime < 0.40) {
-      // Transitioning to left lane
-      const p = (this.simTime - 0.22) / 0.18;
+      blinkLeft = (this.simTime > 0.08);
+    } else if (this.simTime < 0.32) {
+      // Phase 2: Changing lanes to left lane BEFORE reaching Car A
+      const p = (this.simTime - 0.18) / 0.14;
       const smoothP = 0.5 - 0.5 * Math.cos(Math.PI * p);
+      xB = w * 0.18 + p * (w * 0.14);
       laneOffsetB = laneW * 1.5 - smoothP * laneW;
-      steerOffset = -Math.sin(Math.PI * p) * 0.12; // gentle steering left ~7 degrees
+      steerOffset = -Math.sin(Math.PI * p) * 0.12;
       blinkLeft = true;
-    } else if (this.simTime < 0.72) {
-      // Cruising in left lane past Car A
+    } else if (this.simTime < 0.68) {
+      // Phase 3: Cruising in left lane, accelerating past Car A (lateral distance = full lane)
+      const p = (this.simTime - 0.32) / 0.36;
+      xB = w * 0.32 + p * (w * 0.46);
       laneOffsetB = laneW * 0.5;
       blinkLeft = false;
-    } else if (this.simTime < 0.88) {
-      // Transitioning back to right lane with large safety margin
-      const p = (this.simTime - 0.72) / 0.16;
+      blinkRight = (this.simTime > 0.58);
+    } else if (this.simTime < 0.82) {
+      // Phase 4: Returning to right lane with large safety margin ahead of Car A
+      const p = (this.simTime - 0.68) / 0.14;
       const smoothP = 0.5 - 0.5 * Math.cos(Math.PI * p);
+      xB = w * 0.78 + p * (w * 0.16);
       laneOffsetB = laneW * 0.5 + smoothP * laneW;
-      steerOffset = Math.sin(Math.PI * p) * 0.12; // gentle steering right ~7 degrees
+      steerOffset = Math.sin(Math.PI * p) * 0.12;
       blinkRight = true;
     } else {
-      // Back in right lane
+      // Phase 5: Cruising in right lane well ahead
+      const p = (this.simTime - 0.82) / 0.18;
+      xB = w * 0.94 + p * (w * 0.18);
       laneOffsetB = laneW * 1.5;
       blinkRight = false;
     }
 
-    const xB = (this.simTime * 1.15) * (w + 160) - 80;
     const yB = getCurveY(xB) + laneOffsetB;
     const angleB = getRoadTangentAngle(xB) + steerOffset;
     this.drawCar(ctx, xB, yB, angleB, "#ef4444", false, blinkLeft, blinkRight, "Veicolo B (المتجاوز 90 km/h)");
@@ -1159,17 +1168,27 @@ class PatenteVideoStudio {
       ctx.setLineDash([4, 4]);
       ctx.beginPath();
       for (let s = 0; s <= 1.0; s += 0.05) {
+        let px = 0;
         let off = laneW * 1.5;
-        if (s >= 0.22 && s < 0.40) {
-          const p = (s - 0.22) / 0.18;
+        if (s < 0.18) {
+          px = -60 + (s / 0.18) * (w * 0.18 + 60);
+          off = laneW * 1.5;
+        } else if (s < 0.32) {
+          const p = (s - 0.18) / 0.14;
+          px = w * 0.18 + p * (w * 0.14);
           off = laneW * 1.5 - (0.5 - 0.5 * Math.cos(Math.PI * p)) * laneW;
-        } else if (s >= 0.40 && s < 0.72) {
+        } else if (s < 0.68) {
+          const p = (s - 0.32) / 0.36;
+          px = w * 0.32 + p * (w * 0.46);
           off = laneW * 0.5;
-        } else if (s >= 0.72 && s < 0.88) {
-          const p = (s - 0.72) / 0.16;
+        } else if (s < 0.82) {
+          const p = (s - 0.68) / 0.14;
+          px = w * 0.78 + p * (w * 0.16);
           off = laneW * 0.5 + (0.5 - 0.5 * Math.cos(Math.PI * p)) * laneW;
+        } else {
+          px = w * 0.94 + ((s - 0.82) / 0.18) * (w * 0.18);
+          off = laneW * 1.5;
         }
-        const px = s * (w + 160) - 80;
         const py = getCurveY(px) + off;
         if (s === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
       }
