@@ -9,7 +9,7 @@
  *  - الحفاظ على مسافة الأمان وسرعة رد الفعل والفرملة
  *  - السير الصحيح في الحارات وتجاوز الترام والدخول لحارة الطوارئ
  *  - التحكم الزمني التفاعلي: تشغيل/إيقاف، إرجاع، تسريع/تبطيء (0.5x Slow-Motion)، وشريط تمرير زمني
- *  - ربط فوري بالمخطط الوزاري الرسمي وأسئلة الامتحان
+ *  - تبويبات أفقية مريحة وأنيقة تمنع التداخل أو تشويه النصوص
  */
 
 class PatenteVideoStudio {
@@ -26,24 +26,21 @@ class PatenteVideoStudio {
     this.animFrameId = null;
     this.lastTimestamp = 0;
 
-    // Interactive variations
-    this.tailgatingMode = false; // for distance sim
-
     this.maneuvers = [
       {
         id: "sorpasso_curva",
-        title: "مناورة التجاوز في المنعطف والتلال (Fig. 550)",
+        title: "التجاوز في المنعطف والتلال (Fig. 550)",
         titleIt: "Sorpasso in curva su carreggiata a 4 corsie",
-        badge: "الأكثر تكراراً في الامتحان",
-        duration: "محاكاة حركية 60FPS",
+        badge: "Fig. 550",
+        duration: "60 FPS",
         thumbnail: "../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/immagini/550.png",
         article: "Art. 148 & Art. 143 Codice della Strada",
         summary: "شاهد بدقة حركة السيارة المتجاوزة: الطريق مقسم إلى مسارين لكل اتجاه مع خط مزدوج متصل، وبالتالي تتم المناورة داخل نفس الاتجاه دون اجتياز الخط أو غزو مسار الاتجاه المقابل، وهو ما يفسر جواز التجاوز حتى في المنعطفات والتلال.",
         phases: [
-          { from: 0.0, to: 0.25, ar: "المرحلة 1: الاقتراب في المسار الأيمن وتشغيل الغماز الأيسر (Frecce a sinistra)", it: "Avvicinamento e indicatore di direzione" },
-          { from: 0.25, to: 0.45, ar: "المرحلة 2: الانتقال السلس للمسار الأيسر دون ملامسة الخط المزدوج", it: "Cambio corsia di sorpasso in sicurezza" },
-          { from: 0.45, to: 0.75, ar: "المرحلة 3: إتمام التجاوز داخل المنحنى مع الحفاظ التام على المسار", it: "Sorpasso completato nella curva senza invadere l'opposto" },
-          { from: 0.75, to: 1.0, ar: "المرحلة 4: تشغيل الغماز الأيمن والعودة بأمان للمسار الأيمن", it: "Rientro nella corsia di destra con freccia a destra" }
+          { from: 0.0, to: 0.22, ar: "المرحلة 1: الاقتراب في المسار الأيمن وتشغيل الغماز الأيسر (Frecce a sinistra)", it: "Avvicinamento e indicatore di direzione" },
+          { from: 0.22, to: 0.40, ar: "المرحلة 2: الانتقال السلس للمسار الأيسر دون ملامسة الخط المزدوج", it: "Cambio corsia di sorpasso in sicurezza" },
+          { from: 0.40, to: 0.72, ar: "المرحلة 3: إتمام التجاوز داخل المنحنى مع الحفاظ التام على المسار", it: "Sorpasso completato nella curva senza invadere l'opposto" },
+          { from: 0.72, to: 1.0, ar: "المرحلة 4: تشغيل الغماز الأيمن والعودة بأمان للمسار الأيمن", it: "Rientro nella corsia di destra con freccia a destra" }
         ],
         keyPoints: [
           "السير العادي إلزامي في المسار الأيمن (Corsia di destra).",
@@ -59,10 +56,10 @@ class PatenteVideoStudio {
       },
       {
         id: "distanza_sicurezza",
-        title: "مسافة الأمان وسرعة رد الفعل والفرملة (Distanza di Sicurezza)",
+        title: "مسافة الأمان وسرعة رد الفعل والفرملة",
         titleIt: "Spazio di reazione, frenatura e arresto",
-        badge: "قاعدة السلامة الجوهرية",
-        duration: "محاكاة حركية 60FPS",
+        badge: "Art. 149",
+        duration: "60 FPS",
         thumbnail: "../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/immagini/302.png",
         article: "Art. 149 Codice della Strada",
         summary: "محاكاة حركية توضح ماذا يحدث عند فرملة سيارة المقدمة فجأة: تتبع حركة السيارة الخلفية خلال زمن رد الفعل (1 ثانية تقريباً بدون نقص بالسرعة) ثم مسافة الفرملة حتى التوقف الآمن دون اصطدام.",
@@ -86,10 +83,10 @@ class PatenteVideoStudio {
       },
       {
         id: "corsia_destra",
-        title: "التمركز في الحارة والسير أقصى اليمين (Occupa la corsia più libera a destra)",
+        title: "السير أقصى اليمين واستخدام حارات التجاوز",
         titleIt: "Uso delle corsie in autostrada a tre corsie",
-        badge: "قواعد السير الأساسية",
-        duration: "محاكاة حركية 60FPS",
+        badge: "Art. 143",
+        duration: "60 FPS",
         thumbnail: "../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/immagini/552.png",
         article: "Art. 143 Codice della Strada",
         summary: "توضيح لحركة المركبات على طريق سريع بثلاث حارات: السير العادي يكون دائماً في الحارة الأكثر حرية على اليمين، واستخدام الحارة الوسطى واليسرى حصراً للتجاوز، مع العودة الفورية لليمين.",
@@ -113,10 +110,10 @@ class PatenteVideoStudio {
       },
       {
         id: "tram_salvagente",
-        title: "تجاوز الترام في وجود رصيف الأمان (Sorpasso Tram con Salvagente)",
-        titleIt: "Sorpasso del tram in fermata con o senza salvagente",
-        badge: "فخ امتحاني كلاسيكي",
-        duration: "محاكاة حركية 60FPS",
+        title: "تجاوز الترام في وجود رصيف الأمان",
+        titleIt: "Sorpasso del tram in fermata con salvagente",
+        badge: "Salvagente",
+        duration: "60 FPS",
         thumbnail: "../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/immagini/302.png",
         article: "Art. 148 comma 9 CdS",
         summary: "محاكاة حركية للمركبة عند الاقتراب من ترام متوقف لركوب ونزول الركاب: يظهر رصيف الأمان (Salvagente) كحاجز حماية، مما يسمح للسيارة بتجاوز الترام من اليمين بأمان تام دون انتظار.",
@@ -140,10 +137,10 @@ class PatenteVideoStudio {
       },
       {
         id: "corsia_emergenza",
-        title: "الدخول الاضطراري لحارة الطوارئ والتوقف القانوني (Corsia di Emergenza - Fig. 305)",
-        titleIt: "Uso corretto della corsia di emergenza in caso di guasto o malessere",
-        badge: "قواعد الأوتوستراد",
-        duration: "محاكاة حركية 60FPS",
+        title: "حارة الطوارئ والتوقف القانوني (Fig. 305)",
+        titleIt: "Uso corretto della corsia di emergenza",
+        badge: "Fig. 305",
+        duration: "60 FPS",
         thumbnail: "../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/immagini/305.png",
         article: "Art. 176 Codice della Strada",
         summary: "شاهد الحركة العملية للسيارة عند حدوث عطل ميكانيكي أو وعكة صحية: تشغيل إشارات التنبيه الرباعية الوامضة (4 Frecce)، التباطؤ التدريجي، الانعطاف بزاوية هادئة لحارة الطوارئ، والتوقف قرب الحافة اليمنى.",
@@ -185,22 +182,19 @@ class PatenteVideoStudio {
           <div class="vstudio-header-text">
             <div class="vstudio-badge">
               <span>🚗 3D MANEUVER SIMULATOR</span>
-              <span class="vstudio-live-pill">حـركـات الـسـيـارات الـتـوضـيـحـيـة</span>
+              <span class="vstudio-live-pill">حـركـات الـسـيـارات الـتـوضـيـحـيـة • 60 FPS</span>
             </div>
-            <h3 class="vstudio-heading">محاكي مناورات وحركات المركبات التوضيحي ثلاثي الأبعاد</h3>
+            <h3 class="vstudio-heading">محاكي حركات ومناورات السيارات التوضيحي ثلاثي الأبعاد</h3>
             <p class="vstudio-subheading">محاكاة تفاعلية لحركة السيارات ومسارات السير ومسافة الأمان في الامتحان الوزاري بدقة 60 إطاراً في الثانية</p>
           </div>
 
-          <!-- Maneuver Navigation Tabs -->
-          <div class="vstudio-playlist-nav">
-            ${this.maneuvers.map(item => `
-              <button class="vstudio-clip-btn ${item.id === this.activeId ? 'active' : ''}" data-maneuver-id="${item.id}">
-                <span class="clip-icon">🚦</span>
-                <span class="clip-btn-text">
-                  <strong>${item.title}</strong>
-                  <small>${item.titleIt}</small>
-                </span>
-                <span class="clip-time-tag">${item.badge}</span>
+          <!-- Maneuver Navigation Tabs - Sleek Horizontal Segmented Row -->
+          <div class="vstudio-tabs-row" role="tablist">
+            ${this.maneuvers.map((item, idx) => `
+              <button class="vstudio-tab-btn ${item.id === this.activeId ? 'active' : ''}" data-maneuver-id="${item.id}" role="tab" aria-selected="${item.id === this.activeId}">
+                <span class="vtab-icon">${idx === 0 ? '🚦' : idx === 1 ? '📐' : idx === 2 ? '🛣️' : idx === 3 ? '🚊' : '🚨'}</span>
+                <span class="vtab-title">${item.title}</span>
+                <span class="vtab-badge">${item.badge}</span>
               </button>
             `).join('')}
           </div>
@@ -353,7 +347,7 @@ class PatenteVideoStudio {
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 18px;
       }
       .vstudio-header-text { display: flex; flex-direction: column; gap: 6px; }
       .vstudio-badge {
@@ -388,63 +382,60 @@ class PatenteVideoStudio {
         font-size: 0.88rem;
         margin: 0;
       }
-      .vstudio-playlist-nav {
+
+      /* Sleek Horizontal Tab Bar */
+      .vstudio-tabs-row {
         display: flex;
+        flex-wrap: wrap;
         gap: 10px;
-        overflow-x: auto;
-        padding-bottom: 6px;
-        scrollbar-width: thin;
+        align-items: center;
       }
-      .vstudio-clip-btn {
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+      .vstudio-tab-btn {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.12);
         border-radius: 12px;
-        padding: 10px 14px;
+        padding: 10px 16px;
         color: #cbd5e1;
         cursor: pointer;
-        display: flex;
+        display: inline-flex;
         align-items: center;
-        gap: 12px;
-        min-width: 240px;
-        text-align: right;
+        gap: 10px;
+        white-space: nowrap;
+        font-family: inherit;
+        font-size: 0.86rem;
+        font-weight: 700;
         transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        text-decoration: none;
       }
-      .vstudio-clip-btn:hover {
-        background: rgba(56, 189, 248, 0.1);
-        border-color: rgba(56, 189, 248, 0.4);
-        transform: translateY(-2px);
-      }
-      .vstudio-clip-btn.active {
-        background: rgba(56, 189, 248, 0.18);
+      .vstudio-tab-btn:hover {
+        background: rgba(56, 189, 248, 0.12);
         border-color: #38bdf8;
         color: #fff;
-        box-shadow: 0 0 16px rgba(56, 189, 248, 0.25);
+        transform: translateY(-2px);
       }
-      .clip-icon { font-size: 1.2rem; }
-      .clip-btn-text {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        gap: 2px;
-      }
-      .clip-btn-text strong {
-        font-size: 0.84rem;
-        font-weight: 700;
-        line-height: 1.3;
-      }
-      .clip-btn-text small {
-        font-size: 0.72rem;
-        color: #94a3b8;
-        font-family: 'JetBrains Mono', monospace;
-      }
-      .clip-time-tag {
-        font-size: 0.68rem;
-        font-family: 'JetBrains Mono', monospace;
-        background: rgba(0, 0, 0, 0.4);
-        padding: 2px 6px;
-        border-radius: 6px;
+      .vstudio-tab-btn.active {
+        background: rgba(56, 189, 248, 0.2);
+        border-color: #38bdf8;
         color: #38bdf8;
+        box-shadow: 0 0 16px rgba(56, 189, 248, 0.35);
       }
+      .vtab-icon { font-size: 1.15rem; }
+      .vtab-title { font-weight: 700; }
+      .vtab-badge {
+        font-size: 0.7rem;
+        font-family: 'JetBrains Mono', monospace;
+        background: rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2px 8px;
+        border-radius: 6px;
+        color: #94a3b8;
+      }
+      .vstudio-tab-btn.active .vtab-badge {
+        background: rgba(56, 189, 248, 0.25);
+        border-color: rgba(56, 189, 248, 0.5);
+        color: #e0f2fe;
+      }
+
       .vstudio-main-grid {
         display: grid;
         grid-template-columns: 1fr;
@@ -815,8 +806,8 @@ class PatenteVideoStudio {
   }
 
   bindEvents() {
-    // Playlist buttons
-    const btns = this.container.querySelectorAll(".vstudio-clip-btn");
+    // Tab button selection
+    const btns = this.container.querySelectorAll(".vstudio-tab-btn");
     btns.forEach(btn => {
       btn.addEventListener("click", () => {
         const id = btn.dataset.maneuverId;
@@ -937,8 +928,8 @@ class PatenteVideoStudio {
       this.lastTimestamp = timestamp;
 
       if (this.isPlaying) {
-        // Full loop in ~12 seconds
-        const speedFactor = 0.08 * this.playbackSpeed;
+        // Complete full maneuver cycle in ~11 seconds
+        const speedFactor = 0.09 * this.playbackSpeed;
         this.simTime += dt * speedFactor;
         if (this.simTime > 1.0) this.simTime = 0;
 
@@ -982,7 +973,7 @@ class PatenteVideoStudio {
           speedVal.textContent = "90";
         }
       } else if (this.activeId === "sorpasso_curva") {
-        speedVal.textContent = (this.simTime > 0.25 && this.simTime < 0.75) ? "85" : "70";
+        speedVal.textContent = (this.simTime > 0.22 && this.simTime < 0.72) ? "85" : "70";
       } else if (this.activeId === "corsia_destra") {
         speedVal.textContent = (this.simTime > 0.25 && this.simTime < 0.75) ? "110" : "90";
       } else if (this.activeId === "tram_salvagente") {
@@ -1017,139 +1008,170 @@ class PatenteVideoStudio {
    * 1. MANEUVER: Sorpasso in Curva (Fig. 550) - 4 Corsie
    * ------------------------------------------------------------- */
   drawManeuverSorpassoCurva(ctx, w, h) {
-    // Road background
     ctx.fillStyle = "#12131a";
     ctx.fillRect(0, 0, w, h);
 
-    // Draw 4-lane curved road
     const centerY = h * 0.52;
-    const laneWidth = 46;
+    const laneW = 44;
 
-    // Road surface
+    // Gentle road curvature function
+    const getCurveY = (x) => {
+      // Gentle curve bending upwards by 30px in center
+      return centerY - 30 * Math.sin(Math.PI * (x / w));
+    };
+
+    const getRoadTangentAngle = (x) => {
+      const y1 = getCurveY(x);
+      const y2 = getCurveY(x + 2);
+      return Math.atan2(y2 - y1, 2); // strictly horizontal with gentle ~4 degree tilt
+    };
+
+    // Draw asphalt surface
     ctx.fillStyle = "#1e2029";
     ctx.beginPath();
-    ctx.moveTo(0, centerY - laneWidth * 2);
-    ctx.bezierCurveTo(w * 0.35, centerY - laneWidth * 2 - 40, w * 0.65, centerY - laneWidth * 2 + 40, w, centerY - laneWidth * 2);
-    ctx.lineTo(w, centerY + laneWidth * 2);
-    ctx.bezierCurveTo(w * 0.65, centerY + laneWidth * 2 + 40, w * 0.35, centerY + laneWidth * 2 - 40, 0, centerY + laneWidth * 2);
+    ctx.moveTo(0, getCurveY(0) - laneW * 2);
+    for (let x = 0; x <= w; x += 20) {
+      ctx.lineTo(x, getCurveY(x) - laneW * 2);
+    }
+    for (let x = w; x >= 0; x -= 20) {
+      ctx.lineTo(x, getCurveY(x) + laneW * 2);
+    }
     ctx.closePath();
     ctx.fill();
 
-    // Road borders
-    ctx.strokeStyle = "#475569";
+    // Road outer borders (Continuous white lines)
+    ctx.strokeStyle = "#ffffff";
     ctx.lineWidth = 3;
+    // Top border
+    ctx.beginPath();
+    for (let x = 0; x <= w; x += 20) {
+      const y = getCurveY(x) - laneW * 2;
+      if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+    // Bottom border
+    ctx.beginPath();
+    for (let x = 0; x <= w; x += 20) {
+      const y = getCurveY(x) + laneW * 2;
+      if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
     ctx.stroke();
 
     // Center DOUBLE CONTINUOUS LINE (Fig. 550)
     ctx.strokeStyle = "#ffffff";
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 2.5;
     // Line 1
     ctx.beginPath();
-    ctx.moveTo(0, centerY - 2.5);
-    ctx.bezierCurveTo(w * 0.35, centerY - 2.5 - 40, w * 0.65, centerY - 2.5 + 40, w, centerY - 2.5);
+    for (let x = 0; x <= w; x += 20) {
+      const y = getCurveY(x) - 2.5;
+      if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
     ctx.stroke();
     // Line 2
     ctx.beginPath();
-    ctx.moveTo(0, centerY + 2.5);
-    ctx.bezierCurveTo(w * 0.35, centerY + 2.5 - 40, w * 0.65, centerY + 2.5 + 40, w, centerY + 2.5);
+    for (let x = 0; x <= w; x += 20) {
+      const y = getCurveY(x) + 2.5;
+      if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
     ctx.stroke();
 
-    // Dashed lines for lanes (Direction 1: bottom, Direction 2: top)
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.4)";
+    // Dashed lines between lanes
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.45)";
     ctx.lineWidth = 2;
-    ctx.setLineDash([12, 12]);
-    // Top direction dashed lane line
+    ctx.setLineDash([14, 14]);
+    // Top lane divider (oncoming)
     ctx.beginPath();
-    ctx.moveTo(0, centerY - laneWidth);
-    ctx.bezierCurveTo(w * 0.35, centerY - laneWidth - 40, w * 0.65, centerY - laneWidth + 40, w, centerY - laneWidth);
+    for (let x = 0; x <= w; x += 20) {
+      const y = getCurveY(x) - laneW;
+      if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
     ctx.stroke();
-    // Bottom direction dashed lane line (Our direction!)
+    // Bottom lane divider (our direction)
     ctx.beginPath();
-    ctx.moveTo(0, centerY + laneWidth);
-    ctx.bezierCurveTo(w * 0.35, centerY + laneWidth - 40, w * 0.65, centerY + laneWidth + 40, w, centerY + laneWidth);
+    for (let x = 0; x <= w; x += 20) {
+      const y = getCurveY(x) + laneW;
+      if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
     ctx.stroke();
     ctx.setLineDash([]);
 
-    // Lane Labels & Guidance
+    // Lane indicators & explanation badges
     if (this.showTelemetry) {
-      ctx.fillStyle = "rgba(16, 185, 129, 0.85)";
+      ctx.fillStyle = "rgba(16, 185, 129, 0.9)";
       ctx.font = "bold 11px 'JetBrains Mono', monospace";
       ctx.textAlign = "left";
-      ctx.fillText("🟢 Corsia Destra (سير عادي)", 18, centerY + laneWidth * 1.6);
-      ctx.fillStyle = "rgba(56, 189, 248, 0.85)";
-      ctx.fillText("🔵 Corsia Sinistra (تجاوز مسموح في المنعطف)", 18, centerY + laneWidth * 0.6);
-      ctx.fillStyle = "rgba(239, 68, 68, 0.85)";
-      ctx.fillText("⛔ Senso Opposto (اتجاه معاكس مفصول بخط مزدوج)", 18, centerY - laneWidth * 1.5);
+      ctx.fillText("🟢 Corsia Destra (حارة السير العادي)", 18, getCurveY(18) + laneW * 1.6);
+      ctx.fillStyle = "rgba(56, 189, 248, 0.9)";
+      ctx.fillText("🔵 Corsia Sinistra (حارة التجاوز المسموح في المنعطف)", 18, getCurveY(18) + laneW * 0.6);
+      ctx.fillStyle = "rgba(244, 63, 94, 0.9)";
+      ctx.fillText("⛔ Senso Opposto (الاتجاه المقابل - خط مزدوج)", 18, getCurveY(18) - laneW * 1.4);
     }
 
-    // Road curve helper function for bottom carriageway
-    const getPointOnRoad = (t, laneOffset) => {
-      const x = t * (w + 100) - 50;
-      // Bezier curve Y calculation
-      const p0 = centerY;
-      const p1 = centerY - 40;
-      const p2 = centerY + 40;
-      const p3 = centerY;
-      const u = t;
-      const yBase = Math.pow(1 - u, 3) * p0 + 3 * Math.pow(1 - u, 2) * u * p1 + 3 * (1 - u) * Math.pow(u, 2) * p2 + Math.pow(u, 3) * p3;
-      
-      // Calculate tangent angle for car rotation
-      const dy = 3 * Math.pow(1 - u, 2) * (p1 - p0) + 6 * (1 - u) * u * (p2 - p1) + 3 * Math.pow(u, 2) * (p3 - p2);
-      const angle = Math.atan2(dy, (w + 100) / 100);
-      return { x, y: yBase + laneOffset, angle };
-    };
+    // Car A (Blue - Cruising at 60 km/h in right lane)
+    const xA = (this.simTime * 0.65 + 0.25) * (w + 140) - 70;
+    const yA = getCurveY(xA) + laneW * 1.5;
+    const angleA = getRoadTangentAngle(xA);
+    this.drawCar(ctx, xA, yA, angleA, "#38bdf8", false, false, false, "Veicolo A (بطيء 60 km/h)");
 
-    // Slow Car A (Blue) - Cruises in right lane
-    const tA = (this.simTime * 0.7 + 0.2) % 1.0;
-    const ptA = getPointOnRoad(tA, laneWidth * 1.45);
-    this.drawCar(ctx, ptA.x, ptA.y, ptA.angle, "#38bdf8", false, false, false, "Veicolo A (بطيء 60km/h)");
+    // Car B (Red - Overtaking at 85 km/h)
+    let laneOffsetB = laneW * 1.5; // starts in right lane
+    let steerOffset = 0;
+    let blinkLeft = false;
+    let blinkRight = false;
 
-    // Overtaking Car B (Red)
-    let laneOffsetB = laneWidth * 1.45; // Starts in right lane
-    let isBlinkingLeft = false;
-    let isBlinkingRight = false;
-
-    if (this.simTime < 0.25) {
-      // Phase 1: approaching in right lane
-      laneOffsetB = laneWidth * 1.45;
-      isBlinkingLeft = (this.simTime > 0.12);
-    } else if (this.simTime < 0.45) {
-      // Phase 2: smoothly transitioning to left lane
-      const trans = (this.simTime - 0.25) / 0.20;
-      laneOffsetB = laneWidth * 1.45 - trans * laneWidth;
-      isBlinkingLeft = true;
-    } else if (this.simTime < 0.75) {
-      // Phase 3: overtaking inside the curve in left lane
-      laneOffsetB = laneWidth * 0.45;
-      isBlinkingLeft = false;
-    } else if (this.simTime < 0.90) {
-      // Phase 4: transitioning back to right lane
-      const trans = (this.simTime - 0.75) / 0.15;
-      laneOffsetB = laneWidth * 0.45 + trans * laneWidth;
-      isBlinkingRight = true;
+    if (this.simTime < 0.22) {
+      // Approaching in right lane
+      laneOffsetB = laneW * 1.5;
+      blinkLeft = (this.simTime > 0.10);
+    } else if (this.simTime < 0.40) {
+      // Transitioning to left lane
+      const p = (this.simTime - 0.22) / 0.18;
+      const smoothP = 0.5 - 0.5 * Math.cos(Math.PI * p);
+      laneOffsetB = laneW * 1.5 - smoothP * laneW;
+      steerOffset = -Math.sin(Math.PI * p) * 0.12; // gentle steering left ~7 degrees
+      blinkLeft = true;
+    } else if (this.simTime < 0.72) {
+      // Cruising in left lane past Car A
+      laneOffsetB = laneW * 0.5;
+      blinkLeft = false;
+    } else if (this.simTime < 0.88) {
+      // Transitioning back to right lane
+      const p = (this.simTime - 0.72) / 0.16;
+      const smoothP = 0.5 - 0.5 * Math.cos(Math.PI * p);
+      laneOffsetB = laneW * 0.5 + smoothP * laneW;
+      steerOffset = Math.sin(Math.PI * p) * 0.12; // gentle steering right ~7 degrees
+      blinkRight = true;
     } else {
-      laneOffsetB = laneWidth * 1.45;
-      isBlinkingRight = false;
+      // Back in right lane
+      laneOffsetB = laneW * 1.5;
+      blinkRight = false;
     }
 
-    const tB = (this.simTime * 1.05) % 1.0;
-    const ptB = getPointOnRoad(tB, laneOffsetB);
-    this.drawCar(ctx, ptB.x, ptB.y, ptB.angle, "#ef4444", false, isBlinkingLeft, isBlinkingRight, "Veicolo B (المتجاوز 85km/h)");
+    const xB = (this.simTime * 1.1) * (w + 160) - 80;
+    const yB = getCurveY(xB) + laneOffsetB;
+    const angleB = getRoadTangentAngle(xB) + steerOffset;
+    this.drawCar(ctx, xB, yB, angleB, "#ef4444", false, blinkLeft, blinkRight, "Veicolo B (المتجاوز 85 km/h)");
 
-    // Draw visual Trajectory path
+    // Visual Trajectory Guide line
     if (this.showTelemetry) {
       ctx.strokeStyle = "rgba(16, 185, 129, 0.4)";
       ctx.lineWidth = 2.5;
       ctx.setLineDash([4, 4]);
       ctx.beginPath();
       for (let s = 0; s <= 1.0; s += 0.05) {
-        let off = laneWidth * 1.45;
-        if (s > 0.25 && s <= 0.45) off = laneWidth * 1.45 - ((s - 0.25) / 0.2) * laneWidth;
-        else if (s > 0.45 && s <= 0.75) off = laneWidth * 0.45;
-        else if (s > 0.75 && s <= 0.90) off = laneWidth * 0.45 + ((s - 0.75) / 0.15) * laneWidth;
-        const p = getPointOnRoad(s, off);
-        if (s === 0) ctx.moveTo(p.x, p.y);
-        else ctx.lineTo(p.x, p.y);
+        let off = laneW * 1.5;
+        if (s >= 0.22 && s < 0.40) {
+          const p = (s - 0.22) / 0.18;
+          off = laneW * 1.5 - (0.5 - 0.5 * Math.cos(Math.PI * p)) * laneW;
+        } else if (s >= 0.40 && s < 0.72) {
+          off = laneW * 0.5;
+        } else if (s >= 0.72 && s < 0.88) {
+          const p = (s - 0.72) / 0.16;
+          off = laneW * 0.5 + (0.5 - 0.5 * Math.cos(Math.PI * p)) * laneW;
+        }
+        const px = s * (w + 160) - 80;
+        const py = getCurveY(px) + off;
+        if (s === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
       }
       ctx.stroke();
       ctx.setLineDash([]);
@@ -1196,19 +1218,15 @@ class PatenteVideoStudio {
     let isBrakingB = (this.simTime > 0.55);
 
     if (this.simTime < 0.35) {
-      // Normal cruise
       const cruiseOffset = (this.simTime / 0.35) * 80;
       xA = w * 0.60 + cruiseOffset;
       xB = w * 0.20 + cruiseOffset;
     } else {
-      // Braking sequence
       xA = w * 0.68;
       if (this.simTime < 0.55) {
-        // Car B reaction time (moves at constant speed towards A!)
         const reactProgress = (this.simTime - 0.35) / 0.20;
         xB = w * 0.28 + reactProgress * 45;
       } else {
-        // Car B braking phase
         const brakeProgress = Math.min(1.0, (this.simTime - 0.55) / 0.35);
         xB = w * 0.325 + brakeProgress * 30;
       }
@@ -1224,7 +1242,7 @@ class PatenteVideoStudio {
 
     // Telemetry Brackets
     if (this.showTelemetry) {
-      const dist = Math.max(10, Math.floor(xA - xB - 45));
+      const dist = Math.max(10, Math.floor(xA - xB - 48));
 
       // Distance Bracket between cars
       ctx.strokeStyle = (dist < 30) ? "#ef4444" : "#10b981";
@@ -1324,16 +1342,19 @@ class PatenteVideoStudio {
     this.drawTruck(ctx, truckX, roadY + laneW, 0, "#64748b", "شاحنة بطيئة (80 km/h)");
 
     // Car executing the law:
-    let carLaneY = roadY + laneW; // Right lane
+    let carLaneY = roadY + laneW;
     let isBlinkLeft = false;
     let isBlinkRight = false;
+    let steerAngle = 0;
 
     if (this.simTime < 0.25) {
       carLaneY = roadY + laneW;
       isBlinkLeft = (this.simTime > 0.15);
     } else if (this.simTime < 0.45) {
       const tr = (this.simTime - 0.25) / 0.20;
-      carLaneY = roadY + laneW - tr * laneW;
+      const smoothP = 0.5 - 0.5 * Math.cos(Math.PI * tr);
+      carLaneY = roadY + laneW - smoothP * laneW;
+      steerAngle = -Math.sin(Math.PI * tr) * 0.10;
       isBlinkLeft = true;
     } else if (this.simTime < 0.70) {
       carLaneY = roadY;
@@ -1341,15 +1362,17 @@ class PatenteVideoStudio {
       isBlinkRight = (this.simTime > 0.60);
     } else if (this.simTime < 0.85) {
       const tr = (this.simTime - 0.70) / 0.15;
-      carLaneY = roadY + tr * laneW;
+      const smoothP = 0.5 - 0.5 * Math.cos(Math.PI * tr);
+      carLaneY = roadY + smoothP * laneW;
+      steerAngle = Math.sin(Math.PI * tr) * 0.10;
       isBlinkRight = true;
     } else {
       carLaneY = roadY + laneW;
       isBlinkRight = false;
     }
 
-    const carX = (this.simTime * (w + 120) - 60);
-    this.drawCar(ctx, carX, carLaneY, 0, "#10b981", false, isBlinkLeft, isBlinkRight, "Veicolo (سلوك مثالي 110km/h)");
+    const carX = (this.simTime * (w + 140) - 70);
+    this.drawCar(ctx, carX, carLaneY, steerAngle, "#10b981", false, isBlinkLeft, isBlinkRight, "Veicolo (سلوك مثالي 110 km/h)");
   }
 
   /* -------------------------------------------------------------
@@ -1375,9 +1398,9 @@ class PatenteVideoStudio {
     ctx.moveTo(0, tramTrackY + 10); ctx.lineTo(w, tramTrackY + 10);
     ctx.stroke();
 
-    // Salvagente Safety Refuge Island (between tram and car lane)
-    const salvagenteX = w * 0.42;
-    const salvagenteW = 180;
+    // Salvagente Safety Refuge Island
+    const salvagenteX = w * 0.40;
+    const salvagenteW = 190;
     const salvagenteH = 28;
     const salvagenteY = roadY - 14;
 
@@ -1400,8 +1423,8 @@ class PatenteVideoStudio {
     ctx.fillStyle = "#38bdf8";
     ctx.beginPath();
     ctx.arc(salvagenteX + 45, salvagenteY + 14, 5, 0, Math.PI * 2);
-    ctx.arc(salvagenteX + 90, salvagenteY + 14, 5, 0, Math.PI * 2);
-    ctx.arc(salvagenteX + 135, salvagenteY + 14, 5, 0, Math.PI * 2);
+    ctx.arc(salvagenteX + 95, salvagenteY + 14, 5, 0, Math.PI * 2);
+    ctx.arc(salvagenteX + 145, salvagenteY + 14, 5, 0, Math.PI * 2);
     ctx.fill();
 
     // Label on Salvagente
@@ -1411,13 +1434,12 @@ class PatenteVideoStudio {
     ctx.fillText("🛡️ Salvagente (رصيف حماية الركاب)", salvagenteX + salvagenteW / 2, salvagenteY - 8);
 
     // Tram stopped on tracks
-    this.drawTram(ctx, salvagenteX + 80, tramTrackY, "🚊 TRAM (متوقف لصعود الركاب)");
+    this.drawTram(ctx, salvagenteX + 85, tramTrackY, "🚊 TRAM (متوقف لصعود الركاب)");
 
     // Car overtaking tram from the RIGHT
     const carX = (this.simTime * (w + 140) - 70);
     this.drawCar(ctx, carX, carLaneY, 0, "#ef4444", false, false, false, "Auto (تجاوز يميناً مسموح)");
 
-    // Guidance text
     if (this.showTelemetry) {
       ctx.fillStyle = "#10b981";
       ctx.font = "bold 11px 'JetBrains Mono', monospace";
@@ -1449,7 +1471,7 @@ class PatenteVideoStudio {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    // Solid line dividing Driving Lane from Emergency Lane (Codice della Strada)
+    // Solid line dividing Driving Lane from Emergency Lane
     ctx.strokeStyle = "#ffffff";
     ctx.lineWidth = 3.5;
     ctx.beginPath();
@@ -1476,14 +1498,18 @@ class PatenteVideoStudio {
     let carY = roadY - laneW / 2;
     let is4Frecce = (this.simTime > 0.15);
     let isBraking = (this.simTime > 0.25);
+    let steerAngle = 0;
 
     if (this.simTime < 0.30) {
       carY = roadY - laneW / 2;
     } else if (this.simTime < 0.65) {
       const tr = (this.simTime - 0.30) / 0.35;
-      carY = (roadY - laneW / 2) + tr * laneW;
+      const smoothP = 0.5 - 0.5 * Math.cos(Math.PI * tr);
+      carY = (roadY - laneW / 2) + smoothP * laneW;
+      steerAngle = Math.sin(Math.PI * tr) * 0.10;
     } else {
       carY = roadY + laneW / 2;
+      steerAngle = 0;
     }
 
     let carX = w * 0.20;
@@ -1493,7 +1519,7 @@ class PatenteVideoStudio {
       carX = w * 0.60; // Stopped in emergency lane
     }
 
-    this.drawCar(ctx, carX, carY, 0, "#38bdf8", isBraking, is4Frecce, is4Frecce, "Veicolo in Avaria (عطل)");
+    this.drawCar(ctx, carX, carY, steerAngle, "#38bdf8", isBraking, is4Frecce, is4Frecce, "Veicolo in Avaria (عطل)");
 
     // Draw Emergency Triangle (Triangolo di emergenza) behind car
     if (this.simTime > 0.75) {
@@ -1523,11 +1549,11 @@ class PatenteVideoStudio {
     ctx.translate(x, y);
     ctx.rotate(angle);
 
-    const length = 46;
+    const length = 48;
     const width = 24;
 
     // Car drop shadow
-    ctx.shadowColor = "rgba(0, 0, 0, 0.75)";
+    ctx.shadowColor = "rgba(0, 0, 0, 0.65)";
     ctx.shadowBlur = 10;
     ctx.shadowOffsetY = 4;
 
@@ -1546,37 +1572,37 @@ class PatenteVideoStudio {
     ctx.roundRect(-length * 0.25, -width * 0.38, length * 0.5, width * 0.76, 4);
     ctx.fill();
 
-    // Front headlights beam
+    // Front headlights beam (pointing forward to the RIGHT: +X)
     ctx.fillStyle = "rgba(254, 240, 138, 0.22)";
     ctx.beginPath();
-    ctx.moveTo(length / 2, -width * 0.4);
-    ctx.lineTo(length / 2 + 35, -width * 0.8);
-    ctx.lineTo(length / 2 + 35, width * 0.8);
-    ctx.lineTo(length / 2, width * 0.4);
+    ctx.moveTo(length / 2, -width * 0.35);
+    ctx.lineTo(length / 2 + 38, -width * 0.75);
+    ctx.lineTo(length / 2 + 38, width * 0.75);
+    ctx.lineTo(length / 2, width * 0.35);
     ctx.closePath();
     ctx.fill();
 
-    // Headlight bulbs
+    // Headlight bulbs (right front edge)
     ctx.fillStyle = "#fef08a";
-    ctx.fillRect(length / 2 - 2, -width * 0.45, 3, 5);
-    ctx.fillRect(length / 2 - 2, width * 0.45 - 5, 3, 5);
+    ctx.fillRect(length / 2 - 2, -width * 0.42, 3, 5);
+    ctx.fillRect(length / 2 - 2, width * 0.42 - 5, 3, 5);
 
-    // Brake lights (Red glow if braking)
+    // Brake lights (left rear edge)
     if (isBraking) {
       ctx.fillStyle = "#ef4444";
       ctx.shadowColor = "#ef4444";
       ctx.shadowBlur = 14;
-      ctx.fillRect(-length / 2 - 2, -width * 0.45, 4, 6);
-      ctx.fillRect(-length / 2 - 2, width * 0.45 - 6, 4, 6);
+      ctx.fillRect(-length / 2 - 2, -width * 0.42, 4, 6);
+      ctx.fillRect(-length / 2 - 2, width * 0.42 - 6, 4, 6);
       ctx.shadowColor = "transparent";
     } else {
       ctx.fillStyle = "#991b1b";
-      ctx.fillRect(-length / 2, -width * 0.45, 2, 5);
-      ctx.fillRect(-length / 2, width * 0.45 - 5, 2, 5);
+      ctx.fillRect(-length / 2, -width * 0.42, 2, 5);
+      ctx.fillRect(-length / 2, width * 0.42 - 5, 2, 5);
     }
 
     // Blinking turn signals (Amber flash)
-    const isFlash = (Math.floor(Date.now() / 280) % 2 === 0);
+    const isFlash = (Math.floor(Date.now() / 250) % 2 === 0);
     if (blinkLeft && isFlash) {
       ctx.fillStyle = "#f59e0b";
       ctx.shadowColor = "#f59e0b";
@@ -1598,15 +1624,26 @@ class PatenteVideoStudio {
       ctx.shadowColor = "transparent";
     }
 
-    // Vehicle label
-    if (label && this.showTelemetry) {
-      ctx.fillStyle = "#ffffff";
-      ctx.font = "bold 9px 'JetBrains Mono', monospace";
-      ctx.textAlign = "center";
-      ctx.fillText(label, 0, -width * 0.75);
-    }
-
     ctx.restore();
+
+    // UNROTATED 100% HORIZONTAL LABEL ABOVE CAR
+    if (label && this.showTelemetry) {
+      ctx.save();
+      ctx.font = "bold 10px 'JetBrains Mono', monospace";
+      ctx.textAlign = "center";
+      const tw = ctx.measureText(label).width;
+      ctx.fillStyle = "rgba(7, 8, 12, 0.88)";
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.2)";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.roundRect(x - tw / 2 - 8, y - 32, tw + 16, 18, 5);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = "#ffffff";
+      ctx.fillText(label, x, y - 19);
+      ctx.restore();
+    }
   }
 
   drawTruck(ctx, x, y, angle, color, label) {
@@ -1625,20 +1662,31 @@ class PatenteVideoStudio {
     ctx.fillStyle = color;
     ctx.fillRect(-len / 2, -wid / 2, len * 0.65, wid);
 
-    // Cabin
+    // Cabin (front is right)
     ctx.fillStyle = "#475569";
     ctx.fillRect(len * 0.18, -wid / 2, len * 0.30, wid);
 
     ctx.shadowColor = "transparent";
-
-    if (label && this.showTelemetry) {
-      ctx.fillStyle = "#ffffff";
-      ctx.font = "bold 9px 'JetBrains Mono', monospace";
-      ctx.textAlign = "center";
-      ctx.fillText(label, 0, -wid * 0.75);
-    }
-
     ctx.restore();
+
+    // UNROTATED HORIZONTAL LABEL
+    if (label && this.showTelemetry) {
+      ctx.save();
+      ctx.font = "bold 10px 'JetBrains Mono', monospace";
+      ctx.textAlign = "center";
+      const tw = ctx.measureText(label).width;
+      ctx.fillStyle = "rgba(7, 8, 12, 0.88)";
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.2)";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.roundRect(x - tw / 2 - 8, y - 32, tw + 16, 18, 5);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = "#ffffff";
+      ctx.fillText(label, x, y - 19);
+      ctx.restore();
+    }
   }
 
   drawTram(ctx, x, y, label) {
@@ -1666,14 +1714,26 @@ class PatenteVideoStudio {
       ctx.fillRect(i, -wid * 0.4, 12, wid * 0.8);
     }
 
-    if (label && this.showTelemetry) {
-      ctx.fillStyle = "#ffffff";
-      ctx.font = "bold 9px 'JetBrains Mono', monospace";
-      ctx.textAlign = "center";
-      ctx.fillText(label, 0, -wid * 0.85);
-    }
-
     ctx.restore();
+
+    // UNROTATED HORIZONTAL LABEL
+    if (label && this.showTelemetry) {
+      ctx.save();
+      ctx.font = "bold 10px 'JetBrains Mono', monospace";
+      ctx.textAlign = "center";
+      const tw = ctx.measureText(label).width;
+      ctx.fillStyle = "rgba(7, 8, 12, 0.88)";
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.2)";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.roundRect(x - tw / 2 - 8, y - 32, tw + 16, 18, 5);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = "#ffffff";
+      ctx.fillText(label, x, y - 19);
+      ctx.restore();
+    }
   }
 }
 
