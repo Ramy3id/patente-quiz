@@ -7,6 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/theme-modes.css">
+<script src="../assets/js/theme-engine.js"></script>
 
 <style>
   :root {
@@ -1181,11 +1183,15 @@
     <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
   </div>
 
-  <!-- Audio Toggle -->
+  <!-- Actions (Audio & Theme) -->
   <div class="nav-desktop-actions">
-    <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية">
+    <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
       <span class="audio-icon-span" id="audioIcon">🔊</span>
       <span class="audio-label-span" id="audioLabel">الصوت نشط</span>
+    </button>
+    <button class="nav-theme-btn" onclick="toggleTheme()" id="themeToggleBtn" title="التبديل بين الوضع الفاتح والمظلم [Alt + T]">
+      <span class="theme-icon-span" id="themeIcon">☀️</span>
+      <span class="theme-label-span" id="themeLabel">الوضع النهاري</span>
     </button>
   </div>
 
@@ -1220,6 +1226,19 @@
     <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
       <span>⏱️</span> <span>محاكي الامتحان الوزاري</span>
     </a>
+  </div>
+  <div class="mobile-drawer-footer">
+    <button class="mobile-control-btn" onclick="toggleAudio()">
+      <span class="audio-icon-span">🔊</span>
+      <span class="audio-label-span">الصوت نشط</span>
+    </button>
+    <button class="mobile-control-btn" onclick="toggleTheme()" title="التبديل بين الوضع الفاتح والمظلم">
+      <span class="theme-icon-span">☀️</span>
+      <span class="theme-label-span">المظهر</span>
+    </button>
+    <div class="mobile-control-btn" style="cursor: default; opacity: 0.85;">
+      <span>🇮🇹 ⬅️ 🇸🇦 Patente B</span>
+    </div>
   </div>
 </div>
 

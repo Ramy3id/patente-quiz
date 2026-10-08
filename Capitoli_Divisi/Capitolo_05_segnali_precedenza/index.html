@@ -7,6 +7,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/theme-modes.css">
+<script src="../../assets/js/theme-engine.js"></script>
+
 <style>
   :root {
     --bg-base: #09090b;
@@ -885,10 +888,12 @@
     <span class="badge-tag">A2</span>
   </a>
 
-  <!-- Desktop Tabs Menu -->
+    <!-- Desktop Tabs Menu -->
   <nav class="nav-desktop-tabs">
     <a href="../../interactive_pages/index.html" class="nav-tab-desktop">🏛️ أدلة وقواميس الشرح</a>
     <a href="../index.html" class="nav-tab-desktop active">📚 بنك أسئلة الأبواب</a>
+    <a href="../dizionario-sinonimi.html" class="nav-tab-desktop">📖 معجم المترادفات والبدائل</a>
+    <a href="../parole-quiz.html" class="nav-tab-desktop">🔤 بنك كلماتي والأسئلة</a>
     <a href="../../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
   </nav>
 
@@ -932,6 +937,11 @@
       <span class="audio-icon-span">🔊</span>
       <span class="audio-label-span">الصوت نشط</span>
     </button>
+  
+    <button class="nav-theme-btn" onclick="toggleTheme()" id="themeToggleBtn" title="التبديل بين الوضع الفاتح والمظلم [Alt + T]">
+      <span class="theme-icon-span" id="themeIcon">☀️</span>
+      <span class="theme-label-span" id="themeLabel">الوضع النهاري</span>
+    </button>
   </div>
 
   <!-- Animated Hamburger Button -->
@@ -957,6 +967,14 @@
     <a href="../index.html" class="mobile-nav-link active" onclick="closeMobileNav()">
       <span class="nav-icon">📚</span>
       <span>بنك أسئلة الأبواب المقسمة (25 باب)</span>
+    </a>
+    <a href="../dizionario-sinonimi.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">📖</span>
+      <span>معجم المترادفات والبدائل القانونية</span>
+    </a>
+    <a href="../parole-quiz.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span class="nav-icon">🔤</span>
+      <span>بنك كلماتي والأسئلة الوزارية</span>
     </a>
     <a href="../../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
       <span class="nav-icon">⏱️</span>
@@ -1065,10 +1083,14 @@
     </a>
   </div>
 
-  <div class="mobile-drawer-footer">
+    <div class="mobile-drawer-footer">
     <button class="mobile-control-btn" onclick="toggleAudio()">
       <span class="audio-icon-span">🔊</span>
       <span class="audio-label-span">الصوت نشط</span>
+    </button>
+    <button class="mobile-control-btn" onclick="toggleTheme()" title="التبديل بين الوضع الفاتح والمظلم">
+      <span class="theme-icon-span">☀️</span>
+      <span class="theme-label-span">المظهر</span>
     </button>
     <div class="mobile-control-btn" style="cursor: default; opacity: 0.85;">
       <span>🇮🇹 ⬅️ 🇸🇦 Patente B</span>

@@ -1,0 +1,572 @@
+/**
+ * Patente B Pro - Universal Theme Modes (Dark & Light Stylesheet)
+ * Apple HIG Compliant, Ultra-High Contrast, High Eye-Comfort
+ */
+
+/* ==========================================================================
+   Light Mode Custom Properties & Overrides
+   ========================================================================== */
+html.light {
+  --bg-base: #f8fafc;
+  --bg-surface: rgba(255, 255, 255, 0.88);
+  --bg-surface-elevated: rgba(248, 250, 252, 0.95);
+  --border-subtle: rgba(15, 23, 42, 0.08);
+  --border-highlight: rgba(15, 23, 42, 0.16);
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --emerald-primary: #059669;
+  --emerald-glow: rgba(5, 150, 105, 0.2);
+  --rose-primary: #e11d48;
+  --rose-glow: rgba(225, 29, 72, 0.2);
+  --amber-primary: #d97706;
+  --amber-glow: rgba(217, 119, 6, 0.2);
+  --sky-primary: #0284c7;
+  --sky-glow: rgba(2, 132, 199, 0.2);
+}
+
+/* Base styling for theme switch button across all themes */
+.nav-theme-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #a1a1aa;
+  border-radius: 9px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s;
+  white-space: nowrap;
+  font-family: inherit;
+}
+.nav-theme-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+.nav-theme-btn:active { transform: scale(0.96); }
+
+/* Light Mode Background & Base Colors */
+html.light body {
+  background-color: var(--bg-base) !important;
+  color: var(--text-primary) !important;
+  background-image: 
+    radial-gradient(ellipse at 50% -10%, rgba(99, 102, 241, 0.08), transparent 60%),
+    radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.04), transparent 45%),
+    radial-gradient(circle at 90% 40%, rgba(245, 158, 11, 0.03), transparent 45%) !important;
+}
+
+/* Navbar in Light Mode */
+html.light .unified-portal-nav {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border-bottom: 1px solid var(--border-subtle) !important;
+}
+html.light .nav-brand {
+  color: #0f172a !important;
+}
+html.light .nav-brand .badge-tag {
+  background: rgba(15, 23, 42, 0.05) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  color: #0284c7 !important;
+}
+html.light .nav-tab-desktop {
+  color: var(--text-secondary) !important;
+}
+html.light .nav-tab-desktop:hover {
+  color: #0f172a !important;
+  background: rgba(15, 23, 42, 0.05) !important;
+}
+html.light .nav-tab-desktop.active {
+  color: #0284c7 !important;
+  background: rgba(2, 132, 199, 0.1) !important;
+  border: 1px solid rgba(2, 132, 199, 0.25) !important;
+}
+
+/* Buttons in Nav */
+html.light .nav-audio-btn,
+html.light .nav-theme-btn,
+html.light .nav-dropdown-btn {
+  background: rgba(15, 23, 42, 0.04) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  color: #334155 !important;
+}
+html.light .nav-audio-btn:hover,
+html.light .nav-theme-btn:hover,
+html.light .nav-dropdown-btn:hover {
+  color: #0f172a !important;
+  background: rgba(15, 23, 42, 0.08) !important;
+}
+html.light .nav-dropdown-menu {
+  background: #ffffff !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.15) !important;
+}
+html.light .nav-dropdown-item {
+  color: #334155 !important;
+}
+html.light .nav-dropdown-item:hover {
+  background: rgba(15, 23, 42, 0.05) !important;
+  color: #0f172a !important;
+}
+
+/* Mobile Drawer in Light Mode */
+html.light .mobile-drawer-panel {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.12) !important;
+}
+html.light .mobile-nav-link {
+  color: #334155 !important;
+}
+html.light .mobile-nav-link:hover {
+  background: rgba(15, 23, 42, 0.04) !important;
+  color: #0f172a !important;
+}
+html.light .mobile-nav-link.active {
+  background: rgba(2, 132, 199, 0.12) !important;
+  color: #0284c7 !important;
+}
+html.light .hamburger-line {
+  background-color: #0f172a !important;
+}
+html.light .nav-hamburger-btn {
+  background: rgba(15, 23, 42, 0.05) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+
+/* Glass Cards & Bento Containers */
+html.light .glass-card,
+html.light .hero-card,
+html.light .hero-main-card,
+html.light .hero-side-card,
+html.light .q-card,
+html.light .dict-card,
+html.light .chapter-card,
+html.light .guide-card {
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border-subtle) !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 4px 6px -2px rgba(15, 23, 42, 0.03) !important;
+}
+html.light .hero-card h1,
+html.light .hero-main-card h1,
+html.light .hero-side-card h3,
+html.light .dict-word-main,
+html.light .guide-title {
+  color: #0f172a !important;
+}
+html.light .hero-card p,
+html.light .hero-main-card p,
+html.light .hero-side-card p {
+  color: #475569 !important;
+}
+html.light .stat-chip {
+  background: rgba(15, 23, 42, 0.03) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+html.light .stat-chip strong {
+  color: #0f172a !important;
+}
+
+/* Inputs, Textareas & Selects */
+html.light .custom-input,
+html.light .search-input,
+html.light .custom-select,
+html.light #liveSearchInput,
+html.light #newWordInput,
+html.light #chapter-search {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(15, 23, 42, 0.15) !important;
+  color: #0f172a !important;
+}
+html.light .custom-input::placeholder,
+html.light .search-input::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Chips & Segmented Controls */
+html.light .word-chip {
+  background: rgba(241, 245, 249, 0.9) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  color: #1e293b !important;
+}
+html.light .word-chip:hover {
+  background: rgba(2, 132, 199, 0.1) !important;
+  border-color: rgba(2, 132, 199, 0.35) !important;
+  color: #0284c7 !important;
+}
+html.light .word-chip.active {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.15), rgba(99, 102, 241, 0.15)) !important;
+  border-color: #0284c7 !important;
+  color: #0369a1 !important;
+}
+html.light .chip-count {
+  background: rgba(15, 23, 42, 0.08) !important;
+  color: #475569 !important;
+}
+html.light .chips-wrapper {
+  background: rgba(241, 245, 249, 0.5) !important;
+  border-color: rgba(15, 23, 42, 0.14) !important;
+}
+html.light .family-pill,
+html.light .cat-chip-btn {
+  background: rgba(15, 23, 42, 0.04) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  color: #334155 !important;
+}
+html.light .family-pill:hover,
+html.light .cat-chip-btn:hover {
+  background: rgba(15, 23, 42, 0.08) !important;
+  color: #0f172a !important;
+}
+html.light .family-pill.active,
+html.light .cat-chip-btn.active {
+  background: rgba(99, 102, 241, 0.15) !important;
+  border-color: #6366f1 !important;
+  color: #4338ca !important;
+}
+
+/* Question Cards in Light Mode */
+html.light .q-card {
+  background: #ffffff !important;
+}
+html.light .q-italian-text {
+  color: #0f172a !important;
+}
+html.light .q-arabic-text {
+  background: rgba(15, 23, 42, 0.03) !important;
+  color: #1e293b !important;
+  border-right-color: #0284c7 !important;
+}
+html.light .badge-vero {
+  background: rgba(16, 185, 129, 0.14) !important;
+  border-color: rgba(16, 185, 129, 0.35) !important;
+  color: #047857 !important;
+  box-shadow: none !important;
+}
+html.light .badge-falso {
+  background: rgba(244, 63, 94, 0.14) !important;
+  border-color: rgba(244, 63, 94, 0.35) !important;
+  color: #be123c !important;
+  box-shadow: none !important;
+}
+html.light .badge-ch {
+  background: rgba(99, 102, 241, 0.1) !important;
+  border-color: rgba(99, 102, 241, 0.25) !important;
+  color: #4f46e5 !important;
+}
+html.light .badge-sub {
+  background: rgba(15, 23, 42, 0.05) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  color: #475569 !important;
+}
+html.light .q-spiegazione-box {
+  background: rgba(16, 185, 129, 0.08) !important;
+  border-color: rgba(16, 185, 129, 0.25) !important;
+  color: #065f46 !important;
+}
+html.light .q-spiegazione-box strong {
+  color: #047857 !important;
+}
+html.light .q-trap-box {
+  background: rgba(245, 158, 11, 0.09) !important;
+  border-color: rgba(245, 158, 11, 0.28) !important;
+  color: #78350f !important;
+}
+html.light .q-trap-box strong {
+  color: #b45309 !important;
+}
+html.light .kw-highlight {
+  background: rgba(245, 158, 11, 0.28) !important;
+  color: #92400e !important;
+  border-bottom: 2px solid #d97706 !important;
+}
+html.light .kw-chip-add {
+  background: rgba(15, 23, 42, 0.04) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  color: #334155 !important;
+}
+html.light .kw-chip-add:hover {
+  background: rgba(2, 132, 199, 0.1) !important;
+  color: #0284c7 !important;
+}
+html.light .btn-tts,
+html.light .btn-tts-mini {
+  background: rgba(15, 23, 42, 0.05) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  color: #334155 !important;
+}
+
+/* Dictionary Cards in Light Mode */
+html.light .dict-card {
+  background: #ffffff !important;
+}
+html.light .dict-definition-box {
+  background: rgba(15, 23, 42, 0.03) !important;
+  color: #1e293b !important;
+  border-right-color: #6366f1 !important;
+}
+html.light .thesaurus-subcard {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+html.light .synonyms-section {
+  background: rgba(16, 185, 129, 0.06) !important;
+  border-color: rgba(16, 185, 129, 0.2) !important;
+}
+html.light .syn-chip {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #065f46 !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+html.light .traps-section {
+  background: rgba(244, 63, 94, 0.05) !important;
+  border-color: rgba(244, 63, 94, 0.2) !important;
+}
+html.light .trap-subitem {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(244, 63, 94, 0.15) !important;
+  color: #881337 !important;
+}
+html.light .trap-term-title {
+  color: #be123c !important;
+}
+
+/* Interactive Tools Hub in Light Mode */
+html.light .tools-hub-grid a {
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04) !important;
+}
+
+/* Universal Mobile Drawer Footer */
+.mobile-drawer-footer {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.mobile-control-btn {
+  min-height: 44px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.mobile-control-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+.mobile-control-btn:active {
+  transform: scale(0.98);
+}
+
+html.light .mobile-drawer-footer {
+  border-top: 1px solid rgba(15, 23, 42, 0.1) !important;
+}
+html.light .mobile-control-btn {
+  background: rgba(15, 23, 42, 0.05) !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
+  color: #1e293b !important;
+}
+html.light .mobile-control-btn:hover {
+  background: rgba(15, 23, 42, 0.09) !important;
+}
+
+/* Exam Simulator (Simulatore_Esame.html) in Light Mode */
+html.light .header-card,
+html.light #setup-screen,
+html.light .exam-status-bar,
+html.light .q-stage-card,
+html.light .result-verdict-card,
+html.light .review-card,
+html.light .q-grid-nav {
+  background: var(--bg-surface) !important;
+  border-color: var(--border-subtle) !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 4px 6px -2px rgba(15, 23, 42, 0.03) !important;
+}
+html.light .header-card-title h1,
+html.light .setup-headline h2,
+html.light .mode-title,
+html.light .q-statement-text,
+html.light .review-header-bar h3,
+html.light .stat-matrix-val {
+  color: #0f172a !important;
+}
+html.light .mode-card {
+  background: rgba(15, 23, 42, 0.02) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+html.light .mode-card:hover {
+  background: rgba(15, 23, 42, 0.05) !important;
+  border-color: rgba(15, 23, 42, 0.18) !important;
+}
+html.light .mode-card.selected {
+  background: rgba(16, 185, 129, 0.08) !important;
+  border-color: #059669 !important;
+}
+html.light .mode-card.selected .mode-title {
+  color: #065f46 !important;
+}
+html.light .select-box {
+  background: #ffffff !important;
+  border-color: rgba(15, 23, 42, 0.15) !important;
+  color: #0f172a !important;
+}
+html.light .options-box {
+  background: rgba(15, 23, 42, 0.02) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+html.light .timer-pill {
+  background: rgba(15, 23, 42, 0.05) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  color: #0f172a !important;
+  box-shadow: none !important;
+}
+html.light .mode-indicator,
+html.light .btn-subtle-back,
+html.light .btn-stage-nav {
+  background: rgba(15, 23, 42, 0.04) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  color: #334155 !important;
+}
+html.light .btn-subtle-back:hover,
+html.light .btn-stage-nav:hover:not(:disabled) {
+  background: rgba(15, 23, 42, 0.08) !important;
+  color: #0f172a !important;
+}
+html.light .q-pill {
+  background: rgba(15, 23, 42, 0.03) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  color: #475569 !important;
+}
+html.light .q-pill:hover {
+  background: rgba(15, 23, 42, 0.08) !important;
+  color: #0f172a !important;
+}
+html.light .q-pill.current {
+  border-color: #0284c7 !important;
+  color: #0369a1 !important;
+  background: rgba(2, 132, 199, 0.15) !important;
+  box-shadow: 0 0 10px rgba(2, 132, 199, 0.25) !important;
+}
+html.light .q-pill.answered {
+  background: rgba(16, 185, 129, 0.15) !important;
+  border-color: rgba(16, 185, 129, 0.35) !important;
+  color: #047857 !important;
+}
+html.light .q-img-container {
+  background: rgba(15, 23, 42, 0.03) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  box-shadow: none !important;
+}
+html.light .btn-choice-v {
+  background: rgba(16, 185, 129, 0.12) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  color: #047857 !important;
+}
+html.light .btn-choice-v:hover {
+  background: rgba(16, 185, 129, 0.2) !important;
+  color: #065f46 !important;
+}
+html.light .btn-choice-v.selected {
+  background: #059669 !important;
+  color: #ffffff !important;
+}
+html.light .btn-choice-f {
+  background: rgba(244, 63, 94, 0.12) !important;
+  border-color: rgba(244, 63, 94, 0.3) !important;
+  color: #be123c !important;
+}
+html.light .btn-choice-f:hover {
+  background: rgba(244, 63, 94, 0.2) !important;
+  color: #9f1239 !important;
+}
+html.light .btn-choice-f.selected {
+  background: #e11d48 !important;
+  color: #ffffff !important;
+}
+html.light .stat-matrix-cell {
+  background: rgba(15, 23, 42, 0.03) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+html.light .review-filter-tabs {
+  background: rgba(15, 23, 42, 0.04) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+html.light .rf-tab.active {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1) !important;
+}
+
+/* Chapter Details Pages (Capitolo_XX/index.html) in Light Mode */
+html.light .ch-header-card,
+html.light .controls-bar {
+  background: var(--bg-surface) !important;
+  border-color: var(--border-subtle) !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 4px 6px -2px rgba(15, 23, 42, 0.03) !important;
+}
+html.light .ch-main-title {
+  color: #0f172a !important;
+}
+html.light .ch-ar-title {
+  color: #334155 !important;
+}
+html.light .score-strip {
+  background: rgba(15, 23, 42, 0.03) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+html.light .score-cell strong {
+  color: #0f172a !important;
+}
+html.light .search-box {
+  background: #ffffff !important;
+  border-color: rgba(15, 23, 42, 0.15) !important;
+  color: #0f172a !important;
+}
+html.light .search-box::placeholder {
+  color: #94a3b8 !important;
+}
+html.light .filter-btns-wrap .f-btn {
+  background: rgba(15, 23, 42, 0.04) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  color: #334155 !important;
+}
+html.light .filter-btns-wrap .f-btn:hover {
+  background: rgba(15, 23, 42, 0.08) !important;
+  color: #0f172a !important;
+}
+html.light .filter-btns-wrap .f-btn.active {
+  background: rgba(2, 132, 199, 0.12) !important;
+  border-color: #0284c7 !important;
+  color: #0369a1 !important;
+}
+html.light .study-toggle-label {
+  color: #334155 !important;
+}
+html.light .q-text-content {
+  color: #0f172a !important;
+}
+html.light .btn-back-portal {
+  background: rgba(15, 23, 42, 0.04) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  color: #334155 !important;
+}
+html.light .btn-back-portal:hover {
+  background: rgba(15, 23, 42, 0.08) !important;
+  color: #0f172a !important;
+}
+
+/* Global Smooth Transitions */
+body, .glass-card, .q-card, .dict-card, .unified-portal-nav, .mobile-drawer-panel, .word-chip, .q-stage-card, .header-card, #setup-screen, .ch-header-card, .controls-bar {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+
