@@ -1176,6 +1176,7 @@
   <div class="nav-desktop-tabs">
     <a href="../interactive_pages/index.html" class="nav-tab-desktop">🏛️ أدلة وقواميس الشرح</a>
     <a href="index.html" class="nav-tab-desktop">📚 بنك أسئلة الأبواب</a>
+    <a href="dizionario-sinonimi.html" class="nav-tab-desktop">📖 معجم المترادفات والبدائل</a>
     <a href="parole-quiz.html" class="nav-tab-desktop active">🔤 بنك كلماتي والأسئلة</a>
     <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
   </div>
@@ -1209,6 +1210,9 @@
     </a>
     <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
       <span>📚</span> <span>بنك أسئلة الأبواب (25 باب)</span>
+    </a>
+    <a href="dizionario-sinonimi.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📖</span> <span>معجم المترادفات والبدائل القانونية</span>
     </a>
     <a href="parole-quiz.html" class="mobile-nav-link active" onclick="closeMobileNav()">
       <span>🔤</span> <span>بنك كلماتي والأسئلة الوزارية</span>
@@ -2099,6 +2103,16 @@ function speakItalian(text) {
 document.addEventListener('DOMContentLoaded', () => {
   loadStoredWords();
   initControls();
+
+  // Check URL search parameter e.g. ?search=moderare
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchParam = urlParams.get('search');
+  if (searchParam) {
+    const cleanParam = searchParam.trim().toLowerCase();
+    document.getElementById('liveSearchInput').value = cleanParam;
+    addWord(cleanParam, false);
+  }
+
   renderChips();
   onSearchChange();
 });

@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>معجم المترادفات وفروق الوزارة الخادعة — Patente B Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg-base: #09090b;
+    --bg-surface: rgba(24, 24, 27, 0.78);
+    --bg-surface-elevated: rgba(39, 39, 42, 0.88);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(255, 255, 255, 0.16);
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --emerald-primary: #10b981;
+    --emerald-glow: rgba(16, 185, 129, 0.22);
+    --rose-primary: #f43f5e;
+    --rose-glow: rgba(244, 63, 94, 0.22);
+    --amber-primary: #f59e0b;
+    --amber-glow: rgba(245, 158, 11, 0.25);
+    --sky-primary: #38bdf8;
+    --sky-glow: rgba(56, 189, 248, 0.25);
+    --indigo-primary: #6366f1;
+    --indigo-glow: rgba(99, 102, 241, 0.28);
+    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    --nav-base-height: 56px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
+    line-height: 1.55;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image: 
+      radial-gradient(ellipse at 50% -10%, rgba(99, 102, 241, 0.16), transparent 60%),
+      radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.06), transparent 45%),
+      radial-gradient(circle at 90% 40%, rgba(245, 158, 11, 0.05), transparent 45%);
+    background-attachment: fixed;
+  }
+
+  /* ==========================================================================
+     Unified Portal Navigation (Apple HIG Compliant)
+     ========================================================================== */
+  .unified-portal-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
+    max-height: calc(56px + env(safe-area-inset-top, 0px));
+    background: rgba(9, 9, 11, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    padding-top: env(safe-area-inset-top, 0px);
+    box-sizing: border-box;
+    transition: background 0.25s var(--ease-spring), border-color 0.25s;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .nav-brand .badge-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    padding: 2px 7px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    color: #38bdf8;
+  }
+
+  .nav-desktop-tabs {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-tab-desktop {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.15s ease;
+  }
+  .nav-tab-desktop:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+  }
+  .nav-tab-desktop.active {
+    color: #fff;
+    background: rgba(99, 102, 241, 0.18);
+    border: 1px solid rgba(99, 102, 241, 0.35);
+  }
+
+  .nav-desktop-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-audio-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #a1a1aa;
+    border-radius: 9px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .nav-audio-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+
+  /* Animated Hamburger */
+  .nav-hamburger-btn {
+    display: none;
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0;
+    z-index: 1002;
+    transition: background 0.15s;
+  }
+  .hamburger-box {
+    width: 20px;
+    height: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: transform 0.28s var(--ease-spring), opacity 0.2s, background-color 0.2s;
+  }
+  .nav-hamburger-btn.is-active .line-top { transform: translateY(6px) rotate(45deg); background-color: #38bdf8; }
+  .nav-hamburger-btn.is-active .line-mid { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger-btn.is-active .line-bot { transform: translateY(-6px) rotate(-45deg); background-color: #38bdf8; }
+
+  /* Mobile Drawer Overlay */
+  .mobile-drawer-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.25s var(--ease-spring);
+  }
+  .mobile-drawer-overlay.is-active { display: block; opacity: 1; }
+
+  .mobile-drawer-panel {
+    display: none;
+    position: fixed;
+    top: calc(var(--nav-base-height) + env(safe-area-inset-top, 0px));
+    left: 0; right: 0;
+    max-height: calc(100vh - var(--nav-base-height) - env(safe-area-inset-top, 0px));
+    background: rgba(15, 15, 18, 0.95);
+    backdrop-filter: blur(28px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
+    z-index: 999;
+    padding: 16px;
+    overflow-y: auto;
+  }
+  .mobile-drawer-panel.is-active { display: block; }
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    color: #d4d4d8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    transition: all 0.15s;
+  }
+  .mobile-nav-link.active {
+    background: rgba(99, 102, 241, 0.18);
+    color: #a5b4fc;
+  }
+
+  /* ==========================================================================
+     Container & Bento Layout
+     ========================================================================== */
+  .container {
+    max-width: 1280px;
+    margin: 28px auto;
+    padding: 0 20px 60px;
+  }
+
+  .glass-card {
+    background: var(--bg-surface);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06), 0 12px 32px -12px rgba(0,0,0,0.6);
+    border-radius: 22px;
+    padding: 26px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Hero Section */
+  .hero-bento {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 900px) {
+    .hero-bento { grid-template-columns: 1fr; }
+  }
+
+  .hero-main-card h1 {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    letter-spacing: -0.02em;
+  }
+  .hero-main-card p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 22px;
+  }
+
+  .hero-stats-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 18px;
+  }
+  .stat-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+  }
+  .stat-chip strong {
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .hero-side-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    background: linear-gradient(135deg, rgba(30, 27, 75, 0.65), rgba(15, 23, 42, 0.8));
+    border: 1px solid rgba(99, 102, 241, 0.35);
+  }
+  .hero-side-card h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .hero-side-card p {
+    font-size: 0.88rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+  }
+  .btn-quiz-bridge {
+    background: linear-gradient(135deg, #0ea5e9, #6366f1);
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s var(--ease-spring);
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
+  }
+  .btn-quiz-bridge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+  }
+
+  /* Search & Category Filter */
+  .search-filter-card {
+    margin-bottom: 24px;
+  }
+  .search-bar-wrap {
+    position: relative;
+    margin-bottom: 16px;
+  }
+  .search-input {
+    width: 100%;
+    background: rgba(15, 15, 18, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 14px 48px 14px 18px;
+    color: #fff;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.2s;
+  }
+  .search-input:focus {
+    border-color: #818cf8;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+  }
+  .search-icon-span {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #71717a;
+    font-size: 1.15rem;
+  }
+
+  .category-chips-row {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+  }
+  .cat-chip-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #d4d4d8;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+  }
+  .cat-chip-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+  }
+  .cat-chip-btn.active {
+    background: rgba(99, 102, 241, 0.25);
+    border-color: #818cf8;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+  }
+
+  /* ==========================================================================
+     Thesaurus Cards Grid
+     ========================================================================== */
+  .dictionary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 22px;
+  }
+  @media (max-width: 600px) {
+    .dictionary-grid { grid-template-columns: 1fr; }
+  }
+
+  .dict-card {
+    background: var(--bg-surface);
+    backdrop-filter: blur(18px);
+    border: 1px solid var(--border-subtle);
+    border-radius: 22px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    box-shadow: 0 10px 28px -10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s var(--ease-spring), border-color 0.2s;
+  }
+  .dict-card:hover {
+    border-color: rgba(99, 102, 241, 0.35);
+    transform: translateY(-2px);
+  }
+
+  .dict-card-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .dict-word-main {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+  .dict-word-ar {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #38bdf8;
+    margin-top: 2px;
+  }
+  .dict-cat-badge {
+    font-size: 0.74rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 100px;
+    color: #a5b4fc;
+    white-space: nowrap;
+  }
+
+  .dict-definition-box {
+    background: rgba(0, 0, 0, 0.25);
+    border-right: 3px solid #6366f1;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+  }
+
+  /* Synonyms Section */
+  .synonyms-section {
+    background: rgba(16, 185, 129, 0.05);
+    border: 1px solid rgba(16, 185, 129, 0.18);
+    border-radius: 14px;
+    padding: 14px;
+  }
+  .synonyms-section h4 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #34d399;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .synonyms-deck {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .syn-chip {
+    background: rgba(16, 185, 129, 0.14);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #a7f3d0;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* False Synonyms Section */
+  .traps-section {
+    background: rgba(244, 63, 94, 0.05);
+    border: 1px solid rgba(244, 63, 94, 0.2);
+    border-radius: 14px;
+    padding: 14px;
+  }
+  .traps-section h4 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #f87171;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .trap-subitem {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  .trap-subitem:last-child { margin-bottom: 0; }
+  .trap-term-title {
+    font-weight: 700;
+    color: #fca5a5;
+    font-family: 'JetBrains Mono', monospace;
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  /* Card Action Footer */
+  .dict-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-subtle);
+  }
+  .btn-explore-quiz {
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: #38bdf8;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s;
+    font-family: inherit;
+  }
+  .btn-explore-quiz:hover {
+    background: #0ea5e9;
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.35);
+  }
+
+  .btn-tts-mini {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #cbd5e1;
+    border-radius: 8px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-size: 0.95rem;
+  }
+  .btn-tts-mini:hover {
+    background: rgba(99, 102, 241, 0.2);
+    color: #a5b4fc;
+  }
+
+  .empty-state-box {
+    text-align: center;
+    padding: 60px 20px;
+    grid-column: 1 / -1;
+    background: var(--bg-surface);
+    border: 1px dashed rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Unified Portal Navigation (Apple HIG Compliant) -->
+<nav class="unified-portal-nav" id="portal-nav">
+  <a href="index.html" class="nav-brand">
+    <span style="font-size:1.25rem;">🚦</span>
+    <span>Patente B Pro</span>
+    <span class="badge-tag">A2</span>
+  </a>
+
+  <!-- Desktop Tabs Menu -->
+  <div class="nav-desktop-tabs">
+    <a href="../interactive_pages/index.html" class="nav-tab-desktop">🏛️ أدلة وقواميس الشرح</a>
+    <a href="index.html" class="nav-tab-desktop">📚 بنك أسئلة الأبواب</a>
+    <a href="dizionario-sinonimi.html" class="nav-tab-desktop active">📖 معجم المترادفات والبدائل</a>
+    <a href="parole-quiz.html" class="nav-tab-desktop">🔤 بنك كلماتي والأسئلة</a>
+    <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
+  </div>
+
+  <!-- Audio Toggle -->
+  <div class="nav-desktop-actions">
+    <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية">
+      <span id="audioIcon">🔊</span>
+      <span id="audioLabel">الصوت نشط</span>
+    </button>
+  </div>
+
+  <!-- Animated Hamburger Button -->
+  <button class="nav-hamburger-btn" id="nav-hamburger-btn" onclick="toggleMobileNav()" aria-label="قائمة التنقل">
+    <div class="hamburger-box">
+      <span class="hamburger-line line-top"></span>
+      <span class="hamburger-line line-mid"></span>
+      <span class="hamburger-line line-bot"></span>
+    </div>
+  </button>
+</nav>
+
+<!-- Backdrop Blur Overlay -->
+<div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
+
+<!-- Slide-Down Glassmorphic Drawer Panel -->
+<div class="mobile-drawer-panel" id="mobile-drawer-panel">
+  <div class="mobile-nav-list">
+    <a href="../interactive_pages/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>🏛️</span> <span>أدلة وقواميس الشرح الشاملة</span>
+    </a>
+    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>📚</span> <span>بنك أسئلة الأبواب (25 باب)</span>
+    </a>
+    <a href="dizionario-sinonimi.html" class="mobile-nav-link active" onclick="closeMobileNav()">
+      <span>📖</span> <span>معجم المترادفات والبدائل القانونية</span>
+    </a>
+    <a href="parole-quiz.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>🔤</span> <span>بنك كلماتي والأسئلة الوزارية</span>
+    </a>
+    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
+      <span>⏱️</span> <span>محاكي الامتحان الوزاري</span>
+    </a>
+  </div>
+</div>
+
+<main class="container">
+
+  <!-- Hero Bento Section -->
+  <section class="hero-bento">
+    <div class="glass-card hero-main-card">
+      <h1>
+        <span>📖</span>
+        <span>معجم المترادفات وفروق الوزارة الخادعة</span>
+      </h1>
+      <p>
+        المعجم الأكاديمي الشامل للكلمات ذات نفس المعنى القانوني في رخصة القيادة الإيطالية (*Codice della Strada*). مصمم خصيصاً لتفكيك <strong>الفروق الخادعة وفخاخ الوزارة (Falsi Sinonimi)</strong> التي يتعمد واضع الامتحان استخدامها لإرباك الطلاب.
+      </p>
+      <div class="hero-stats-row">
+        <div class="stat-chip">
+          <span>📚 العائلات الدلالية:</span>
+          <strong id="statTotalFamilies">18 عائلة</strong>
+        </div>
+        <div class="stat-chip">
+          <span>🟢 المترادفات القانونية:</span>
+          <strong id="statTotalSyns">85+ مرادفاً</strong>
+        </div>
+        <div class="stat-chip">
+          <span>🔴 الفخاخ المفككة:</span>
+          <strong id="statTotalTraps">38 فخاً وزارياً</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="glass-card hero-side-card">
+      <div>
+        <h3>⚡ هل تريد التدرب على أسئلة هذه الكلمات؟</h3>
+        <p>
+          انتقل إلى صفحة بنك الكلمات للبحث عن كافة الأسئلة الوزارية وممارسة الكويزات مع التظليل الذهبي.
+        </p>
+      </div>
+      <a href="parole-quiz.html" class="btn-quiz-bridge">
+        <span>🔤 فتح بنك كلماتي والأسئلة</span>
+        <span>←</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Search & Category Filters -->
+  <section class="glass-card search-filter-card">
+    <div class="search-bar-wrap">
+      <span class="search-icon-span">🔍</span>
+      <input type="text" id="dictSearchInput" class="search-input" placeholder="ابحث عن أي كلمة إيطالية، أو مرادف، أو ترجمة عربية (مثلاً: moderare, sosta, aderenza, vietato)..." oninput="renderThesaurusCards()">
+    </div>
+
+    <div class="category-chips-row" id="categoryChipsDeck">
+      <!-- Category Chips injected by JS -->
+    </div>
+  </section>
+
+  <!-- Dictionary Cards Grid -->
+  <section class="dictionary-grid" id="dictionaryGrid">
+    <!-- Populated by JS -->
+  </section>
+
+</main>
+
+<!-- Load Thesaurus Dataset -->
+<script src="data_thesaurus.js"></script>
+
+<script>
+/* Audio Engine */
+let audioEnabled = true;
+function toggleAudio() {
+  audioEnabled = !audioEnabled;
+  document.getElementById('audioIcon').textContent = audioEnabled ? '🔊' : '🔇';
+  document.getElementById('audioLabel').textContent = audioEnabled ? 'الصوت نشط' : 'الصوت مكتوم';
+}
+
+/* Mobile Nav Drawer */
+function toggleMobileNav() {
+  const btn = document.getElementById('nav-hamburger-btn');
+  const overlay = document.getElementById('mobile-drawer-overlay');
+  const panel = document.getElementById('mobile-drawer-panel');
+  const isOpen = btn.classList.contains('is-active');
+  btn.classList.toggle('is-active', !isOpen);
+  overlay.classList.toggle('is-active', !isOpen);
+  panel.classList.toggle('is-active', !isOpen);
+}
+function closeMobileNav() {
+  document.getElementById('nav-hamburger-btn').classList.remove('is-active');
+  document.getElementById('mobile-drawer-overlay').classList.remove('is-active');
+  document.getElementById('mobile-drawer-panel').classList.remove('is-active');
+}
+
+/* Italian Speech Pronunciation */
+function speakItalian(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'it-IT';
+  u.rate = 0.9;
+  window.speechSynthesis.speak(u);
+}
+
+/* Dictionary Controller */
+let activeCategory = 'all';
+
+function initDictionary() {
+  if (typeof PATENTE_THESAURUS === 'undefined') return;
+
+  // Stats
+  document.getElementById('statTotalFamilies').textContent = `${PATENTE_THESAURUS.length} عائلة`;
+  let synCount = 0;
+  let trapCount = 0;
+  PATENTE_THESAURUS.forEach(t => {
+    synCount += (t.sinonimi || []).length;
+    trapCount += (t.falsi_sinonimi || []).length;
+  });
+  document.getElementById('statTotalSyns').textContent = `${synCount} مرادفاً`;
+  document.getElementById('statTotalTraps').textContent = `${trapCount} فخاً`;
+
+  // Categories deck
+  const deck = document.getElementById('categoryChipsDeck');
+  deck.innerHTML = `
+    <button class="cat-chip-btn active" data-cat="all" onclick="selectCategory('all', this)">الكل (${PATENTE_THESAURUS.length})</button>
+  ` + PATENTE_THESAURUS.map(t => `
+    <button class="cat-chip-btn" data-cat="${t.id}" onclick="selectCategory('${t.id}', this)">${t.categoria}</button>
+  `).join('');
+
+  renderThesaurusCards();
+}
+
+function selectCategory(catId, btn) {
+  activeCategory = catId;
+  document.querySelectorAll('.cat-chip-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderThesaurusCards();
+}
+
+function renderThesaurusCards() {
+  const grid = document.getElementById('dictionaryGrid');
+  const query = (document.getElementById('dictSearchInput').value || '').trim().toLowerCase();
+
+  const filtered = PATENTE_THESAURUS.filter(item => {
+    // Category match
+    if (activeCategory !== 'all' && item.id !== activeCategory) return false;
+
+    // Search query match
+    if (!query) return true;
+
+    const base = item.parola_base.toLowerCase();
+    const ar = (item.traduzione_ar || '').toLowerCase();
+    const cat = (item.categoria || '').toLowerCase();
+    const exp = (item.spiegazione_ar || '').toLowerCase();
+    const syns = (item.sinonimi || []).join(' ').toLowerCase();
+    const traps = (item.falsi_sinonimi || []).map(f => f.termine + ' ' + f.spiegazione).join(' ').toLowerCase();
+
+    return base.includes(query) || ar.includes(query) || cat.includes(query) || exp.includes(query) || syns.includes(query) || traps.includes(query);
+  });
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-state-box">
+        <span style="font-size:3rem; display:block; margin-bottom:12px;">🔍</span>
+        <h3>لا توجد نتائج مطابقة لبحثك</h3>
+        <p style="color:#71717a;">جرّب كتابة كلمة إيطالية أخرى أو اختيار تصنيف من الأعلى.</p>
+      </div>
+    `;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(item => {
+    const synChips = (item.sinonimi || []).map(s => `
+      <span class="syn-chip">${s}</span>
+    `).join('');
+
+    const trapBoxes = (item.falsi_sinonimi || []).map(tr => `
+      <div class="trap-subitem">
+        <span class="trap-term-title">⚠️ ${tr.termine}</span>
+        <span style="color:#fecdd3;">${tr.spiegazione}</span>
+      </div>
+    `).join('');
+
+    return `
+      <article class="dict-card">
+        <div>
+          <div class="dict-card-head">
+            <div>
+              <div class="dict-word-main">${item.parola_base}</div>
+              <div class="dict-word-ar">${item.traduzione_ar}</div>
+            </div>
+            <span class="dict-cat-badge">${item.categoria}</span>
+          </div>
+
+          <div class="dict-definition-box">
+            ${item.spiegazione_ar}
+          </div>
+        </div>
+
+        <div>
+          ${synChips ? `
+            <div class="synonyms-section">
+              <h4>
+                <span>🟢</span>
+                <span>المترادفات الحقيقية في قانون السير (Sinonimi):</span>
+              </h4>
+              <div class="synonyms-deck">
+                ${synChips}
+              </div>
+            </div>
+          ` : ''}
+
+          ${trapBoxes ? `
+            <div class="traps-section" style="margin-top:12px;">
+              <h4>
+                <span>🔴</span>
+                <span>انتبه! مترادفات خادعة وفروق قاتلة (Falsi Sinonimi):</span>
+              </h4>
+              <div>
+                ${trapBoxes}
+              </div>
+            </div>
+          ` : ''}
+        </div>
+
+        <div class="dict-card-footer">
+          <a href="parole-quiz.html?search=${encodeURIComponent(item.parola_base)}" class="btn-explore-quiz" title="انتقل لبنك الأسئلة للتدرب على أسئلة هذه الكلمة">
+            <span>🔍 تدرب على أسئلة "${item.parola_base}"</span>
+            <span>←</span>
+          </a>
+          <button class="btn-tts-mini" onclick="speakItalian('${item.parola_base.replace(/'/g, "\\'")}')" title="استمع للنطق الإيطالي">
+            🗣️
+          </button>
+        </div>
+      </article>
+    `;
+  }).join('');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initDictionary();
+});
+</script>
+
+</body>
+</html>
