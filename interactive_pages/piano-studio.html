@@ -338,10 +338,14 @@
     html.light .sp-checkbox {
       background: #FFFFFF;
       border-color: #CBD5E1;
+      color: #0F172A;
     }
-    .sp-checkbox.checked {
-      background: var(--sp-emerald);
-      border-color: var(--sp-emerald);
+    .sp-checkbox.checked,
+    html.light .sp-checkbox.checked {
+      background: var(--sp-emerald) !important;
+      border-color: var(--sp-emerald) !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.35);
     }
 
     .sp-station-icon {
@@ -990,12 +994,12 @@
                 <span id="titleStationQuiz">محطة أسئلة الباب الوزارية</span>
                 <span class="sp-station-badge" id="badgeStationQuiz">15 دقيقة</span>
               </h4>
-              <p id="stationQuizDesc">حل أسئلة الباب في بنك الأسئلة الشامل للتعرف على صيغ الوزارة وفك التردد.</p>
+              <p id="stationQuizDesc">تدريب تطبيقي (15–25 سؤالاً): حل عينة من أسئلة الباب لترسيخ ما درسته في الشرح، ولست مطالباً بحل بنك الأسئلة بالكامل اليوم.</p>
             </div>
           </div>
           <div id="quizLinksWrap" style="display: flex; gap: 8px; flex-wrap: wrap;">
             <a id="btnOpenChapterQuizLink" href="#" target="_blank" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 14px;">
-              <span>📂 أسئلة الباب ↗</span>
+              <span>📂 أسئلة الباب (تدريب 15–25 سؤالاً) ↗</span>
             </a>
           </div>
         </div>
@@ -1829,7 +1833,7 @@
         if (titleTheory) titleTheory.innerText = "محطة الشرح النظري والقواعد";
         if (descTheory) descTheory.innerText = "دراسة دليل الباب التفاعلي مع الرسوم الهندسية، والخرائط الذهنية، وقواعد كود السير.";
         if (titleQuiz) titleQuiz.innerText = "محطة أسئلة الباب الوزارية";
-        if (descQuiz) descQuiz.innerText = "حل أسئلة الباب في بنك الأسئلة الشامل للتعرف على صيغ الوزارة وفك التردد.";
+        if (descQuiz) descQuiz.innerText = "تدريب تطبيقي (15–25 سؤالاً): حل عينة من أسئلة الباب لترسيخ ما درسته في الشرح، ولست مطالباً بحل بنك الأسئلة بالكامل اليوم.";
         if (titleTest) titleTest.innerText = "محطة التثبيت السريع (30 سؤالاً وزاريّاً)";
         if (descTest) descTest.innerText = "اختبار وزاري سريع مكون من 30 سؤالاً عشوائياً (الحد الأقصى المسموح رسمياً 3 أخطاء).";
       }
@@ -1858,7 +1862,7 @@
           const folder = (typeof CHAPTERS_META !== 'undefined' && CHAPTERS_META[chNum - 1]) 
             ? CHAPTERS_META[chNum - 1].folder 
             : "Capitolo_01_definizioni_generali_doveri_strada";
-          const label = currentDay.chapters.length > 1 ? `📂 أسئلة باب ${chNum} ↗` : `📂 أسئلة الباب ↗`;
+          const label = currentDay.chapters.length > 1 ? `📂 أسئلة باب ${chNum} ↗` : `📂 أسئلة الباب (تدريب 15–25 سؤالاً) ↗`;
           return `<a href="../Capitoli_Divisi/${folder}/index.html" target="_blank" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 14px;"><span>${label}</span></a>`;
         }).join("");
       }
