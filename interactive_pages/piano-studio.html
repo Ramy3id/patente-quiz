@@ -766,6 +766,12 @@
       background: var(--sp-emerald);
       color: #FFFFFF;
     }
+    .btn-vero.selected {
+      background: var(--sp-emerald) !important;
+      color: #FFFFFF !important;
+      border-color: var(--sp-emerald) !important;
+      box-shadow: 0 0 16px rgba(16, 185, 129, 0.45);
+    }
 
     .btn-falso {
       background: rgba(244, 63, 94, 0.15);
@@ -775,6 +781,54 @@
     .btn-falso:hover {
       background: var(--sp-rose);
       color: #FFFFFF;
+    }
+    .btn-falso.selected {
+      background: var(--sp-rose) !important;
+      color: #FFFFFF !important;
+      border-color: var(--sp-rose) !important;
+      box-shadow: 0 0 16px rgba(244, 63, 94, 0.45);
+    }
+
+    .sp-quiz-nav-strip {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      margin-bottom: 16px;
+      padding-bottom: 6px;
+      scrollbar-width: thin;
+    }
+
+    .sp-quiz-pill {
+      min-width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--sp-border);
+      color: var(--sp-text-sub);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+    }
+    html.light .sp-quiz-pill {
+      background: #FFFFFF;
+      border-color: #E2E8F0;
+      color: #64748B;
+    }
+    .sp-quiz-pill.active {
+      border-color: var(--sp-cyan);
+      background: rgba(56, 189, 248, 0.2);
+      color: var(--sp-cyan);
+    }
+    .sp-quiz-pill.answered {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.4);
+      color: var(--sp-cyan);
     }
 
     /* Explanation Drawer */
@@ -1050,14 +1104,17 @@
       <div class="sp-quiz-card">
         <div class="sp-quiz-top">
           <div>
-            <span class="sp-mission-tag" id="quizChapterBadge">⚡ كويز التثبيت الوزاري السريع</span>
+            <span class="sp-mission-tag" id="quizChapterBadge">⚡ كويز التثبيت الوزاري (30 سؤالاً)</span>
           </div>
-          <div style="display: flex; gap: 18px; align-items: center;">
-            <div class="sp-quiz-errors-counter" id="quizErrorsCount">الأخطاء: 0 / 3</div>
-            <div class="sp-quiz-progress" id="quizProgressText">سؤال 1 من 30</div>
+          <div style="display: flex; gap: 14px; align-items: center;">
+            <div class="sp-quiz-progress" id="quizProgressText" style="font-weight: 800; color: var(--sp-cyan);">سؤال 1 من 30</div>
+            <div id="quizAnsweredCount" style="font-size: 0.85rem; color: var(--sp-text-sub);">المُجاب عنه: 0 / 30</div>
             <button class="sp-btn sp-btn-outline" style="padding: 4px 10px; font-size: 0.75rem;" onclick="closeRapidQuiz()">✕ إغلاق</button>
           </div>
         </div>
+
+        <!-- شريط أرقام الأسئلة الـ 30 للتنقل الحر -->
+        <div class="sp-quiz-nav-strip" id="quizNavStrip"></div>
 
         <div id="quizQuestionBody">
           <!-- صورة السؤال إن وجدت -->
@@ -1072,21 +1129,25 @@
 
           <!-- أزرار الإجابة VERO / FALSO -->
           <div class="sp-quiz-actions">
-            <button class="sp-btn-vf btn-vero" id="btnAnsVero" onclick="answerRapidQuiz(true)">
+            <button class="sp-btn-vf btn-vero" id="btnAnsVero" onclick="selectRapidQuizAnswer(true)">
               <span>VERO</span> <span>(صح)</span>
             </button>
-            <button class="sp-btn-vf btn-falso" id="btnAnsFalso" onclick="answerRapidQuiz(false)">
+            <button class="sp-btn-vf btn-falso" id="btnAnsFalso" onclick="selectRapidQuizAnswer(false)">
               <span>FALSO</span> <span>(خطأ)</span>
             </button>
           </div>
 
-          <!-- صندوق الشرح والفخ القانوني بعد الإجابة -->
-          <div class="sp-explanation-box" id="quizExplanationBox">
-            <div id="quizTrapBadge" class="sp-trap-badge" style="display:none;">⚠️ الفخ الوزاري</div>
-            <div id="quizExplanationText" style="font-size: 0.95rem; line-height: 1.6; color: var(--sp-text);"></div>
-            <div style="margin-top: 14px; text-align: left;">
+          <!-- أزرار التنقل وتسليم الاختبار -->
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 18px; flex-wrap: wrap; gap: 10px;">
+            <button class="sp-btn sp-btn-outline" id="btnPrevQuizQ" onclick="prevRapidQuizQuestion()">
+              <span>➡ السؤال السابق</span>
+            </button>
+            <div style="display: flex; gap: 8px;">
               <button class="sp-btn sp-btn-primary" id="btnNextQuizQ" onclick="nextRapidQuizQuestion()">
                 <span>السؤال التالي ⬅</span>
+              </button>
+              <button class="sp-btn sp-btn-emerald" id="btnSubmitQuiz" onclick="submitRapidQuiz()" style="font-weight: 800;">
+                <span>تسليم الكويز 🏁</span>
               </button>
             </div>
           </div>
@@ -2079,8 +2140,8 @@
       rapidQuizState = {
         questions: selected.slice(0, 30),
         currentIndex: 0,
+        userAnswers: {},
         errorsCount: 0,
-        userAnswers: [],
         mistakenQuestions: [],
         passed: false
       };
@@ -2090,8 +2151,29 @@
       document.getElementById("rapidQuizSection").classList.add("active");
       document.getElementById("quizErrorsReviewWrap").style.display = "none";
 
+      renderRapidQuizPills();
       loadRapidQuizQuestion();
       document.getElementById("rapidQuizSection").scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function renderRapidQuizPills() {
+      const strip = document.getElementById("quizNavStrip");
+      if (!strip) return;
+      strip.innerHTML = "";
+
+      rapidQuizState.questions.forEach((q, idx) => {
+        const pill = document.createElement("div");
+        pill.className = "sp-quiz-pill";
+        pill.innerText = idx + 1;
+        if (idx === rapidQuizState.currentIndex) pill.classList.add("active");
+        if (rapidQuizState.userAnswers[idx] !== undefined) pill.classList.add("answered");
+
+        pill.onclick = () => {
+          rapidQuizState.currentIndex = idx;
+          loadRapidQuizQuestion();
+        };
+        strip.appendChild(pill);
+      });
     }
 
     function loadRapidQuizQuestion() {
@@ -2099,7 +2181,9 @@
       if (!q) return;
 
       document.getElementById("quizProgressText").innerText = "سؤال " + (rapidQuizState.currentIndex + 1) + " من 30";
-      document.getElementById("quizErrorsCount").innerText = "الأخطاء: " + rapidQuizState.errorsCount + " / 3";
+      
+      const answeredCount = Object.keys(rapidQuizState.userAnswers).length;
+      document.getElementById("quizAnsweredCount").innerText = "المُجاب عنه: " + answeredCount + " / 30";
 
       document.getElementById("quizQuestionIt").innerText = q.q;
       document.getElementById("quizQuestionAr").innerText = q.tr || "";
@@ -2113,62 +2197,103 @@
         imgWrap.style.display = "none";
       }
 
-      const expBox = document.getElementById("quizExplanationBox");
-      expBox.classList.remove("show");
-      document.getElementById("btnAnsVero").disabled = false;
-      document.getElementById("btnAnsFalso").disabled = false;
+      // ضبط حالة أزرار الإجابة (إبراز الإجابة المختارة إن وجدت دون تصحيح)
+      const btnVero = document.getElementById("btnAnsVero");
+      const btnFalso = document.getElementById("btnAnsFalso");
+      btnVero.classList.remove("selected");
+      btnFalso.classList.remove("selected");
+
+      const savedAns = rapidQuizState.userAnswers[rapidQuizState.currentIndex];
+      if (savedAns === true) btnVero.classList.add("selected");
+      else if (savedAns === false) btnFalso.classList.add("selected");
+
+      // حالة أزرار التالي والسابق
+      const btnPrev = document.getElementById("btnPrevQuizQ");
+      const btnNext = document.getElementById("btnNextQuizQ");
+      if (btnPrev) btnPrev.disabled = (rapidQuizState.currentIndex === 0);
+      if (btnNext) {
+        btnNext.innerText = (rapidQuizState.currentIndex === rapidQuizState.questions.length - 1) ? "السؤال الأخير" : "السؤال التالي ⬅";
+      }
+
+      renderRapidQuizPills();
     }
 
-    function answerRapidQuiz(userChoice) {
-      const q = rapidQuizState.questions[rapidQuizState.currentIndex];
-      if (!q) return;
+    function selectRapidQuizAnswer(userChoice) {
+      rapidQuizState.userAnswers[rapidQuizState.currentIndex] = userChoice;
 
-      const isCorrect = (userChoice === q.a);
-      if (!isCorrect) {
-        rapidQuizState.errorsCount++;
-        rapidQuizState.mistakenQuestions.push({
-          q: q,
-          userChoice: userChoice
-        });
-        if (srsEngine && srsEngine.logQuestionAttempt) {
-          srsEngine.logQuestionAttempt(q, false);
+      const btnVero = document.getElementById("btnAnsVero");
+      const btnFalso = document.getElementById("btnAnsFalso");
+      btnVero.classList.toggle("selected", userChoice === true);
+      btnFalso.classList.toggle("selected", userChoice === false);
+
+      renderRapidQuizPills();
+
+      // انتقال سلس للسؤال التالي بعد اختيار الإجابة بنقرة طبيعية
+      setTimeout(() => {
+        if (rapidQuizState.currentIndex < rapidQuizState.questions.length - 1) {
+          rapidQuizState.currentIndex++;
+          loadRapidQuizQuestion();
+        } else {
+          const answeredCount = Object.keys(rapidQuizState.userAnswers).length;
+          document.getElementById("quizAnsweredCount").innerText = "المُجاب عنه: " + answeredCount + " / 30";
         }
-      } else {
-        if (srsEngine && srsEngine.logQuestionAttempt) {
-          srsEngine.logQuestionAttempt(q, true);
-        }
+      }, 250);
+    }
+
+    function prevRapidQuizQuestion() {
+      if (rapidQuizState.currentIndex > 0) {
+        rapidQuizState.currentIndex--;
+        loadRapidQuizQuestion();
       }
-
-      document.getElementById("quizErrorsCount").innerText = "الأخطاء: " + rapidQuizState.errorsCount + " / 3";
-      document.getElementById("btnAnsVero").disabled = true;
-      document.getElementById("btnAnsFalso").disabled = true;
-
-      const expBox = document.getElementById("quizExplanationBox");
-      const trapBadge = document.getElementById("quizTrapBadge");
-      const expText = document.getElementById("quizExplanationText");
-
-      if (q.tb && q.tb.trim()) {
-        trapBadge.style.display = "inline-block";
-        trapBadge.innerText = "⚠️ فخ الوزارة: " + q.tb;
-      } else {
-        trapBadge.style.display = "none";
-      }
-
-      const statusBadge = isCorrect 
-        ? "<span style='color:var(--sp-emerald); font-weight:800;'>✓ إجابة صحيحة!</span> " 
-        : "<span style='color:var(--sp-rose); font-weight:800;'>✕ إجابة خاطئة!</span> الإجابة الصحيحة هي: (" + (q.a ? "VERO" : "FALSO") + "). ";
-
-      expText.innerHTML = statusBadge + "<br>" + (q.sp || "وفقاً لقانون السير الإيطالي (Codice della Strada).");
-      expBox.classList.add("show");
     }
 
     function nextRapidQuizQuestion() {
-      rapidQuizState.currentIndex++;
-      if (rapidQuizState.currentIndex >= rapidQuizState.questions.length) {
-        showRapidQuizResult();
-      } else {
+      if (rapidQuizState.currentIndex < rapidQuizState.questions.length - 1) {
+        rapidQuizState.currentIndex++;
         loadRapidQuizQuestion();
       }
+    }
+
+    function submitRapidQuiz() {
+      const answeredCount = Object.keys(rapidQuizState.userAnswers).length;
+      const total = rapidQuizState.questions.length;
+
+      if (answeredCount < total) {
+        const remaining = total - answeredCount;
+        const confirmSubmit = confirm(`تنبيه: لا يزال لديك ${remaining} أسئلة غير مُجابة.\nهل تريد تسليم الكويز واحتساب الأسئلة المتروكة كأخطاء؟`);
+        if (!confirmSubmit) return;
+      }
+
+      // حساب النتيجة النهائية مرة واحدة في النهاية دون ضغط نفسي أثناء الحل
+      let errorsCount = 0;
+      let mistakenQuestions = [];
+
+      rapidQuizState.questions.forEach((q, idx) => {
+        const userChoice = rapidQuizState.userAnswers[idx];
+        const isCorrect = (userChoice === q.a);
+
+        if (!isCorrect) {
+          errorsCount++;
+          mistakenQuestions.push({
+            q: q,
+            userChoice: userChoice,
+            idx: idx
+          });
+          if (srsEngine && srsEngine.logQuestionAttempt) {
+            srsEngine.logQuestionAttempt(q, false);
+          }
+        } else {
+          if (srsEngine && srsEngine.logQuestionAttempt) {
+            srsEngine.logQuestionAttempt(q, true);
+          }
+        }
+      });
+
+      rapidQuizState.errorsCount = errorsCount;
+      rapidQuizState.mistakenQuestions = mistakenQuestions;
+      rapidQuizState.passed = (errorsCount <= 3);
+
+      showRapidQuizResult();
     }
 
     function showRapidQuizResult() {
@@ -2176,8 +2301,10 @@
       const summary = document.getElementById("quizResultSummary");
       summary.style.display = "block";
 
-      const isPassed = rapidQuizState.errorsCount <= 3;
-      rapidQuizState.passed = isPassed;
+      const total = rapidQuizState.questions.length;
+      const errors = rapidQuizState.errorsCount;
+      const correct = total - errors;
+      const isPassed = rapidQuizState.passed;
 
       const icon = document.getElementById("quizResultIcon");
       const title = document.getElementById("quizResultTitle");
@@ -2187,22 +2314,28 @@
       if (isPassed) {
         icon.innerText = "🎉";
         title.innerText = "مبروك! اجتزت الكويز بنجاح";
-        desc.innerText = "أنهيت الـ 30 سؤالاً بـ " + rapidQuizState.errorsCount + " أخطاء فقط (المسموح به رسمياً حتى 3 أخطاء). جاهزيتك ممتازة لهذا الباب!";
+        desc.innerText = `أنهيت الـ 30 سؤالاً بـ ${errors} أخطاء فقط (أجبت ${correct} من 30 إجابة صحيحة). جاهزيتك ممتازة ورسمية لهذا الباب!`;
+        
+        let reviewBtn = rapidQuizState.mistakenQuestions.length 
+          ? `<button class="sp-btn sp-btn-amber" onclick="toggleErrorsReview()"><span>🔍 مراجعة الأخطاء (${rapidQuizState.mistakenQuestions.length})</span></button>` 
+          : "";
+
         actions.innerHTML = `
           <button class="sp-btn sp-btn-emerald" onclick="finishAndCompleteDayFromQuiz()">
             <span>✅ اعتماد إتمام مهمة اليوم</span>
           </button>
+          ${reviewBtn}
           <button class="sp-btn sp-btn-outline" onclick="closeRapidQuiz()">
             <span>إغلاق الكويز</span>
           </button>
         `;
       } else {
         icon.innerText = "⚠️";
-        title.innerText = "لم تجتز الكويز بعد (سجلت " + rapidQuizState.errorsCount + " أخطاء)";
-        desc.innerText = "الحد الأقصى المسموح به في الامتحان الرسمي هو 3 أخطاء فقط. الأسئلة التي أخطأت فيها تم حفظها في بنك أخطاء SRS، ويُنصح بمراجعتها وإعادة الكويز بنموذج جديد.";
+        title.innerText = `النتيجة: ${errors} أخطاء من 30 (أجبت ${correct} من 30 إجابة صحيحة!)`;
+        desc.innerText = `معنوياتك ممتازة! أجبت ${correct} إجابة صحيحة. الحد الأقصى الرسمي للنجاح هو 3 أخطاء. راجع أخطاءك الـ ${errors} أدناه واستوعب أسبابها، ثم أعد المحاولة بنموذج جديد.`;
         
         let reviewBtn = rapidQuizState.mistakenQuestions.length 
-          ? `<button class="sp-btn sp-btn-amber" onclick="toggleErrorsReview()"><span>🔍 مراجعة الأخطاء (${rapidQuizState.mistakenQuestions.length})</span></button>` 
+          ? `<button class="sp-btn sp-btn-amber" onclick="toggleErrorsReview()"><span>🔍 مراجعة الأخطاء المشروحة (${rapidQuizState.mistakenQuestions.length})</span></button>` 
           : "";
 
         actions.innerHTML = `
@@ -2214,26 +2347,31 @@
             <span>إغلاق مؤقتاً</span>
           </button>
         `;
+
+        // إظهار مراجعة الأخطاء المشروحة فوراً
+        toggleErrorsReview(true);
       }
     }
 
-    function toggleErrorsReview() {
+    function toggleErrorsReview(forceOpen = false) {
       const wrap = document.getElementById("quizErrorsReviewWrap");
       const list = document.getElementById("quizErrorsList");
-      if (wrap.style.display === "block") {
+      if (!forceOpen && wrap.style.display === "block") {
         wrap.style.display = "none";
         return;
       }
 
       list.innerHTML = rapidQuizState.mistakenQuestions.map((item, idx) => {
         const q = item.q;
+        const userText = (item.userChoice === undefined) ? 'لم تجب' : (item.userChoice ? 'VERO (صح)' : 'FALSO (خطأ)');
+        const correctText = q.a ? 'VERO (صح)' : 'FALSO (خطأ)';
         return `
           <div class="sp-error-review-item">
             <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
-              <span style="font-weight:800; color:var(--sp-rose);">خطأ #${idx + 1}</span>
+              <span style="font-weight:800; color:var(--sp-rose);">سؤال رقم ${item.idx + 1} (خطأ #${idx + 1})</span>
               <span style="font-size:0.8rem; color:var(--sp-text-sub);">
-                إجابتك: <strong style="color:var(--sp-rose);">${item.userChoice ? 'VERO' : 'FALSO'}</strong> | 
-                الصحيح: <strong style="color:var(--sp-emerald);">${q.a ? 'VERO' : 'FALSO'}</strong>
+                إجابتك: <strong style="color:var(--sp-rose);">${userText}</strong> | 
+                الصحيح: <strong style="color:var(--sp-emerald);">${correctText}</strong>
               </span>
             </div>
             <div style="direction:ltr; text-align:left; font-family:'Plus Jakarta Sans', sans-serif; font-weight:700; margin-bottom:6px; color:var(--sp-text);">
