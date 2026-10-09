@@ -944,8 +944,8 @@
             <div class="sp-station-icon">📖</div>
             <div class="sp-station-info">
               <h4>
-                <span>محطة الكلمات والأفخاخ اللغوية</span>
-                <span class="sp-station-badge">15–20 دقيقة</span>
+                <span id="titleStationVocab">محطة الكلمات والأفخاخ اللغوية</span>
+                <span class="sp-station-badge" id="badgeStationVocab">15 دقيقة</span>
               </h4>
               <p id="stationVocabDesc">حفظ وفهم مصطلحات الباب في قاموس المترادفات والبدائل لتجاوز عقبة اللغة الوزارية.</p>
             </div>
@@ -967,8 +967,8 @@
             <div class="sp-station-icon">🏛️</div>
             <div class="sp-station-info">
               <h4>
-                <span>محطة الشرح النظري والقواعد</span>
-                <span class="sp-station-badge">35–40 دقيقة</span>
+                <span id="titleStationTheory">محطة الشرح النظري والقواعد</span>
+                <span class="sp-station-badge" id="badgeStationTheory">25 دقيقة</span>
               </h4>
               <p id="stationTheoryDesc">دراسة دليل الباب التفاعلي مع الرسوم الهندسية، والخرائط الذهنية، وقواعد كود السير.</p>
             </div>
@@ -987,8 +987,8 @@
             <div class="sp-station-icon">📝</div>
             <div class="sp-station-info">
               <h4>
-                <span>محطة أسئلة الباب الوزارية</span>
-                <span class="sp-station-badge">40–45 دقيقة</span>
+                <span id="titleStationQuiz">محطة أسئلة الباب الوزارية</span>
+                <span class="sp-station-badge" id="badgeStationQuiz">15 دقيقة</span>
               </h4>
               <p id="stationQuizDesc">حل أسئلة الباب في بنك الأسئلة الشامل للتعرف على صيغ الوزارة وفك التردد.</p>
             </div>
@@ -1007,8 +1007,8 @@
             <div class="sp-station-icon">⚡</div>
             <div class="sp-station-info">
               <h4>
-                <span>محطة التثبيت السريع (30 سؤالاً وزاريّاً)</span>
-                <span class="sp-station-badge">15–20 دقيقة</span>
+                <span id="titleStationTest">محطة التثبيت السريع (30 سؤالاً وزاريّاً)</span>
+                <span class="sp-station-badge" id="badgeStationTest">10 دقائق</span>
               </h4>
               <p id="stationTestDesc">اختبار وزاري سريع مكون من 30 سؤالاً عشوائياً (الحد الأقصى المسموح رسمياً 3 أخطاء).</p>
             </div>
@@ -1666,6 +1666,74 @@
     }
 
     /**
+     * تنسيق الدقائق باللغة العربية
+     */
+    function formatMinutesAr(mins) {
+      if (mins === 10) return "10 دقائق";
+      if (mins < 10) return mins + " دقائق";
+      return mins + " دقيقة";
+    }
+
+    /**
+     * توزيع الوقت اليومي بدقة رياضية على المحطات الأربع
+     * بحيث يكون المجموع مساوياً تماماً لساعات المذاكرة المحددة (ساعة / ساعتان / 3 ساعات)
+     */
+    function getStationTimeAllocations(dailyHours, langLevel, dayType = "chapter") {
+      const totalMins = (dailyHours || 2) * 60;
+
+      if (totalMins <= 60) {
+        // ساعة واحدة (60 دقيقة) - تناسب أوقات المواصلات والتنقل
+        if (dayType === "buffer") {
+          return { vocab: 15, theory: 20, quiz: 15, test: 10 };
+        } else if (dayType === "traps_sprint") {
+          return { vocab: 20, theory: 15, quiz: 15, test: 10 };
+        } else if (dayType === "exam_marathon") {
+          return { vocab: 10, theory: 20, quiz: 15, test: 15 };
+        }
+        // الأبواب المنهجية
+        if (langLevel === "beginner") {
+          return { vocab: 15, theory: 20, quiz: 15, test: 10 };
+        } else if (langLevel === "intermediate") {
+          return { vocab: 10, theory: 25, quiz: 15, test: 10 };
+        } else {
+          return { vocab: 5, theory: 25, quiz: 20, test: 10 };
+        }
+      } else if (totalMins <= 120) {
+        // ساعتان (120 دقيقة) - الخطة القياسية
+        if (dayType === "buffer") {
+          return { vocab: 25, theory: 45, quiz: 30, test: 20 };
+        } else if (dayType === "traps_sprint") {
+          return { vocab: 35, theory: 35, quiz: 30, test: 20 };
+        } else if (dayType === "exam_marathon") {
+          return { vocab: 20, theory: 40, quiz: 30, test: 30 };
+        }
+        if (langLevel === "beginner") {
+          return { vocab: 25, theory: 40, quiz: 35, test: 20 };
+        } else if (langLevel === "intermediate") {
+          return { vocab: 20, theory: 45, quiz: 35, test: 20 };
+        } else {
+          return { vocab: 15, theory: 45, quiz: 40, test: 20 };
+        }
+      } else {
+        // 3 ساعات (180 دقيقة) - الخطة المكثفة
+        if (dayType === "buffer") {
+          return { vocab: 35, theory: 65, quiz: 50, test: 30 };
+        } else if (dayType === "traps_sprint") {
+          return { vocab: 50, theory: 50, quiz: 50, test: 30 };
+        } else if (dayType === "exam_marathon") {
+          return { vocab: 30, theory: 60, quiz: 45, test: 45 };
+        }
+        if (langLevel === "beginner") {
+          return { vocab: 35, theory: 65, quiz: 50, test: 30 };
+        } else if (langLevel === "intermediate") {
+          return { vocab: 25, theory: 70, quiz: 55, test: 30 };
+        } else {
+          return { vocab: 20, theory: 70, quiz: 60, test: 30 };
+        }
+      }
+    }
+
+    /**
      * تحديث وعرض واجهة المستخدم
      */
     function renderPlanUI() {
@@ -1702,7 +1770,69 @@
       document.getElementById("missionItTitle").innerText = currentDay.title_it;
 
       const estHours = activePlan.dailyHours || 2;
-      document.getElementById("missionEstimatedTime").innerText = "⏱️ " + estHours + " ساعات (" + (estHours * 60) + " دقيقة)";
+      const hoursArabic = estHours === 1 ? "ساعة واحدة" : estHours === 2 ? "ساعتان" : `${estHours} ساعات`;
+      document.getElementById("missionEstimatedTime").innerText = "⏱️ " + hoursArabic + " (" + (estHours * 60) + " دقيقة)";
+
+      // حساب التوزيع الزمني الدقيق للمحطات الأربع ليتطابق مجموعها 100% مع وقت المذاكرة اليومي المحدد
+      const stationTimes = getStationTimeAllocations(estHours, activePlan.langLevel, currentDay.type);
+      
+      const badgeVocab = document.getElementById("badgeStationVocab");
+      const badgeTheory = document.getElementById("badgeStationTheory");
+      const badgeQuiz = document.getElementById("badgeStationQuiz");
+      const badgeTest = document.getElementById("badgeStationTest");
+
+      if (badgeVocab) badgeVocab.innerText = formatMinutesAr(stationTimes.vocab);
+      if (badgeTheory) badgeTheory.innerText = formatMinutesAr(stationTimes.theory);
+      if (badgeQuiz) badgeQuiz.innerText = formatMinutesAr(stationTimes.quiz);
+      if (badgeTest) badgeTest.innerText = formatMinutesAr(stationTimes.test);
+
+      // تكييف نصوص وعناوين المحطات بما يناسب نوع اليوم
+      const titleVocab = document.getElementById("titleStationVocab");
+      const descVocab = document.getElementById("stationVocabDesc");
+      const titleTheory = document.getElementById("titleStationTheory");
+      const descTheory = document.getElementById("stationTheoryDesc");
+      const titleQuiz = document.getElementById("titleStationQuiz");
+      const descQuiz = document.getElementById("stationQuizDesc");
+      const titleTest = document.getElementById("titleStationTest");
+      const descTest = document.getElementById("stationTestDesc");
+
+      if (currentDay.type === "buffer") {
+        if (titleVocab) titleVocab.innerText = "محطة مراجعة الكلمات الضعيفة";
+        if (descVocab) descVocab.innerText = "مراجعة الكلمات والبطاقات الأكثر تكراراً في الخطأ عبر الفلاش كاردز.";
+        if (titleTheory) titleTheory.innerText = "محطة استدراك القواعد والمفاهيم";
+        if (descTheory) descTheory.innerText = "التركيز على نقاط الضعف والمفاهيم غير الثابتة من الأبواب السابقة.";
+        if (titleQuiz) titleQuiz.innerText = "محطة تصفير سجل أخطاء SRS";
+        if (descQuiz) descQuiz.innerText = "إعادة حل الأسئلة المحفوظة في سجل التكرار المتباعد لتثبيتها نهائياً.";
+        if (titleTest) titleTest.innerText = "كويز استدراك ومراجعة شاملة (30 سؤالاً)";
+        if (descTest) descTest.innerText = "اختبار عشوائي للتحقق من زوال مواطن الضعف واستعادة الثقة الكاملة.";
+      } else if (currentDay.type === "traps_sprint") {
+        if (titleVocab) titleVocab.innerText = "محطة معجم المترادفات والبدائل الوزارية";
+        if (descVocab) descVocab.innerText = "حفظ الكلمات الخادعة والبدائل الوزارية التي تغير معنى العبارة جذرياً.";
+        if (titleTheory) titleTheory.innerText = "محطة تشريح أشهر الأفخاخ الرسمية";
+        if (descTheory) descTheory.innerText = "دراسة أشهر 100 فخ في الإشارات والقواعد لتفادي الفخاخ الامتحانية.";
+        if (titleQuiz) titleQuiz.innerText = "محطة بنك الأفخاخ والألعاب التفاعلية";
+        if (descQuiz) descQuiz.innerText = "تدريب سريع على ألعاب الفخاخ لرفع سرعة البديهة والتركيز.";
+        if (titleTest) titleTest.innerText = "كويز صائد الأفخاخ الوزاري (30 سؤالاً)";
+        if (descTest) descTest.innerText = "اختبار مكثف على الأسئلة الأكثر إيقاعاً بالطلاب في الامتحانات.";
+      } else if (currentDay.type === "exam_marathon") {
+        if (titleVocab) titleVocab.innerText = "محطة التهيئة والتركيز السريع";
+        if (descVocab) descVocab.innerText = "مراجعة سريعة للملاحظات الذهبية قبل خوض المحاكاة الرسمية.";
+        if (titleTheory) titleTheory.innerText = "محاكاة الامتحان الوزاري الرسمي (Scheda)";
+        if (descTheory) descTheory.innerText = "خوض نموذج وزاري كامل (30 سؤالاً في 20 دقيقة) بأجواء الامتحان.";
+        if (titleQuiz) titleQuiz.innerText = "محطة تشريح أخطاء النموذج";
+        if (descQuiz) descQuiz.innerText = "تحليل الأسئلة الخاطئة وربطها بالقاعدة الرسمية فور الانتهاء.";
+        if (titleTest) titleTest.innerText = "كويز التثبيت التأكيدي (30 سؤالاً)";
+        if (descTest) descTest.innerText = "اختبار تأكيدي نهائي للتأكد من ثبات المستوى والجاهزية التامة.";
+      } else {
+        if (titleVocab) titleVocab.innerText = "محطة الكلمات والأفخاخ اللغوية";
+        if (descVocab) descVocab.innerText = "حفظ وفهم مصطلحات الباب في قاموس المترادفات والبدائل لتجاوز عقبة اللغة الوزارية.";
+        if (titleTheory) titleTheory.innerText = "محطة الشرح النظري والقواعد";
+        if (descTheory) descTheory.innerText = "دراسة دليل الباب التفاعلي مع الرسوم الهندسية، والخرائط الذهنية، وقواعد كود السير.";
+        if (titleQuiz) titleQuiz.innerText = "محطة أسئلة الباب الوزارية";
+        if (descQuiz) descQuiz.innerText = "حل أسئلة الباب في بنك الأسئلة الشامل للتعرف على صيغ الوزارة وفك التردد.";
+        if (titleTest) titleTest.innerText = "محطة التثبيت السريع (30 سؤالاً وزاريّاً)";
+        if (descTest) descTest.innerText = "اختبار وزاري سريع مكون من 30 سؤالاً عشوائياً (الحد الأقصى المسموح رسمياً 3 أخطاء).";
+      }
 
       // روابط الأدلة والأسئلة
       const theoryLinksWrap = document.getElementById("theoryLinksWrap");
