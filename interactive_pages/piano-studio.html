@@ -312,6 +312,20 @@
       background: rgba(16, 185, 129, 0.06);
     }
 
+    .sp-quiz-links-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .sp-chapter-quiz-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
     .sp-station-main {
       display: flex;
       align-items: center;
@@ -880,6 +894,8 @@
       .sp-hero-top { flex-direction: column; }
       .sp-hero-actions { width: 100%; justify-content: stretch; }
       .sp-btn { flex: 1; justify-content: center; }
+      .sp-quiz-links-wrap { width: 100%; margin-top: 10px; }
+      .sp-chapter-quiz-row { width: 100%; }
     }
   </style>
 </head>
@@ -1051,13 +1067,15 @@
               <p id="stationQuizDesc">تدريب ذكي (15–25 سؤالاً): يختار أسئلة عشوائية منوعة تغطي كافة محاور الباب بدون تكرار للأسئلة المتشابهة لترسيخ الفهم.</p>
             </div>
           </div>
-          <div id="quizLinksWrap" style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <a id="btnStartSmartTraining" href="allenamento-capitolo.html?ch=1&count=20" class="sp-btn sp-btn-primary" style="font-size: 0.8rem; padding: 6px 14px;">
-              <span>🎯 تدريب ذكي (20 سؤالاً بدون تكرار) ↗</span>
-            </a>
-            <a id="btnOpenChapterQuizLink" href="../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/index.html" target="_blank" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 12px;">
-              <span>📂 بنك الأسئلة الشامل ↗</span>
-            </a>
+          <div id="quizLinksWrap" class="sp-quiz-links-wrap">
+            <div class="sp-chapter-quiz-row">
+              <a id="btnStartSmartTraining" href="allenamento-capitolo.html?ch=1&count=20" class="sp-btn sp-btn-primary" style="font-size: 0.8rem; padding: 6px 14px;">
+                <span>🎯 تدريب ذكي (20 سؤالاً بدون تكرار) ↗</span>
+              </a>
+              <a id="btnOpenChapterQuizLink" href="../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/index.html" target="_blank" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 12px;">
+                <span>📂 بنك الأسئلة الشامل ↗</span>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -1908,13 +1926,13 @@
 
       if (currentDay.type === "buffer") {
         theoryLinksWrap.innerHTML = `<a href="dashboard.html" class="sp-btn sp-btn-primary" style="font-size: 0.8rem; padding: 6px 14px;"><span>📊 سجل الأخطاء (SRS) ↗</span></a>`;
-        quizLinksWrap.innerHTML = `<a href="flashcards.html" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 14px;"><span>💡 بطاقات الفلاش كاردز ↗</span></a>`;
+        quizLinksWrap.innerHTML = `<div class="sp-chapter-quiz-row"><a href="flashcards.html" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 14px;"><span>💡 بطاقات الفلاش كاردز ↗</span></a></div>`;
       } else if (currentDay.type === "traps_sprint") {
         theoryLinksWrap.innerHTML = `<a href="../Capitoli_Divisi/dizionario-sinonimi.html" target="_blank" class="sp-btn sp-btn-primary" style="font-size: 0.8rem; padding: 6px 14px;"><span>📖 معجم المترادفات ↗</span></a>`;
-        quizLinksWrap.innerHTML = `<a href="traps_and_games.html" target="_blank" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 14px;"><span>🎮 بنك الفخاخ والألعاب ↗</span></a>`;
+        quizLinksWrap.innerHTML = `<div class="sp-chapter-quiz-row"><a href="traps_and_games.html" target="_blank" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 14px;"><span>🎮 بنك الفخاخ والألعاب ↗</span></a></div>`;
       } else if (currentDay.type === "exam_marathon") {
         theoryLinksWrap.innerHTML = `<a href="scheda-esame.html" target="_blank" class="sp-btn sp-btn-primary" style="font-size: 0.8rem; padding: 6px 14px;"><span>📝 امتحان وزاري 20 دقيقة ↗</span></a>`;
-        quizLinksWrap.innerHTML = `<a href="dashboard.html" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 14px;"><span>📊 مؤشر الجاهزية ↗</span></a>`;
+        quizLinksWrap.innerHTML = `<div class="sp-chapter-quiz-row"><a href="dashboard.html" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 14px;"><span>📊 مؤشر الجاهزية ↗</span></a></div>`;
       } else {
         theoryLinksWrap.innerHTML = currentDay.chapters.map(chNum => {
           const meta = CHAPTER_DATA_MAP[chNum] || CHAPTER_DATA_MAP[1];
@@ -1929,12 +1947,14 @@
           const labelSmart = currentDay.chapters.length > 1 ? `🎯 تدريب ذكي باب ${chNum} (20 سؤالاً) ↗` : `🎯 تدريب ذكي (20 سؤالاً بدون تكرار) ↗`;
           const labelFull = currentDay.chapters.length > 1 ? `📂 أسئلة باب ${chNum} ↗` : `📂 بنك الأسئلة الشامل ↗`;
           return `
-            <a href="allenamento-capitolo.html?ch=${chNum}&count=20" class="sp-btn sp-btn-primary" style="font-size: 0.8rem; padding: 6px 14px;">
-              <span>${labelSmart}</span>
-            </a>
-            <a href="../Capitoli_Divisi/${folder}/index.html" target="_blank" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 12px;">
-              <span>${labelFull}</span>
-            </a>
+            <div class="sp-chapter-quiz-row">
+              <a href="allenamento-capitolo.html?ch=${chNum}&count=20" class="sp-btn sp-btn-primary" style="font-size: 0.8rem; padding: 6px 14px;">
+                <span>${labelSmart}</span>
+              </a>
+              <a href="../Capitoli_Divisi/${folder}/index.html" target="_blank" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 12px;">
+                <span>${labelFull}</span>
+              </a>
+            </div>
           `;
         }).join("");
       }
