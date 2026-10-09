@@ -1723,13 +1723,16 @@ function getSynonymsForWord(word) {
     const matchBase = baseClean.includes(clean) || clean.includes(baseClean) || baseStem === stem;
 
     const matchSynonym = item.sinonimi.some(s => {
-      const sc = s.toLowerCase();
+      const sc = (typeof s === 'object' ? s.it : s).toLowerCase();
       return sc.includes(clean) || clean.includes(sc) || getItalianStem(sc) === stem;
     });
 
     if (matchBase || matchSynonym) {
       synonymsSet.add(item.parola_base.toLowerCase());
-      item.sinonimi.forEach(s => synonymsSet.add(s.toLowerCase()));
+      item.sinonimi.forEach(s => {
+        const sw = (typeof s === 'object' ? s.it : s).toLowerCase();
+        synonymsSet.add(sw);
+      });
     }
   }
   return Array.from(synonymsSet);
@@ -1856,11 +1859,15 @@ function showThesaurusCard(entry) {
 
   // Synonyms deck
   const deck = document.getElementById('theoSynonymsDeck');
-  deck.innerHTML = entry.sinonimi.map(s => `
-    <button class="synonym-chip-btn" onclick="addWord('${s.replace(/'/g, "\\'")}')">
-      ${s} +
-    </button>
-  `).join('');
+  deck.innerHTML = entry.sinonimi.map(s => {
+    const itWord = typeof s === 'object' ? s.it : s;
+    const arWord = typeof s === 'object' ? s.ar : '';
+    return `
+      <button class="synonym-chip-btn" onclick="addWord('${itWord.replace(/'/g, "\\'")}')">
+        <span>${itWord}</span> ${arWord ? `<span style="font-size:0.8rem; opacity:0.85; margin-right:4px;">(${arWord})</span>` : ''} +
+      </button>
+    `;
+  }).join('');
 
   // Traps
   const trapsList = document.getElementById('theoTrapsList');
@@ -1884,7 +1891,7 @@ function checkAutoThesaurus(activeTerms) {
     const clean = term.toLowerCase().trim();
     const match = PATENTE_THESAURUS.find(t => 
       t.parola_base.toLowerCase() === clean || 
-      t.sinonimi.some(s => s.toLowerCase() === clean)
+      t.sinonimi.some(s => (typeof s === 'object' ? s.it.toLowerCase() : s.toLowerCase()) === clean)
     );
     if (match) {
       showThesaurusCard(match);

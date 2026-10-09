@@ -1,5 +1,5 @@
 // Auto-generated Patente B Pro Comprehensive Curated Thesaurus
-// Total Semantic Families: 18
+// Total Semantic Families: 18 with high-precision Italian and Arabic terminology
 const PATENTE_THESAURUS = [
   {
     "id": "velocita_moderare",
@@ -8,13 +8,13 @@ const PATENTE_THESAURUS = [
     "traduzione_ar": "يهدئ / يضبط (السرعة)",
     "spiegazione_ar": "تكييف السرعة وخفضها بحيث تتناسب مع الرؤية، وظروف الطريق، وحالة المركبة لتجنب أي خطر.",
     "sinonimi": [
-      "ridurre",
-      "diminuire",
-      "rallentare",
-      "adeguare",
-      "regolare",
-      "contenere",
-      "andatura prudente"
+      { "it": "regolare", "ar": "ضبط / تنظيم" },
+      { "it": "adeguare", "ar": "ملاءمة / تكييف مع الظروف" },
+      { "it": "rallentare", "ar": "إبطاء السرعة" },
+      { "it": "diminuire", "ar": "إنقاص السرعة" },
+      { "it": "ridurre", "ar": "تقليل / تخفيض" },
+      { "it": "andatura prudente", "ar": "سير بوتيرة حذرة" },
+      { "it": "contenere", "ar": "كبح / حصر السرعة" }
     ],
     "falsi_sinonimi": [
       {
@@ -40,9 +40,9 @@ const PATENTE_THESAURUS = [
     "traduzione_ar": "التوقف المؤقت (لدقائق معدودة)",
     "spiegazione_ar": "تعليق السير المؤقت جداً لركوب أو نزول الركاب؛ يشترط بقاء السائق خلف المقود ومستعداً للتحرك فوراً دون إعاقة السير.",
     "sinonimi": [
-      "sospensione temporanea della marcia",
-      "breve sosta",
-      "sosta breve"
+      { "it": "sospensione temporanea della marcia", "ar": "تعليق مؤقت جداً للسير" },
+      { "it": "breve sosta", "ar": "وقوف وجيز لركوب/نزول ركاب" },
+      { "it": "sosta breve", "ar": "توقف قصير دون مغادرة السيارة" }
     ],
     "falsi_sinonimi": [
       {
@@ -71,9 +71,9 @@ const PATENTE_THESAURUS = [
     "traduzione_ar": "نهر الطريق (حيز سير المركبات)",
     "spiegazione_ar": "الجزء من الطريق المخصص حصراً لحركة وسير المركبات والحيوانات؛ قد يتكون من مسار واحد أو اتجاهين، وتتكون من حارات (corsie).",
     "sinonimi": [
-      "sede stradale per veicoli",
-      "piano viabile",
-      "fascia di marcia"
+      { "it": "sede stradale per veicoli", "ar": "الموضع المخصص لسير المركبات" },
+      { "it": "piano viabile", "ar": "المسطح المعبد للمرور" },
+      { "it": "fascia di marcia", "ar": "نطاق وحيز السير الفعلي" }
     ],
     "falsi_sinonimi": [
       {
@@ -102,9 +102,9 @@ const PATENTE_THESAURUS = [
     "traduzione_ar": "يتجاوز / يتخطى مركبة أخرى",
     "spiegazione_ar": "مناورة المرور على مركبة أو عائق يسير ببطء أو متوقف في نفس مسار السير، وتتطلب الانتقال إلى حارة أخرى ثم العودة لليمين.",
     "sinonimi": [
-      "superare",
-      "oltrepassare",
-      "scavalcare"
+      { "it": "superare", "ar": "تخطي / مجاوزة للأمام" },
+      { "it": "oltrepassare", "ar": "تعدي / المرور متقدماً" },
+      { "it": "scavalcare", "ar": "تجاوز مركبة أو عائق" }
     ],
     "falsi_sinonimi": [
       {
@@ -129,13 +129,13 @@ const PATENTE_THESAURUS = [
     "traduzione_ar": "زلق / قابل للانزلاق",
     "spiegazione_ar": "حالة سطح الطريق عندما يقل فيه معامل الاحتكاك وتضعف قبضة الإطارات (Aderenza)، مما يزيد مسافة الفرملة وخطر الانحراف.",
     "sinonimi": [
-      "scivoloso",
-      "viscido",
-      "bagnato",
-      "ghiacciato",
-      "innevato",
-      "scivolosità",
-      "scarsa aderenza"
+      { "it": "scivoloso", "ar": "زلق / سريع الانزلاق" },
+      { "it": "viscido", "ar": "لزج وقليل التماسك" },
+      { "it": "bagnato", "ar": "مبتل بالماء" },
+      { "it": "ghiacciato", "ar": "مغطى بطبقة جليدية" },
+      { "it": "innevato", "ar": "مغطى بالثلوج" },
+      { "it": "scivolosità", "ar": "قابلية وفقدان التماسك" },
+      { "it": "scarsa aderenza", "ar": "ضعف قبضة الإطارات" }
     ],
     "falsi_sinonimi": [
       {
@@ -161,14 +161,14 @@ const PATENTE_THESAURUS = [
     "traduzione_ar": "إلزامي / إجباري بنص القانون",
     "spiegazione_ar": "قاعدة مرورية أو إشارة تحتم على السائق سلوكاً معيناً دون خيار (مثل استخدام الغيارات المنخفضة، أو تشغيل الأضواء، أو اتباع اتجاه معين).",
     "sinonimi": [
-      "prescritto",
-      "doveroso",
-      "imposto",
-      "si deve",
-      "è d'obbligo",
-      "è tenuto a",
-      "occorre",
-      "vincolante"
+      { "it": "prescritto", "ar": "مقرر / منصوص عليه قانوناً" },
+      { "it": "doveroso", "ar": "واجب ولازم" },
+      { "it": "imposto", "ar": "مفروض حتماً بإشارة أو قاعدة" },
+      { "it": "si deve", "ar": "يجب / يتعين حتماً" },
+      { "it": "è d'obbligo", "ar": "ملزم تماماً بدون استثناء" },
+      { "it": "è tenuto a", "ar": "مكلف / ملزم نظامياً بـ" },
+      { "it": "occorre", "ar": "يلزم / ينبغي بالضرورة" },
+      { "it": "vincolante", "ar": "محدد وملزم لا خيار فيه" }
     ],
     "falsi_sinonimi": [
       {
@@ -193,13 +193,13 @@ const PATENTE_THESAURUS = [
     "traduzione_ar": "ممنوع / محظور",
     "spiegazione_ar": "نهي قاطع بموجب القانون أو الإشارات المرورية يمنع السائق من القيام بفعل محدد (مثل التجاوز، الوقوف، الانعطاف).",
     "sinonimi": [
-      "proibito",
-      "non è consentito",
-      "non è permesso",
-      "precluso",
-      "impedito",
-      "interdetto",
-      "inammissibile"
+      { "it": "proibito", "ar": "محظور قطعياً" },
+      { "it": "non è consentito", "ar": "غير مسموح به إطلاقاً" },
+      { "it": "non è permesso", "ar": "غير مصرح به نظاماً" },
+      { "it": "precluso", "ar": "مغلق / محال قانوناً" },
+      { "it": "impedito", "ar": "ممنوع ومحال فعله" },
+      { "it": "interdetto", "ar": "محظور رسمياً بنص القانون" },
+      { "it": "inammissibile", "ar": "غير مقبول ولا يجوز" }
     ],
     "falsi_sinonimi": [
       {
@@ -223,11 +223,11 @@ const PATENTE_THESAURUS = [
     "traduzione_ar": "إعطاء الأسبقية / التنازل عن حق المرور",
     "spiegazione_ar": "واجب التمهل أو التوقف للسماح للمركبات ذات الحق بالمرور أولاً دون إجبارها على تغيير مسارها أو سرعتها.",
     "sinonimi": [
-      "cedere il passo",
-      "lasciare transitare",
-      "accordare la precedenza",
-      "disimpegnare l'incrocio",
-      "attendere il passaggio"
+      { "it": "cedere il passo", "ar": "التنازل عن أولوية العبور" },
+      { "it": "lasciare transitare", "ar": "ترك المجال للغير ليمر أولاً" },
+      { "it": "accordare la precedenza", "ar": "منح حق المرور للمستحق" },
+      { "it": "disimpegnare l'incrocio", "ar": "إخلاء التقاطع للمركبات ذات الأولوية" },
+      { "it": "attendere il passaggio", "ar": "انتظار عبور المركبات ذات الحق" }
     ],
     "falsi_sinonimi": [
       {
@@ -252,9 +252,9 @@ const PATENTE_THESAURUS = [
     "traduzione_ar": "الاصطدام الخلفي (صدم من الخلف)",
     "spiegazione_ar": "حادث اصطدام بين مركبتين تسيران في نفس الاتجاه أو إحداهما متوقفة أمام الأخرى، وسببه الرئيسي عدم مراعاة مسافة الأمان.",
     "sinonimi": [
-      "urto da tergo",
-      "collisione posteriore",
-      "scontro da dietro"
+      { "it": "urto da tergo", "ar": "صدم قادم من الخلف" },
+      { "it": "collisione posteriore", "ar": "تصادم في مؤخرة المركبة" },
+      { "it": "scontro da dietro", "ar": "ارتطام مباشر من الوراء" }
     ],
     "falsi_sinonimi": [
       {
@@ -282,9 +282,9 @@ const PATENTE_THESAURUS = [
     "traduzione_ar": "أضواء السير العادية (المنخفضة)",
     "spiegazione_ar": "أجهزة الإنارة الأمامية المصممة لإضاءة الطريق أمام المركبة دون التسبب في إبهار أو مضايقة السائقين القادمين من الاتجاه المعاكس.",
     "sinonimi": [
-      "luci anabbaglianti",
-      "proiettori anabbaglianti",
-      "luci da incrocio"
+      { "it": "luci anabbaglianti", "ar": "أضواء منخفضة غير مبهرة" },
+      { "it": "proiettori anabbaglianti", "ar": "كشافات السير العادية المانعة للسطوع" },
+      { "it": "luci da incrocio", "ar": "أضواء التقابل مع المركبات الأخرى" }
     ],
     "falsi_sinonimi": [
       {
@@ -309,8 +309,8 @@ const PATENTE_THESAURUS = [
     "traduzione_ar": "مسافة الفرملة (من لحظة الضغط حتى التوقف)",
     "spiegazione_ar": "المسافة التي تقطعها المركبة من لحظة بدء ضغط السائق على دواسة الفرامل حتى التوقف التام للمركبة؛ تتأثر بالسرعة وحالة الأسفلت والإطارات والفرامل والوزن.",
     "sinonimi": [
-      "distanza di frenata",
-      "tratto percorso in frenata"
+      { "it": "distanza di frenata", "ar": "مسافة كبح الفرامل" },
+      { "it": "tratto percorso in frenata", "ar": "المسافة المقطوعة أثناء ضغط الفرامل" }
     ],
     "falsi_sinonimi": [
       {
@@ -335,8 +335,8 @@ const PATENTE_THESAURUS = [
     "traduzione_ar": "الانعطاف يميناً أو يساراً",
     "spiegazione_ar": "مناورة تغيير اتجاه السير بالخروج من طريق والدخول إلى طريق آخر؛ تتطلب استخدام الغماز وتحديد المسار مسبقاً وإعطاء الأسبقية للمشاة وحركة السير المقابلة عند الانعطاف يساراً.",
     "sinonimi": [
-      "cambio di direzione",
-      "girare a destra o a sinistra"
+      { "it": "cambio di direzione", "ar": "تغيير اتجاه السير لدخول شارع آخر" },
+      { "it": "girare a destra o a sinistra", "ar": "الانعطاف نحو اليمين أو اليسار" }
     ],
     "falsi_sinonimi": [
       {
@@ -360,8 +360,8 @@ const PATENTE_THESAURUS = [
     "traduzione_ar": "قمة المرتفع (Dosso)",
     "spiegazione_ar": "تغير في ميل الطريق يتكون من صعود يعقبه هبوط فوري؛ النقطة الحرجة فيه هي انعدام الرؤية في مقطع الصعود.",
     "sinonimi": [
-      "tratto a visibilità limitata",
-      "raccordo convesso"
+      { "it": "tratto a visibilità limitata", "ar": "مقطع محدود الرؤية لارتفاع الطريق" },
+      { "it": "raccordo convesso", "ar": "تحدب رأسي في ميل الطريق" }
     ],
     "falsi_sinonimi": [
       {
@@ -385,8 +385,8 @@ const PATENTE_THESAURUS = [
     "traduzione_ar": "معبر السكة الحديد السطحي",
     "spiegazione_ar": "تقاطع في نفس المستوى بين طريق معبد وخط سكة حديد؛ يزود بحواجز كاملة (barriere) أو نصف حواجز (semibarriere) أو بدون حواجز (senza barriere).",
     "sinonimi": [
-      "intersezione a raso con ferrovia",
-      "attraversamento ferroviario"
+      { "it": "intersezione a raso con ferrovia", "ar": "تقاطع سطحي ومباشر مع خط القطار" },
+      { "it": "attraversamento ferroviario", "ar": "معبر عبور القطارات على مستوى الطريق" }
     ],
     "falsi_sinonimi": [
       {
@@ -407,8 +407,8 @@ const PATENTE_THESAURUS = [
     "traduzione_ar": "تعليق/إيقاف الرخصة مؤقتاً",
     "spiegazione_ar": "حرمان السائق من حق القيادة لفترة زمنية محددة كعقوبة على مخالفات خطيرة (مثل القيادة تحت تأثير الكحول أو تجاوز السرعة بأكثر من 40 كم/س)، وتعود الرخصة بعدها للسائق.",
     "sinonimi": [
-      "divieto temporaneo di guida",
-      "fermo del titolo di guida"
+      { "it": "divieto temporaneo di guida", "ar": "منع مؤقت ومحدد من القيادة" },
+      { "it": "fermo del titolo di guida", "ar": "إيقاف صلاحية وثيقة القيادة لفترة" }
     ],
     "falsi_sinonimi": [
       {
@@ -436,7 +436,7 @@ const PATENTE_THESAURUS = [
     "traduzione_ar": "مركبة ذات محرك (4 عجلات فأكثر)",
     "spiegazione_ar": "مركبة آلية مزودة بمحرك ولها 4 عجلات على الأقل (ما عدا الدراجات الرباعية quadricicli)، ومخصصة لنقل الأشخاص أو البضائع.",
     "sinonimi": [
-      "veicolo a motore a quattro ruote"
+      { "it": "veicolo a motore a quattro ruote", "ar": "مركبة آلية بـ 4 عجلات فأكثر" }
     ],
     "falsi_sinonimi": [
       {
@@ -464,8 +464,8 @@ const PATENTE_THESAURUS = [
     "traduzione_ar": "جزيرة المرور (Isola di traffico)",
     "spiegazione_ar": "جزء من الطريق محدد ومحمي بخطوط أو مرتفع، مخصص لتوجيه وتسهيل حركة تدفق المركبات وفصل التيارات المرورية؛ يحظر السير أو الوقوف فوقها تماماً.",
     "sinonimi": [
-      "zona zebrata di incanalamento",
-      "area spartitraffico rialzata"
+      { "it": "zona zebrata di incanalamento", "ar": "منطقة خطوط مائلة لتوجيه السير" },
+      { "it": "area spartitraffico rialzata", "ar": "مساحة مرتفعة لفصل وتوجيه السير" }
     ],
     "falsi_sinonimi": [
       {
@@ -486,8 +486,8 @@ const PATENTE_THESAURUS = [
     "traduzione_ar": "الوزن الإجمالي مع الحمولة القصوى",
     "spiegazione_ar": "الوزن الأقصى المصرح به للمركبة قانوناً شاملة وزن هيكل المركبة + السائق + الركاب + الحمولة القصوى (Massa complessiva a pieno carico).",
     "sinonimi": [
-      "massa complessiva a pieno carico",
-      "peso limite autorizzato"
+      { "it": "massa complessiva a pieno carico", "ar": "الوزن الكلي الأقصى بحمولته" },
+      { "it": "peso limite autorizzato", "ar": "الحد الأقصى للوزن المصرح به للسير" }
     ],
     "falsi_sinonimi": [
       {
