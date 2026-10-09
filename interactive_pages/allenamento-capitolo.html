@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>التدريب الذكي للأبواب | Patente B Pro</title>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0B0F19">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="interactive_style.css">
+  <link rel="stylesheet" href="../assets/css/theme-modes.css">
+  <script src="../assets/js/theme-engine.js"></script>
+
+  <style>
+    :root {
+      --tr-bg: #0B0F19;
+      --tr-surface: rgba(15, 23, 42, 0.85);
+      --tr-surface-card: rgba(30, 41, 59, 0.65);
+      --tr-border: rgba(255, 255, 255, 0.08);
+      --tr-text: #F8FAFC;
+      --tr-text-sub: #94A3B8;
+      --tr-cyan: #38BDF8;
+      --tr-emerald: #10B981;
+      --tr-rose: #F43F5E;
+      --tr-amber: #F59E0B;
+      --tr-indigo: #6366F1;
+      --tr-radius: 18px;
+    }
+
+    html.light {
+      --tr-bg: #F8FAFC;
+      --tr-surface: #FFFFFF;
+      --tr-surface-card: #F1F5F9;
+      --tr-border: rgba(15, 23, 42, 0.08);
+      --tr-text: #0F172A;
+      --tr-text-sub: #64748B;
+      --tr-cyan: #0284C7;
+      --tr-emerald: #059669;
+      --tr-rose: #E11D48;
+      --tr-amber: #D97706;
+      --tr-indigo: #4F46E5;
+    }
+
+    body {
+      background-color: var(--tr-bg);
+      color: var(--tr-text);
+      font-family: 'Cairo', system-ui, sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    .tr-container {
+      max-width: 900px;
+      margin: 20px auto 50px;
+      padding: 0 16px;
+    }
+
+    /* رأس الجلسة التدريبية */
+    .tr-header-card {
+      background: var(--tr-surface);
+      border: 1px solid var(--tr-border);
+      border-radius: var(--tr-radius);
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .tr-header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tr-badge-chapter {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--tr-cyan);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    .tr-controls-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tr-count-btn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--tr-border);
+      color: var(--tr-text-sub);
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+    html.light .tr-count-btn {
+      background: #FFFFFF;
+      border-color: #CBD5E1;
+      color: #475569;
+    }
+    .tr-count-btn.active {
+      background: var(--tr-cyan);
+      color: #FFFFFF !important;
+      border-color: var(--tr-cyan);
+    }
+
+    .tr-title-main {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--tr-text);
+      margin: 0;
+    }
+
+    .tr-desc-sub {
+      font-size: 0.9rem;
+      color: var(--tr-text-sub);
+      margin: 0;
+    }
+
+    /* شريط التنقل بالأرقام */
+    .tr-nav-strip {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      scrollbar-width: thin;
+    }
+
+    .tr-q-pill {
+      min-width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--tr-border);
+      color: var(--tr-text-sub);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+    }
+    html.light .tr-q-pill {
+      background: #FFFFFF;
+      border-color: #E2E8F0;
+      color: #64748B;
+    }
+    .tr-q-pill.active {
+      border-color: var(--tr-cyan);
+      background: rgba(56, 189, 248, 0.2);
+      color: var(--tr-cyan);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+    }
+    .tr-q-pill.correct {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: var(--tr-emerald);
+      color: var(--tr-emerald);
+    }
+    .tr-q-pill.wrong {
+      background: rgba(244, 63, 94, 0.2);
+      border-color: var(--tr-rose);
+      color: var(--tr-rose);
+    }
+
+    /* بطاقة السؤال التفاعلية */
+    .tr-question-card {
+      background: var(--tr-surface);
+      border: 1px solid var(--tr-border);
+      border-radius: var(--tr-radius);
+      padding: 26px;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.3);
+      backdrop-filter: blur(16px);
+      position: relative;
+    }
+
+    .tr-q-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tr-subtopic-tag {
+      background: rgba(99, 102, 241, 0.12);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: var(--tr-indigo);
+      font-size: 0.82rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 8px;
+    }
+
+    .tr-audio-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--tr-border);
+      color: var(--tr-text);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+    .tr-audio-btn:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--tr-cyan);
+      color: var(--tr-cyan);
+    }
+
+    .tr-image-wrap {
+      text-align: center;
+      margin: 16px 0;
+      background: rgba(0, 0, 0, 0.15);
+      border-radius: 12px;
+      padding: 12px;
+      border: 1px solid var(--tr-border);
+    }
+    html.light .tr-image-wrap {
+      background: #F8FAFC;
+    }
+    .tr-image-wrap img {
+      max-height: 180px;
+      max-width: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .tr-text-it {
+      direction: ltr;
+      text-align: left;
+      font-family: 'JetBrains Mono', 'Plus Jakarta Sans', monospace;
+      font-size: 1.22rem;
+      font-weight: 700;
+      color: var(--tr-text);
+      line-height: 1.6;
+      margin: 18px 0 12px;
+    }
+
+    .tr-text-ar {
+      direction: rtl;
+      text-align: right;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--tr-text-sub);
+      line-height: 1.6;
+      margin-bottom: 22px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--tr-border);
+    }
+
+    /* أزرار VERO / FALSO الكبيرة */
+    .tr-choice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0 16px;
+    }
+
+    .tr-btn-vf {
+      padding: 16px 20px;
+      border-radius: 14px;
+      font-size: 1.25rem;
+      font-weight: 900;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: inherit;
+    }
+    .tr-btn-vf:active {
+      transform: scale(0.98);
+    }
+
+    .tr-btn-vero {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: rgba(16, 185, 129, 0.35);
+      color: var(--tr-emerald);
+    }
+    .tr-btn-vero:hover:not(:disabled) {
+      background: var(--tr-emerald);
+      color: #FFFFFF;
+      box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
+    }
+
+    .tr-btn-falso {
+      background: rgba(244, 63, 94, 0.12);
+      border-color: rgba(244, 63, 94, 0.35);
+      color: var(--tr-rose);
+    }
+    .tr-btn-falso:hover:not(:disabled) {
+      background: var(--tr-rose);
+      color: #FFFFFF;
+      box-shadow: 0 4px 18px rgba(244, 63, 94, 0.35);
+    }
+
+    .tr-btn-vf.selected-correct {
+      background: var(--tr-emerald) !important;
+      color: #FFFFFF !important;
+      border-color: var(--tr-emerald) !important;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.5) !important;
+    }
+
+    .tr-btn-vf.selected-wrong {
+      background: var(--tr-rose) !important;
+      color: #FFFFFF !important;
+      border-color: var(--tr-rose) !important;
+      box-shadow: 0 0 20px rgba(244, 63, 94, 0.5) !important;
+    }
+
+    /* درج التوضيح الفوري والشرح */
+    .tr-feedback-drawer {
+      display: none;
+      background: var(--tr-surface-card);
+      border: 1px solid var(--tr-border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-top: 18px;
+      animation: fadeIn 0.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tr-feedback-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .badge-ok { color: var(--tr-emerald); }
+    .badge-err { color: var(--tr-rose); }
+
+    .tr-explanation-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--tr-text);
+      margin-bottom: 12px;
+    }
+
+    .tr-trap-box {
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 0.88rem;
+      color: var(--tr-amber);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .tr-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* شاشة النتيجة النهائية */
+    .tr-summary-view {
+      display: none;
+      text-align: center;
+      background: var(--tr-surface);
+      border: 1px solid var(--tr-border);
+      border-radius: var(--tr-radius);
+      padding: 36px 24px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+    }
+
+    .tr-score-circle {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.1);
+      border: 3px solid var(--tr-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--tr-cyan);
+      margin: 0 auto 16px;
+    }
+
+    .tr-action-btn-large {
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .btn-emerald {
+      background: var(--tr-emerald);
+      color: #FFFFFF;
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+    }
+    .btn-emerald:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 26px rgba(16, 185, 129, 0.45);
+    }
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--tr-border);
+      color: var(--tr-text);
+    }
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- شريط الملاحة الموحد -->
+  <nav class="unified-portal-nav" id="portal-nav">
+    <a href="../index.html" class="nav-brand">
+      <span style="font-size:1.25rem;">🚦</span>
+      <span>Patente B Pro</span>
+      <span class="badge-tag">A2</span>
+    </a>
+    <nav class="nav-desktop-tabs">
+      <a href="piano-studio.html" class="nav-tab-desktop active">📅 الخطة الدراسية</a>
+      <a href="scheda-esame.html" class="nav-tab-desktop">📝 الامتحان</a>
+      <a href="flashcards.html" class="nav-tab-desktop">💡 بطاقات الفلاش</a>
+      <a href="dashboard.html" class="nav-tab-desktop">📊 لوحة البيانات</a>
+      <a href="traps_and_games.html" class="nav-tab-desktop">🎮 الفخاخ والألعاب</a>
+      <a href="index.html" class="nav-tab-desktop">🏛️ أدلة الشرح</a>
+      <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 بنك الأسئلة</a>
+    </nav>
+    <div class="nav-desktop-actions">
+      <button class="nav-theme-btn" id="themeToggleBtn" onclick="toggleTheme()" title="تبديل الوضع (نهاري / ليلي)">
+        <span class="theme-icon-span">☀️</span>
+        <span class="theme-label-span">الوضع النهاري</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="tr-container">
+
+    <!-- بطاقة الترويسة والتحكم بالجلسة -->
+    <section class="tr-header-card">
+      <div class="tr-header-top">
+        <span class="tr-badge-chapter" id="lblChapterBadge">
+          <span>🛣️</span>
+          <span id="lblChapterName">الباب 01: المفاهيم العامة واستخدام الطريق</span>
+        </span>
+        <div class="tr-controls-wrap">
+          <span style="font-size: 0.82rem; color: var(--tr-text-sub);">عدد الأسئلة:</span>
+          <button class="tr-count-btn" id="btnCount15" onclick="setSessionCount(15)">15 سؤالاً</button>
+          <button class="tr-count-btn active" id="btnCount20" onclick="setSessionCount(20)">20 سؤالاً ⭐</button>
+          <button class="tr-count-btn" id="btnCount25" onclick="setSessionCount(25)">25 سؤالاً</button>
+          <button class="tr-count-btn" onclick="startFreshSession()" title="سحب 20 سؤالاً جديداً تماماً">🔄 سحب جديد</button>
+        </div>
+      </div>
+
+      <div>
+        <h1 class="tr-title-main" id="lblSessionTitle">جلسة التدريب الذكي (20 سؤالاً بدون تكرار)</h1>
+        <p class="tr-desc-sub">
+          خوارزمية ذكية تنتقي أسئلة منوعة من كافة محاور الباب مع استبعاد الأسئلة المتشابهة لتوفير أقصى فائدة في أقل وقت.
+        </p>
+      </div>
+
+      <!-- شريط التنقل الرقمي للأسئلة -->
+      <div class="tr-nav-strip" id="qNavStrip">
+        <!-- يتم توليد أرقام الأسئلة ديناميكياً -->
+      </div>
+    </section>
+
+    <!-- منطقة السؤال التفاعلية -->
+    <main class="tr-question-card" id="qCardSection">
+      <div class="tr-q-meta-row">
+        <div>
+          <span class="tr-subtopic-tag" id="lblSubtopic">المحور: المفاهيم العامة</span>
+          <span style="font-size: 0.85rem; color: var(--tr-text-sub); margin-right: 8px;" id="lblProgress">سؤال 1 من 20</span>
+        </div>
+        <div>
+          <button class="tr-audio-btn" onclick="playQuestionSpeech()">
+            <span>🔊 استمع للإيطالية</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- صورة السؤال إن وجدت -->
+      <div class="tr-image-wrap" id="imgWrap" style="display: none;">
+        <img id="qImg" src="" alt="صورة إشارة السؤال">
+      </div>
+
+      <!-- نص السؤال الإيطالي -->
+      <div class="tr-text-it" id="lblQuestionIt">In una carreggiata a doppio senso...</div>
+
+      <!-- ترجمة السؤال العربية -->
+      <div class="tr-text-ar" id="lblQuestionAr">في طريق ذي اتجاهين...</div>
+
+      <!-- أزرار الإجابة VERO / FALSO -->
+      <div class="tr-choice-grid">
+        <button class="tr-btn-vf tr-btn-vero" id="btnVero" onclick="handleAnswer(true)">
+          <span>VERO</span> <span>(صح)</span>
+        </button>
+        <button class="tr-btn-vf tr-btn-falso" id="btnFalso" onclick="handleAnswer(false)">
+          <span>FALSO</span> <span>(خطأ)</span>
+        </button>
+      </div>
+
+      <!-- درج الشرح الفوري وتوضيح الفخ القانوني -->
+      <div class="tr-feedback-drawer" id="feedbackDrawer">
+        <div class="tr-feedback-badge" id="lblFeedbackBadge">
+          <span>✓ إجابة صحيحة!</span>
+        </div>
+        <div class="tr-explanation-text" id="lblExplanation"></div>
+        <div class="tr-trap-box" id="trapBox" style="display: none;">
+          <strong>⚠️ تنبيه الفخ الوزاري:</strong> <span id="lblTrapText"></span>
+        </div>
+        <div style="text-align: left; margin-top: 14px;">
+          <button class="action-btn" style="padding: 10px 20px; font-weight: 800; cursor: pointer;" onclick="goToNextQuestion()">
+            <span>السؤال التالي ⬅</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- أسفل البطاقة -->
+      <div class="tr-card-footer">
+        <button class="tr-count-btn" id="btnPrevQ" onclick="goToPrevQuestion()">➡ السؤال السابق</button>
+        <span style="font-size: 0.82rem; color: var(--tr-text-sub);">
+          💡 يتم تسجيل الأسئلة غير الصحيحة تلقائياً في سجل الذاكرة والتكرار (SRS).
+        </span>
+        <button class="tr-count-btn" id="btnNextQ" onclick="goToNextQuestion()">السؤال التالي ⬅</button>
+      </div>
+    </main>
+
+    <!-- شاشة إتمام الجلسة والملخص -->
+    <section class="tr-summary-view" id="summarySection">
+      <div style="font-size: 3rem; margin-bottom: 10px;">🎉</div>
+      <h2 style="font-size: 1.6rem; font-weight: 900; margin-bottom: 6px;">أحسنت! أتممت جلسة تدريب الباب بنجاح</h2>
+      <p style="color: var(--tr-text-sub); margin-bottom: 24px;">لقد قمت بحل عينة ذكية متكاملة غطت مختلف محاور وقواعد الباب دون أي تكرار.</p>
+
+      <div class="tr-score-circle" id="summaryScore">18/20</div>
+      <p id="summaryScoreDesc" style="font-weight: 700; margin-bottom: 26px; color: var(--tr-emerald);">نسبة الدقة: 90%</p>
+
+      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <button class="tr-action-btn-large btn-emerald" onclick="markStationCompleteAndReturn()">
+          <span>✅ اعتماد إتمام المحطة والعودة للخطة</span>
+        </button>
+        <button class="tr-action-btn-large btn-outline" onclick="startFreshSession()">
+          <span>🔄 جولة تدريبية أخرى (20 سؤالاً جديدة)</span>
+        </button>
+        <a href="piano-studio.html" class="tr-action-btn-large btn-outline" style="text-decoration: none;">
+          <span>📅 العودة لجدول الخطة</span>
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ملفات البيانات ونظام التكرار المتباعد -->
+  <script src="../Capitoli_Divisi/data_all_questions.js"></script>
+  <script src="../assets/js/srs-engine.js"></script>
+
+  <script>
+    /**
+     * =========================================================================
+     * محرك التدريب الذكي للأبواب (Diverse Non-Repetitive Chapter Training)
+     * =========================================================================
+     */
+    let srsEngine = null;
+    let targetChapter = 1;
+    let targetCount = 20;
+    let sessionQuestions = [];
+    let currentIndex = 0;
+    let userAnswers = {}; // { qIndex: { answer: boolean, isCorrect: boolean } }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      try {
+        srsEngine = new PatenteSRSEngine();
+      } catch (e) {
+        console.warn("SRS Fallback:", e);
+      }
+
+      // قراءة المعاملات من الرابط ?ch=1&count=20
+      const urlParams = new URLSearchParams(window.location.search);
+      const chParam = parseInt(urlParams.get("ch"), 10);
+      if (chParam && chParam >= 1 && chParam <= 25) {
+        targetChapter = chParam;
+      }
+
+      const countParam = parseInt(urlParams.get("count"), 10);
+      if ([15, 20, 25].includes(countParam)) {
+        targetCount = countParam;
+      }
+
+      updateCountPillsUI();
+      loadAndBuildSession();
+    });
+
+    function setSessionCount(count) {
+      targetCount = count;
+      updateCountPillsUI();
+      startFreshSession();
+    }
+
+    function updateCountPillsUI() {
+      [15, 20, 25].forEach(c => {
+        const btn = document.getElementById("btnCount" + c);
+        if (btn) btn.classList.toggle("active", c === targetCount);
+      });
+      document.getElementById("lblSessionTitle").innerText = `جلسة التدريب الذكي (${targetCount} سؤالاً بدون تكرار)`;
+    }
+
+    /**
+     * خوارزمية الانتقاء الذكي لمنع التكرار (Diverse Selection Algorithm)
+     */
+    function selectDiverseQuestions(allPool, count) {
+      // تجميع الأسئلة حسب المحور الفرعي (sotto_argomento / sub)
+      const bySub = {};
+      allPool.forEach(q => {
+        const sub = q.sub || "عام";
+        if (!bySub[sub]) bySub[sub] = [];
+        bySub[sub].push(q);
+      });
+
+      // كلمات شائعة للاستبعاد عند حساب التشابه النصي
+      const stopwords = new Set([
+        'il', 'la', 'lo', 'i', 'gli', 'le', 'un', 'uno', 'una', 'di', 'a', 'da', 
+        'in', 'con', 'su', 'per', 'tra', 'fra', 'del', 'della', 'dello', 'dei', 
+        'degli', 'delle', 'al', 'allo', 'alla', 'ai', 'agli', 'alle', 'si', 
+        'puo', 'deve', 'non', 'e', 'ed', 'che', 'rappresentato', 'raffigurato', 'segnale', 'figura'
+      ]);
+
+      function getKeywords(text) {
+        if (!text) return new Set();
+        const words = text.toLowerCase().match(/[a-z]{3,}/g) || [];
+        return new Set(words.filter(w => !stopwords.has(w)));
+      }
+
+      const selected = [];
+      const usedImages = {};
+      const selectedKwsList = [];
+
+      // خلط المحاور الفرعية
+      const subKeys = Object.keys(bySub).sort(() => 0.5 - Math.random());
+      subKeys.forEach(k => {
+        bySub[k].sort(() => 0.5 - Math.random());
+      });
+
+      let round = 0;
+      let activeSubKeys = [...subKeys];
+
+      while (selected.length < count && activeSubKeys.length > 0) {
+        const currSub = activeSubKeys[round % activeSubKeys.length];
+        const candidates = bySub[currSub];
+
+        let bestCand = null;
+        for (let i = 0; i < candidates.length; i++) {
+          const cand = candidates[i];
+          const img = cand.img || "";
+
+          // تفادي تكرار نفس صورة الإشارة إذا توافر بديل
+          if (img && (usedImages[img] || 0) >= 1 && candidates.length > 1) {
+            continue;
+          }
+
+          // فحص التشابه النصي مع الأسئلة المختارة سابقاً لمنع تكرار الصيغ المتشابهة
+          const candKws = getKeywords(cand.q || "");
+          let tooSimilar = false;
+
+          for (const prevKws of selectedKwsList) {
+            if (prevKws.size > 0 && candKws.size > 0) {
+              const intersection = [...candKws].filter(x => prevKws.has(x)).length;
+              const union = new Set([...candKws, ...prevKws]).size;
+              const jaccard = intersection / union;
+              if (jaccard > 0.45) { // تشابه يفوق 45% في الكلمات المفتاحية يعني نفس القاعدة
+                tooSimilar = true;
+                break;
+              }
+            }
+          }
+
+          if (!tooSimilar) {
+            bestCand = cand;
+            candidates.splice(i, 1);
+            break;
+          }
+        }
+
+        // إذا لم نجد بدون تشابه، نأخذ أول عنصر لضمان التغطية
+        if (!bestCand && candidates.length > 0) {
+          bestCand = candidates.shift();
+        }
+
+        if (bestCand) {
+          selected.push(bestCand);
+          selectedKwsList.push(getKeywords(bestCand.q || ""));
+          if (bestCand.img) {
+            usedImages[bestCand.img] = (usedImages[bestCand.img] || 0) + 1;
+          }
+        }
+
+        if (candidates.length === 0) {
+          activeSubKeys = activeSubKeys.filter(k => k !== currSub);
+        } else {
+          round++;
+        }
+      }
+
+      // إذا احتجنا إكمال العدد
+      if (selected.length < count) {
+        const remaining = allPool.filter(q => !selected.includes(q)).sort(() => 0.5 - Math.random());
+        selected.push(...remaining.slice(0, count - selected.length));
+      }
+
+      // ترتيب عشوائي نهائي
+      return selected.slice(0, count).sort(() => 0.5 - Math.random());
+    }
+
+    function loadAndBuildSession() {
+      if (typeof ALL_QUESTIONS_DATA === 'undefined' || !ALL_QUESTIONS_DATA.length) {
+        setTimeout(loadAndBuildSession, 200);
+        return;
+      }
+
+      // تحديث بيانات الباب
+      const meta = (typeof CHAPTERS_META !== 'undefined' && CHAPTERS_META[targetChapter - 1]) 
+        ? CHAPTERS_META[targetChapter - 1] 
+        : { titolo_ar: "الباب " + targetChapter };
+
+      document.getElementById("lblChapterName").innerText = "الباب " + String(targetChapter).padStart(2, '0') + ": " + (meta.titolo_ar || meta.titolo_it);
+
+      // تصفية أسئلة الباب
+      let pool = ALL_QUESTIONS_DATA.filter(q => q.ch === targetChapter);
+      if (!pool.length) pool = ALL_QUESTIONS_DATA;
+
+      sessionQuestions = selectDiverseQuestions(pool, targetCount);
+      currentIndex = 0;
+      userAnswers = {};
+
+      document.getElementById("summarySection").style.display = "none";
+      document.getElementById("qCardSection").style.display = "block";
+
+      renderNavStrip();
+      loadCurrentQuestion();
+    }
+
+    function startFreshSession() {
+      loadAndBuildSession();
+    }
+
+    function renderNavStrip() {
+      const container = document.getElementById("qNavStrip");
+      container.innerHTML = "";
+
+      sessionQuestions.forEach((q, idx) => {
+        const pill = document.createElement("div");
+        pill.className = "tr-q-pill";
+        pill.innerText = idx + 1;
+        if (idx === currentIndex) pill.classList.add("active");
+
+        if (userAnswers[idx]) {
+          if (userAnswers[idx].isCorrect) pill.classList.add("correct");
+          else pill.classList.add("wrong");
+        }
+
+        pill.onclick = () => {
+          currentIndex = idx;
+          loadCurrentQuestion();
+        };
+
+        container.appendChild(pill);
+      });
+    }
+
+    function loadCurrentQuestion() {
+      if (!sessionQuestions.length) return;
+      const q = sessionQuestions[currentIndex];
+
+      document.getElementById("lblProgress").innerText = `سؤال ${currentIndex + 1} من ${sessionQuestions.length}`;
+      document.getElementById("lblSubtopic").innerText = `المحور: ${q.sub || "عام"}`;
+
+      // الصورة
+      const imgWrap = document.getElementById("imgWrap");
+      const qImg = document.getElementById("qImg");
+      if (q.img && q.img.trim()) {
+        const cleanPath = q.img.startsWith("Capitolo_") ? "../Capitoli_Divisi/" + q.img : q.img;
+        qImg.src = cleanPath;
+        imgWrap.style.display = "block";
+      } else {
+        imgWrap.style.display = "none";
+      }
+
+      document.getElementById("lblQuestionIt").innerText = q.q;
+      document.getElementById("lblQuestionAr").innerText = q.tr || "ترجمة السؤال جاهزة في الدليل...";
+
+      // إعادة ضبط الأزرار
+      const btnVero = document.getElementById("btnVero");
+      const btnFalso = document.getElementById("btnFalso");
+      btnVero.className = "tr-btn-vf tr-btn-vero";
+      btnFalso.className = "tr-btn-vf tr-btn-falso";
+      btnVero.disabled = false;
+      btnFalso.disabled = false;
+
+      const feedbackDrawer = document.getElementById("feedbackDrawer");
+
+      if (userAnswers[currentIndex]) {
+        // السؤال تمت الإجابة عليه مسبقاً
+        const ans = userAnswers[currentIndex];
+        showAnswerState(ans.answer, ans.isCorrect, q);
+      } else {
+        feedbackDrawer.style.display = "none";
+      }
+
+      // حالة أزرار التالي والسابق
+      document.getElementById("btnPrevQ").disabled = (currentIndex === 0);
+      document.getElementById("btnNextQ").innerText = (currentIndex === sessionQuestions.length - 1) ? "إنهاء التدريب 🏁" : "السؤال التالي ⬅";
+
+      renderNavStrip();
+    }
+
+    function handleAnswer(choice) {
+      if (userAnswers[currentIndex]) return; // تمت الإجابة بالفعل
+
+      const q = sessionQuestions[currentIndex];
+      const isCorrect = (choice === q.a);
+
+      userAnswers[currentIndex] = { answer: choice, isCorrect: isCorrect };
+
+      // تسجيل في SRS في حال الخطأ
+      if (!isCorrect && srsEngine) {
+        try {
+          srsEngine.recordAttempt(q.id || (targetChapter * 1000 + currentIndex), false, targetChapter);
+        } catch(e) {}
+      }
+
+      showAnswerState(choice, isCorrect, q);
+      renderNavStrip();
+
+      // فحص إتمام جميع الأسئلة
+      const answeredCount = Object.keys(userAnswers).length;
+      if (answeredCount === sessionQuestions.length) {
+        // إظهار زر ملخص التدريب
+        document.getElementById("btnNextQ").innerText = "عرض النتيجة والملخص 🏁";
+      }
+    }
+
+    function showAnswerState(choice, isCorrect, q) {
+      const btnVero = document.getElementById("btnVero");
+      const btnFalso = document.getElementById("btnFalso");
+
+      btnVero.disabled = true;
+      btnFalso.disabled = true;
+
+      if (choice === true) {
+        btnVero.classList.add(isCorrect ? "selected-correct" : "selected-wrong");
+      } else {
+        btnFalso.classList.add(isCorrect ? "selected-correct" : "selected-wrong");
+      }
+
+      const feedbackDrawer = document.getElementById("feedbackDrawer");
+      const badge = document.getElementById("lblFeedbackBadge");
+      const expl = document.getElementById("lblExplanation");
+      const trapBox = document.getElementById("trapBox");
+      const trapText = document.getElementById("lblTrapText");
+
+      if (isCorrect) {
+        badge.className = "tr-feedback-badge badge-ok";
+        badge.innerHTML = "<span>✓ إجابة صحيحة وممتازة!</span>";
+      } else {
+        badge.className = "tr-feedback-badge badge-err";
+        badge.innerHTML = "<span>✕ إجابة خاطئة! الإجابة الصحيحة هي: " + (q.a ? "VERO (صح)" : "FALSO (خطأ)") + "</span>";
+      }
+
+      expl.innerText = q.sp || (q.a ? "هذه العبارة صحيحة قانونياً وفقاً لقواعد المرور الإيطالية." : "هذه العبارة خاطئة ومخالفة لقواعد السير.");
+
+      if (q.tb && q.tb.trim()) {
+        trapText.innerText = q.tb;
+        trapBox.style.display = "block";
+      } else {
+        trapBox.style.display = "none";
+      }
+
+      feedbackDrawer.style.display = "block";
+    }
+
+    function goToNextQuestion() {
+      if (currentIndex < sessionQuestions.length - 1) {
+        currentIndex++;
+        loadCurrentQuestion();
+      } else {
+        showFinalSummary();
+      }
+    }
+
+    function goToPrevQuestion() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        loadCurrentQuestion();
+      }
+    }
+
+    function showFinalSummary() {
+      document.getElementById("qCardSection").style.display = "none";
+      const summarySection = document.getElementById("summarySection");
+      summarySection.style.display = "block";
+
+      let correctCount = 0;
+      sessionQuestions.forEach((q, idx) => {
+        if (userAnswers[idx] && userAnswers[idx].isCorrect) correctCount++;
+      });
+
+      const total = sessionQuestions.length;
+      const pct = Math.round((correctCount / total) * 100);
+
+      document.getElementById("summaryScore").innerText = `${correctCount}/${total}`;
+      const descEl = document.getElementById("summaryScoreDesc");
+      descEl.innerText = `نسبة الدقة: ${pct}% (${total - correctCount} أخطاء)`;
+      if (pct >= 85) {
+        descEl.style.color = "var(--tr-emerald)";
+      } else if (pct >= 70) {
+        descEl.style.color = "var(--tr-amber)";
+      } else {
+        descEl.style.color = "var(--tr-rose)";
+      }
+
+      window.scrollTo({ top: 150, behavior: 'smooth' });
+    }
+
+    /**
+     * اعتماد إتمام المحطة في الخطة الدراسية والعودة لـ piano-studio.html
+     */
+    function markStationCompleteAndReturn() {
+      const STORAGE_KEY = "patente_b_pro_study_plan";
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try {
+          const plan = JSON.parse(saved);
+          const currentDay = plan.days.find(d => d.dayNum === plan.currentDayNum);
+          if (currentDay) {
+            if (!currentDay.tasks) currentDay.tasks = { vocab: false, theory: false, quiz: false, test: false };
+            currentDay.tasks.quiz = true; // تم اعتماد محطة أسئلة الباب!
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(plan));
+          }
+        } catch(e) {
+          console.error("خطأ في تحديث الخطة:", e);
+        }
+      }
+
+      // الانتقال للخطة
+      window.location.href = "piano-studio.html";
+    }
+
+    /**
+     * نطق السؤال بالإيطالية (Web Speech API)
+     */
+    function playQuestionSpeech() {
+      if (!sessionQuestions.length) return;
+      const q = sessionQuestions[currentIndex];
+      if (!window.speechSynthesis) {
+        alert("المتصفح لا يدعم خاصية نطق الصوت.");
+        return;
+      }
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(q.q);
+      utterance.lang = "it-IT";
+      utterance.rate = 0.9;
+      window.speechSynthesis.speak(utterance);
+    }
+  </script>
+</body>
+</html>

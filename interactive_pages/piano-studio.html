@@ -994,12 +994,15 @@
                 <span id="titleStationQuiz">محطة أسئلة الباب الوزارية</span>
                 <span class="sp-station-badge" id="badgeStationQuiz">15 دقيقة</span>
               </h4>
-              <p id="stationQuizDesc">تدريب تطبيقي (15–25 سؤالاً): حل عينة من أسئلة الباب لترسيخ ما درسته في الشرح، ولست مطالباً بحل بنك الأسئلة بالكامل اليوم.</p>
+              <p id="stationQuizDesc">تدريب ذكي (15–25 سؤالاً): يختار أسئلة عشوائية منوعة تغطي كافة محاور الباب بدون تكرار للأسئلة المتشابهة لترسيخ الفهم.</p>
             </div>
           </div>
           <div id="quizLinksWrap" style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <a id="btnOpenChapterQuizLink" href="#" target="_blank" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 14px;">
-              <span>📂 أسئلة الباب (تدريب 15–25 سؤالاً) ↗</span>
+            <a id="btnStartSmartTraining" href="allenamento-capitolo.html?ch=1&count=20" class="sp-btn sp-btn-primary" style="font-size: 0.8rem; padding: 6px 14px;">
+              <span>🎯 تدريب ذكي (20 سؤالاً بدون تكرار) ↗</span>
+            </a>
+            <a id="btnOpenChapterQuizLink" href="../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/index.html" target="_blank" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 12px;">
+              <span>📂 بنك الأسئلة الشامل ↗</span>
             </a>
           </div>
         </div>
@@ -1833,7 +1836,7 @@
         if (titleTheory) titleTheory.innerText = "محطة الشرح النظري والقواعد";
         if (descTheory) descTheory.innerText = "دراسة دليل الباب التفاعلي مع الرسوم الهندسية، والخرائط الذهنية، وقواعد كود السير.";
         if (titleQuiz) titleQuiz.innerText = "محطة أسئلة الباب الوزارية";
-        if (descQuiz) descQuiz.innerText = "تدريب تطبيقي (15–25 سؤالاً): حل عينة من أسئلة الباب لترسيخ ما درسته في الشرح، ولست مطالباً بحل بنك الأسئلة بالكامل اليوم.";
+        if (descQuiz) descQuiz.innerText = "تدريب ذكي (15–25 سؤالاً): يختار أسئلة عشوائية منوعة تغطي كافة محاور الباب بدون تكرار للأسئلة المتشابهة لترسيخ الفهم.";
         if (titleTest) titleTest.innerText = "محطة التثبيت السريع (30 سؤالاً وزاريّاً)";
         if (descTest) descTest.innerText = "اختبار وزاري سريع مكون من 30 سؤالاً عشوائياً (الحد الأقصى المسموح رسمياً 3 أخطاء).";
       }
@@ -1862,8 +1865,16 @@
           const folder = (typeof CHAPTERS_META !== 'undefined' && CHAPTERS_META[chNum - 1]) 
             ? CHAPTERS_META[chNum - 1].folder 
             : "Capitolo_01_definizioni_generali_doveri_strada";
-          const label = currentDay.chapters.length > 1 ? `📂 أسئلة باب ${chNum} ↗` : `📂 أسئلة الباب (تدريب 15–25 سؤالاً) ↗`;
-          return `<a href="../Capitoli_Divisi/${folder}/index.html" target="_blank" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 14px;"><span>${label}</span></a>`;
+          const labelSmart = currentDay.chapters.length > 1 ? `🎯 تدريب ذكي باب ${chNum} (20 سؤالاً) ↗` : `🎯 تدريب ذكي (20 سؤالاً بدون تكرار) ↗`;
+          const labelFull = currentDay.chapters.length > 1 ? `📂 أسئلة باب ${chNum} ↗` : `📂 بنك الأسئلة الشامل ↗`;
+          return `
+            <a href="allenamento-capitolo.html?ch=${chNum}&count=20" class="sp-btn sp-btn-primary" style="font-size: 0.8rem; padding: 6px 14px;">
+              <span>${labelSmart}</span>
+            </a>
+            <a href="../Capitoli_Divisi/${folder}/index.html" target="_blank" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 12px;">
+              <span>${labelFull}</span>
+            </a>
+          `;
         }).join("");
       }
 
