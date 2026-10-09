@@ -1,17 +1,18 @@
 /**
  * Patente B Pro - Universal Theme Modes (Dark & Light Stylesheet)
  * Apple HIG Compliant, Ultra-High Contrast, High Eye-Comfort
+ * Full Coverage for All 32 Portal Pages & Tools
  */
 
 /* ==========================================================================
-   Light Mode Custom Properties & Overrides
+   Light Mode Custom Properties
    ========================================================================== */
 html.light {
   --bg-base: #f8fafc;
-  --bg-surface: rgba(255, 255, 255, 0.88);
-  --bg-surface-elevated: rgba(248, 250, 252, 0.95);
-  --border-subtle: rgba(15, 23, 42, 0.08);
-  --border-highlight: rgba(15, 23, 42, 0.16);
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f1f5f9;
+  --border-subtle: rgba(15, 23, 42, 0.09);
+  --border-highlight: rgba(15, 23, 42, 0.18);
   --text-primary: #0f172a;
   --text-secondary: #334155;
   --text-muted: #64748b;
@@ -23,6 +24,7 @@ html.light {
   --amber-glow: rgba(217, 119, 6, 0.2);
   --sky-primary: #0284c7;
   --sky-glow: rgba(2, 132, 199, 0.2);
+  --indigo-primary: #4f46e5;
 }
 
 /* Base styling for theme switch button across all themes */
@@ -44,296 +46,6 @@ html.light {
 }
 .nav-theme-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
 .nav-theme-btn:active { transform: scale(0.96); }
-
-/* Light Mode Background & Base Colors */
-html.light body {
-  background-color: var(--bg-base) !important;
-  color: var(--text-primary) !important;
-  background-image: 
-    radial-gradient(ellipse at 50% -10%, rgba(99, 102, 241, 0.08), transparent 60%),
-    radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.04), transparent 45%),
-    radial-gradient(circle at 90% 40%, rgba(245, 158, 11, 0.03), transparent 45%) !important;
-}
-
-/* Navbar in Light Mode */
-html.light .unified-portal-nav {
-  background: rgba(255, 255, 255, 0.88) !important;
-  border-bottom: 1px solid var(--border-subtle) !important;
-}
-html.light .nav-brand {
-  color: #0f172a !important;
-}
-html.light .nav-brand .badge-tag {
-  background: rgba(15, 23, 42, 0.05) !important;
-  border-color: rgba(15, 23, 42, 0.12) !important;
-  color: #0284c7 !important;
-}
-html.light .nav-tab-desktop {
-  color: var(--text-secondary) !important;
-}
-html.light .nav-tab-desktop:hover {
-  color: #0f172a !important;
-  background: rgba(15, 23, 42, 0.05) !important;
-}
-html.light .nav-tab-desktop.active {
-  color: #0284c7 !important;
-  background: rgba(2, 132, 199, 0.1) !important;
-  border: 1px solid rgba(2, 132, 199, 0.25) !important;
-}
-
-/* Buttons in Nav */
-html.light .nav-audio-btn,
-html.light .nav-theme-btn,
-html.light .nav-dropdown-btn {
-  background: rgba(15, 23, 42, 0.04) !important;
-  border-color: rgba(15, 23, 42, 0.1) !important;
-  color: #334155 !important;
-}
-html.light .nav-audio-btn:hover,
-html.light .nav-theme-btn:hover,
-html.light .nav-dropdown-btn:hover {
-  color: #0f172a !important;
-  background: rgba(15, 23, 42, 0.08) !important;
-}
-html.light .nav-dropdown-menu {
-  background: #ffffff !important;
-  border-color: rgba(15, 23, 42, 0.12) !important;
-  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.15) !important;
-}
-html.light .nav-dropdown-item {
-  color: #334155 !important;
-}
-html.light .nav-dropdown-item:hover {
-  background: rgba(15, 23, 42, 0.05) !important;
-  color: #0f172a !important;
-}
-
-/* Mobile Drawer in Light Mode */
-html.light .mobile-drawer-panel {
-  background: rgba(255, 255, 255, 0.98) !important;
-  border-bottom: 1px solid rgba(15, 23, 42, 0.12) !important;
-  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.12) !important;
-}
-html.light .mobile-nav-link {
-  color: #334155 !important;
-}
-html.light .mobile-nav-link:hover {
-  background: rgba(15, 23, 42, 0.04) !important;
-  color: #0f172a !important;
-}
-html.light .mobile-nav-link.active {
-  background: rgba(2, 132, 199, 0.12) !important;
-  color: #0284c7 !important;
-}
-html.light .hamburger-line {
-  background-color: #0f172a !important;
-}
-html.light .nav-hamburger-btn {
-  background: rgba(15, 23, 42, 0.05) !important;
-  border-color: rgba(15, 23, 42, 0.1) !important;
-}
-
-/* Glass Cards & Bento Containers */
-html.light .glass-card,
-html.light .hero-card,
-html.light .hero-main-card,
-html.light .hero-side-card,
-html.light .q-card,
-html.light .dict-card,
-html.light .chapter-card,
-html.light .guide-card {
-  background: var(--bg-surface) !important;
-  border: 1px solid var(--border-subtle) !important;
-  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 4px 6px -2px rgba(15, 23, 42, 0.03) !important;
-}
-html.light .hero-card h1,
-html.light .hero-main-card h1,
-html.light .hero-side-card h3,
-html.light .dict-word-main,
-html.light .guide-title {
-  color: #0f172a !important;
-}
-html.light .hero-card p,
-html.light .hero-main-card p,
-html.light .hero-side-card p {
-  color: #475569 !important;
-}
-html.light .stat-chip {
-  background: rgba(15, 23, 42, 0.03) !important;
-  border-color: rgba(15, 23, 42, 0.08) !important;
-}
-html.light .stat-chip strong {
-  color: #0f172a !important;
-}
-
-/* Inputs, Textareas & Selects */
-html.light .custom-input,
-html.light .search-input,
-html.light .custom-select,
-html.light #liveSearchInput,
-html.light #newWordInput,
-html.light #chapter-search {
-  background: rgba(255, 255, 255, 0.95) !important;
-  border-color: rgba(15, 23, 42, 0.15) !important;
-  color: #0f172a !important;
-}
-html.light .custom-input::placeholder,
-html.light .search-input::placeholder {
-  color: #94a3b8 !important;
-}
-
-/* Chips & Segmented Controls */
-html.light .word-chip {
-  background: rgba(241, 245, 249, 0.9) !important;
-  border-color: rgba(15, 23, 42, 0.12) !important;
-  color: #1e293b !important;
-}
-html.light .word-chip:hover {
-  background: rgba(2, 132, 199, 0.1) !important;
-  border-color: rgba(2, 132, 199, 0.35) !important;
-  color: #0284c7 !important;
-}
-html.light .word-chip.active {
-  background: linear-gradient(135deg, rgba(2, 132, 199, 0.15), rgba(99, 102, 241, 0.15)) !important;
-  border-color: #0284c7 !important;
-  color: #0369a1 !important;
-}
-html.light .chip-count {
-  background: rgba(15, 23, 42, 0.08) !important;
-  color: #475569 !important;
-}
-html.light .chips-wrapper {
-  background: rgba(241, 245, 249, 0.5) !important;
-  border-color: rgba(15, 23, 42, 0.14) !important;
-}
-html.light .family-pill,
-html.light .cat-chip-btn {
-  background: rgba(15, 23, 42, 0.04) !important;
-  border-color: rgba(15, 23, 42, 0.08) !important;
-  color: #334155 !important;
-}
-html.light .family-pill:hover,
-html.light .cat-chip-btn:hover {
-  background: rgba(15, 23, 42, 0.08) !important;
-  color: #0f172a !important;
-}
-html.light .family-pill.active,
-html.light .cat-chip-btn.active {
-  background: rgba(99, 102, 241, 0.15) !important;
-  border-color: #6366f1 !important;
-  color: #4338ca !important;
-}
-
-/* Question Cards in Light Mode */
-html.light .q-card {
-  background: #ffffff !important;
-}
-html.light .q-italian-text {
-  color: #0f172a !important;
-}
-html.light .q-arabic-text {
-  background: rgba(15, 23, 42, 0.03) !important;
-  color: #1e293b !important;
-  border-right-color: #0284c7 !important;
-}
-html.light .badge-vero {
-  background: rgba(16, 185, 129, 0.14) !important;
-  border-color: rgba(16, 185, 129, 0.35) !important;
-  color: #047857 !important;
-  box-shadow: none !important;
-}
-html.light .badge-falso {
-  background: rgba(244, 63, 94, 0.14) !important;
-  border-color: rgba(244, 63, 94, 0.35) !important;
-  color: #be123c !important;
-  box-shadow: none !important;
-}
-html.light .badge-ch {
-  background: rgba(99, 102, 241, 0.1) !important;
-  border-color: rgba(99, 102, 241, 0.25) !important;
-  color: #4f46e5 !important;
-}
-html.light .badge-sub {
-  background: rgba(15, 23, 42, 0.05) !important;
-  border-color: rgba(15, 23, 42, 0.1) !important;
-  color: #475569 !important;
-}
-html.light .q-spiegazione-box {
-  background: rgba(16, 185, 129, 0.08) !important;
-  border-color: rgba(16, 185, 129, 0.25) !important;
-  color: #065f46 !important;
-}
-html.light .q-spiegazione-box strong {
-  color: #047857 !important;
-}
-html.light .q-trap-box {
-  background: rgba(245, 158, 11, 0.09) !important;
-  border-color: rgba(245, 158, 11, 0.28) !important;
-  color: #78350f !important;
-}
-html.light .q-trap-box strong {
-  color: #b45309 !important;
-}
-html.light .kw-highlight {
-  background: rgba(245, 158, 11, 0.28) !important;
-  color: #92400e !important;
-  border-bottom: 2px solid #d97706 !important;
-}
-html.light .kw-chip-add {
-  background: rgba(15, 23, 42, 0.04) !important;
-  border-color: rgba(15, 23, 42, 0.1) !important;
-  color: #334155 !important;
-}
-html.light .kw-chip-add:hover {
-  background: rgba(2, 132, 199, 0.1) !important;
-  color: #0284c7 !important;
-}
-html.light .btn-tts,
-html.light .btn-tts-mini {
-  background: rgba(15, 23, 42, 0.05) !important;
-  border-color: rgba(15, 23, 42, 0.1) !important;
-  color: #334155 !important;
-}
-
-/* Dictionary Cards in Light Mode */
-html.light .dict-card {
-  background: #ffffff !important;
-}
-html.light .dict-definition-box {
-  background: rgba(15, 23, 42, 0.03) !important;
-  color: #1e293b !important;
-  border-right-color: #6366f1 !important;
-}
-html.light .thesaurus-subcard {
-  background: rgba(255, 255, 255, 0.8) !important;
-  border-color: rgba(15, 23, 42, 0.1) !important;
-}
-html.light .synonyms-section {
-  background: rgba(16, 185, 129, 0.06) !important;
-  border-color: rgba(16, 185, 129, 0.2) !important;
-}
-html.light .syn-chip {
-  background: rgba(16, 185, 129, 0.15) !important;
-  color: #065f46 !important;
-  border-color: rgba(16, 185, 129, 0.3) !important;
-}
-html.light .traps-section {
-  background: rgba(244, 63, 94, 0.05) !important;
-  border-color: rgba(244, 63, 94, 0.2) !important;
-}
-html.light .trap-subitem {
-  background: rgba(255, 255, 255, 0.9) !important;
-  border: 1px solid rgba(244, 63, 94, 0.15) !important;
-  color: #881337 !important;
-}
-html.light .trap-term-title {
-  color: #be123c !important;
-}
-
-/* Interactive Tools Hub in Light Mode */
-html.light .tools-hub-grid a {
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04) !important;
-}
 
 /* Universal Mobile Drawer Footer */
 .mobile-drawer-footer {
@@ -367,8 +79,106 @@ html.light .tools-hub-grid a {
   transform: scale(0.98);
 }
 
+/* ==========================================================================
+   LIGHT MODE OVERRIDES (Strict High-Contrast, Zero-White-on-White)
+   ========================================================================== */
+
+/* 1. Body & Base Viewport */
+html.light body {
+  background-color: var(--bg-base) !important;
+  color: #0f172a !important;
+  background-image: 
+    radial-gradient(ellipse at 50% -10%, rgba(99, 102, 241, 0.05), transparent 60%),
+    radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.03), transparent 45%),
+    radial-gradient(circle at 90% 40%, rgba(245, 158, 11, 0.02), transparent 45%) !important;
+}
+
+/* 2. Top Navigation Bar */
+html.light .unified-portal-nav {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.09) !important;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04) !important;
+}
+html.light .nav-brand {
+  color: #0f172a !important;
+}
+html.light .nav-brand .badge-tag {
+  background: rgba(15, 23, 42, 0.05) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  color: #0284c7 !important;
+}
+html.light .nav-tab-desktop {
+  color: #334155 !important;
+}
+html.light .nav-tab-desktop:hover {
+  color: #0f172a !important;
+  background: rgba(15, 23, 42, 0.05) !important;
+}
+html.light .nav-tab-desktop.active {
+  color: #0284c7 !important;
+  background: rgba(2, 132, 199, 0.1) !important;
+  border: 1px solid rgba(2, 132, 199, 0.28) !important;
+}
+html.light .nav-audio-btn,
+html.light .nav-theme-btn,
+html.light .nav-dropdown-btn {
+  background: rgba(15, 23, 42, 0.04) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  color: #334155 !important;
+}
+html.light .nav-audio-btn:hover,
+html.light .nav-theme-btn:hover,
+html.light .nav-dropdown-btn:hover {
+  color: #0f172a !important;
+  background: rgba(15, 23, 42, 0.08) !important;
+}
+html.light .nav-dropdown-menu {
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12) !important;
+}
+html.light .nav-dropdown-item {
+  color: #334155 !important;
+}
+html.light .nav-dropdown-item:hover {
+  background: rgba(15, 23, 42, 0.05) !important;
+  color: #0f172a !important;
+}
+html.light .nav-dropdown-item.active {
+  background: rgba(2, 132, 199, 0.1) !important;
+  color: #0284c7 !important;
+}
+html.light .hamburger-line {
+  background-color: #0f172a !important;
+}
+html.light .nav-hamburger-btn {
+  background: rgba(15, 23, 42, 0.05) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+
+/* 3. Mobile Navigation Drawer */
+html.light .mobile-drawer-panel {
+  background: #ffffff !important;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.15) !important;
+}
+html.light .mobile-nav-link {
+  color: #334155 !important;
+}
+html.light .mobile-nav-link:hover,
+html.light .mobile-nav-link:active {
+  background: rgba(15, 23, 42, 0.04) !important;
+  color: #0f172a !important;
+}
+html.light .mobile-nav-link.active {
+  background: rgba(2, 132, 199, 0.12) !important;
+  color: #0284c7 !important;
+}
+html.light .mobile-nav-divider {
+  border-bottom-color: rgba(15, 23, 42, 0.08) !important;
+}
 html.light .mobile-drawer-footer {
-  border-top: 1px solid rgba(15, 23, 42, 0.1) !important;
+  border-top-color: rgba(15, 23, 42, 0.1) !important;
 }
 html.light .mobile-control-btn {
   background: rgba(15, 23, 42, 0.05) !important;
@@ -379,32 +189,549 @@ html.light .mobile-control-btn:hover {
   background: rgba(15, 23, 42, 0.09) !important;
 }
 
-/* Exam Simulator (Simulatore_Esame.html) in Light Mode */
+/* 4. Bento Containers & Cards */
+html.light .glass-card,
+html.light .hero-card,
+html.light .hero-main-card,
+html.light .hero-actions-card,
+html.light .chapter-card,
+html.light .guide-card,
+html.light .ch-header-card,
 html.light .header-card,
 html.light #setup-screen,
 html.light .exam-status-bar,
 html.light .q-stage-card,
 html.light .result-verdict-card,
 html.light .review-card,
-html.light .q-grid-nav {
-  background: var(--bg-surface) !important;
-  border-color: var(--border-subtle) !important;
-  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 4px 6px -2px rgba(15, 23, 42, 0.03) !important;
+html.light .q-grid-nav,
+html.light .q-card,
+html.light .dict-card,
+html.light .thesaurus-card,
+html.light .search-filter-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02) !important;
 }
+
+html.light .hero-side-card {
+  background: linear-gradient(145deg, rgba(16, 185, 129, 0.08) 0%, #ffffff 100%) !important;
+  border: 1px solid rgba(16, 185, 129, 0.28) !important;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04) !important;
+}
+
+/* 5. Headings, Titles & Primary Text */
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6,
+html.light .hero-card h1,
+html.light .hero-main-card h1,
+html.light .hero-actions-card h3,
+html.light .hero-side-card h3,
+html.light .side-title,
+html.light .ch-main-title,
+html.light .ch-title-it,
+html.light .guide-title,
 html.light .header-card-title h1,
 html.light .setup-headline h2,
 html.light .mode-title,
-html.light .q-statement-text,
+html.light .dict-word-main,
+html.light .thesaurus-title,
+html.light .results-count-badge,
 html.light .review-header-bar h3,
+html.light .modal-title,
+html.light .saved-card-title,
+html.light .pagination-title,
+html.light .chips-title {
+  color: #0f172a !important;
+}
+
+/* 6. Descriptions, Secondary Text & Paragraphs */
+html.light p,
+html.light .hero-main-card p,
+html.light .hero-actions-card p,
+html.light .guide-desc,
+html.light .mode-desc,
+html.light .verdict-desc,
+html.light .thesaurus-summary,
+html.light .dict-definition-box,
+html.light .toggle-label,
+html.light .study-toggle-label,
+html.light .opt-label,
+html.light .flag-label {
+  color: #334155 !important;
+}
+
+html.light .side-desc {
+  color: #065f46 !important;
+  opacity: 1 !important;
+}
+html.light .side-tag {
+  background: rgba(16, 185, 129, 0.14) !important;
+  border: 1px solid rgba(16, 185, 129, 0.35) !important;
+  color: #047857 !important;
+}
+
+/* 7. Arabic Titles, Subtitles & Accents */
+html.light .ch-title-ar,
+html.light .ch-ar-title,
+html.light .dict-word-ar,
+html.light .guide-subtitle,
+html.light .results-count-badge strong {
+  color: #0284c7 !important;
+  font-weight: 700 !important;
+}
+
+/* 8. ITALIAN QUESTIONS TEXT & ARABIC TRANSLATIONS */
+html.light .q-text-content,
+html.light .q-statement-text,
+html.light .q-italian-text,
+html.light .review-q-text {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+html.light .q-arabic-text {
+  background: #f8fafc !important;
+  border: 1px solid rgba(15, 23, 42, 0.08) !important;
+  border-right: 4px solid #0284c7 !important;
+  color: #1e293b !important;
+}
+
+/* 9. EXPLANATIONS & TRAFFIC RULES DRAWERS */
+html.light .explain-drawer {
+  background: #f8fafc !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04) !important;
+}
+html.light .ex-item,
+html.light .explain-item {
+  color: #1e293b !important;
+}
+html.light .ex-item strong,
+html.light .explain-item strong {
+  color: #0f172a !important;
+}
+
+html.light .q-spiegazione-box {
+  background: rgba(16, 185, 129, 0.08) !important;
+  border: 1px solid rgba(16, 185, 129, 0.28) !important;
+  color: #064e3b !important;
+}
+html.light .q-spiegazione-box strong {
+  color: #047857 !important;
+}
+
+/* 10. TRAPS & TRABOCCHETTO BANNERS */
+html.light .trap-banner,
+html.light .trap-alert-box {
+  background: rgba(239, 68, 68, 0.08) !important;
+  border: 1px solid rgba(239, 68, 68, 0.28) !important;
+  color: #991b1b !important;
+}
+html.light .trap-banner strong,
+html.light .trap-alert-box strong {
+  color: #7f1d1d !important;
+}
+
+html.light .q-trap-box {
+  background: rgba(217, 119, 6, 0.08) !important;
+  border: 1px solid rgba(217, 119, 6, 0.28) !important;
+  color: #78350f !important;
+}
+html.light .q-trap-box strong {
+  color: #9a3412 !important;
+}
+
+html.light .traps-section {
+  background: rgba(244, 63, 94, 0.05) !important;
+  border-color: rgba(244, 63, 94, 0.2) !important;
+}
+html.light .traps-section h4 {
+  color: #be123c !important;
+}
+html.light .trap-subitem,
+html.light .falso-trap-item {
+  background: #ffffff !important;
+  border: 1px solid rgba(244, 63, 94, 0.18) !important;
+  color: #881337 !important;
+}
+html.light .trap-term-title,
+html.light .falso-trap-term {
+  color: #be123c !important;
+}
+
+/* 11. KEYWORDS & HIGHLIGHTS */
+html.light .kw-pill {
+  background: rgba(99, 102, 241, 0.1) !important;
+  border: 1px solid rgba(99, 102, 241, 0.25) !important;
+  color: #3730a3 !important;
+}
+html.light .kw-pill strong {
+  color: #92400e !important;
+}
+
+html.light .kw-highlight {
+  background: #fef08a !important;
+  color: #854d0e !important;
+  border-bottom: 2px solid #ca8a04 !important;
+}
+
+html.light .kw-chip-add {
+  background: rgba(15, 23, 42, 0.04) !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  color: #1e293b !important;
+}
+html.light .kw-chip-add:hover {
+  background: rgba(2, 132, 199, 0.1) !important;
+  border-color: rgba(2, 132, 199, 0.3) !important;
+  color: #0284c7 !important;
+}
+html.light .kw-chip-add .plus-icon {
+  color: #0284c7 !important;
+}
+
+html.light .synonyms-section {
+  background: rgba(16, 185, 129, 0.06) !important;
+  border-color: rgba(16, 185, 129, 0.2) !important;
+}
+html.light .synonyms-section h4 {
+  color: #047857 !important;
+}
+html.light .syn-chip,
+html.light .synonym-chip-btn {
+  background: rgba(16, 185, 129, 0.12) !important;
+  border: 1px solid rgba(16, 185, 129, 0.28) !important;
+  color: #065f46 !important;
+}
+html.light .synonym-chip-btn:hover {
+  background: rgba(16, 185, 129, 0.22) !important;
+  color: #044e3b !important;
+}
+
+/* 12. VERO / FALSO BUTTONS & BADGES */
+html.light .btn-ans-v,
+html.light .btn-choice-v {
+  background: rgba(16, 185, 129, 0.14) !important;
+  border: 1px solid rgba(16, 185, 129, 0.38) !important;
+  color: #047857 !important;
+  font-weight: 800 !important;
+}
+html.light .btn-ans-v:hover,
+html.light .btn-choice-v:hover {
+  background: #059669 !important;
+  border-color: #059669 !important;
+  color: #ffffff !important;
+}
+html.light .btn-choice-v.selected {
+  background: #059669 !important;
+  border-color: #059669 !important;
+  color: #ffffff !important;
+}
+
+html.light .btn-ans-f,
+html.light .btn-choice-f {
+  background: rgba(244, 63, 94, 0.14) !important;
+  border: 1px solid rgba(244, 63, 94, 0.38) !important;
+  color: #be123c !important;
+  font-weight: 800 !important;
+}
+html.light .btn-ans-f:hover,
+html.light .btn-choice-f:hover {
+  background: #e11d48 !important;
+  border-color: #e11d48 !important;
+  color: #ffffff !important;
+}
+html.light .btn-choice-f.selected {
+  background: #e11d48 !important;
+  border-color: #e11d48 !important;
+  color: #ffffff !important;
+}
+
+html.light .badge-vero {
+  background: rgba(16, 185, 129, 0.14) !important;
+  border-color: rgba(16, 185, 129, 0.38) !important;
+  color: #047857 !important;
+  box-shadow: none !important;
+}
+html.light .badge-falso {
+  background: rgba(244, 63, 94, 0.14) !important;
+  border-color: rgba(244, 63, 94, 0.38) !important;
+  color: #be123c !important;
+  box-shadow: none !important;
+}
+
+html.light .status-tag.ok,
+html.light .study-badge-direct.is-v {
+  background: rgba(16, 185, 129, 0.14) !important;
+  border-color: rgba(16, 185, 129, 0.38) !important;
+  color: #047857 !important;
+}
+html.light .status-tag.err,
+html.light .study-badge-direct.is-f {
+  background: rgba(244, 63, 94, 0.14) !important;
+  border-color: rgba(244, 63, 94, 0.38) !important;
+  color: #be123c !important;
+}
+
+/* 13. PRIMARY & SECONDARY ACTION BUTTONS */
+html.light .btn-action-study,
+html.light .btn-primary,
+html.light .btn-start-exam,
+html.light .btn-action-primary,
+html.light .btn-read-guide,
+html.light .btn-hero-launch {
+  background: #0284c7 !important;
+  border-color: #0284c7 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25) !important;
+}
+html.light .btn-action-study:hover,
+html.light .btn-primary:hover,
+html.light .btn-start-exam:hover,
+html.light .btn-action-primary:hover,
+html.light .btn-read-guide:hover,
+html.light .btn-hero-launch:hover {
+  background: #0369a1 !important;
+  border-color: #0369a1 !important;
+  color: #ffffff !important;
+}
+
+html.light .btn-quiz-bridge {
+  background: linear-gradient(135deg, #0284c7, #4f46e5) !important;
+  color: #ffffff !important;
+}
+
+html.light .btn-action-md,
+html.light .btn-explain-toggle,
+html.light .btn-toggle-explain,
+html.light .btn-subtle,
+html.light .btn-subtle-back,
+html.light .btn-stage-nav,
+html.light .btn-md-guide,
+html.light .btn-action-preset,
+html.light .btn-explore-quiz,
+html.light .btn-back-portal,
+html.light .btn-action-secondary {
+  background: rgba(15, 23, 42, 0.05) !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  color: #1e293b !important;
+}
+html.light .btn-action-md:hover,
+html.light .btn-explain-toggle:hover,
+html.light .btn-toggle-explain:hover,
+html.light .btn-subtle:hover,
+html.light .btn-subtle-back:hover,
+html.light .btn-stage-nav:hover:not(:disabled),
+html.light .btn-md-guide:hover,
+html.light .btn-action-preset:hover,
+html.light .btn-explore-quiz:hover,
+html.light .btn-back-portal:hover,
+html.light .btn-action-secondary:hover {
+  background: rgba(15, 23, 42, 0.09) !important;
+  border-color: rgba(15, 23, 42, 0.2) !important;
+  color: #0f172a !important;
+}
+
+html.light .btn-guide-link {
+  background: rgba(2, 132, 199, 0.1) !important;
+  border: 1px solid rgba(2, 132, 199, 0.3) !important;
+  color: #0284c7 !important;
+  box-shadow: none !important;
+}
+html.light .btn-guide-link:hover {
+  background: rgba(2, 132, 199, 0.18) !important;
+}
+
+html.light .btn-load-more {
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.15) !important;
+  color: #0f172a !important;
+}
+html.light .btn-load-more:hover {
+  background: rgba(15, 23, 42, 0.05) !important;
+}
+
+html.light .btn-tts,
+html.light .btn-tts-mini {
+  background: rgba(15, 23, 42, 0.05) !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  color: #334155 !important;
+}
+html.light .btn-tts:hover,
+html.light .btn-tts-mini:hover {
+  background: rgba(2, 132, 199, 0.1) !important;
+  color: #0284c7 !important;
+}
+
+/* 14. CHIPS, FILTERS & SEGMENTED CONTROLS */
+html.light .chip-btn,
+html.light .f-btn,
+html.light .cat-chip-btn,
+html.light .family-pill,
+html.light .segmented-btn {
+  background: rgba(15, 23, 42, 0.04) !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
+  color: #334155 !important;
+}
+html.light .chip-btn:hover,
+html.light .f-btn:hover,
+html.light .cat-chip-btn:hover,
+html.light .family-pill:hover,
+html.light .segmented-btn:hover {
+  background: rgba(15, 23, 42, 0.08) !important;
+  color: #0f172a !important;
+}
+html.light .chip-btn.active,
+html.light .f-btn.active,
+html.light .cat-chip-btn.active,
+html.light .family-pill.active,
+html.light .segmented-btn.active {
+  background: #0284c7 !important;
+  border-color: #0284c7 !important;
+  color: #ffffff !important;
+}
+
+html.light .word-chip {
+  background: #f1f5f9 !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  color: #0f172a !important;
+}
+html.light .word-chip:hover {
+  background: rgba(2, 132, 199, 0.1) !important;
+  border-color: rgba(2, 132, 199, 0.3) !important;
+  color: #0284c7 !important;
+}
+html.light .word-chip.active {
+  background: #0284c7 !important;
+  border-color: #0284c7 !important;
+  color: #ffffff !important;
+}
+html.light .word-chip .chip-count {
+  background: rgba(15, 23, 42, 0.08) !important;
+  color: #475569 !important;
+}
+html.light .word-chip.active .chip-count {
+  background: rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+}
+
+/* 15. INPUTS, SEARCH BOXES & CONTROLS BARS */
+html.light .search-input,
+html.light .search-box,
+html.light .custom-input,
+html.light .custom-select,
+html.light .select-box,
+html.light #chapter-search,
+html.light #q-search,
+html.light #liveSearchInput,
+html.light #newWordInput {
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.18) !important;
+  color: #0f172a !important;
+}
+html.light .search-input::placeholder,
+html.light .search-box::placeholder,
+html.light .custom-input::placeholder {
+  color: #94a3b8 !important;
+}
+html.light .search-shortcut {
+  background: rgba(15, 23, 42, 0.05) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  color: #64748b !important;
+}
+html.light .search-icon,
+html.light .search-icon-span {
+  color: #64748b !important;
+}
+html.light .controls-bar {
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.09) !important;
+}
+
+/* 16. METRICS, CHIPS & COUNTERS */
+html.light .stat-chip,
+html.light .score-strip,
+html.light .stat-matrix-cell {
+  background: #f8fafc !important;
+  border: 1px solid rgba(15, 23, 42, 0.08) !important;
+}
+html.light .stat-chip strong,
+html.light .score-cell strong,
 html.light .stat-matrix-val {
   color: #0f172a !important;
 }
+html.light .stat-matrix-label {
+  color: #64748b !important;
+}
+
+html.light .ch-pill-num,
+html.light .badge-ch,
+html.light .dict-cat-badge,
+html.light .thesaurus-badge {
+  background: rgba(99, 102, 241, 0.1) !important;
+  border: 1px solid rgba(99, 102, 241, 0.25) !important;
+  color: #4338ca !important;
+}
+
+html.light .badge-sub,
+html.light .badge-id,
+html.light .q-id-pill,
+html.light .q-badge-num,
+html.light .q-topic-tag,
+html.light .ch-stats-strip {
+  background: rgba(15, 23, 42, 0.04) !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
+  color: #475569 !important;
+}
+
+html.light .timer-pill {
+  background: #f1f5f9 !important;
+  border: 1px solid rgba(15, 23, 42, 0.15) !important;
+  color: #0f172a !important;
+  box-shadow: none !important;
+}
+html.light .kbd-hint {
+  background: rgba(15, 23, 42, 0.08) !important;
+  border: 1px solid rgba(15, 23, 42, 0.15) !important;
+  color: #334155 !important;
+}
+
+html.light .q-pill {
+  background: #f1f5f9 !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  color: #475569 !important;
+}
+html.light .q-pill:hover {
+  background: rgba(15, 23, 42, 0.08) !important;
+  color: #0f172a !important;
+}
+html.light .q-pill.current {
+  background: #0284c7 !important;
+  border-color: #0284c7 !important;
+  color: #ffffff !important;
+}
+html.light .q-pill.answered {
+  background: rgba(16, 185, 129, 0.18) !important;
+  border-color: rgba(16, 185, 129, 0.4) !important;
+  color: #047857 !important;
+}
+html.light .q-img-wrap,
+html.light .q-img-container {
+  background: #f8fafc !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
+  box-shadow: none !important;
+}
+
+/* 17. EXAM SIMULATOR SETUP & REVIEW SCREENS */
 html.light .mode-card {
-  background: rgba(15, 23, 42, 0.02) !important;
-  border-color: rgba(15, 23, 42, 0.1) !important;
+  background: #f8fafc !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
 }
 html.light .mode-card:hover {
-  background: rgba(15, 23, 42, 0.05) !important;
+  background: #f1f5f9 !important;
   border-color: rgba(15, 23, 42, 0.18) !important;
 }
 html.light .mode-card.selected {
@@ -414,91 +741,32 @@ html.light .mode-card.selected {
 html.light .mode-card.selected .mode-title {
   color: #065f46 !important;
 }
-html.light .select-box {
-  background: #ffffff !important;
-  border-color: rgba(15, 23, 42, 0.15) !important;
-  color: #0f172a !important;
-}
 html.light .options-box {
-  background: rgba(15, 23, 42, 0.02) !important;
-  border-color: rgba(15, 23, 42, 0.08) !important;
+  background: #f8fafc !important;
+  border: 1px solid rgba(15, 23, 42, 0.08) !important;
 }
-html.light .timer-pill {
-  background: rgba(15, 23, 42, 0.05) !important;
-  border-color: rgba(15, 23, 42, 0.12) !important;
-  color: #0f172a !important;
-  box-shadow: none !important;
+
+html.light .result-verdict-card.passed {
+  border-color: rgba(16, 185, 129, 0.4) !important;
+  background: linear-gradient(180deg, rgba(16, 185, 129, 0.08) 0%, #ffffff 100%) !important;
 }
-html.light .mode-indicator,
-html.light .btn-subtle-back,
-html.light .btn-stage-nav {
-  background: rgba(15, 23, 42, 0.04) !important;
-  border-color: rgba(15, 23, 42, 0.1) !important;
-  color: #334155 !important;
-}
-html.light .btn-subtle-back:hover,
-html.light .btn-stage-nav:hover:not(:disabled) {
-  background: rgba(15, 23, 42, 0.08) !important;
-  color: #0f172a !important;
-}
-html.light .q-pill {
-  background: rgba(15, 23, 42, 0.03) !important;
-  border-color: rgba(15, 23, 42, 0.1) !important;
-  color: #475569 !important;
-}
-html.light .q-pill:hover {
-  background: rgba(15, 23, 42, 0.08) !important;
-  color: #0f172a !important;
-}
-html.light .q-pill.current {
-  border-color: #0284c7 !important;
-  color: #0369a1 !important;
-  background: rgba(2, 132, 199, 0.15) !important;
-  box-shadow: 0 0 10px rgba(2, 132, 199, 0.25) !important;
-}
-html.light .q-pill.answered {
-  background: rgba(16, 185, 129, 0.15) !important;
-  border-color: rgba(16, 185, 129, 0.35) !important;
+html.light .result-verdict-card.passed .verdict-badge {
   color: #047857 !important;
 }
-html.light .q-img-container {
-  background: rgba(15, 23, 42, 0.03) !important;
-  border-color: rgba(15, 23, 42, 0.1) !important;
-  box-shadow: none !important;
+html.light .result-verdict-card.failed {
+  border-color: rgba(244, 63, 94, 0.4) !important;
+  background: linear-gradient(180deg, rgba(244, 63, 94, 0.08) 0%, #ffffff 100%) !important;
 }
-html.light .btn-choice-v {
-  background: rgba(16, 185, 129, 0.12) !important;
-  border-color: rgba(16, 185, 129, 0.3) !important;
-  color: #047857 !important;
-}
-html.light .btn-choice-v:hover {
-  background: rgba(16, 185, 129, 0.2) !important;
-  color: #065f46 !important;
-}
-html.light .btn-choice-v.selected {
-  background: #059669 !important;
-  color: #ffffff !important;
-}
-html.light .btn-choice-f {
-  background: rgba(244, 63, 94, 0.12) !important;
-  border-color: rgba(244, 63, 94, 0.3) !important;
+html.light .result-verdict-card.failed .verdict-badge {
   color: #be123c !important;
 }
-html.light .btn-choice-f:hover {
-  background: rgba(244, 63, 94, 0.2) !important;
-  color: #9f1239 !important;
-}
-html.light .btn-choice-f.selected {
-  background: #e11d48 !important;
-  color: #ffffff !important;
-}
-html.light .stat-matrix-cell {
-  background: rgba(15, 23, 42, 0.03) !important;
-  border-color: rgba(15, 23, 42, 0.08) !important;
-}
+
 html.light .review-filter-tabs {
-  background: rgba(15, 23, 42, 0.04) !important;
-  border-color: rgba(15, 23, 42, 0.1) !important;
+  background: #f1f5f9 !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
+}
+html.light .rf-tab {
+  color: #64748b !important;
 }
 html.light .rf-tab.active {
   background: #ffffff !important;
@@ -506,67 +774,129 @@ html.light .rf-tab.active {
   box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1) !important;
 }
 
-/* Chapter Details Pages (Capitolo_XX/index.html) in Light Mode */
-html.light .ch-header-card,
-html.light .controls-bar {
-  background: var(--bg-surface) !important;
-  border-color: var(--border-subtle) !important;
-  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 4px 6px -2px rgba(15, 23, 42, 0.03) !important;
+html.light .review-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.09) !important;
 }
-html.light .ch-main-title {
-  color: #0f172a !important;
+html.light .review-card.correct {
+  border-left: 4px solid #059669 !important;
 }
-html.light .ch-ar-title {
+html.light .review-card.wrong {
+  border-left: 4px solid #e11d48 !important;
+}
+html.light .review-badge.correct {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #047857 !important;
+}
+html.light .review-badge.wrong {
+  background: rgba(244, 63, 94, 0.15) !important;
+  color: #be123c !important;
+}
+html.light .review-answers-row {
   color: #334155 !important;
 }
-html.light .score-strip {
-  background: rgba(15, 23, 42, 0.03) !important;
-  border-color: rgba(15, 23, 42, 0.08) !important;
+html.light .review-answers-row span {
+  color: #334155 !important;
 }
-html.light .score-cell strong {
+html.light .review-answers-row strong[style*="#34d399"],
+html.light .review-answers-row strong[style*="rgb(52, 211, 153)"] {
+  color: #059669 !important;
+}
+html.light .review-answers-row strong[style*="#f87171"],
+html.light .review-answers-row strong[style*="rgb(248, 113, 113)"] {
+  color: #e11d48 !important;
+}
+
+/* 18. INTERACTIVE TOOLS HUB BANNER & 3x2 GRID */
+html.light .tools-hub-banner,
+html.light div[style*="background: rgba(15, 23, 42, 0.85)"] {
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05) !important;
+}
+html.light .tools-hub-banner h3,
+html.light div[style*="background: rgba(15, 23, 42, 0.85)"] h3 {
   color: #0f172a !important;
 }
-html.light .search-box {
+html.light .tools-hub-grid a {
+  background: #f8fafc !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03) !important;
+}
+html.light .tools-hub-grid a:hover {
+  background: #f1f5f9 !important;
+  border-color: rgba(15, 23, 42, 0.18) !important;
+  transform: translateY(-2px);
+}
+html.light .tools-hub-grid a > div:first-child,
+html.light .tools-hub-grid a > div:first-child * {
+  color: #0f172a !important;
+}
+html.light .tools-hub-grid a > div:nth-child(2),
+html.light .tools-hub-grid a > div:nth-child(2) * {
+  color: #475569 !important;
+}
+
+html.light .btn-guide-link,
+html.light .btn-guide-link * {
+  color: #0284c7 !important;
+}
+
+html.light .toast-box {
   background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.15) !important;
+  color: #0f172a !important;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12) !important;
+}
+
+html.light .empty-results-box,
+html.light .empty-state-box {
+  background: #ffffff !important;
+  border: 1px dashed rgba(15, 23, 42, 0.18) !important;
+}
+html.light .empty-results-box h3,
+html.light .empty-state-box h3 {
+  color: #0f172a !important;
+}
+html.light .empty-results-box p,
+html.light .empty-state-box p {
+  color: #64748b !important;
+}
+
+/* Flashcards and Quick Reviews */
+html.light .flashcard-card {
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08) !important;
+}
+html.light .flashcard-face {
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+}
+html.light .flashcard-it-text {
+  color: #0f172a !important;
+}
+html.light .flashcard-explanation {
+  color: #1e293b !important;
+}
+html.light .flashcard-trap-box {
+  background: rgba(239, 68, 68, 0.08) !important;
+  border-color: rgba(239, 68, 68, 0.28) !important;
+  color: #991b1b !important;
+}
+html.light .fc-btn-flip {
+  background: rgba(15, 23, 42, 0.05) !important;
   border-color: rgba(15, 23, 42, 0.15) !important;
   color: #0f172a !important;
 }
-html.light .search-box::placeholder {
-  color: #94a3b8 !important;
+html.light .flashcard-tap-hint {
+  color: #64748b !important;
 }
-html.light .filter-btns-wrap .f-btn {
-  background: rgba(15, 23, 42, 0.04) !important;
-  border-color: rgba(15, 23, 42, 0.1) !important;
-  color: #334155 !important;
-}
-html.light .filter-btns-wrap .f-btn:hover {
-  background: rgba(15, 23, 42, 0.08) !important;
-  color: #0f172a !important;
-}
-html.light .filter-btns-wrap .f-btn.active {
-  background: rgba(2, 132, 199, 0.12) !important;
-  border-color: #0284c7 !important;
-  color: #0369a1 !important;
-}
-html.light .study-toggle-label {
-  color: #334155 !important;
-}
-html.light .q-text-content {
-  color: #0f172a !important;
-}
-html.light .btn-back-portal {
-  background: rgba(15, 23, 42, 0.04) !important;
-  border-color: rgba(15, 23, 42, 0.1) !important;
-  color: #334155 !important;
-}
-html.light .btn-back-portal:hover {
-  background: rgba(15, 23, 42, 0.08) !important;
-  color: #0f172a !important;
+html.light .flashcard-badge {
+  background: rgba(15, 23, 42, 0.05) !important;
+  color: #475569 !important;
 }
 
-/* Global Smooth Transitions */
+/* 19. GLOBAL SMOOTH TRANSITIONS */
 body, .glass-card, .q-card, .dict-card, .unified-portal-nav, .mobile-drawer-panel, .word-chip, .q-stage-card, .header-card, #setup-screen, .ch-header-card, .controls-bar {
   transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
-
-
