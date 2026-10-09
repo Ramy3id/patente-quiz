@@ -235,6 +235,36 @@
       border-color: var(--tr-cyan);
       color: var(--tr-cyan);
     }
+    .tr-audio-btn.active {
+      background: var(--tr-indigo) !important;
+      border-color: var(--tr-indigo) !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 0 14px rgba(99, 102, 241, 0.45);
+    }
+
+    /* تمييز وتظليل كلمات الفخاخ */
+    .trap-keyword-highlight {
+      background: rgba(244, 63, 94, 0.22);
+      border: 1px solid rgba(244, 63, 94, 0.45);
+      color: #FDA4AF;
+      padding: 1px 7px;
+      border-radius: 6px;
+      font-weight: 800;
+      cursor: help;
+      position: relative;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+    .trap-keyword-highlight:hover {
+      background: rgba(244, 63, 94, 0.35);
+      box-shadow: 0 0 12px rgba(244, 63, 94, 0.4);
+      transform: scale(1.03);
+    }
+    html.light .trap-keyword-highlight {
+      background: rgba(225, 29, 72, 0.12);
+      border-color: rgba(225, 29, 72, 0.35);
+      color: #BE123C;
+    }
 
     .tr-image-wrap {
       text-align: center;
@@ -623,11 +653,29 @@
           <span class="tr-subtopic-tag" id="lblSubtopic">المحور: المفاهيم العامة</span>
           <span style="font-size: 0.85rem; color: var(--tr-text-sub); margin-right: 8px;" id="lblProgress">سؤال 1 من 20</span>
         </div>
-        <div>
-          <button class="tr-audio-btn" onclick="playQuestionSpeech()">
-            <span>🔊 استمع للإيطالية</span>
+        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+          <button class="tr-audio-btn" id="btnToggleHighlight" onclick="toggleTrapHighlight()" title="تفعيل/تعطيل تظليل كلمات الفخاخ الوزارية">
+            <span id="lblHighlightIcon">👁️</span> <span id="lblHighlightText">تظليل الأفخاخ</span>
+          </button>
+          <button class="tr-audio-btn" id="btnHandsFree" onclick="toggleHandsFreeMode()" title="تشغيل وضع الاستماع التلقائي بدون لمس الشاشة">
+            <span>🎧 استماع تلقائي (Podcast)</span>
+          </button>
+          <button class="tr-audio-btn" onclick="playQuestionSpeech()" title="استمع لنطق السؤال">
+            <span>🔊 استمع</span>
           </button>
         </div>
+      </div>
+
+      <!-- شريط وضع الاستماع التلقائي (Podcast) -->
+      <div id="handsFreeBanner" style="display: none; background: linear-gradient(135deg, rgba(99, 102, 241, 0.18), rgba(56, 189, 248, 0.14)); border: 1px solid rgba(99, 102, 241, 0.4); border-radius: 14px; padding: 12px 18px; margin: 12px 0; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="font-size: 1.5rem;">🎧</span>
+          <div>
+            <div style="font-weight: 800; font-size: 0.95rem; color: #a5b4fc;" id="handsFreeStatus">وضع الاستماع التلقائي نشط...</div>
+            <div style="font-size: 0.8rem; color: var(--tr-text-sub);" id="handsFreeSub">يتم نطق السؤال، ثم مهلة للتفكير، ثم كشف النتيجة والانتقال التلقائي.</div>
+          </div>
+        </div>
+        <button class="tr-count-btn" onclick="stopHandsFreeMode()" style="background: rgba(244, 63, 94, 0.18); border-color: rgba(244, 63, 94, 0.4); color: #fda4af;">⏹️ إيقاف الاستماع</button>
       </div>
 
       <!-- صورة السؤال إن وجدت -->
@@ -710,6 +758,7 @@
   <!-- ملفات البيانات ونظام التكرار المتباعد -->
   <script src="../Capitoli_Divisi/data_all_questions.js"></script>
   <script src="../assets/js/srs-engine.js"></script>
+  <script src="../assets/js/trap-vault.js"></script>
 
   <script>
     /**
@@ -718,11 +767,15 @@
      * =========================================================================
      */
     let srsEngine = null;
+    let trapEngine = null;
+    let sessionMode = "chapter"; // "chapter" | "commute" | "errors" | "hardest"
     let targetChapter = 1;
     let targetCount = 20;
     let sessionQuestions = [];
     let currentIndex = 0;
     let userAnswers = {}; // { qIndex: { answer: boolean, isCorrect: boolean } }
+    let isHandsFree = false;
+    let handsFreeTimer = null;
 
     window.addEventListener("DOMContentLoaded", () => {
       try {
@@ -730,17 +783,28 @@
       } catch (e) {
         console.warn("SRS Fallback:", e);
       }
+      try {
+        trapEngine = new PatenteTrapEngine();
+      } catch (e) {
+        console.warn("TrapEngine Fallback:", e);
+      }
 
-      // قراءة المعاملات من الرابط ?ch=1&count=20
+      // قراءة المعاملات من الرابط
       const urlParams = new URLSearchParams(window.location.search);
+      sessionMode = urlParams.get("mode") || "chapter";
+
       const chParam = parseInt(urlParams.get("ch"), 10);
       if (chParam && chParam >= 1 && chParam <= 25) {
         targetChapter = chParam;
       }
 
-      const countParam = parseInt(urlParams.get("count"), 10);
-      if ([15, 20, 25].includes(countParam)) {
-        targetCount = countParam;
+      if (sessionMode === "commute") {
+        targetCount = 10;
+      } else {
+        const countParam = parseInt(urlParams.get("count"), 10);
+        if ([10, 15, 20, 25].includes(countParam)) {
+          targetCount = countParam;
+        }
       }
 
       updateCountPillsUI();
@@ -873,18 +937,90 @@
         return;
       }
 
-      // تحديث بيانات الباب
-      const meta = (typeof CHAPTERS_META !== 'undefined' && CHAPTERS_META[targetChapter - 1]) 
-        ? CHAPTERS_META[targetChapter - 1] 
-        : { titolo_ar: "الباب " + targetChapter };
+      if (sessionMode === "errors") {
+        // وضع دفتر الأخطاء الشخصي
+        const errors = srsEngine ? srsEngine.getAllErrorQuestions() : [];
+        if (!errors.length) {
+          document.getElementById("lblChapterName").innerText = "📓 دفتر أخطائي الشخصي";
+          document.getElementById("lblSessionTitle").innerText = "دفتر أخطائك خالٍ تماماً! 🎉";
+          document.getElementById("qCardSection").innerHTML = `
+            <div style="text-align: center; padding: 40px 20px;">
+              <div style="font-size: 3.5rem; margin-bottom: 14px;">🌟</div>
+              <h3 style="font-size: 1.4rem; font-weight: 900; color: var(--tr-emerald); margin-bottom: 8px;">رائع! ليس لديك أي أخطاء معلقة حالياً</h3>
+              <p style="color: var(--tr-text-sub); margin-bottom: 24px; max-width: 500px; margin-inline: auto;">
+                لقد قمت بحل كافة الأسئلة السابقة بنجاح أو تخرجت أخطاؤك بعد إتقانها 3 مرات متتالية بنظام الذاكرة التكرارية (SRS).
+              </p>
+              <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a href="allenamento-capitolo.html?mode=commute" class="tr-action-btn-large btn-emerald" style="text-decoration:none;">
+                  <span>🚌 ابدأ كبسولة المواصلات (10 أسئلة)</span>
+                </a>
+                <a href="piano-studio.html" class="tr-action-btn-large btn-outline" style="text-decoration:none;">
+                  <span>📅 العودة لجدول الخطة</span>
+                </a>
+              </div>
+            </div>
+          `;
+          return;
+        }
 
-      document.getElementById("lblChapterName").innerText = "الباب " + String(targetChapter).padStart(2, '0') + ": " + (meta.titolo_ar || meta.titolo_it);
+        document.getElementById("lblChapterName").innerText = "📓 دفتر أخطائي الشخصي";
+        document.getElementById("lblSessionTitle").innerText = `مراجعة الأسئلة المتعثرة (${errors.length} سؤالاً مسجلاً)`;
+        
+        sessionQuestions = errors.map(err => ({
+          id: err.id,
+          ch: err.capitolo || 1,
+          q: err.domanda,
+          a: err.risposta,
+          img: err.immagine,
+          tr: err.traduzione,
+          sp: err.spiegazione,
+          tb: err.trabocchetto
+        })).sort(() => 0.5 - Math.random()).slice(0, targetCount);
 
-      // تصفية أسئلة الباب
-      let pool = ALL_QUESTIONS_DATA.filter(q => q.ch === targetChapter);
-      if (!pool.length) pool = ALL_QUESTIONS_DATA;
+      } else if (sessionMode === "commute") {
+        // وضع كبسولة المواصلات (10 أسئلة سريعة)
+        document.getElementById("lblChapterName").innerText = "🚌 كبسولة المواصلات (10 أسئلة سريعة)";
+        document.getElementById("lblSessionTitle").innerText = "تحدي الـ 10 دقائق: تدريب خاطف عالي الأهمية";
 
-      sessionQuestions = selectDiverseQuestions(pool, targetCount);
+        const dueErrors = srsEngine ? srsEngine.getDueQuestions() : [];
+        let errorSample = [];
+        if (dueErrors.length > 0) {
+          errorSample = dueErrors.slice(0, 3).map(err => ({
+            id: err.id, ch: err.capitolo || 1, q: err.domanda, a: err.risposta, img: err.immagine, tr: err.traduzione, sp: err.spiegazione, tb: err.trabocchetto
+          }));
+        }
+
+        let chapterPool = ALL_QUESTIONS_DATA.filter(q => q.ch === targetChapter);
+        if (!chapterPool.length) chapterPool = ALL_QUESTIONS_DATA;
+        const needed = 10 - errorSample.length;
+        const diversePart = selectDiverseQuestions(chapterPool, needed);
+        sessionQuestions = [...errorSample, ...diversePart].sort(() => 0.5 - Math.random());
+
+      } else if (sessionMode === "hardest") {
+        // وضع أخطر أسئلة الوزارة
+        document.getElementById("lblChapterName").innerText = "💣 أخطر أسئلة الوزارة في إيطاليا (70%+ خطأ)";
+        document.getElementById("lblSessionTitle").innerText = "بنك الأسئلة الشيطانية: الفخاخ الرسمية الأكثر إيقاعاً في الخطأ";
+
+        const trapPool = ALL_QUESTIONS_DATA.filter(q => {
+          const hasTb = q.tb && q.tb.length > 10;
+          const text = (q.q || "").toLowerCase();
+          const hasKeyword = /sempre|mai|soltanto|in ogni caso|salvapedone|rotatoria|freno/i.test(text);
+          return hasTb || hasKeyword;
+        });
+        sessionQuestions = selectDiverseQuestions(trapPool.length ? trapPool : ALL_QUESTIONS_DATA, targetCount);
+
+      } else {
+        // الوضع المعتاد: تدريب الباب المحدد
+        const meta = (typeof CHAPTERS_META !== 'undefined' && CHAPTERS_META[targetChapter - 1]) 
+          ? CHAPTERS_META[targetChapter - 1] 
+          : { titolo_ar: "الباب " + targetChapter };
+
+        document.getElementById("lblChapterName").innerText = "الباب " + String(targetChapter).padStart(2, '0') + ": " + (meta.titolo_ar || meta.titolo_it);
+        let pool = ALL_QUESTIONS_DATA.filter(q => q.ch === targetChapter);
+        if (!pool.length) pool = ALL_QUESTIONS_DATA;
+        sessionQuestions = selectDiverseQuestions(pool, targetCount);
+      }
+
       currentIndex = 0;
       userAnswers = {};
 
@@ -941,7 +1077,16 @@
         imgWrap.style.display = "none";
       }
 
-      document.getElementById("lblQuestionIt").innerText = q.q;
+      // نص السؤال الإيطالي مع فحص تظليل الفخاخ
+      const isHl = trapEngine ? trapEngine.isHighlightEnabled() : true;
+      const questionEl = document.getElementById("lblQuestionIt");
+      if (isHl && trapEngine) {
+        questionEl.innerHTML = trapEngine.highlightTrapWords(q.q);
+      } else {
+        questionEl.innerText = q.q;
+      }
+      updateHighlightBtnUI();
+
       document.getElementById("lblQuestionAr").innerText = q.tr || "ترجمة السؤال جاهزة في الدليل...";
 
       // إعادة ضبط الأزرار
@@ -977,10 +1122,20 @@
 
       userAnswers[currentIndex] = { answer: choice, isCorrect: isCorrect };
 
-      // تسجيل في SRS في حال الخطأ
-      if (!isCorrect && srsEngine) {
+      // تسجيل النتيجة في محرك التكرار المتباعد وسجل الأخطاء
+      if (srsEngine) {
         try {
-          srsEngine.recordAttempt(q.id || (targetChapter * 1000 + currentIndex), false, targetChapter);
+          const fullQ = {
+            id: q.id || (targetChapter * 1000 + currentIndex),
+            capitolo: q.ch || targetChapter,
+            domanda: q.q,
+            immagine: q.img,
+            risposta: q.a,
+            traduzione: q.tr,
+            spiegazione: q.sp,
+            trabocchetto: q.tb
+          };
+          srsEngine.logQuestionAttempt(fullQ, isCorrect);
         } catch(e) {}
       }
 
@@ -989,10 +1144,125 @@
 
       // فحص إتمام جميع الأسئلة
       const answeredCount = Object.keys(userAnswers).length;
-      if (answeredCount === sessionQuestions.length) {
-        // إظهار زر ملخص التدريب
-        document.getElementById("btnNextQ").innerText = "عرض النتيجة والملخص 🏁";
+      if (answeredCount === sessionQuestions.length && !isHandsFree) {
+        setTimeout(showFinalSummary, 1200);
       }
+    }
+
+    function toggleTrapHighlight() {
+      if (trapEngine) {
+        trapEngine.toggleHighlight();
+        loadCurrentQuestion();
+      }
+    }
+
+    function updateHighlightBtnUI() {
+      const btn = document.getElementById("btnToggleHighlight");
+      if (!btn) return;
+      const isHl = trapEngine ? trapEngine.isHighlightEnabled() : true;
+      if (isHl) {
+        btn.classList.add("active");
+        document.getElementById("lblHighlightIcon").innerText = "👁️";
+        document.getElementById("lblHighlightText").innerText = "تظليل الأفخاخ: مفعل";
+      } else {
+        btn.classList.remove("active");
+        document.getElementById("lblHighlightIcon").innerText = "👁️‍🗨️";
+        document.getElementById("lblHighlightText").innerText = "تظليل الأفخاخ: معطل";
+      }
+    }
+
+    function toggleHandsFreeMode() {
+      if (isHandsFree) {
+        stopHandsFreeMode();
+      } else {
+        startHandsFreeMode();
+      }
+    }
+
+    function startHandsFreeMode() {
+      if (!window.speechSynthesis) {
+        alert("المتصفح لا يدعم خاصية نطق الصوت.");
+        return;
+      }
+      isHandsFree = true;
+      const banner = document.getElementById("handsFreeBanner");
+      if (banner) banner.style.display = "flex";
+      const btn = document.getElementById("btnHandsFree");
+      if (btn) {
+        btn.classList.add("active");
+        btn.innerHTML = "<span>⏸️ إيقاف الاستماع</span>";
+      }
+      runHandsFreeStep();
+    }
+
+    function stopHandsFreeMode() {
+      isHandsFree = false;
+      if (handsFreeTimer) {
+        clearTimeout(handsFreeTimer);
+        handsFreeTimer = null;
+      }
+      if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+      const banner = document.getElementById("handsFreeBanner");
+      if (banner) banner.style.display = "none";
+      const btn = document.getElementById("btnHandsFree");
+      if (btn) {
+        btn.classList.remove("active");
+        btn.innerHTML = "<span>🎧 استماع تلقائي (Podcast)</span>";
+      }
+    }
+
+    function runHandsFreeStep() {
+      if (!isHandsFree || !sessionQuestions.length) return;
+      const q = sessionQuestions[currentIndex];
+      const statusEl = document.getElementById("handsFreeStatus");
+      const subEl = document.getElementById("handsFreeSub");
+
+      statusEl.innerText = `🎧 استمع للسؤال (${currentIndex + 1} من ${sessionQuestions.length})...`;
+      subEl.innerText = "جاري قراءة السؤال بالإيطالية...";
+
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(q.q);
+      utterance.lang = "it-IT";
+      utterance.rate = 0.88;
+
+      utterance.onend = () => {
+        if (!isHandsFree) return;
+        statusEl.innerText = "⏳ مهلة للتفكير: هل العبارة VERO أم FALSO؟";
+        subEl.innerText = "فكر لثانيتين قبل كشف الإجابة والشرح...";
+
+        handsFreeTimer = setTimeout(() => {
+          if (!isHandsFree) return;
+          handleAnswer(q.a);
+          const verdictStr = q.a ? "الإجابة: صح (VERO)" : "الإجابة: خطأ (FALSO)";
+          statusEl.innerText = `💡 ${verdictStr}`;
+          subEl.innerText = q.tb ? `⚠️ الفخ: ${q.tb}` : (q.sp || "");
+
+          const ansUtterance = new SpeechSynthesisUtterance(q.a ? "Vero" : "Falso");
+          ansUtterance.lang = "it-IT";
+          ansUtterance.rate = 0.95;
+
+          ansUtterance.onend = () => {
+            if (!isHandsFree) return;
+            handsFreeTimer = setTimeout(() => {
+              if (!isHandsFree) return;
+              if (currentIndex < sessionQuestions.length - 1) {
+                currentIndex++;
+                loadCurrentQuestion();
+                runHandsFreeStep();
+              } else {
+                showFinalSummary();
+                stopHandsFreeMode();
+              }
+            }, 3000);
+          };
+
+          window.speechSynthesis.speak(ansUtterance);
+        }, 2500);
+      };
+
+      window.speechSynthesis.speak(utterance);
     }
 
     function showAnswerState(choice, isCorrect, q) {

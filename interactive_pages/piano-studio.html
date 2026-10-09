@@ -886,6 +886,249 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Trap Keyword Highlight */
+    .trap-keyword-highlight {
+      background: rgba(244, 63, 94, 0.22);
+      border: 1px solid rgba(244, 63, 94, 0.45);
+      color: #FDA4AF;
+      padding: 1px 7px;
+      border-radius: 6px;
+      font-weight: 800;
+      cursor: help;
+      display: inline-block;
+      transition: all 0.2s ease;
+    }
+    .trap-keyword-highlight:hover {
+      background: rgba(244, 63, 94, 0.35);
+      box-shadow: 0 0 12px rgba(244, 63, 94, 0.4);
+      transform: scale(1.03);
+    }
+    html.light .trap-keyword-highlight {
+      background: rgba(225, 29, 72, 0.12);
+      border-color: rgba(225, 29, 72, 0.35);
+      color: #BE123C;
+    }
+
+    /* Quick Modes Bar (كبسولة المواصلات، دفتر أخطائي، أخطر أسئلة الوزارة) */
+    .sp-quick-modes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px dashed var(--sp-border);
+    }
+
+    .sp-quick-mode-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--sp-border);
+      border-radius: 16px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--sp-text);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    html.light .sp-quick-mode-card {
+      background: #FFFFFF;
+      border-color: rgba(15, 23, 42, 0.1);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+    }
+    .sp-quick-mode-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--sp-cyan);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+    html.light .sp-quick-mode-card:hover {
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    }
+
+    .sp-quick-mode-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
+      flex-shrink: 0;
+    }
+    .icon-commute { background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); }
+    .icon-errors { background: rgba(244, 63, 94, 0.15); border: 1px solid rgba(244, 63, 94, 0.3); }
+    .icon-hardest { background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.3); }
+
+    .sp-quick-mode-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .sp-quick-mode-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--sp-text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 2px;
+    }
+    .sp-quick-mode-desc {
+      font-size: 0.78rem;
+      color: var(--sp-text-sub);
+      line-height: 1.35;
+    }
+    .sp-badge-counter {
+      background: var(--sp-rose);
+      color: #FFFFFF;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 1px 7px;
+      border-radius: 999px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Exam Readiness Card (مؤشر الجاهزية للامتحان) */
+    .sp-readiness-card {
+      background: var(--sp-surface);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--sp-border);
+      border-radius: 24px;
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .sp-readiness-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .sp-readiness-title-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sp-readiness-title-group h2 {
+      font-size: 1.35rem;
+      font-weight: 900;
+      margin: 0;
+      color: var(--sp-text);
+    }
+    .sp-readiness-status-badge {
+      font-size: 0.82rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .status-badge-initial {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: var(--sp-amber);
+    }
+    .status-badge-progressing {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: var(--sp-cyan);
+    }
+    .status-badge-ready {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: var(--sp-emerald);
+    }
+
+    .sp-readiness-main-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .sp-readiness-score-display {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+    .sp-readiness-score-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.8rem;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--sp-cyan);
+    }
+    .sp-readiness-score-unit {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--sp-text-sub);
+    }
+
+    .sp-readiness-bar-container {
+      flex: 1;
+      min-width: 220px;
+    }
+    .sp-readiness-bar-bg {
+      height: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--sp-border);
+      position: relative;
+    }
+    html.light .sp-readiness-bar-bg {
+      background: #E2E8F0;
+    }
+    .sp-readiness-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #F59E0B, #0284C7, #10B981);
+      border-radius: 999px;
+      width: 0%;
+      transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .sp-readiness-chips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .sp-readiness-chip {
+      background: var(--sp-surface-card);
+      border: 1px solid var(--sp-border);
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .sp-readiness-chip-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--sp-text-sub);
+    }
+    .sp-readiness-chip-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--sp-text);
+    }
+    .sp-readiness-advice {
+      font-size: 0.88rem;
+      color: var(--sp-text-sub);
+      margin-top: 12px;
+      line-height: 1.5;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--sp-border);
+    }
+
     @media (max-width: 640px) {
       .sp-hero { padding: 20px; }
       .sp-mission-card { padding: 18px; }
@@ -979,6 +1222,98 @@
         <div class="sp-progress-bar-bg">
           <div class="sp-progress-bar-fill" id="statProgressBar"></div>
         </div>
+      </div>
+
+      <!-- أنماط التدريب السريع: كبسولة المواصلات، دفتر أخطائي، أخطر أسئلة الوزارة -->
+      <div class="sp-quick-modes-grid">
+        <a href="allenamento-capitolo.html?mode=commute&count=10" class="sp-quick-mode-card" title="جلسة 10 دقائق سريعة مخصصة لفترات الأتوبيس والمترو">
+          <div class="sp-quick-mode-icon icon-commute">🚌</div>
+          <div class="sp-quick-mode-info">
+            <div class="sp-quick-mode-title">
+              <span>كبسولة المواصلات</span>
+              <span class="sp-station-badge" style="padding: 2px 6px; font-size: 0.7rem;">10 د</span>
+            </div>
+            <div class="sp-quick-mode-desc">10 أسئلة سريعة عالية الأهمية تنهيها قبل أن تصل لمحطتك</div>
+          </div>
+        </a>
+
+        <a href="allenamento-capitolo.html?mode=errors" class="sp-quick-mode-card" title="مراجعة الأسئلة التي تعثرت بها سابقاً في كويزاتك لتصفير الأخطاء">
+          <div class="sp-quick-mode-icon icon-errors">📓</div>
+          <div class="sp-quick-mode-info">
+            <div class="sp-quick-mode-title">
+              <span>دفتر أخطائي الشخصي</span>
+              <span class="sp-badge-counter" id="quickMistakeBadge" style="display:none;">0</span>
+            </div>
+            <div class="sp-quick-mode-desc">مراجعة الأخطاء المسجلة في صندوق التكرار المتباعد (SRS)</div>
+          </div>
+        </a>
+
+        <a href="allenamento-capitolo.html?mode=hardest&count=20" class="sp-quick-mode-card" title="بنك الأسئلة الشيطانية التي يرسب فيها أكثر من 70% من الطلاب بإيطاليا">
+          <div class="sp-quick-mode-icon icon-hardest">💣</div>
+          <div class="sp-quick-mode-info">
+            <div class="sp-quick-mode-title">
+              <span>أخطر أسئلة الوزارة</span>
+              <span class="sp-station-badge" style="padding: 2px 6px; font-size: 0.7rem; background: rgba(245, 158, 11, 0.2); color: var(--sp-amber);">الأصعب</span>
+            </div>
+            <div class="sp-quick-mode-desc">الأسئلة الأكثر إيقاعاً في الخطأ بإيطاليا (>70% نسبة رسوب)</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- بطاقة مؤشر الجاهزية للامتحان ونسبة النجاح المتوقعة -->
+    <section class="sp-readiness-card" id="spReadinessCard">
+      <div class="sp-readiness-header">
+        <div class="sp-readiness-title-group">
+          <span style="font-size: 1.6rem;">📊</span>
+          <div>
+            <h2 style="font-size: 1.25rem; font-weight: 900;">مؤشر الجاهزية للامتحان ونسبة النجاح المتوقعة</h2>
+            <div style="font-size: 0.82rem; color: var(--sp-text-sub);">تحليل خوارزمي فوري لمدى استعدادك لاجتياز الاختبار الوزاري الرسمي بمصلحة المرور (Motorizzazione)</div>
+          </div>
+        </div>
+        <div id="readinessStatusBadge" class="sp-readiness-status-badge status-badge-initial">
+          <span>🌱</span>
+          <span id="readinessStatusText">مرحلة التأسيس</span>
+        </div>
+      </div>
+
+      <div class="sp-readiness-main-row">
+        <div class="sp-readiness-score-display">
+          <span class="sp-readiness-score-num" id="readinessScoreVal">10%</span>
+          <span class="sp-readiness-score-unit">جاهزية</span>
+        </div>
+        <div class="sp-readiness-bar-container">
+          <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700; color: var(--sp-text-sub); margin-bottom: 6px;">
+            <span>نسبة الاستعداد النظري والقانوني</span>
+            <span id="readinessBarLabel">10%</span>
+          </div>
+          <div class="sp-readiness-bar-bg">
+            <div class="sp-readiness-bar-fill" id="readinessProgressBar" style="width: 10%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-readiness-chips-grid">
+        <div class="sp-readiness-chip">
+          <span class="sp-readiness-chip-label">📚 الأبواب المتقنة</span>
+          <span class="sp-readiness-chip-val" id="readinessChaptersDone">0 / 25</span>
+        </div>
+        <div class="sp-readiness-chip">
+          <span class="sp-readiness-chip-label">📓 أخطاء معلقة في الذاكرة</span>
+          <span class="sp-readiness-chip-val" id="readinessMistakesVal">0</span>
+        </div>
+        <div class="sp-readiness-chip">
+          <span class="sp-readiness-chip-label">🔥 سلسلة الالتزام اليومي</span>
+          <span class="sp-readiness-chip-val" id="readinessStreakVal">0 أيام</span>
+        </div>
+        <div class="sp-readiness-chip">
+          <span class="sp-readiness-chip-label">🎯 احتمالية النجاح من أول مرة</span>
+          <span class="sp-readiness-chip-val" id="readinessPassChance">--%</span>
+        </div>
+      </div>
+
+      <div class="sp-readiness-advice" id="readinessAdviceText">
+        💡 <strong>نصيحة التدريب:</strong> ابدأ باليوم الأول وأكمل المحطات الأربع لحصد نقاط الجاهزية والارتقاء بالمؤشر تدريجياً.
       </div>
     </section>
 
@@ -1124,7 +1459,10 @@
           <div>
             <span class="sp-mission-tag" id="quizChapterBadge">⚡ كويز التثبيت الوزاري (30 سؤالاً)</span>
           </div>
-          <div style="display: flex; gap: 14px; align-items: center;">
+          <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <button class="sp-btn sp-btn-outline" id="btnQuizTrapHighlight" onclick="toggleQuizTrapHighlight()" style="padding: 4px 10px; font-size: 0.75rem;" title="تفعيل أو إلغاء تظليل كلمات الأفخاخ">
+              👁️ تظليل الأفخاخ
+            </button>
             <div class="sp-quiz-progress" id="quizProgressText" style="font-weight: 800; color: var(--sp-cyan);">سؤال 1 من 30</div>
             <div id="quizAnsweredCount" style="font-size: 0.85rem; color: var(--sp-text-sub);">المُجاب عنه: 0 / 30</div>
             <button class="sp-btn sp-btn-outline" style="padding: 4px 10px; font-size: 0.75rem;" onclick="closeRapidQuiz()">✕ إغلاق</button>
@@ -1389,6 +1727,7 @@
   <script src="../Capitoli_Divisi/data_all_questions.js"></script>
   <script src="../Capitoli_Divisi/data_thesaurus.js"></script>
   <script src="../assets/js/srs-engine.js"></script>
+  <script src="../assets/js/trap-vault.js"></script>
 
   <script>
     /**
@@ -1429,6 +1768,7 @@
     const STORAGE_KEY = "patente_b_pro_study_plan";
     let activePlan = null;
     let srsEngine = null;
+    let trapEngine = null;
 
     // حالة الاستبيان المؤقتة
     let formTargetDays = 30;
@@ -1452,6 +1792,11 @@
         srsEngine = new PatenteSRSEngine();
       } catch(e) {
         console.warn("SRS Engine fallback:", e);
+      }
+      try {
+        trapEngine = new PatenteTrapEngine();
+      } catch(e) {
+        console.warn("Trap Engine fallback:", e);
       }
       loadOrCreatePlan();
     });
@@ -1842,6 +2187,78 @@
       document.getElementById("statPercentLabel").innerText = pct + "%";
       document.getElementById("statProgressBar").style.width = pct + "%";
 
+      // تحديث شارة دفتر الأخطاء في شريط الأنماط السريعة
+      const mistakeCount = srsEngine ? srsEngine.getAllErrorQuestions().length : 0;
+      const quickMistakeBadge = document.getElementById("quickMistakeBadge");
+      if (quickMistakeBadge) {
+        quickMistakeBadge.innerText = mistakeCount;
+        quickMistakeBadge.style.display = mistakeCount > 0 ? "inline-block" : "none";
+      }
+
+      // حساب مؤشر الجاهزية للامتحان ونسبة النجاح المتوقعة
+      const coveredChapters = new Set();
+      activePlan.days.forEach(d => {
+        if (d.isCompleted && d.type === 'chapter' && Array.isArray(d.chapters)) {
+          d.chapters.forEach(c => coveredChapters.add(c));
+        }
+      });
+      const completedChaptersCount = coveredChapters.size;
+
+      // الخوارزمية العلمية لتقدير الجاهزية الرسمية
+      let readinessScore = 5;
+      if (activePlan.targetDays > 0) {
+        const planWeight = (completedCount / activePlan.targetDays) * 65;
+        const chapterWeight = (completedChaptersCount / 25) * 15;
+        const streakWeight = Math.min(10, (activePlan.streak || 0) * 2);
+        let errorFactor = 10;
+        if (mistakeCount > 20) errorFactor = 0;
+        else if (mistakeCount > 10) errorFactor = 4;
+        else if (mistakeCount > 0) errorFactor = 7;
+
+        readinessScore = Math.round(planWeight + chapterWeight + streakWeight + errorFactor);
+      }
+      readinessScore = Math.min(100, Math.max(5, readinessScore));
+      const passChance = Math.min(99, Math.max(15, Math.round(readinessScore * 0.95 + 4)));
+
+      const scoreEl = document.getElementById("readinessScoreVal");
+      const barEl = document.getElementById("readinessProgressBar");
+      const barLabel = document.getElementById("readinessBarLabel");
+      const chDoneEl = document.getElementById("readinessChaptersDone");
+      const mistEl = document.getElementById("readinessMistakesVal");
+      const streakEl = document.getElementById("readinessStreakVal");
+      const chanceEl = document.getElementById("readinessPassChance");
+      const badgeEl = document.getElementById("readinessStatusBadge");
+      const badgeText = document.getElementById("readinessStatusText");
+      const adviceEl = document.getElementById("readinessAdviceText");
+
+      if (scoreEl) scoreEl.innerText = readinessScore + "%";
+      if (barEl) barEl.style.width = readinessScore + "%";
+      if (barLabel) barLabel.innerText = readinessScore + "%";
+      if (chDoneEl) chDoneEl.innerText = completedChaptersCount + " / 25";
+      if (mistEl) mistEl.innerText = mistakeCount;
+      if (streakEl) streakEl.innerText = (activePlan.streak || 0) + " أيام";
+      if (chanceEl) chanceEl.innerText = passChance + "%";
+
+      if (badgeEl && badgeText && adviceEl) {
+        if (readinessScore >= 85) {
+          badgeEl.className = "sp-readiness-status-badge status-badge-ready";
+          badgeText.innerText = "🏆 جاهزية تامة للامتحان";
+          adviceEl.innerHTML = `🎉 <strong>مستوى بطولي:</strong> جاهزيتك فائقة! أداؤك يطابق متطلبات الموتوريتزاتسيوني الرسمية. يمكنك خوض نماذج الامتحانات وحجز موعد الاختبار بثقة تامة.`;
+        } else if (readinessScore >= 65) {
+          badgeEl.className = "sp-readiness-status-badge status-badge-progressing";
+          badgeText.innerText = "🟢 جاهزية متقدمة";
+          adviceEl.innerHTML = `🔥 <strong>أداء متميز:</strong> اقتربت جداً من الجاهزية القصوى. ركّز على حل نماذج الامتحانات وتصفير الأخطاء المعلقة (${mistakeCount}) عبر دفتر الأخطاء.`;
+        } else if (readinessScore >= 35) {
+          badgeEl.className = "sp-readiness-status-badge status-badge-progressing";
+          badgeText.innerText = "🟡 تثبيت المفاهيم والأفخاخ";
+          adviceEl.innerHTML = `⚡ <strong>تقدم ممتاز:</strong> استمر في إنهاء محطات الأبواب اليومية. استخدم "كبسولة المواصلات" في أوقات الفراغ لاستثمار كل دقيقة.`;
+        } else {
+          badgeEl.className = "sp-readiness-status-badge status-badge-initial";
+          badgeText.innerText = "🌱 مرحلة التأسيس";
+          adviceEl.innerHTML = `💡 <strong>بداية الرحلة:</strong> ركّز على محطة الشرح وقاموس الكلمات لحفظ المصطلحات الأساسية وبناء ثقة قوية.`;
+        }
+      }
+
       // ملاحظة نوع التدفق
       const flowBadge = (activePlan.flowMode === "cluster") 
         ? "⭐ المسار العنقودي الذكي (الباب 1 ثم السلامة 21-25 ثم بقية المحاور)" 
@@ -2171,6 +2588,13 @@
       document.getElementById("rapidQuizSection").classList.add("active");
       document.getElementById("quizErrorsReviewWrap").style.display = "none";
 
+      const btnTrapH = document.getElementById("btnQuizTrapHighlight");
+      if (btnTrapH && trapEngine) {
+        const isEnabled = trapEngine.isHighlightEnabled();
+        btnTrapH.style.color = isEnabled ? "var(--sp-rose)" : "var(--sp-text-sub)";
+        btnTrapH.style.borderColor = isEnabled ? "var(--sp-rose)" : "var(--sp-border)";
+      }
+
       renderRapidQuizPills();
       loadRapidQuizQuestion();
       document.getElementById("rapidQuizSection").scrollIntoView({ behavior: 'smooth' });
@@ -2196,6 +2620,17 @@
       });
     }
 
+    function toggleQuizTrapHighlight() {
+      if (!trapEngine) return;
+      const isEnabled = trapEngine.toggleHighlight();
+      const btn = document.getElementById("btnQuizTrapHighlight");
+      if (btn) {
+        btn.style.color = isEnabled ? "var(--sp-rose)" : "var(--sp-text-sub)";
+        btn.style.borderColor = isEnabled ? "var(--sp-rose)" : "var(--sp-border)";
+      }
+      loadRapidQuizQuestion();
+    }
+
     function loadRapidQuizQuestion() {
       const q = rapidQuizState.questions[rapidQuizState.currentIndex];
       if (!q) return;
@@ -2205,7 +2640,14 @@
       const answeredCount = Object.keys(rapidQuizState.userAnswers).length;
       document.getElementById("quizAnsweredCount").innerText = "المُجاب عنه: " + answeredCount + " / 30";
 
-      document.getElementById("quizQuestionIt").innerText = q.q;
+      const qItEl = document.getElementById("quizQuestionIt");
+      if (qItEl) {
+        if (trapEngine && trapEngine.isHighlightEnabled()) {
+          qItEl.innerHTML = trapEngine.highlightTrapWords(q.q);
+        } else {
+          qItEl.innerText = q.q;
+        }
+      }
       document.getElementById("quizQuestionAr").innerText = q.tr || "";
 
       const imgWrap = document.getElementById("quizImgWrap");
