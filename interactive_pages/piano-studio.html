@@ -853,7 +853,7 @@
             <span>خطة المذاكرة الذكية وجدول الجاهزية</span>
           </h1>
           <p class="sp-hero-desc">
-            مسارك العلمي المنظم لاجتياز الامتحان الوزاري الرسمي. يتوزع فيه المنهج بمرونة وفق وقتك اليومي، مع تخصيص محطات لحفظ الكلمات ومراجعة الأفخاخ التكرارية.
+            مسارك العلمي المنظم لتغطية الأبواب الـ 25 كاملة واجتياز الامتحان الوزاري الرسمي. يتوزع فيه المنهج بمرونة وفق وقتك، مع محطات لحفظ الكلمات ومراجعة الأفخاخ التكرارية.
           </p>
         </div>
         <div class="sp-hero-actions">
@@ -903,7 +903,7 @@
       <div style="display: flex; align-items: center; gap: 10px;">
         <span style="font-size: 1.3rem;">💡</span>
         <span>
-          <strong>نظام دراسة مرن وذكي:</strong> إذا أنهيت مهام اليوم مبكراً يمكنك فتح اليوم التالي فوراً، وإذا فاتك يوم فهناك أيام راحة دورية مدمجة لامتصاص التأخير دون أي إحباط.
+          <strong>تغطية كاملة وشاملة (الأبواب 1 إلى 25):</strong> إذا أنهيت مهام اليوم مبكراً يمكنك فتح اليوم التالي فوراً، وإذا فاتك يوم فهناك أيام راحة دورية مدمجة لامتصاص التأخير دون أي إحباط.
         </span>
       </div>
       <button class="sp-btn sp-btn-outline" style="padding: 6px 12px; font-size: 0.8rem;" onclick="advanceDayEarly()">
@@ -963,9 +963,11 @@
               <p>دراسة دليل الباب التفاعلي مع الرسوم الهندسية، والخرائط الذهنية، وقواعد كود السير.</p>
             </div>
           </div>
-          <a id="btnOpenGuideLink" href="#" target="_blank" class="sp-btn sp-btn-primary" style="font-size: 0.8rem; padding: 6px 14px;">
-            <span>📘 دليل الشرح ↗</span>
-          </a>
+          <div id="theoryLinksWrap" style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <a id="btnOpenGuideLink" href="#" target="_blank" class="sp-btn sp-btn-primary" style="font-size: 0.8rem; padding: 6px 14px;">
+              <span>📘 دليل الشرح ↗</span>
+            </a>
+          </div>
         </div>
 
         <!-- المحطة 3: بنك الأسئلة المنهجية -->
@@ -981,9 +983,11 @@
               <p>حل أسئلة الباب في بنك الأسئلة الشامل للتعرف على صيغ الوزارة وفك التردد.</p>
             </div>
           </div>
-          <a id="btnOpenChapterQuizLink" href="#" target="_blank" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 14px;">
-            <span>📂 أسئلة الباب ↗</span>
-          </a>
+          <div id="quizLinksWrap" style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <a id="btnOpenChapterQuizLink" href="#" target="_blank" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 14px;">
+              <span>📂 أسئلة الباب ↗</span>
+            </a>
+          </div>
         </div>
 
         <!-- المحطة 4: كويز التثبيت السريع (30 سؤالاً) -->
@@ -1096,10 +1100,10 @@
       <div class="sp-timeline-header">
         <h3 class="sp-timeline-title">
           <span>🗺️</span>
-          <span>خريطة الأيام والجدول المنهجي الكامل</span>
+          <span>خريطة الأيام والجدول المنهجي الكامل (يشمل الأبواب 1 إلى 25 كاملة)</span>
         </h3>
         <div class="sp-filter-pills">
-          <button class="sp-pill-btn active" onclick="filterTimeline('all', this)">كل الأيام (30)</button>
+          <button class="sp-pill-btn active" id="btnFilterAll" onclick="filterTimeline('all', this)">كل الأيام (30)</button>
           <button class="sp-pill-btn" onclick="filterTimeline('pending', this)">المتبقية ⏳</button>
           <button class="sp-pill-btn" onclick="filterTimeline('completed', this)">المكتملة ✅</button>
         </div>
@@ -1120,7 +1124,7 @@
         <span>تخصيص خطتك الدراسية الذكية</span>
       </div>
       <p class="sp-modal-desc">
-        حدد وقتك وظروفك لنقوم بضبط المعادلة وتوزيع الأبواب الـ 25 والامتحانات الوزارية بطريقة علمية متوازنة.
+        حدد وقتك وظروفك لنقوم بضبط المعادلة وتوزيع الأبواب الـ 25 كاملة والامتحانات الوزارية بطريقة علمية متوازنة.
       </p>
 
       <!-- زر التخطي الفوري القياسي -->
@@ -1129,7 +1133,7 @@
           🚀 لست متأكداً أو تريد البدء فوراً؟
         </div>
         <div style="font-size: 0.82rem; color: var(--sp-text-sub); margin-bottom: 12px;">
-          ابدأ بالخطة الذهبية القياسية المعتمدة (30 يوماً - ساعتان يومياً) بنقرة واحدة دون ملء أي خانات.
+          ابدأ بالخطة الذهبية القياسية المعتمدة (30 يوماً - ساعتان يومياً) لتغطية الأبواب 1-25 كاملة بنقرة واحدة.
         </div>
         <button class="sp-btn sp-btn-emerald" style="width: 100%; justify-content: center;" onclick="applyStandardPlanAndStart()">
           <span>⚡ ابدأ بالخطة الموصى بها فوراً (30 يوماً)</span>
@@ -1328,13 +1332,34 @@
     });
 
     /**
-     * تحميل الخطة المحفوظة أو إظهار شاشة الاستبيان الأولية
+     * تحميل الخطة المحفوظة والتحقق من اشتمالها على الـ 25 باباً كاملة
      */
     function loadOrCreatePlan() {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         try {
           activePlan = JSON.parse(saved);
+
+          // فحص أمني وترقية تلقائية: التأكد من تغطية جميع الأبواب من 1 إلى 25 كاملة
+          const chaptersCovered = new Set();
+          if (activePlan && activePlan.days) {
+            activePlan.days.forEach(d => {
+              if (d.type === 'chapter' && Array.isArray(d.chapters)) {
+                d.chapters.forEach(c => chaptersCovered.add(c));
+              }
+            });
+          }
+          const isMissingChapters = [21, 22, 23, 24, 25].some(c => !chaptersCovered.has(c));
+          if (isMissingChapters) {
+            console.warn("ترقية الخطة تلقائياً لتشمل كافة الأبواب الـ 25 كاملة.");
+            const oldTargetDays = activePlan.targetDays || 30;
+            const oldHours = activePlan.dailyHours || 2;
+            const oldLang = activePlan.langLevel || "beginner";
+            const oldStreak = activePlan.streak || 0;
+            activePlan = generateStudyPlan(oldTargetDays, oldHours, oldLang);
+            activePlan.streak = oldStreak;
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(activePlan));
+          }
         } catch (e) {
           console.error("خطأ في قراءة الخطة المحفوظة:", e);
           activePlan = null;
@@ -1342,7 +1367,6 @@
       }
 
       if (!activePlan) {
-        // لا توجد خطة: فتح نافذة الاستبيان تلقائياً
         openPlanSetupModal();
       } else {
         renderPlanUI();
@@ -1404,60 +1428,58 @@
 
     /**
      * خوارزمية التوزيع العلمي للأبواب الـ 25 والامتحانات
+     * ضمان تغطية 100% لجميع الأبواب من 1 إلى 25
      */
     function generateStudyPlan(totalDays, hoursPerDay, lang) {
       const days = [];
       const now = new Date();
 
-      // توزيع المراحل الثلاث:
-      // مرحلة 1: الأبواب المنهجية الـ 25 + أيام استدراك (Buffers)
-      // مرحلة 2: معسكر أفخاخ الكلمات والترادفات (Traps & False Synonyms)
-      // مرحلة 3: ماراثون الامتحانات الوزارية الرسمية (Official 30-Question Marathon)
+      let units = [];
+      let bufferAfterUnits = [];
+      let trapsDays = 1;
+      let examDays = 4;
 
-      let examDaysCount = totalDays >= 30 ? 5 : (totalDays >= 20 ? 3 : 2);
-      let trapsDaysCount = totalDays >= 30 ? 3 : 2;
-      let chapterDaysCount = totalDays - examDaysCount - trapsDaysCount;
-      if (chapterDaysCount < 10) chapterDaysCount = 10;
+      if (totalDays <= 16) {
+        // مكثف فائق: دمج الأبواب المتقاربة لتغطية الـ 25 باباً في 13 وحدة
+        units = [
+          [1, 2], [3, 4], [5, 6], [7, 8], [9, 10],
+          [11, 12], [13, 14], [15, 16], [17, 18], [19, 20],
+          [21, 22], [23, 24], [25]
+        ];
+        bufferAfterUnits = [];
+        trapsDays = 1;
+        examDays = Math.max(1, totalDays - units.length - trapsDays);
+      } else if (totalDays <= 32) {
+        // الخطة القياسية المتوازنة (30 يوماً): 22 وحدة دراسية + 3 أيام راحة + 1 معسكر أفخاخ + 4 ماراثون امتحانات = 30 يوماً تماماً!
+        units = [
+          [1], [2], [3], [4], [5],
+          [6], [7], [8], [9], [10],
+          [11], [12], [13], [14], [15],
+          [16], [17], [18, 19], [20],
+          [21, 22], [23, 24], [25]
+        ];
+        bufferAfterUnits = [5, 11, 17];
+        trapsDays = 1;
+        examDays = 4;
+      } else {
+        // خطة مريحة ومتأنية (45 أو 60 يوماً): كل باب له يوم مستقل كامل (25 وحدة)
+        units = [];
+        for (let i = 1; i <= 25; i++) {
+          units.push([i]);
+        }
+        bufferAfterUnits = [5, 10, 15, 20];
+        trapsDays = 2;
+        examDays = Math.max(3, totalDays - units.length - bufferAfterUnits.length - trapsDays);
+      }
 
-      // ترتيب الأبواب الـ 25 وتوزيعها على الأيام
-      let chIndex = 1;
+      let unitIdx = 0;
       let dayCounter = 1;
+      let buffersPending = [...bufferAfterUnits];
 
       while (dayCounter <= totalDays) {
-        // هل هذا اليوم هو أحد أيام الامتحانات النهائية؟
-        if (dayCounter > totalDays - examDaysCount) {
-          days.push({
-            dayNum: dayCounter,
-            phase: 3,
-            type: "exam_marathon",
-            title_ar: "ماراثون الامتحانات الوزارية الرسمية (" + (dayCounter - (totalDays - examDaysCount)) + ")",
-            title_it: "Simulazione Ufficiale Patente B",
-            chapters: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25],
-            tasks: { vocab: false, theory: false, quiz: false, test: false },
-            isCompleted: false
-          });
-          dayCounter++;
-          continue;
-        }
-
-        // هل هذا اليوم من أيام معسكر الأفخاخ والكلمات؟
-        if (dayCounter > totalDays - examDaysCount - trapsDaysCount) {
-          days.push({
-            dayNum: dayCounter,
-            phase: 2,
-            type: "traps_sprint",
-            title_ar: "معسكر أفخاخ الكلمات والمترادفات الوزارية (" + (dayCounter - (totalDays - examDaysCount - trapsDaysCount)) + ")",
-            title_it: "Focus Trabocchetti e Falsi Sinonimi",
-            chapters: [1,2,3,4,5,8,13,14],
-            tasks: { vocab: false, theory: false, quiz: false, test: false },
-            isCompleted: false
-          });
-          dayCounter++;
-          continue;
-        }
-
-        // يوم استدراك ومراجعة ذكية كل 6 أيام
-        if (dayCounter % 6 === 0 && dayCounter < totalDays - 4) {
+        // إدراج يوم راحة واستدراك ذكي بعد وحدات محددة
+        if (buffersPending.length > 0 && buffersPending.includes(unitIdx) && unitIdx < units.length) {
+          buffersPending = buffersPending.filter(u => u !== unitIdx);
           days.push({
             dayNum: dayCounter,
             phase: 1,
@@ -1472,19 +1494,20 @@
           continue;
         }
 
-        // يوم مخصص لباب أو بابين
-        if (chIndex <= 25) {
-          const chData = CHAPTER_DATA_MAP[chIndex];
-          // إذا كان الباب خفيفاً والأيام قليلة، ندمج بابين خفيفين
-          let assignedChapters = [chIndex];
-          let combinedTitleAr = "الباب " + String(chIndex).padStart(2, '0') + ": " + chData.title_ar;
-          let combinedTitleIt = chData.title_it;
+        // إدراج وحدة دراسية للأبواب المنهجية (تغطي 1 إلى 25 كاملة)
+        if (unitIdx < units.length) {
+          const chList = units[unitIdx];
+          let combinedTitleAr = "";
+          let combinedTitleIt = "";
 
-          if (chData.tier === "light" && chIndex < 25 && CHAPTER_DATA_MAP[chIndex+1].tier === "light" && totalDays <= 30) {
-            chIndex++;
-            assignedChapters.push(chIndex);
-            combinedTitleAr += " + الباب " + String(chIndex).padStart(2, '0') + ": " + CHAPTER_DATA_MAP[chIndex].title_ar;
-            combinedTitleIt += " / " + CHAPTER_DATA_MAP[chIndex].title_it;
+          if (chList.length === 1) {
+            const chNum = chList[0];
+            const chMeta = CHAPTER_DATA_MAP[chNum] || CHAPTER_DATA_MAP[1];
+            combinedTitleAr = "الباب " + String(chNum).padStart(2, '0') + ": " + chMeta.title_ar;
+            combinedTitleIt = chMeta.title_it;
+          } else {
+            combinedTitleAr = chList.map(num => "الباب " + String(num).padStart(2, '0') + ": " + (CHAPTER_DATA_MAP[num] ? CHAPTER_DATA_MAP[num].title_ar : '')).join(" + ");
+            combinedTitleIt = chList.map(num => CHAPTER_DATA_MAP[num] ? CHAPTER_DATA_MAP[num].title_it : '').join(" / ");
           }
 
           days.push({
@@ -1493,20 +1516,37 @@
             type: "chapter",
             title_ar: combinedTitleAr,
             title_it: combinedTitleIt,
-            chapters: assignedChapters,
+            chapters: chList,
             tasks: { vocab: false, theory: false, quiz: false, test: false },
             isCompleted: false
           });
-          chIndex++;
-        } else {
-          // انتهت الأبواب الـ 25: أيام مراجعة مجمعة
+          unitIdx++;
+          dayCounter++;
+          continue;
+        }
+
+        // بعد الانتهاء من جميع الأبواب الـ 25: أيام الأفخاخ والماراثون الوزاري
+        const remainingDays = totalDays - dayCounter + 1;
+        if (remainingDays > examDays) {
           days.push({
             dayNum: dayCounter,
-            phase: 1,
-            type: "review",
-            title_ar: "مراجعة مجمعة للأبواب الثقيلة والأفخاخ",
-            title_it: "Ripasso Generale Capitoli Complessi",
+            phase: 2,
+            type: "traps_sprint",
+            title_ar: "معسكر أفخاخ الكلمات والمترادفات الوزارية",
+            title_it: "Focus Trabocchetti e Falsi Sinonimi",
             chapters: [1, 2, 3, 4, 5, 8, 13, 14],
+            tasks: { vocab: false, theory: false, quiz: false, test: false },
+            isCompleted: false
+          });
+        } else {
+          const examNum = examDays - remainingDays + 1;
+          days.push({
+            dayNum: dayCounter,
+            phase: 3,
+            type: "exam_marathon",
+            title_ar: "ماراثون الامتحانات الوزارية الرسمية (" + examNum + ")",
+            title_it: "Simulazione Ufficiale Patente B",
+            chapters: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25],
             tasks: { vocab: false, theory: false, quiz: false, test: false },
             isCompleted: false
           });
@@ -1561,18 +1601,35 @@
       const estHours = activePlan.dailyHours || 2;
       document.getElementById("missionEstimatedTime").innerText = "⏱️ " + estHours + " ساعات (" + (estHours * 60) + " دقيقة)";
 
-      // روابط الأدلة وأسئلة الأبواب
-      const primaryCh = currentDay.chapters[0] || 1;
-      const chMeta = CHAPTER_DATA_MAP[primaryCh] || CHAPTER_DATA_MAP[1];
-      
-      const guideBtn = document.getElementById("btnOpenGuideLink");
-      guideBtn.href = chMeta.file;
+      // تحديث روابط الأدلة والأسئلة (دعم باب مفرد أو أبواب مدمجة)
+      const theoryLinksWrap = document.getElementById("theoryLinksWrap");
+      const quizLinksWrap = document.getElementById("quizLinksWrap");
 
-      const chFolder = (typeof CHAPTERS_META !== 'undefined' && CHAPTERS_META[primaryCh - 1]) 
-        ? CHAPTERS_META[primaryCh - 1].folder 
-        : "Capitolo_01_definizioni_generali_doveri_strada";
-      const quizBtn = document.getElementById("btnOpenChapterQuizLink");
-      quizBtn.href = "../Capitoli_Divisi/" + chFolder + "/index.html";
+      if (currentDay.type === "buffer") {
+        theoryLinksWrap.innerHTML = `<a href="dashboard.html" class="sp-btn sp-btn-primary" style="font-size: 0.8rem; padding: 6px 14px;"><span>📊 سجل الأخطاء (SRS) ↗</span></a>`;
+        quizLinksWrap.innerHTML = `<a href="flashcards.html" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 14px;"><span>💡 بطاقات الفلاش كاردز ↗</span></a>`;
+      } else if (currentDay.type === "traps_sprint") {
+        theoryLinksWrap.innerHTML = `<a href="../Capitoli_Divisi/dizionario-sinonimi.html" target="_blank" class="sp-btn sp-btn-primary" style="font-size: 0.8rem; padding: 6px 14px;"><span>📖 معجم المترادفات ↗</span></a>`;
+        quizLinksWrap.innerHTML = `<a href="traps_and_games.html" target="_blank" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 14px;"><span>🎮 بنك الفخاخ والألعاب ↗</span></a>`;
+      } else if (currentDay.type === "exam_marathon") {
+        theoryLinksWrap.innerHTML = `<a href="scheda-esame.html" target="_blank" class="sp-btn sp-btn-primary" style="font-size: 0.8rem; padding: 6px 14px;"><span>📝 امتحان وزاري 20 دقيقة ↗</span></a>`;
+        quizLinksWrap.innerHTML = `<a href="dashboard.html" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 14px;"><span>📊 مؤشر الجاهزية ↗</span></a>`;
+      } else {
+        // أبواب منهجية
+        theoryLinksWrap.innerHTML = currentDay.chapters.map(chNum => {
+          const meta = CHAPTER_DATA_MAP[chNum] || CHAPTER_DATA_MAP[1];
+          const label = currentDay.chapters.length > 1 ? `📘 دليل باب ${chNum} ↗` : `📘 دليل الشرح ↗`;
+          return `<a href="${meta.file}" target="_blank" class="sp-btn sp-btn-primary" style="font-size: 0.8rem; padding: 6px 14px;"><span>${label}</span></a>`;
+        }).join("");
+
+        quizLinksWrap.innerHTML = currentDay.chapters.map(chNum => {
+          const folder = (typeof CHAPTERS_META !== 'undefined' && CHAPTERS_META[chNum - 1]) 
+            ? CHAPTERS_META[chNum - 1].folder 
+            : "Capitolo_01_definizioni_generali_doveri_strada";
+          const label = currentDay.chapters.length > 1 ? `📂 أسئلة باب ${chNum} ↗` : `📂 أسئلة الباب ↗`;
+          return `<a href="../Capitoli_Divisi/${folder}/index.html" target="_blank" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 14px;"><span>${label}</span></a>`;
+        }).join("");
+      }
 
       // تحديث مربعات اختيار المهام الأربعة
       renderStationCheckboxes(currentDay);
@@ -1663,7 +1720,6 @@
       localStorage.setItem(STORAGE_KEY, JSON.stringify(activePlan));
       renderPlanUI();
 
-      // تأثير بصري تشجيعي لطيف
       alert("🎉 رائع جداً! تم إنجاز مهام اليوم بنجاح والانتقال لليوم التالي. استمر في التألق!");
     }
 
@@ -1718,6 +1774,19 @@
           statusText = "استدراك ☕";
         }
 
+        let subText = "";
+        if (day.type === 'chapter') {
+          subText = day.chapters.length > 1 
+            ? "دراسة مدمجة (بابين) + كويز 30" 
+            : "دراسة منهجية + كويز 30";
+        } else if (day.type === 'buffer') {
+          subText = "مراجعة أخطاء الذاكرة (SRS)";
+        } else if (day.type === 'traps_sprint') {
+          subText = "معسكر أفخاخ الكلمات والمترادفات";
+        } else {
+          subText = "محاكاة امتحان وزاري رسمي (30 سؤالاً)";
+        }
+
         card.innerHTML = `
           <div>
             <div class="sp-day-card-top">
@@ -1727,7 +1796,7 @@
             <div class="sp-day-card-title">${day.title_ar}</div>
           </div>
           <div class="sp-day-card-sub" style="margin-top: 10px;">
-            ${day.type === 'chapter' ? 'دراسة منهجية + كويز 30' : (day.type === 'buffer' ? 'مراجعة أخطاء الذاكرة' : 'محاكاة وزارية رسمية')}
+            ${subText}
           </div>
         `;
 
@@ -1936,9 +2005,7 @@
     function executeRebalance(mode) {
       if (!activePlan) return;
       if (mode === 'extend') {
-        // تمديد الأيام المتبقية
         activePlan.targetDays += 5;
-        // إضافة 5 أيام مراجعة بالخلف
         for (let i = 1; i <= 5; i++) {
           activePlan.days.push({
             dayNum: activePlan.days.length + 1,
@@ -1953,7 +2020,6 @@
         }
         alert("تم تمديد الخطة بـ 5 أيام إضافية وتحديث تاريخ الجاهزية المتوقع بنجاح!");
       } else {
-        // ضغط المتبقي
         alert("تمت إعادة توزيع الأبواب المتبقية بالتساوي للحفاظ على نفس موعد الامتحان المستهدف.");
       }
       localStorage.setItem(STORAGE_KEY, JSON.stringify(activePlan));
