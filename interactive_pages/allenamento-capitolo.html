@@ -635,9 +635,19 @@
 
       <div>
         <h1 class="tr-title-main" id="lblSessionTitle">جلسة التدريب الذكي (20 سؤالاً بدون تكرار)</h1>
-        <p class="tr-desc-sub">
+        <p class="tr-desc-sub" id="lblSessionDesc">
           خوارزمية ذكية تنتقي أسئلة منوعة من كافة محاور الباب مع استبعاد الأسئلة المتشابهة لتوفير أقصى فائدة في أقل وقت.
         </p>
+      </div>
+
+      <!-- محدد نطاق الأبواب (يظهر في وضع أخطر أسئلة الوزارة) -->
+      <div id="scopeFilterWrap" style="display: none; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 12px; padding: 10px 14px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--tr-border); border-radius: 12px;">
+        <span style="font-size: 0.82rem; font-weight: 700; color: var(--tr-text-sub);">نطاق الأسئلة:</span>
+        <button class="tr-count-btn active" id="btnScopeAll" onclick="setChapterScope('all')">🌐 كل الأبواب معاً (شامل)</button>
+        <button class="tr-count-btn" id="btnScopeCurrent" onclick="setChapterScope('current')">🎯 الباب الحالي (<span id="lblScopeCurrentCh">باب 01</span>)</button>
+        <select id="selectChapterScope" onchange="setChapterScope(this.value)" class="tr-count-btn" style="padding: 6px 10px; background: var(--tr-surface); color: var(--tr-text); border: 1px solid var(--tr-border); font-family: inherit;">
+          <option value="all">🌐 اختر باباً محدداً...</option>
+        </select>
       </div>
 
       <!-- شريط التنقل الرقمي للأسئلة -->
@@ -770,6 +780,7 @@
     let trapEngine = null;
     let sessionMode = "chapter"; // "chapter" | "commute" | "errors" | "hardest"
     let targetChapter = 1;
+    let selectedChapterScope = "all";
     let targetCount = 20;
     let sessionQuestions = [];
     let currentIndex = 0;
@@ -796,6 +807,24 @@
       const chParam = parseInt(urlParams.get("ch"), 10);
       if (chParam && chParam >= 1 && chParam <= 25) {
         targetChapter = chParam;
+      } else {
+        // محاولة استنتاج الباب النشط من الخطة الدراسية إن وجد
+        try {
+          const planRaw = localStorage.getItem("patente_b_pro_study_plan");
+          if (planRaw) {
+            const plan = JSON.parse(planRaw);
+            const curr = plan.days ? plan.days.find(d => d.dayNum === plan.currentDayNum) : null;
+            if (curr && Array.isArray(curr.chapters) && curr.chapters.length > 0) {
+              targetChapter = curr.chapters[0];
+            }
+          }
+        } catch (e) {}
+      }
+
+      if (urlParams.has("ch")) {
+        selectedChapterScope = targetChapter;
+      } else {
+        selectedChapterScope = "all";
       }
 
       if (sessionMode === "commute") {
@@ -810,6 +839,40 @@
       updateCountPillsUI();
       loadAndBuildSession();
     });
+
+    function initScopeDropdown() {
+      const sel = document.getElementById("selectChapterScope");
+      if (!sel || sel.options.length > 1) return;
+      for (let i = 1; i <= 25; i++) {
+        const opt = document.createElement("option");
+        opt.value = i;
+        const title = (typeof CHAPTERS_META !== 'undefined' && CHAPTERS_META[i-1]) 
+          ? CHAPTERS_META[i-1].titolo_ar 
+          : ("الباب " + i);
+        opt.text = `الباب ${String(i).padStart(2, '0')}: ${title}`;
+        sel.appendChild(opt);
+      }
+    }
+
+    function setChapterScope(scope) {
+      if (scope === "current") {
+        selectedChapterScope = targetChapter;
+      } else if (scope === "all") {
+        selectedChapterScope = "all";
+      } else {
+        selectedChapterScope = parseInt(scope, 10) || "all";
+      }
+
+      const btnAll = document.getElementById("btnScopeAll");
+      const btnCurrent = document.getElementById("btnScopeCurrent");
+      const sel = document.getElementById("selectChapterScope");
+
+      if (btnAll) btnAll.classList.toggle("active", selectedChapterScope === "all");
+      if (btnCurrent) btnCurrent.classList.toggle("active", selectedChapterScope === targetChapter);
+      if (sel) sel.value = (selectedChapterScope === "all" || selectedChapterScope === targetChapter) ? "all" : selectedChapterScope;
+
+      startFreshSession();
+    }
 
     function setSessionCount(count) {
       targetCount = count;
@@ -998,18 +1061,45 @@
 
       } else if (sessionMode === "hardest") {
         // وضع أخطر أسئلة الوزارة
-        document.getElementById("lblChapterName").innerText = "💣 أخطر أسئلة الوزارة في إيطاليا (70%+ خطأ)";
-        document.getElementById("lblSessionTitle").innerText = "بنك الأسئلة الشيطانية: الفخاخ الرسمية الأكثر إيقاعاً في الخطأ";
+        const scopeWrap = document.getElementById("scopeFilterWrap");
+        if (scopeWrap) scopeWrap.style.display = "flex";
+        initScopeDropdown();
 
-        const trapPool = ALL_QUESTIONS_DATA.filter(q => {
+        const lblCurrent = document.getElementById("lblScopeCurrentCh");
+        if (lblCurrent) lblCurrent.innerText = "باب " + String(targetChapter).padStart(2, '0');
+
+        let pool = ALL_QUESTIONS_DATA;
+        if (selectedChapterScope !== "all") {
+          const chNum = parseInt(selectedChapterScope, 10);
+          pool = ALL_QUESTIONS_DATA.filter(q => q.ch === chNum);
+          if (!pool.length) pool = ALL_QUESTIONS_DATA;
+
+          const meta = (typeof CHAPTERS_META !== 'undefined' && CHAPTERS_META[chNum - 1]) 
+            ? CHAPTERS_META[chNum - 1] 
+            : { titolo_ar: "الباب " + chNum };
+          document.getElementById("lblChapterName").innerText = `💣 أخطر أسئلة الباب ${String(chNum).padStart(2, '0')}: ${meta.titolo_ar || ""}`;
+          document.getElementById("lblSessionTitle").innerText = `أصعب فخاخ الباب ${chNum} في الامتحانات الوزارية`;
+          const descEl = document.getElementById("lblSessionDesc");
+          if (descEl) descEl.innerText = `الأسئلة الرسمية الخاصة بهذا الباب فقط والتي تتضمن أعلى نسب خداع ونفي قاطع وفخاخ قانونية.`;
+        } else {
+          document.getElementById("lblChapterName").innerText = "💣 أخطر أسئلة الوزارة في إيطاليا (شامل كافة الأبواب)";
+          document.getElementById("lblSessionTitle").innerText = "بنك الأسئلة الشيطانية: الفخاخ الرسمية الأكثر إيقاعاً في الخطأ";
+          const descEl = document.getElementById("lblSessionDesc");
+          if (descEl) descEl.innerText = "مزيج شامل من أصعب الأسئلة عبر المنهج كاملاً يسجل فيها الطلاب الإيطاليون أعلى نسب رسوب.";
+        }
+
+        const trapPool = pool.filter(q => {
           const hasTb = q.tb && q.tb.length > 10;
           const text = (q.q || "").toLowerCase();
           const hasKeyword = /sempre|mai|soltanto|in ogni caso|salvapedone|rotatoria|freno/i.test(text);
           return hasTb || hasKeyword;
         });
-        sessionQuestions = selectDiverseQuestions(trapPool.length ? trapPool : ALL_QUESTIONS_DATA, targetCount);
+        sessionQuestions = selectDiverseQuestions(trapPool.length ? trapPool : pool, targetCount);
 
       } else {
+        const scopeWrap = document.getElementById("scopeFilterWrap");
+        if (scopeWrap) scopeWrap.style.display = "none";
+
         // الوضع المعتاد: تدريب الباب المحدد
         const meta = (typeof CHAPTERS_META !== 'undefined' && CHAPTERS_META[targetChapter - 1]) 
           ? CHAPTERS_META[targetChapter - 1] 
