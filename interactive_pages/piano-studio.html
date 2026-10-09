@@ -227,7 +227,7 @@
       transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Current Active Day Spotlight (البطاقة الكبرى لمهمة اليوم) */
+    /* Current Active Day Spotlight */
     .sp-mission-card {
       background: var(--sp-surface);
       backdrop-filter: blur(16px);
@@ -269,14 +269,14 @@
     }
 
     .sp-mission-title {
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       font-weight: 900;
       color: var(--sp-text);
       margin-bottom: 4px;
     }
 
     .sp-mission-it-title {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 600;
       color: var(--sp-cyan);
       direction: ltr;
@@ -402,7 +402,7 @@
       border-color: rgba(79, 70, 229, 0.25);
     }
 
-    /* Full Curriculum Timeline (الجدول الزمني لجميع الأيام) */
+    /* Full Curriculum Timeline */
     .sp-timeline-section {
       background: var(--sp-surface);
       border: 1px solid var(--sp-border);
@@ -555,7 +555,7 @@
       background: var(--sp-surface);
       border: 1px solid var(--sp-border);
       border-radius: 24px;
-      max-width: 650px;
+      max-width: 680px;
       width: 100%;
       max-height: 90vh;
       overflow-y: auto;
@@ -661,7 +661,7 @@
       margin-bottom: 20px;
     }
 
-    /* 30-Question Rapid Mastery Quiz View (Modal / Slide-in) */
+    /* 30-Question Rapid Mastery Quiz View */
     .sp-quiz-view {
       display: none;
     }
@@ -799,6 +799,16 @@
       margin-bottom: 8px;
     }
 
+    /* Error Review List Items */
+    .sp-error-review-item {
+      background: var(--sp-surface-card);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 12px;
+      text-align: right;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
@@ -898,11 +908,11 @@
       </div>
     </section>
 
-    <!-- تنبيه المرونة والاستباق (Fast Track & Buffer Note) -->
+    <!-- تنبيه المرونة والاستباق -->
     <div class="sp-banner-alert" id="bannerAlertBox">
       <div style="display: flex; align-items: center; gap: 10px;">
         <span style="font-size: 1.3rem;">💡</span>
-        <span>
+        <span id="bannerFlowNote">
           <strong>تغطية كاملة وشاملة (الأبواب 1 إلى 25):</strong> إذا أنهيت مهام اليوم مبكراً يمكنك فتح اليوم التالي فوراً، وإذا فاتك يوم فهناك أيام راحة دورية مدمجة لامتصاص التأخير دون أي إحباط.
         </span>
       </div>
@@ -937,7 +947,7 @@
                 <span>محطة الكلمات والأفخاخ اللغوية</span>
                 <span class="sp-station-badge">15–20 دقيقة</span>
               </h4>
-              <p>حفظ وفهم مصطلحات الباب في قاموس المترادفات والبدائل لتجاوز عقبة اللغة الوزارية.</p>
+              <p id="stationVocabDesc">حفظ وفهم مصطلحات الباب في قاموس المترادفات والبدائل لتجاوز عقبة اللغة الوزارية.</p>
             </div>
           </div>
           <div style="display: flex; gap: 8px;">
@@ -960,7 +970,7 @@
                 <span>محطة الشرح النظري والقواعد</span>
                 <span class="sp-station-badge">35–40 دقيقة</span>
               </h4>
-              <p>دراسة دليل الباب التفاعلي مع الرسوم الهندسية، والخرائط الذهنية، وقواعد كود السير.</p>
+              <p id="stationTheoryDesc">دراسة دليل الباب التفاعلي مع الرسوم الهندسية، والخرائط الذهنية، وقواعد كود السير.</p>
             </div>
           </div>
           <div id="theoryLinksWrap" style="display: flex; gap: 8px; flex-wrap: wrap;">
@@ -980,7 +990,7 @@
                 <span>محطة أسئلة الباب الوزارية</span>
                 <span class="sp-station-badge">40–45 دقيقة</span>
               </h4>
-              <p>حل أسئلة الباب في بنك الأسئلة الشامل للتعرف على صيغ الوزارة وفك التردد.</p>
+              <p id="stationQuizDesc">حل أسئلة الباب في بنك الأسئلة الشامل للتعرف على صيغ الوزارة وفك التردد.</p>
             </div>
           </div>
           <div id="quizLinksWrap" style="display: flex; gap: 8px; flex-wrap: wrap;">
@@ -1000,7 +1010,7 @@
                 <span>محطة التثبيت السريع (30 سؤالاً وزاريّاً)</span>
                 <span class="sp-station-badge">15–20 دقيقة</span>
               </h4>
-              <p>اختبار وزاري سريع مكون من 30 سؤالاً عشوائياً (حد أقصى 3 أخطاء) لقياس تمكنك الفوري.</p>
+              <p id="stationTestDesc">اختبار وزاري سريع مكون من 30 سؤالاً عشوائياً (الحد الأقصى المسموح رسمياً 3 أخطاء).</p>
             </div>
           </div>
           <button class="sp-btn sp-btn-emerald" style="font-size: 0.8rem; padding: 6px 14px;" onclick="startRapid30Quiz()">
@@ -1079,23 +1089,28 @@
         <div id="quizResultSummary" style="display:none; text-align:center; padding: 20px 10px;">
           <div style="font-size: 3.5rem; margin-bottom: 10px;" id="quizResultIcon">🎉</div>
           <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 8px;" id="quizResultTitle">مبروك! اجتزت الكويز بنجاح</h3>
-          <p style="font-size: 1rem; color: var(--sp-text-sub); max-width: 500px; margin: 0 auto 20px;" id="quizResultDesc">
+          <p style="font-size: 1rem; color: var(--sp-text-sub); max-width: 550px; margin: 0 auto 20px;" id="quizResultDesc">
             أنهيت الـ 30 سؤالاً بـ 2 أخطاء فقط (المسموح حتى 3 أخطاء).
           </p>
-          <div style="display: flex; gap: 12px; justify-content: center;">
-            <button class="sp-btn sp-btn-emerald" onclick="finishAndCompleteDayFromQuiz()">
-              <span>✅ اعتماد إتمام مهمة اليوم</span>
-            </button>
-            <button class="sp-btn sp-btn-outline" onclick="closeRapidQuiz()">
-              <span>إغلاق الكويز</span>
-            </button>
+
+          <!-- أزرار شاشة النتيجة -->
+          <div id="quizResultActions" style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px;">
+            <!-- يتم تعبئتها ديناميكياً حسب النجاح أو الرسوب -->
+          </div>
+
+          <!-- درج مراجعة الأسئلة الخاطئة -->
+          <div id="quizErrorsReviewWrap" style="display: none; margin-top: 24px; text-align: right; border-top: 1px solid var(--sp-border); padding-top: 20px;">
+            <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--sp-rose); margin-bottom: 14px;">
+              🔍 قائمة الأسئلة التي أخطأت فيها (تم حفظها في SRS):
+            </h4>
+            <div id="quizErrorsList"></div>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- الجدول الزمني الشامل لكل أيام الخطة (Timeline Grid) -->
+    <!-- الجدول الزمني الشامل لكل أيام الخطة -->
     <section class="sp-timeline-section">
       <div class="sp-timeline-header">
         <h3 class="sp-timeline-title">
@@ -1103,7 +1118,7 @@
           <span>خريطة الأيام والجدول المنهجي الكامل (يشمل الأبواب 1 إلى 25 كاملة)</span>
         </h3>
         <div class="sp-filter-pills">
-          <button class="sp-pill-btn active" id="btnFilterAll" onclick="filterTimeline('all', this)">كل الأيام (30)</button>
+          <button class="sp-pill-btn active" id="btnFilterAll" onclick="filterTimeline('all', this)">كل الأيام</button>
           <button class="sp-pill-btn" onclick="filterTimeline('pending', this)">المتبقية ⏳</button>
           <button class="sp-pill-btn" onclick="filterTimeline('completed', this)">المكتملة ✅</button>
         </div>
@@ -1116,7 +1131,7 @@
 
   </div>
 
-  <!-- النافذة المنبثقة: استبيان إعداد وتخصيص الخطة (Onboarding Setup Modal) -->
+  <!-- النافذة المنبثقة: استبيان إعداد وتخصيص الخطة -->
   <div class="sp-modal-backdrop" id="planSetupModal">
     <div class="sp-modal-box">
       <div class="sp-modal-title">
@@ -1133,10 +1148,10 @@
           🚀 لست متأكداً أو تريد البدء فوراً؟
         </div>
         <div style="font-size: 0.82rem; color: var(--sp-text-sub); margin-bottom: 12px;">
-          ابدأ بالخطة الذهبية القياسية المعتمدة (30 يوماً - ساعتان يومياً) لتغطية الأبواب 1-25 كاملة بنقرة واحدة.
+          ابدأ بالمسار العنقودي الذكي الموصى به (30 يوماً - ساعتان) بنقرة واحدة دون ملء أي خانات.
         </div>
         <button class="sp-btn sp-btn-emerald" style="width: 100%; justify-content: center;" onclick="applyStandardPlanAndStart()">
-          <span>⚡ ابدأ بالخطة الموصى بها فوراً (30 يوماً)</span>
+          <span>⚡ ابدأ بالخطة الموصى بها فوراً</span>
         </button>
       </div>
 
@@ -1175,7 +1190,7 @@
         <div class="sp-options-grid">
           <div class="sp-opt-card" id="optHours1" onclick="selectDailyHours(1)">
             <div class="sp-opt-title">ساعة واحدة</div>
-            <div class="sp-opt-note">خطوة خطوة</div>
+            <div class="sp-opt-note">يناسب وقت المواصلات</div>
           </div>
           <div class="sp-opt-card selected" id="optHours2" onclick="selectDailyHours(2)">
             <div class="sp-opt-title">ساعتان يومياً ⭐</div>
@@ -1210,6 +1225,28 @@
         </div>
       </div>
 
+      <!-- السؤال 4: مسار وتدفق ترتيب الأبواب -->
+      <div class="sp-question-block">
+        <div class="sp-q-label">
+          <span>4. منهجية ترتيب تدفق الأبواب:</span>
+          <span class="sp-q-helper">طريقة تسلسل الدروس</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div class="sp-opt-card selected" id="optFlowCluster" onclick="selectFlowMode('cluster')" style="text-align: right; padding: 14px;">
+            <div class="sp-opt-title" style="color: var(--sp-cyan);">⭐ المسار العنقودي الذكي (موصى به)</div>
+            <div class="sp-opt-note" style="line-height: 1.4; margin-top: 4px;">
+              يبدأ بـ <strong>الباب 01 (التأسيس)</strong> ثم السلامة (21-25) ثم الأوتوستراد (17-20) ثم التقاطعات (14-16) ثم السرعة (11-13) ثم كتلة الإشارات (2-10). أسرع في كسر الملل وأسهل في الفهم!
+            </div>
+          </div>
+          <div class="sp-opt-card" id="optFlowSequential" onclick="selectFlowMode('sequential')" style="text-align: right; padding: 14px;">
+            <div class="sp-opt-title">المسار التسلسلي الكلاسيكي</div>
+            <div class="sp-opt-note" style="line-height: 1.4; margin-top: 4px;">
+              دراسة الأبواب بترتيبها الرقمي من الباب 01 حتى الباب 25 بالتتابع التقليدي.
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- أزرار حفظ وإغلاق المودال -->
       <div style="display: flex; gap: 12px; margin-top: 22px;">
         <button class="sp-btn sp-btn-primary" style="flex: 1; justify-content: center;" onclick="saveCustomPlan()">
@@ -1221,7 +1258,7 @@
     </div>
   </div>
 
-  <!-- النافذة المنبثقة: إعادة الموازنة الذكية (Rebalance Modal) -->
+  <!-- النافذة المنبثقة: إعادة الموازنة الذكية -->
   <div class="sp-modal-backdrop" id="rebalanceModal">
     <div class="sp-modal-box">
       <div class="sp-modal-title">
@@ -1257,7 +1294,7 @@
       </div>
 
       <div style="text-align: left;">
-        <button class="sp-btn sp-btn-outline" onclick="closeRebalanceModal()">إغلاق</button>
+        <button class="sp-btn sp-btn-outline" onclick="closeRebalanceModal()">إلغاء</button>
       </div>
     </div>
   </div>
@@ -1274,7 +1311,7 @@
      * =========================================================================
      */
 
-    // خريطة بيانات الأبواب الـ 25 مع ملفات الأدلة والأوزان النسبية
+    // خريطة بيانات الأبواب الـ 25
     const CHAPTER_DATA_MAP = {
       1: { file: "دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html", title_ar: "المفاهيم العامة واستخدام الطريق", title_it: "Definizioni generali e doveri della strada", icon: "🛣️", tier: "heavy" },
       2: { file: "دليل_الباب_02_إشارات_الخطر.html", title_ar: "إشارات الخطر", title_it: "Segnali di pericolo", icon: "⚠️", tier: "heavy" },
@@ -1311,6 +1348,7 @@
     let formTargetDays = 30;
     let formDailyHours = 2;
     let formLangLevel = "beginner";
+    let formFlowMode = "cluster"; // "cluster" (العنقودي الذكي) أو "sequential" (الترتيبي)
 
     // حالة كويز الـ 30 سؤالاً النشط
     let rapidQuizState = {
@@ -1318,6 +1356,7 @@
       currentIndex: 0,
       errorsCount: 0,
       userAnswers: [],
+      mistakenQuestions: [],
       passed: false
     };
 
@@ -1332,7 +1371,7 @@
     });
 
     /**
-     * تحميل الخطة المحفوظة والتحقق من اشتمالها على الـ 25 باباً كاملة
+     * تحميل الخطة والتحقق من اشتمالها على الـ 25 باباً ودعم الترتيب العنقودي
      */
     function loadOrCreatePlan() {
       const saved = localStorage.getItem(STORAGE_KEY);
@@ -1340,7 +1379,7 @@
         try {
           activePlan = JSON.parse(saved);
 
-          // فحص أمني وترقية تلقائية: التأكد من تغطية جميع الأبواب من 1 إلى 25 كاملة
+          // فحص أمني وترقية تلقائية: التأكد من تغطية جميع الأبواب من 1 إلى 25 كاملة ودعم نمط التدفق
           const chaptersCovered = new Set();
           if (activePlan && activePlan.days) {
             activePlan.days.forEach(d => {
@@ -1350,13 +1389,16 @@
             });
           }
           const isMissingChapters = [21, 22, 23, 24, 25].some(c => !chaptersCovered.has(c));
-          if (isMissingChapters) {
-            console.warn("ترقية الخطة تلقائياً لتشمل كافة الأبواب الـ 25 كاملة.");
+          const hasNoFlow = !activePlan.flowMode;
+
+          if (isMissingChapters || hasNoFlow) {
+            console.warn("ترقية الخطة تلقائياً لتشمل كافة الأبواب الـ 25 والمسار العنقودي الذكي.");
             const oldTargetDays = activePlan.targetDays || 30;
             const oldHours = activePlan.dailyHours || 2;
             const oldLang = activePlan.langLevel || "beginner";
+            const oldFlow = activePlan.flowMode || "cluster";
             const oldStreak = activePlan.streak || 0;
-            activePlan = generateStudyPlan(oldTargetDays, oldHours, oldLang);
+            activePlan = generateStudyPlan(oldTargetDays, oldHours, oldLang, oldFlow);
             activePlan.streak = oldStreak;
             localStorage.setItem(STORAGE_KEY, JSON.stringify(activePlan));
           }
@@ -1374,18 +1416,16 @@
     }
 
     /**
-     * حفظ وتوليد الخطة القياسية (30 يوماً - ساعتان) بنقرة واحدة
+     * حفظ وتوليد الخطة القياسية (30 يوماً - ساعتان - عنقودي) بنقرة واحدة
      */
     function applyStandardPlanAndStart() {
       formTargetDays = 30;
       formDailyHours = 2;
       formLangLevel = "beginner";
+      formFlowMode = "cluster";
       saveCustomPlan();
     }
 
-    /**
-     * اختيار المدة في المودال
-     */
     function selectTargetDays(days) {
       formTargetDays = days;
       [15, 30, 45, 60].forEach(d => {
@@ -1394,9 +1434,6 @@
       });
     }
 
-    /**
-     * اختيار الساعات في المودال
-     */
     function selectDailyHours(hours) {
       formDailyHours = hours;
       [1, 2, 3].forEach(h => {
@@ -1405,9 +1442,6 @@
       });
     }
 
-    /**
-     * اختيار مستوى اللغة
-     */
     function selectLangLevel(lvl) {
       formLangLevel = lvl;
       ["Beginner", "Intermediate", "Fluent"].forEach(l => {
@@ -1416,21 +1450,29 @@
       });
     }
 
-    /**
-     * توليد وحفظ الخطة الدراسية
-     */
+    function selectFlowMode(flow) {
+      formFlowMode = flow;
+      const elCluster = document.getElementById("optFlowCluster");
+      const elSeq = document.getElementById("optFlowSequential");
+      if (elCluster && elSeq) {
+        elCluster.classList.toggle("selected", flow === "cluster");
+        elSeq.classList.toggle("selected", flow === "sequential");
+      }
+    }
+
     function saveCustomPlan() {
-      activePlan = generateStudyPlan(formTargetDays, formDailyHours, formLangLevel);
+      activePlan = generateStudyPlan(formTargetDays, formDailyHours, formLangLevel, formFlowMode);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(activePlan));
       closePlanSetupModal();
       renderPlanUI();
     }
 
     /**
-     * خوارزمية التوزيع العلمي للأبواب الـ 25 والامتحانات
-     * ضمان تغطية 100% لجميع الأبواب من 1 إلى 25
+     * خوارزمية التوزيع العلمي:
+     * - تدفق عنقودي ذكي (الباب 1 ثم 21-25 ثم 17-20 ثم 14-16 ثم 11-13 ثم 2-10)
+     * - أو تدفق تسلسلي كلاسيكي (1 إلى 25)
      */
-    function generateStudyPlan(totalDays, hoursPerDay, lang) {
+    function generateStudyPlan(totalDays, hoursPerDay, lang, flow = "cluster") {
       const days = [];
       const now = new Date();
 
@@ -1439,37 +1481,91 @@
       let trapsDays = 1;
       let examDays = 4;
 
-      if (totalDays <= 16) {
-        // مكثف فائق: دمج الأبواب المتقاربة لتغطية الـ 25 باباً في 13 وحدة
-        units = [
-          [1, 2], [3, 4], [5, 6], [7, 8], [9, 10],
-          [11, 12], [13, 14], [15, 16], [17, 18], [19, 20],
-          [21, 22], [23, 24], [25]
-        ];
-        bufferAfterUnits = [];
-        trapsDays = 1;
-        examDays = Math.max(1, totalDays - units.length - trapsDays);
-      } else if (totalDays <= 32) {
-        // الخطة القياسية المتوازنة (30 يوماً): 22 وحدة دراسية + 3 أيام راحة + 1 معسكر أفخاخ + 4 ماراثون امتحانات = 30 يوماً تماماً!
-        units = [
-          [1], [2], [3], [4], [5],
-          [6], [7], [8], [9], [10],
-          [11], [12], [13], [14], [15],
-          [16], [17], [18, 19], [20],
-          [21, 22], [23, 24], [25]
-        ];
-        bufferAfterUnits = [5, 11, 17];
-        trapsDays = 1;
-        examDays = 4;
-      } else {
-        // خطة مريحة ومتأنية (45 أو 60 يوماً): كل باب له يوم مستقل كامل (25 وحدة)
-        units = [];
-        for (let i = 1; i <= 25; i++) {
-          units.push([i]);
+      if (flow === "cluster") {
+        // المسار العنقودي الذكي (The Golden Flow)
+        if (totalDays <= 16) {
+          units = [
+            [1],                  // حجر الأساس
+            [21, 22], [23, 24], [25], // عنقود السلامة والقانون
+            [17, 18], [19, 20],   // عنقود الأوتوستراد والتجهيزات
+            [14, 15], [16],       // عنقود التقاطعات والمناورات
+            [11, 12], [13],       // عنقود السرعة وديناميكا الأمان
+            [2, 3, 4], [5, 6, 7], [8, 9, 10] // عنقود الإشارات
+          ];
+          bufferAfterUnits = [];
+          trapsDays = 1;
+          examDays = Math.max(1, totalDays - units.length - trapsDays);
+        } else if (totalDays <= 32) {
+          units = [
+            [1],                  // 1: المفاهيم العامة وحجر الأساس
+            [21, 22],             // 2: حوادث السير والكحول والإسعافات
+            [23, 24],             // 3: المسؤولية والتأمين والبيئة
+            [25],                 // 4: الميكانيكا وصيانة المركبة
+            [17],                 // 5: الأوتوستراد وسحب المقطورات
+            [18, 19],             // 6: الأضواء وأحزمة الأمان والخوذة
+            [20],                 // 7: رخص القيادة ونظام النقاط
+            [14],                 // 8: أسبقية المرور وفك التقاطعات
+            [15],                 // 9: التجاوز والتخطي
+            [16],                 // 10: الوقوف والتوقف والركن
+            [11],                 // 11: حدود السرعة ومسافة التوقف
+            [12],                 // 12: مسافة الأمان
+            [13],                 // 13: قواعد السير والمسارات
+            [2],                  // 14: إشارات الخطر
+            [3],                  // 15: إشارات المنع
+            [4],                  // 16: إشارات الإلزام
+            [5],                  // 17: إشارات الأسبقية
+            [6],                  // 18: العلامات الأرضية والعوائق
+            [7],                  // 19: إشارات المرور الضوئية ورجال الشرطة
+            [8],                  // 20: الإشارات الإرشادية والمعلومات
+            [9],                  // 21: الإشارات التكميلية وأعمال الطرق
+            [10]                  // 22: اللوحات الإضافية
+          ];
+          bufferAfterUnits = [4, 10, 17]; // استدراك بعد السلامة، بعد التقاطعات، وبعد الشطر الأول من الإشارات
+          trapsDays = 1;
+          examDays = 4;
+        } else {
+          // 45 أو 60 يوماً
+          units = [
+            [1],
+            [21], [22], [23], [24], [25],
+            [17], [18], [19], [20],
+            [14], [15], [16],
+            [11], [12], [13],
+            [2], [3], [4], [5], [6], [7], [8], [9], [10]
+          ];
+          bufferAfterUnits = [6, 10, 16, 21];
+          trapsDays = 2;
+          examDays = Math.max(3, totalDays - units.length - bufferAfterUnits.length - trapsDays);
         }
-        bufferAfterUnits = [5, 10, 15, 20];
-        trapsDays = 2;
-        examDays = Math.max(3, totalDays - units.length - bufferAfterUnits.length - trapsDays);
+      } else {
+        // المسار التسلسلي التقليدي (من 1 إلى 25 بالتتابع)
+        if (totalDays <= 16) {
+          units = [
+            [1, 2], [3, 4], [5, 6], [7, 8], [9, 10],
+            [11, 12], [13, 14], [15, 16], [17, 18], [19, 20],
+            [21, 22], [23, 24], [25]
+          ];
+          bufferAfterUnits = [];
+          trapsDays = 1;
+          examDays = Math.max(1, totalDays - units.length - trapsDays);
+        } else if (totalDays <= 32) {
+          units = [
+            [1], [2], [3], [4], [5],
+            [6], [7], [8], [9], [10],
+            [11], [12], [13], [14], [15],
+            [16], [17], [18, 19], [20],
+            [21, 22], [23, 24], [25]
+          ];
+          bufferAfterUnits = [5, 11, 17];
+          trapsDays = 1;
+          examDays = 4;
+        } else {
+          units = [];
+          for (let i = 1; i <= 25; i++) units.push([i]);
+          bufferAfterUnits = [5, 10, 15, 20];
+          trapsDays = 2;
+          examDays = Math.max(3, totalDays - units.length - bufferAfterUnits.length - trapsDays);
+        }
       }
 
       let unitIdx = 0;
@@ -1477,7 +1573,7 @@
       let buffersPending = [...bufferAfterUnits];
 
       while (dayCounter <= totalDays) {
-        // إدراج يوم راحة واستدراك ذكي بعد وحدات محددة
+        // إدراج يوم راحة واستدراك
         if (buffersPending.length > 0 && buffersPending.includes(unitIdx) && unitIdx < units.length) {
           buffersPending = buffersPending.filter(u => u !== unitIdx);
           days.push({
@@ -1494,7 +1590,7 @@
           continue;
         }
 
-        // إدراج وحدة دراسية للأبواب المنهجية (تغطي 1 إلى 25 كاملة)
+        // إدراج وحدة الأبواب المنهجية
         if (unitIdx < units.length) {
           const chList = units[unitIdx];
           let combinedTitleAr = "";
@@ -1525,7 +1621,7 @@
           continue;
         }
 
-        // بعد الانتهاء من جميع الأبواب الـ 25: أيام الأفخاخ والماراثون الوزاري
+        // أيام الأفخاخ والامتحانات
         const remainingDays = totalDays - dayCounter + 1;
         if (remainingDays > examDays) {
           days.push({
@@ -1560,6 +1656,7 @@
         targetDays: totalDays,
         dailyHours: hoursPerDay,
         langLevel: lang,
+        flowMode: flow,
         currentDayNum: 1,
         completedDaysCount: 0,
         streak: 0,
@@ -1569,7 +1666,7 @@
     }
 
     /**
-     * تحديث وعرض واجهة المستخدم بالكامل
+     * تحديث وعرض واجهة المستخدم
      */
     function renderPlanUI() {
       if (!activePlan) return;
@@ -1578,12 +1675,10 @@
       const completedCount = activePlan.days.filter(d => d.isCompleted).length;
       activePlan.completedDaysCount = completedCount;
 
-      // حساب تاريخ الانتهاء المتوقع
       const createdDate = new Date(activePlan.createdAt || Date.now());
       const targetEndDate = new Date(createdDate.getTime() + (activePlan.targetDays * 24 * 60 * 60 * 1000));
       const targetDateStr = targetEndDate.toLocaleDateString("ar-EG", { year: 'numeric', month: 'short', day: 'numeric' });
 
-      // تحديث المؤشرات بالأعلى
       document.getElementById("statCurrentDay").innerText = "اليوم " + currentDay.dayNum;
       document.getElementById("statStreak").innerText = (activePlan.streak || 0) + " 🔥";
       document.getElementById("statCompletedDays").innerText = completedCount + " / " + activePlan.targetDays;
@@ -1593,7 +1688,15 @@
       document.getElementById("statPercentLabel").innerText = pct + "%";
       document.getElementById("statProgressBar").style.width = pct + "%";
 
-      // تحديث بطاقة بطل اليوم الحالي
+      // ملاحظة نوع التدفق
+      const flowBadge = (activePlan.flowMode === "cluster") 
+        ? "⭐ المسار العنقودي الذكي (الباب 1 ثم السلامة 21-25 ثم بقية المحاور)" 
+        : "المسار التسلسلي (من 1 إلى 25)";
+      document.getElementById("bannerFlowNote").innerHTML = `
+        <strong>المنهجية النشطة:</strong> ${flowBadge}. يمكنك فتح اليوم التالي فوراً لو خلصت مبكراً!
+      `;
+
+      // بطاقة بطل اليوم
       document.getElementById("missionDayTag").innerText = "🎯 اليوم " + currentDay.dayNum + " من " + activePlan.targetDays;
       document.getElementById("missionArTitle").innerText = currentDay.title_ar;
       document.getElementById("missionItTitle").innerText = currentDay.title_it;
@@ -1601,7 +1704,7 @@
       const estHours = activePlan.dailyHours || 2;
       document.getElementById("missionEstimatedTime").innerText = "⏱️ " + estHours + " ساعات (" + (estHours * 60) + " دقيقة)";
 
-      // تحديث روابط الأدلة والأسئلة (دعم باب مفرد أو أبواب مدمجة)
+      // روابط الأدلة والأسئلة
       const theoryLinksWrap = document.getElementById("theoryLinksWrap");
       const quizLinksWrap = document.getElementById("quizLinksWrap");
 
@@ -1615,7 +1718,6 @@
         theoryLinksWrap.innerHTML = `<a href="scheda-esame.html" target="_blank" class="sp-btn sp-btn-primary" style="font-size: 0.8rem; padding: 6px 14px;"><span>📝 امتحان وزاري 20 دقيقة ↗</span></a>`;
         quizLinksWrap.innerHTML = `<a href="dashboard.html" class="sp-btn sp-btn-outline" style="font-size: 0.8rem; padding: 6px 14px;"><span>📊 مؤشر الجاهزية ↗</span></a>`;
       } else {
-        // أبواب منهجية
         theoryLinksWrap.innerHTML = currentDay.chapters.map(chNum => {
           const meta = CHAPTER_DATA_MAP[chNum] || CHAPTER_DATA_MAP[1];
           const label = currentDay.chapters.length > 1 ? `📘 دليل باب ${chNum} ↗` : `📘 دليل الشرح ↗`;
@@ -1631,10 +1733,8 @@
         }).join("");
       }
 
-      // تحديث مربعات اختيار المهام الأربعة
       renderStationCheckboxes(currentDay);
 
-      // زر إتمام اليوم
       const compBtn = document.getElementById("btnCompleteDay");
       if (currentDay.isCompleted) {
         compBtn.innerText = "✓ اليوم مكتمل";
@@ -1644,13 +1744,9 @@
         compBtn.style.opacity = "1";
       }
 
-      // رسم شبكة الأيام (Timeline Grid)
       renderTimelineGrid();
     }
 
-    /**
-     * تحديث مربعات اختيار المهام لمحطات اليوم الأربعة
-     */
     function renderStationCheckboxes(day) {
       const tasks = day.tasks || { vocab: false, theory: false, quiz: false, test: false };
       ["Vocab", "Theory", "Quiz", "Test"].forEach(t => {
@@ -1668,9 +1764,6 @@
       });
     }
 
-    /**
-     * التبديل بين إتمام/عدم إتمام مهمة معينة في محطات اليوم
-     */
     function toggleStationTask(taskKey) {
       if (!activePlan) return;
       const currentDay = activePlan.days.find(d => d.dayNum === activePlan.currentDayNum);
@@ -1681,16 +1774,12 @@
       localStorage.setItem(STORAGE_KEY, JSON.stringify(activePlan));
       renderStationCheckboxes(currentDay);
 
-      // إذا اكتملت المهام الأربع كلها تلقائياً
       const allDone = Object.values(currentDay.tasks).every(Boolean);
       if (allDone && !currentDay.isCompleted) {
         completeCurrentDay();
       }
     }
 
-    /**
-     * اعتماد إتمام مهام اليوم الحالي والانتقال لليوم التالي
-     */
     function completeCurrentDay() {
       if (!activePlan) return;
       const currentDay = activePlan.days.find(d => d.dayNum === activePlan.currentDayNum);
@@ -1705,14 +1794,12 @@
         currentDay.tasks.test = true;
       }
 
-      // زيادة الالتزام (Streak)
       const todayStr = new Date().toISOString().slice(0, 10);
       if (activePlan.lastActiveDate !== todayStr) {
         activePlan.streak = (activePlan.streak || 0) + 1;
         activePlan.lastActiveDate = todayStr;
       }
 
-      // الانتقال لليوم التالي إذا وجد
       if (activePlan.currentDayNum < activePlan.targetDays) {
         activePlan.currentDayNum += 1;
       }
@@ -1723,9 +1810,6 @@
       alert("🎉 رائع جداً! تم إنجاز مهام اليوم بنجاح والانتقال لليوم التالي. استمر في التألق!");
     }
 
-    /**
-     * ميزة الاستباق السريع: فتح اليوم التالي الآن
-     */
     function advanceDayEarly() {
       if (!activePlan) return;
       if (activePlan.currentDayNum >= activePlan.targetDays) {
@@ -1742,9 +1826,6 @@
       }
     }
 
-    /**
-     * رسم شبكة خريطة الأيام (Timeline Grid)
-     */
     function renderTimelineGrid(filter = "all") {
       const container = document.getElementById("timelineGrid");
       if (!container || !activePlan) return;
@@ -1811,9 +1892,6 @@
       });
     }
 
-    /**
-     * فلترة خريطة الأيام
-     */
     function filterTimeline(filterType, btnEl) {
       document.querySelectorAll(".sp-pill-btn").forEach(b => b.classList.remove("active"));
       if (btnEl) btnEl.classList.add("active");
@@ -1834,11 +1912,10 @@
       const currentDay = activePlan.days.find(d => d.dayNum === activePlan.currentDayNum) || activePlan.days[0];
       const targetChapters = currentDay.chapters || [1];
 
-      // فلترة الأسئلة حسب أبواب اليوم الحالي (أو كامل البنك لو مرحلة ماراثون)
       let pool = ALL_QUESTIONS_DATA.filter(q => targetChapters.includes(q.ch));
       if (!pool.length) pool = ALL_QUESTIONS_DATA;
 
-      // سحب 30 سؤالاً متوازناً (15 صح / 15 خطأ بقدر الإمكان)
+      // سحب 30 سؤالاً متوازناً جديداً
       const veros = pool.filter(q => q.a === true).sort(() => 0.5 - Math.random());
       const falsos = pool.filter(q => q.a === false).sort(() => 0.5 - Math.random());
 
@@ -1847,13 +1924,11 @@
       const fTake = Math.min(15, falsos.length);
 
       selected = veros.slice(0, vTake).concat(falsos.slice(0, fTake));
-      // إكمال الباقي لـ 30 إذا نقص أحدهما
       if (selected.length < 30) {
         const remaining = pool.filter(q => !selected.includes(q)).sort(() => 0.5 - Math.random());
         selected = selected.concat(remaining.slice(0, 30 - selected.length));
       }
 
-      // خلط عشوائي نهائي
       selected.sort(() => 0.5 - Math.random());
 
       rapidQuizState = {
@@ -1861,12 +1936,14 @@
         currentIndex: 0,
         errorsCount: 0,
         userAnswers: [],
+        mistakenQuestions: [],
         passed: false
       };
 
       document.getElementById("quizResultSummary").style.display = "none";
       document.getElementById("quizQuestionBody").style.display = "block";
       document.getElementById("rapidQuizSection").classList.add("active");
+      document.getElementById("quizErrorsReviewWrap").style.display = "none";
 
       loadRapidQuizQuestion();
       document.getElementById("rapidQuizSection").scrollIntoView({ behavior: 'smooth' });
@@ -1882,7 +1959,6 @@
       document.getElementById("quizQuestionIt").innerText = q.q;
       document.getElementById("quizQuestionAr").innerText = q.tr || "";
 
-      // صورة السؤال
       const imgWrap = document.getElementById("quizImgWrap");
       const imgEl = document.getElementById("quizQuestionImg");
       if (q.img && q.img.trim()) {
@@ -1892,7 +1968,6 @@
         imgWrap.style.display = "none";
       }
 
-      // إخفاء صندوق الشرح وإعادة تمكين الأزرار
       const expBox = document.getElementById("quizExplanationBox");
       expBox.classList.remove("show");
       document.getElementById("btnAnsVero").disabled = false;
@@ -1906,7 +1981,10 @@
       const isCorrect = (userChoice === q.a);
       if (!isCorrect) {
         rapidQuizState.errorsCount++;
-        // تسجيل الخطأ في نظام التكرار المتباعد SRS
+        rapidQuizState.mistakenQuestions.push({
+          q: q,
+          userChoice: userChoice
+        });
         if (srsEngine && srsEngine.logQuestionAttempt) {
           srsEngine.logQuestionAttempt(q, false);
         }
@@ -1920,7 +1998,6 @@
       document.getElementById("btnAnsVero").disabled = true;
       document.getElementById("btnAnsFalso").disabled = true;
 
-      // إظهار صندوق الشرح وتفاصيل الفخ
       const expBox = document.getElementById("quizExplanationBox");
       const trapBadge = document.getElementById("quizTrapBadge");
       const expText = document.getElementById("quizExplanationText");
@@ -1943,7 +2020,6 @@
     function nextRapidQuizQuestion() {
       rapidQuizState.currentIndex++;
       if (rapidQuizState.currentIndex >= rapidQuizState.questions.length) {
-        // انتهى الكويز
         showRapidQuizResult();
       } else {
         loadRapidQuizQuestion();
@@ -1961,16 +2037,76 @@
       const icon = document.getElementById("quizResultIcon");
       const title = document.getElementById("quizResultTitle");
       const desc = document.getElementById("quizResultDesc");
+      const actions = document.getElementById("quizResultActions");
 
       if (isPassed) {
         icon.innerText = "🎉";
         title.innerText = "مبروك! اجتزت الكويز بنجاح";
-        desc.innerText = "أنهيت الـ 30 سؤالاً بـ " + rapidQuizState.errorsCount + " أخطاء فقط (المسموح به رسمياً حتى 3 أخطاء). جاهزيتك ممتازة!";
+        desc.innerText = "أنهيت الـ 30 سؤالاً بـ " + rapidQuizState.errorsCount + " أخطاء فقط (المسموح به رسمياً حتى 3 أخطاء). جاهزيتك ممتازة لهذا الباب!";
+        actions.innerHTML = `
+          <button class="sp-btn sp-btn-emerald" onclick="finishAndCompleteDayFromQuiz()">
+            <span>✅ اعتماد إتمام مهمة اليوم</span>
+          </button>
+          <button class="sp-btn sp-btn-outline" onclick="closeRapidQuiz()">
+            <span>إغلاق الكويز</span>
+          </button>
+        `;
       } else {
         icon.innerText = "⚠️";
-        title.innerText = "لم تجتز الكويز هذه المرة";
-        desc.innerText = "سجلت " + rapidQuizState.errorsCount + " أخطاء (الحد الأقصى المسموح 3). تم حفظ الأسئلة الخاطئة في بنك أخطاء SRS لمراجعتها.";
+        title.innerText = "لم تجتز الكويز بعد (سجلت " + rapidQuizState.errorsCount + " أخطاء)";
+        desc.innerText = "الحد الأقصى المسموح به في الامتحان الرسمي هو 3 أخطاء فقط. الأسئلة التي أخطأت فيها تم حفظها في بنك أخطاء SRS، ويُنصح بمراجعتها وإعادة الكويز بنموذج جديد.";
+        
+        let reviewBtn = rapidQuizState.mistakenQuestions.length 
+          ? `<button class="sp-btn sp-btn-amber" onclick="toggleErrorsReview()"><span>🔍 مراجعة الأخطاء (${rapidQuizState.mistakenQuestions.length})</span></button>` 
+          : "";
+
+        actions.innerHTML = `
+          ${reviewBtn}
+          <button class="sp-btn sp-btn-primary" onclick="startRapid30Quiz()">
+            <span>🔄 إعادة الكويز (30 سؤالاً عشوائياً جديداً)</span>
+          </button>
+          <button class="sp-btn sp-btn-outline" onclick="closeRapidQuiz()">
+            <span>إغلاق مؤقتاً</span>
+          </button>
+        `;
       }
+    }
+
+    function toggleErrorsReview() {
+      const wrap = document.getElementById("quizErrorsReviewWrap");
+      const list = document.getElementById("quizErrorsList");
+      if (wrap.style.display === "block") {
+        wrap.style.display = "none";
+        return;
+      }
+
+      list.innerHTML = rapidQuizState.mistakenQuestions.map((item, idx) => {
+        const q = item.q;
+        return `
+          <div class="sp-error-review-item">
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+              <span style="font-weight:800; color:var(--sp-rose);">خطأ #${idx + 1}</span>
+              <span style="font-size:0.8rem; color:var(--sp-text-sub);">
+                إجابتك: <strong style="color:var(--sp-rose);">${item.userChoice ? 'VERO' : 'FALSO'}</strong> | 
+                الصحيح: <strong style="color:var(--sp-emerald);">${q.a ? 'VERO' : 'FALSO'}</strong>
+              </span>
+            </div>
+            <div style="direction:ltr; text-align:left; font-family:'Plus Jakarta Sans', sans-serif; font-weight:700; margin-bottom:6px; color:var(--sp-text);">
+              ${q.q}
+            </div>
+            <div style="color:var(--sp-cyan); font-size:0.95rem; margin-bottom:8px;">
+              ${q.tr || ''}
+            </div>
+            <div style="font-size:0.85rem; color:var(--sp-text-sub); line-height:1.5;">
+              <strong>💡 الشرح القانوني:</strong> ${q.sp || 'راجع قواعد كود السير.'}
+            </div>
+            ${q.tb ? `<div style="margin-top:6px; font-size:0.82rem; color:var(--sp-amber);"><strong>⚠️ فخ الوزارة:</strong> ${q.tb}</div>` : ''}
+          </div>
+        `;
+      }).join("");
+
+      wrap.style.display = "block";
+      wrap.scrollIntoView({ behavior: 'smooth' });
     }
 
     function finishAndCompleteDayFromQuiz() {
@@ -1982,9 +2118,6 @@
       document.getElementById("rapidQuizSection").classList.remove("active");
     }
 
-    /**
-     * مودال الإعداد والتخصيص
-     */
     function openPlanSetupModal() {
       document.getElementById("planSetupModal").classList.add("open");
     }
@@ -1992,9 +2125,6 @@
       document.getElementById("planSetupModal").classList.remove("open");
     }
 
-    /**
-     * مودال إعادة الموازنة عند التأخر
-     */
     function openRebalanceModal() {
       document.getElementById("rebalanceModal").classList.add("open");
     }
