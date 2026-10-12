@@ -635,6 +635,298 @@
         border-radius: 20px;
       }
     }
+
+    /* =========================================================================
+       تصميم ماراثون الكلمات السحرية (Marathon Mastery Quiz)
+       ========================================================================= */
+    .ps-marathon-card {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(56, 189, 248, 0.06) 50%, rgba(15, 23, 42, 0.8) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 24px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    html.light .ps-marathon-card {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(2, 132, 199, 0.06) 50%, #FFFFFF 100%);
+      border-color: rgba(2, 132, 199, 0.3);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    }
+
+    .ps-m-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .ps-m-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--ps-emerald);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .ps-m-scope-tabs {
+      display: flex;
+      gap: 6px;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 4px;
+      border-radius: 12px;
+      border: 1px solid var(--ps-card-border);
+    }
+    html.light .ps-m-scope-tabs {
+      background: #E2E8F0;
+    }
+
+    .ps-m-scope-btn {
+      background: transparent;
+      border: none;
+      color: var(--ps-text-sub);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .ps-m-scope-btn:hover {
+      color: var(--ps-text);
+    }
+    .ps-m-scope-btn.active {
+      background: var(--ps-cyan);
+      color: #0B0F19;
+      font-weight: 800;
+    }
+    html.light .ps-m-scope-btn.active {
+      background: #0284C7;
+      color: #FFFFFF;
+    }
+
+    .ps-m-title {
+      font-size: 1.55rem;
+      font-weight: 900;
+      margin: 0 0 8px;
+      color: var(--ps-text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ps-m-desc {
+      font-size: 0.95rem;
+      color: var(--ps-text-sub);
+      line-height: 1.6;
+      margin: 0 0 18px;
+      max-width: 800px;
+    }
+
+    .ps-m-progress-container {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--ps-card-border);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+    html.light .ps-m-progress-container {
+      background: rgba(241, 245, 249, 0.8);
+    }
+
+    .ps-m-bar-wrap {
+      height: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      display: flex;
+      margin-bottom: 14px;
+      border: 1px solid var(--ps-card-border);
+    }
+    .ps-m-bar-mastered {
+      background: linear-gradient(90deg, #10B981, #059669);
+      height: 100%;
+      transition: width 0.4s ease;
+    }
+    .ps-m-bar-mistakes {
+      background: linear-gradient(90deg, #F43F5E, #E11D48);
+      height: 100%;
+      transition: width 0.4s ease;
+    }
+
+    .ps-m-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+    }
+
+    .ps-m-stat-card {
+      background: var(--ps-card-bg);
+      border: 1px solid var(--ps-card-border);
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .ps-m-stat-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--ps-text-sub);
+    }
+    .ps-m-stat-val {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--ps-text);
+    }
+    .ps-m-stat-card.card-mastered .ps-m-stat-val {
+      color: var(--ps-emerald);
+    }
+    .ps-m-stat-card.card-mistakes .ps-m-stat-val {
+      color: var(--ps-rose);
+    }
+    .ps-m-stat-card.card-untested .ps-m-stat-val {
+      color: var(--ps-cyan);
+    }
+
+    .ps-m-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .ps-m-btn-primary {
+      background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+      color: #FFFFFF;
+      border: none;
+      padding: 12px 26px;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+    }
+    .ps-m-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(2, 132, 199, 0.6);
+      background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);
+    }
+
+    .ps-m-btn-outline {
+      background: transparent;
+      color: var(--ps-text-sub);
+      border: 1px solid var(--ps-card-border);
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .ps-m-btn-outline:hover {
+      color: var(--ps-rose);
+      border-color: var(--ps-rose);
+      background: rgba(244, 63, 94, 0.08);
+    }
+
+    /* شريط الأسئلة Pills داخل مودال الماراثون */
+    .ps-m-pills-strip {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 10px 24px;
+      background: rgba(0, 0, 0, 0.2);
+      border-bottom: 1px solid var(--ps-card-border);
+      scrollbar-width: thin;
+    }
+    .ps-m-pill {
+      min-width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      border: 1px solid var(--ps-card-border);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--ps-text-sub);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 0.82rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    .ps-m-pill.active {
+      border-color: var(--ps-cyan);
+      color: var(--ps-cyan);
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.3);
+      transform: scale(1.08);
+    }
+    .ps-m-pill.correct {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: var(--ps-emerald);
+      color: var(--ps-emerald);
+    }
+    .ps-m-pill.wrong {
+      background: rgba(244, 63, 94, 0.2);
+      border-color: var(--ps-rose);
+      color: var(--ps-rose);
+    }
+
+    .ps-m-word-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .ps-m-word-badge.falso {
+      background: rgba(244, 63, 94, 0.15);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      color: var(--ps-rose);
+    }
+    .ps-m-word-badge.vero {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--ps-emerald);
+    }
+
+    .ps-m-repeat-tag {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: var(--ps-amber);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      margin-right: 8px;
+    }
+
+    .ps-m-shortcut-hint {
+      font-size: 0.78rem;
+      color: var(--ps-text-sub);
+      margin-top: 8px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -693,6 +985,68 @@
       </div>
     </header>
 
+    <!-- كارت ماراثون التحدي الشامل -->
+    <section class="ps-marathon-card" id="marathonCard">
+      <div class="ps-m-top-row">
+        <div class="ps-m-badge">
+          <span>⚡ نظام الإتقان الذكي (30 سؤالاً في كل جولة)</span>
+        </div>
+        <div class="ps-m-scope-tabs">
+          <button class="ps-m-scope-btn active" id="btnScopeAll" onclick="setMarathonScope('all')">🌟 جميع الكلمات (<span id="scopeCntAll">385</span>)</button>
+          <button class="ps-m-scope-btn" id="btnScopeFalso" onclick="setMarathonScope('falso')">🔴 FALSO فقط (<span id="scopeCntFalso">176</span>)</button>
+          <button class="ps-m-scope-btn" id="btnScopeVero" onclick="setMarathonScope('vero')">🟢 VERO فقط (<span id="scopeCntVero">211</span>)</button>
+        </div>
+      </div>
+
+      <h2 class="ps-m-title">
+        <span>🏆 ماراثون الكلمات السحرية | تحدي الإتقان التام</span>
+      </h2>
+      <p class="ps-m-desc">
+        امتحان شامل ذكي يسحب <strong>30 سؤالاً عشوائياً</strong> في كل جولة من بنك الكلمات السحرية. كل سؤال تجاوبه بشكل صحيح <strong>يُستبعد نهائياً ولا يتكرر</strong>، بينما الأسئلة التي تخطئ فيها <strong>تُعاد لك حتماً في الجولات القادمة</strong> حتى تنهي وتتقن كافة الأسئلة بنسبة 100%!
+      </p>
+
+      <!-- شريط التقدم التفاعلي -->
+      <div class="ps-m-progress-container">
+        <div style="display:flex; justify-content:space-between; font-size:0.88rem; font-weight:800; margin-bottom:6px;">
+          <span style="color:var(--ps-text);">إجمالي التقدم في إتقان بنك الكلمات:</span>
+          <span id="mProgressPctText" style="color:var(--ps-cyan);">0% (0 / 385)</span>
+        </div>
+        <div class="ps-m-bar-wrap">
+          <div class="ps-m-bar-mastered" id="mBarMastered" style="width:0%;"></div>
+          <div class="ps-m-bar-mistakes" id="mBarMistakes" style="width:0%;"></div>
+        </div>
+
+        <div class="ps-m-stats-grid">
+          <div class="ps-m-stat-card card-mastered">
+            <span class="ps-m-stat-label">✅ تم إتقانها (لن تتكرر)</span>
+            <span class="ps-m-stat-val" id="mStatMastered">0</span>
+          </div>
+          <div class="ps-m-stat-card card-mistakes">
+            <span class="ps-m-stat-label">❌ أخطاء بانتظار الإعادة</span>
+            <span class="ps-m-stat-val" id="mStatMistakes">0</span>
+          </div>
+          <div class="ps-m-stat-card card-untested">
+            <span class="ps-m-stat-label">⏳ متبقية لم تُختبر بعد</span>
+            <span class="ps-m-stat-val" id="mStatUntested">385</span>
+          </div>
+          <div class="ps-m-stat-card card-total">
+            <span class="ps-m-stat-label">🎯 إجمالي المستهدف</span>
+            <span class="ps-m-stat-val" id="mStatTotal">385</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ps-m-actions">
+        <button class="ps-m-btn-primary" id="btnStartMarathonRound" onclick="startMarathonRound()">
+          <span>🚀 ابدأ جولة الـ 30 سؤالاً الآن</span>
+          <span>⬅</span>
+        </button>
+        <button class="ps-m-btn-outline" onclick="resetMarathonProgress()" title="إعادة ضبط وتصفير التقدم للبدء من الصفر">
+          <span>🔄 تصفير التقدم</span>
+        </button>
+      </div>
+    </section>
+
     <!-- شريط البحث والفلترة -->
     <div class="ps-controls">
       <input type="text" id="searchInput" class="ps-search-input" placeholder="🔍 ابحث عن كلمة إيطالية (مثل frizione) أو معناها بالعربية (مثل الدبرياج)..." oninput="filterCards()">
@@ -734,6 +1088,39 @@
 
       <div class="ps-modal-body" id="modalBody">
         <!-- يتم ملؤه ديناميكياً -->
+      </div>
+    </div>
+  </div>
+
+  <!-- نافذة ماراثون الكلمات السحرية Modal -->
+  <div class="ps-modal-backdrop" id="marathonModal" onclick="handleMarathonBackdropClick(event)">
+    <div class="ps-modal-content" style="max-width:880px;">
+      <div class="ps-modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span style="font-size:1.4rem;">⚡</span>
+          <h3 class="ps-modal-title" id="mModalTitle">
+            <span>ماراثون الكلمات السحرية</span>
+            <span id="mModalRoundTag" class="ps-badge-pill" style="margin:0; font-size:0.75rem;">جولة 30 سؤالاً</span>
+          </h3>
+        </div>
+        <button class="ps-modal-close" onclick="closeMarathonModal()" title="خروج من الجولة">✕</button>
+      </div>
+
+      <div class="ps-modal-subbar">
+        <div id="mModalSubbarLeft" style="font-size:0.88rem; font-weight:700; color:var(--ps-text-sub); display:flex; align-items:center; gap:8px;">
+          <span>سؤال <strong id="mCurQIndexText" style="color:var(--ps-cyan);">1</strong> من <strong id="mRoundTotalText">30</strong></span>
+          <span id="mQuestionTypeBadge"></span>
+        </div>
+        <div style="font-size:0.85rem; font-weight:700;">
+          الإجابات الصحيحة في هذه الجولة: <strong id="mRoundScoreText" style="color:var(--ps-emerald);">0</strong>
+        </div>
+      </div>
+
+      <!-- شريط أزرار الأسئلة (Pills) -->
+      <div class="ps-m-pills-strip" id="mPillsStrip"></div>
+
+      <div class="ps-modal-body" id="marathonModalBody">
+        <!-- يتم ملؤه ديناميكياً إما بالسؤال الحالي أو تقرير نهاية الجولة -->
       </div>
     </div>
   </div>
@@ -1137,6 +1524,8 @@
     window.addEventListener("DOMContentLoaded", () => {
       calculateCounts();
       renderCards();
+      initMagicQuestionsIndex();
+      updateMarathonDashboardUI();
     });
 
     /**
@@ -1150,7 +1539,7 @@
         const re = new RegExp(w.regex, "i");
         const matched = ALL_QUESTIONS_DATA.filter(q => re.test(q.q || ""));
         w.questionCount = matched.length;
-        matched.forEach(q => totalQuestionsSet.add(q.id || q.q));
+        matched.forEach(q => totalQuestionsSet.add((q.ch || 1) + "_" + (q.id || 0)));
 
         if (w.type === 'falso') cntF++;
         if (w.type === 'vero') cntV++;
@@ -1475,6 +1864,712 @@
       quizState.answered = false;
       renderModalBody();
     }
+
+    /**
+     * =========================================================================
+     * محرك ماراثون الكلمات السحرية الذكي (Smart Marathon Engine)
+     * =========================================================================
+     */
+    const STORAGE_KEY_MARATHON = "patente_parole_spia_marathon_v2";
+    let ALL_MAGIC_INDEX = []; // { key: 'ch_id', q: questionObj, matchedWords: [wordObj, ...] }
+    let marathonActiveScope = 'all'; // 'all', 'falso', 'vero'
+
+    let marathonState = {
+      questions: [],
+      currentIndex: 0,
+      roundScore: 0,
+      answered: false,
+      answers: {}, // index => { choice: boolean, isCorrect: boolean }
+      mistakenThisRound: []
+    };
+
+    /**
+     * بناء فهرس كافة الأسئلة المرتبطة بالكلمات السحرية
+     */
+    function initMagicQuestionsIndex() {
+      if (typeof ALL_QUESTIONS_DATA === 'undefined' || !ALL_QUESTIONS_DATA.length) return;
+      ALL_MAGIC_INDEX = [];
+      const seenKeys = new Set();
+
+      ALL_QUESTIONS_DATA.forEach(q => {
+        const qText = q.q || "";
+        const matched = [];
+        MAGIC_WORDS_DB.forEach(w => {
+          const re = new RegExp(w.regex, "i");
+          if (re.test(qText)) {
+            matched.push(w);
+          }
+        });
+
+        if (matched.length > 0) {
+          const key = (q.ch || 1) + "_" + (q.id || 0);
+          if (!seenKeys.has(key)) {
+            seenKeys.add(key);
+            ALL_MAGIC_INDEX.push({
+              key: key,
+              q: q,
+              matchedWords: matched
+            });
+          }
+        }
+      });
+    }
+
+    /**
+     * قراءة بيانات التحدي من التخزين المحلي
+     */
+    function getMarathonStore() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY_MARATHON);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          return {
+            mastered: Array.isArray(parsed.mastered) ? parsed.mastered : [],
+            mistakes: Array.isArray(parsed.mistakes) ? parsed.mistakes : [],
+            scope: parsed.scope || 'all',
+            roundsCompleted: parsed.roundsCompleted || 0
+          };
+        }
+      } catch (e) {
+        console.warn("Error reading marathon storage:", e);
+      }
+      return { mastered: [], mistakes: [], scope: 'all', roundsCompleted: 0 };
+    }
+
+    /**
+     * حفظ بيانات التحدي في التخزين المحلي
+     */
+    function saveMarathonStore(store) {
+      try {
+        localStorage.setItem(STORAGE_KEY_MARATHON, JSON.stringify(store));
+      } catch (e) {
+        console.error("Error saving marathon storage:", e);
+      }
+    }
+
+    /**
+     * تصفية الأسئلة حسب النطاق المختار
+     */
+    function getScopedQuestions(scope) {
+      if (!ALL_MAGIC_INDEX.length) initMagicQuestionsIndex();
+      if (scope === 'falso') {
+        return ALL_MAGIC_INDEX.filter(item => item.matchedWords.some(w => w.type === 'falso'));
+      }
+      if (scope === 'vero') {
+        return ALL_MAGIC_INDEX.filter(item => item.matchedWords.some(w => w.type === 'vero'));
+      }
+      return ALL_MAGIC_INDEX;
+    }
+
+    /**
+     * تغيير نطاق الماراثون (الكل / FALSO فقط / VERO فقط)
+     */
+    function setMarathonScope(scope) {
+      marathonActiveScope = scope;
+      document.querySelectorAll(".ps-m-scope-btn").forEach(b => b.classList.remove("active"));
+      if (scope === 'all') document.getElementById("btnScopeAll")?.classList.add("active");
+      if (scope === 'falso') document.getElementById("btnScopeFalso")?.classList.add("active");
+      if (scope === 'vero') document.getElementById("btnScopeVero")?.classList.add("active");
+
+      const store = getMarathonStore();
+      store.scope = scope;
+      saveMarathonStore(store);
+
+      updateMarathonDashboardUI();
+    }
+
+    /**
+     * تحديث أرقام وإحصائيات لوحة الماراثون على الصفحة الرئيسية
+     */
+    function updateMarathonDashboardUI() {
+      if (!ALL_MAGIC_INDEX.length) initMagicQuestionsIndex();
+
+      const store = getMarathonStore();
+      if (store.scope && ['all', 'falso', 'vero'].includes(store.scope)) {
+        marathonActiveScope = store.scope;
+        document.querySelectorAll(".ps-m-scope-btn").forEach(b => b.classList.remove("active"));
+        if (marathonActiveScope === 'all') document.getElementById("btnScopeAll")?.classList.add("active");
+        if (marathonActiveScope === 'falso') document.getElementById("btnScopeFalso")?.classList.add("active");
+        if (marathonActiveScope === 'vero') document.getElementById("btnScopeVero")?.classList.add("active");
+      }
+
+      const allScoped = getScopedQuestions('all');
+      const falsoScoped = getScopedQuestions('falso');
+      const veroScoped = getScopedQuestions('vero');
+
+      // تحديث أرقام أزرار النطاق
+      if (document.getElementById("scopeCntAll")) document.getElementById("scopeCntAll").innerText = allScoped.length;
+      if (document.getElementById("scopeCntFalso")) document.getElementById("scopeCntFalso").innerText = falsoScoped.length;
+      if (document.getElementById("scopeCntVero")) document.getElementById("scopeCntVero").innerText = veroScoped.length;
+
+      // حساب إحصائيات النطاق الحالي
+      const currentList = getScopedQuestions(marathonActiveScope);
+      const total = currentList.length;
+
+      const masteredSet = new Set(store.mastered);
+      const mistakesSet = new Set(store.mistakes);
+
+      let masteredCount = 0;
+      let mistakesCount = 0;
+
+      currentList.forEach(item => {
+        if (masteredSet.has(item.key)) masteredCount++;
+        else if (mistakesSet.has(item.key)) mistakesCount++;
+      });
+
+      const untestedCount = Math.max(0, total - masteredCount - mistakesCount);
+      const pct = total > 0 ? Math.round((masteredCount / total) * 100) : 0;
+      const mistakesPct = total > 0 ? (mistakesCount / total) * 100 : 0;
+
+      // تحديث النصوص والشرائط
+      const pctTextEl = document.getElementById("mProgressPctText");
+      if (pctTextEl) pctTextEl.innerText = `${pct}% (${masteredCount} من ${total})`;
+
+      const barMastEl = document.getElementById("mBarMastered");
+      if (barMastEl) barMastEl.style.width = `${pct}%`;
+
+      const barMistEl = document.getElementById("mBarMistakes");
+      if (barMistEl) barMistEl.style.width = `${mistakesPct}%`;
+
+      const statMastEl = document.getElementById("mStatMastered");
+      if (statMastEl) statMastEl.innerText = `${masteredCount} (${pct}%)`;
+
+      const statMistEl = document.getElementById("mStatMistakes");
+      if (statMistEl) statMistEl.innerText = mistakesCount;
+
+      const statUntestEl = document.getElementById("mStatUntested");
+      if (statUntestEl) statUntestEl.innerText = untestedCount;
+
+      const statTotalEl = document.getElementById("mStatTotal");
+      if (statTotalEl) statTotalEl.innerText = total;
+
+      const btnStart = document.getElementById("btnStartMarathonRound");
+      if (btnStart) {
+        if (masteredCount >= total && total > 0) {
+          btnStart.innerHTML = `<span>🎉 مبروك! أتقنت جميع الأسئلة 100% (اضغط لإعادة التحدي)</span> <span>🏆</span>`;
+          btnStart.style.background = "linear-gradient(135deg, #10B981, #059669)";
+        } else {
+          const remainingToSolve = mistakesCount + untestedCount;
+          const nextCount = Math.min(30, remainingToSolve);
+          btnStart.innerHTML = `<span>🚀 ابدأ جولة الـ ${nextCount} سؤالاً الآن</span> <span>⬅</span>`;
+          btnStart.style.background = "";
+        }
+      }
+    }
+
+    /**
+     * تصفير تقدم الماراثون
+     */
+    function resetMarathonProgress() {
+      if (confirm("هل أنت متأكد من رغبتك في تصفير تقدم ماراثون الكلمات السحرية والبدء من جديد من الصفر؟")) {
+        const store = getMarathonStore();
+        store.mastered = [];
+        store.mistakes = [];
+        store.roundsCompleted = 0;
+        saveMarathonStore(store);
+        updateMarathonDashboardUI();
+        alert("تم تصفير التقدم بنجاح! يمكنك الآن خوض التحدي من جديد.");
+      }
+    }
+
+    /**
+     * بدء جولة جديدة (30 سؤالاً عشوائياً بدون تكرار الأسئلة الصحيحة، مع أولوية الأخطاء)
+     */
+    function startMarathonRound() {
+      if (!ALL_MAGIC_INDEX.length) initMagicQuestionsIndex();
+
+      const store = getMarathonStore();
+      const currentList = getScopedQuestions(marathonActiveScope);
+      const masteredSet = new Set(store.mastered);
+      const mistakesSet = new Set(store.mistakes);
+
+      // إذا كان قد أتم 100%
+      let mistakesPool = currentList.filter(item => mistakesSet.has(item.key));
+      let untestedPool = currentList.filter(item => !masteredSet.has(item.key) && !mistakesSet.has(item.key));
+
+      if (mistakesPool.length === 0 && untestedPool.length === 0) {
+        if (confirm("🎉 تهانينا! لقد أتقنت جميع الأسئلة في هذا القسم بنسبة 100% دون أي خطأ متبقٍ! هل تريد تصفير التحدي لخوضه مرة ثانية؟")) {
+          resetMarathonProgress();
+          return;
+        } else {
+          return;
+        }
+      }
+
+      // خلط المجموعات عشوائياً
+      mistakesPool.sort(() => 0.5 - Math.random());
+      untestedPool.sort(() => 0.5 - Math.random());
+
+      const targetTotal = Math.min(30, mistakesPool.length + untestedPool.length);
+      let selected = [];
+
+      // الأولوية القصوى للأخطاء: سحب الأخطاء أولاً (بحد أقصى targetTotal)
+      const takeMistakes = Math.min(mistakesPool.length, targetTotal);
+      selected.push(...mistakesPool.slice(0, takeMistakes));
+
+      // استكمال باقي الـ 30 من الأسئلة التي لم تُختبر بعد
+      const neededUntested = targetTotal - selected.length;
+      if (neededUntested > 0) {
+        selected.push(...untestedPool.slice(0, neededUntested));
+      }
+
+      // خلط أسئلة الجولة خلطاً نهائياً
+      selected.sort(() => 0.5 - Math.random());
+
+      marathonState = {
+        questions: selected,
+        currentIndex: 0,
+        roundScore: 0,
+        answered: false,
+        answers: {},
+        mistakenThisRound: []
+      };
+
+      // فتح المودال
+      document.getElementById("mModalRoundTag").innerText = `جولة ${selected.length} سؤالاً`;
+      document.getElementById("marathonModal").classList.add("open");
+
+      renderMarathonPills();
+      renderMarathonQuestion();
+    }
+
+    function closeMarathonModal() {
+      if (marathonState.currentIndex < marathonState.questions.length && Object.keys(marathonState.answers).length > 0) {
+        if (!confirm("هل أنت متأكد من الخروج؟ تم حفظ تقدم الأسئلة التي أجبت عليها.")) {
+          return;
+        }
+      }
+      document.getElementById("marathonModal").classList.remove("open");
+      updateMarathonDashboardUI();
+    }
+
+    function handleMarathonBackdropClick(e) {
+      if (e.target.id === "marathonModal") {
+        closeMarathonModal();
+      }
+    }
+
+    /**
+     * رسم شريط أزرار الأسئلة (Pills)
+     */
+    function renderMarathonPills() {
+      const strip = document.getElementById("mPillsStrip");
+      if (!strip) return;
+      strip.innerHTML = "";
+
+      marathonState.questions.forEach((item, idx) => {
+        const pill = document.createElement("button");
+        pill.className = "ps-m-pill";
+        pill.innerText = idx + 1;
+
+        if (idx === marathonState.currentIndex) {
+          pill.classList.add("active");
+        }
+
+        const ans = marathonState.answers[idx];
+        if (ans) {
+          if (ans.isCorrect) pill.classList.add("correct");
+          else pill.classList.add("wrong");
+        }
+
+        pill.onclick = () => {
+          marathonState.currentIndex = idx;
+          marathonState.answered = Boolean(marathonState.answers[idx]);
+          renderMarathonPills();
+          renderMarathonQuestion();
+        };
+
+        strip.appendChild(pill);
+      });
+    }
+
+    /**
+     * رسم السؤال الحالي
+     */
+    function renderMarathonQuestion() {
+      const body = document.getElementById("marathonModalBody");
+      const currentItem = marathonState.questions[marathonState.currentIndex];
+
+      if (!currentItem) {
+        renderMarathonRoundSummary();
+        return;
+      }
+
+      const q = currentItem.q;
+      const total = marathonState.questions.length;
+      const curIdx = marathonState.currentIndex;
+
+      document.getElementById("mCurQIndexText").innerText = curIdx + 1;
+      document.getElementById("mRoundTotalText").innerText = total;
+      document.getElementById("mRoundScoreText").innerText = marathonState.roundScore;
+
+      // فحص إذا كان السؤال من الأخطاء السابقة
+      const store = getMarathonStore();
+      const isPriorMistake = store.mistakes.includes(currentItem.key);
+      const typeBadgeEl = document.getElementById("mQuestionTypeBadge");
+      if (typeBadgeEl) {
+        typeBadgeEl.innerHTML = isPriorMistake 
+          ? `<span class="ps-m-repeat-tag">🔄 سؤال مُعاد من أخطائك السابقة</span>`
+          : `<span style="background:rgba(56, 189, 248, 0.15); color:var(--ps-cyan); border:1px solid rgba(56, 189, 248, 0.3); padding:4px 8px; border-radius:6px; font-size:0.75rem; font-weight:800;">✨ سؤال جديد لم يُختبر بعد</span>`;
+      }
+
+      // تظليل الكلمات السحرية
+      let highlightedIt = q.q || "";
+      currentItem.matchedWords.forEach(w => {
+        const re = new RegExp(`(${w.regex})`, "gi");
+        const markClass = w.type === 'falso' ? 'mark-falso' : 'mark-vero';
+        highlightedIt = highlightedIt.replace(re, `<mark class="${markClass}">$1</mark>`);
+      });
+
+      // وسم الصورة
+      const rawImg = (q.img || q.immagine || "").trim();
+      const fn = rawImg ? rawImg.split("/").pop().trim() : "";
+      const imgHtml = fn ? `
+        <div style="text-align:center; margin:10px auto 14px; background:rgba(255,255,255,0.03); padding:8px; border-radius:12px; border:1px solid var(--ps-card-border); max-width:240px;">
+          <img src="../img_sign/${fn}" alt="إشارة السؤال" style="max-height:120px; max-width:100%; object-fit:contain; border-radius:6px;"
+               onerror="if(!this.dataset.fallback && '${rawImg}'){this.dataset.fallback='1'; this.src='../Capitoli_Divisi/' + '${rawImg}';}else{this.parentElement.style.display='none';}">
+        </div>
+      ` : '';
+
+      // شريط الكلمات المفتاحية التابع للسؤال
+      const wordsBadgesHtml = currentItem.matchedWords.map(w => {
+        const isF = w.type === 'falso';
+        return `
+          <div class="ps-m-word-badge ${w.type}">
+            <span>${isF ? '🔴' : '🟢'} كلمة مفتاحية: <strong>${w.it}</strong> (${w.rate})</span>
+            <button class="ps-audio-mini" onclick="playAudio('${w.it}')" style="width:24px; height:24px; font-size:0.7rem; border-radius:6px; margin-right:4px;" title="استمع لنطق الكلمة">🔊</button>
+            <span style="font-size:0.75rem; opacity:0.85;">— ${w.rule}</span>
+          </div>
+        `;
+      }).join("");
+
+      const savedAnswer = marathonState.answers[curIdx];
+      const isAnswered = Boolean(savedAnswer);
+      marathonState.answered = isAnswered;
+
+      body.innerHTML = `
+        <div class="ps-quiz-wrap">
+          <div style="margin-bottom:12px;">
+            ${wordsBadgesHtml}
+          </div>
+
+          <div class="ps-quiz-q-card">
+            ${imgHtml}
+            <div class="ps-q-it-text" style="font-size:1.18rem; margin-bottom:12px;">
+              ${highlightedIt}
+              <button class="ps-audio-mini" onclick="playAudio('${(q.q || '').replace(/'/g, "\\'")}')" style="display:inline-flex; width:28px; height:28px; font-size:0.75rem; vertical-align:middle; margin-right:6px;" title="استمع للسؤال كاملاً">🔊</button>
+            </div>
+            <div class="ps-q-ar-text" style="font-size:1.02rem;">${q.tr || ''}</div>
+          </div>
+
+          <div class="ps-quiz-actions" id="mQuizActions">
+            ${isAnswered ? `
+              <button class="ps-btn-explore" onclick="nextMarathonQuestion()" style="padding:12px 32px; font-size:1.05rem;">
+                ${curIdx === total - 1 ? 'إنهاء الجولة وعرض التقرير 🏆' : 'السؤال التالي ⬅'}
+              </button>
+            ` : `
+              <button class="ps-btn-vf ps-btn-vero" onclick="answerMarathonQuestion(true)">VERO (صح) [V]</button>
+              <button class="ps-btn-vf ps-btn-falso" onclick="answerMarathonQuestion(false)">FALSO (خطأ) [F]</button>
+            `}
+          </div>
+
+          <div class="ps-m-shortcut-hint">
+            ${!isAnswered ? '💡 اختصارات لوحة المفاتيح: اضغط V للـ VERO أو F للـ FALSO' : '💡 اضغط Enter أو المسافة للانتقال للسؤال التالي'}
+          </div>
+
+          <div id="mQuizFeedback" class="ps-quiz-feedback" style="display:${isAnswered ? 'block' : 'none'}; ${isAnswered ? (savedAnswer.isCorrect ? 'background:rgba(16,185,129,0.15); color:var(--ps-emerald); border:1px solid var(--ps-emerald);' : 'background:rgba(244,63,94,0.15); color:var(--ps-rose); border:1px solid var(--ps-rose);') : ''}">
+            ${isAnswered ? renderFeedbackContent(q, savedAnswer.isCorrect, isPriorMistake) : ''}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderFeedbackContent(q, isCorrect, isPriorMistake) {
+      if (isCorrect) {
+        return `
+          🎉 <strong>إجابة صحيحة!</strong> الإجابة الرسمية: <strong>${q.a ? 'VERO' : 'FALSO'}</strong>.
+          <br>
+          <span style="display:inline-block; margin-top:4px; font-size:0.85rem; color:var(--ps-emerald); font-weight:800;">
+            ✅ تم إتقان السؤال بنجاح واستبعاده من التكرار القادم! ${isPriorMistake ? '(تخلصت من هذا الخطأ بنجاح 👏)' : ''}
+          </span>
+          <div style="margin-top:8px; font-size:0.88rem; font-weight:600; color:var(--ps-text); line-height:1.5;">
+            <strong>💡 الشرح القانوني:</strong> ${q.sp || 'راجع قواعد كود السير المقررة.'}
+          </div>
+          ${q.tb ? `<div style="margin-top:6px; color:var(--ps-amber); font-size:0.85rem;"><strong>⚠️ فخ الوزارة:</strong> ${q.tb}</div>` : ''}
+        `;
+      } else {
+        return `
+          ⚠️ <strong>إجابة خاطئة!</strong> الإجابة الصحيحة هي: <strong>${q.a ? 'VERO' : 'FALSO'}</strong>.
+          <br>
+          <span style="display:inline-block; margin-top:4px; font-size:0.85rem; color:var(--ps-rose); font-weight:800;">
+            📌 تم تسجيل السؤال في قائمة المراجعة، وسيعاد لك حتماً في الجولات القادمة حتى تتقنه.
+          </span>
+          <div style="margin-top:8px; font-size:0.88rem; font-weight:600; color:var(--ps-text); line-height:1.5;">
+            <strong>💡 الشرح القانوني والتعليل:</strong> ${q.sp || 'راجع ضوابط كود السير المقررة لهذا السؤال.'}
+          </div>
+          ${q.tb ? `<div style="margin-top:6px; color:var(--ps-amber); font-size:0.85rem;"><strong>⚠️ فخ الوزارة:</strong> ${q.tb}</div>` : ''}
+        `;
+      }
+    }
+
+    /**
+     * الإجابة على السؤال الحالي
+     */
+    function answerMarathonQuestion(userChoice) {
+      if (marathonState.answered) return;
+      marathonState.answered = true;
+
+      const curIdx = marathonState.currentIndex;
+      const currentItem = marathonState.questions[curIdx];
+      const q = currentItem.q;
+      const isCorrect = (Boolean(userChoice) === Boolean(q.a));
+
+      // حفظ الإجابة في حالة الجولة
+      marathonState.answers[curIdx] = {
+        choice: userChoice,
+        isCorrect: isCorrect,
+        item: currentItem
+      };
+
+      // تحديث مخزن الماراثون في localStorage
+      const store = getMarathonStore();
+      const mastSet = new Set(store.mastered);
+      const mistSet = new Set(store.mistakes);
+
+      if (isCorrect) {
+        // إجابة صحيحة: حذف من الأخطاء إن كان موجوداً، وإضافة إلى المتقنة
+        mistSet.delete(currentItem.key);
+        mastSet.add(currentItem.key);
+        marathonState.roundScore++;
+      } else {
+        // إجابة خاطئة: حذف من المتقنة، وإضافة للأخطاء ليتكرر حتماً
+        mastSet.delete(currentItem.key);
+        mistSet.add(currentItem.key);
+        marathonState.mistakenThisRound.push(currentItem);
+      }
+
+      store.mastered = Array.from(mastSet);
+      store.mistakes = Array.from(mistSet);
+      saveMarathonStore(store);
+
+      // تحديث عدادات النافذة
+      document.getElementById("mRoundScoreText").innerText = marathonState.roundScore;
+
+      // تحديث زر Pill
+      renderMarathonPills();
+
+      // عرض الفيدباك
+      const fb = document.getElementById("mQuizFeedback");
+      if (fb) {
+        fb.style.display = "block";
+        fb.style.background = isCorrect ? "rgba(16, 185, 129, 0.15)" : "rgba(244, 63, 94, 0.15)";
+        fb.style.color = isCorrect ? "var(--ps-emerald)" : "var(--ps-rose)";
+        fb.style.border = isCorrect ? "1px solid var(--ps-emerald)" : "1px solid var(--ps-rose)";
+        const isPriorMistake = store.mistakes.includes(currentItem.key);
+        fb.innerHTML = renderFeedbackContent(q, isCorrect, isPriorMistake);
+      }
+
+      // إظهار زر التالي
+      const actions = document.getElementById("mQuizActions");
+      const isLast = (curIdx === marathonState.questions.length - 1);
+      if (actions) {
+        actions.innerHTML = `
+          <button class="ps-btn-explore" onclick="nextMarathonQuestion()" style="padding:12px 32px; font-size:1.05rem;">
+            ${isLast ? 'إنهاء الجولة وعرض التقرير 🏆' : 'السؤال التالي ⬅'}
+          </button>
+        `;
+      }
+    }
+
+    /**
+     * الانتقال للسؤال التالي أو عرض تقرير الجولة
+     */
+    function nextMarathonQuestion() {
+      if (marathonState.currentIndex < marathonState.questions.length - 1) {
+        marathonState.currentIndex++;
+        marathonState.answered = Boolean(marathonState.answers[marathonState.currentIndex]);
+        renderMarathonPills();
+        renderMarathonQuestion();
+      } else {
+        renderMarathonRoundSummary();
+      }
+    }
+
+    /**
+     * تقرير نهاية الجولة
+     */
+    function renderMarathonRoundSummary() {
+      const body = document.getElementById("marathonModalBody");
+      const total = marathonState.questions.length;
+      const score = marathonState.roundScore;
+      const pct = total > 0 ? Math.round((score / total) * 100) : 0;
+
+      // تحديث دورات اللعب المكتملة
+      const store = getMarathonStore();
+      store.roundsCompleted = (store.roundsCompleted || 0) + 1;
+      saveMarathonStore(store);
+
+      const currentList = getScopedQuestions(marathonActiveScope);
+      const totalTarget = currentList.length;
+      const masteredSet = new Set(store.mastered);
+      const mistakesSet = new Set(store.mistakes);
+
+      let totalMastered = 0;
+      currentList.forEach(item => {
+        if (masteredSet.has(item.key)) totalMastered++;
+      });
+      const overallPct = totalTarget > 0 ? Math.round((totalMastered / totalTarget) * 100) : 0;
+      const mistakesCount = marathonState.mistakenThisRound.length;
+
+      // إخفاء شريط الأسئلة في شاشة التقرير
+      const pillsStrip = document.getElementById("mPillsStrip");
+      if (pillsStrip) pillsStrip.innerHTML = "";
+
+      body.innerHTML = `
+        <div class="ps-quiz-wrap" style="padding: 24px 12px;">
+          <div style="font-size:3.5rem; margin-bottom:12px;">🏆</div>
+          <h2 style="font-size:1.6rem; margin:0 0 8px; color:var(--ps-text);">
+            انتهت الجولة بنجاح!
+          </h2>
+          <p style="font-size:1.15rem; font-weight:800; color:var(--ps-cyan); margin:0 0 16px;">
+            نتيجتك في هذه الجولة: ${score} من ${total} (${pct}%)
+          </p>
+
+          <!-- ملخص الجولة -->
+          <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:20px;">
+            <div style="background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3); color:var(--ps-emerald); padding:10px 16px; border-radius:12px; font-weight:800; font-size:0.95rem;">
+              ✅ ${score} سؤالاً تم إتقانهم (لن يتكرروا)
+            </div>
+            <div style="background:rgba(244,63,94,0.15); border:1px solid rgba(244,63,94,0.3); color:var(--ps-rose); padding:10px 16px; border-radius:12px; font-weight:800; font-size:0.95rem;">
+              ❌ ${mistakesCount} أسئلة ستعاد لك في الجولات القادمة
+            </div>
+          </div>
+
+          <!-- بطاقة التقدم التراكمي الشامل -->
+          <div style="background:rgba(0,0,0,0.25); border:1px solid var(--ps-card-border); border-radius:16px; padding:18px; max-width:540px; margin:0 auto 24px; text-align:right;">
+            <div style="display:flex; justify-content:space-between; font-weight:800; margin-bottom:8px;">
+              <span>التقدم الإجمالي في بنك الكلمات:</span>
+              <span style="color:var(--ps-cyan);">${overallPct}% (${totalMastered} / ${totalTarget})</span>
+            </div>
+            <div style="height:12px; background:rgba(255,255,255,0.08); border-radius:999px; overflow:hidden; margin-bottom:10px;">
+              <div style="background:linear-gradient(90deg, #10B981, #059669); height:100%; width:${overallPct}%;"></div>
+            </div>
+            <div style="font-size:0.85rem; color:var(--ps-text-sub); line-height:1.5;">
+              ${totalMastered >= totalTarget 
+                ? '🌟 تهانينا العظمى! تم إتقان جميع الأسئلة المستهدفة بنسبة 100%!' 
+                : `متبقي لك <strong>${totalTarget - totalMastered} سؤالاً</strong> للوصول إلى نسبة إتقان 100%. استمر في خوض الجولات!`
+              }
+            </div>
+          </div>
+
+          <!-- قائمة أخطاء هذه الجولة إن وُجدت -->
+          ${mistakesCount > 0 ? `
+            <div style="margin-bottom:24px; text-align:right;">
+              <button class="ps-m-btn-outline" onclick="toggleRoundMistakesDrawer()" style="width:100%; max-width:540px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;">
+                <span>📋 استعراض أخطاء هذه الجولة بالتفصيل (${mistakesCount} أسئلة)</span>
+                <span id="drawerMistakesArrow">▼</span>
+              </button>
+              <div id="roundMistakesDrawer" style="display:none; max-width:540px; margin:14px auto 0;">
+                ${renderMistakesListHtml(marathonState.mistakenThisRound)}
+              </div>
+            </div>
+          ` : ''}
+
+          <!-- أزرار الإجراءات -->
+          <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+            ${(totalTarget - totalMastered > 0) ? `
+              <button class="ps-m-btn-primary" onclick="startMarathonRound()">
+                <span>🚀 ابدأ الجولة التالية فوراً</span>
+                <span>⬅</span>
+              </button>
+            ` : `
+              <button class="ps-m-btn-primary" onclick="resetMarathonProgress(); startMarathonRound();">
+                <span>🔄 إعادة خوض التحدي من جديد</span>
+              </button>
+            `}
+            <button class="ps-m-btn-outline" onclick="closeMarathonModal()">
+              <span>🏠 إنهاء والعودة لصفحة الكلمات</span>
+            </button>
+          </div>
+        </div>
+      `;
+
+      updateMarathonDashboardUI();
+    }
+
+    function toggleRoundMistakesDrawer() {
+      const drawer = document.getElementById("roundMistakesDrawer");
+      const arrow = document.getElementById("drawerMistakesArrow");
+      if (!drawer) return;
+      if (drawer.style.display === "none") {
+        drawer.style.display = "block";
+        if (arrow) arrow.innerText = "▲";
+      } else {
+        drawer.style.display = "none";
+        if (arrow) arrow.innerText = "▼";
+      }
+    }
+
+    function renderMistakesListHtml(mistakenItems) {
+      return mistakenItems.map((item, idx) => {
+        const q = item.q;
+        const rawImg = (q.img || q.immagine || "").trim();
+        const fn = rawImg ? rawImg.split("/").pop().trim() : "";
+        const imgBlock = fn ? `
+          <div style="text-align:center; margin:8px auto;">
+            <img src="../img_sign/${fn}" alt="إشارة السؤال" style="max-height:90px; border-radius:6px;" onerror="this.parentElement.style.display='none';">
+          </div>
+        ` : '';
+
+        return `
+          <div style="background:rgba(255,255,255,0.03); border:1px solid var(--ps-card-border); border-radius:14px; padding:14px; margin-bottom:12px;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px; font-size:0.85rem;">
+              <span style="font-weight:800; color:var(--ps-rose);">خطأ #${idx + 1}</span>
+              <span>الصحيح: <strong style="color:var(--ps-emerald);">${q.a ? 'VERO' : 'FALSO'}</strong></span>
+            </div>
+            ${imgBlock}
+            <div style="direction:ltr; text-align:left; font-family:'Plus Jakarta Sans', sans-serif; font-weight:700; font-size:0.95rem; color:var(--ps-text); margin-bottom:6px;">
+              ${q.q}
+            </div>
+            <div style="color:var(--ps-cyan); font-size:0.88rem; margin-bottom:8px;">
+              ${q.tr || ''}
+            </div>
+            <div style="font-size:0.82rem; color:var(--ps-text-sub); line-height:1.5;">
+              <strong>💡 الشرح القانوني:</strong> ${q.sp || 'راجع كود السير.'}
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    // دعم اختصارات لوحة المفاتيح
+    window.addEventListener("keydown", (e) => {
+      const modal = document.getElementById("marathonModal");
+      if (!modal || !modal.classList.contains("open")) return;
+
+      // تجنب التدخل إذا كان يكتب في حقل إدخال
+      if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+
+      if (e.key === "Escape") {
+        closeMarathonModal();
+        return;
+      }
+
+      if (!marathonState.answered) {
+        if (e.key === "v" || e.key === "V" || e.key === "1") {
+          e.preventDefault();
+          answerMarathonQuestion(true);
+        } else if (e.key === "f" || e.key === "F" || e.key === "2") {
+          e.preventDefault();
+          answerMarathonQuestion(false);
+        }
+      } else {
+        if (e.key === "Enter" || e.key === " " || e.key === "ArrowLeft") {
+          e.preventDefault();
+          nextMarathonQuestion();
+        }
+      }
+    });
   </script>
 
   <script>
