@@ -6,6 +6,10 @@
   <title>خطة المذاكرة الذكية وجدول الاستعداد للامتحان | Patente B Pro</title>
   <link rel="manifest" href="../manifest.json">
   <meta name="theme-color" content="#0B0F19">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Patente B Pro">
+  <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
@@ -1139,6 +1143,9 @@
       .sp-btn { flex: 1; justify-content: center; }
       .sp-quiz-links-wrap { width: 100%; margin-top: 10px; }
       .sp-chapter-quiz-row { width: 100%; }
+      .sp-modal-box { padding: 20px 16px; border-radius: 20px; }
+      .sp-backup-tabs { flex-direction: column; }
+      .sp-backup-tab-btn { justify-content: center; width: 100%; }
     }
     /* Backup & Migration Modal Tabs & Components */
     .sp-backup-tabs {
@@ -3312,5 +3319,12 @@
     }
   </script>
 
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('../service-worker.js').catch(err => console.log('SW registration failed:', err));
+      });
+    }
+  </script>
 </body>
 </html>

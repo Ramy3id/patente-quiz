@@ -6,16 +6,20 @@
  * @description يتيح تصفح وحل امتحانات المنصة بالكامل بدون اتصال بالإنترنت (Offline Mode)
  */
 
-const CACHE_NAME = "patente-b-pro-v1";
+const CACHE_NAME = "patente-b-pro-v2";
 const ASSETS_TO_CACHE = [
+  "./",
+  "./index.html",
+  "./Capitoli_Divisi/index.html",
+  "./assets/css/theme-modes.css",
+  "./assets/js/theme-engine.js",
   "./assets/js/quiz-engine.js",
   "./assets/js/srs-engine.js",
   "./assets/js/trap-vault.js",
   "./assets/js/flashcards-engine.js",
   "./assets/js/audio-engine.js",
-  "./assets/js/matching-engine.js",
-  "./assets/js/intersection-animator.js",
-  "./assets/js/car-anatomy.js",
+  "./assets/icons/icon-192.png",
+  "./assets/icons/icon-512.png",
   "./manifest.json"
 ];
 
@@ -23,7 +27,9 @@ const ASSETS_TO_CACHE = [
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS_TO_CACHE);
+      return cache.addAll(ASSETS_TO_CACHE).catch((err) => {
+        console.warn("Some offline assets failed to precache, will cache on demand:", err);
+      });
     }).then(() => self.skipWaiting())
   );
 });
@@ -50,7 +56,6 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(
     fetch(event.request)
       .then((networkResponse) => {
-        // تحديث الكاش بالنسخة الأحدث في الخلفية
         if (networkResponse && networkResponse.status === 200) {
           const responseClone = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => {
@@ -60,10 +65,8 @@ self.addEventListener("fetch", (event) => {
         return networkResponse;
       })
       .catch(() => {
-        // عند انقطاع النت، جلب الملف من الكاش
         return caches.match(event.request).then((cachedResponse) => {
           if (cachedResponse) return cachedResponse;
-          // رد بديل إذا لم يتوفر الملف
           return new Response("محتوى محفوظ أوفلاين غير متوفر حالياً", {
             status: 503,
             headers: { "Content-Type": "text/plain; charset=utf-8" }
