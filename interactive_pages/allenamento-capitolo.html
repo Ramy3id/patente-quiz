@@ -664,6 +664,9 @@
           <span style="font-size: 0.85rem; color: var(--tr-text-sub); margin-right: 8px;" id="lblProgress">سؤال 1 من 20</span>
         </div>
         <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+          <button class="tr-audio-btn" id="btnToggleBilingual" onclick="toggleBilingualHighlight()" title="تظليل متزامن للكلمات والمصطلحات بين الإيطالية والعربية">
+            <span id="lblBilingualIcon">🎨</span> <span id="lblBilingualText">تظليل المعاني</span>
+          </button>
           <button class="tr-audio-btn" id="btnToggleHighlight" onclick="toggleTrapHighlight()" title="تفعيل/تعطيل تظليل كلمات الفخاخ الوزارية">
             <span id="lblHighlightIcon">👁️</span> <span id="lblHighlightText">تظليل الأفخاخ</span>
           </button>
@@ -698,6 +701,9 @@
 
       <!-- ترجمة السؤال العربية -->
       <div class="tr-text-ar" id="lblQuestionAr">في طريق ذي اتجاهين...</div>
+
+      <!-- أشرطة المصطلحات المتقابلة المظللة -->
+      <div id="qPairsChips"></div>
 
       <!-- أزرار الإجابة VERO / FALSO -->
       <div class="tr-choice-grid">
@@ -769,6 +775,7 @@
   <script src="../Capitoli_Divisi/data_all_questions.js"></script>
   <script src="../assets/js/srs-engine.js"></script>
   <script src="../assets/js/trap-vault.js"></script>
+  <script src="../assets/js/bilingual-highlighter.js"></script>
 
   <script>
     /**
@@ -778,6 +785,7 @@
      */
     let srsEngine = null;
     let trapEngine = null;
+    let bilingualEngine = null;
     let sessionMode = "chapter"; // "chapter" | "commute" | "errors" | "hardest"
     let targetChapter = 1;
     let selectedChapterScope = "all";
@@ -798,6 +806,12 @@
         trapEngine = new PatenteTrapEngine();
       } catch (e) {
         console.warn("TrapEngine Fallback:", e);
+      }
+      try {
+        bilingualEngine = new PatenteBilingualHighlighter();
+        updateBilingualBtnUI();
+      } catch (e) {
+        console.warn("BilingualHighlighter Fallback:", e);
       }
 
       // قراءة المعاملات من الرابط
@@ -1167,17 +1181,36 @@
         imgWrap.style.display = "none";
       }
 
-      // نص السؤال الإيطالي مع فحص تظليل الفخاخ
-      const isHl = trapEngine ? trapEngine.isHighlightEnabled() : true;
+      // معالجة نصوص السؤال (التظليل اللوني المتقابل وتظليل الفخاخ)
       const questionEl = document.getElementById("lblQuestionIt");
-      if (isHl && trapEngine) {
-        questionEl.innerHTML = trapEngine.highlightTrapWords(q.q);
-      } else {
-        questionEl.innerText = q.q;
-      }
-      updateHighlightBtnUI();
+      const arEl = document.getElementById("lblQuestionAr");
+      const chipsEl = document.getElementById("qPairsChips");
 
-      document.getElementById("lblQuestionAr").innerText = q.tr || "ترجمة السؤال جاهزة في الدليل...";
+      let itText = q.q;
+      let arText = q.tr || "ترجمة السؤال جاهزة في الدليل...";
+
+      if (bilingualEngine && bilingualEngine.isEnabled()) {
+        const hl = bilingualEngine.highlightQuestion(q);
+        itText = hl.itHtml;
+        arText = hl.arHtml;
+        if (chipsEl) chipsEl.innerHTML = bilingualEngine.renderPairChips(hl.matchedPairs);
+      } else {
+        if (chipsEl) chipsEl.innerHTML = "";
+      }
+
+      const isHl = trapEngine ? trapEngine.isHighlightEnabled() : true;
+      if (isHl && trapEngine) {
+        itText = trapEngine.highlightTrapWords(itText);
+      }
+
+      questionEl.innerHTML = itText;
+      arEl.innerHTML = arText;
+      updateHighlightBtnUI();
+      updateBilingualBtnUI();
+
+      if (bilingualEngine) {
+        bilingualEngine.bindEvents(document.getElementById("qCardSection"));
+      }
 
       // إعادة ضبط الأزرار
       const btnVero = document.getElementById("btnVero");
@@ -1258,6 +1291,33 @@
         btn.classList.remove("active");
         document.getElementById("lblHighlightIcon").innerText = "👁️‍🗨️";
         document.getElementById("lblHighlightText").innerText = "تظليل الأفخاخ: معطل";
+      }
+    }
+
+    function toggleBilingualHighlight() {
+      if (bilingualEngine) {
+        bilingualEngine.toggle();
+        updateBilingualBtnUI();
+        loadCurrentQuestion();
+      }
+    }
+
+    function updateBilingualBtnUI() {
+      const btn = document.getElementById("btnToggleBilingual");
+      if (!btn || !bilingualEngine) return;
+      const isEn = bilingualEngine.isEnabled();
+      if (isEn) {
+        btn.classList.add("active");
+        btn.style.color = "var(--tr-cyan)";
+        btn.style.borderColor = "var(--tr-cyan)";
+        const txt = document.getElementById("lblBilingualText");
+        if (txt) txt.innerText = "تظليل المعاني: مفعل";
+      } else {
+        btn.classList.remove("active");
+        btn.style.color = "var(--tr-text-sub)";
+        btn.style.borderColor = "var(--tr-border)";
+        const txt = document.getElementById("lblBilingualText");
+        if (txt) txt.innerText = "تظليل المعاني: معطل";
       }
     }
 

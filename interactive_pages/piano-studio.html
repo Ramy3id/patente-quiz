@@ -1564,6 +1564,9 @@
             <span class="sp-mission-tag" id="quizChapterBadge">⚡ كويز التثبيت الوزاري (30 سؤالاً)</span>
           </div>
           <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <button class="sp-btn sp-btn-outline" id="btnQuizBilingual" onclick="toggleQuizBilingualHighlight()" style="padding: 4px 10px; font-size: 0.75rem;" title="تظليل متزامن للكلمات والمصطلحات بين الإيطالية والعربية">
+              🎨 تظليل المعاني
+            </button>
             <button class="sp-btn sp-btn-outline" id="btnQuizTrapHighlight" onclick="toggleQuizTrapHighlight()" style="padding: 4px 10px; font-size: 0.75rem;" title="تفعيل أو إلغاء تظليل كلمات الأفخاخ">
               👁️ تظليل الأفخاخ
             </button>
@@ -1586,6 +1589,8 @@
           <div class="sp-q-italian" id="quizQuestionIt">In una carreggiata a doppio senso si può sorpassare...</div>
           <!-- الترجمة العربية -->
           <div class="sp-q-arabic" id="quizQuestionAr">في طريق ذي اتجاهين يجوز التجاوز...</div>
+          <!-- أشرطة المصطلحات المتقابلة المظللة -->
+          <div id="quizPairsChips"></div>
 
           <!-- أزرار الإجابة VERO / FALSO -->
           <div class="sp-quiz-actions">
@@ -1920,6 +1925,7 @@
   <script src="../Capitoli_Divisi/data_thesaurus.js"></script>
   <script src="../assets/js/srs-engine.js"></script>
   <script src="../assets/js/trap-vault.js"></script>
+  <script src="../assets/js/bilingual-highlighter.js"></script>
 
   <script>
     /**
@@ -1961,6 +1967,7 @@
     let activePlan = null;
     let srsEngine = null;
     let trapEngine = null;
+    let bilingualEngine = null;
 
     // حالة الاستبيان المؤقتة
     let formTargetDays = 30;
@@ -1989,6 +1996,12 @@
         trapEngine = new PatenteTrapEngine();
       } catch(e) {
         console.warn("Trap Engine fallback:", e);
+      }
+      try {
+        bilingualEngine = new PatenteBilingualHighlighter();
+        updateQuizBilingualBtnUI();
+      } catch(e) {
+        console.warn("Bilingual Highlighter fallback:", e);
       }
       loadOrCreatePlan();
     });
@@ -2786,6 +2799,7 @@
         btnTrapH.style.color = isEnabled ? "var(--sp-rose)" : "var(--sp-text-sub)";
         btnTrapH.style.borderColor = isEnabled ? "var(--sp-rose)" : "var(--sp-border)";
       }
+      updateQuizBilingualBtnUI();
 
       renderRapidQuizPills();
       loadRapidQuizQuestion();
@@ -2823,6 +2837,28 @@
       loadRapidQuizQuestion();
     }
 
+    function toggleQuizBilingualHighlight() {
+      if (!bilingualEngine) return;
+      bilingualEngine.toggle();
+      updateQuizBilingualBtnUI();
+      loadRapidQuizQuestion();
+    }
+
+    function updateQuizBilingualBtnUI() {
+      const btn = document.getElementById("btnQuizBilingual");
+      if (!btn || !bilingualEngine) return;
+      const isEn = bilingualEngine.isEnabled();
+      if (isEn) {
+        btn.style.color = "var(--sp-cyan)";
+        btn.style.borderColor = "var(--sp-cyan)";
+        btn.innerText = "🎨 تظليل المعاني: مفعل";
+      } else {
+        btn.style.color = "var(--sp-text-sub)";
+        btn.style.borderColor = "var(--sp-border)";
+        btn.innerText = "🎨 تظليل المعاني: معطل";
+      }
+    }
+
     function loadRapidQuizQuestion() {
       const q = rapidQuizState.questions[rapidQuizState.currentIndex];
       if (!q) return;
@@ -2833,14 +2869,31 @@
       document.getElementById("quizAnsweredCount").innerText = "المُجاب عنه: " + answeredCount + " / 30";
 
       const qItEl = document.getElementById("quizQuestionIt");
-      if (qItEl) {
-        if (trapEngine && trapEngine.isHighlightEnabled()) {
-          qItEl.innerHTML = trapEngine.highlightTrapWords(q.q);
-        } else {
-          qItEl.innerText = q.q;
-        }
+      const qArEl = document.getElementById("quizQuestionAr");
+      const chipsEl = document.getElementById("quizPairsChips");
+
+      let itText = q.q;
+      let arText = q.tr || "";
+
+      if (bilingualEngine && bilingualEngine.isEnabled()) {
+        const hl = bilingualEngine.highlightQuestion(q);
+        itText = hl.itHtml;
+        arText = hl.arHtml;
+        if (chipsEl) chipsEl.innerHTML = bilingualEngine.renderPairChips(hl.matchedPairs);
+      } else {
+        if (chipsEl) chipsEl.innerHTML = "";
       }
-      document.getElementById("quizQuestionAr").innerText = q.tr || "";
+
+      if (trapEngine && trapEngine.isHighlightEnabled()) {
+        itText = trapEngine.highlightTrapWords(itText);
+      }
+
+      if (qItEl) qItEl.innerHTML = itText;
+      if (qArEl) qArEl.innerHTML = arText;
+
+      if (bilingualEngine) {
+        bilingualEngine.bindEvents(document.getElementById("rapidQuizSection"));
+      }
 
       const imgWrap = document.getElementById("quizImgWrap");
       const imgEl = document.getElementById("quizQuestionImg");
@@ -3019,6 +3072,21 @@
         const q = item.q;
         const userText = (item.userChoice === undefined) ? 'لم تجب' : (item.userChoice ? 'VERO (صح)' : 'FALSO (خطأ)');
         const correctText = q.a ? 'VERO (صح)' : 'FALSO (خطأ)';
+
+        let itHtml = q.q;
+        let arHtml = q.tr || '';
+        let chipsHtml = '';
+
+        if (bilingualEngine && bilingualEngine.isEnabled()) {
+          const hl = bilingualEngine.highlightQuestion(q);
+          itHtml = hl.itHtml;
+          arHtml = hl.arHtml;
+          chipsHtml = bilingualEngine.renderPairChips(hl.matchedPairs);
+        }
+        if (trapEngine && trapEngine.isHighlightEnabled()) {
+          itHtml = trapEngine.highlightTrapWords(itHtml);
+        }
+
         return `
           <div class="sp-error-review-item">
             <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
@@ -3029,11 +3097,12 @@
               </span>
             </div>
             <div style="direction:ltr; text-align:left; font-family:'Plus Jakarta Sans', sans-serif; font-weight:700; margin-bottom:6px; color:var(--sp-text);">
-              ${q.q}
+              ${itHtml}
             </div>
             <div style="color:var(--sp-cyan); font-size:0.95rem; margin-bottom:8px;">
-              ${q.tr || ''}
+              ${arHtml}
             </div>
+            ${chipsHtml ? `<div style="margin-bottom:8px;">${chipsHtml}</div>` : ''}
             <div style="font-size:0.85rem; color:var(--sp-text-sub); line-height:1.5;">
               <strong>💡 الشرح القانوني:</strong> ${q.sp || 'راجع قواعد كود السير.'}
             </div>
@@ -3041,6 +3110,10 @@
           </div>
         `;
       }).join("");
+
+      if (bilingualEngine) {
+        bilingualEngine.bindEvents(list);
+      }
 
       wrap.style.display = "block";
       wrap.scrollIntoView({ behavior: 'smooth' });
