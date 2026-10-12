@@ -1140,6 +1140,100 @@
       .sp-quiz-links-wrap { width: 100%; margin-top: 10px; }
       .sp-chapter-quiz-row { width: 100%; }
     }
+    /* Backup & Migration Modal Tabs & Components */
+    .sp-backup-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--sp-border);
+      padding-bottom: 10px;
+    }
+    .sp-backup-tab-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--sp-border);
+      color: var(--sp-text-sub);
+      padding: 9px 16px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: inherit;
+      transition: all 0.15s ease;
+    }
+    html.light .sp-backup-tab-btn {
+      background: #F8FAFC;
+      border-color: #E2E8F0;
+    }
+    .sp-backup-tab-btn:hover {
+      color: var(--sp-text);
+      border-color: var(--sp-cyan);
+    }
+    .sp-backup-tab-btn.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--sp-cyan);
+      color: var(--sp-cyan);
+    }
+    html.light .sp-backup-tab-btn.active {
+      background: rgba(2, 132, 199, 0.12);
+      color: #0284C7;
+    }
+    .sp-backup-summary-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--sp-border);
+      border-radius: 14px;
+      padding: 12px 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    html.light .sp-backup-summary-box {
+      background: #F8FAFC;
+    }
+    .sp-backup-summary-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .sp-backup-summary-lbl {
+      font-size: 0.78rem;
+      color: var(--sp-text-sub);
+      font-weight: 600;
+    }
+    .sp-backup-summary-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem;
+      color: var(--sp-cyan);
+      font-weight: 800;
+    }
+    .sp-backup-textarea {
+      width: 100%;
+      height: 140px;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--sp-border);
+      border-radius: 12px;
+      padding: 12px;
+      color: var(--sp-text);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      line-height: 1.4;
+      direction: ltr;
+      text-align: left;
+      resize: vertical;
+      box-sizing: border-box;
+      outline: none;
+    }
+    html.light .sp-backup-textarea {
+      background: #F1F5F9;
+      border-color: #CBD5E1;
+      color: #0F172A;
+    }
+    .sp-backup-textarea:focus {
+      border-color: var(--sp-cyan);
+    }
   </style>
 </head>
 <body>
@@ -1189,6 +1283,9 @@
           </button>
           <button class="sp-btn sp-btn-amber" onclick="openRebalanceModal()" title="إعادة توزيع الأيام لو فاتتك حصص">
             <span>🔄</span> <span>إعادة موازنة</span>
+          </button>
+          <button class="sp-btn sp-btn-outline" onclick="openBackupModal()" title="نسخ احتياطي للتقدم أو نقله لجهاز آخر">
+            <span>📦</span> <span>نسخ احتياطي / نقل</span>
           </button>
         </div>
       </div>
@@ -1719,6 +1816,94 @@
 
       <div style="text-align: left;">
         <button class="sp-btn sp-btn-outline" onclick="closeRebalanceModal()">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- النافذة المنبثقة: النسخ الاحتياطي ونقل الخطة بين الأجهزة -->
+  <div class="sp-modal-backdrop" id="backupModal">
+    <div class="sp-modal-box" style="max-width: 640px;">
+      <div class="sp-modal-title">
+        <span>📦</span>
+        <span>النسخ الاحتياطي ونقل الخطة بين الأجهزة</span>
+      </div>
+      <p class="sp-modal-desc">
+        احفظ نسخة كاملة من تقدمك في الخطة، ودفتر الأخطاء التكرارية (SRS)، وسجل الكويزات لنقلها إلى هاتفك أو متصفح آخر بكل سهولة.
+      </p>
+
+      <!-- تبويبات التصدير والاستيراد -->
+      <div class="sp-backup-tabs">
+        <button class="sp-backup-tab-btn active" id="tabBtnExport" onclick="switchBackupTab('export')">
+          <span>📤</span> <span>تصدير وحفظ نسختك</span>
+        </button>
+        <button class="sp-backup-tab-btn" id="tabBtnImport" onclick="switchBackupTab('import')">
+          <span>📥</span> <span>استيراد واستعادة خطة</span>
+        </button>
+      </div>
+
+      <!-- محتوى التصدير -->
+      <div id="backupExportView" class="sp-backup-view">
+        <div class="sp-backup-summary-box">
+          <div class="sp-backup-summary-item">
+            <span class="sp-backup-summary-lbl">📅 الأيام المكتملة:</span>
+            <strong class="sp-backup-summary-val" id="backupExportDays">0</strong>
+          </div>
+          <div class="sp-backup-summary-item">
+            <span class="sp-backup-summary-lbl">📓 أسئلة بنك الأخطاء:</span>
+            <strong class="sp-backup-summary-val" id="backupExportErrors">0</strong>
+          </div>
+          <div class="sp-backup-summary-item">
+            <span class="sp-backup-summary-lbl">🔥 أيام الالتزام:</span>
+            <strong class="sp-backup-summary-val" id="backupExportStreak">0</strong>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 12px;">
+          <label style="font-size: 0.85rem; font-weight: 700; color: var(--sp-text); display: block; margin-bottom: 6px;">
+            كود النسخة الاحتياطية (انسخه والصقه في هاتفك):
+          </label>
+          <textarea id="backupExportText" class="sp-backup-textarea" readonly spellcheck="false" onclick="this.select()"></textarea>
+        </div>
+
+        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px;">
+          <button class="sp-btn sp-btn-primary" id="btnCopyBackup" onclick="copyBackupToClipboard()">
+            <span>📋</span> <span id="copyBackupBtnText">نسخ الكود إلى الحافظة</span>
+          </button>
+          <button class="sp-btn sp-btn-outline" onclick="downloadBackupFile()">
+            <span>💾</span> <span>تنزيل كملف (.json)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- محتوى الاستيراد -->
+      <div id="backupImportView" class="sp-backup-view" style="display: none;">
+        <div class="sp-banner-alert" style="margin-bottom: 14px;">
+          <span>💡 <strong>طريقتان للاستعادة:</strong> يمكنك إما لصق كود النسخة في المربع أدناه، أو اختيار ملف الـ <code>.json</code> الذي قمت بتنزيله سابقاً.</span>
+        </div>
+
+        <div style="margin-bottom: 14px;">
+          <input type="file" id="backupFileInput" accept=".json,application/json" onchange="handleBackupFileUpload(event)" style="display: none;">
+          <button class="sp-btn sp-btn-outline" style="width: 100%; justify-content: center; padding: 12px;" onclick="document.getElementById('backupFileInput').click()">
+            <span>📁</span> <span>رفع ملف النسخة الاحتياطية من جهازك (.json)</span>
+          </button>
+        </div>
+
+        <div style="margin-bottom: 14px;">
+          <label style="font-size: 0.85rem; font-weight: 700; color: var(--sp-text); display: block; margin-bottom: 6px;">
+            أو الصق كود النسخة الاحتياطية هنا:
+          </label>
+          <textarea id="backupImportText" class="sp-backup-textarea" placeholder="الصق كود النسخة الاحتياطية هنا..." spellcheck="false"></textarea>
+        </div>
+
+        <div style="display: flex; gap: 10px; margin-bottom: 16px;">
+          <button class="sp-btn sp-btn-emerald" style="flex: 1; justify-content: center;" onclick="applyImportedBackup()">
+            <span>🚀</span> <span>استعادة وتطبيق التقدم فوراً</span>
+          </button>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid var(--sp-border); padding-top: 14px; text-align: left;">
+        <button class="sp-btn sp-btn-outline" onclick="closeBackupModal()">إغلاق</button>
       </div>
     </div>
   </div>
@@ -2900,6 +3085,230 @@
       localStorage.setItem(STORAGE_KEY, JSON.stringify(activePlan));
       closeRebalanceModal();
       renderPlanUI();
+    }
+
+    /**
+     * =========================================================================
+     * نظام النسخ الاحتياطي ونقل الخطة ودفتر الأخطاء بين الأجهزة (Backup & Migration)
+     * =========================================================================
+     */
+    function openBackupModal() {
+      switchBackupTab('export');
+      updateBackupExportView();
+      document.getElementById("backupModal").classList.add("open");
+    }
+
+    function closeBackupModal() {
+      document.getElementById("backupModal").classList.remove("open");
+    }
+
+    function switchBackupTab(tab) {
+      const btnExport = document.getElementById("tabBtnExport");
+      const btnImport = document.getElementById("tabBtnImport");
+      const viewExport = document.getElementById("backupExportView");
+      const viewImport = document.getElementById("backupImportView");
+
+      if (tab === 'export') {
+        btnExport.classList.add("active");
+        btnImport.classList.remove("active");
+        viewExport.style.display = "block";
+        viewImport.style.display = "none";
+        updateBackupExportView();
+      } else {
+        btnImport.classList.add("active");
+        btnExport.classList.remove("active");
+        viewImport.style.display = "block";
+        viewExport.style.display = "none";
+      }
+    }
+
+    function generateBackupPayload() {
+      let rawVault = {};
+      try {
+        const v = localStorage.getItem("patente_b_pro_srs_vault");
+        if (v) rawVault = JSON.parse(v);
+      } catch (e) {}
+
+      let rawExams = [];
+      try {
+        const ex = localStorage.getItem("patente_exam_history");
+        if (ex) rawExams = JSON.parse(ex);
+      } catch (e) {}
+
+      const completedDaysCount = (activePlan && activePlan.days) 
+        ? activePlan.days.filter(d => d.isCompleted).length 
+        : 0;
+
+      const mistakeCount = Object.keys(rawVault).length;
+      const streak = (activePlan && activePlan.streak) ? activePlan.streak : 0;
+
+      return {
+        app: "Patente B Pro",
+        version: "2.5",
+        exportedAt: new Date().toISOString(),
+        stats: {
+          completedDays: completedDaysCount,
+          totalDays: (activePlan && activePlan.days) ? activePlan.days.length : 30,
+          mistakesInVault: mistakeCount,
+          streak: streak
+        },
+        data: {
+          studyPlan: activePlan,
+          srsVault: rawVault,
+          examHistory: rawExams,
+          trapHighlight: localStorage.getItem("patente_trap_highlight") || "true",
+          themeMode: localStorage.getItem("patente_theme_mode") || "dark"
+        }
+      };
+    }
+
+    function updateBackupExportView() {
+      const payload = generateBackupPayload();
+      const jsonStr = JSON.stringify(payload, null, 2);
+
+      const exportText = document.getElementById("backupExportText");
+      if (exportText) exportText.value = jsonStr;
+
+      const elDays = document.getElementById("backupExportDays");
+      if (elDays) elDays.innerText = `${payload.stats.completedDays} / ${payload.stats.totalDays}`;
+
+      const elErrors = document.getElementById("backupExportErrors");
+      if (elErrors) elErrors.innerText = payload.stats.mistakesInVault;
+
+      const elStreak = document.getElementById("backupExportStreak");
+      if (elStreak) elStreak.innerText = `${payload.stats.streak} 🔥`;
+    }
+
+    function copyBackupToClipboard() {
+      const exportText = document.getElementById("backupExportText");
+      if (!exportText) return;
+      const text = exportText.value;
+
+      const handleSuccess = () => {
+        const btnText = document.getElementById("copyBackupBtnText");
+        const original = btnText ? btnText.innerText : "نسخ الكود إلى الحافظة";
+        if (btnText) btnText.innerText = "تم النسخ بنجاح! 🎉";
+        setTimeout(() => {
+          if (btnText) btnText.innerText = original;
+        }, 2500);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(handleSuccess).catch(() => {
+          exportText.select();
+          document.execCommand("copy");
+          handleSuccess();
+        });
+      } else {
+        exportText.select();
+        document.execCommand("copy");
+        handleSuccess();
+      }
+    }
+
+    function downloadBackupFile() {
+      const payload = generateBackupPayload();
+      const jsonStr = JSON.stringify(payload, null, 2);
+      const blob = new Blob([jsonStr], { type: "application/json;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      const dateStr = new Date().toISOString().slice(0, 10);
+      a.href = url;
+      a.download = `patente_b_pro_backup_${dateStr}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function handleBackupFileUpload(event) {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const content = e.target.result;
+        const importText = document.getElementById("backupImportText");
+        if (importText) {
+          importText.value = content;
+          alert(`تم قراءة الملف "${file.name}" بنجاح! اضغط الآن على زر "استعادة وتطبيق التقدم فوراً".`);
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function applyImportedBackup() {
+      const importText = document.getElementById("backupImportText");
+      if (!importText || !importText.value.trim()) {
+        alert("يرجى لصق كود النسخة الاحتياطية أو اختيار ملف JSON أولاً.");
+        return;
+      }
+
+      let parsed;
+      try {
+        parsed = JSON.parse(importText.value.trim());
+      } catch (e) {
+        alert("عذراً، كود النسخة الاحتياطية غير صالح أو تالف. تأكد من نسخ الكود كاملاً.");
+        return;
+      }
+
+      let studyPlan = null;
+      let srsVault = null;
+      let examHistory = null;
+      let trapHighlight = null;
+      let themeMode = null;
+
+      if (parsed.data && parsed.data.studyPlan) {
+        studyPlan = parsed.data.studyPlan;
+        srsVault = parsed.data.srsVault;
+        examHistory = parsed.data.examHistory;
+        trapHighlight = parsed.data.trapHighlight;
+        themeMode = parsed.data.themeMode;
+      } else if (parsed.days && Array.isArray(parsed.days)) {
+        studyPlan = parsed;
+      } else if (parsed.studyPlan) {
+        studyPlan = parsed.studyPlan;
+        srsVault = parsed.srsVault;
+        examHistory = parsed.examHistory;
+      }
+
+      if (!studyPlan || !studyPlan.days || !Array.isArray(studyPlan.days)) {
+        alert("لم يتم العثور على خطة دراسية صالحة داخل البيانات المدخلة.");
+        return;
+      }
+
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(studyPlan));
+        activePlan = studyPlan;
+
+        if (srsVault && typeof srsVault === "object") {
+          localStorage.setItem("patente_b_pro_srs_vault", JSON.stringify(srsVault));
+          if (srsEngine) {
+            try { srsEngine = new PatenteSRSEngine(); } catch(e) {}
+          }
+        }
+
+        if (examHistory && Array.isArray(examHistory)) {
+          localStorage.setItem("patente_exam_history", JSON.stringify(examHistory));
+        }
+
+        if (trapHighlight) {
+          localStorage.setItem("patente_trap_highlight", trapHighlight);
+        }
+
+        if (themeMode) {
+          localStorage.setItem("patente_theme_mode", themeMode);
+        }
+
+        closeBackupModal();
+        renderPlanUI();
+
+        const completed = studyPlan.days.filter(d => d.isCompleted).length;
+        alert(`🎉 تم استعادة الخطة بنجاح!\n- تم استرجاع ${completed} يوماً مكتملاً.\n- تم تحديث دفتر الأخطاء التكرارية وسجل الكويزات.\nتقدمك الآن متزامن تماماً!`);
+      } catch (err) {
+        console.error("خطأ أثناء استعادة النسخة الاحتياطية:", err);
+        alert("حدث خطأ غير متوقع أثناء حفظ البيانات محلياً: " + err.message);
+      }
     }
   </script>
 
