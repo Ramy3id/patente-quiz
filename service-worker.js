@@ -6,7 +6,7 @@
  * @description يتيح تصفح وحل امتحانات المنصة بالكامل بدون اتصال بالإنترنت (Offline Mode)
  */
 
-const CACHE_NAME = "patente-b-pro-v3";
+const CACHE_NAME = "patente-b-pro-v4";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
@@ -17,6 +17,7 @@ const ASSETS_TO_CACHE = [
   "./assets/js/srs-engine.js",
   "./assets/js/trap-vault.js",
   "./assets/js/bilingual-highlighter.js",
+  "./interactive_pages/parole-spia.html",
   "./assets/js/flashcards-engine.js",
   "./assets/js/audio-engine.js",
   "./assets/icons/icon-192.png",
