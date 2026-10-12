@@ -255,7 +255,7 @@ class PatenteVideoStudio {
                   <span class="vfig-sub-tag">الرسم الهندسي المطابق لسؤال الامتحان</span>
                 </div>
                 <div class="vfig-img-frame">
-                  <img src="${m.thumbnail}" alt="${m.title}" class="vfig-full-img">
+                  <img src="${m.thumbnail}" alt="${m.title}" class="vfig-full-img" onerror="if(!this.dataset.fb){this.dataset.fb='1'; const fn=this.src.split('/').pop(); this.src='../img_sign/'+fn;}">
                 </div>
               </div>
             </div>

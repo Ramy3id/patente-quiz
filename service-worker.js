@@ -6,11 +6,12 @@
  * @description يتيح تصفح وحل امتحانات المنصة بالكامل بدون اتصال بالإنترنت (Offline Mode)
  */
 
-const CACHE_NAME = "patente-b-pro-v4";
+const CACHE_NAME = "patente-b-pro-v5";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
   "./Capitoli_Divisi/index.html",
+  "./Capitoli_Divisi/data_all_questions.js",
   "./assets/css/theme-modes.css",
   "./assets/js/theme-engine.js",
   "./assets/js/quiz-engine.js",
@@ -18,6 +19,10 @@ const ASSETS_TO_CACHE = [
   "./assets/js/trap-vault.js",
   "./assets/js/bilingual-highlighter.js",
   "./interactive_pages/parole-spia.html",
+  "./interactive_pages/scheda-esame.html",
+  "./interactive_pages/traps_and_games.html",
+  "./interactive_pages/allenamento-capitolo.html",
+  "./interactive_pages/piano-studio.html",
   "./assets/js/flashcards-engine.js",
   "./assets/js/audio-engine.js",
   "./assets/icons/icon-192.png",

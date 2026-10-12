@@ -1049,7 +1049,7 @@
           ch: err.capitolo || 1,
           q: err.domanda,
           a: err.risposta,
-          img: err.immagine,
+          img: err.img || err.immagine,
           tr: err.traduzione,
           sp: err.spiegazione,
           tb: err.trabocchetto
@@ -1064,7 +1064,7 @@
         let errorSample = [];
         if (dueErrors.length > 0) {
           errorSample = dueErrors.slice(0, 3).map(err => ({
-            id: err.id, ch: err.capitolo || 1, q: err.domanda, a: err.risposta, img: err.immagine, tr: err.traduzione, sp: err.spiegazione, tb: err.trabocchetto
+            id: err.id, ch: err.capitolo || 1, q: err.domanda, a: err.risposta, img: err.img || err.immagine, tr: err.traduzione, sp: err.spiegazione, tb: err.trabocchetto
           }));
         }
 
@@ -1174,9 +1174,19 @@
       // الصورة
       const imgWrap = document.getElementById("imgWrap");
       const qImg = document.getElementById("qImg");
-      if (q.img && q.img.trim()) {
-        const cleanPath = q.img.startsWith("Capitolo_") ? "../Capitoli_Divisi/" + q.img : q.img;
-        qImg.src = cleanPath;
+      const rawImg = (q.img || q.immagine || "").trim();
+      if (rawImg) {
+        const fn = rawImg.split('/').pop().trim();
+        qImg.removeAttribute("data-fallback");
+        qImg.src = "../img_sign/" + fn;
+        qImg.onerror = function() {
+          if (!this.dataset.fallback && rawImg) {
+            this.dataset.fallback = "1";
+            this.src = rawImg.startsWith("Capitolo_") ? "../Capitoli_Divisi/" + rawImg : "../Capitoli_Divisi/" + rawImg;
+          } else {
+            imgWrap.style.display = "none";
+          }
+        };
         imgWrap.style.display = "block";
       } else {
         imgWrap.style.display = "none";
@@ -1253,7 +1263,8 @@
             id: q.id || (targetChapter * 1000 + currentIndex),
             capitolo: q.ch || targetChapter,
             domanda: q.q,
-            immagine: q.img,
+            immagine: q.img || q.immagine,
+            img: q.img || q.immagine,
             risposta: q.a,
             traduzione: q.tr,
             spiegazione: q.sp,

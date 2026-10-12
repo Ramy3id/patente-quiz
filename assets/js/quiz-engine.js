@@ -167,16 +167,17 @@ class PatenteExamEngine {
       analysis.details.push({
         index: idx + 1,
         id: q.id,
-        capitolo: q.capitolo || q.numero_capitolo || "عام",
-        domanda: q.domanda,
-        immagine: q.immagine || null,
+        capitolo: q.capitolo || q.numero_capitolo || q.ch || "عام",
+        domanda: q.domanda || q.q || "",
+        immagine: q.immagine || q.img || null,
+        img: q.img || q.immagine || null,
         userAnswer: isAnswered ? userAnswer : null,
-        correctAnswer: q.risposta,
+        correctAnswer: (q.risposta !== undefined) ? q.risposta : q.a,
         isCorrect,
-        traduzione: q.traduzione || "",
-        spiegazione: q.spiegazione || "",
-        trabocchetto: q.trabocchetto || "",
-        parole_chiave: q.parole_chiave || []
+        traduzione: q.traduzione || q.tr || "",
+        spiegazione: q.spiegazione || q.sp || "",
+        trabocchetto: q.trabocchetto || q.tb || "",
+        parole_chiave: q.parole_chiave || q.pk || []
       });
     });
 

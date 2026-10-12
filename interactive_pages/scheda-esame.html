@@ -246,13 +246,14 @@
     </button>
   </div>
 
+  <script src="../Capitoli_Divisi/data_all_questions.js"></script>
   <script src="../assets/js/quiz-engine.js"></script>
   <script src="../assets/js/srs-engine.js"></script>
   <script src="../assets/js/audio-engine.js"></script>
 
   <script>
     function resolveImgPath(img) {
-      if (!img) return null;
+      if (!img || typeof img !== 'string' || !img.trim()) return null;
       const filename = img.split('/').pop().trim();
       return filename ? `../img_sign/${filename}` : null;
     }
@@ -275,9 +276,25 @@
       const audio = new PatenteAudioEngine();
 
       try {
-        const res = await fetch("../assets/all_questions.json");
-        const data = await res.json();
-        const pool = data.domande || data;
+        let pool = [];
+        if (window.ALL_QUESTIONS_DATA && Array.isArray(window.ALL_QUESTIONS_DATA) && window.ALL_QUESTIONS_DATA.length > 0) {
+          pool = window.ALL_QUESTIONS_DATA.map(q => ({
+            id: q.id,
+            domanda: q.q,
+            risposta: q.a,
+            immagine: q.img,
+            img: q.img,
+            traduzione: q.tr,
+            spiegazione: q.sp,
+            trabocchetto: q.tb,
+            parole_chiave: q.pk,
+            capitolo_num: q.ch || 1
+          }));
+        } else {
+          const res = await fetch("../assets/all_questions.json");
+          const data = await res.json();
+          pool = data.domande || data;
+        }
 
         exam.loadQuestions(pool);
         exam.startTimer();
@@ -316,7 +333,8 @@
 
         const currentAnswer = exam.answers[q.id];
         const stage = document.getElementById("questionCardStage");
-        const imgPath = resolveImgPath(q.immagine);
+        const rawImg = (q.img || q.immagine || "").trim();
+        const imgPath = resolveImgPath(rawImg);
 
         stage.innerHTML = `
           <div class="exam-q-header">
@@ -324,7 +342,7 @@
             <span style="font-size:13px; color:#94A3B8; font-family:'JetBrains Mono',monospace;">ID: ${q.id}</span>
           </div>
 
-          ${imgPath ? `<div class="exam-img-frame"><img src="${imgPath}" alt="Segnale" onerror="this.parentElement.style.display='none'"></div>` : ""}
+          ${imgPath ? `<div class="exam-img-frame"><img src="${imgPath}" alt="Segnale" onerror="if(!this.dataset.fallback && '${rawImg}'){this.dataset.fallback='1'; this.src='../Capitoli_Divisi/' + '${rawImg}';}else{this.parentElement.style.display='none';}"></div>` : ""}
 
           <div class="exam-text-it">${q.domanda}</div>
 
@@ -415,7 +433,8 @@
 
             <div style="text-align:right;">
               ${result.details.map(d => {
-                const imgPath = resolveImgPath(d.immagine);
+                const rawImg = (d.img || d.immagine || "").trim();
+                const imgPath = resolveImgPath(rawImg);
                 return `
                 <div style="background:rgba(255,255,255,0.03); border:1px solid ${d.isCorrect ? 'rgba(16,185,129,0.3)' : 'rgba(239,68,68,0.3)'}; border-radius:16px; padding:18px; margin-bottom:14px;">
                   <div style="display:flex; justify-content:space-between; margin-bottom:8px; align-items:center;">
@@ -424,7 +443,7 @@
                       ${d.isCorrect ? "✅ إجابة صحيحة" : "❌ إجابة خاطئة"} (إجابتك: ${d.userAnswer === null ? 'متروك' : (d.userAnswer ? 'V' : 'F')} | الصحيح: ${d.correctAnswer ? 'V' : 'F'})
                     </span>
                   </div>
-                  ${imgPath ? `<div class="exam-img-frame" style="max-height:120px; margin:8px 0;"><img src="${imgPath}" alt="Segnale" style="max-height:100px;"></div>` : ''}
+                  ${imgPath ? `<div class="exam-img-frame" style="max-height:120px; margin:8px 0;"><img src="${imgPath}" alt="Segnale" style="max-height:100px;" onerror="if(!this.dataset.fallback && '${rawImg}'){this.dataset.fallback='1'; this.src='../Capitoli_Divisi/' + '${rawImg}';}else{this.parentElement.style.display='none';}"></div>` : ''}
                   <div style="font-weight:700; margin-bottom:8px; color:#FFFFFF; font-family:'JetBrains Mono',monospace;">${d.domanda}</div>
                   <div style="color:#38BDF8; font-size:14px; margin-bottom:6px;">📖 الترجمة: ${d.traduzione || 'غير متوفرة'}</div>
                   <div style="color:#94A3B8; font-size:13px; margin-bottom:6px;">💡 الشرح: ${d.spiegazione || 'راجع نصوص كود السير.'}</div>

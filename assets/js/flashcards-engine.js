@@ -51,8 +51,15 @@ class PatenteFlashcardsEngine {
     const total = this.questions.length;
     const progress = Math.round(((this.currentIndex) / total) * 100);
 
-    const imgFilename = q.immagine ? q.immagine.split('/').pop().trim() : null;
+    const rawImg = (q.img || q.immagine || "").trim();
+    const imgFilename = rawImg ? rawImg.split('/').pop().trim() : null;
     const imgPath = imgFilename ? `../img_sign/${imgFilename}` : null;
+
+    const itText = q.domanda || q.q || "";
+    const isVero = (q.risposta !== undefined) ? Boolean(q.risposta) : Boolean(q.a);
+    const arText = q.traduzione || q.tr || "غير متوفرة";
+    const spText = q.spiegazione || q.sp || "راجع نصوص كود السير.";
+    const tbText = q.trabocchetto || q.tb || "";
 
     this.container.innerHTML = `
       <div class="flashcard-wrapper">
@@ -66,25 +73,25 @@ class PatenteFlashcardsEngine {
             <!-- الوجه الأمامي: السؤال والصورة -->
             <div class="flashcard-face flashcard-front">
               <div class="flashcard-badge">اسحب لليمين VERO / لليسار FALSO</div>
-              ${imgPath ? `<div class="flashcard-img-box"><img src="${imgPath}" alt="Segnale" loading="lazy" onerror="this.parentElement.style.display='none'"></div>` : ""}
-              <div class="flashcard-it-text">${q.domanda}</div>
+              ${imgPath ? `<div class="flashcard-img-box"><img src="${imgPath}" alt="Segnale" loading="lazy" onerror="if(!this.dataset.fallback && '${rawImg}') { this.dataset.fallback='1'; this.src='../Capitoli_Divisi/' + '${rawImg}'; } else { this.parentElement.style.display='none'; }"></div>` : ""}
+              <div class="flashcard-it-text">${itText}</div>
               <div class="flashcard-tap-hint">👆 المس البطاقة أو اضغط زر القلب للشرح</div>
             </div>
 
             <!-- الوجه الخلفي: الشرح، الترجمة، والفخ -->
             <div class="flashcard-face flashcard-back">
-              <div class="flashcard-result-badge ${q.risposta ? "badge-vero" : "badge-falso"}">
-                الإجابة الصحيحة: ${q.risposta ? "VERO (صح)" : "FALSO (خطأ)"}
+              <div class="flashcard-result-badge ${isVero ? "badge-vero" : "badge-falso"}">
+                الإجابة الصحيحة: ${isVero ? "VERO (صح)" : "FALSO (خطأ)"}
               </div>
               <div class="flashcard-ar-translation">
-                <strong>📖 الترجمة:</strong> ${q.traduzione || "غير متوفرة"}
+                <strong>📖 الترجمة:</strong> ${arText}
               </div>
               <div class="flashcard-explanation">
-                <strong>💡 الشرح القانوني:</strong> ${q.spiegazione || "راجع نصوص كود السير."}
+                <strong>💡 الشرح القانوني:</strong> ${spText}
               </div>
-              ${q.trabocchetto ? `
+              ${tbText ? `
                 <div class="flashcard-trap-box">
-                  <strong>⚠️ فخ السؤال:</strong> ${q.trabocchetto}
+                  <strong>⚠️ فخ الامتحان:</strong> ${tbText}
                 </div>
               ` : ""}
               <div class="flashcard-tap-hint">👆 المس للعودة للسؤال أو اسحب للإجابة</div>

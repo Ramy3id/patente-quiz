@@ -1344,6 +1344,14 @@
         const re = new RegExp(`(${activeModalWord.regex})`, "gi");
         const highlightedIt = (q.q || "").replace(re, `<mark class="${markClass}">$1</mark>`);
 
+        const rawImg = (q.img || q.immagine || "").trim();
+        const fn = rawImg ? rawImg.split("/").pop().trim() : "";
+        const imgHtml = fn ? `
+          <div style="text-align:center; margin:8px auto 12px; background:rgba(255,255,255,0.03); padding:8px; border-radius:12px; border:1px solid var(--ps-card-border); max-width:240px;">
+            <img src="../img_sign/${fn}" alt="إشارة السؤال" loading="lazy" style="max-height:110px; max-width:100%; object-fit:contain; border-radius:6px;" onerror="if(!this.dataset.fallback && '${rawImg}'){this.dataset.fallback='1'; this.src='../Capitoli_Divisi/' + '${rawImg}';}else{this.parentElement.style.display='none';}">
+          </div>
+        ` : '';
+
         return `
           <div class="ps-q-item ${isException ? 'is-exception' : ''}">
             <div class="ps-q-item-top">
@@ -1356,6 +1364,8 @@
                 ⭐ هذا السؤال هو الاستثناء المخالف للقاعدة!
               </div>
             ` : ''}
+
+            ${imgHtml}
 
             <div class="ps-q-it-text">${highlightedIt}</div>
             <div class="ps-q-ar-text">${q.tr || ''}</div>
@@ -1399,6 +1409,14 @@
       const re = new RegExp(`(${activeModalWord.regex})`, "gi");
       const highlightedIt = (q.q || "").replace(re, `<mark style="background:rgba(56, 189, 248, 0.3); color:var(--ps-cyan); padding:2px 6px; border-radius:4px;">$1</mark>`);
 
+      const rawImg = (q.img || q.immagine || "").trim();
+      const fn = rawImg ? rawImg.split("/").pop().trim() : "";
+      const quizImgHtml = fn ? `
+        <div style="text-align:center; margin:0 auto 14px; background:rgba(255,255,255,0.03); padding:8px; border-radius:12px; border:1px solid var(--ps-card-border); max-width:240px;">
+          <img src="../img_sign/${fn}" alt="إشارة السؤال" style="max-height:120px; max-width:100%; object-fit:contain; border-radius:6px;" onerror="if(!this.dataset.fallback && '${rawImg}'){this.dataset.fallback='1'; this.src='../Capitoli_Divisi/' + '${rawImg}';}else{this.parentElement.style.display='none';}">
+        </div>
+      ` : '';
+
       container.innerHTML = `
         <div class="ps-quiz-wrap">
           <div class="ps-quiz-header">
@@ -1406,6 +1424,7 @@
           </div>
 
           <div class="ps-quiz-q-card">
+            ${quizImgHtml}
             <div class="ps-q-it-text" style="font-size:1.15rem; margin-bottom:12px;">${highlightedIt}</div>
             <div class="ps-q-ar-text" style="font-size:1.02rem;">${q.tr || ''}</div>
           </div>

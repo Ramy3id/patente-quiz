@@ -162,13 +162,14 @@
   </div>
 
   <!-- المحركات المركزية -->
+  <script src="../Capitoli_Divisi/data_all_questions.js"></script>
   <script src="../assets/js/trap-vault.js"></script>
   <script src="../assets/js/matching-engine.js"></script>
   <script src="../assets/js/audio-engine.js"></script>
 
   <script>
     function resolveImgPath(img) {
-      if (!img) return null;
+      if (!img || typeof img !== 'string' || !img.trim()) return null;
       const filename = img.split('/').pop().trim();
       return filename ? `../img_sign/${filename}` : null;
     }
@@ -182,8 +183,23 @@
       const gameContainer = document.getElementById("gameContainer");
 
       try {
-        const res = await fetch("../assets/all_questions.json");
-        allQuestions = await res.json();
+        if (window.ALL_QUESTIONS_DATA && Array.isArray(window.ALL_QUESTIONS_DATA) && window.ALL_QUESTIONS_DATA.length > 0) {
+          allQuestions = window.ALL_QUESTIONS_DATA.map(q => ({
+            id: q.id,
+            domanda: q.q,
+            risposta: q.a,
+            immagine: q.img,
+            img: q.img,
+            traduzione: q.tr,
+            spiegazione: q.sp,
+            trabocchetto: q.tb,
+            parole_chiave: q.pk,
+            capitolo_num: q.ch || 1
+          }));
+        } else {
+          const res = await fetch("../assets/all_questions.json");
+          allQuestions = await res.json();
+        }
         renderTraps();
         setupGame();
       } catch (e) {
@@ -194,7 +210,8 @@
         const tricky = trapsEngine.filterTraps(allQuestions).slice(0, 100);
         trapsGrid.innerHTML = tricky.map((q, idx) => {
           const highlightedText = trapsEngine.highlightTrapWords(q.domanda);
-          const imgPath = resolveImgPath(q.immagine);
+          const rawImg = (q.img || q.immagine || "").trim();
+          const imgPath = resolveImgPath(rawImg);
           return `
             <div class="trap-card-item">
               <div class="trap-card-header">
@@ -203,7 +220,7 @@
                   الحكم: ${q.risposta ? 'VERO (صح)' : 'FALSO (خطأ)'}
                 </span>
               </div>
-              ${imgPath ? `<div class="trap-img-box"><img src="${imgPath}" alt="Segnale" loading="lazy" onerror="this.parentElement.style.display='none'"></div>` : ''}
+              ${imgPath ? `<div class="trap-img-box"><img src="${imgPath}" alt="Segnale" loading="lazy" onerror="if(!this.dataset.fallback && '${rawImg}'){this.dataset.fallback='1'; this.src='../Capitoli_Divisi/' + '${rawImg}';}else{this.parentElement.style.display='none';}"></div>` : ''}
               <div class="trap-it-text">${highlightedText}</div>
               <div class="trap-ar-text"><strong>📖 الترجمة:</strong> ${q.traduzione || 'غير متوفرة'}</div>
               <div class="trap-explanation"><strong>💡 الشرح القانوني:</strong> ${q.spiegazione || 'راجع نصوص كود السير.'}</div>
