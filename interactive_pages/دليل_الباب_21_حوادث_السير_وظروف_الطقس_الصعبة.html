@@ -886,6 +886,354 @@
   border-radius: 6px;
   border: 1px solid rgba(245, 158, 11, 0.3);
 }
+
+  /* =========================================================
+     WEATHER HAZARDS STUDIO & WORKSHOP GALLERY CSS (CH21)
+     ========================================================= */
+  .wh-studio-card {
+    background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 20px;
+    padding: 24px;
+    margin: 32px 0 40px;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+  }
+  .wh-studio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+  }
+  .wh-studio-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #38bdf8;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .wh-pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #38bdf8;
+    box-shadow: 0 0 10px #38bdf8;
+    animation: whPulse 1.5s infinite;
+  }
+  @keyframes whPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+  }
+  .wh-studio-main-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #f8fafc;
+    margin: 0 0 6px;
+  }
+  .wh-studio-sub-title {
+    font-size: 0.92rem;
+    color: #94a3b8;
+    margin: 0;
+    line-height: 1.6;
+  }
+  .wh-tab-group {
+    display: flex;
+    gap: 8px;
+    background: rgba(15, 23, 42, 0.6);
+    padding: 6px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .wh-tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .wh-tab-btn.active {
+    background: #0284c7;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+  }
+  .wh-stage-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media (min-width: 992px) {
+    .wh-stage-layout {
+      grid-template-columns: 1.25fr 1fr;
+    }
+  }
+  .wh-canvas-wrapper {
+    position: relative;
+    background: #090d16;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.8);
+    min-height: 380px;
+  }
+  .wh-canvas-wrapper canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .wh-controls-panel {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .wh-control-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 8px;
+  }
+  .wh-btn-toggle-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .wh-toggle-btn {
+    flex: 1;
+    min-width: 120px;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #cbd5e1;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 9px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .wh-toggle-btn.active {
+    background: #0284c7;
+    color: #ffffff;
+    border-color: #38bdf8;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+  }
+  .wh-slider-box {
+    margin-bottom: 12px;
+  }
+  .wh-slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.84rem;
+    color: #cbd5e1;
+    margin-bottom: 6px;
+  }
+  .wh-slider-val {
+    font-weight: 800;
+    color: #38bdf8;
+  }
+  .wh-slider {
+    width: 100%;
+    accent-color: #38bdf8;
+    height: 6px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .wh-slider-ticks {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    color: #64748b;
+    margin-top: 4px;
+  }
+  .wh-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .wh-metric-card {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 10px 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .wh-metric-label {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    font-weight: 600;
+  }
+  .wh-metric-val {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #38bdf8;
+  }
+  .wh-metric-val.danger-val {
+    color: #f43f5e;
+  }
+  .wh-metric-val.safe-val {
+    color: #10b981;
+  }
+  .wh-metric-sub {
+    font-size: 0.68rem;
+    color: #64748b;
+  }
+  .wh-summary-box {
+    background: rgba(15, 23, 42, 0.7);
+    border-radius: 12px;
+    padding: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .wh-legal-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .wh-trap-box-interactive {
+    background: rgba(244, 63, 94, 0.08);
+    border-right: 3px solid #f43f5e;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    color: #fecdd3;
+    line-height: 1.6;
+    margin-top: 8px;
+  }
+  .wh-trap-box-interactive .wh-trap-header {
+    font-weight: 800;
+    color: #f43f5e;
+    margin-bottom: 4px;
+  }
+
+  /* Photographic Cards Container */
+  .vehicle-part-img-container {
+    width: 100%;
+    height: 190px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    background: #0f172a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .part-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    display: block;
+  }
+  .signal-card:hover .part-card-img {
+    transform: scale(1.05);
+  }
+  .part-card-tag {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #f8fafc;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    letter-spacing: 0.3px;
+  }
+
+  /* Workshop Photo Gallery Section */
+  .workshop-gallery-section {
+    margin: 40px 0 32px;
+  }
+  .workshop-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .workshop-gallery-card {
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  .workshop-gallery-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(56, 189, 248, 0.4);
+  }
+  .workshop-gallery-media {
+    position: relative;
+    height: 170px;
+    overflow: hidden;
+  }
+  .workshop-gallery-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+  .workshop-gallery-card:hover .workshop-gallery-media img {
+    transform: scale(1.06);
+  }
+  .workshop-gallery-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(2, 132, 199, 0.85);
+    backdrop-filter: blur(6px);
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  .workshop-gallery-content {
+    padding: 14px;
+  }
+  .workshop-gallery-title {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: #f1f5f9;
+    margin: 0 0 6px;
+  }
+  .workshop-gallery-sub {
+    font-size: 0.78rem;
+    color: #38bdf8;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  .workshop-gallery-desc {
+    font-size: 0.82rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin: 0;
+  }
+
 </style>
   <link rel="manifest" href="../manifest.json">
 </head>
@@ -1031,105 +1379,97 @@
   </section>
 
   <!-- SIMULATOR 1: Triangle & Reflective Vest -->
-  <section class="simulator-box" id="sim-triangolo">
-    <div class="sim-title">
-      <span>🔺</span>
-      <span>المحاكي التفاعلي 1: مسافات وشروط وضع مثلث الخطر المتنقل (Segnale Mobile di Pericolo)</span>
+  
+  <!-- 60 FPS WEATHER HAZARDS & EMERGENCY STUDIO CONTAINER -->
+  <div id="weatherHazardsStudioContainer"></div>
+
+  <!-- AUTHENTIC WEATHER & EMERGENCY WORKSHOP PHOTO GALLERY -->
+  <section class="workshop-gallery-section" id="workshop-gallery">
+    <div class="section-heading">
+      <div class="section-badge">المعرض التوثيقي الميداني للباب 21</div>
+      <h2 class="section-title">معدات الطوارئ، سلاسل الثلج وتجهيزات الأنفاق المعتمدة في إيطاليا</h2>
     </div>
-    <div class="sim-subtitle">اختر نوع الطريق لمعرفة الالتزام القانوني لمثلث الخطر، المسافات، والسترة العاكسة:</div>
-    <div class="sim-controls">
-      <button class="sim-btn active" id="btnRoadExtra" onclick="simTriangolo('extra')">طرق خارج المدن (Extraurbane)</button>
-      <button class="sim-btn" id="btnRoadAuto" onclick="simTriangolo('auto')">الأوتوستراد (Autostrada)</button>
-      <button class="sim-btn" id="btnRoadUrbane" onclick="simTriangolo('urbane')">داخل المدن (Centri abitati)</button>
-      <button class="sim-btn" id="btnRoadCurve" onclick="simTriangolo('curve')">المنحنيات وقمم المرتفعات (Curve e Dossi)</button>
-    </div>
-    <div class="sim-output-card" id="triangoloOutput">
-      <div class="sim-badge" id="triangoloBadge" style="background:rgba(244,63,94,0.15); color:var(--rose-primary); border:1px solid rgba(244,63,94,0.35);">
-        🔺 50 متر / رؤية 100 متر
+    <div class="workshop-gallery-grid">
+      <!-- 1: Triangolo Omologato -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/weather_parts/gallery_triangolo_omologato.jpg" alt="Triangolo di Pericolo" loading="lazy">
+          <span class="workshop-gallery-badge">طوارئ الطرق</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">مثلث الخطر المعتمد رسمياً (Triangolo ECE R27)</h4>
+          <div class="workshop-gallery-sub">Segnale Mobile di Pericolo Omologato</div>
+          <p class="workshop-gallery-desc">إلزامي وضعه على مسافة لا تقل عن 50 متراً من السيارة العاطلة في الطرق الخارجية، بحيث يكون مرئياً من 100 متر على الأقل.</p>
+        </div>
       </div>
-      <div class="sim-details">
-        <h4 id="triangoloTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">خارج المدن (Strade Extraurbane)</h4>
-        <p id="triangoloDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
-          <strong>المسافة من المركبة:</strong> يوضع المثلث على بعد <strong>50 متراً على الأقل</strong> خلف السيارة أو الحمولة المتساقطة على نفس الحارة.<br>
-          <strong>مسافة الرؤية:</strong> يجب أن يكون المثلث مرئياً بوضوح للقادمين من مسافة <strong>100 متر على الأقل</strong>.<br>
-          <strong>السترة العاكسة (Giubbotto):</strong> إلزامية تماماً؛ يجب ارتداؤها قبل النزول من السيارة في أوقات الظلام أو عندما تنعدم الرؤية.<br>
-          <strong>أضواء الطوارئ:</strong> يجب تشغيل الأضواء التحذيرية الأربعة (4 frecce) بالإضافة إلى وضع المثلث.
-        </p>
-        <div class="sim-warning-box" id="triangoloWarning" style="margin-top:10px; padding:10px 14px; background:rgba(245,158,11,0.1); border-right:3px solid var(--amber-primary); border-radius:8px; font-size:0.86rem; color:#fde68a;">
-          💡 <strong>معلومة وزارية:</strong> المثلث يوضع على مسافة 1 متر على الأقل من الحافة الخارجية للشارع أو باتجاه منتصف المسار.
+
+      <!-- 2: Giubbotto Alta Visibilita -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/weather_parts/gallery_giubbotto_alta_visibilita.jpg" alt="Giubbotto Riflettente" loading="lazy">
+          <span class="workshop-gallery-badge">سلامة السائق</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">السترة العاكسة الفوسفورية (Giubbotto EN 471)</h4>
+          <div class="workshop-gallery-sub">Indumento ad Alta Visibilità Obbligatorio</div>
+          <p class="workshop-gallery-desc">يجب ارتداؤها إلزامياً قبل النزول من المركبة ليلاً أو في الرؤية الضعيفة على الطرق الخارجية وبحارات الطوارئ في الأوتوستراد.</p>
+        </div>
+      </div>
+
+      <!-- 3: Catene da Neve -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/weather_parts/gallery_catene_neve_montate.jpg" alt="Catene da Neve" loading="lazy">
+          <span class="workshop-gallery-badge">تجهيزات الشتاء</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">سلاسل الثلج الفولاذية (Catene da Neve)</h4>
+          <div class="workshop-gallery-sub">Dispositivi Antisdrucciolevoli per Ruote Motrici</div>
+          <p class="workshop-gallery-desc">تركب حصراً على عجلات الدفع عند وجود الثلوج؛ وتحدد السرعة القصوى مع السلاسل بـ 50 كم/س في جميع شبكات الطرق.</p>
+        </div>
+      </div>
+
+      <!-- 4: Manica a Vento -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/weather_parts/gallery_manica_a_vento.jpg" alt="Manica a Vento" loading="lazy">
+          <span class="workshop-gallery-badge">رياح الجسور</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">مؤشر الرياح الجانبية على الجسور (Manica a Vento)</h4>
+          <div class="workshop-gallery-sub">Segnale di Forte Vento Laterale su Viadotti</div>
+          <p class="workshop-gallery-desc">يشير إلى اتجاه وقوة الرياح العرضية؛ ويحذر السائقين من انحراف المركبات خاصة الكارفان والشاحنات والدراجات النارية.</p>
+        </div>
+      </div>
+
+      <!-- 5: SOS Galleria -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/weather_parts/gallery_sos_galleria.jpg" alt="Cabina SOS Galleria" loading="lazy">
+          <span class="workshop-gallery-badge">طوارئ النفق</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">كابينة الهاتف ومطفأة الحريق في النفق (Cabina SOS)</h4>
+          <div class="workshop-gallery-sub">Colonnina SOS ed Estintore in Galleria</div>
+          <p class="workshop-gallery-desc">مخصصة لطلب النجدة وتحديد الكيلومتر والمسار الدقيق أوتوماتيكياً؛ ومزودة بمطفأة لإخماد البدايات الأولى لحرائق المركبات.</p>
+        </div>
+      </div>
+
+      <!-- 6: Fuga Galleria -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/weather_parts/gallery_fuga_galleria.jpg" alt="Via di Fuga Galleria" loading="lazy">
+          <span class="workshop-gallery-badge">مسار النجاة</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">مسار الهروب ومخرج الطوارئ (Via di Fuga)</h4>
+          <div class="workshop-gallery-sub">Uscita di Emergenza Illuminata in Galleria</div>
+          <p class="workshop-gallery-desc">مسارات إخلاء مضادة للدخان ومضاءة تقود للمخارج الآمنة في حال الحرائق الكبرى؛ مع ترك مفاتيح السيارات بالمقود لفرق الإنقاذ.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SIMULATOR 2: Aquaplaning -->
-  <section class="simulator-box" id="sim-aquaplaning">
-    <div class="sim-title">
-      <span>🌊</span>
-      <span>المحاكي التفاعلي 2: مستكشف مخاطر الانزلاق المائي (Simulatore Rischio Aquaplaning)</span>
-    </div>
-    <div class="sim-subtitle">غير متغيرات السرعة وحالة الإطار وكتلة المركبة لترى درجة احتمالية طفو السيارة فوق الماء:</div>
-    <div class="sim-controls" style="margin-bottom:12px;">
-      <span style="font-size:0.88rem; color:var(--text-muted); margin-left:8px; align-self:center;">السرعة:</span>
-      <button class="sim-btn" id="btnSpeedLow" onclick="setAquaSpeed('low')">60 كم/س</button>
-      <button class="sim-btn active" id="btnSpeedMid" onclick="setAquaSpeed('mid')">90 كم/س</button>
-      <button class="sim-btn" id="btnSpeedHigh" onclick="setAquaSpeed('high')">130 كم/س</button>
-    </div>
-    <div class="sim-controls">
-      <span style="font-size:0.88rem; color:var(--text-muted); margin-left:8px; align-self:center;">حالة الإطار:</span>
-      <button class="sim-btn" id="btnTireNew" onclick="setAquaTire('new')">إطار جديد (8 mm)</button>
-      <button class="sim-btn active" id="btnTireWorn" onclick="setAquaTire('worn')">إطار متآكل (1.6 mm)</button>
-    </div>
-    <div class="sim-output-card" id="aquaOutput" style="margin-top:14px;">
-      <div class="sim-badge" id="aquaBadge" style="background:rgba(244,63,94,0.15); color:var(--rose-primary); border:1px solid rgba(244,63,94,0.35);">
-        ⚠️ خطر انزلاق مائي مرتفع جداً!
-      </div>
-      <div class="sim-details">
-        <h4 id="aquaTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">فقدان التماسك والطفو فوق طبقة الماء (Perdita di aderenza)</h4>
-        <p id="aquaDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
-          عند سرعة 90 كم/س مع إطار متآكل (عمق نقشة قليل)، تعجز القنوات المطاطية عن تصريف المياه المتجمعة، فيتشكل 'إسفين مائي' يرفع الإطار عن الأسفلت.<br>
-          <strong>الأثر الفوري:</strong> المقود يصبح خفيفاً وفاقداً للاستجابة تماماً، وتفقد الفرامل فعاليتها تماماً.<br>
-          <strong>التصرف السليم:</strong> لا تضغط على الفرامل بعنف إطلاقاً! امسك المقود بكلتا يديك بقوة وثبات، وارفع قدمك تدريجياً عن دواسة الوقود حتى تستعيد الإطارات ملامسة الطريق.
-        </p>
-        <div class="sim-warning-box" id="aquaWarning" style="margin-top:10px; padding:10px 14px; background:rgba(244,63,94,0.1); border-right:3px solid var(--rose-primary); border-radius:8px; font-size:0.86rem; color:#fecdd3;">
-          ❌ <strong>فخ امتحاني:</strong> السيارات الأخف وزناً (Più leggere) تكون أكثر عرضة للانزلاق المائي مقارنة بالسيارات الثقيلة لأن وزنها لا يكفي لطرد الماء المتجمع!
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SIMULATOR 3: Tunnel Emergencies -->
-  <section class="simulator-box" id="sim-galleria">
-    <div class="sim-title">
-      <span>🚇</span>
-      <span>المحاكي التفاعلي 3: التصرف في طوارئ وحرائق الأنفاق (Emergenza in Galleria)</span>
-    </div>
-    <div class="sim-subtitle">اضغط لاكتشاف البروتوكول الوزاري المعتمد للتعامل مع طوارئ الأنفاق ولوحات الإرشاد الرسمية:</div>
-    <div class="sim-controls">
-      <button class="sim-btn active" id="btnTunGuasto" onclick="simTunnel('guasto')">1. عطل ميكانيكي بالسيارة</button>
-      <button class="sim-btn" id="btnTunIncendio" onclick="simTunnel('incendio')">2. اندلاع حريق في النفق</button>
-      <button class="sim-btn" id="btnTunFuga" onclick="simTunnel('fuga')">3. لوحة مخرج الطوارئ (Fig. 334)</button>
-      <button class="sim-btn" id="btnTunSOS" onclick="simTunnel('sos')">4. كابينة الطوارئ والإطفاء (Fig. 335)</button>
-    </div>
-    <div class="sim-output-card" id="tunnelOutput">
-      <div class="sim-badge" id="tunnelBadge" style="background:rgba(245,158,11,0.15); color:var(--amber-primary); border:1px solid rgba(245,158,11,0.35);">
-        ⚠️ عطل بالمركبة
-      </div>
-      <div class="sim-details">
-        <h4 id="tunnelTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">التعامل مع تعطل المركبة داخل النفق (Guasto al veicolo)</h4>
-        <p id="tunnelDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
-          <strong>الإجراءات الفورية:</strong><br>
-          1) تشغيل أضواء الطوارئ الرباعية (4 frecce) فوراً.<br>
-          2) محاولة إيصال السيارة إلى خليج التوقف الجانبي (Piazzola di sosta) أو أقصى يمين المسار.<br>
-          3) إطفاء محرك السيارة لمنع تراكم الغازات السامة والعادم داخل النفق.<br>
-          4) ارتداء السترة العاكسة والاتصال برقم الطوارئ من كبائن SOS الموجودة على الجدار.
-        </p>
-        <div class="sim-warning-box" id="tunnelWarning" style="margin-top:10px; padding:10px 14px; background:rgba(56,189,248,0.1); border-right:3px solid var(--sky-primary); border-radius:8px; font-size:0.86rem; color:#bae6fd;">
-          💡 <strong>قاعدة هامة:</strong> يحظر الدوران للخلف (Inversione) أو الرجوع للخلف داخل النفق تحت أي ظرف.
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- COMPARISON SECTION -->
   <section class="comp-section" id="comp-weather">
@@ -1188,9 +1528,12 @@
 
     <!-- CARD: Incidente Stradale -->
     <div class="signal-card" data-category="incidenti">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🚗💥</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/weather_parts/incidente_stradale.jpg" alt="Comportamento in Caso di Incidente" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Comportamento in Caso di Incidente</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Incidente Stradale</div>
         </div>
       </div>
@@ -1233,9 +1576,12 @@
 
     <!-- CARD: Tamponamenti a Catena -->
     <div class="signal-card" data-category="incidenti">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">💥💥</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/weather_parts/tamponamento_catena.jpg" alt="Tamponamento e Tamponamento a Catena" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Tamponamento e Tamponamento a Catena</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Tamponamenti a Catena</div>
         </div>
       </div>
@@ -1278,9 +1624,12 @@
 
     <!-- CARD: Triangolo di Pericolo -->
     <div class="signal-card" data-category="emergenza">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🔺</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/weather_parts/triangolo_emergenza.jpg" alt="Segnale Mobile di Pericolo (Triangolo)" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Segnale Mobile di Pericolo (Triangolo)</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Triangolo di Pericolo</div>
         </div>
       </div>
@@ -1324,9 +1673,12 @@
 
     <!-- CARD: Giubbotto Riflettente -->
     <div class="signal-card" data-category="emergenza">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🦺</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/weather_parts/giubbotto_riflettente.jpg" alt="Giubbotto Riflettente ad Alta Visibilità" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Giubbotto Riflettente ad Alta Visibilità</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Giubbotto Riflettente</div>
         </div>
       </div>
@@ -1370,9 +1722,12 @@
 
     <!-- CARD: Aquaplaning -->
     <div class="signal-card" data-category="pioggia">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🌧️ 🏎️</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/weather_parts/aquaplaning_pneumatico.jpg" alt="Fenomeno dell'Aquaplaning su Asfalto" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Fenomeno dell'Aquaplaning su Asfalto</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Aquaplaning</div>
         </div>
       </div>
@@ -1416,9 +1771,12 @@
 
     <!-- CARD: Pioggia Intensa -->
     <div class="signal-card" data-category="pioggia">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🌧️ ⚠️</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/weather_parts/pioggia_fango.jpg" alt="Guida con Pioggia Battente e Fango" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Guida con Pioggia Battente e Fango</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Pioggia Intensa</div>
         </div>
       </div>
@@ -1462,9 +1820,12 @@
 
     <!-- CARD: Strade Ghiacciate -->
     <div class="signal-card" data-category="neve">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">❄️ 🧊</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/weather_parts/strada_ghiacciata.jpg" alt="Strada Ghiacciata e Minima Aderenza" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Strada Ghiacciata e Minima Aderenza</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Strade Ghiacciate</div>
         </div>
       </div>
@@ -1508,9 +1869,12 @@
 
     <!-- CARD: Catene e Neve -->
     <div class="signal-card" data-category="neve">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">❄️ ⛓️</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/weather_parts/catene_neve.jpg" alt="Guida sulla Neve e Catene da Neve" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Guida sulla Neve e Catene da Neve</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Catene e Neve</div>
         </div>
       </div>
@@ -1554,9 +1918,12 @@
 
     <!-- CARD: Infossamento -->
     <div class="signal-card" data-category="neve">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🚜 🕳️</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/weather_parts/infossamento_ruote.jpg" alt="Infossamento delle Ruote in Fango o Neve" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Infossamento delle Ruote in Fango o Neve</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Infossamento</div>
         </div>
       </div>
@@ -1600,9 +1967,12 @@
 
     <!-- CARD: Nebbia Fitta -->
     <div class="signal-card" data-category="nebbia-gallerie">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🌫️ 💡</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/weather_parts/nebbia_fendinebbia.jpg" alt="Guida con Nebbia Fitta e Fendinebbia" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Guida con Nebbia Fitta e Fendinebbia</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Nebbia Fitta</div>
         </div>
       </div>
@@ -1646,9 +2016,12 @@
 
     <!-- CARD: Vento Laterale -->
     <div class="signal-card" data-category="nebbia-gallerie">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">💨 🌉</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/weather_parts/vento_laterale_viadotto.jpg" alt="Forte Vento Laterale su Viadotti" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Forte Vento Laterale su Viadotti</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Vento Laterale</div>
         </div>
       </div>
@@ -1692,8 +2065,11 @@
 
     <!-- CARD: Figura 334 -->
     <div class="signal-card" data-category="nebbia-gallerie">
-      <div class="signal-img-container">
-        <img src="../Capitoli_Divisi/Capitolo_21_incidenti_stradali_comportamenti/immagini/334.png" alt="Pannello indicatore di via di fuga o uscita di emergenza (Figura 334)" style="max-height:130px; object-fit:contain;">
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/weather_parts/via_fuga_galleria.jpg" alt="Via di Fuga ed Uscita di Emergenza" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Via di Fuga ed Uscita di Emergenza</span>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">لوحة مخرج الطوارئ ومسار الهروب في النفق (Via di fuga in galleria)</h3>
@@ -1734,8 +2110,11 @@
 
     <!-- CARD: Figura 335 -->
     <div class="signal-card" data-category="nebbia-gallerie">
-      <div class="signal-img-container">
-        <img src="../Capitoli_Divisi/Capitolo_21_incidenti_stradali_comportamenti/immagini/335.png" alt="Pannello per cabina di soccorso ed estintore in galleria (Figura 335)" style="max-height:130px; object-fit:contain;">
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/weather_parts/sos_estintore_galleria.jpg" alt="Cabina SOS ed Estintore in Galleria" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Cabina SOS ed Estintore in Galleria</span>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">لوحة كابينة الطوارئ ومطفأة الحريق في النفق (SOS ed Estintore)</h3>
@@ -1776,9 +2155,12 @@
 
     <!-- CARD: Salita e Discesa -->
     <div class="signal-card" data-category="incidenti">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🚪 🚶</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/weather_parts/apertura_portiere.jpg" alt="Apertura Portiere e Controllo Specchietti" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Apertura Portiere e Controllo Specchietti</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Salita e Discesa</div>
         </div>
       </div>
@@ -2369,5 +2751,6 @@
     }
   </script>
 
+  <script src="../assets/js/weather-hazards-studio.js"></script>
 </body>
 </html>
