@@ -1571,6 +1571,9 @@
             <button class="sp-btn sp-btn-outline" id="btnQuizTrapHighlight" onclick="toggleQuizTrapHighlight()" style="padding: 4px 10px; font-size: 0.75rem;" title="تفعيل أو إلغاء تظليل كلمات الأفخاخ">
               👁️ تظليل الأفخاخ
             </button>
+            <button class="sp-btn sp-btn-outline" id="btnQuizDecoder" onclick="toggleQuizDecoder()" style="padding: 4px 10px; font-size: 0.75rem;" title="تفكيك السؤال لـ 3 كتل منطقية والمعادلة القانونية">
+              🧩 مفكك الـ 3 كتل
+            </button>
             <div class="sp-quiz-progress" id="quizProgressText" style="font-weight: 800; color: var(--sp-cyan);">سؤال 1 من 30</div>
             <div id="quizAnsweredCount" style="font-size: 0.85rem; color: var(--sp-text-sub);">المُجاب عنه: 0 / 30</div>
             <button class="sp-btn sp-btn-outline" style="padding: 4px 10px; font-size: 0.75rem;" onclick="closeRapidQuiz()">✕ إغلاق</button>
@@ -1592,6 +1595,8 @@
           <div class="sp-q-arabic" id="quizQuestionAr">في طريق ذي اتجاهين يجوز التجاوز...</div>
           <!-- أشرطة المصطلحات المتقابلة المظللة -->
           <div id="quizPairsChips"></div>
+          <!-- تفكيك السؤال بالكتل الـ 3 والمعادلة الرياضية المنطقية -->
+          <div id="quizDecoderBox"></div>
 
           <!-- أزرار الإجابة VERO / FALSO -->
           <div class="sp-quiz-actions">
@@ -1927,6 +1932,7 @@
   <script src="../assets/js/srs-engine.js"></script>
   <script src="../assets/js/trap-vault.js"></script>
   <script src="../assets/js/bilingual-highlighter.js"></script>
+  <script src="../assets/js/question-decoder.js"></script>
 
   <script>
     /**
@@ -2801,6 +2807,7 @@
         btnTrapH.style.borderColor = isEnabled ? "var(--sp-rose)" : "var(--sp-border)";
       }
       updateQuizBilingualBtnUI();
+      updateQuizDecoderBtnUI();
 
       renderRapidQuizPills();
       loadRapidQuizQuestion();
@@ -2860,6 +2867,28 @@
       }
     }
 
+    function toggleQuizDecoder() {
+      if (!window.questionDecoder) return;
+      window.questionDecoder.toggle();
+      updateQuizDecoderBtnUI();
+      loadRapidQuizQuestion();
+    }
+
+    function updateQuizDecoderBtnUI() {
+      const btn = document.getElementById("btnQuizDecoder");
+      if (!btn || !window.questionDecoder) return;
+      const isEn = window.questionDecoder.isEnabled();
+      if (isEn) {
+        btn.style.color = "var(--sp-amber)";
+        btn.style.borderColor = "var(--sp-amber)";
+        btn.innerText = "🧩 مفكك الـ 3 كتل: مفعل";
+      } else {
+        btn.style.color = "var(--sp-text-sub)";
+        btn.style.borderColor = "var(--sp-border)";
+        btn.innerText = "🧩 مفكك الـ 3 كتل: معطل";
+      }
+    }
+
     function loadRapidQuizQuestion() {
       const q = rapidQuizState.questions[rapidQuizState.currentIndex];
       if (!q) return;
@@ -2914,6 +2943,16 @@
         imgWrap.style.display = "block";
       } else {
         imgWrap.style.display = "none";
+      }
+
+      // صندوق تفكيك السؤال بالكتل الـ 3
+      const decoderBox = document.getElementById("quizDecoderBox");
+      if (decoderBox) {
+        if (window.questionDecoder && window.questionDecoder.isEnabled()) {
+          decoderBox.innerHTML = window.questionDecoder.renderDecoderCard(q, { collapsed: false });
+        } else {
+          decoderBox.innerHTML = "";
+        }
       }
 
       // ضبط حالة أزرار الإجابة (إبراز الإجابة المختارة إن وجدت دون تصحيح)
@@ -3130,6 +3169,7 @@
               <strong>💡 الشرح القانوني:</strong> ${q.sp || 'راجع قواعد كود السير.'}
             </div>
             ${q.tb ? `<div style="margin-top:6px; font-size:0.82rem; color:var(--sp-amber);"><strong>⚠️ فخ الوزارة:</strong> ${q.tb}</div>` : ''}
+            ${window.questionDecoder ? window.questionDecoder.renderDecoderCard(q, { collapsed: false }) : ''}
           </div>
         `;
       }).join("");

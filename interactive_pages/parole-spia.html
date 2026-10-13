@@ -1129,6 +1129,7 @@
   <script src="../Capitoli_Divisi/data_all_questions.js"></script>
   <script src="../assets/js/bilingual-highlighter.js"></script>
   <script src="../assets/js/trap-vault.js"></script>
+  <script src="../assets/js/question-decoder.js"></script>
 
   <script>
     /**
@@ -2537,6 +2538,7 @@
             <div style="font-size:0.82rem; color:var(--ps-text-sub); line-height:1.5;">
               <strong>💡 الشرح القانوني:</strong> ${q.sp || 'راجع كود السير.'}
             </div>
+            ${window.questionDecoder ? window.questionDecoder.renderDecoderCard(q, { collapsed: false }) : ''}
           </div>
         `;
       }).join("");

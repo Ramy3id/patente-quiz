@@ -671,6 +671,9 @@
           <button class="tr-audio-btn" id="btnToggleHighlight" onclick="toggleTrapHighlight()" title="تفعيل/تعطيل تظليل كلمات الفخاخ الوزارية">
             <span id="lblHighlightIcon">👁️</span> <span id="lblHighlightText">تظليل الأفخاخ</span>
           </button>
+          <button class="tr-audio-btn" id="btnToggleDecoder" onclick="toggleAllenamentoDecoder()" title="تفكيك السؤال لـ 3 كتل منطقية والمعادلة القانونية">
+            <span id="lblDecoderIcon">🧩</span> <span id="lblDecoderText">مفكك الـ 3 كتل</span>
+          </button>
           <button class="tr-audio-btn" id="btnHandsFree" onclick="toggleHandsFreeMode()" title="تشغيل وضع الاستماع التلقائي بدون لمس الشاشة">
             <span>🎧 استماع تلقائي (Podcast)</span>
           </button>
@@ -725,6 +728,8 @@
         <div class="tr-trap-box" id="trapBox" style="display: none;">
           <strong>⚠️ تنبيه الفخ الوزاري:</strong> <span id="lblTrapText"></span>
         </div>
+        <!-- تفكيك السؤال بالكتل الـ 3 والمعادلة الرياضية المنطقية -->
+        <div id="decoderDrawerBox" style="margin-top: 12px;"></div>
         <div style="text-align: left; margin-top: 14px;">
           <button class="action-btn" style="padding: 10px 20px; font-weight: 800; cursor: pointer;" onclick="goToNextQuestion()">
             <span>السؤال التالي ⬅</span>
@@ -777,6 +782,7 @@
   <script src="../assets/js/srs-engine.js"></script>
   <script src="../assets/js/trap-vault.js"></script>
   <script src="../assets/js/bilingual-highlighter.js"></script>
+  <script src="../assets/js/question-decoder.js"></script>
 
   <script>
     /**
@@ -814,6 +820,7 @@
       } catch (e) {
         console.warn("BilingualHighlighter Fallback:", e);
       }
+      updateDecoderBtnUI();
 
       // قراءة المعاملات من الرابط
       const urlParams = new URLSearchParams(window.location.search);
@@ -1333,6 +1340,40 @@
       }
     }
 
+    function toggleAllenamentoDecoder() {
+      if (!window.questionDecoder) return;
+      window.questionDecoder.toggle();
+      updateDecoderBtnUI();
+      const feedbackDrawer = document.getElementById("feedbackDrawer");
+      if (feedbackDrawer && feedbackDrawer.style.display !== "none") {
+        const q = sessionQuestions[currentIndex];
+        const decBox = document.getElementById("decoderDrawerBox");
+        if (decBox && q) {
+          decBox.innerHTML = window.questionDecoder.isEnabled()
+            ? window.questionDecoder.renderDecoderCard(q, { collapsed: false })
+            : "";
+        }
+      }
+    }
+
+    function updateDecoderBtnUI() {
+      const btn = document.getElementById("btnToggleDecoder");
+      if (!btn || !window.questionDecoder) return;
+      const isEn = window.questionDecoder.isEnabled();
+      const txt = document.getElementById("lblDecoderText");
+      if (isEn) {
+        btn.classList.add("active");
+        btn.style.color = "var(--tr-amber)";
+        btn.style.borderColor = "var(--tr-amber)";
+        if (txt) txt.innerText = "مفكك الـ 3 كتل: مفعل";
+      } else {
+        btn.classList.remove("active");
+        btn.style.color = "var(--tr-text-sub)";
+        btn.style.borderColor = "var(--tr-border)";
+        if (txt) txt.innerText = "مفكك الـ 3 كتل: معطل";
+      }
+    }
+
     function toggleHandsFreeMode() {
       if (isHandsFree) {
         stopHandsFreeMode();
@@ -1461,6 +1502,15 @@
         trapBox.style.display = "block";
       } else {
         trapBox.style.display = "none";
+      }
+
+      const decBox = document.getElementById("decoderDrawerBox");
+      if (decBox) {
+        if (window.questionDecoder && window.questionDecoder.isEnabled()) {
+          decBox.innerHTML = window.questionDecoder.renderDecoderCard(q, { collapsed: false });
+        } else {
+          decBox.innerHTML = "";
+        }
       }
 
       feedbackDrawer.style.display = "block";
