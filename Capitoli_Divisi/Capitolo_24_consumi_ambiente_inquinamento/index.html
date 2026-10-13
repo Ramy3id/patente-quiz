@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/theme-modes.css">
 <script src="../../assets/js/theme-engine.js"></script>
+<script src="../../assets/js/question-decoder.js"></script>
 
 <style>
   :root {
@@ -1291,6 +1292,7 @@
             <div class="ex-item"><strong>📖 الترجمة السياقية:</strong> ${q.traduzione || 'سؤال وزاري مباشر.'}</div>
             <div class="ex-item"><strong>💡 الشرح والقاعدة المرورية:</strong> ${q.spiegazione || 'مطابق لنصوص كود السير.'}</div>
             ${q.trabocchetto ? `<div class="trap-banner">${q.trabocchetto}</div>` : ''}
+            ${window.questionDecoder ? window.questionDecoder.renderDecoderCard({ q: q.domanda, tr: q.traduzione, a: q.risposta, sp: q.spiegazione, tb: q.trabocchetto }, { collapsed: false }) : ''}
             ${q.parole_chiave && q.parole_chiave.length > 0 ? `
               <div class="kw-strip">
                 ${q.parole_chiave.map(k => {
