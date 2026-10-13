@@ -1313,6 +1313,68 @@
         regex: "\\bqualsiasi\\b"
       },
 
+      {
+        it: "richiamare",
+        ar: "لفت الانتباه (بالبوق/الضوء)",
+        type: "falso",
+        rate: "100% FALSO",
+        pure: true,
+        rule: "استخدام آلة التنبيه (الكلاكسون) أو الأضواء للفت انتباه المارة أو السائقين أو الشرطي في المواقف غير الطارئة ممنوع في كود السير.",
+        hasException: false,
+        regex: "\\brichiamare\\b"
+      },
+      {
+        it: "infrazione",
+        ar: "مخالفة مرورية",
+        type: "falso",
+        rate: "100% FALSO",
+        pure: true,
+        rule: "ادعاءات خصم النقاط مع أي مخالفة أياً كانت أو مضاعفة الخصم بحسب قوة محرك السيارة هي فخاخ مختلقة.",
+        hasException: false,
+        regex: "\\binfrazione\\b"
+      },
+      {
+        it: "alternato",
+        ar: "تبادلي (اتجاه تبادلي)",
+        type: "falso",
+        rate: "100% FALSO",
+        pure: true,
+        rule: "خلط مضلل بين إشارات تضييق الطريق وإشارات السير التبادلي المسبق (senso unico alternato).",
+        hasException: false,
+        regex: "\\balternato\\b"
+      },
+      {
+        it: "indifferentemente",
+        ar: "دون تمييز / كيفما اتفق",
+        type: "falso",
+        rate: "100% FALSO",
+        pure: true,
+        rule: "قانون المرور يحدد مسارات واتجاهات صارمة، ولا يسمح مطلقاً بالسير أو التجاوز دون تمييز.",
+        hasException: false,
+        regex: "\\bindifferentemente\\b"
+      },
+      {
+        it: "parco",
+        ar: "حديقة وطنية / منتزه",
+        type: "falso",
+        rate: "100% FALSO",
+        pure: true,
+        rule: "ادعاء وجود إشارات خاصة بالدخول إلى الحدائق والمنتزهات بدلاً من المناطق المحمية بيئياً.",
+        hasException: false,
+        regex: "\\bparco\\b"
+      },
+      {
+        it: "trombe",
+        ar: "أبواق هوائية / نغمات متعددة",
+        type: "falso",
+        rate: "85.7% FALSO",
+        pure: false,
+        rule: "تركيب أو استخدام أبواق هوائية غير مسموح به لمركبات الركاب العادية.",
+        hasException: true,
+        exceptionNote: "⚠️ الاستثناء الوحيد (VERO): سيارات الإسعاف والطوارئ الرسمية أثناء الخدمة فقط.",
+        regex: "\\btrombe\\b"
+      },
+
       // ==================== كلمات الـ VERO ====================
       {
         it: "richiede",
@@ -1465,6 +1527,56 @@
         regex: "\\btornanti\\b"
       },
       {
+        it: "sporgente",
+        ar: "بارز (حمولة بارزة)",
+        type: "vero",
+        rate: "100% VERO",
+        pure: true,
+        rule: "الحمولة البارزة تتطلب تثبيت اللوحة المربعة العاكسة، وزيادة مسافة الأمان، وعدم حجب أضواء السيارة أو لوحاتها.",
+        hasException: false,
+        regex: "\\bsporgente\\b"
+      },
+      {
+        it: "adottare",
+        ar: "اتخاذ (التدابير والحيطة)",
+        type: "vero",
+        rate: "100% VERO",
+        pure: true,
+        rule: "اتخاذ كافة الاحتياطات الوقائية لتفادي الحوادث وضمان ثبات المركبة عند الوقوف أو السير.",
+        hasException: false,
+        regex: "\\badottare\\b"
+      },
+      {
+        it: "frenate",
+        ar: "فرملات (تجنب الفرملة العنيفة)",
+        type: "vero",
+        rate: "100% VERO",
+        pure: true,
+        rule: "تجنب الفرملة المفاجئة والعنيفة للحفاظ على تماسك الإطارات ومنع صدم السيارات التالية.",
+        hasException: false,
+        regex: "\\bfrenate\\b"
+      },
+      {
+        it: "atmosferiche",
+        ar: "جوية (ظروف جوية)",
+        type: "vero",
+        rate: "100% VERO",
+        pure: true,
+        rule: "مراعاة الظروف الجوية السيئة (مطر، ثلج، ضباب) بتهدئة السرعة وزيادة مسافة الأمان.",
+        hasException: false,
+        regex: "\\batmosferiche\\b"
+      },
+      {
+        it: "incorrere",
+        ar: "التعرض لـ (عقوبة / خصم)",
+        type: "vero",
+        rate: "100% VERO",
+        pure: true,
+        rule: "التحذير القانوني من مغبة ارتكاب المخالفات الجسيمة والتعرض لسحب الرخصة أو الغرامات.",
+        hasException: false,
+        regex: "\\bincorrere\\b"
+      },
+      {
         it: "moderare",
         ar: "تخفيف / تهدئة السرعة",
         type: "vero",
@@ -1507,6 +1619,17 @@
         hasException: true,
         exceptionNote: "⚠️ أشهر استثناء خطأ (FALSO): الإشارة تدعو لتقليل مسافة الأمان (diminuire la distanza) - وهذا خطأ فادح الواجب زيادتها.",
         regex: "\\binvita\\b"
+      },
+      {
+        it: "salvo diversa segnalazione",
+        ar: "ما لم تشر اللافتات لغير ذلك",
+        type: "vero",
+        rate: "81.5% VERO",
+        pure: false,
+        rule: "الصيغة القانونية المعتمدة لحدود السرعات وتخصيص المسارات العامة (22 سؤالاً صحيحاً).",
+        hasException: true,
+        exceptionNote: "⚠️ 5 أسئلة خطأ (FALSO) فقط لأنها وضعت أرقام سرعات مغلوطة (مثل 80 داخل المدينة بدل 50، أو 100 على الطرق السريعة بدل 110).",
+        regex: "\\bsalvo\\s+diversa\\s+segnalazione\\b"
       }
     ];
 

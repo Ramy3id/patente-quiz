@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>معمل الأرقام والمقاييس الصامتة | Patente B Pro</title>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0B0F19">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Patente B Pro">
+  <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="interactive_style.css">
+  <link rel="stylesheet" href="../assets/css/theme-modes.css">
+  <script src="../assets/js/theme-engine.js"></script>
+
+  <style>
+    :root {
+      --ln-bg: #0B0F19;
+      --ln-card-bg: rgba(15, 23, 42, 0.75);
+      --ln-card-border: rgba(255, 255, 255, 0.08);
+      --ln-text: #F8FAFC;
+      --ln-text-sub: #94A3B8;
+      --ln-cyan: #38BDF8;
+      --ln-emerald: #10B981;
+      --ln-rose: #F43F5E;
+      --ln-amber: #F59E0B;
+      --ln-purple: #A855F7;
+      --ln-indigo: #6366F1;
+    }
+
+    html.light {
+      --ln-bg: #F8FAFC;
+      --ln-card-bg: #FFFFFF;
+      --ln-card-border: #E2E8F0;
+      --ln-text: #0F172A;
+      --ln-text-sub: #64748B;
+    }
+
+    body {
+      background-color: var(--ln-bg);
+      color: var(--ln-text);
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding-bottom: 60px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 16px 40px;
+    }
+
+    /* هيدر المعمل */
+    .hero-lab {
+      text-align: center;
+      padding: 28px 18px 30px;
+      background: linear-gradient(180deg, rgba(99, 102, 241, 0.1) 0%, rgba(56, 189, 248, 0.05) 50%, rgba(15, 23, 42, 0) 100%);
+      border-radius: 24px;
+      margin-bottom: 24px;
+      border: 1px solid var(--ln-card-border);
+      position: relative;
+      overflow: hidden;
+    }
+    html.light .hero-lab {
+      background: linear-gradient(180deg, rgba(99, 102, 241, 0.08) 0%, rgba(2, 132, 199, 0.05) 50%, #FFFFFF 100%);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(99, 102, 241, 0.15);
+      color: #818CF8;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .hero-title {
+      font-size: 1.85rem;
+      font-weight: 900;
+      margin: 0 0 10px;
+      color: var(--ln-text);
+      letter-spacing: -0.5px;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--ln-text-sub);
+      max-width: 780px;
+      margin: 0 auto 16px;
+      line-height: 1.6;
+    }
+
+    /* كروت الثوابت الذهبية (Cheat Sheet) */
+    .constants-section-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin: 0 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .constants-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .c-card {
+      background: var(--ln-card-bg);
+      border: 1px solid var(--ln-card-border);
+      border-radius: 18px;
+      padding: 16px 18px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .c-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      border-color: var(--ln-cyan);
+    }
+    .c-card.active {
+      border-color: var(--ln-cyan);
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.3);
+      background: rgba(56, 189, 248, 0.05);
+    }
+
+    .c-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    .c-icon {
+      font-size: 1.5rem;
+    }
+    .c-q-count {
+      font-size: 0.75rem;
+      font-weight: 800;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 3px 8px;
+      border-radius: 6px;
+      color: var(--ln-text-sub);
+    }
+
+    .c-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--ln-text);
+      margin: 0 0 6px;
+    }
+
+    .c-rule {
+      font-size: 0.86rem;
+      color: var(--ln-text-sub);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .c-value-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--ln-emerald);
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 800;
+      align-self: flex-start;
+    }
+
+    /* صندوق ماراثون الأرقام */
+    .marathon-box {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(56, 189, 248, 0.06) 50%, rgba(15, 23, 42, 0.8) 100%);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 24px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+    html.light .marathon-box {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(2, 132, 199, 0.05) 50%, #FFFFFF 100%);
+      border-color: rgba(99, 102, 241, 0.3);
+    }
+
+    .m-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .m-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(99, 102, 241, 0.15);
+      color: #818CF8;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .m-title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin: 0 0 8px;
+      color: var(--ln-text);
+    }
+    .m-desc {
+      font-size: 0.95rem;
+      color: var(--ln-text-sub);
+      line-height: 1.6;
+      margin: 0 0 16px;
+    }
+
+    .m-progress-container {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--ln-card-border);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 18px;
+    }
+    html.light .m-progress-container {
+      background: rgba(241, 245, 249, 0.8);
+    }
+
+    .m-bar-wrap {
+      height: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      display: flex;
+      margin-bottom: 12px;
+      border: 1px solid var(--ln-card-border);
+    }
+    .m-bar-mastered {
+      background: linear-gradient(90deg, #10B981, #059669);
+      height: 100%;
+      transition: width 0.4s ease;
+    }
+    .m-bar-mistakes {
+      background: linear-gradient(90deg, #F43F5E, #E11D48);
+      height: 100%;
+      transition: width 0.4s ease;
+    }
+
+    .m-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+    }
+    .m-stat-card {
+      background: var(--ln-card-bg);
+      border: 1px solid var(--ln-card-border);
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .m-stat-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--ln-text-sub);
+    }
+    .m-stat-val {
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    .m-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-marathon-start {
+      background: linear-gradient(135deg, #6366F1, #4F46E5);
+      color: #FFFFFF;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+      transition: all 0.2s ease;
+    }
+    .btn-marathon-start:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
+    }
+    .btn-marathon-reset {
+      background: transparent;
+      border: 1px solid var(--ln-card-border);
+      color: var(--ln-text-sub);
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-marathon-reset:hover {
+      color: var(--ln-text);
+      border-color: var(--ln-text-sub);
+    }
+
+    /* لوحة التحكم والبحث */
+    .controls-panel {
+      background: var(--ln-card-bg);
+      border: 1px solid var(--ln-card-border);
+      border-radius: 20px;
+      padding: 18px;
+      margin-bottom: 24px;
+    }
+    .search-input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--ln-card-border);
+      color: var(--ln-text);
+      font-family: inherit;
+      font-size: 0.95rem;
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    html.light .search-input {
+      background: #F1F5F9;
+    }
+    .search-input:focus {
+      border-color: var(--ln-cyan);
+    }
+
+    /* قائمة الأسئلة */
+    .questions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .q-card {
+      background: var(--ln-card-bg);
+      border: 1px solid var(--ln-card-border);
+      border-radius: 18px;
+      padding: 18px 20px;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .q-card:hover {
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .q-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .q-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .q-badge-ans {
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+    }
+    .q-badge-vero {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--ln-emerald);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .q-badge-falso {
+      background: rgba(244, 63, 94, 0.15);
+      color: var(--ln-rose);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+    }
+    .q-subtopic-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--ln-text-sub);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid var(--ln-card-border);
+    }
+
+    .q-text-it {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.08rem;
+      font-weight: 700;
+      line-height: 1.5;
+      color: var(--ln-text);
+      margin-bottom: 10px;
+      direction: ltr;
+      text-align: left;
+    }
+
+    .q-text-ar {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--ln-cyan);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .q-details-box {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px dashed var(--ln-card-border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: var(--ln-text-sub);
+    }
+    html.light .q-details-box {
+      background: rgba(241, 245, 249, 0.7);
+    }
+
+    .q-actions-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--ln-card-border);
+    }
+
+    .btn-decode-action {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--ln-cyan);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-decode-action:hover {
+      background: var(--ln-cyan);
+      color: #0B0F19;
+    }
+
+    .btn-audio-mini {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--ln-card-border);
+      color: var(--ln-text-sub);
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-audio-mini:hover {
+      background: var(--ln-cyan);
+      color: #0B0F19;
+    }
+
+    /* مودال الكويز */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+    .modal-backdrop.open {
+      display: flex;
+    }
+    .modal-card {
+      background: #0F172A;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      width: 100%;
+      max-width: 840px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+    }
+    html.light .modal-card {
+      background: #FFFFFF;
+      border-color: #E2E8F0;
+    }
+    .modal-header {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--ln-card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-body {
+      padding: 24px;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .quiz-options-btns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .btn-quiz-ans {
+      padding: 18px;
+      border-radius: 14px;
+      font-size: 1.3rem;
+      font-weight: 900;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-quiz-vero {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--ln-emerald);
+      border-color: var(--ln-emerald);
+    }
+    .btn-quiz-vero:hover {
+      background: var(--ln-emerald);
+      color: #FFFFFF;
+    }
+    .btn-quiz-falso {
+      background: rgba(244, 63, 94, 0.15);
+      color: var(--ln-rose);
+      border-color: var(--ln-rose);
+    }
+    .btn-quiz-falso:hover {
+      background: var(--ln-rose);
+      color: #FFFFFF;
+    }
+
+    .quiz-feedback-box {
+      padding: 16px;
+      border-radius: 12px;
+      margin-top: 16px;
+      display: none;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- شريط الملاحة الموحد -->
+  <nav class="unified-portal-nav" id="portal-nav">
+    <a href="../index.html" class="nav-brand">
+      <span style="font-size:1.25rem;">🚦</span>
+      <span>Patente B Pro</span>
+      <span class="badge-tag">A2</span>
+    </a>
+    <nav class="nav-desktop-tabs">
+      <a href="piano-studio.html" class="nav-tab-desktop">📅 الخطة الدراسية</a>
+      <a href="parole-spia.html" class="nav-tab-desktop">🎯 الكلمات السحرية</a>
+      <a href="laboratorio-numeri.html" class="nav-tab-desktop active">📏 معمل الأرقام</a>
+      <a href="primo-soccorso.html" class="nav-tab-desktop">🚑 كبسولة الإسعافات</a>
+      <a href="scheda-esame.html" class="nav-tab-desktop">📝 الامتحان</a>
+      <a href="dashboard.html" class="nav-tab-desktop">📊 لوحة البيانات</a>
+      <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 بنك الأسئلة</a>
+    </nav>
+    <div class="nav-desktop-actions">
+      <button class="nav-theme-btn" id="themeToggleBtn" onclick="toggleTheme()" title="تبديل الوضع (نهاري / ليلي) [Alt + T]">
+        <span class="theme-icon-span">☀️</span>
+        <span class="theme-label-span">الوضع النهاري</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container">
+    
+    <!-- هيدر المعمل -->
+    <header class="hero-lab">
+      <div class="hero-badge">
+        <span>📏 ثوابت ومقاييس كود السير الإيطالي (Regole Numeriche Fisse)</span>
+      </div>
+      <h1 class="hero-title">معمل الأرقام والمقاييس الصامتة</h1>
+      <p class="hero-subtitle">
+        الوزارة في الامتحان تختبر حفظك لأرقام دقيقة وثابتة لا تتغير. احفظ الثوابت الذهبية السبعة التالية، وأي رقم آخر تجده في السؤال احكم عليه بأنه <strong>FALSO فوراً</strong> دون تردد!
+      </p>
+    </header>
+
+    <!-- شبكة الثوابت الذهبية السبعة (Cheat Sheet) -->
+    <h2 class="constants-section-title">
+      <span>📐 لوحة الثوابت الذهبية الرسمية (اضغط للتصفية السريعة)</span>
+    </h2>
+    <section class="constants-grid" id="constantsGrid">
+
+      <!-- 1. نقوش الإطارات -->
+      <div class="c-card" data-cat="battistrada" onclick="selectConstantCategory('battistrada', this)">
+        <div class="c-top">
+          <span class="c-icon">🛞</span>
+          <span class="c-q-count">6 أسئلة</span>
+        </div>
+        <h3 class="c-title">عمق نقوش الإطارات (Battistrada)</h3>
+        <p class="c-rule">السيارات: <strong>1.6 mm</strong> | الموتوسيكل: <strong>1.0 mm</strong> | السكوتر: <strong>0.5 mm</strong>. أي رقم آخر كـ 2mm أو 3mm خطأ فادح!</p>
+        <span class="c-value-pill">1.6 / 1.0 / 0.5 mm</span>
+      </div>
+
+      <!-- 2. مسافات الركن -->
+      <div class="c-card" data-cat="sosta" onclick="selectConstantCategory('sosta', this)">
+        <div class="c-top">
+          <span class="c-icon">🅿️</span>
+          <span class="c-q-count">12 سؤالاً</span>
+        </div>
+        <h3 class="c-title">مسافات حظر الركن الصامتة</h3>
+        <p class="c-rule"><strong>5m</strong> من التقاطعات ومعابر المشاة | <strong>15m</strong> قبل وبعد محطة الباص والترام (إذا لم توجد خطوط صفراء).</p>
+        <span class="c-value-pill">5m / 15m</span>
+      </div>
+
+      <!-- 3. مثلث الخطر والإشارات -->
+      <div class="c-card" data-cat="triangolo" onclick="selectConstantCategory('triangolo', this)">
+        <div class="c-top">
+          <span class="c-icon">🔺</span>
+          <span class="c-q-count">78 سؤالاً</span>
+        </div>
+        <h3 class="c-title">مثلث الخطر ومسافات الرؤية</h3>
+        <p class="c-rule">يوضع على بعد <strong>50m</strong> خلف السيارة (<strong>100m</strong> على الأوتوستراد)، ويُرى بوضوح من مسافة <strong>100m</strong>. إشارات الخطر توضع على بعد <strong>150m</strong>.</p>
+        <span class="c-value-pill">50m / 100m / 150m</span>
+      </div>
+
+      <!-- 4. رخصة B: الأوزان والركاب -->
+      <div class="c-card" data-cat="massa_posti" onclick="selectConstantCategory('massa_posti', this)">
+        <div class="c-top">
+          <span class="c-icon">⚖️</span>
+          <span class="c-q-count">16 سؤالاً</span>
+        </div>
+        <h3 class="c-title">أوزان وركاب رخصة B القياسية</h3>
+        <p class="c-rule">الوزن الأقصى الإجمالي: <strong>3.5 طن (3500 كجم)</strong> | المقاعد: <strong>8 ركاب</strong> بحد أقصى غير السائق (9 مع السائق) | مقطورة خفيفة <strong>750 كجم</strong>.</p>
+        <span class="c-value-pill">3.5t | 8+1 مقاعد</span>
+      </div>
+
+      <!-- 5. نسبة الكحول -->
+      <div class="c-card" data-cat="alcool" onclick="selectConstantCategory('alcool', this)">
+        <div class="c-top">
+          <span class="c-icon">🍷</span>
+          <span class="c-q-count">4 أسئلة</span>
+        </div>
+        <h3 class="c-title">نسبة الكحول المسموحة بالدم</h3>
+        <p class="c-rule">الجدد (أول 3 سنوات) والشباب أقل من 21 سنة والمحترفون: <strong>0.0 g/l</strong> قطعي! لغيرهم: الحد الأقصى <strong>0.5 g/l</strong>.</p>
+        <span class="c-value-pill">0.0 g/l (صفر للجدد)</span>
+      </div>
+
+      <!-- 6. السرعات القصوى -->
+      <div class="c-card" data-cat="velocita" onclick="selectConstantCategory('velocita', this)">
+        <div class="c-top">
+          <span class="c-icon">🚀</span>
+          <span class="c-q-count">134 سؤالاً</span>
+        </div>
+        <h3 class="c-title">حدود السرعة العامة والجدد</h3>
+        <p class="c-rule">أوتوستراد: <strong>130</strong> (مطر: 110) | رئيسية: <strong>110</strong> (مطر: 90) | ثانوية: <strong>90</strong> | مدينة: <strong>50</strong> | الجدد: <strong>100 / 90</strong>.</p>
+        <span class="c-value-pill">130 / 110 / 90 / 50</span>
+      </div>
+
+      <!-- 7. مسافة الأمان ورد الفعل -->
+      <div class="c-card" data-cat="distanza" onclick="selectConstantCategory('distanza', this)">
+        <div class="c-top">
+          <span class="c-icon">⏱️</span>
+          <span class="c-q-count">60 سؤالاً</span>
+        </div>
+        <h3 class="c-title">مسافة الأمان وزمن رد الفعل</h3>
+        <p class="c-rule">زمن رد الفعل المعتاد: <strong>1 ثانية</strong>. مسافة الأمان الدنيا = المسافة المقطوعة في ثانية واحدة على الأقل. تتضاعف في المطر والجليد.</p>
+        <span class="c-value-pill">1 ثانية رد الفعل</span>
+      </div>
+
+    </section>
+
+    <!-- كارت ماراثون تحدي الأرقام -->
+    <section class="marathon-box" id="marathonBox">
+      <div class="m-top-row">
+        <div class="m-badge">
+          <span>⚡ ماراثون الأرقام (تكرار الأخطاء حتى الإتقان)</span>
+        </div>
+      </div>
+      <h2 class="m-title">🏆 ماراثون حسم أسئلة الأرقام والمقاييس (296 سؤالاً)</h2>
+      <p class="m-desc">
+        كويز تفاعلي يسحب <strong>25 سؤالاً رقمياً</strong> في كل جولة. كل سؤال تجاوبه بنجاح <strong>يُستبعد نهائياً</strong>، والأسئلة التي تخطئ فيها <strong>تُعاد لك حتماً</strong> حتى تصل إلى نسبة إتقان 100%!
+      </p>
+
+      <div class="m-progress-container">
+        <div style="display:flex; justify-content:space-between; font-size:0.88rem; font-weight:800; margin-bottom:6px;">
+          <span>التقدم في إتقان بنك الأرقام:</span>
+          <span id="mProgressPctText" style="color:var(--ln-cyan);">0% (0 / 296)</span>
+        </div>
+        <div class="m-bar-wrap">
+          <div class="m-bar-mastered" id="mBarMastered" style="width:0%;"></div>
+          <div class="m-bar-mistakes" id="mBarMistakes" style="width:0%;"></div>
+        </div>
+        <div class="m-stats-grid">
+          <div class="m-stat-card">
+            <span class="m-stat-label">✅ تم إتقانها</span>
+            <span class="m-stat-val" id="mStatMastered" style="color:var(--ln-emerald);">0</span>
+          </div>
+          <div class="m-stat-card">
+            <span class="m-stat-label">❌ أخطاء للمراجعة</span>
+            <span class="m-stat-val" id="mStatMistakes" style="color:var(--ln-rose);">0</span>
+          </div>
+          <div class="m-stat-card">
+            <span class="m-stat-label">⏳ متبقية للاختبار</span>
+            <span class="m-stat-val" id="mStatRemaining" style="color:var(--ln-cyan);">296</span>
+          </div>
+          <div class="m-stat-card">
+            <span class="m-stat-label">🎯 إجمالي بنك الأرقام</span>
+            <span class="m-stat-val">296</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="m-actions">
+        <button class="btn-marathon-start" onclick="startNumericalQuiz()">
+          <span>🚀 ابدأ كويز الأرقام الآن (جولة 25 سؤالاً)</span>
+          <span>⬅</span>
+        </button>
+        <button class="btn-marathon-reset" onclick="resetNumericalProgress()">
+          <span>🔄 تصفير التقدم</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- شريط البحث والفلترة -->
+    <div class="controls-panel">
+      <input type="text" id="searchInput" class="search-input" placeholder="🔍 ابحث بالرقم أو الكلمة (مثل: 1.6, 5 metri, 130 km/h, 3.5 t, 1 secondo)..." oninput="filterQuestions()">
+    </div>
+
+    <!-- شبكة الأسئلة المشروحة مع مفكك الكتل الثلاث -->
+    <div class="questions-list" id="questionsContainer">
+      <!-- يتم الملء ديناميكياً -->
+    </div>
+
+  </div>
+
+  <!-- مودال الكويز التفاعلي -->
+  <div class="modal-backdrop" id="quizModal" onclick="handleBackdropClick(event)">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:1.3rem;">📏</span>
+          <h3 style="margin:0; font-size:1.15rem;">كويز الأرقام والمقاييس الوزارية</h3>
+          <span id="qRoundProgressBadge" class="hero-badge" style="margin:0; font-size:0.75rem;">سؤال 1 من 25</span>
+        </div>
+        <button onclick="closeQuizModal()" style="background:transparent; border:none; color:var(--ln-text-sub); font-size:1.4rem; cursor:pointer;">✕</button>
+      </div>
+      <div class="modal-body" id="quizModalBody">
+        <!-- يعرض السؤال التفاعلي -->
+      </div>
+    </div>
+  </div>
+
+  <!-- استدعاء ملفات البيانات والسكربتات -->
+  <script src="../Capitoli_Divisi/data_all_questions.js"></script>
+  <script src="../assets/js/bilingual-highlighter.js"></script>
+  <script src="../assets/js/trap-vault.js"></script>
+  <script src="../assets/js/question-decoder.js"></script>
+
+  <script>
+    // القواعد والتصنيفات الرقمية الرسمية
+    const NUM_CATEGORIES = [
+      { id: 'battistrada', name: 'نقوش الإطارات', re: /\b(battistrada|1[,.]6\s*mm|1[,.]0\s*mm|0[,.]5\s*mm)\b/i },
+      { id: 'sosta', name: 'مسافات الركن', re: /\b(5\s*metri|15\s*metri|5\s*m\b|15\s*m\b|cinque\s+metri|quindici\s+metri)\b/i },
+      { id: 'triangolo', name: 'مثلث الخطر والإشارات', re: /\b(triangolo|segnale mobile di pericolo|50\s*metri|50\s*m\b|100\s*metri|100\s*m\b|150\s*metri|150\s*m\b)\b/i },
+      { id: 'massa_posti', name: 'الأوزان والركاب', re: /\b(3[,.]5\s*t|3500\s*kg|otto\s+posti|8\s+posti|9\s+posti|nove\s+posti|750\s*kg|4[,.]25|4250\s*kg)\b/i },
+      { id: 'alcool', name: 'نسبة الكحول', re: /\b(tasso alcolemico|0[,.]0|0[,.]5|0[,.]8|1[,.]5|grammi\/litro|g\/l)\b/i },
+      { id: 'velocita', name: 'حدود السرعة', re: /\b(130\s*km\/h|110\s*km\/h|100\s*km\/h|90\s*km\/h|80\s*km\/h|70\s*km\/h|50\s*km\/h|45\s*km\/h|40\s*km\/h|15\s*km\/h)\b/i },
+      { id: 'distanza', name: 'مسافة الأمان ورد الفعل', re: /\b(tempo di reazione|spazio di reazione|spazio di frenatura|spazio totale di arresto|1\s*secondo|un\s+secondo)\b/i }
+    ];
+
+    let ALL_NUMERICAL_QUESTIONS = [];
+    let selectedCat = 'all';
+
+    // مفتاح الحفظ في LocalStorage
+    const NUM_STORAGE_KEY = 'patente_numerical_mastery_v1';
+    let masteryState = {
+      mastered: [],
+      mistakes: []
+    };
+
+    // حالة الكويز
+    let currentQuizPool = [];
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let answeredCurrent = false;
+
+    function initData() {
+      if (typeof ALL_QUESTIONS_DATA === 'undefined') {
+        console.error('ALL_QUESTIONS_DATA not loaded');
+        return;
+      }
+
+      // استخراج كافة الأسئلة التي تطابق أياً من القواعد الرقمية
+      const seen = new Set();
+      ALL_NUMERICAL_QUESTIONS = [];
+
+      ALL_QUESTIONS_DATA.forEach(q => {
+        const text = q.q || '';
+        const matchedCats = [];
+        NUM_CATEGORIES.forEach(cat => {
+          if (cat.re.test(text)) matchedCats.push(cat.id);
+        });
+
+        if (matchedCats.length > 0) {
+          const key = `${q.ch}_${q.id}`;
+          if (!seen.has(key)) {
+            seen.add(key);
+            ALL_NUMERICAL_QUESTIONS.push({
+              ...q,
+              numCats: matchedCats
+            });
+          }
+        }
+      });
+
+      loadMasteryState();
+      updateMarathonStatsUI();
+      renderQuestionsList();
+    }
+
+    function loadMasteryState() {
+      try {
+        const raw = localStorage.getItem(NUM_STORAGE_KEY);
+        if (raw) masteryState = JSON.parse(raw);
+      } catch (e) {
+        console.warn('Error reading numerical mastery state:', e);
+      }
+    }
+
+    function saveMasteryState() {
+      try {
+        localStorage.setItem(NUM_STORAGE_KEY, JSON.stringify(masteryState));
+      } catch (e) {
+        console.warn('Error saving numerical mastery state:', e);
+      }
+      updateMarathonStatsUI();
+    }
+
+    function resetNumericalProgress() {
+      if (!confirm('هل تريد تصفير تقدمك في معمل الأرقام والبدء من الصفر؟')) return;
+      masteryState = { mastered: [], mistakes: [] };
+      saveMasteryState();
+      alert('تم تصفير التقدم بنجاح.');
+    }
+
+    function updateMarathonStatsUI() {
+      const total = ALL_NUMERICAL_QUESTIONS.length || 296;
+      const masteredCount = masteryState.mastered.length;
+      const mistakesCount = masteryState.mistakes.length;
+      const remainingCount = Math.max(0, total - masteredCount);
+
+      const masteredPct = Math.round((masteredCount / total) * 100);
+      const mistakesPct = Math.round((mistakesCount / total) * 100);
+
+      document.getElementById('mProgressPctText').innerText = `${masteredPct}% (${masteredCount} / ${total})`;
+      document.getElementById('mBarMastered').style.width = masteredPct + '%';
+      document.getElementById('mBarMistakes').style.width = mistakesPct + '%';
+
+      document.getElementById('mStatMastered').innerText = masteredCount;
+      document.getElementById('mStatMistakes').innerText = mistakesCount;
+      document.getElementById('mStatRemaining').innerText = remainingCount;
+    }
+
+    function selectConstantCategory(catId, cardEl) {
+      if (selectedCat === catId) {
+        selectedCat = 'all';
+        document.querySelectorAll('.c-card').forEach(c => c.classList.remove('active'));
+      } else {
+        selectedCat = catId;
+        document.querySelectorAll('.c-card').forEach(c => c.classList.remove('active'));
+        if (cardEl) cardEl.classList.add('active');
+      }
+      renderQuestionsList();
+    }
+
+    function filterQuestions() {
+      renderQuestionsList();
+    }
+
+    function renderQuestionsList() {
+      const container = document.getElementById('questionsContainer');
+      const search = document.getElementById('searchInput').value.trim().toLowerCase();
+
+      const filtered = ALL_NUMERICAL_QUESTIONS.filter(q => {
+        if (selectedCat !== 'all' && !q.numCats.includes(selectedCat)) return false;
+        if (search) {
+          const matchIt = (q.q || '').toLowerCase().includes(search);
+          const matchAr = (q.tr || '').toLowerCase().includes(search);
+          const matchSp = (q.sp || '').toLowerCase().includes(search);
+          if (!matchIt && !matchAr && !matchSp) return false;
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div style="text-align:center; padding:50px 20px; color:var(--ln-text-sub); background:var(--ln-card-bg); border-radius:18px;">
+            <div style="font-size:2.5rem; margin-bottom:10px;">🔍</div>
+            <div style="font-size:1.1rem; font-weight:700;">لا توجد أسئلة مطابقة للبحث أو الفلتر المختار</div>
+            <div style="font-size:0.9rem; margin-top:6px;">اضغط على الكارت مجدداً لإلغاء التصفية أو غيّر عبارة البحث</div>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(q => {
+        const isVero = q.a === true;
+        const ansBadge = isVero 
+          ? `<span class="q-badge-ans q-badge-vero">✅ VERO</span>` 
+          : `<span class="q-badge-ans q-badge-falso">❌ FALSO</span>`;
+        const qKey = `${q.ch}_${q.id}`;
+        const isMastered = masteryState.mastered.includes(qKey);
+
+        return `
+          <div class="q-card" id="qcard_${q.ch}_${q.id}">
+            <div class="q-card-header">
+              <div class="q-meta">
+                ${ansBadge}
+                <span class="q-subtopic-tag">الباب ${q.ch} • ${escapeHtml(q.sub || '')}</span>
+                ${isMastered ? '<span style="font-size:0.75rem; color:var(--ln-emerald); font-weight:800;">✓ متقن</span>' : ''}
+              </div>
+              <button class="btn-audio-mini" onclick="playQuestionSpeech('${escapeQuote(q.q)}')" title="استمع للنطق الإيطالي">🔊</button>
+            </div>
+
+            <div class="q-text-it">${escapeHtml(q.q)}</div>
+            <div class="q-text-ar">📖 ${escapeHtml(q.tr || '')}</div>
+
+            <div class="q-details-box">
+              <div style="margin-bottom:6px;"><strong>💡 الشرح والقاعدة الرقمية:</strong> ${escapeHtml(q.sp || '')}</div>
+              ${q.tb ? `<div><strong style="color:var(--ln-amber);">⚠️ الفخ الرقمي:</strong> ${escapeHtml(q.tb)}</div>` : ''}
+            </div>
+
+            <!-- حاوية تفكيك السؤال الثلاثي (Question Decoder) -->
+            <div id="decoder_wrap_${q.ch}_${q.id}" style="margin-top:10px; display:none;"></div>
+
+            <div class="q-actions-row">
+              <button class="btn-decode-action" onclick="toggleQuestionDecoder(${q.ch}, ${q.id}, '${escapeQuote(q.q)}', ${q.a})">
+                <span>🧩 تفكيك السؤال (الموضوع • القاعدة • النتيجة)</span>
+              </button>
+              <span style="font-size:0.78rem; color:var(--ln-text-sub);">السؤال ${q.id} من الباب ${q.ch}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function toggleQuestionDecoder(ch, id, qText, isTrue) {
+      const wrap = document.getElementById(`decoder_wrap_${ch}_${id}`);
+      if (!wrap) return;
+
+      if (wrap.style.display === 'block') {
+        wrap.style.display = 'none';
+        return;
+      }
+
+      wrap.style.display = 'block';
+      if (typeof QuestionDecoder !== 'undefined' && QuestionDecoder.renderDecoderCard) {
+        wrap.innerHTML = QuestionDecoder.renderDecoderCard(qText, isTrue);
+      } else {
+        wrap.innerHTML = `<div style="padding:10px; font-size:0.85rem; color:var(--ln-text-sub);">محرك التفكيك قيد التحميل...</div>`;
+      }
+    }
+
+    function playQuestionSpeech(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'it-IT';
+        utterance.rate = 0.95;
+        window.speechSynthesis.speak(utterance);
+      } else {
+        alert('المتصفح لا يدعم ميزة نطق النصوص الصوتية.');
+      }
+    }
+
+    // =========================================================================
+    // نظام الكويز التفاعلي للأرقام
+    // =========================================================================
+    function startNumericalQuiz() {
+      const unmastered = ALL_NUMERICAL_QUESTIONS.filter(q => !masteryState.mastered.includes(`${q.ch}_${q.id}`));
+      
+      let candidatePool = [];
+      if (masteryState.mistakes.length > 0) {
+        const mistakeQs = ALL_NUMERICAL_QUESTIONS.filter(q => masteryState.mistakes.includes(`${q.ch}_${q.id}`));
+        candidatePool = [...mistakeQs];
+      }
+
+      const remainingPool = unmastered.filter(q => !candidatePool.some(c => c.ch === q.ch && c.id === q.id));
+      candidatePool = candidatePool.concat(remainingPool);
+
+      if (candidatePool.length === 0) {
+        alert('🎉 رائع جداً! لقد أتقنت جميع أسئلة الأرقام بنسبة 100%!');
+        candidatePool = [...ALL_NUMERICAL_QUESTIONS];
+      }
+
+      candidatePool.sort(() => 0.5 - Math.random());
+      currentQuizPool = candidatePool.slice(0, 25);
+      currentQuizIndex = 0;
+      quizScore = 0;
+      answeredCurrent = false;
+
+      document.getElementById('quizModal').classList.add('open');
+      renderQuizQuestion();
+    }
+
+    function renderQuizQuestion() {
+      if (currentQuizIndex >= currentQuizPool.length) {
+        renderQuizCompletion();
+        return;
+      }
+
+      const q = currentQuizPool[currentQuizIndex];
+      answeredCurrent = false;
+
+      document.getElementById('qRoundProgressBadge').innerText = `سؤال ${currentQuizIndex + 1} من ${currentQuizPool.length}`;
+
+      const modalBody = document.getElementById('quizModalBody');
+      modalBody.innerHTML = `
+        <div style="background:rgba(255,255,255,0.03); border:1px solid var(--ln-card-border); border-radius:18px; padding:20px; margin-bottom:16px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <span class="q-subtopic-tag">الباب ${q.ch} • ${escapeHtml(q.sub || '')}</span>
+            <button class="btn-audio-mini" onclick="playQuestionSpeech('${escapeQuote(q.q)}')">🔊</button>
+          </div>
+          <div class="q-text-it" style="font-size:1.25rem;">${escapeHtml(q.q)}</div>
+          <div class="q-text-ar" style="font-size:1.05rem;">📖 ${escapeHtml(q.tr || '')}</div>
+        </div>
+
+        <div class="quiz-options-btns">
+          <button class="btn-quiz-ans btn-quiz-vero" id="btnQuizV" onclick="submitQuizAnswer(true)">
+            <span>VERO</span>
+            <span>✅</span>
+          </button>
+          <button class="btn-quiz-ans btn-quiz-falso" id="btnQuizF" onclick="submitQuizAnswer(false)">
+            <span>FALSO</span>
+            <span>❌</span>
+          </button>
+        </div>
+
+        <div class="quiz-feedback-box" id="quizFeedback"></div>
+
+        <div id="quizNextBtnRow" style="display:none; text-align:left; margin-top:16px;">
+          <button class="btn-marathon-start" onclick="nextQuizQuestion()">
+            <span>السؤال التالي</span>
+            <span>⬅</span>
+          </button>
+        </div>
+      `;
+    }
+
+    function submitQuizAnswer(chosen) {
+      if (answeredCurrent) return;
+      answeredCurrent = true;
+
+      const q = currentQuizPool[currentQuizIndex];
+      const isCorrect = (chosen === q.a);
+      const qKey = `${q.ch}_${q.id}`;
+
+      const feedback = document.getElementById('quizFeedback');
+      const nextBtnRow = document.getElementById('quizNextBtnRow');
+
+      if (isCorrect) {
+        quizScore++;
+        feedback.style.display = 'block';
+        feedback.style.background = 'rgba(16, 185, 129, 0.15)';
+        feedback.style.border = '1px solid rgba(16, 185, 129, 0.4)';
+        feedback.style.color = 'var(--ln-emerald)';
+        feedback.innerHTML = `
+          <div style="font-size:1.1rem; font-weight:800; margin-bottom:6px;">🎉 إجابة صحيحة ومتقنة!</div>
+          <div>${escapeHtml(q.sp || '')}</div>
+        `;
+
+        if (!masteryState.mastered.includes(qKey)) {
+          masteryState.mastered.push(qKey);
+        }
+        masteryState.mistakes = masteryState.mistakes.filter(k => k !== qKey);
+      } else {
+        feedback.style.display = 'block';
+        feedback.style.background = 'rgba(244, 63, 94, 0.15)';
+        feedback.style.border = '1px solid rgba(244, 63, 94, 0.4)';
+        feedback.style.color = 'var(--ln-rose)';
+        feedback.innerHTML = `
+          <div style="font-size:1.1rem; font-weight:800; margin-bottom:6px;">❌ إجابة خاطئة! الإجابة الصحيحة هي: <strong>${q.a ? 'VERO' : 'FALSO'}</strong></div>
+          <div style="margin-bottom:8px;">${escapeHtml(q.sp || '')}</div>
+          ${q.tb ? `<div style="color:var(--ln-amber);"><strong>⚠️ تذكر الفخ الرقمي:</strong> ${escapeHtml(q.tb)}</div>` : ''}
+        `;
+
+        masteryState.mastered = masteryState.mastered.filter(k => k !== qKey);
+        if (!masteryState.mistakes.includes(qKey)) {
+          masteryState.mistakes.push(qKey);
+        }
+      }
+
+      saveMasteryState();
+      nextBtnRow.style.display = 'block';
+    }
+
+    function nextQuizQuestion() {
+      currentQuizIndex++;
+      renderQuizQuestion();
+    }
+
+    function renderQuizCompletion() {
+      const modalBody = document.getElementById('quizModalBody');
+      const pct = Math.round((quizScore / currentQuizPool.length) * 100);
+
+      modalBody.innerHTML = `
+        <div style="text-align:center; padding:30px 10px;">
+          <div style="font-size:3.5rem; margin-bottom:12px;">${pct >= 90 ? '🏆' : '📐'}</div>
+          <h2 style="font-size:1.6rem; margin:0 0 10px;">اكتملت جولة الأرقام!</h2>
+          <p style="font-size:1rem; color:var(--ln-text-sub); margin-bottom:20px;">
+            حققت في هذه الجولة: <strong style="color:${pct >= 90 ? 'var(--ln-emerald)' : 'var(--ln-amber)'}; font-size:1.3rem;">${quizScore} من ${currentQuizPool.length}</strong> (${pct}%)
+          </p>
+
+          <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+            <button class="btn-marathon-start" onclick="startNumericalQuiz()">
+              <span>🔄 جولة جديدة الآن</span>
+            </button>
+            <button class="btn-marathon-reset" onclick="closeQuizModal()">
+              <span>تصفح ومراجعة الأرقام 📖</span>
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function closeQuizModal() {
+      document.getElementById('quizModal').classList.remove('open');
+      renderQuestionsList();
+    }
+
+    function handleBackdropClick(e) {
+      if (e.target.id === 'quizModal') closeQuizModal();
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+    function escapeQuote(str) {
+      if (!str) return '';
+      return String(str).replace(/'/g, "\\'").replace(/"/g, '&quot;');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initData();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>كبسولة الإسعافات الأولية والممنوعات القطعية | Patente B Pro</title>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0B0F19">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Patente B Pro">
+  <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="interactive_style.css">
+  <link rel="stylesheet" href="../assets/css/theme-modes.css">
+  <script src="../assets/js/theme-engine.js"></script>
+
+  <style>
+    :root {
+      --ps-bg: #0B0F19;
+      --ps-card-bg: rgba(15, 23, 42, 0.75);
+      --ps-card-border: rgba(255, 255, 255, 0.08);
+      --ps-text: #F8FAFC;
+      --ps-text-sub: #94A3B8;
+      --ps-cyan: #38BDF8;
+      --ps-emerald: #10B981;
+      --ps-rose: #F43F5E;
+      --ps-amber: #F59E0B;
+      --ps-red: #EF4444;
+      --ps-blue: #3B82F6;
+    }
+
+    html.light {
+      --ps-bg: #F8FAFC;
+      --ps-card-bg: #FFFFFF;
+      --ps-card-border: #E2E8F0;
+      --ps-text: #0F172A;
+      --ps-text-sub: #64748B;
+    }
+
+    body {
+      background-color: var(--ps-bg);
+      color: var(--ps-text);
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding-bottom: 60px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 16px 40px;
+    }
+
+    /* هيدر الكبسولة */
+    .capsule-hero {
+      text-align: center;
+      padding: 28px 18px 30px;
+      background: linear-gradient(180deg, rgba(239, 68, 68, 0.08) 0%, rgba(56, 189, 248, 0.04) 50%, rgba(15, 23, 42, 0) 100%);
+      border-radius: 24px;
+      margin-bottom: 24px;
+      border: 1px solid var(--ps-card-border);
+      position: relative;
+      overflow: hidden;
+    }
+    html.light .capsule-hero {
+      background: linear-gradient(180deg, rgba(239, 68, 68, 0.08) 0%, rgba(2, 132, 199, 0.05) 50%, #FFFFFF 100%);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(239, 68, 68, 0.15);
+      color: #F87171;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .hero-title {
+      font-size: 1.85rem;
+      font-weight: 900;
+      margin: 0 0 10px;
+      color: var(--ps-text);
+      letter-spacing: -0.5px;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--ps-text-sub);
+      max-width: 780px;
+      margin: 0 auto 16px;
+      line-height: 1.6;
+    }
+
+    /* القاعدة الذهبية */
+    .golden-rule-banner {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(239, 68, 68, 0.1));
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: 16px;
+      padding: 16px 20px;
+      margin: 18px auto 0;
+      max-width: 820px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-align: right;
+    }
+    .golden-rule-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+    .golden-rule-text {
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+    .golden-rule-text strong {
+      color: var(--ps-amber);
+    }
+
+    /* شبكة المقارنة الذهبية (الممنوعات مقابل الواجبات) */
+    .blueprint-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 768px) {
+      .blueprint-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .bp-card {
+      background: var(--ps-card-bg);
+      border: 1px solid var(--ps-card-border);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    .bp-card.falso-pillar {
+      border-top: 4px solid var(--ps-rose);
+    }
+    .bp-card.vero-pillar {
+      border-top: 4px solid var(--ps-emerald);
+    }
+
+    .bp-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--ps-card-border);
+    }
+    .bp-badge {
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+    .bp-badge.badge-falso {
+      background: rgba(244, 63, 94, 0.18);
+      color: var(--ps-rose);
+      border: 1px solid rgba(244, 63, 94, 0.35);
+    }
+    .bp-badge.badge-vero {
+      background: rgba(16, 185, 129, 0.18);
+      color: var(--ps-emerald);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+
+    .bp-card-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .bp-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .bp-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+    .bp-item-icon {
+      flex-shrink: 0;
+      font-size: 1.1rem;
+      margin-top: 2px;
+    }
+    .bp-item-content strong {
+      display: block;
+      color: var(--ps-text);
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+    .bp-item-content span {
+      color: var(--ps-text-sub);
+      font-size: 0.86rem;
+    }
+
+    /* بطاقة ماراثون كبسولة الإسعافات */
+    .marathon-box {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(56, 189, 248, 0.06) 50%, rgba(15, 23, 42, 0.8) 100%);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 24px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+    html.light .marathon-box {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.06) 0%, rgba(2, 132, 199, 0.05) 50%, #FFFFFF 100%);
+      border-color: rgba(239, 68, 68, 0.3);
+    }
+
+    .m-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .m-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(239, 68, 68, 0.15);
+      color: #F87171;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .m-title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin: 0 0 8px;
+      color: var(--ps-text);
+    }
+    .m-desc {
+      font-size: 0.95rem;
+      color: var(--ps-text-sub);
+      line-height: 1.6;
+      margin: 0 0 16px;
+    }
+
+    .m-progress-container {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--ps-card-border);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 18px;
+    }
+    html.light .m-progress-container {
+      background: rgba(241, 245, 249, 0.8);
+    }
+
+    .m-bar-wrap {
+      height: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      display: flex;
+      margin-bottom: 12px;
+      border: 1px solid var(--ps-card-border);
+    }
+    .m-bar-mastered {
+      background: linear-gradient(90deg, #10B981, #059669);
+      height: 100%;
+      transition: width 0.4s ease;
+    }
+    .m-bar-mistakes {
+      background: linear-gradient(90deg, #F43F5E, #E11D48);
+      height: 100%;
+      transition: width 0.4s ease;
+    }
+
+    .m-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+    }
+    .m-stat-card {
+      background: var(--ps-card-bg);
+      border: 1px solid var(--ps-card-border);
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .m-stat-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--ps-text-sub);
+    }
+    .m-stat-val {
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    .m-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-marathon-start {
+      background: linear-gradient(135deg, #EF4444, #DC2626);
+      color: #FFFFFF;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(239, 68, 68, 0.35);
+      transition: all 0.2s ease;
+    }
+    .btn-marathon-start:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(239, 68, 68, 0.45);
+    }
+    .btn-marathon-reset {
+      background: transparent;
+      border: 1px solid var(--ps-card-border);
+      color: var(--ps-text-sub);
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-marathon-reset:hover {
+      color: var(--ps-text);
+      border-color: var(--ps-text-sub);
+    }
+
+    /* شريط الفلاتر والتبويبات */
+    .controls-panel {
+      background: var(--ps-card-bg);
+      border: 1px solid var(--ps-card-border);
+      border-radius: 20px;
+      padding: 18px;
+      margin-bottom: 24px;
+    }
+    .search-input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--ps-card-border);
+      color: var(--ps-text);
+      font-family: inherit;
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    html.light .search-input {
+      background: #F1F5F9;
+    }
+    .search-input:focus {
+      border-color: var(--ps-cyan);
+    }
+
+    .topic-filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--ps-card-border);
+      color: var(--ps-text-sub);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .chip-btn:hover {
+      color: var(--ps-text);
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .chip-btn.active {
+      background: var(--ps-cyan);
+      color: #0B0F19;
+      border-color: var(--ps-cyan);
+      font-weight: 800;
+    }
+
+    /* قائمة الأسئلة */
+    .questions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .q-card {
+      background: var(--ps-card-bg);
+      border: 1px solid var(--ps-card-border);
+      border-radius: 18px;
+      padding: 18px 20px;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .q-card:hover {
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .q-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .q-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .q-badge-ans {
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+    }
+    .q-badge-vero {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--ps-emerald);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .q-badge-falso {
+      background: rgba(244, 63, 94, 0.15);
+      color: var(--ps-rose);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+    }
+    .q-subtopic-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--ps-text-sub);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid var(--ps-card-border);
+    }
+
+    .q-text-it {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.08rem;
+      font-weight: 700;
+      line-height: 1.5;
+      color: var(--ps-text);
+      margin-bottom: 10px;
+      direction: ltr;
+      text-align: left;
+    }
+
+    .q-text-ar {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--ps-cyan);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .q-details-box {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px dashed var(--ps-card-border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: var(--ps-text-sub);
+    }
+    html.light .q-details-box {
+      background: rgba(241, 245, 249, 0.7);
+    }
+    .q-details-box strong {
+      color: var(--ps-text);
+    }
+
+    .q-actions-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--ps-card-border);
+    }
+
+    .btn-decode-action {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--ps-cyan);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-decode-action:hover {
+      background: var(--ps-cyan);
+      color: #0B0F19;
+    }
+
+    .btn-audio-mini {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--ps-card-border);
+      color: var(--ps-text-sub);
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-audio-mini:hover {
+      background: var(--ps-cyan);
+      color: #0B0F19;
+    }
+
+    /* مودال الماراثون التفاعلي */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+    .modal-backdrop.open {
+      display: flex;
+    }
+    .modal-card {
+      background: #0F172A;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      width: 100%;
+      max-width: 840px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+    }
+    html.light .modal-card {
+      background: #FFFFFF;
+      border-color: #E2E8F0;
+    }
+
+    .modal-header {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--ps-card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-body {
+      padding: 24px;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .quiz-options-btns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .btn-quiz-ans {
+      padding: 18px;
+      border-radius: 14px;
+      font-size: 1.3rem;
+      font-weight: 900;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-quiz-vero {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--ps-emerald);
+      border-color: var(--ps-emerald);
+    }
+    .btn-quiz-vero:hover {
+      background: var(--ps-emerald);
+      color: #FFFFFF;
+    }
+    .btn-quiz-falso {
+      background: rgba(244, 63, 94, 0.15);
+      color: var(--ps-rose);
+      border-color: var(--ps-rose);
+    }
+    .btn-quiz-falso:hover {
+      background: var(--ps-rose);
+      color: #FFFFFF;
+    }
+
+    .quiz-feedback-box {
+      padding: 16px;
+      border-radius: 12px;
+      margin-top: 16px;
+      display: none;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- شريط الملاحة الموحد -->
+  <nav class="unified-portal-nav" id="portal-nav">
+    <a href="../index.html" class="nav-brand">
+      <span style="font-size:1.25rem;">🚦</span>
+      <span>Patente B Pro</span>
+      <span class="badge-tag">A2</span>
+    </a>
+    <nav class="nav-desktop-tabs">
+      <a href="piano-studio.html" class="nav-tab-desktop">📅 الخطة الدراسية</a>
+      <a href="parole-spia.html" class="nav-tab-desktop">🎯 الكلمات السحرية</a>
+      <a href="primo-soccorso.html" class="nav-tab-desktop active">🚑 كبسولة الإسعافات</a>
+      <a href="scheda-esame.html" class="nav-tab-desktop">📝 الامتحان</a>
+      <a href="flashcards.html" class="nav-tab-desktop">💡 بطاقات الفلاش</a>
+      <a href="dashboard.html" class="nav-tab-desktop">📊 لوحة البيانات</a>
+      <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 بنك الأسئلة</a>
+    </nav>
+    <div class="nav-desktop-actions">
+      <button class="nav-theme-btn" id="themeToggleBtn" onclick="toggleTheme()" title="تبديل الوضع (نهاري / ليلي) [Alt + T]">
+        <span class="theme-icon-span">☀️</span>
+        <span class="theme-label-span">الوضع النهاري</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container">
+    
+    <!-- هيدر الصفحة والكبسولة -->
+    <header class="capsule-hero">
+      <div class="hero-badge">
+        <span>🚑 الباب 22: أسرار الإسعافات الأولية (Primo Soccorso)</span>
+      </div>
+      <h1 class="hero-title">كبسولة الإسعافات الأولية والممنوعات القطعية</h1>
+      <p class="hero-subtitle">
+        دليل الحسم المباشر لأسئلة الطوارئ الطبية والحوادث (96 سؤالاً وزارياً: 48 صح و 48 خطأ بالتساوي).
+        بمجرد استيعاب قاعدة أن السائق مسعف لحفظ الحياة وليس طبيباً جراحاً، تحسم كافة الأسئلة بثقة تامة.
+      </p>
+
+      <div class="golden-rule-banner">
+        <div class="golden-rule-icon">⚖️</div>
+        <div class="golden-rule-text">
+          <strong>القاعدة الذهبية الصارمة في قانون السير الإيطالي:</strong>
+          مهمة السائق هي الحفاظ على حياة المصاب ومنع تدهور حالته (evitare ulteriori danni) وتأمين مكان الحادث واستدعاء النجدة (112)، ولا يجوز له مطلقاً اتخاذ أي إجراء من اختصاص الطبيب الجراحي!
+        </div>
+      </div>
+    </header>
+
+    <!-- شبكة المقارنة الذهبية: الممنوعات الـ 6 مقابل الواجبات الـ 5 -->
+    <section class="blueprint-grid">
+      
+      <!-- عمود الممنوعات القطعية (FALSO 100%) -->
+      <div class="bp-card falso-pillar">
+        <div class="bp-card-header">
+          <span class="bp-badge badge-falso">❌ 100% FALSO</span>
+          <h2 class="bp-card-title" style="color:var(--ps-rose);">الممنوعات القطعية الـ 6 (ممنوعة على السائق)</h2>
+        </div>
+        <ul class="bp-list">
+          <li class="bp-item">
+            <span class="bp-item-icon">🚫</span>
+            <div class="bp-item-content">
+              <strong>1. إعطاء أي نوع من الأدوية (Somministrare farmaci)</strong>
+              <span>ممنوع إعطاء المصاب مسكنات أو مهدئات أو أي دواء مهما بدا بسيطاً. هذا اختصاص الكادر الطبي فقط.</span>
+            </div>
+          </li>
+          <li class="bp-item">
+            <span class="bp-item-icon">🚫</span>
+            <div class="bp-item-content">
+              <strong>2. إعطاء ماء لفاقد الوعي أو كحوليات (Bere superalcolici / Acqua)</strong>
+              <span>ممنوع إعطاء فاقد الوعي أي سوائل حتى لا يختنق، وممنوع إعطاء أي نوع من الكحوليات أو القهوة بدعوى تنشيطه.</span>
+            </div>
+          </li>
+          <li class="bp-item">
+            <span class="bp-item-icon">🚫</span>
+            <div class="bp-item-content">
+              <strong>3. نزع الأجسام الغائرة أو الملابس الملتصقة (Corpi estranei)</strong>
+              <span>ممنوع نزع شظية غائرة في العين أو الجرح، وممنوع نزع الملابس الملتصقة بالجلد المحترق لأن ذلك يمزق الأنسجة.</span>
+            </div>
+          </li>
+          <li class="bp-item">
+            <span class="bp-item-icon">🚫</span>
+            <div class="bp-item-content">
+              <strong>4. إجبار المصاب على المشي أو تحريك العظام (Far camminare / Muovere)</strong>
+              <span>ممنوع إجبار مصاب الكسر أو الشوك على المشي، وممنوع محاولة إعادة العظم البارز (riposizionarlo nei tessuti).</span>
+            </div>
+          </li>
+          <li class="bp-item">
+            <span class="bp-item-icon">🚫</span>
+            <div class="bp-item-content">
+              <strong>5. صفع المصاب أو تدليك عينه (Schiaffi / Massaggiare)</strong>
+              <span>ممنوع صفع المصاب لإيقاظه، وممنوع تدليك جفن العين المصابة أو إجباره على فتح عينيه.</span>
+            </div>
+          </li>
+          <li class="bp-item">
+            <span class="bp-item-icon">🚫</span>
+            <div class="bp-item-content">
+              <strong>6. الهروب أو ترك المصاب بحجة عدم التخصص (Omissione)</strong>
+              <span>إسعاف المصاب واجب قانوني صارم وليس مجرد "واجب أخلاقي"، والهروب جريمة يعاقب عليها بالحبس وسحب الرخصة.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- عمود الواجبات الإنقاذية (VERO 100%) -->
+      <div class="bp-card vero-pillar">
+        <div class="bp-card-header">
+          <span class="bp-badge badge-vero">✅ 100% VERO</span>
+          <h2 class="bp-card-title" style="color:var(--ps-emerald);">الواجبات الإنقاذية الـ 5 (المطلوبة من السائق)</h2>
+        </div>
+        <ul class="bp-list">
+          <li class="bp-item">
+            <span class="bp-item-icon">🛡️</span>
+            <div class="bp-item-content">
+              <strong>1. تأمين مكان الحادث والاتصال بالرقم 112</strong>
+              <span>حماية المصاب من حوادث دهس إضافية وإبلاغ الإسعاف بدقة بمكان وعدد وحالة المصابين.</span>
+            </div>
+          </li>
+          <li class="bp-item">
+            <span class="bp-item-icon">🩹</span>
+            <div class="bp-item-content">
+              <strong>2. الضغط بشاش معقم لوقف النزيف (Tamponare la ferita)</strong>
+              <span>وضع شاش معقم (garze sterili) أو قماش نظيف والضغط المباشر لإيقاف النزيف الخارجي الحاد.</span>
+            </div>
+          </li>
+          <li class="bp-item">
+            <span class="bp-item-icon">🛏️</span>
+            <div class="bp-item-content">
+              <strong>3. وضعيات الإسعاف الثلاث المعتمدة:</strong>
+              <span>
+                • الشوك (Shock): مستلقٍ على ظهره ورفع الساقين (gambe sollevate).<br>
+                • إصابة الصدر (Trauma toracico): جالس نصف جلسة (semi-seduto) لتسهيل التنفس.<br>
+                • فاقد الوعي ويتنفس: تنظيف مجرى التنفس ووضعه على جنبه (laterale di sicurezza).
+              </span>
+            </div>
+          </li>
+          <li class="bp-item">
+            <span class="bp-item-icon">❄️</span>
+            <div class="bp-item-content">
+              <strong>4. تدفئة المصاب بالشوك وتبريد الحروق بالماء</strong>
+              <span>تغطية مصاب الشوك لمنع هبوط حرارته، واستخدام الماء البارد (acqua fredda) لتهدئة آلام الحروق وإطفاء النيران.</span>
+            </div>
+          </li>
+          <li class="bp-item">
+            <span class="bp-item-icon">👁️</span>
+            <div class="bp-item-content">
+              <strong>5. تغطية العين المصابة بضمادة دون لمس الشظية</strong>
+              <span>وضع ضمادة نظيفة على العين لحمايتها ومنع لمسها حتى وصول الطبيب المتخصص.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- كارت ماراثون تحدي الإسعافات -->
+    <section class="marathon-box" id="marathonBox">
+      <div class="m-top-row">
+        <div class="m-badge">
+          <span>⚡ ماراثون الكبسولة السريع (تكرار الأخطاء حتى الإتقان)</span>
+        </div>
+      </div>
+      <h2 class="m-title">🏆 ماراثون حسم أسئلة الإسعافات الأولية (96 سؤالاً)</h2>
+      <p class="m-desc">
+        تدريب مكثف يمر بك على جميع أسئلة الإسعافات في كود السير الإيطالي. أي سؤال تجيبه بشكل صحيح يستبعد، والأسئلة التي تخطئ فيها يعاد اختبارك فيها تلقائياً حتى تحقق 100% إتقان تام!
+      </p>
+
+      <div class="m-progress-container">
+        <div style="display:flex; justify-content:space-between; font-size:0.88rem; font-weight:800; margin-bottom:6px;">
+          <span>التقدم في إتقان بنك الإسعافات:</span>
+          <span id="mProgressPctText" style="color:var(--ps-cyan);">0% (0 / 96)</span>
+        </div>
+        <div class="m-bar-wrap">
+          <div class="m-bar-mastered" id="mBarMastered" style="width:0%;"></div>
+          <div class="m-bar-mistakes" id="mBarMistakes" style="width:0%;"></div>
+        </div>
+        <div class="m-stats-grid">
+          <div class="m-stat-card">
+            <span class="m-stat-label">✅ تم إتقانها</span>
+            <span class="m-stat-val" id="mStatMastered" style="color:var(--ps-emerald);">0</span>
+          </div>
+          <div class="m-stat-card">
+            <span class="m-stat-label">❌ أخطاء للمراجعة</span>
+            <span class="m-stat-val" id="mStatMistakes" style="color:var(--ps-rose);">0</span>
+          </div>
+          <div class="m-stat-card">
+            <span class="m-stat-label">⏳ متبقية للاختبار</span>
+            <span class="m-stat-val" id="mStatRemaining" style="color:var(--ps-cyan);">96</span>
+          </div>
+          <div class="m-stat-card">
+            <span class="m-stat-label">🎯 إجمالي بنك الإسعافات</span>
+            <span class="m-stat-val">96</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="m-actions">
+        <button class="btn-marathon-start" onclick="startFirstAidQuiz()">
+          <span>🚀 ابدأ كويز الإتقان الآن (جولة 20 سؤالاً)</span>
+          <span>⬅</span>
+        </button>
+        <button class="btn-marathon-reset" onclick="resetFirstAidProgress()">
+          <span>🔄 تصفير التقدم</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- شريط البحث وفلاتر الأقسام -->
+    <div class="controls-panel">
+      <input type="text" id="searchInput" class="search-input" placeholder="🔍 ابحث في أسئلة الإسعافات (مثل: shock, emorragia, ferita, garze, acqua)..." oninput="filterQuestions()">
+      
+      <div class="topic-filter-chips">
+        <button class="chip-btn active" data-sub="all" onclick="setSubFilter('all', this)">🌟 جميع الأسئلة (96)</button>
+        <button class="chip-btn" data-sub="shock" onclick="setSubFilter('shock', this)">⚡ الصدمة والشوك (23)</button>
+        <button class="chip-btn" data-sub="emorragia" onclick="setSubFilter('emorragia', this)">🩸 النزيف والجروح (15)</button>
+        <button class="chip-btn" data-sub="incoscienza" onclick="setSubFilter('incoscienza', this)">🫁 فقدان الوعي والتنفس (14)</button>
+        <button class="chip-btn" data-sub="fratture" onclick="setSubFilter('fratture', this)">🦴 الكسور وإصابات الأطراف (8)</button>
+        <button class="chip-btn" data-sub="ustioni" onclick="setSubFilter('ustioni', this)">🔥 الحروق والحرائق (7)</button>
+        <button class="chip-btn" data-sub="occhio" onclick="setSubFilter('occhio', this)">👁️ دخول جسم غريب بالعين (7)</button>
+        <button class="chip-btn" data-sub="doveri" onclick="setSubFilter('doveri', this)">⚖️ الواجب ومهمة المسعف (22)</button>
+      </div>
+    </div>
+
+    <!-- شبكة الأسئلة المشروحة مع مفكك الكتل الثلاث -->
+    <div class="questions-list" id="questionsContainer">
+      <!-- يتم الملء ديناميكياً -->
+    </div>
+
+  </div>
+
+  <!-- مودال الكويز التفاعلي -->
+  <div class="modal-backdrop" id="quizModal" onclick="handleBackdropClick(event)">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:1.3rem;">🚑</span>
+          <h3 style="margin:0; font-size:1.15rem;">كويز كبسولة الإسعافات الأولية</h3>
+          <span id="qRoundProgressBadge" class="hero-badge" style="margin:0; font-size:0.75rem;">سؤال 1 من 20</span>
+        </div>
+        <button onclick="closeQuizModal()" style="background:transparent; border:none; color:var(--ps-text-sub); font-size:1.4rem; cursor:pointer;">✕</button>
+      </div>
+      <div class="modal-body" id="quizModalBody">
+        <!-- يعرض السؤال التفاعلي -->
+      </div>
+    </div>
+  </div>
+
+  <!-- استدعاء ملفات البيانات والسكربتات -->
+  <script src="../Capitoli_Divisi/data_all_questions.js"></script>
+  <script src="../assets/js/bilingual-highlighter.js"></script>
+  <script src="../assets/js/trap-vault.js"></script>
+  <script src="../assets/js/question-decoder.js"></script>
+
+  <script>
+    // الحقول والأسئلة الخاصة بالإسعافات الأولية في الباب 22
+    const FIRST_AID_SUBS = [
+      'Soccorso ferito', 'Primo soccorso', 'Infortunato ferita sanguinante',
+      'Emorragia esterna', 'Corpo estraneo occhio', 'Stato shock',
+      'Ferito stato shock', 'Ferito stato incoscienza', 'Infortunato della strada',
+      'Infortunato fratture agli arti', 'Ferito ustionato', 'Attivita soccorritore',
+      'Cause shock'
+    ];
+
+    let ALL_FIRST_AID_QUESTIONS = [];
+    let currentSubFilter = 'all';
+
+    // حالة الماراثون في LocalStorage
+    const FA_STORAGE_KEY = 'patente_first_aid_mastery_v1';
+    let masteryState = {
+      mastered: [], // مصفوفة مفاتيح الأسئلة المتقنة
+      mistakes: []  // أخطاء تحتاج مراجعة
+    };
+
+    // حالة الكويز الجاري
+    let currentQuizPool = [];
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let answeredCurrent = false;
+
+    // تهيئة البيانات
+    function initData() {
+      if (typeof ALL_QUESTIONS_DATA === 'undefined') {
+        console.error('ALL_QUESTIONS_DATA not loaded');
+        return;
+      }
+
+      ALL_FIRST_AID_QUESTIONS = ALL_QUESTIONS_DATA.filter(q => q.ch === 22 && FIRST_AID_SUBS.includes(q.sub));
+      loadMasteryState();
+      updateMarathonStatsUI();
+      renderQuestionsList();
+    }
+
+    function loadMasteryState() {
+      try {
+        const raw = localStorage.getItem(FA_STORAGE_KEY);
+        if (raw) {
+          masteryState = JSON.parse(raw);
+        }
+      } catch (e) {
+        console.warn('Error reading mastery state:', e);
+      }
+    }
+
+    function saveMasteryState() {
+      try {
+        localStorage.setItem(FA_STORAGE_KEY, JSON.stringify(masteryState));
+      } catch (e) {
+        console.warn('Error saving mastery state:', e);
+      }
+      updateMarathonStatsUI();
+    }
+
+    function resetFirstAidProgress() {
+      if (!confirm('هل تريد تصفير سجل تقدمك في كبسولة الإسعافات والبدء من الصفر؟')) return;
+      masteryState = { mastered: [], mistakes: [] };
+      saveMasteryState();
+      alert('تم تصفير التقدم بنجاح.');
+    }
+
+    function updateMarathonStatsUI() {
+      const total = ALL_FIRST_AID_QUESTIONS.length || 96;
+      const masteredCount = masteryState.mastered.length;
+      const mistakesCount = masteryState.mistakes.length;
+      const remainingCount = Math.max(0, total - masteredCount);
+
+      const masteredPct = Math.round((masteredCount / total) * 100);
+      const mistakesPct = Math.round((mistakesCount / total) * 100);
+
+      document.getElementById('mProgressPctText').innerText = `${masteredPct}% (${masteredCount} / ${total})`;
+      document.getElementById('mBarMastered').style.width = masteredPct + '%';
+      document.getElementById('mBarMistakes').style.width = mistakesPct + '%';
+
+      document.getElementById('mStatMastered').innerText = masteredCount;
+      document.getElementById('mStatMistakes').innerText = mistakesCount;
+      document.getElementById('mStatRemaining').innerText = remainingCount;
+    }
+
+    // مطابقة الأقسام
+    function matchesSubcategory(q, filter) {
+      if (filter === 'all') return true;
+      const sub = (q.sub || '').toLowerCase();
+      if (filter === 'shock') return sub.includes('shock');
+      if (filter === 'emorragia') return sub.includes('emorragia') || sub.includes('sanguinante');
+      if (filter === 'incoscienza') return sub.includes('incoscienza') || (q.q || '').toLowerCase().includes('respir');
+      if (filter === 'fratture') return sub.includes('fratture');
+      if (filter === 'ustioni') return sub.includes('ustion');
+      if (filter === 'occhio') return sub.includes('occhio');
+      if (filter === 'doveri') return sub.includes('soccorso ferito') || sub.includes('primo soccorso') || sub.includes('soccorritore') || sub.includes('infortunato della strada');
+      return true;
+    }
+
+    function setSubFilter(filter, btn) {
+      currentSubFilter = filter;
+      document.querySelectorAll('.chip-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      renderQuestionsList();
+    }
+
+    function filterQuestions() {
+      renderQuestionsList();
+    }
+
+    // عرض قائمة الأسئلة
+    function renderQuestionsList() {
+      const container = document.getElementById('questionsContainer');
+      const search = document.getElementById('searchInput').value.trim().toLowerCase();
+
+      const filtered = ALL_FIRST_AID_QUESTIONS.filter(q => {
+        if (!matchesSubcategory(q, currentSubFilter)) return false;
+        if (search) {
+          const matchIt = (q.q || '').toLowerCase().includes(search);
+          const matchAr = (q.tr || '').toLowerCase().includes(search);
+          const matchSp = (q.sp || '').toLowerCase().includes(search);
+          if (!matchIt && !matchAr && !matchSp) return false;
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div style="text-align:center; padding:50px 20px; color:var(--ps-text-sub); background:var(--ps-card-bg); border-radius:18px;">
+            <div style="font-size:2.5rem; margin-bottom:10px;">🔍</div>
+            <div style="font-size:1.1rem; font-weight:700;">لا توجد أسئلة مطابقة للبحث</div>
+            <div style="font-size:0.9rem; margin-top:6px;">جرب تغيير كلمة البحث أو اختيار تصنيف آخر من الأعلى</div>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map((q, idx) => {
+        const isVero = q.a === true;
+        const ansBadge = isVero 
+          ? `<span class="q-badge-ans q-badge-vero">✅ VERO</span>` 
+          : `<span class="q-badge-ans q-badge-falso">❌ FALSO</span>`;
+        const qKey = `22_${q.id}`;
+        const isMastered = masteryState.mastered.includes(qKey);
+
+        return `
+          <div class="q-card" id="qcard_${q.id}">
+            <div class="q-card-header">
+              <div class="q-meta">
+                ${ansBadge}
+                <span class="q-subtopic-tag">${escapeHtml(q.sub || 'Primo Soccorso')}</span>
+                ${isMastered ? '<span style="font-size:0.75rem; color:var(--ps-emerald); font-weight:800;">✓ متقن</span>' : ''}
+              </div>
+              <button class="btn-audio-mini" onclick="playQuestionSpeech('${escapeQuote(q.q)}')" title="استمع للنطق الإيطالي">🔊</button>
+            </div>
+
+            <div class="q-text-it">${escapeHtml(q.q)}</div>
+            <div class="q-text-ar">📖 ${escapeHtml(q.tr || '')}</div>
+
+            <div class="q-details-box">
+              <div style="margin-bottom:6px;"><strong>💡 الشرح القانوني:</strong> ${escapeHtml(q.sp || '')}</div>
+              ${q.tb ? `<div><strong style="color:var(--ps-amber);">⚠️ الفخ المحتمل:</strong> ${escapeHtml(q.tb)}</div>` : ''}
+            </div>
+
+            <!-- حاوية تفكيك السؤال الثلاثي (Question Decoder) -->
+            <div id="decoder_wrap_${q.id}" style="margin-top:10px; display:none;"></div>
+
+            <div class="q-actions-row">
+              <button class="btn-decode-action" onclick="toggleQuestionDecoder(${q.id}, '${escapeQuote(q.q)}', ${q.a})">
+                <span>🧩 تفكيك السؤال (الموضوع • القاعدة • النتيجة)</span>
+              </button>
+              <span style="font-size:0.78rem; color:var(--ps-text-sub);">السؤال رقم ${q.id} من الباب 22</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // تفكيك السؤال الثلاثي
+    function toggleQuestionDecoder(id, qText, isTrue) {
+      const wrap = document.getElementById(`decoder_wrap_${id}`);
+      if (!wrap) return;
+
+      if (wrap.style.display === 'block') {
+        wrap.style.display = 'none';
+        return;
+      }
+
+      wrap.style.display = 'block';
+      if (typeof QuestionDecoder !== 'undefined' && QuestionDecoder.renderDecoderCard) {
+        wrap.innerHTML = QuestionDecoder.renderDecoderCard(qText, isTrue);
+      } else {
+        wrap.innerHTML = `<div style="padding:10px; font-size:0.85rem; color:var(--ps-text-sub);">محرك التفكيك قيد التحميل...</div>`;
+      }
+    }
+
+    // نطق الصوت
+    function playQuestionSpeech(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'it-IT';
+        utterance.rate = 0.95;
+        window.speechSynthesis.speak(utterance);
+      } else {
+        alert('المتصفح لا يدعم ميزة نطق النصوص الصوتية.');
+      }
+    }
+
+    // =========================================================================
+    // نظام الكويز التفاعلي الذكي (Marathon Quiz)
+    // =========================================================================
+    function startFirstAidQuiz() {
+      // إعطاء الأولوية للأسئلة الخاطئة ثم التي لم تُختبر بعد
+      const unmastered = ALL_FIRST_AID_QUESTIONS.filter(q => !masteryState.mastered.includes(`22_${q.id}`));
+      
+      let candidatePool = [];
+      if (masteryState.mistakes.length > 0) {
+        const mistakeQs = ALL_FIRST_AID_QUESTIONS.filter(q => masteryState.mistakes.includes(`22_${q.id}`));
+        candidatePool = [...mistakeQs];
+      }
+      
+      const remainingPool = unmastered.filter(q => !candidatePool.some(c => c.id === q.id));
+      candidatePool = candidatePool.concat(remainingPool);
+
+      if (candidatePool.length === 0) {
+        alert('🎉 تهانينا! لقد أتقنت جميع أسئلة الإسعافات الأولية بنسبة 100%!');
+        candidatePool = [...ALL_FIRST_AID_QUESTIONS];
+      }
+
+      // خلط عشوائي واختيار 20 سؤالاً
+      candidatePool.sort(() => 0.5 - Math.random());
+      currentQuizPool = candidatePool.slice(0, 20);
+      currentQuizIndex = 0;
+      quizScore = 0;
+      answeredCurrent = false;
+
+      document.getElementById('quizModal').classList.add('open');
+      renderQuizQuestion();
+    }
+
+    function renderQuizQuestion() {
+      if (currentQuizIndex >= currentQuizPool.length) {
+        renderQuizCompletion();
+        return;
+      }
+
+      const q = currentQuizPool[currentQuizIndex];
+      answeredCurrent = false;
+
+      document.getElementById('qRoundProgressBadge').innerText = `سؤال ${currentQuizIndex + 1} من ${currentQuizPool.length}`;
+
+      const modalBody = document.getElementById('quizModalBody');
+      modalBody.innerHTML = `
+        <div style="background:rgba(255,255,255,0.03); border:1px solid var(--ps-card-border); border-radius:18px; padding:20px; margin-bottom:16px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <span class="q-subtopic-tag">${escapeHtml(q.sub || 'Primo Soccorso')}</span>
+            <button class="btn-audio-mini" onclick="playQuestionSpeech('${escapeQuote(q.q)}')">🔊</button>
+          </div>
+          <div class="q-text-it" style="font-size:1.25rem;">${escapeHtml(q.q)}</div>
+          <div class="q-text-ar" style="font-size:1.05rem;">📖 ${escapeHtml(q.tr || '')}</div>
+        </div>
+
+        <div class="quiz-options-btns">
+          <button class="btn-quiz-ans btn-quiz-vero" id="btnQuizV" onclick="submitQuizAnswer(true)">
+            <span>VERO</span>
+            <span>✅</span>
+          </button>
+          <button class="btn-quiz-ans btn-quiz-falso" id="btnQuizF" onclick="submitQuizAnswer(false)">
+            <span>FALSO</span>
+            <span>❌</span>
+          </button>
+        </div>
+
+        <div class="quiz-feedback-box" id="quizFeedback"></div>
+
+        <div id="quizNextBtnRow" style="display:none; text-align:left; margin-top:16px;">
+          <button class="btn-marathon-start" onclick="nextQuizQuestion()">
+            <span>السؤال التالي</span>
+            <span>⬅</span>
+          </button>
+        </div>
+      `;
+    }
+
+    function submitQuizAnswer(chosen) {
+      if (answeredCurrent) return;
+      answeredCurrent = true;
+
+      const q = currentQuizPool[currentQuizIndex];
+      const isCorrect = (chosen === q.a);
+      const qKey = `22_${q.id}`;
+
+      const feedback = document.getElementById('quizFeedback');
+      const nextBtnRow = document.getElementById('quizNextBtnRow');
+
+      if (isCorrect) {
+        quizScore++;
+        feedback.style.display = 'block';
+        feedback.style.background = 'rgba(16, 185, 129, 0.15)';
+        feedback.style.border = '1px solid rgba(16, 185, 129, 0.4)';
+        feedback.style.color = 'var(--ps-emerald)';
+        feedback.innerHTML = `
+          <div style="font-size:1.1rem; font-weight:800; margin-bottom:6px;">🎉 إجابة صحيحة وممتازة!</div>
+          <div>${escapeHtml(q.sp || '')}</div>
+        `;
+
+        // إضافة للمتقن وحذف من الأخطاء
+        if (!masteryState.mastered.includes(qKey)) {
+          masteryState.mastered.push(qKey);
+        }
+        masteryState.mistakes = masteryState.mistakes.filter(k => k !== qKey);
+      } else {
+        feedback.style.display = 'block';
+        feedback.style.background = 'rgba(244, 63, 94, 0.15)';
+        feedback.style.border = '1px solid rgba(244, 63, 94, 0.4)';
+        feedback.style.color = 'var(--ps-rose)';
+        feedback.innerHTML = `
+          <div style="font-size:1.1rem; font-weight:800; margin-bottom:6px;">❌ إجابة خاطئة! الإجابة الصحيحة هي: <strong>${q.a ? 'VERO' : 'FALSO'}</strong></div>
+          <div style="margin-bottom:8px;">${escapeHtml(q.sp || '')}</div>
+          ${q.tb ? `<div style="color:var(--ps-amber);"><strong>⚠️ تذكر الفخ:</strong> ${escapeHtml(q.tb)}</div>` : ''}
+        `;
+
+        // إزالة من المتقن وإضافة للأخطاء ليتكرر
+        masteryState.mastered = masteryState.mastered.filter(k => k !== qKey);
+        if (!masteryState.mistakes.includes(qKey)) {
+          masteryState.mistakes.push(qKey);
+        }
+      }
+
+      saveMasteryState();
+      nextBtnRow.style.display = 'block';
+    }
+
+    function nextQuizQuestion() {
+      currentQuizIndex++;
+      renderQuizQuestion();
+    }
+
+    function renderQuizCompletion() {
+      const modalBody = document.getElementById('quizModalBody');
+      const pct = Math.round((quizScore / currentQuizPool.length) * 100);
+
+      modalBody.innerHTML = `
+        <div style="text-align:center; padding:30px 10px;">
+          <div style="font-size:3.5rem; margin-bottom:12px;">${pct >= 90 ? '🏆' : '💪'}</div>
+          <h2 style="font-size:1.6rem; margin:0 0 10px;">اكتملت جولة الكبسولة!</h2>
+          <p style="font-size:1rem; color:var(--ps-text-sub); margin-bottom:20px;">
+            حققت في هذه الجولة: <strong style="color:${pct >= 90 ? 'var(--ps-emerald)' : 'var(--ps-amber)'}; font-size:1.3rem;">${quizScore} من ${currentQuizPool.length}</strong> (${pct}%)
+          </p>
+
+          <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+            <button class="btn-marathon-start" onclick="startFirstAidQuiz()">
+              <span>🔄 جولة جديدة الآن</span>
+            </button>
+            <button class="btn-marathon-reset" onclick="closeQuizModal()">
+              <span>تصفح ودراسة الأسئلة 📖</span>
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function closeQuizModal() {
+      document.getElementById('quizModal').classList.remove('open');
+      renderQuestionsList();
+    }
+
+    function handleBackdropClick(e) {
+      if (e.target.id === 'quizModal') closeQuizModal();
+    }
+
+    // دوال مساعدة للهروب
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+    function escapeQuote(str) {
+      if (!str) return '';
+      return String(str).replace(/'/g, "\\'").replace(/"/g, '&quot;');
+    }
+
+    // تشغيل عند تحميل الصفحة
+    window.addEventListener('DOMContentLoaded', () => {
+      initData();
+    });
+  </script>
+</body>
+</html>
