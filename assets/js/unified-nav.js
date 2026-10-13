@@ -209,53 +209,53 @@
     `;
   }
 
-  // 4. ==================== بناء الفوتر الموحد ====================
+  // 4. ==================== بناء الفوتر الموحد (Developer Signature Footer) ====================
   function renderGlobalFooter(ctx) {
     return `
       <footer class="unified-portal-footer" id="globalPortalFooter">
         <div class="footer-inner-container">
-          <div class="footer-top-row">
-            <div class="footer-brand-wrap">
-              <div style="display:flex; align-items:center; gap:8px; font-weight:900; font-size:1.15rem; color:var(--text-primary, #FFF);">
-                <span>🚦</span>
-                <span>Patente B Pro</span>
-                <span class="badge-tag">Official Hub</span>
+          <div class="dev-footer-card">
+            <div class="dev-info-left">
+              <div class="dev-avatar-wrap">
+                <span class="dev-avatar-icon">👨‍💻</span>
               </div>
-              <p class="footer-tagline">
-                المنظومة الهندسية المتكاملة لحسم رخصة القيادة الإيطالية باللغة العربية عبر المنطق الرياضي والتريكات الوزارية المعتمدة.
-              </p>
+              <div class="dev-text-details">
+                <div class="dev-name-row">
+                  <span class="dev-name">Eng. Ramy Eid Saad Fahmy</span>
+                  <span class="dev-badge">Ingegnere Informatico</span>
+                </div>
+                <p class="dev-sub-desc">
+                  Full Stack & Automation Developer • Brindisi, Italia
+                </p>
+              </div>
             </div>
 
-            <div class="footer-actions-wrap">
-              <button class="footer-btn-scrolltop" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="العودة لأعلى الصفحة">
+            <div class="dev-links-right">
+              <a href="https://portfolio-taupe-eight-84.vercel.app/" target="_blank" rel="noopener noreferrer" class="dev-pill-btn" title="Portfolio Personale">
+                <span>🌐</span>
+                <span>Portfolio</span>
+              </a>
+              <a href="https://github.com/Ramy3id" target="_blank" rel="noopener noreferrer" class="dev-pill-btn" title="GitHub Profile">
+                <span>💻</span>
+                <span>GitHub</span>
+              </a>
+              <a href="mailto:ramyeid.dev@gmail.com" class="dev-pill-btn" title="Email: ramyeid.dev@gmail.com">
+                <span>✉️</span>
+                <span>Email</span>
+              </a>
+              <a href="https://wa.me/393447044605" target="_blank" rel="noopener noreferrer" class="dev-pill-btn" title="WhatsApp: (+39) 3447044605">
+                <span>💬</span>
+                <span>WhatsApp</span>
+              </a>
+              <button class="footer-btn-scrolltop" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="العودة لأعلى الصفحة (Scroll to top)">
                 <span>⬆️</span>
-                <span>إلى الأعلى</span>
               </button>
             </div>
           </div>
 
-          <div class="footer-pills-row">
-            <a href="${ctx.capitoli}index.html" class="footer-pill-link">📚 بنك أسئلة الأبواب</a>
-            <a href="${ctx.interactive}parole-spia.html" class="footer-pill-link">🎯 رادار الكلمات السحرية</a>
-            <a href="${ctx.interactive}decodificatore-incroci.html" class="footer-pill-link">🔄 مفكك التقاطعات</a>
-            <a href="${ctx.interactive}trucchi-esame.html" class="footer-pill-link">💎 خزينة التريكات</a>
-            <a href="${ctx.interactive}laboratorio-numeri.html" class="footer-pill-link">📏 معمل الأرقام والمقاييس</a>
-            <a href="${ctx.interactive}primo-soccorso.html" class="footer-pill-link">🚑 كبسولة الإسعافات</a>
-            <a href="${ctx.interactive}piano-studio.html" class="footer-pill-link">📅 خطة الدراسة</a>
-            <a href="${ctx.interactive}scheda-esame.html" class="footer-pill-link">📝 محاكي الامتحان الوزاري</a>
-            <a href="${ctx.interactive}flashcards.html" class="footer-pill-link">🗂️ بطاقات التكرار المتباعد</a>
-            <a href="${ctx.interactive}dashboard.html" class="footer-pill-link">📊 لوحة تقدم الطالب</a>
-            <a href="${ctx.interactive}traps_and_games.html" class="footer-pill-link">🎮 بنك الفخاخ والألعاب</a>
-          </div>
-
-          <div class="footer-bottom-row">
-            <div style="display:flex; align-items:center; gap:8px; font-size:0.84rem; color:var(--text-muted, #94A3B8);">
-              <span>⚡</span>
-              <span>تطبيق ويب تقدمي يعمل بالكامل دون الحاجة لاتصال بالإنترنت (Offline PWA Ready)</span>
-            </div>
-            <div style="font-size:0.82rem; color:var(--text-muted, #94A3B8); direction:ltr;">
-              Patente B Pro &copy; 2026. Made with precision for future drivers.
-            </div>
+          <div class="dev-copyright-row">
+            <span>Patente B Pro &copy; 2026 • Progettato e sviluppato da <strong>Eng. Ramy Eid Saad Fahmy</strong></span>
+            <span class="dev-status-pill">⚡ Offline PWA Ready</span>
           </div>
         </div>
       </footer>
@@ -512,12 +512,12 @@
         font-weight: 800;
       }
 
-      /* الفوتر الموحد */
+      /* الفوتر الموحد - توقيع المطور (Developer Signature Footer) */
       .unified-portal-footer {
-        margin-top: 60px;
-        background: rgba(15, 23, 42, 0.9);
+        margin-top: 50px;
+        background: rgba(11, 15, 25, 0.95);
         border-top: 1px solid rgba(255, 255, 255, 0.08);
-        padding: 40px 20px 24px;
+        padding: 24px 20px 20px;
         color: #94A3B8;
         box-sizing: border-box;
       }
@@ -530,40 +530,134 @@
         max-width: 1100px;
         margin: 0 auto;
       }
-      .footer-top-row {
+      .dev-footer-card {
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
+        align-items: center;
         flex-wrap: wrap;
-        gap: 20px;
-        margin-bottom: 24px;
+        gap: 16px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       }
-      .footer-brand-wrap {
-        max-width: 600px;
+      html.light .dev-footer-card {
+        border-bottom-color: rgba(15, 23, 42, 0.06);
       }
-      .footer-tagline {
-        font-size: 0.88rem;
-        line-height: 1.6;
-        margin-top: 8px;
+      .dev-info-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .dev-avatar-wrap {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: rgba(56, 189, 248, 0.12);
+        border: 1px solid rgba(56, 189, 248, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.35rem;
+        flex-shrink: 0;
+      }
+      html.light .dev-avatar-wrap {
+        background: rgba(2, 132, 199, 0.08);
+        border-color: rgba(2, 132, 199, 0.2);
+      }
+      .dev-text-details {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .dev-name-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .dev-name {
+        font-size: 1.02rem;
+        font-weight: 800;
+        color: #FFFFFF;
+        letter-spacing: -0.2px;
+      }
+      html.light .dev-name {
+        color: #0F172A;
+      }
+      .dev-badge {
+        font-size: 0.72rem;
+        font-weight: 700;
+        padding: 2px 7px;
+        border-radius: 6px;
+        background: rgba(16, 185, 129, 0.15);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        color: #34D399;
+      }
+      html.light .dev-badge {
+        background: rgba(5, 150, 105, 0.1);
+        border-color: rgba(5, 150, 105, 0.25);
+        color: #059669;
+      }
+      .dev-sub-desc {
+        font-size: 0.82rem;
+        color: #94A3B8;
+        margin: 0;
+      }
+      html.light .dev-sub-desc {
         color: #64748B;
+      }
+      .dev-links-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .dev-pill-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 12px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #94A3B8;
+        text-decoration: none;
+        font-size: 0.82rem;
+        font-weight: 700;
+        transition: all 0.2s ease;
+      }
+      html.light .dev-pill-btn {
+        background: rgba(15, 23, 42, 0.04);
+        border-color: rgba(15, 23, 42, 0.09);
+        color: #334155;
+      }
+      .dev-pill-btn:hover {
+        background: rgba(56, 189, 248, 0.15);
+        border-color: rgba(56, 189, 248, 0.35);
+        color: #38BDF8;
+        transform: translateY(-2px);
+      }
+      html.light .dev-pill-btn:hover {
+        background: rgba(2, 132, 199, 0.1);
+        border-color: rgba(2, 132, 199, 0.3);
+        color: #0284C7;
       }
       .footer-btn-scrolltop {
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.1);
         color: #38BDF8;
-        padding: 10px 18px;
-        border-radius: 12px;
+        padding: 7px 12px;
+        border-radius: 10px;
         font-family: inherit;
         font-size: 0.88rem;
         font-weight: 800;
         cursor: pointer;
         display: inline-flex;
         align-items: center;
-        gap: 8px;
+        justify-content: center;
         transition: all 0.2s;
       }
       html.light .footer-btn-scrolltop {
-        background: rgba(15, 23, 42, 0.05);
+        background: rgba(15, 23, 42, 0.04);
         border-color: rgba(15, 23, 42, 0.1);
         color: #0284C7;
       }
@@ -571,49 +665,35 @@
         background: rgba(56, 189, 248, 0.15);
         transform: translateY(-2px);
       }
-      .footer-pills-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        padding: 16px 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        margin-bottom: 20px;
-      }
-      html.light .footer-pills-row {
-        border-top-color: rgba(15, 23, 42, 0.06);
-        border-bottom-color: rgba(15, 23, 42, 0.06);
-      }
-      .footer-pill-link {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        padding: 6px 14px;
-        border-radius: 999px;
-        color: #94A3B8;
-        text-decoration: none;
-        font-size: 0.82rem;
-        font-weight: 700;
-        transition: all 0.2s;
-      }
-      html.light .footer-pill-link {
-        background: rgba(15, 23, 42, 0.04);
-        border-color: rgba(15, 23, 42, 0.08);
-        color: #475569;
-      }
-      .footer-pill-link:hover {
-        color: #38BDF8;
-        border-color: rgba(56, 189, 248, 0.3);
-      }
-      html.light .footer-pill-link:hover {
-        color: #0284C7;
-        border-color: rgba(2, 132, 199, 0.3);
-      }
-      .footer-bottom-row {
+      .dev-copyright-row {
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
-        gap: 12px;
+        gap: 10px;
+        padding-top: 14px;
+        font-size: 0.8rem;
+        color: #64748B;
+        direction: ltr;
+      }
+      html.light .dev-copyright-row {
+        color: #64748B;
+      }
+      .dev-status-pill {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: #34D399;
+        direction: ltr;
+      }
+      @media (max-width: 768px) {
+        .dev-footer-card {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .dev-links-right {
+          width: 100%;
+          justify-content: flex-start;
+        }
       }
     `;
     document.head.appendChild(style);
