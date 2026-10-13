@@ -1870,6 +1870,14 @@
         return true;
       });
 
+      // ترتيب بيداغوجي ذكي: الكلمات والعبارات الخالصة 100% (Pure) أولاً، والكلمات التي بها استثناءات تأتي دائماً في النهاية
+      filtered.sort((a, b) => {
+        if (Boolean(a.hasException) !== Boolean(b.hasException)) {
+          return a.hasException ? 1 : -1;
+        }
+        return 0;
+      });
+
       if (!filtered.length) {
         grid.innerHTML = `
           <div style="text-align:center; grid-column:1/-1; padding:50px 20px; color:var(--ps-text-sub);">
