@@ -203,6 +203,15 @@
       color: #0B0F19;
       border-color: var(--ps-amber);
     }
+    .ps-filter-btn.filter-phrase.active {
+      background: var(--ps-purple);
+      color: #FFFFFF;
+      border-color: var(--ps-purple);
+    }
+      background: var(--ps-amber);
+      color: #0B0F19;
+      border-color: var(--ps-amber);
+    }
 
     /* شبكة بطاقات الكلمات */
     .ps-grid {
@@ -1055,6 +1064,7 @@
         <button class="ps-filter-btn filter-falso" id="btnFilterFalso" onclick="setFilter('falso')">🔴 كلمات الـ FALSO (<span id="cntFalso">0</span>)</button>
         <button class="ps-filter-btn filter-vero" id="btnFilterVero" onclick="setFilter('vero')">🟢 كلمات الـ VERO (<span id="cntVero">0</span>)</button>
         <button class="ps-filter-btn filter-exception" id="btnFilterExc" onclick="setFilter('exception')">⚠️ كلمات بها استثناء (<span id="cntExc">0</span>)</button>
+        <button class="ps-filter-btn filter-phrase" id="btnFilterPhrases" onclick="setFilter('phrase')">⚡ العبارات والتراكيب القاتلة (<span id="cntPhrases">0</span>)</button>
       </div>
     </div>
 
@@ -1630,6 +1640,161 @@
         hasException: true,
         exceptionNote: "⚠️ 5 أسئلة خطأ (FALSO) فقط لأنها وضعت أرقام سرعات مغلوطة (مثل 80 داخل المدينة بدل 50، أو 100 على الطرق السريعة بدل 110).",
         regex: "\\bsalvo\\s+diversa\\s+segnalazione\\b"
+      },
+      // ==================== العبارات والتراكيب المركبة (Frasi Spia) ====================
+      {
+        it: "non è obbligatorio",
+        ar: "ليس إجبارياً",
+        type: "falso",
+        rate: "100% FALSO",
+        pure: true,
+        isPhrase: true,
+        rule: "كل ما يرد في قواعد الامتحان الإيطالي واجب قانوني ولا مجال للتخيير فيه؛ أي سؤال يدعي أنه غير إجباري فهو خاطئ فوراً.",
+        hasException: false,
+        regex: "non\\s+[èe]\\s+obbligatorio"
+      },
+      {
+        it: "non è necessario",
+        ar: "ليس ضرورياً",
+        type: "falso",
+        rate: "100% FALSO",
+        pure: true,
+        isPhrase: true,
+        rule: "التهاون في إجراءات الحيطة والسلامة وتخفيف السرعة خطأ دائم في الامتحان.",
+        hasException: false,
+        regex: "non\\s+[èe]\\s+necessario"
+      },
+      {
+        it: "si trova solo",
+        ar: "توجد فقط",
+        type: "falso",
+        rate: "100% FALSO",
+        pure: true,
+        isPhrase: true,
+        rule: "تقييد مكان وجود الإشارة في مكان وحيد فخ وزاري كلاسيكي لحصر ما لا ينحصر.",
+        hasException: false,
+        regex: "si\\s+trova\\s+solo"
+      },
+      {
+        it: "la precedenza solo",
+        ar: "الأولوية فقط لـ",
+        type: "falso",
+        rate: "100% FALSO",
+        pure: true,
+        isPhrase: true,
+        rule: "تقييد الأسبقية لفئة معينة فقط ومصادرة حق المركبات الأخرى خطأ وزاري متكرر.",
+        hasException: false,
+        regex: "la\\s+precedenza\\s+solo"
+      },
+      {
+        it: "non comporta",
+        ar: "لا يترتب عليه",
+        type: "falso",
+        rate: "100% FALSO",
+        pure: true,
+        isPhrase: true,
+        rule: "الإشارات والمخالفات ترتب نتائج حتمية قانونية لا تُنفى في الامتحان.",
+        hasException: false,
+        regex: "non\\s+comporta"
+      },
+      {
+        it: "non vale per",
+        ar: "لا يسري على",
+        type: "falso",
+        rate: "100% FALSO",
+        pure: true,
+        isPhrase: true,
+        rule: "محاولة نزع شمولية الإشارة عن مركبات معينة مشمولة أصلاً في القانون.",
+        hasException: false,
+        regex: "non\\s+vale\\s+per"
+      },
+      {
+        it: "diminuire la distanza",
+        ar: "تقليل مسافة الأمان",
+        type: "falso",
+        rate: "100% FALSO",
+        pure: true,
+        isPhrase: true,
+        rule: "تقليل مسافة الأمان ممنوع في جميع الأحوال والظروف دون أي استثناء.",
+        hasException: false,
+        regex: "diminuire\\s+la\\s+distanza"
+      },
+      {
+        it: "pedale della frizione",
+        ar: "دواسة الدبرياج (القابض)",
+        type: "falso",
+        rate: "100% FALSO",
+        pure: true,
+        isPhrase: true,
+        rule: "الضغط على الدبرياج عند الخطر أو في المنحدرات لإبطاء السيارة خطأ قاتل لأنه يفصل فرملة المحرك.",
+        hasException: false,
+        regex: "pedale\\s+della\\s+frizione"
+      },
+      {
+        it: "montare le catene",
+        ar: "تركيب السلاسل",
+        type: "falso",
+        rate: "100% FALSO",
+        pure: true,
+        isPhrase: true,
+        rule: "فخ تركيب السلاسل على عجلات غير دافعة أو دون وجود ثلوج.",
+        hasException: false,
+        regex: "montare\\s+le\\s+catene"
+      },
+      {
+        it: "richiede di moderare",
+        ar: "يتطلب تخفيف (السرعة)",
+        type: "vero",
+        rate: "100% VERO",
+        pure: true,
+        isPhrase: true,
+        rule: "دعوة الحذر والحيطة وتخفيف السرعة عند الإشارات صحيحة ومطلوبة دائماً.",
+        hasException: false,
+        regex: "richiede\\s+di\\s+moderare"
+      },
+      {
+        it: "evitare brusche",
+        ar: "تجنب (الفرملة/المناورات) المفاجئة",
+        type: "vero",
+        rate: "100% VERO",
+        pure: true,
+        isPhrase: true,
+        rule: "تجنب التصرفات والفرملة المفاجئة قاعدة سلامة قطعية وأساسية في كود السير.",
+        hasException: false,
+        regex: "evitare\\s+brusche"
+      },
+      {
+        it: "può essere abbinato",
+        ar: "يمكن أن يقترن بـ",
+        type: "vero",
+        rate: "100% VERO",
+        pure: true,
+        isPhrase: true,
+        rule: "إمكانية اقتران اللوحة بلوحة تكميلية توضيحية خيار قانوني شائع وصحيح.",
+        hasException: false,
+        regex: "pu[òo]\\s+essere\\s+abbinato"
+      },
+      {
+        it: "massa effettiva",
+        ar: "الكتلة (الوزن) الفعلية",
+        type: "vero",
+        rate: "100% VERO",
+        pure: true,
+        isPhrase: true,
+        rule: "لوحات قيود الوزن تخص دائماً الوزن الفعلي وقت العبور وليس الأقصى المصرح به.",
+        hasException: false,
+        regex: "massa\\s+effettiva"
+      },
+      {
+        it: "da non costituire",
+        ar: "بحيث لا يشكل (خطراً)",
+        type: "vero",
+        rate: "100% VERO",
+        pure: true,
+        isPhrase: true,
+        rule: "شرط عدم تشكيل خطر أو إعاقة لحركة السير صحيح دائماً ومطلوب من كل سائق.",
+        hasException: false,
+        regex: "da\\s+non\\s+costituire"
       }
     ];
 
@@ -1657,7 +1822,7 @@
      */
     function calculateCounts() {
       let totalQuestionsSet = new Set();
-      let cntF = 0, cntV = 0, cntE = 0;
+      let cntF = 0, cntV = 0, cntE = 0, cntP = 0;
 
       MAGIC_WORDS_DB.forEach(w => {
         const re = new RegExp(w.regex, "i");
@@ -1665,15 +1830,17 @@
         w.questionCount = matched.length;
         matched.forEach(q => totalQuestionsSet.add((q.ch || 1) + "_" + (q.id || 0)));
 
-        if (w.type === 'falso') cntF++;
-        if (w.type === 'vero') cntV++;
+        if (w.type === 'falso' && !w.isPhrase) cntF++;
+        if (w.type === 'vero' && !w.isPhrase) cntV++;
         if (w.hasException) cntE++;
+        if (w.isPhrase) cntP++;
       });
 
       document.getElementById("cntAll").innerText = MAGIC_WORDS_DB.length;
       document.getElementById("cntFalso").innerText = cntF;
       document.getElementById("cntVero").innerText = cntV;
       document.getElementById("cntExc").innerText = cntE;
+      if (document.getElementById("cntPhrases")) document.getElementById("cntPhrases").innerText = cntP;
       document.getElementById("statWordsCount").innerText = MAGIC_WORDS_DB.length;
       document.getElementById("statQuestionsCovered").innerText = totalQuestionsSet.size + " سؤالاً";
     }
@@ -1687,8 +1854,9 @@
 
       const filtered = MAGIC_WORDS_DB.filter(item => {
         // فلتر النوع
-        if (currentFilter === 'falso' && item.type !== 'falso') return false;
-        if (currentFilter === 'vero' && item.type !== 'vero') return false;
+        if (currentFilter === 'phrase' && !item.isPhrase) return false;
+        if (currentFilter === 'falso' && (item.type !== 'falso' || item.isPhrase)) return false;
+        if (currentFilter === 'vero' && (item.type !== 'vero' || item.isPhrase)) return false;
         if (currentFilter === 'exception' && !item.hasException) return false;
 
         // فلتر البحث
@@ -1760,6 +1928,7 @@
       if (filter === 'falso') document.getElementById("btnFilterFalso").classList.add("active");
       if (filter === 'vero') document.getElementById("btnFilterVero").classList.add("active");
       if (filter === 'exception') document.getElementById("btnFilterExc").classList.add("active");
+      if (filter === 'phrase' && document.getElementById("btnFilterPhrases")) document.getElementById("btnFilterPhrases").classList.add("active");
       renderCards();
     }
 

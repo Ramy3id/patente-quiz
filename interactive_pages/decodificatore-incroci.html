@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>مفكك شفرة التقاطعات ورادار اليمين الخالي | Patente B Pro</title>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0B0F19">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Patente B Pro">
+  <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="interactive_style.css">
+  <link rel="stylesheet" href="../assets/css/theme-modes.css">
+  <script src="../assets/js/theme-engine.js"></script>
+
+  <style>
+    :root {
+      --inc-bg: #0B0F19;
+      --inc-card-bg: rgba(15, 23, 42, 0.75);
+      --inc-card-border: rgba(255, 255, 255, 0.08);
+      --inc-text: #F8FAFC;
+      --inc-text-sub: #94A3B8;
+      --inc-cyan: #38BDF8;
+      --inc-emerald: #10B981;
+      --inc-rose: #F43F5E;
+      --inc-amber: #F59E0B;
+      --inc-purple: #A855F7;
+      --inc-indigo: #6366F1;
+    }
+
+    html.light {
+      --inc-bg: #F8FAFC;
+      --inc-card-bg: #FFFFFF;
+      --inc-card-border: #E2E8F0;
+      --inc-text: #0F172A;
+      --inc-text-sub: #64748B;
+    }
+
+    body {
+      background-color: var(--inc-bg);
+      color: var(--inc-text);
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding-bottom: 60px;
+      min-height: 100vh;
+    }
+
+    .inc-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 16px 40px;
+    }
+
+    /* هيدر التنقل */
+    .inc-navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0 20px;
+      border-bottom: 1px solid var(--inc-card-border);
+      margin-bottom: 24px;
+    }
+    .inc-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--inc-card-bg);
+      border: 1px solid var(--inc-card-border);
+      color: var(--inc-text);
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+    .inc-nav-btn:hover {
+      border-color: var(--inc-cyan);
+      color: var(--inc-cyan);
+      transform: translateY(-2px);
+    }
+
+    /* قسم الترحيب */
+    .inc-hero {
+      text-align: center;
+      padding: 28px 16px 32px;
+      background: linear-gradient(180deg, rgba(99, 102, 241, 0.12) 0%, rgba(15, 23, 42, 0) 100%);
+      border-radius: 24px;
+      margin-bottom: 24px;
+      border: 1px solid var(--inc-card-border);
+      position: relative;
+    }
+    html.light .inc-hero {
+      background: linear-gradient(180deg, rgba(99, 102, 241, 0.08) 0%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    .inc-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(99, 102, 241, 0.15);
+      color: #818CF8;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .inc-title {
+      font-size: 1.95rem;
+      font-weight: 900;
+      margin: 0 0 10px;
+      color: var(--inc-text);
+      letter-spacing: -0.5px;
+    }
+
+    .inc-subtitle {
+      font-size: 1rem;
+      color: var(--inc-text-sub);
+      max-width: 760px;
+      margin: 0 auto 18px;
+      line-height: 1.6;
+    }
+
+    .inc-stats-strip {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .inc-stat-item {
+      background: var(--inc-card-bg);
+      border: 1px solid var(--inc-card-border);
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* بطاقة الخوارزمية الذهبية */
+    .algo-card {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(16, 185, 129, 0.05) 100%);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      border-radius: 20px;
+      padding: 22px;
+      margin-bottom: 24px;
+    }
+    .algo-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #818CF8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 16px;
+    }
+    .algo-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .algo-step-box {
+      background: var(--inc-card-bg);
+      border: 1px solid var(--inc-card-border);
+      border-radius: 14px;
+      padding: 16px;
+      position: relative;
+    }
+    .algo-step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+    }
+    .step-1 .algo-step-num { background: rgba(245, 158, 11, 0.2); color: var(--inc-amber); border: 1px solid var(--inc-amber); }
+    .step-2 .algo-step-num { background: rgba(244, 63, 94, 0.2); color: var(--inc-rose); border: 1px solid var(--inc-rose); }
+    .step-3 .algo-step-num { background: rgba(16, 185, 129, 0.2); color: var(--inc-emerald); border: 1px solid var(--inc-emerald); }
+
+    .algo-step-head {
+      font-size: 0.98rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: var(--inc-text);
+    }
+    .algo-step-desc {
+      font-size: 0.85rem;
+      color: var(--inc-text-sub);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* بطاقة فخ contemporaneamente */
+    .radar-trap-card {
+      background: linear-gradient(135deg, rgba(244, 63, 94, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      border-radius: 20px;
+      padding: 22px;
+      margin-bottom: 24px;
+    }
+    html.light .radar-trap-card {
+      background: linear-gradient(135deg, rgba(244, 63, 94, 0.08) 0%, #FFFFFF 100%);
+    }
+    .trap-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .trap-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .trap-badge {
+      background: rgba(244, 63, 94, 0.2);
+      color: var(--inc-rose);
+      border: 1px solid var(--inc-rose);
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 0.8rem;
+    }
+    .btn-quick-filter-trap {
+      background: var(--inc-rose);
+      color: #FFFFFF;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-weight: 800;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-quick-filter-trap:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 14px rgba(244, 63, 94, 0.4);
+    }
+
+    /* شريط البحث والتحكم */
+    .controls-wrap {
+      background: var(--inc-card-bg);
+      border: 1px solid var(--inc-card-border);
+      border-radius: 18px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    .search-box {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--inc-card-border);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--inc-text);
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      margin-bottom: 12px;
+    }
+    .search-box:focus {
+      border-color: var(--inc-cyan);
+    }
+    .filter-chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .chip-btn {
+      background: transparent;
+      color: var(--inc-text-sub);
+      border: 1px solid var(--inc-card-border);
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .chip-btn:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--inc-text);
+    }
+    .chip-btn.active {
+      background: #6366F1;
+      color: #FFFFFF;
+      border-color: #6366F1;
+      font-weight: 800;
+    }
+
+    /* قائمة الأسئلة */
+    .questions-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .q-card {
+      background: var(--inc-card-bg);
+      border: 1px solid var(--inc-card-border);
+      border-radius: 18px;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 20px;
+      align-items: center;
+      transition: all 0.2s;
+    }
+    @media (max-width: 768px) {
+      .q-card {
+        grid-template-columns: 1fr;
+      }
+    }
+    .q-card:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .q-img-wrap {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--inc-card-border);
+      border-radius: 14px;
+      padding: 8px;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .q-img-wrap img {
+      max-width: 100%;
+      height: auto;
+      max-height: 180px;
+      object-fit: contain;
+      border-radius: 8px;
+      transition: transform 0.2s;
+    }
+    .q-img-wrap:hover img {
+      transform: scale(1.05);
+    }
+    .q-img-zoom-hint {
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      background: rgba(0, 0, 0, 0.7);
+      color: #FFF;
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 6px;
+      pointer-events: none;
+    }
+
+    .q-info-col {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .q-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+    }
+    .q-id-badge {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--inc-text-sub);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+    .ans-badge-v {
+      background: rgba(16, 185, 129, 0.2);
+      color: var(--inc-emerald);
+      border: 1px solid var(--inc-emerald);
+      padding: 3px 10px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 0.8rem;
+    }
+    .ans-badge-f {
+      background: rgba(244, 63, 94, 0.2);
+      color: var(--inc-rose);
+      border: 1px solid var(--inc-rose);
+      padding: 3px 10px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 0.8rem;
+    }
+
+    .q-it-text {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      color: var(--inc-text);
+      margin: 0;
+    }
+    .q-ar-text {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--inc-cyan);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .q-sp-box {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 0.85rem;
+      color: var(--inc-text-sub);
+      line-height: 1.5;
+    }
+    html.light .q-sp-box {
+      background: #F1F5F9;
+    }
+    .q-tb-box {
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px dashed rgba(245, 158, 11, 0.3);
+      color: var(--inc-amber);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    /* لايت بوكس لتكبير الصورة */
+    .lightbox-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .lightbox-backdrop.open {
+      display: flex;
+    }
+    .lightbox-card {
+      background: #0B0F19;
+      border: 1px solid var(--inc-card-border);
+      border-radius: 20px;
+      padding: 20px;
+      max-width: 90vw;
+      max-height: 90vh;
+      text-align: center;
+      position: relative;
+    }
+    .lightbox-card img {
+      max-width: 100%;
+      max-height: 75vh;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #FFF;
+      font-size: 1.2rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    /* كويز تفاعلي مودال */
+    .quiz-mode-box {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .btn-q-vf {
+      flex: 1;
+      padding: 10px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .btn-q-v { background: rgba(16, 185, 129, 0.2); color: var(--inc-emerald); border: 1px solid var(--inc-emerald); }
+    .btn-q-f { background: rgba(244, 63, 94, 0.2); color: var(--inc-rose); border: 1px solid var(--inc-rose); }
+    .btn-q-v:hover { background: var(--inc-emerald); color: #FFF; }
+    .btn-q-f:hover { background: var(--inc-rose); color: #FFF; }
+  </style>
+</head>
+<body>
+
+  <div class="inc-container">
+
+    <!-- شريط التنقل -->
+    <header class="inc-navbar">
+      <a href="../Capitoli_Divisi/index.html" class="inc-nav-btn">
+        <span>⬅️</span>
+        <span>العودة لمركز الأدوات والأبواب</span>
+      </a>
+      <div style="display:flex; gap:10px;">
+        <a href="piano-studio.html" class="inc-nav-btn">
+          <span>📅</span>
+          <span>خطة الدراسة</span>
+        </a>
+        <a href="parole-spia.html" class="inc-nav-btn">
+          <span>🎯</span>
+          <span>رادار الكلمات</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- الهيرو والتقديم -->
+    <section class="inc-hero">
+      <div class="inc-badge-pill">
+        <span>🔄</span>
+        <span>الباب 14 | Precedenza agli Incroci</span>
+      </div>
+      <h1 class="inc-title">مفكك شفرة التقاطعات ورادار اليمين الخالي</h1>
+      <p class="inc-subtitle">
+        الخوارزمية البصرية الذكية لحسم رسومات التقاطعات الـ 415 بنسبة 100%، وحسم فخ كلمة contemporaneamente في ثوانٍ معدودة.
+      </p>
+
+      <div class="inc-stats-strip">
+        <div class="inc-stat-item">
+          <span>🚗</span>
+          <span>415 سؤالاً تغطي كافة تقاطعات الوزارة</span>
+        </div>
+        <div class="inc-stat-item" style="color:var(--inc-rose); border-color:rgba(244,63,94,0.3);">
+          <span>💥</span>
+          <span>32 سؤالاً لكلمة contemporaneamente (28 منها FALSO)</span>
+        </div>
+        <div class="inc-stat-item" style="color:var(--inc-emerald); border-color:rgba(16,185,129,0.3);">
+          <span>✨</span>
+          <span>1 خوارزمية بصرية تحل أي رسمة بلا استثناء</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- الدليل التفاعلي: خوارزمية فك التقاطعات -->
+    <section class="algo-card">
+      <div class="algo-title">
+        <span>🧭</span>
+        <span>الخوارزمية الثلاثية لفك أي تقاطع مروري:</span>
+      </div>
+      <div class="algo-steps-grid">
+        <div class="algo-step-box step-1">
+          <div class="algo-step-num">1</div>
+          <div class="algo-step-head">فوق القانون (Fuori Concorso)</div>
+          <p class="algo-step-desc">
+            الترام (Tram) وعربات الطوارئ المشعلة للسرينة تمر أولاً دائماً فوق الجميع أينما وُجدت.
+          </p>
+        </div>
+        <div class="algo-step-box step-2">
+          <div class="algo-step-num">2</div>
+          <div class="algo-step-head">المنتظرون في النهاية</div>
+          <p class="algo-step-desc">
+            السيارة التي أمامها إشارة قف (STOP) أو إعطاء الأسبقية (Dare Precedenza) تقف وتنتظر خلو التقاطع تماماً.
+          </p>
+        </div>
+        <div class="algo-step-box step-3">
+          <div class="algo-step-num">3</div>
+          <div class="algo-step-head">اليمين الخالي + عقارب الساعة</div>
+          <p class="algo-step-desc">
+            قف مكان السائق: السيارة ذات اليمين الخالي تماماً (Destra Libera) هي رقم 1، ثم دوران في اتجاه عقارب الساعة للسيارات تباعاً!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- رادار فخ contemporaneamente -->
+    <section class="radar-trap-card">
+      <div class="trap-header">
+        <div class="trap-title-wrap">
+          <span style="font-size:1.6rem;">⚡</span>
+          <div>
+            <div style="font-size:1.15rem; font-weight:800; color:var(--inc-rose);">رادار فخ كلمة contemporaneamente (في نفس الوقت)</div>
+            <div style="font-size:0.85rem; color:var(--inc-text-sub);">وردت في 32 سؤالاً بالباب 14: 28 سؤالاً منها = ❌ FALSO فوراً (87.5%)!</div>
+          </div>
+        </div>
+        <button class="btn-quick-filter-trap" onclick="filterByTrap()">
+          <span>🎯 عرض الـ 32 سؤالاً للتدريب الفوري</span>
+        </button>
+      </div>
+      <p style="margin:0; font-size:0.88rem; color:var(--inc-text-sub); line-height:1.6;">
+        ⚠️ <strong>لماذا هي FALSO بنسبة 87.5%؟</strong> لأن واضع الامتحان يتعمد جمع سيارتين تتقاطع مساراتهما ويدعي أنهما تمران معاً!  
+        ✅ <strong>الاستثناء الوحيد (4 أسئلة VERO):</strong> تكون صحيحة <strong>فقط وفقط</strong> إذا كانت مسارات السيارتين متوازيتين تماماً ولا تتقاطعان إطلاقاً.
+      </p>
+    </section>
+
+    <!-- أدوات البحث والتصفية -->
+    <section class="controls-wrap">
+      <input type="text" id="searchInput" class="search-box" placeholder="🔍 ابحث برقم السؤال، اسم السيارة (مثل veicolo C)، أو كلمة مفتاحية..." oninput="handleSearch()">
+      
+      <div class="filter-chips">
+        <button class="chip-btn active" id="filterAll" onclick="setFilter('all', this)">🌟 جميع التقاطعات (<span id="cntAll">0</span>)</button>
+        <button class="chip-btn" id="filterContemp" onclick="setFilter('contemp', this)">⚡ فخ Contemporaneamente (<span id="cntContemp">0</span>)</button>
+        <button class="chip-btn" id="filterTram" onclick="setFilter('tram', this)">🚋 تقاطعات بها ترام (<span id="cntTram">0</span>)</button>
+        <button class="chip-btn" id="filterStop" onclick="setFilter('stop', this)">🛑 تقاطعات بها STOP / أسبقية (<span id="cntStop">0</span>)</button>
+        <button class="chip-btn" id="filterFalso" onclick="setFilter('falso', this)">🔴 أسئلة FALSO (<span id="cntFalso">0</span>)</button>
+        <button class="chip-btn" id="filterVero" onclick="setFilter('vero', this)">🟢 أسئلة VERO (<span id="cntVero">0</span>)</button>
+      </div>
+    </section>
+
+    <!-- قائمة الأسئلة المعروضة -->
+    <section class="questions-grid" id="questionsContainer">
+      <div style="text-align:center; padding:40px; color:var(--inc-text-sub);">جاري تحميل تقاطعات الباب 14...</div>
+    </section>
+
+  </div>
+
+  <!-- لايت بوكس لتكبير الصورة -->
+  <div class="lightbox-backdrop" id="imgLightbox" onclick="closeLightbox(event)">
+    <div class="lightbox-card">
+      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+      <img id="lightboxImg" src="" alt="تقاطع مروري مكبر">
+      <div id="lightboxCaption" style="margin-top:10px; font-weight:700; color:var(--inc-cyan); font-size:0.9rem;"></div>
+    </div>
+  </div>
+
+  <!-- ملفات البيانات المشتركة -->
+  <script src="../Capitoli_Divisi/data_all_questions.js"></script>
+
+  <script>
+    let ch14Questions = [];
+    let currentFilter = 'all';
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initData();
+    });
+
+    function initData() {
+      if (typeof ALL_QUESTIONS_DATA === 'undefined') {
+        document.getElementById('questionsContainer').innerHTML = '<div style="text-align:center; color:var(--inc-rose); padding:40px;">تعذر تحميل قاعدة بيانات الأسئلة</div>';
+        return;
+      }
+
+      ch14Questions = ALL_QUESTIONS_DATA.filter(q => q.ch === 14);
+      calculateCounts();
+      renderQuestions();
+    }
+
+    function calculateCounts() {
+      const cntAll = ch14Questions.length;
+      const cntContemp = ch14Questions.filter(q => (q.q || '').toLowerCase().includes('contemporaneamente')).length;
+      const cntTram = ch14Questions.filter(q => (q.q || '').toLowerCase().includes('tram')).length;
+      const cntStop = ch14Questions.filter(q => (q.q || '').toLowerCase().includes('stop') || (q.q || '').toLowerCase().includes('precedenza')).length;
+      const cntF = ch14Questions.filter(q => q.a === false).length;
+      const cntV = ch14Questions.filter(q => q.a === true).length;
+
+      document.getElementById('cntAll').innerText = cntAll;
+      document.getElementById('cntContemp').innerText = cntContemp;
+      document.getElementById('cntTram').innerText = cntTram;
+      document.getElementById('cntStop').innerText = cntStop;
+      document.getElementById('cntFalso').innerText = cntF;
+      document.getElementById('cntVero').innerText = cntV;
+    }
+
+    function setFilter(filter, btn) {
+      currentFilter = filter;
+      document.querySelectorAll('.chip-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      renderQuestions();
+    }
+
+    function filterByTrap() {
+      const btn = document.getElementById('filterContemp');
+      setFilter('contemp', btn);
+      window.scrollTo({ top: document.querySelector('.controls-wrap').offsetTop - 20, behavior: 'smooth' });
+    }
+
+    function handleSearch() {
+      renderQuestions();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      const search = document.getElementById('searchInput').value.trim().toLowerCase();
+
+      const filtered = ch14Questions.filter(q => {
+        const textIt = (q.q || '').toLowerCase();
+        const textAr = (q.tr || '').toLowerCase();
+
+        // تصفية الفلتر المختار
+        if (currentFilter === 'contemp' && !textIt.includes('contemporaneamente')) return false;
+        if (currentFilter === 'tram' && !textIt.includes('tram')) return false;
+        if (currentFilter === 'stop' && !textIt.includes('stop') && !textIt.includes('precedenza')) return false;
+        if (currentFilter === 'falso' && q.a !== false) return false;
+        if (currentFilter === 'vero' && q.a !== true) return false;
+
+        // تصفية البحث
+        if (search) {
+          const matchQ = textIt.includes(search);
+          const matchTr = textAr.includes(search);
+          const matchId = String(q.id).includes(search);
+          if (!matchQ && !matchTr && !matchId) return false;
+        }
+
+        return true;
+      });
+
+      if (!filtered.length) {
+        container.innerHTML = `
+          <div style="text-align:center; padding:50px 20px; color:var(--inc-text-sub); background:var(--inc-card-bg); border-radius:18px;">
+            <div style="font-size:2.5rem; margin-bottom:10px;">🔍</div>
+            <strong style="font-size:1.1rem; color:var(--inc-text);">لم يتم العثور على تقاطعات مطابقة</strong>
+            <p>جرب تغيير كلمة البحث أو اختيار تصنيف آخر.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(q => {
+        const isVero = (q.a === true);
+        const ansBadge = isVero ? '<span class="ans-badge-v">✅ VERO</span>' : '<span class="ans-badge-f">❌ FALSO</span>';
+        const imgSrc = q.img ? `../Capitoli_Divisi/${q.img}` : '../assets/images/placeholder.png';
+        const hasContemp = (q.q || '').toLowerCase().includes('contemporaneamente');
+
+        return `
+          <div class="q-card">
+            <div class="q-img-wrap" onclick="openLightbox('${imgSrc}', 'تقاطع سؤال رقم ${q.id}')">
+              <img src="${imgSrc}" alt="تقاطع سؤال ${q.id}" loading="lazy">
+              <span class="q-img-zoom-hint">🔍 انقر للتكبير</span>
+            </div>
+            <div class="q-info-col">
+              <div class="q-meta-row">
+                <span class="q-id-badge">سؤال #${q.id}</span>
+                <div style="display:flex; gap:6px; align-items:center;">
+                  ${hasContemp ? '<span class="trap-badge">فخ Contemporaneamente</span>' : ''}
+                  ${ansBadge}
+                </div>
+              </div>
+              <p class="q-it-text">${highlightKeyword(q.q || '')}</p>
+              <p class="q-ar-text">${escapeHtml(q.tr || '')}</p>
+              ${q.sp ? `<div class="q-sp-box"><strong>💡 فك الشفرة:</strong> ${escapeHtml(q.sp)}</div>` : ''}
+              ${q.tb ? `<div class="q-tb-box"><strong>⚠️ الفخ الوزاري:</strong> ${escapeHtml(q.tb)}</div>` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function highlightKeyword(text) {
+      if (!text) return '';
+      let safe = escapeHtml(text);
+      if (safe.toLowerCase().includes('contemporaneamente')) {
+        const re = new RegExp('(\\bcontemporaneamente\\b)', 'gi');
+        safe = safe.replace(re, '<mark style="background:rgba(244,63,94,0.3); color:var(--inc-rose); padding:2px 6px; border-radius:4px; font-weight:800;">$1</mark>');
+      }
+      return safe;
+    }
+
+    function openLightbox(src, caption) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxCaption').innerText = caption || '';
+      document.getElementById('imgLightbox').classList.add('open');
+    }
+
+    function closeLightbox(e) {
+      if (!e || e.target.id === 'imgLightbox' || e.target.classList.contains('lightbox-close')) {
+        document.getElementById('imgLightbox').classList.remove('open');
+      }
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+  </script>
+</body>
+</html>
