@@ -637,15 +637,17 @@
   }
 
   .signal-img-container {
-    background: rgba(0, 0, 0, 0.35);
+    background: #090d16;
     border: 1px solid var(--border-subtle);
     border-radius: 14px;
-    height: 160px;
+    height: 190px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 16px;
-    padding: 12px;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
   }
   .signal-img-container img {
     max-height: 100%;
@@ -885,6 +887,340 @@
   border-radius: 6px;
   border: 1px solid rgba(16, 185, 129, 0.3);
 }
+
+/* =======================================================================
+   Patente B Pro - Eco-Driving Studio & Realistic Photographic Cards
+   ======================================================================= */
+.eco-studio-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 24px;
+  margin: 32px 0;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+}
+.eco-studio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 16px;
+}
+.eco-badge-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--emerald-primary);
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 3px 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+.eco-main-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #fff;
+}
+.eco-tabs-nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.eco-tab-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+}
+.eco-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.eco-tab-btn.active {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: var(--emerald-primary);
+  color: var(--emerald-primary);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.2);
+}
+.eco-canvas-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #060a12;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+#ecoCanvas {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.eco-telemetry-hud {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  z-index: 5;
+}
+.hud-stat-box {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 6px 12px;
+  display: flex;
+  flex-direction: column;
+  min-width: 90px;
+}
+.hud-stat-box.highlight-amber { border-color: rgba(245, 158, 11, 0.45); }
+.hud-stat-box.highlight-amber .hud-stat-val { color: var(--amber-primary); }
+.hud-stat-box.highlight-rose { border-color: rgba(244, 63, 94, 0.45); }
+.hud-stat-box.highlight-rose .hud-stat-val { color: var(--rose-primary); }
+.hud-stat-box.highlight-green { border-color: rgba(16, 185, 129, 0.45); }
+.hud-stat-box.highlight-green .hud-stat-val { color: var(--emerald-primary); }
+.hud-stat-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+.hud-stat-val {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+}
+.hud-stat-val small { font-size: 0.72rem; font-weight: 500; }
+.eco-controls-panel {
+  background: rgba(24, 24, 27, 0.5);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.ctrl-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ctrl-label {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+.ctrl-btn-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.eco-btn-opt {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.eco-btn-opt:hover { background: rgba(255, 255, 255, 0.12); }
+.eco-btn-opt.active {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: var(--sky-primary);
+  color: var(--sky-primary);
+  font-weight: 700;
+}
+.eco-btn-toggle {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 0.84rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+.eco-btn-toggle:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
+.eco-btn-toggle.active {
+  background: rgba(244, 63, 94, 0.18);
+  border-color: var(--rose-primary);
+  color: #fecdd3;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(244, 63, 94, 0.2);
+}
+.cat-explanation-pill {
+  padding: 10px 14px;
+  background: rgba(245, 158, 11, 0.1);
+  border-right: 3px solid var(--amber-primary);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  color: #fde68a;
+  line-height: 1.6;
+}
+.eco-insight-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+.insight-icon { font-size: 1.4rem; }
+.insight-text {
+  font-size: 0.88rem;
+  color: #bbf7d0;
+  line-height: 1.6;
+}
+
+/* Realistic Photographic Card Container */
+.vehicle-part-img-container {
+  width: 100%;
+  height: 190px;
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #090d16;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+}
+.part-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+.signal-card:hover .part-card-img {
+  transform: scale(1.06);
+}
+.part-card-tag {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: var(--emerald-primary);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Photo Gallery Section */
+.parts-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+.part-photo-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.part-photo-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+.part-photo-thumb {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+}
+.part-photo-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.part-photo-card:hover .part-photo-thumb img {
+  transform: scale(1.05);
+}
+.part-photo-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: var(--emerald-primary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+.part-photo-body {
+  padding: 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.part-photo-title-ar {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.part-photo-title-it {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: 10px;
+}
+.part-photo-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 12px;
+  flex-grow: 1;
+}
+.part-photo-trap {
+  background: rgba(244, 63, 94, 0.1);
+  border-right: 3px solid var(--rose-primary);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  color: #fecdd3;
+  line-height: 1.5;
+}
+
 </style>
   <link rel="manifest" href="../manifest.json">
 </head>
@@ -1027,94 +1363,131 @@
     </div>
   </section>
 
-  <!-- SIMULATOR 1: Eco-Driving & Fuel Consumption Calculator -->
-  <section class="simulator-box" id="sim-consumi">
-    <div class="sim-title">
-      <span>⛽ 📉</span>
-      <span>المحاكي التفاعلي 1: حاسبة استهلاك الوقود ومقاومة الهواء (Calcolatore Consumi ed Eco-Driving)</span>
+  <!-- 60 FPS ECO-DRIVING, AERODYNAMICS & EXHAUST STUDIO -->
+  <div id="ecoStudioContainer"></div>
+
+  <!-- REALISTIC ECO-PARTS & WORKSHOP PHOTO GALLERY -->
+  <section class="parts-photo-section">
+    <div class="section-heading">
+      <div class="section-badge">المعرض التوضيحي الواقعي المعتمد</div>
+      <h2 class="section-title">معرض الأجزاء الميكانيكية وأجهزة معالجة العادم على أرض الواقع</h2>
+      <p style="color:var(--text-secondary); font-size:0.95rem; margin-top:6px;">
+        صور حقيقية عالية الدقة 100% تطابق الأجهزة الفعلية داخل المركبات ومحطات الفحص الفني
+      </p>
     </div>
-    <div class="sim-subtitle">فعل أو عطل العوامل المسببة لزيادة استهلاك الوقود وشاهد نسبة الزيادة المئوية في حرق الوقود وانبعاث الكربون:</div>
-    <div class="sim-controls" style="margin-bottom:12px;">
-      <button class="sim-btn" id="btnFactorPortapacchi" onclick="toggleFactor('portapacchi')">حامل أمتعة على السقف (+15%)</button>
-      <button class="sim-btn" id="btnFactorFinestrini" onclick="toggleFactor('finestrini')">نوافذ مفتوحة بسرعة 130 كم/س (+10%)</button>
-      <button class="sim-btn" id="btnFactorGomme" onclick="toggleFactor('gomme')">ضغط إطارات منخفض (-0.5 bar) (+8%)</button>
-      <button class="sim-btn" id="btnFactorClima" onclick="toggleFactor('clima')">تشغيل مكيف الهواء (+12%)</button>
-      <button class="sim-btn" id="btnFactorGuida" onclick="toggleFactor('guida')">قيادة عنيفة بتسارع مفاجئ (+25%)</button>
-    </div>
-    <div class="sim-output-card" id="consumiOutput" style="margin-top:14px;">
-      <div class="sim-badge" id="consumiBadge" style="background:rgba(16,185,129,0.15); color:var(--emerald-primary); border:1px solid rgba(16,185,129,0.35);">
-        قيادة اقتصادية مثالية: 0% زيادة
-      </div>
-      <div class="sim-details">
-        <h4 id="consumiTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">أعلى كفاءة في استهلاك الوقود وأقل انبعاثات كربونية</h4>
-        <p id="consumiDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
-          السيارة تسير بانسيابية هوائية مثالية، ضغط الإطارات مطابق للمواصفات، والقيادة تتم بسلاسة بالغيارات العالية مع التباطؤ برفع القدم عن دواسة الوقود (Cut-off).<br>
-          <strong>المعدل:</strong> استهلاك وقود قياسي مطابق لكتالوج المصنع وحماية تامة للبيئة.
-        </p>
-        <div class="sim-warning-box" id="consumiWarning" style="margin-top:10px; padding:10px 14px; background:rgba(16,185,129,0.1); border-right:3px solid var(--emerald-primary); border-radius:8px; font-size:0.86rem; color:#bbf7d0;">
-          💡 <strong>نصيحة ذهبية:</strong> إزالة حامل الأمتعة الفارغ من السقف فور انتهاء الرحلة يوفر مئات اليوروهات سنوياً من الوقود!
+
+    <div class="parts-photo-grid">
+      <!-- Item 1: Marmitta Catalitica -->
+      <div class="part-photo-card">
+        <div class="part-photo-thumb">
+          <img src="../assets/images/eco_parts/marmitta_catalitica.jpg" alt="المحول الحفاز وعلبة البيئة" loading="lazy">
+          <div class="part-photo-badge">Marmitta Catalitica</div>
+        </div>
+        <div class="part-photo-body">
+          <h4 class="part-photo-title-ar">المحول الحفاز وعلبة البيئة (Marmitta Catalitica)</h4>
+          <span class="part-photo-title-it">Catalizzatore con matrice ceramica e metalli nobili</span>
+          <p class="part-photo-desc">
+            • <strong>البنية الداخلية:</strong> قلب سيراميكي على شكل خلايا نحل مطلي بمعادن نفيسة (البلاتين والروديوم).<br>
+            • <strong>حرارة التشغيل:</strong> يحتاج لحرارة تتجاوز <strong>600°C</strong> ليعمل بكفاءة؛ ولا ينقي الغازات في الدقائق الأولى بعد تشغيل المحرك البارد.
+          </p>
+          <div class="part-photo-trap">
+            ⚠️ <strong>فخ وزاري:</strong> يحظر ركن السيارة فوق الأعشاب الجافة بعد القيادة لأن حرارة علبة البيئة قد تشعل حريقاً!
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- SIMULATOR 2: Exhaust Gases & Catalytic Converter -->
-  <section class="simulator-box" id="sim-catalizzatore">
-    <div class="sim-title">
-      <span>💨 🔬</span>
-      <span>المحاكي التفاعلي 2: مستكشف غازات العادم وأجهزة التنقية (Marmitta Catalitica & DPF)</span>
-    </div>
-    <div class="sim-subtitle">اختر جهاز تنقية العادم لاكتشاف طريقة عمله، الغازات التي يعالجها، وشروط كفاءته في الامتحان الوزاري:</div>
-    <div class="sim-controls">
-      <button class="sim-btn active" id="btnDevCatalizzatore" onclick="simDevice('catalizzatore')">1. المحول الحفاز (Marmitta catalitica)</button>
-      <button class="sim-btn" id="btnDevDPF" onclick="simDevice('dpf')">2. فلتر الديزل (Filtro antiparticolato DPF)</button>
-      <button class="sim-btn" id="btnDevFiltroAria" onclick="simDevice('filtro_aria')">3. فلتر الهواء والبخاخات (Iniettori)</button>
-      <button class="sim-btn" id="btnDevSilenziatore" onclick="simDevice('silenziatore')">4. الصامت ومانع الضوضاء (Silenziatore)</button>
-    </div>
-    <div class="sim-output-card" id="devOutput">
-      <div class="sim-badge" id="devBadge" style="background:rgba(56,189,248,0.15); color:var(--sky-primary); border:1px solid rgba(56,189,248,0.35);">
-        المحول الحفاز (Catalizzatore)
-      </div>
-      <div class="sim-details">
-        <h4 id="devTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">علبة البيئة / المحول الحفاز (Marmitta catalitica)</h4>
-        <p id="devDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
-          <strong>الوظيفة الأساسية:</strong> تحويل الغازات شديدة السمية الناتجة عن احتراق الوقود (أول أكسيد الكربون CO، الهيدروكربونات غير المحترقة HC، وأكاسيد النيتروجين NOx) إلى غازات غير ضارة كيميائياً (بخار ماء H2O، نيتروجين N2، وثاني أكسيد الكربون CO2).<br>
-          <strong>شرط الفعالية الحاسم:</strong> يعمل المحول الحفاز بكفاءة تامة <strong>فقط عند وصوله إلى درجات حرارة مرتفعة جداً (عدة مئات من الدرجات المئوية)</strong>؛ وبالتالي تكون انبعاثات السيارة الملوثة أعلى في الدقائق الأولى بعد تشغيل المحرك وهو بارد!<br>
-          <strong>العمر الافتراضي:</strong> يفقد فاعليته تدريجياً بعد قطع مسافات طويلة (حوالي 80.000 - 100.000 كم) ويجب استبداله.
-        </p>
-        <div class="sim-warning-box" id="devWarning" style="margin-top:10px; padding:10px 14px; background:rgba(245,158,11,0.1); border-right:3px solid var(--amber-primary); border-radius:8px; font-size:0.86rem; color:#fde68a;">
-          ⚠️ <strong>فخ امتحاني:</strong> المحول الحفاز لا يعمل فور تدوير المحرك، بل يحتاج إلى دقائق ليصل لدرجة حرارة التشغيل العالية!
+      <!-- Item 2: Filtro Antiparticolato DPF -->
+      <div class="part-photo-card">
+        <div class="part-photo-thumb">
+          <img src="../assets/images/eco_parts/filtro_antiparticolato.jpg" alt="فلتر الجسيمات الدقيقة للديزل" loading="lazy">
+          <div class="part-photo-badge">Filtro DPF / FAP</div>
+        </div>
+        <div class="part-photo-body">
+          <h4 class="part-photo-title-ar">فلتر الجسيمات الدقيقة للديزل (Filtro Antiparticolato)</h4>
+          <span class="part-photo-title-it">Filtro antiparticolato per motori diesel e rigenerazione</span>
+          <p class="part-photo-desc">
+            • <strong>احتجاز السناج:</strong> يحبس ذرات الكربون الدقيقة الناتجة عن محركات الديزل (PM10).<br>
+            • <strong>التجديد الذاتي:</strong> يحرق السناج عند سرعات ثابتة على الطرق السريعة؛ والمسافات القصيرة بالمدينة تسبب انسداده.
+          </p>
+          <div class="part-photo-trap">
+            🛑 <strong>كود السير:</strong> إزالة أو تفريغ فلتر DPF جريمة يعاقب عليها القانون بسحب رخصة تسيير المركبة.
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- SIMULATOR 3: Waste Disposal Protocol -->
-  <section class="simulator-box" id="sim-rifiuti">
-    <div class="sim-title">
-      <span>🛢️ ♻️</span>
-      <span>المحاكي التفاعلي 3: الدليل القانوني للتخلص من المخلفات والزيوت الخطرة (Smaltimento Rifiuti)</span>
-    </div>
-    <div class="sim-subtitle">اضغط على نوع النفايات لمعرفة المسار القانوني الإلزامي للتخلص منها والمخاطر البيئية:</div>
-    <div class="sim-controls">
-      <button class="sim-btn active" id="btnWstOlio" onclick="simWaste('olio')">1. زيت المحرك المستعمل (Olio esausto)</button>
-      <button class="sim-btn" id="btnWstBatteria" onclick="simWaste('batteria')">2. بطاريات الرصاص القديمة (Batterie)</button>
-      <button class="sim-btn" id="btnWstFreni" onclick="simWaste('freni')">3. سائل الفرامل ومياه التبريد</button>
-      <button class="sim-btn" id="btnWstMozziconi" onclick="simWaste('mozziconi')">4. أعقاب السجائر والمخلفات</button>
-    </div>
-    <div class="sim-output-card" id="wasteOutput">
-      <div class="sim-badge" id="wasteBadge" style="background:rgba(244,63,94,0.15); color:var(--rose-primary); border:1px solid rgba(244,63,94,0.35);">
-        شديد السمية: حظر الإلقاء
+      <!-- Item 3: Portapacchi e Resistenza Aerodinamica -->
+      <div class="part-photo-card">
+        <div class="part-photo-thumb">
+          <img src="../assets/images/eco_parts/portapacchi.jpg" alt="حامل الأمتعة وصندوق السقف" loading="lazy">
+          <div class="part-photo-badge">Portapacchi & Box Tetto</div>
+        </div>
+        <div class="part-photo-body">
+          <h4 class="part-photo-title-ar">حامل الأمتعة ومقاومة السحب (Resistenza Aerodinamica)</h4>
+          <span class="part-photo-title-it">Portapacchi, portasci e aumento dei consumi</span>
+          <p class="part-photo-desc">
+            • <strong>مقاومة الهواء:</strong> يشوه خطوط انسياب الهواء حول السيارة ويضاعف قوى السحب الهوائي.<br>
+            • <strong>الاستهلاك:</strong> يرفع استهلاك الوقود بنسبة تفوق 15% حتى لو كان فارغاً تماماً (Anche se scarico).
+          </p>
+          <div class="part-photo-trap">
+            💡 <strong>نصيحة الامتحان:</strong> فك حامل الأمتعة فور انتهاء الرحلة يوفر مئات اليوروهات من الوقود سنوياً.
+          </div>
+        </div>
       </div>
-      <div class="sim-details">
-        <h4 id="wasteTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">زيت المحرك المستعمل والمحروق (Olio motore esausto)</h4>
-        <p id="wasteDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
-          <strong>الخطر البيئي:</strong> لتر واحد من الزيت المستعمل قادر على تلويث مليون لتر من مياه الشرب وتكوين طبقة عازلة تمنع الأكسجين عن الكائنات الحية في الأنهار والبحار.<br>
-          <strong>المسار الإلزامي:</strong> يحظر صبه في البالوعات أو شبكات الصرف الصحي أو على الأراضي الزراعية؛ ويجب تسليمه حصرياً إلى ورش الصيانة المرخصة أو مراكز الجمع التابعة لاتحاد الزيوت المستعملة (Consorzio Nazionale Oli Esausti) أو المحطات البيئية التابعة للبلدية.<br>
-          <strong>العقوبة:</strong> إلقاء الزيوت المستعملة يعتبر جريمة بيئية خطيرة يعاقب عليها بغرامات مالية مشددة.
-        </p>
-        <div class="sim-warning-box" id="wasteWarning" style="margin-top:10px; padding:10px 14px; background:rgba(244,63,94,0.1); border-right:3px solid var(--rose-primary); border-radius:8px; font-size:0.86rem; color:#fecdd3;">
-          🛑 <strong>كود السير:</strong> سكب الزيت في المجاري العامة جريمة جنائية يعاقب عليها القانون بصرامة!
+
+      <!-- Item 4: Pressione Gomme a Freddo -->
+      <div class="part-photo-card">
+        <div class="part-photo-thumb">
+          <img src="../assets/images/eco_parts/pressione_gomme.jpg" alt="قياس ضغط الإطارات" loading="lazy">
+          <div class="part-photo-badge">Controllo Pressione</div>
+        </div>
+        <div class="part-photo-body">
+          <h4 class="part-photo-title-ar">ضغط هواء الإطارات ومقاومة الدوران (Pressione Pneumatici)</h4>
+          <span class="part-photo-title-it">Controllo della pressione a freddo e resistenza al rotolamento</span>
+          <p class="part-photo-desc">
+            • <strong>فحص على البارد:</strong> يقاس الضغط دائماً والإطارات باردة (A freddo) قبل السير.<br>
+            • <strong>الضغط المنخفض:</strong> يزيد مسطح الاحتكاك ومقاومة الدوران ويرفع استهلاك الوقود ويتلف أطراف الإطار.
+          </p>
+          <div class="part-photo-trap">
+            ⚠️ <strong>فخ وزاري:</strong> فحص الإطارات وهي ساخنة يعطي قراءة خاطئة لأن الهواء يتمدد بالحرارة!
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 5: Filtro Aria Intasato -->
+      <div class="part-photo-card">
+        <div class="part-photo-thumb">
+          <img src="../assets/images/eco_parts/filtro_aria_sporco.jpg" alt="فلتر هواء المحرك المتسخ" loading="lazy">
+          <div class="part-photo-badge">Filtro Aria Motore</div>
+        </div>
+        <div class="part-photo-body">
+          <h4 class="part-photo-title-ar">انسداد فلتر الهواء والدخان الأسود (Filtro Aria Intasato)</h4>
+          <span class="part-photo-title-it">Filtro aria sporco, combustione incompleta e fumo nero</span>
+          <p class="part-photo-desc">
+            • <strong>نقص الأكسجين:</strong> يمنع دخول الهواء الكافي لغرف الاحتراق مما يؤدي لاحتراق غير كامل للوقود.<br>
+            • <strong>دخان أسود:</strong> ينتج عنه انبعاث دخان أسود كثيف من ماسورة العادم وضعف عزم المحرك.
+          </p>
+          <div class="part-photo-trap">
+            💨 <strong>قاعدة الألوان:</strong> دخان أسود = وقود زائد وهواء قليل؛ دخان أزرق = احتراق زيت المحرك!
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 6: Smaltimento Olio Esausto -->
+      <div class="part-photo-card">
+        <div class="part-photo-thumb">
+          <img src="../assets/images/eco_parts/olio_esausto.jpg" alt="التخلص من زيت المحرك المستعمل" loading="lazy">
+          <div class="part-photo-badge">Olio Esausto</div>
+        </div>
+        <div class="part-photo-body">
+          <h4 class="part-photo-title-ar">تدوير زيت المحرك المستعمل (Smaltimento Olio Esausto)</h4>
+          <span class="part-photo-title-it">Raccolta differenziata dell'olio motore tramite consorzio</span>
+          <p class="part-photo-desc">
+            • <strong>سمية فائقة:</strong> لتر واحد من الزيت المحروق يلوث مليون لتر من مياه الشرب ويقتل الكائنات الحية.<br>
+            • <strong>المسار الإلزامي:</strong> يسلم حصرياً للورش المرخصة أو لاتحاد الزيوت المستعملة (Consorzio Oli Esausti).
+          </p>
+          <div class="part-photo-trap">
+            🛑 <strong>جريمة جنائية:</strong> سكب الزيت في المجاري أو على التربة يعاقب عليه بغرامات مالية مشددة.
+          </div>
         </div>
       </div>
     </div>
@@ -1178,9 +1551,9 @@
     <!-- CARD: Stile di Guida -->
     <div class="signal-card" data-category="risparmio">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🌱 🚗</div>
-          <div class="badge-visual-code">Stile di Guida</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/eco_parts/eco_driving.jpg" alt="أسلوب القيادة الاقتصادية والتعشيقات العالية" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Stile di Guida & Marce Alte</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1224,9 +1597,9 @@
     <!-- CARD: Portapacchi e Carico -->
     <div class="signal-card" data-category="aerodinamica">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">📦 🌪️</div>
-          <div class="badge-visual-code">Portapacchi e Carico</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/eco_parts/portapacchi.jpg" alt="حامل الأمتعة ومقاومة الهواء على السقف" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Portapacchi & Resistenza Aerodinamica</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1270,9 +1643,9 @@
     <!-- CARD: Pressione Pneumatici -->
     <div class="signal-card" data-category="aerodinamica">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🛞 💨</div>
-          <div class="badge-visual-code">Pressione Pneumatici</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/eco_parts/pressione_gomme.jpg" alt="قياس وضبط ضغط الإطارات على البارد" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Pressione Pneumatici (A Freddo)</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1316,9 +1689,9 @@
     <!-- CARD: Climatizzatore -->
     <div class="signal-card" data-category="aerodinamica">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">❄️ ⚡</div>
-          <div class="badge-visual-code">Climatizzatore</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/eco_parts/climatizzatore.jpg" alt="مكيف الهواء والأجهزة الكهربائية" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Climatizzatore & Carichi Elettrici</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1362,9 +1735,9 @@
     <!-- CARD: Monossido di Carbonio -->
     <div class="signal-card" data-category="inquinamento-aria">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">☠️ 💨</div>
-          <div class="badge-visual-code">Monossido di Carbonio</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/eco_parts/monossido_carbonio.jpg" alt="أول أكسيد الكربون عديم اللون والرائحة في العوادم" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Monossido di Carbonio (CO Incolore/Inodore)</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1408,9 +1781,9 @@
     <!-- CARD: Gas Inquinanti -->
     <div class="signal-card" data-category="inquinamento-aria">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🏭 🌫️</div>
-          <div class="badge-visual-code">Gas Inquinanti</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/eco_parts/gas_inquinanti.jpg" alt="الملوثات الهوائية الضباب الدخاني والهيدروكربونات" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Gas Inquinanti (Smog, HC, NOₓ)</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1454,9 +1827,9 @@
     <!-- CARD: Marmitta Catalitica -->
     <div class="signal-card" data-category="dispositivi-scarico">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🔬 🔥</div>
-          <div class="badge-visual-code">Marmitta Catalitica</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/eco_parts/marmitta_catalitica.jpg" alt="المحول الحفاز وعلبة البيئة" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Marmitta Catalitica (>600°C)</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1500,9 +1873,9 @@
     <!-- CARD: Filtro Antiparticolato -->
     <div class="signal-card" data-category="dispositivi-scarico">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🛡️ 🖤</div>
-          <div class="badge-visual-code">Filtro Antiparticolato</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/eco_parts/filtro_antiparticolato.jpg" alt="فلتر الجسيمات الدقيقة للديزل DPF" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Filtro Antiparticolato DPF/FAP</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1546,9 +1919,9 @@
     <!-- CARD: Filtro Aria e Fumo Nero -->
     <div class="signal-card" data-category="dispositivi-scarico">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">💨 ⚫</div>
-          <div class="badge-visual-code">Filtro Aria e Fumo Nero</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/eco_parts/filtro_aria_sporco.jpg" alt="اتساخ فلتر الهواء والبخاخات والدخان الأسود" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Filtro Aria Intasato & Fumo Nero</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1592,9 +1965,9 @@
     <!-- CARD: Inquinamento Acustico -->
     <div class="signal-card" data-category="rumore-rifiuti">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🔊 🛑</div>
-          <div class="badge-visual-code">Inquinamento Acustico</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/eco_parts/inquinamento_acustico.jpg" alt="صامت العادم ومنع الضوضاء المرورية" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Silenziatore Scarico & Rumore</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1638,9 +2011,9 @@
     <!-- CARD: Uso del Clacson -->
     <div class="signal-card" data-category="rumore-rifiuti">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">📯 🏙️</div>
-          <div class="badge-visual-code">Uso del Clacson</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/eco_parts/clacson.jpg" alt="آلة التنبيه الصوتي وحالات الحظر بالمدن" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Avvisatore Acustico (Clacson)</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1684,9 +2057,9 @@
     <!-- CARD: Smaltimento Olio Esausto -->
     <div class="signal-card" data-category="rumore-rifiuti">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🛢️ ❌</div>
-          <div class="badge-visual-code">Smaltimento Olio Esausto</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/eco_parts/olio_esausto.jpg" alt="التخلص القانوني وتدوير زيت المحرك المستعمل" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Smaltimento Olio Motore Esausto</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1730,9 +2103,9 @@
     <!-- CARD: Smaltimento Batterie -->
     <div class="signal-card" data-category="rumore-rifiuti">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🔋 ⚠️</div>
-          <div class="badge-visual-code">Smaltimento Batterie</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/eco_parts/batteria_piombo.jpg" alt="التخلص من بطاريات الرصاص المستعملة والأحماض" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Batterie al Piombo & Acido Solforico</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1776,9 +2149,9 @@
     <!-- CARD: Getto Mozziconi e Incendi -->
     <div class="signal-card" data-category="rumore-rifiuti">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🚬 🌲</div>
-          <div class="badge-visual-code">Getto Mozziconi e Incendi</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/eco_parts/mozziconi_incendi.jpg" alt="حظر إلقاء أعقاب السجائر والمخلفات وخطر حرائق الغابات" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Divieto Rifiuti & Rischio Incendi</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -2381,5 +2754,6 @@
     }
   </script>
 
+<script src="../assets/js/eco-driving-studio.js"></script>
 </body>
 </html>
