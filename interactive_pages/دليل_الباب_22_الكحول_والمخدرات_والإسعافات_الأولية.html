@@ -1513,102 +1513,97 @@
   </section>
 
   <!-- SIMULATOR 1: Alcohol Limits & Penalties -->
-  <section class="simulator-box" id="sim-alcool">
-    <div class="sim-title">
-      <span>🍷</span>
-      <span>المحاكي التفاعلي 1: حاسبة نسبة الكحول والعقوبات القضائية (Tasso Alcolemico e Sanzioni)</span>
+  
+  <!-- 60 FPS FIRST AID & SOBRIETY STUDIO CONTAINER -->
+  <div id="firstAidStudioContainer"></div>
+
+  <!-- AUTHENTIC FIRST AID & LEGAL EQUIPMENT PHOTO GALLERY -->
+  <section class="workshop-gallery-section" id="workshop-gallery">
+    <div class="section-heading">
+      <div class="section-badge">المعرض التوثيقي الميداني للباب 22</div>
+      <h2 class="section-title">المعدات الطبية وأجهزة فحص الكحول المعتمدة في إيطاليا</h2>
     </div>
-    <div class="sim-subtitle">اختر فئة السائق ومستوى تركيز الكحول في الدم لاستكشاف العقوبات القانونية والخصم:</div>
-    <div class="sim-controls" style="margin-bottom:12px;">
-      <span style="font-size:0.88rem; color:var(--text-muted); margin-left:8px; align-self:center;">فئة السائق:</span>
-      <button class="sim-btn active" id="btnAlcDriverNeo" onclick="setAlcDriver('neo')">سائق جديد (أول 3 سنوات) / أقل من 21 سنة</button>
-      <button class="sim-btn" id="btnAlcDriverOrd" onclick="setAlcDriver('ord')">سائق معتاد (فوق 3 سنوات)</button>
-    </div>
-    <div class="sim-controls">
-      <button class="sim-btn active" id="btnAlcLvl1" onclick="simAlcLevel('0.3')">0.1 - 0.4 جم/لتر</button>
-      <button class="sim-btn" id="btnAlcLvl2" onclick="simAlcLevel('0.6')">0.5 - 0.8 جم/لتر</button>
-      <button class="sim-btn" id="btnAlcLvl3" onclick="simAlcLevel('1.2')">0.8 - 1.5 جم/لتر</button>
-      <button class="sim-btn" id="btnAlcLvl4" onclick="simAlcLevel('1.8')">أكثر من 1.5 جم/لتر أو رفض الفحص</button>
-    </div>
-    <div class="sim-output-card" id="alcOutput" style="margin-top:14px;">
-      <div class="sim-badge" id="alcBadge" style="background:rgba(244,63,94,0.15); color:var(--rose-primary); border:1px solid rgba(244,63,94,0.35);">
-        🚫 مخالفة قانونية للسائق الجديد
+    <div class="workshop-gallery-grid">
+      <!-- 1: Etilometro -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/first_aid_parts/gallery_etilometro.jpg" alt="Dräger Alcotest" loading="lazy">
+          <span class="workshop-gallery-badge">فحص الشرطة</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">جهاز الإيثيلومتر الرسمي (Dräger Alcotest)</h4>
+          <div class="workshop-gallery-sub">Etilometro Omologato Polizia Stradale</div>
+          <p class="workshop-gallery-desc">جهاز القياس الدقيق لنفخ الهواء الزفيري؛ يحسب تركيز الكحول بدقة، ورفض الفحص به يوجب الحبس وسحب الرخصة ومصادرة المركبة.</p>
+        </div>
       </div>
-      <div class="sim-details">
-        <h4 id="alcTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">نسبة كحول بين 0.1 و 0.4 جم/لتر للسائق الجديد (Tasso Zero)</h4>
-        <p id="alcDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
-          <strong>الحكم القانوني:</strong> محظور تماماً للسائق الجديد؛ غرامة مالية من 168 إلى 672 يورو، وخصم 10 نقاط كاملة (5 نقاط أساسية مضاعفة إلى 10 نقاط للسائق الجديد!).<br>
-          <strong>للسائق المعتاد:</strong> قانوني ومسموح (ضمن حد الأمان 0.5 جم/لتر).
-        </p>
-        <div class="sim-warning-box" id="alcWarning" style="margin-top:10px; padding:10px 14px; background:rgba(244,63,94,0.1); border-right:3px solid var(--rose-primary); border-radius:8px; font-size:0.86rem; color:#fecdd3;">
-          ⚠️ <strong>القاعدة الذهبية:</strong> السائق الجديد يخضع لمبدأ "الصفر المطلق" (Zero assoluto)؛ أي رشفة كحول تشكل مخالفة صريحة!
+
+      <!-- 2: Kit Soccorso -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/first_aid_parts/gallery_kit_soccorso.jpg" alt="Kit Pronto Soccorso" loading="lazy">
+          <span class="workshop-gallery-badge">تجهيزات الإسعاف</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">حقيبة الإسعافات الأولية (Kit Pronto Soccorso)</h4>
+          <div class="workshop-gallery-sub">Cassetta di Pronto Soccorso DIN 13164</div>
+          <p class="workshop-gallery-desc">تضم شاشاً معقماً وضمادات ضاغطة ومقصاً آمناً؛ تستخدم حصراً للتثبيت والضغط المباشر دون احتواء أي عقاقير أو أدوية.</p>
+        </div>
+      </div>
+
+      <!-- 3: Coperta Termica -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/first_aid_parts/gallery_coperta_termica.jpg" alt="Coperta Isotermica" loading="lazy">
+          <span class="workshop-gallery-badge">علاج الصدمة</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">البطانية الحرارية الذهبية (Coperta Isotermica)</h4>
+          <div class="workshop-gallery-sub">Telo Termico di Emergenza Anti-Shock</div>
+          <p class="workshop-gallery-desc">رقاقة معدنية تعكس حرارة جسم المصاب بالصدمة لحمايته من البرد القاتل (Ipotermia) بعد تمديده ورفع ساقيه 30 سم.</p>
+        </div>
+      </div>
+
+      <!-- 4: Casco Motociclista -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/first_aid_parts/gallery_casco_sicurezza.jpg" alt="Casco Integrale" loading="lazy">
+          <span class="workshop-gallery-badge">حظر النزع</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">الخوذة وحماية الفقرات العنقية (Casco Protettivo)</h4>
+          <div class="workshop-gallery-sub">Protezione Rachide Cervicale e Midollo</div>
+          <p class="workshop-gallery-desc">يحظر نزع الخوذة عن سائق الدراجة المصاب لتفادي شلل الحبل الشوكي والوفاة؛ ويقتصر الإجراء على فتح الواجهة الزجاجية.</p>
+        </div>
+      </div>
+
+      <!-- 5: Drug Test -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/first_aid_parts/gallery_drug_test.jpg" alt="Drug Test" loading="lazy">
+          <span class="workshop-gallery-badge">فحص السموم</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">شريط فحص المخدرات اللعابي الفوري (Drug Test)</h4>
+          <div class="workshop-gallery-sub">Accertamento Tossicologico Rapido</div>
+          <p class="workshop-gallery-desc">يكشف تعاطي الحشيش والكوكايين والمهدئات؛ وأي نتيجة إيجابية تشكل جريمة جنائية فورية تسحب الرخصة وتحيل السائق للمحاكمة.</p>
+        </div>
+      </div>
+
+      <!-- 6: Gilet e Triangolo -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/first_aid_parts/gallery_gilet_triangolo.jpg" alt="Triangolo e Giubbotto" loading="lazy">
+          <span class="workshop-gallery-badge">سلامة المسعف</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">سترة الأمان ومثلث الخطر (Triangolo e Gilet)</h4>
+          <div class="workshop-gallery-sub">Autoprotezione e Sicurezza della Scena</div>
+          <p class="workshop-gallery-desc">الواجب الأول للمسعف هو حماية نفسه وارتداء السترة الفوسفورية ووضع المثلث قبل الاقتراب من موقع الحادث لحماية الجميع.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SIMULATOR 2: First Aid Decision Tree -->
-  <section class="simulator-box" id="sim-soccorso">
-    <div class="sim-title">
-      <span>🚑</span>
-      <span>المحاكي التفاعلي 2: شجرة القرار الإسعافي المنقذ للحياة (Primo Soccorso Stradale)</span>
-    </div>
-    <div class="sim-subtitle">اضغط لتحديد حالة المصاب واكتشاف البروتوكول الطبي الإلزامي والمحظورات القاتلة:</div>
-    <div class="sim-controls">
-      <button class="sim-btn active" id="btnSocInconscio" onclick="simSoccorso('inconscio')">1. فاقد للوعي ويتنفس</button>
-      <button class="sim-btn" id="btnSocShock" onclick="simSoccorso('shock')">2. حالة صدمة (Shock)</button>
-      <button class="sim-btn" id="btnSocEmorragia" onclick="simSoccorso('emorragia')">3. نزيف شرياني خارجي</button>
-      <button class="sim-btn" id="btnSocCasco" onclick="simSoccorso('casco')">4. سائق دراجة يرتدي خوذة</button>
-      <button class="sim-btn" id="btnSocUstioni" onclick="simSoccorso('ustioni')">5. مصاب بحروق نارية</button>
-    </div>
-    <div class="sim-output-card" id="socOutput">
-      <div class="sim-badge" id="socBadge" style="background:rgba(56,189,248,0.15); color:var(--sky-primary); border:1px solid rgba(56,189,248,0.35);">
-        وضعية الإفاقة الجانبية (PLS)
-      </div>
-      <div class="sim-details">
-        <h4 id="socTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">المصاب فاقد للوعي ولكنه يتنفس بانتظام (Infortunato incosciente)</h4>
-        <p id="socDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
-          <strong>الإجراء الإلزامي:</strong> وضعه فوراً في <strong>وضعية الإفاقة الجانبية (Posizione Laterale di Sicurezza)</strong>.<br>
-          <strong>الهدف الطبي:</strong> منع انسداد مجرى التنفس بسبب ارتخاء عضلات اللسان وسقوطه للخلف، وتصريف أي قيء أو سوائل للخارج لمنع الاختناق (Asfissia).<br>
-          <strong>المحظور القاطع:</strong> يحظر محاولة إيقاظه بصفعه، أو سكب الماء على وجهه، أو إعطاؤه أي سوائل للشرب.
-        </p>
-        <div class="sim-warning-box" id="socWarning" style="margin-top:10px; padding:10px 14px; background:rgba(245,158,11,0.1); border-right:3px solid var(--amber-primary); border-radius:8px; font-size:0.86rem; color:#fde68a;">
-          💡 <strong>معلومة ذهبية:</strong> استدعاء الإسعاف 112/118 مع تحديد درجة الوعي والتنفس خطوة أسبق من أي تدبير آخر.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SIMULATOR 3: Myths vs Facts -->
-  <section class="simulator-box" id="sim-miti">
-    <div class="sim-title">
-      <span>☕ ❌</span>
-      <span>المحاكي التفاعلي 3: نسف الخرافات والمعتقدات الخاطئة في التخلص من الكحول (Falsi Miti)</span>
-    </div>
-    <div class="sim-subtitle">اضغط على الخرافة الامتحانية الشائعة لاكتشاف الحقيقة العلمية التي يعتمدها واضع الامتحان الوزاري:</div>
-    <div class="sim-controls">
-      <button class="sim-btn active" id="btnMitoCaffe" onclick="simMito('caffe')">1. شرب القهوة المركزة</button>
-      <button class="sim-btn" id="btnMitoDoccia" onclick="simMito('doccia')">2. الاستحمام بالماء البارد</button>
-      <button class="sim-btn" id="btnMitoCaramelle" onclick="simMito('caramelle')">3. مضغ اللبان والحلوى</button>
-      <button class="sim-btn" id="btnMitoCorsa" onclick="simMito('corsa')">4. ممارسة الجري والرياضة</button>
-    </div>
-    <div class="sim-output-card" id="mitoOutput">
-      <div class="sim-badge" id="mitoBadge" style="background:rgba(244,63,94,0.15); color:var(--rose-primary); border:1px solid rgba(244,63,94,0.35);">
-        خرافة وزارية شائعة (FALSO)
-      </div>
-      <div class="sim-details">
-        <h4 id="mitoTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">خرافة: القهوة المركزة تعجل بهضم الكحول وخفض نسبته في الدم</h4>
-        <p id="mitoDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
-          <strong>الحقيقة العلمية:</strong> شرب القهوة المركزة (Caffè amaro) أو مشروبات الطاقة <strong>لا يقلل أبداً</strong> من نسبة الكحول في الدم، ولا يسرع من عملية تفكيكه في الكبد.<br>
-          <strong>الخطر الإضافي:</strong> الكافيين يمنح السائق شعوراً وهمياً باليقظة بينما تظل ردود أفعاله العصبية بطيئة ومشوشة، مما يجعله أكثر جرأة وخطورة خلف المقود.<br>
-          <strong>المحدد البيولوجي الوحيد:</strong> العامل الوحيد لتخفيض نسبة الكحول هو <strong>مرور الوقت</strong>؛ حيث يتخلص الكبد من الكحول بمعدل بطيء جداً وثابت (حوالي 0.15 جم/لتر في الساعة).
-        </p>
-        <div class="sim-warning-box" id="mitoWarning" style="margin-top:10px; padding:10px 14px; background:rgba(244,63,94,0.1); border-right:3px solid var(--rose-primary); border-radius:8px; font-size:0.86rem; color:#fecdd3;">
-          ❌ <strong>صيغة الامتحان الوزاري:</strong> "L'assunzione di caffè amaro accelera lo smaltimento dell'alcool da parte del fegato" -> الإجابة حتماً <strong>FALSO</strong>!
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- COMPARISON SECTION -->
   <section class="comp-section" id="comp-soccorso">
