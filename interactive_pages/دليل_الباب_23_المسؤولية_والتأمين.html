@@ -638,15 +638,17 @@
   }
 
   .signal-img-container {
-    background: rgba(0, 0, 0, 0.35);
+    background: #090d16;
     border: 1px solid var(--border-subtle);
     border-radius: 14px;
-    height: 160px;
+    height: 190px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 16px;
-    padding: 12px;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
   }
   .signal-img-container img {
     max-height: 100%;
@@ -886,6 +888,346 @@
   border-radius: 6px;
   border: 1px solid rgba(245, 158, 11, 0.3);
 }
+
+/* =======================================================================
+   Patente B Pro - Insurance Studio & Realistic Photographic Cards
+   ======================================================================= */
+.ins-studio-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 24px;
+  margin: 32px 0;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+}
+.ins-studio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 16px;
+}
+.ins-badge-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--sky-primary);
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 3px 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+.ins-main-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #fff;
+}
+.ins-tabs-nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.ins-tab-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+}
+.ins-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.ins-tab-btn.active {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: var(--sky-primary);
+  color: var(--sky-primary);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.2);
+}
+.ins-canvas-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #090d16;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+#insCanvas {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.ins-telemetry-hud {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  z-index: 5;
+}
+.ins-stat-box {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 6px 12px;
+  display: flex;
+  flex-direction: column;
+  min-width: 90px;
+}
+.ins-stat-box.highlight-amber { border-color: rgba(245, 158, 11, 0.45); }
+.ins-stat-box.highlight-amber .ins-stat-val { color: var(--amber-primary); }
+.ins-stat-box.highlight-rose { border-color: rgba(244, 63, 94, 0.45); }
+.ins-stat-box.highlight-rose .ins-stat-val { color: var(--rose-primary); }
+.ins-stat-box.highlight-green { border-color: rgba(16, 185, 129, 0.45); }
+.ins-stat-box.highlight-green .ins-stat-val { color: var(--emerald-primary); }
+.ins-stat-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+.ins-stat-val {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+}
+.ins-stat-val small { font-size: 0.72rem; font-weight: 500; }
+.ins-controls-panel {
+  background: rgba(24, 24, 27, 0.5);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.ctrl-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ctrl-label {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+.ctrl-btn-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.ins-btn-opt {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.ins-btn-opt:hover { background: rgba(255, 255, 255, 0.12); }
+.ins-btn-opt.active {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: var(--sky-primary);
+  color: var(--sky-primary);
+  font-weight: 700;
+}
+.ins-btn-action {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #bbf7d0;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+.ins-btn-action:hover {
+  background: rgba(16, 185, 129, 0.25);
+  color: #fff;
+}
+.ins-btn-action.malus {
+  background: rgba(244, 63, 94, 0.15);
+  border-color: rgba(244, 63, 94, 0.35);
+  color: #fecdd3;
+}
+.ins-btn-action.malus:hover {
+  background: rgba(244, 63, 94, 0.25);
+  color: #fff;
+}
+.ins-explanation-pill {
+  padding: 10px 14px;
+  background: rgba(56, 189, 248, 0.1);
+  border-right: 3px solid var(--sky-primary);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  color: #bae6fd;
+  line-height: 1.6;
+}
+.ins-insight-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+.insight-icon { font-size: 1.4rem; }
+.insight-text {
+  font-size: 0.88rem;
+  color: #e0f2fe;
+  line-height: 1.6;
+}
+
+/* Realistic Photographic Card Container */
+.vehicle-part-img-container {
+  width: 100%;
+  height: 190px;
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #090d16;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+}
+.part-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+.signal-card:hover .part-card-img {
+  transform: scale(1.06);
+}
+.part-card-tag {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: var(--sky-primary);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Photo Gallery Section */
+.parts-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+.part-photo-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.part-photo-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+.part-photo-thumb {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+}
+.part-photo-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.part-photo-card:hover .part-photo-thumb img {
+  transform: scale(1.05);
+}
+.part-photo-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: var(--sky-primary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+.part-photo-body {
+  padding: 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.part-photo-title-ar {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.part-photo-title-it {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: 10px;
+}
+.part-photo-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 12px;
+  flex-grow: 1;
+}
+.part-photo-trap {
+  background: rgba(244, 63, 94, 0.1);
+  border-right: 3px solid var(--rose-primary);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  color: #fecdd3;
+  line-height: 1.5;
+}
+
 </style>
   <link rel="manifest" href="../manifest.json">
 </head>
@@ -1029,99 +1371,131 @@
     </div>
   </section>
 
-  <!-- SIMULATOR 1: Bonus-Malus Calculator -->
-  <section class="simulator-box" id="sim-bonus-malus">
-    <div class="sim-title">
-      <span>📈 📉</span>
-      <span>المحاكي التفاعلي 1: حاسبة نظام المكافأة والجزاء التأميني (Formula Bonus-Malus)</span>
+  <!-- 60 FPS LEGAL, RCA INSURANCE & ACCIDENTS STUDIO -->
+  <div id="insuranceStudioContainer"></div>
+
+  <!-- REALISTIC LEGAL & INSURANCE DOCUMENTS PHOTO GALLERY -->
+  <section class="parts-photo-section">
+    <div class="section-heading">
+      <div class="section-badge">المعرض التوضيحي القانوني المعتمد</div>
+      <h2 class="section-title">معرض الوثائق والإجراءات القانونية والتأمينية على أرض الواقع</h2>
+      <p style="color:var(--text-secondary); font-size:0.95rem; margin-top:6px;">
+        صور حقيقية عالية الدقة 100% تطابق النماذج والمستندات الرسمية وإجراءات حوادث الطرق في إيطاليا
+      </p>
     </div>
-    <div class="sim-subtitle">حدد فئة التأمين الحالية وعدد الحوادث المتسببة خلال السنة لمشاهدة الترقية أو الهبوط في الدرجة وسعر القسط:</div>
-    <div class="sim-controls" style="margin-bottom:12px;">
-      <span style="font-size:0.88rem; color:var(--text-muted); margin-left:8px; align-self:center;">الفئة الحالية (CU):</span>
-      <button class="sim-btn" id="btnCu1" onclick="setCuBase(1)">فئة 1 (ممتازة)</button>
-      <button class="sim-btn active" id="btnCu14" onclick="setCuBase(14)">فئة 14 (دخول المبتدئ)</button>
-      <button class="sim-btn" id="btnCu17" onclick="setCuBase(17)">فئة 17 (خطيرة)</button>
-    </div>
-    <div class="sim-controls">
-      <span style="font-size:0.88rem; color:var(--text-muted); margin-left:8px; align-self:center;">الحوادث المتسببة:</span>
-      <button class="sim-btn active" id="btnAcc0" onclick="simAccidents(0)">0 حوادث (التزام تام)</button>
-      <button class="sim-btn" id="btnAcc1" onclick="simAccidents(1)">حادث واحد (مخطئ)</button>
-      <button class="sim-btn" id="btnAcc2" onclick="simAccidents(2)">حادثان أو أكثر</button>
-    </div>
-    <div class="sim-output-card" id="bmOutput" style="margin-top:14px;">
-      <div class="sim-badge" id="bmBadge" style="background:rgba(16,185,129,0.15); color:var(--emerald-primary); border:1px solid rgba(16,185,129,0.35);">
-        ترقية الفئة: CU 13 (Bonus)
-      </div>
-      <div class="sim-details">
-        <h4 id="bmTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">سنة كاملة بدون التسبب في أي حادث مروري</h4>
-        <p id="bmDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
-          <strong>تطبيق المكافأة (Bonus):</strong> ترتقي الفئة التأمينية درجة واحدة للأفضل (من CU 14 إلى CU 13).<br>
-          <strong>الأثر المالي:</strong> ينخفض قسط التأمين السنوي (Premio assicurativo) الذي يدفعه السائق للشركة.<br>
-          <strong>شهادة المخاطر (Attestato di rischio):</strong> تسجل هذا السجل النظيف رقمياً في قاعدة بيانات هيئة الرقابة على التأمين (IVASS).
-        </p>
-        <div class="sim-warning-box" id="bmWarning" style="margin-top:10px; padding:10px 14px; background:rgba(16,185,129,0.1); border-right:3px solid var(--emerald-primary); border-radius:8px; font-size:0.86rem; color:#bbf7d0;">
-          💡 <strong>معلومة ذهبية:</strong> نظام Bonus-Malus يربط تكلفة التأمين مباشرة بسلوك وسجل السائق في القيادة!
+
+    <div class="parts-photo-grid">
+      <!-- Item 1: Responsabilita Civile e Collisione -->
+      <div class="part-photo-card">
+        <div class="part-photo-thumb">
+          <img src="../assets/images/insurance_parts/responsabilita_civile.jpg" alt="المسؤولية المدنية والتعويض عن الأضرار" loading="lazy">
+          <div class="part-photo-badge">Responsabilità Civile</div>
+        </div>
+        <div class="part-photo-body">
+          <h4 class="part-photo-title-ar">المسؤولية المدنية وجبر الأضرار (Risarcimento del Danno)</h4>
+          <span class="part-photo-title-it">Responsabilità civile e risarcimento dei danni a terzi</span>
+          <p class="part-photo-desc">
+            • <strong>الهدف القانوني:</strong> جبر الأضرار المالية وإصلاح ما تم إتلافه للمركبات والأشخاص.<br>
+            • <strong>التأمين الإجباري:</strong> تتكفل به شركة تأمين RCA وتدفع التعويض للمتضرر بالتضامن مع السائق والمالك.
+          </p>
+          <div class="part-photo-trap">
+            💡 <strong>قاعدة حاسمة:</strong> المسؤولية المدنية لا تعفي أبداً من العقوبات الجنائية أو الإدارية في حال وجود مخالفات أو ضحايا!
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- SIMULATOR 2: Responsabilità Types -->
-  <section class="simulator-box" id="sim-responsabilita">
-    <div class="sim-title">
-      <span>⚖️</span>
-      <span>المحاكي التفاعلي 2: مصفوفة المسؤوليات الثلاث المستقلة (Civile, Penale, Amministrativa)</span>
-    </div>
-    <div class="sim-subtitle">اضغط على سيناريو الحادث لمعرفة نوع المسؤولية المطبقة ومن يتحمل العقوبة والتعويض:</div>
-    <div class="sim-controls">
-      <button class="sim-btn active" id="btnScenDanni" onclick="simScenario('danni')">1. صدم سيارة متوقفة (أضرار مادية فقط)</button>
-      <button class="sim-btn" id="btnScenLesioni" onclick="simScenario('lesioni')">2. حادث دهس مشاة وإصابة بدنية</button>
-      <button class="sim-btn" id="btnScenFuga" onclick="simScenario('fuga')">3. حادث به مصابون مع هروب السائق</button>
-      <button class="sim-btn" id="btnScenInfrazione" onclick="simScenario('infrazione')">4. تجاوز السرعة دون وقوع حادث</button>
-    </div>
-    <div class="sim-output-card" id="respOutput">
-      <div class="sim-badge" id="respBadge" style="background:rgba(56,189,248,0.15); color:var(--sky-primary); border:1px solid rgba(56,189,248,0.35);">
-        مسؤولية مدنية + إدارية
-      </div>
-      <div class="sim-details">
-        <h4 id="respTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">صدم سيارة متوقفة وإلحاق أضرار بالهيكل (Danni a cose)</h4>
-        <p id="respDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
-          <strong>المسؤولية المدنية (Civile):</strong> قائمة حتماً؛ تلزم بتعويض مالك السيارة المتضررة لإصلاح الأضرار، وتتحملها شركة تأمين RCA بالتضامن مع السائق والمالك.<br>
-          <strong>المسؤولية الجنائية (Penale):</strong> <strong>منعدمة تماماً</strong>؛ لعدم وجود قتلى أو مصابين أو جرائم جنائية.<br>
-          <strong>المسؤولية الإدارية (Amministrativa):</strong> غرامة مالية لمخالفة قواعد المناورة أو مسافة الأمان.
-        </p>
-        <div class="sim-warning-box" id="respWarning" style="margin-top:10px; padding:10px 14px; background:rgba(56,189,248,0.1); border-right:3px solid var(--sky-primary); border-radius:8px; font-size:0.86rem; color:#bae6fd;">
-          💡 <strong>قاعدة دستورية:</strong> المسؤولية الجنائية لا تنشأ إلا إذا كان هناك قتلى أو جرحى أو ارتكاب جريمة جنائية صريحة كالسكر البين أو الهروب!
+      <!-- Item 2: Responsabilita Penale e Tribunale -->
+      <div class="part-photo-card">
+        <div class="part-photo-thumb">
+          <img src="../assets/images/insurance_parts/responsabilita_penale.jpg" alt="المسؤولية الجنائية والمحكمة" loading="lazy">
+          <div class="part-photo-badge">Responsabilità Penale</div>
+        </div>
+        <div class="part-photo-body">
+          <h4 class="part-photo-title-ar">المسؤولية الجنائية الشخصية (Responsabilità Penale)</h4>
+          <span class="part-photo-title-it">Responsabilità penale personale per reati e lesioni</span>
+          <p class="part-photo-desc">
+            • <strong>المسؤولية الشخصية:</strong> تقع حصرياً على كاهل السائق مرتكب الخطأ ولا تنوب عنه شركة التأمين إطلاقاً.<br>
+            • <strong>حالات النشأة:</strong> تنشأ فقط عند وقوع قتلى أو جرحى، أو ارتكاب جناية الهروب (Omissione di soccorso)، أو القيادة تحت تأثير السكر.
+          </p>
+          <div class="part-photo-trap">
+            ⚠️ <strong>فخ وزاري:</strong> صدم سيارة متوقفة وإحداث أضرار بالهيكل فقط لا ينشئ مسؤولية جنائية على الإطلاق!
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- SIMULATOR 3: Insurance Coverages & Victims Fund -->
-  <section class="simulator-box" id="sim-coperture">
-    <div class="sim-title">
-      <span>🛡️ 🚗</span>
-      <span>المحاكي التفاعلي 3: مستكشف تغطيات RCA وصندوق الضحايا (Chi Paga i Danni?)</span>
-    </div>
-    <div class="sim-subtitle">اختر الطرف المتضرر أو حالة المركبة لمعرفة من يتولى دفع التعويض وفق القانون الإيطالي:</div>
-    <div class="sim-controls">
-      <button class="sim-btn active" id="btnCopTerzi" onclick="simCopertura('terzi')">1. ركاب السيارة المنقولين (Terzi trasportati)</button>
-      <button class="sim-btn" id="btnCopColpevole" onclick="simCopertura('colpevole')">2. السائق المتسبب في الحادث (Colpevole)</button>
-      <button class="sim-btn" id="btnCopPirata" onclick="simCopertura('pirata')">3. سيارة مجهولة هربت من الموقع (Auto pirata)</button>
-      <button class="sim-btn" id="btnCopNonAssicurata" onclick="simCopertura('non_assicurata')">4. سيارة غير مؤمنة إطلاقاً</button>
-    </div>
-    <div class="sim-output-card" id="copOutput">
-      <div class="sim-badge" id="copBadge" style="background:rgba(16,185,129,0.15); color:var(--emerald-primary); border:1px solid rgba(16,185,129,0.35);">
-        تغطية تامة ومضمونة 100%
+      <!-- Item 3: Modulo CAI / CID -->
+      <div class="part-photo-card">
+        <div class="part-photo-thumb">
+          <img src="../assets/images/insurance_parts/modulo_cai.jpg" alt="نموذج المعاينة الودية المشتركة CAI" loading="lazy">
+          <div class="part-photo-badge">Modulo CAI / CID</div>
+        </div>
+        <div class="part-photo-body">
+          <h4 class="part-photo-title-ar">نموذج المعاينة الودية للحوادث (Constatazione Amichevole CAI)</h4>
+          <span class="part-photo-title-it">Modulo blu CAI/CID per il risarcimento diretto</span>
+          <p class="part-photo-desc">
+            • <strong>التوقيع المشترك:</strong> توقيع الطرفين على النموذج الأزرق يسرع صرف التعويض المباشر (Risarcimento Diretto).<br>
+            • <strong>صرف التعويض:</strong> تتولى شركة تأمينك الخاصة تعويضك مباشرة وتنسق لاحقاً مع شركة الطرف الآخر.
+          </p>
+          <div class="part-photo-trap">
+            📝 <strong>معلومة ذهبية:</strong> توقيع طرف واحد فقط على النموذج لا يمنع استخدامه كبلاغ رسمي للحادث.
+          </div>
+        </div>
       </div>
-      <div class="sim-details">
-        <h4 id="copTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">تعويض الركاب المنقولين على متن المركبة (Terzi trasportati)</h4>
-        <p id="copDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
-          <strong>الحكم القانوني:</strong> الركاب المنقولون في السيارة معفون تماماً من أي مسؤولية ويعوضون دائماً وبشكل كامل عن أي أضرار بدنية تلحق بهم.<br>
-          <strong>الجهة الدافعة:</strong> شركة تأمين RCA الخاصة بالسيارة التي كانوا يركبونها مباشرة، بغض النظر عما إذا كان سائقهم هو المخطئ أو الطرف الآخر (Risarcimento diretto per il terzo trasportato).
-        </p>
-        <div class="sim-warning-box" id="copWarning" style="margin-top:10px; padding:10px 14px; background:rgba(16,185,129,0.1); border-right:3px solid var(--emerald-primary); border-radius:8px; font-size:0.86rem; color:#bbf7d0;">
-          ✅ <strong>قاعدة ذهبية:</strong> تأمين RCA يغطي الركاب حتى لو كانوا أقارب السائق (ما عدا استثناءات محدودة للزوج في الأضرار المادية فقط)!
+
+      <!-- Item 4: Massimali di Garanzia -->
+      <div class="part-photo-card">
+        <div class="part-photo-thumb">
+          <img src="../assets/images/insurance_parts/massimali_rca.jpg" alt="الحدود القصوى للتعويضات المالية" loading="lazy">
+          <div class="part-photo-badge">Massimale RCA</div>
+        </div>
+        <div class="part-photo-body">
+          <h4 class="part-photo-title-ar">الحدود القانونية القصوى للتعويض (Massimali di Garanzia)</h4>
+          <span class="part-photo-title-it">Massimali minimi di legge per danni a persone e cose</span>
+          <p class="part-photo-desc">
+            • <strong>الحد الأدنى الإلزامي:</strong> يحدده القانون الإيطالي بالملايين لحماية الأرواح والممتلكات.<br>
+            • <strong>الزيادة الاختيارية:</strong> يمكن للسائق الاتفاق مع الشركة على رفع قيمة الحد الأقصى مقابل زيادة بسيطة في القسط.
+          </p>
+          <div class="part-photo-trap">
+            ⚠️ <strong>فخ وزاري:</strong> إذا تجاوزت أضرار الحادث قيمة الحد الأقصى للوثيقة، يتحمل السائق والمالك الفارق المالي من مالهما الخاص!
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 5: Polizze Accessorie (Kasko / Cristalli) -->
+      <div class="part-photo-card">
+        <div class="part-photo-thumb">
+          <img src="../assets/images/insurance_parts/polizze_accessorie.jpg" alt="التأمينات التكميلية الاختيارية" loading="lazy">
+          <div class="part-photo-badge">Polizze Accessorie</div>
+        </div>
+        <div class="part-photo-body">
+          <h4 class="part-photo-title-ar">التأمينات التكميلية الاختيارية (Kasko, Furto, Cristalli)</h4>
+          <span class="part-photo-title-it">Garanzie accessorie non obbligatorie per furto, incendio e kasko</span>
+          <p class="part-photo-desc">
+            • <strong>تأمين اختياري:</strong> يغطي أضرار سيارتك الخاصة الناتجة عن خطئك الشخصي (Kasko) أو السرقة أو كسر الزجاج.<br>
+            • <strong>تأمين RCA الإجباري:</strong> يعوض فقط الطرف الآخر والغير (Terzi)، ولا يصلح سيارة السائق المخطئ أبداً!
+          </p>
+          <div class="part-photo-trap">
+            💡 <strong>فخ متكرر:</strong> تأمين RCA الإجباري لا يعوض السائق المخطئ عن إصاباته أو تلفيات سيارته إطلاقاً!
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 6: Sequestro per Mancata Copertura -->
+      <div class="part-photo-card">
+        <div class="part-photo-thumb">
+          <img src="../assets/images/insurance_parts/sequestro_veicolo.jpg" alt="حجز ومصادرة السيارة غير المؤمنة" loading="lazy">
+          <div class="part-photo-badge">Sequestro Veicolo</div>
+        </div>
+        <div class="part-photo-body">
+          <h4 class="part-photo-title-ar">مخاطر القيادة بدون تأمين (Circolazione Senza RCA)</h4>
+          <span class="part-photo-title-it">Sequestro e confisca del veicolo non assicurato</span>
+          <p class="part-photo-desc">
+            • <strong>العقوبة الفورية:</strong> غرامة باهظة وحجز إداري للسيارة ونقلها بالونش لحراج الحجز.<br>
+            • <strong>المصادرة النهائية:</strong> في حال عدم سداد الغرامة وتجديد التأمين، تصادر السيارة نهائياً (Confisca) وتباع لصالح الدولة.
+          </p>
+          <div class="part-photo-trap">
+            🛑 <strong>عقوبة مغلظة:</strong> مهلة السماح (15 يوماً) تسري فقط بعد انتهاء العقد السنوي، وبعدها يقع الحجز فوراً!
+          </div>
         </div>
       </div>
     </div>
@@ -1185,9 +1559,9 @@
     <!-- CARD: Responsabilità Civile -->
     <div class="signal-card" data-category="responsabilita">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">⚖️ 💶</div>
-          <div class="badge-visual-code">Responsabilità Civile</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/insurance_parts/responsabilita_civile.jpg" alt="المسؤولية المدنية والتعويض عن الأضرار" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Responsabilità Civile & Danni</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1231,9 +1605,9 @@
     <!-- CARD: Responsabilità Penale -->
     <div class="signal-card" data-category="responsabilita">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">⚖️ ⛓️</div>
-          <div class="badge-visual-code">Responsabilità Penale</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/insurance_parts/responsabilita_penale.jpg" alt="المسؤولية الجنائية والمحكمة" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Responsabilità Penale Personale</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1277,9 +1651,9 @@
     <!-- CARD: Responsabilità Amministrativa -->
     <div class="signal-card" data-category="responsabilita">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🛑 📋</div>
-          <div class="badge-visual-code">Responsabilità Amministrativa</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/insurance_parts/responsabilita_amministrativa.jpg" alt="المسؤولية الإدارية والمخالفات وسحب الرخصة" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Responsabilità Amministrativa & Punti</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1323,9 +1697,9 @@
     <!-- CARD: Assicurazione RCA -->
     <div class="signal-card" data-category="rca-base">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🛡️ 📄</div>
-          <div class="badge-visual-code">Assicurazione RCA</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/insurance_parts/assicurazione_rca.jpg" alt="تأمين المسؤولية المدنية الإجباري للسيارات RCA" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Assicurazione Obbligatoria RCA</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1369,9 +1743,9 @@
     <!-- CARD: Massimali RCA -->
     <div class="signal-card" data-category="rca-base">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">💶 📈</div>
-          <div class="badge-visual-code">Massimali RCA</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/insurance_parts/massimali_rca.jpg" alt="الحدود القصوى القانونية للتعويضات المالية" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Massimali di Garanzia Minimi</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1415,9 +1789,9 @@
     <!-- CARD: Periodo di Tolleranza -->
     <div class="signal-card" data-category="rca-base">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">⏳ 📅</div>
-          <div class="badge-visual-code">Periodo di Tolleranza</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/insurance_parts/periodo_tolleranza.jpg" alt="مهلة السماح القانونية 15 يوماً بعد انتهاء العقد" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Periodo di Tolleranza (15 Giorni)</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1461,9 +1835,9 @@
     <!-- CARD: Formula Bonus Malus -->
     <div class="signal-card" data-category="bonus-malus">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">📊 🏆</div>
-          <div class="badge-visual-code">Formula Bonus Malus</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/insurance_parts/bonus_malus.jpg" alt="نظام المكافأة والجزاء وحساب الأقساط CU 1-18" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Formula Bonus-Malus (CU 1-18)</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1507,9 +1881,9 @@
     <!-- CARD: Attestato di Rischio -->
     <div class="signal-card" data-category="bonus-malus">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">📑 📱</div>
-          <div class="badge-visual-code">Attestato di Rischio</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/insurance_parts/attestato_rischio.jpg" alt="شهادة المخاطر الإلكترونية وقاعدة بيانات IVASS" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Attestato di Rischio Elettronico</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1553,9 +1927,9 @@
     <!-- CARD: Fondo Garanzia Vittime -->
     <div class="signal-card" data-category="fondo-cai">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🏛️ 🤝</div>
-          <div class="badge-visual-code">Fondo Garanzia Vittime</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/insurance_parts/fondo_garanzia.jpg" alt="صندوق ضمان ضحايا الطرق للمركبات الهاربة أو غير المؤمنة" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Fondo di Garanzia Vittime Strada</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1599,9 +1973,9 @@
     <!-- CARD: Modulo CAI / CID -->
     <div class="signal-card" data-category="fondo-cai">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">📝 ✍️</div>
-          <div class="badge-visual-code">Modulo CAI / CID</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/insurance_parts/modulo_cai.jpg" alt="نموذج المعاينة الودية للحوادث CAI الموقع من الطرفين" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Modulo CAI / CID (Risarcimento Diretto)</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1645,9 +2019,9 @@
     <!-- CARD: Polizze Accessorie -->
     <div class="signal-card" data-category="rca-base">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🔥 🌪️</div>
-          <div class="badge-visual-code">Polizze Accessorie</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/insurance_parts/polizze_accessorie.jpg" alt="التأمينات التكميلية الاختيارية كاسكو والسرقة والحريق" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Polizze Accessorie (Kasko & Furto)</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1691,9 +2065,9 @@
     <!-- CARD: Psicologia del Traffico -->
     <div class="signal-card" data-category="psicologia">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🧠 🚗</div>
-          <div class="badge-visual-code">Psicologia del Traffico</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/insurance_parts/psicologia_traffico.jpg" alt="العوامل النفسية والانفعال والتوتر أثناء القيادة" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Psicologia del Traffico & Stress</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1737,9 +2111,9 @@
     <!-- CARD: Utenti Vulnerabili -->
     <div class="signal-card" data-category="psicologia">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🧓 🚶</div>
-          <div class="badge-visual-code">Utenti Vulnerabili</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/insurance_parts/utenti_vulnerabili.jpg" alt="مستخدمو الطريق الضعفاء المشاة وكبار السن والأطفال" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Tutela Utenti Vulnerabili (Pedoni)</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1783,9 +2157,9 @@
     <!-- CARD: Distrazione alla Guida -->
     <div class="signal-card" data-category="psicologia">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">📱 🎧</div>
-          <div class="badge-visual-code">Distrazione alla Guida</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/insurance_parts/distrazione_guida.jpg" alt="التشتت الذهني واستخدام الهواتف الذكية أثناء القيادة" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Distrazione & Uso Smartphone</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -1829,9 +2203,9 @@
     <!-- CARD: Mancata Copertura RCA -->
     <div class="signal-card" data-category="responsabilita">
       <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🚗 💰</div>
-          <div class="badge-visual-code">Mancata Copertura RCA</div>
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/insurance_parts/sequestro_veicolo.jpg" alt="عواقب السير بدون تأمين حجز ومصادرة المركبة" class="part-card-img" loading="lazy">
+          <div class="part-card-tag">Sequestro & Confisca del Veicolo</div>
         </div>
       </div>
       <div class="card-header-row">
@@ -2425,5 +2799,6 @@
     }
   </script>
 
+<script src="../assets/js/insurance-studio.js"></script>
 </body>
 </html>
