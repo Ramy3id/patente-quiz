@@ -12,8 +12,10 @@
 
   // 1. Instant execution to set class on <html> before paint
   function getPreferredTheme() {
-    const saved = localStorage.getItem(THEME_KEY);
-    if (saved === 'light' || saved === 'dark') return saved;
+    try {
+      const saved = localStorage.getItem(THEME_KEY);
+      if (saved === 'light' || saved === 'dark') return saved;
+    } catch (_) {}
     // Default to dark mode for Patente B Pro
     return 'dark';
   }
@@ -38,7 +40,11 @@
       html.classList.remove('light');
       html.classList.add('dark');
     }
-    localStorage.setItem(THEME_KEY, theme);
+    try {
+      localStorage.setItem(THEME_KEY, theme);
+    } catch (e) {
+      console.warn('[ThemeEngine] Could not save theme to localStorage:', e);
+    }
     updateThemeButtons(theme);
   };
 
@@ -67,6 +73,7 @@
       label.textContent = theme === 'light' ? 'الوضع الليلي' : 'الوضع النهاري';
     });
   }
+  window.updateThemeButtons = updateThemeButtons;
 
   // 3. Setup listeners once DOM is ready
   document.addEventListener('DOMContentLoaded', () => {
