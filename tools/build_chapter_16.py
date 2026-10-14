@@ -1,0 +1,2040 @@
+# -*- coding: utf-8 -*-
+"""
+Builder for Chapter 16 Guide (الوقوف والتوقف والركن)
+Completely aligns Chapter 16 with Chapter 20 benchmark architecture:
+- 54px Portal Header
+- Hero with 4 Stat Badges
+- Golden Rules Banner (4 boxes)
+- Interactive Parking & Stopping Studio (Canvas telemetry, 6 distance scenarios, 4 maneuvers)
+- Workshop Photographic Gallery (6 cards with 16:9 high-res images)
+- Comparison Section (4 cards)
+- Filter Pills Bar
+- 14 `.signal-card` cards with photographic covers and VERO/FALSO ministerial lists
+- 12 Trap Quiz Cards (رادار فخاخ الامتحان)
+- Chapter Pagination
+- High-Contrast Light Mode Support
+"""
+
+import sys, os
+sys.stdout.reconfigure(encoding='utf-8')
+
+html_content = '''<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>دليل وقاموس الباب 16: الوقوف والتوقف والركن وبدء السير | Patente B Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/theme-modes.css">
+<script src="../assets/js/theme-engine.js"></script>
+<script src="../assets/js/unified-nav.js" defer></script>
+<style>
+  :root {
+    --bg-base: #09090b;
+    --bg-surface: rgba(24, 24, 27, 0.75);
+    --bg-surface-elevated: rgba(39, 39, 42, 0.85);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(255, 255, 255, 0.16);
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --emerald-primary: #10b981;
+    --emerald-dark: #059669;
+    --emerald-glow: rgba(16, 185, 129, 0.25);
+    --rose-primary: #f43f5e;
+    --rose-glow: rgba(244, 63, 94, 0.25);
+    --amber-primary: #f59e0b;
+    --amber-glow: rgba(245, 158, 11, 0.25);
+    --sky-primary: #38bdf8;
+    --sky-glow: rgba(56, 189, 248, 0.25);
+    --indigo-primary: #6366f1;
+    --nav-base-height: 54px;
+    --font-sans: 'Cairo', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body.nav-scroll-lock {
+    overflow: hidden !important;
+    touch-action: none;
+  }
+
+  /* Portal Nav Header (Strict 54px, Apple HIG) */
+  .unified-portal-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-base-height);
+    background: rgba(15, 15, 18, 0.82);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.05rem;
+  }
+
+  .badge-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--amber-primary);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    padding: 2px 7px;
+    border-radius: 6px;
+  }
+
+  .desktop-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .desktop-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 600;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+  .desktop-nav-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-subtle);
+  }
+
+  .desktop-nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-audio-btn, .nav-theme-btn {
+    height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #e4e4e7;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+
+  .nav-dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  .nav-dropdown-btn {
+    height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: #e4e4e7;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+  .nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 290px;
+    max-height: 480px;
+    overflow-y: auto;
+    background: #18181b;
+    border: 1px solid var(--border-highlight);
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    display: none;
+    z-index: 1001;
+  }
+  .nav-dropdown-menu.show { display: block; }
+  .nav-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #d4d4d8;
+    text-decoration: none;
+    font-size: 0.84rem;
+    transition: all 0.15s ease;
+  }
+  .nav-dropdown-item:hover, .nav-dropdown-item.active {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--amber-primary);
+  }
+
+  .nav-hamburger-btn {
+    display: none;
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+  .hamburger-box {
+    width: 20px;
+    height: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #e4e4e7;
+    border-radius: 2px;
+  }
+
+  /* Main Container */
+  .guide-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: calc(var(--nav-base-height) + 24px) 16px 80px 16px;
+  }
+
+  /* Chapter Hero */
+  .chapter-hero {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(19, 21, 31, 0.95) 100%);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: 20px;
+    padding: 36px 28px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: 20px;
+    color: var(--amber-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .hero-title {
+    font-size: 1.85rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+  .hero-subtitle {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--amber-primary);
+    direction: ltr;
+    text-align: right;
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+  .hero-desc {
+    font-size: 0.98rem;
+    color: #cbd5e1;
+    max-width: 950px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  /* Explicit Hero Badges Row (User Specification) */
+  .hero-badges-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+  .hero-stat-badge {
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #e2e8f0;
+  }
+
+  /* Golden Rules Banner */
+  .golden-rules-banner {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(24, 24, 27, 0.8) 100%);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 36px;
+  }
+  .golden-rules-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--amber-primary);
+    margin-bottom: 16px;
+  }
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 14px;
+  }
+  .rule-box {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .rule-box h4 {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .rule-box p {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Interactive Studio Container */
+  .pk-studio-card {
+    background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 20px;
+    padding: 24px;
+    margin: 32px 0 40px;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+  }
+  .pk-studio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+  }
+  .pk-studio-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #38bdf8;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .pk-pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #38bdf8;
+    box-shadow: 0 0 10px #38bdf8;
+    animation: pkPulse 1.5s infinite;
+  }
+  @keyframes pkPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+  }
+  .pk-studio-main-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #f8fafc;
+    margin: 0 0 6px;
+  }
+  .pk-studio-sub-title {
+    font-size: 0.92rem;
+    color: #94a3b8;
+    margin: 0;
+    line-height: 1.6;
+  }
+  .pk-scenario-nav {
+    display: flex;
+    gap: 8px;
+    background: rgba(15, 23, 42, 0.6);
+    padding: 6px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    flex-wrap: wrap;
+  }
+  .pk-scenario-btn {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 0.84rem;
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+  }
+  .pk-scenario-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.05); }
+  .pk-scenario-btn.active {
+    background: #0284c7;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+  }
+
+  .pk-stage-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media (min-width: 992px) {
+    .pk-stage-layout {
+      grid-template-columns: 1.35fr 1fr;
+    }
+  }
+
+  .pk-canvas-wrapper {
+    position: relative;
+    background: #090d16;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.8);
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pk-canvas-wrapper canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .pk-details-panel {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .pk-status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    width: fit-content;
+  }
+  .badge-danger { background: rgba(244, 63, 94, 0.2); color: var(--rose-primary); border: 1px solid rgba(244, 63, 94, 0.4); }
+  .badge-warning { background: rgba(245, 158, 11, 0.2); color: var(--amber-primary); border: 1px solid rgba(245, 158, 11, 0.4); }
+  .badge-success { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); border: 1px solid rgba(16, 185, 129, 0.4); }
+
+  .pk-detail-box {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    padding: 12px;
+  }
+  .pk-detail-title {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: var(--sky-primary);
+    margin-bottom: 4px;
+  }
+  .pk-detail-text {
+    font-size: 0.85rem;
+    color: #e2e8f0;
+    line-height: 1.6;
+  }
+  .pk-trap-alert {
+    background: rgba(244, 63, 94, 0.1);
+    border: 1px solid rgba(244, 63, 94, 0.25);
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 0.84rem;
+    color: #fecdd3;
+    line-height: 1.6;
+  }
+
+  /* Maneuver Mode Tabs */
+  .pk-maneuvers-section {
+    margin-top: 24px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 14px;
+    padding: 16px;
+    border: 1px solid var(--border-subtle);
+  }
+  .pk-maneuver-nav {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .pk-maneuver-btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: #cbd5e1;
+    font-weight: 700;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .pk-maneuver-btn.active {
+    background: var(--amber-primary);
+    color: #000;
+    border-color: var(--amber-primary);
+  }
+  .pk-maneuver-content {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .pk-man-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .pk-man-summary {
+    font-size: 0.88rem;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+  .pk-man-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  @media (max-width: 640px) {
+    .pk-man-grid { grid-template-columns: 1fr; }
+  }
+  .pk-man-col h5 {
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .pk-man-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .pk-man-col li {
+    font-size: 0.82rem;
+    color: #cbd5e1;
+    margin-bottom: 4px;
+    line-height: 1.5;
+    display: flex;
+    gap: 6px;
+  }
+
+  /* Workshop Photo Gallery Section */
+  .workshop-gallery-section {
+    margin: 40px 0 32px;
+  }
+  .workshop-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .workshop-gallery-card {
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  .workshop-gallery-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(56, 189, 248, 0.4);
+  }
+  .workshop-gallery-media {
+    position: relative;
+    height: 170px;
+    overflow: hidden;
+  }
+  .workshop-gallery-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+  .workshop-gallery-card:hover .workshop-gallery-media img {
+    transform: scale(1.06);
+  }
+  .workshop-gallery-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(2, 132, 199, 0.85);
+    backdrop-filter: blur(6px);
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  .workshop-gallery-content {
+    padding: 14px;
+  }
+  .workshop-gallery-title {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: #f1f5f9;
+    margin: 0 0 6px;
+  }
+  .workshop-gallery-sub {
+    font-size: 0.78rem;
+    color: #38bdf8;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  .workshop-gallery-desc {
+    font-size: 0.82rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Comparison Section: 4 Cards */
+  .comp-section {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .comp-header { margin-bottom: 20px; text-align: right; }
+  .comp-header h3 { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+  .comp-header p { font-size: 0.9rem; color: var(--text-secondary); }
+  .comp-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .comp-card-path {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .comp-card-path h4 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .comp-tag {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .comp-card-path p {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    text-align: right;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  /* Filter Pills Bar */
+  .filter-pills-bar {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    margin-bottom: 24px;
+    scrollbar-width: thin;
+  }
+  .filter-pill {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    color: #94a3b8;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .filter-pill:hover, .filter-pill.active {
+    background: var(--sky-primary);
+    border-color: var(--sky-primary);
+    color: #000;
+  }
+
+  /* Signals Grid & Technical Cards */
+  .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .section-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-badge {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: var(--sky-primary);
+    background: rgba(56, 189, 248, 0.1);
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+  }
+
+  .signals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+  .signal-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .signal-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-highlight);
+  }
+  .signal-img-container {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 16px;
+  }
+  .signal-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .card-header-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+  .card-ar-title {
+    font-size: 1.12rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  .card-it-title {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--sky-primary);
+    direction: ltr;
+    text-align: right;
+  }
+  .card-desc-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .card-points-group { margin-bottom: 14px; }
+  .points-group-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .points-group-title.vero-title { color: var(--emerald-primary); }
+  .points-group-title.falso-title { color: var(--rose-primary); }
+
+  .card-points-list { list-style: none; margin: 0; padding: 0; }
+  .card-points-list li {
+    display: block;
+    position: relative;
+    padding-right: 28px;
+    line-height: 1.7;
+    text-align: right;
+    font-size: 0.86rem;
+    color: #d4d4d8;
+    margin-bottom: 6px;
+  }
+  .card-points-list li > span:first-child {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .card-trap-alert {
+    background: rgba(244, 63, 94, 0.08);
+    border: 1px solid rgba(244, 63, 94, 0.22);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    color: #fca5a5;
+    line-height: 1.6;
+    margin-top: auto;
+  }
+  .card-trap-alert strong { color: var(--rose-primary); }
+
+  /* 12 Trap Quiz Cards (Ministerial Radar) */
+  .traps-section { margin-bottom: 50px; }
+  .traps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+  }
+  .trap-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .trap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card-tag-pill {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  .tag-vero { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .tag-falso { background: rgba(244, 63, 94, 0.2); color: var(--rose-primary); }
+  .trap-quiz-text {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: #e4e4e7;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 8px;
+    padding: 10px;
+    direction: ltr;
+    text-align: left;
+    line-height: 1.5;
+  }
+  .trap-quiz-trans {
+    font-size: 0.88rem;
+    color: var(--sky-primary);
+    font-weight: 600;
+    line-height: 1.6;
+  }
+  .trap-explanation {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    padding: 10px;
+    border-right: 3px solid var(--amber-primary);
+  }
+
+  /* Pagination Bar */
+  .chapter-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    margin-top: 40px;
+  }
+  .pagination-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.15s ease;
+  }
+  .pagination-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--border-highlight);
+  }
+  .pagination-info { display: flex; flex-direction: column; text-align: right; }
+  .pagination-label { font-size: 0.75rem; color: var(--text-muted); }
+  .pagination-title { font-size: 0.92rem; color: #fff; }
+
+  /* Responsive Rules (< 768px) */
+  @media (max-width: 768px) {
+    .desktop-nav-links, .desktop-nav-controls { display: none !important; }
+    .nav-hamburger-btn { display: flex !important; }
+    .guide-container { padding-top: calc(var(--nav-base-height) + 16px); padding-left: 14px; padding-right: 14px; }
+    .hero-title { font-size: 1.6rem; }
+    .signals-grid { grid-template-columns: 1fr; }
+    .chapter-pagination { flex-direction: column; align-items: stretch; }
+  }
+</style>
+<link rel="manifest" href="../manifest.json">
+</head>
+<body>
+
+<!-- Unified Top Navigation (54px) -->
+<nav class="unified-portal-nav" aria-label="شريط التنقل الموحد">
+  <div style="display:flex; align-items:center; gap:12px;">
+    <a href="index.html" class="nav-brand">
+      <span>🚦 Patente B Pro</span>
+      <span class="badge-tag">الباب 16</span>
+    </a>
+  </div>
+
+  <div class="desktop-nav-links">
+    <a href="index.html" class="desktop-nav-link"><span>🏛️</span><span>فهرس المكتبة الشاملة</span></a>
+    <a href="../Capitoli_Divisi/index.html" class="desktop-nav-link"><span>📚</span><span>الأبواب المقسمة (25)</span></a>
+    <a href="scheda-esame.html" class="desktop-nav-link"><span>⏱️</span><span>محاكي الامتحان</span></a>
+  </div>
+
+  <div class="desktop-nav-controls">
+    <div class="nav-dropdown-wrapper">
+      <button class="nav-dropdown-btn" onclick="toggleNavDropdown(event)">
+        <span>تصفح الأبواب (1-25)</span>
+        <span style="font-size:0.75rem;">▾</span>
+      </button>
+      <div class="nav-dropdown-menu" id="navDropdownMenu">
+        <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
+        <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
+        <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
+        <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
+        <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
+        <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
+        <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
+      </div>
+    </div>
+    <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
+      <span class="audio-icon-span">🔊</span>
+      <span class="audio-label-span">الصوت نشط</span>
+    </button>
+    <button class="nav-theme-btn" id="themeToggleBtn" onclick="toggleTheme()" title="تبديل الوضع (نهاري / ليلي) [Alt + T]">
+      <span class="theme-icon-span">☀️</span>
+      <span class="theme-label-span">الوضع النهاري</span>
+    </button>
+  </div>
+</nav>
+
+<main class="guide-container">
+
+  <!-- HERO SECTION -->
+  <section class="chapter-hero">
+    <div class="hero-tag">🅿️ المرجع المعتمد للدراسة والامتحان الوزاري</div>
+    <h1 class="hero-title">الباب 16: الوقوف والتوقف والركن وبدء السير</h1>
+    <div class="hero-subtitle">Capitolo 16: Fermata, sosta, arresto e partenza dei veicoli</div>
+    <p class="hero-desc">
+      الدليل الهندسي والقانوني الشامل للتمييز القاطع بين التوقف المؤقت (Fermata)، والوقوف والركن (Sosta)، والتوقف القسري لحركة المرور (Arresto)، والوقوف الاضطراري للأعطال (Sosta di emergenza). يشمل القواعد الصارمة للمسافات القانونية (5 أمتار من التقاطعات وممرات المشاة، 15 متراً من مواقف الحافلات ومزلقانات القطار)، شروط الوقوف على اليسار في الشوارع ذات الاتجاه الواحد (ترك 3 أمتار)، أحكام قرص الوقوف (Disco orario)، حالات سحب السيارة بالونش (Rimozione forzata)، وقواعد بدء السير وفحص النقاط العمياء.
+    </p>
+
+    <div class="hero-badges-row">
+      <div class="hero-stat-badge"><span>📊</span> <span>214 سؤالاً وزارياً معتمداً</span></div>
+      <div class="hero-stat-badge"><span>⚠️</span> <span>12 فخاً وزارياً دقيقاً</span></div>
+      <div class="hero-stat-badge"><span>🅿️</span> <span>14 بطاقة شاملة للوقوف والتوقف</span></div>
+      <div class="hero-stat-badge"><span>🎯</span> <span>دقة 100% كود السير 2026</span></div>
+    </div>
+  </section>
+
+  <!-- GOLDEN RULES BANNER -->
+  <section class="golden-rules-banner">
+    <div class="golden-rules-title">
+      <span>⭐</span>
+      <span>القواعد الذهبية الأربع للباب 16 (Regole d'Oro)</span>
+    </div>
+    <div class="rules-grid">
+      <div class="rule-box">
+        <h4><span>1️⃣</span> قاعدة السائق خلف المقود (Fermata)</h4>
+        <p>التوقف المؤقت (Fermata) مسموح به حتى أمام Passo Carrabile بشرط بقاء السائق خلف المقود وجاهزاً للتحرك فوراً دون إعاقة السير.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>2️⃣</span> قاعدة مسافات الأمان القانونية</h4>
+        <p>يمنع الوقوف والتوقف على مسافة تقل عن 5 أمتار من التقاطعات، و 5 أمتار قبل معابر المشاة، و 15 متراً من مواقف الحافلات ومزلقانات القطار.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>3️⃣</span> قاعدة الشارع ذو الاتجاه الواحد (3m)</h4>
+        <p>داخل المدن، يباح الوقوف على الجانب الأيسر حصرياً إذا كان الشارع باتجاه واحد (Senso Unico) وبقيت مساحة مرور لا تقل عن 3 أمتار.</p>
+      </div>
+      <div class="rule-box">
+        <h4><span>4️⃣</span> قاعدة حظر تحريك قرص الساعات</h4>
+        <p>في المناطق المحددة بقرص الساعات (Disco Orario)، يمنع قانوناً تحديث الوقت دون تحريك السيارة ومغادرة المكان، وإلا تطبق الغرامة والسحب.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE PARKING STUDIO -->
+  <section class="pk-studio-card" id="parking-studio">
+    <div class="pk-studio-header">
+      <div>
+        <div class="pk-studio-badge">
+          <span class="pk-pulse-dot"></span>
+          <span>استوديو رادار المسافات وقواعد الوقوف التفاعلي 60 FPS</span>
+        </div>
+        <h2 class="pk-studio-main-title">المحاكي الراداري لمسافات الوقوف والتوقف (Art. 157 & 158 CdS)</h2>
+        <p class="pk-studio-sub-title">اختر السيناريو الهندسي لمعاينة مناطق الحظر المضيئة، وحساب المسافات القانونية، واستكشاف الفخاخ الامتحانية فورياً.</p>
+      </div>
+
+      <div class="pk-scenario-nav">
+        <button class="pk-scenario-btn active" data-scenario="incrocio">تقاطع طرق (5m)</button>
+        <button class="pk-scenario-btn" data-scenario="pedonale">معبر مشاة (5m)</button>
+        <button class="pk-scenario-btn" data-scenario="bus">موقف حافلات (15m)</button>
+        <button class="pk-scenario-btn" data-scenario="passaggio_livello">مزلقان قطار (15m)</button>
+        <button class="pk-scenario-btn" data-scenario="passo_carrabile">Passo Carrabile</button>
+        <button class="pk-scenario-btn" data-scenario="senso_unico">اتجاه واحد (3m)</button>
+      </div>
+    </div>
+
+    <div class="pk-stage-layout">
+      <!-- 60 FPS Telemetry Canvas -->
+      <div class="pk-canvas-wrapper">
+        <canvas id="parkingCanvas"></canvas>
+      </div>
+
+      <!-- Real-time Telemetry Data Panel -->
+      <div class="pk-details-panel">
+        <div>
+          <span class="pk-status-badge badge-danger" id="pkScenarioBadge">ممنوع الوقوف والتوقف داخل النطاق</span>
+          <h3 class="card-ar-title" id="pkScenarioTitle" style="margin-bottom:4px;">الوقوف بالقرب من تقاطعات الطرق (Incroci)</h3>
+          <div class="card-it-title" id="pkScenarioItTitle">Sosta in corrispondenza e in prossimità degli incroci</div>
+        </div>
+
+        <div class="pk-detail-box">
+          <div class="pk-detail-title">📏 المسافة القانونية المشددة:</div>
+          <div class="pk-detail-text"><strong id="pkScenarioDist" style="color:#38bdf8;">5 أمتار (Metri)</strong> — <span id="pkScenarioLimit">أقل من 5 أمتار = ممنوع منعاً باتاً</span></div>
+        </div>
+
+        <div class="pk-detail-box">
+          <div class="pk-detail-title">⚖️ القاعدة داخل المدن (Centri Abitati):</div>
+          <div class="pk-detail-text" id="pkScenarioUrban">داخل المدن: يمنع الوقوف والتوقف على مسافة تقل عن 5 أمتار من حافة التقاطع الأقرب.</div>
+        </div>
+
+        <div class="pk-detail-box">
+          <div class="pk-detail-title">🛣️ القاعدة خارج المدن (Fuori dei Centri Abitati):</div>
+          <div class="pk-detail-text" id="pkScenarioExtra">خارج المدن: يمنع الوقوف والتوقف في حرم التقاطع تماماً وعلى جوانب الطريق بالقرب منه.</div>
+        </div>
+
+        <div class="pk-trap-alert" id="pkScenarioTrap">
+          🚨 <strong>فخ امتحاني خطير:</strong> داخل المدن، يمنع الوقوف والتوقف على بعد أقل من 5 أمتار من التقاطع، ولا يجوز حتى للنزول المؤقت!
+        </div>
+      </div>
+    </div>
+
+    <!-- Maneuver Discriminator Tabs -->
+    <div class="pk-maneuvers-section">
+      <div style="margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+        <h4 style="color:#fff; font-size:1.05rem; font-weight:800;">التمييز القاطع بين حالات إيقاف المركبة الأربع:</h4>
+        <span style="font-size:0.78rem; color:#94a3b8; font-family:var(--font-mono);">Art. 157 Codice della Strada</span>
+      </div>
+      <div class="pk-maneuver-nav">
+        <button class="pk-maneuver-btn active" data-maneuver="fermata">⏱️ التوقف المؤقت (Fermata)</button>
+        <button class="pk-maneuver-btn" data-maneuver="sosta">🅿️ الوقوف والركن (Sosta)</button>
+        <button class="pk-maneuver-btn" data-maneuver="arresto">🛑 التوقف القسري (Arresto)</button>
+        <button class="pk-maneuver-btn" data-maneuver="emergenza">🚨 الوقوف الاضطراري (Emergenza)</button>
+      </div>
+
+      <div class="pk-maneuver-content">
+        <div class="pk-man-title" id="pkManTitle"><span>⏱️</span> <span>التوقف المؤقت الإرادي (La Fermata)</span></div>
+        <p class="pk-man-summary" id="pkManSummary">تعليق السير لزمن وجيز جداً لتمكين الركاب من الصعود أو النزول، مع بقاء السائق خلف المقود وجاهزاً للتحرك فوراً.</p>
+
+        <div class="pk-man-grid">
+          <div class="pk-man-col">
+            <h5 style="color:#10b981;"><span>✅</span> الشروط والحالات المسموحة (Ammessa):</h5>
+            <ul id="pkManCondList">
+              <li><span style="color:#10b981;">✓</span> <span>بقاء السائق خلف المقود ومستعداً للتحرك في أي لحظة</span></li>
+              <li><span style="color:#10b981;">✓</span> <span>مسموح أمام مداخل الجراجات (Passo carrabile) إذا لم يعطل المرور</span></li>
+            </ul>
+          </div>
+          <div class="pk-man-col">
+            <h5 style="color:#f43f5e;"><span>❌</span> الحالات الممنوعة قطعاً (Vietata):</h5>
+            <ul id="pkManProhibList">
+              <li><span style="color:#f43f5e;">✗</span> <span>ممنوع في المنحنيات والمرتفعات والأنفاق والجسور</span></li>
+              <li><span style="color:#f43f5e;">✗</span> <span>ممنوع مع وجود إشارة Divieto di Fermata (الصليب الأحمر X)</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pk-trap-alert" id="pkManTrap" style="margin-top:12px; background:rgba(245,158,11,0.12); border-color:rgba(245,158,11,0.3); color:#fde68a;">
+          💡 <strong>التحليل الوزاري:</strong> التوقف (Fermata) لا يتطلب وضع مثلث الخطر، ولا يعتبر وقوفاً ممتداً، ويسمح به أمام Passo carrabile!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKSHOP PHOTOGRAPHIC GALLERY (6 CARDS - 16:9 REAL IMAGES) -->
+  <section class="workshop-gallery-section">
+    <div class="section-heading">
+      <div class="section-badge">معرض الورشة البصري 16:9</div>
+      <h2 class="section-title">المشاهد البصرية الميدانية لمواقف وسحب السيارات في إيطاليا</h2>
+    </div>
+
+    <div class="workshop-gallery-grid">
+      <!-- 1: Disco Orario -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/parking_parts/gallery_disco_orario.jpg" alt="Disco Orario" loading="lazy">
+          <span class="workshop-gallery-badge">قرص تحديد الوقت</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">قرص الوقوف الأزرق (Disco Orario)</h4>
+          <div class="workshop-gallery-sub">Indicazione dell'Ora di Inizio Sosta</div>
+          <p class="workshop-gallery-desc">يوضع بوضوح على التابلوه خلف الزجاج الأمامي لضبط ساعة الوصول في مناطق الوقوف محددة الوقت؛ يمنع تحريكه دون تحريك السيارة.</p>
+        </div>
+      </div>
+
+      <!-- 2: Parcometro e Strisce Blu -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/parking_parts/gallery_parcometro.jpg" alt="Parcometro" loading="lazy">
+          <span class="workshop-gallery-badge">المواقف المدفوعة</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">جهاز تذاكر المواقف والخطوط الزرقاء (Parcometro)</h4>
+          <div class="workshop-gallery-sub">Sosta a Pagamento con Esposizione Ticket</div>
+          <p class="workshop-gallery-desc">المواقف المحاطة بخطوط زرقاء (Strisce Blu) تتطلب شراء تذكرة وإبرازها على التابلوه لتوثيق وقت انتهاء مدة الركن المدفوعة.</p>
+        </div>
+      </div>
+
+      <!-- 3: Passo Carrabile -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/parking_parts/gallery_passo_carrabile.jpg" alt="Passo Carrabile" loading="lazy">
+          <span class="workshop-gallery-badge">مخرج الجراج النظامي</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">مخرج المرآب المصرح به (Passo Carrabile)</h4>
+          <div class="workshop-gallery-sub">Accesso alla Proprietà Laterale Autorizzato</div>
+          <p class="workshop-gallery-desc">لوحة رسمية تحمل شعار البلدية ورقم الترخيص؛ تحظر الركن والوقوف (Sosta) منعاً لإغلاق المخرج، وتبيح التوقف الوجيز (Fermata).</p>
+        </div>
+      </div>
+
+      <!-- 4: Rimozione Forzata -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/parking_parts/gallery_rimozione_forzata.jpg" alt="Rimozione Forzata" loading="lazy">
+          <span class="workshop-gallery-badge">سحب المركبة بالونش</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">ونش شرطة المرور والسحب الإداري (Carro Attrezzi)</h4>
+          <div class="workshop-gallery-sub">Rimozione Forzata del Veicolo in Sosta Vietata</div>
+          <p class="workshop-gallery-desc">يتم رفع وسحب المركبة المخالفة بالونش عند إغلاق مداخل الجراجات، أو الوقوف في أماكن المعاقين، أو الأماكن المزودة بلوحة السحب الإضافية.</p>
+        </div>
+      </div>
+
+      <!-- 5: Stalli Sosta Invalidi -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/parking_parts/gallery_stalli_invalidi.jpg" alt="Stalli Invalidi" loading="lazy">
+          <span class="workshop-gallery-badge">مواقف ذوي الاحتياجات</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">المواقف الصفراء المخصصة للمعاقين (Stalli Invalidi)</h4>
+          <div class="workshop-gallery-sub">Stalli Riservati con Linee Gialle e Simbolo</div>
+          <p class="workshop-gallery-desc">مساحات محددة بالخطوط الصفراء وشعار الكرسي المتحرك؛ مخصصة حصرياً لحاملي تصريح الإعاقة الرسمي (Contrassegno disabili) ويمنع غيرهم تماماً.</p>
+        </div>
+      </div>
+
+      <!-- 6: Fermata Autobus -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/parking_parts/gallery_fermata_autobus.jpg" alt="Fermata Autobus" loading="lazy">
+          <span class="workshop-gallery-badge">موقف الحافلات 15m</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">موقف حافلات النقل العام (Fermata Autobus)</h4>
+          <div class="workshop-gallery-sub">Segnaletica Orizzontale a Zig-Zag Gialla</div>
+          <p class="workshop-gallery-desc">المنطقة الصفراء المتعرجة المخصصة لصعود ونزول ركاب الحافلات؛ يمنع الوقوف (Sosta) لمسافة 15 متراً قبل وبعد اللافتة، ويباح التوقف الوجيز.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON SECTION: 4 CARDS -->
+  <section class="comp-section">
+    <div class="comp-header">
+      <h3>المقارنة البصرية الحاسمة: الفروق الجوهرية في قواعد الوقوف والتوقف</h3>
+      <p>الفروق الدقيقة التي يركز عليها واضع الامتحان الوزاري بين المناورات وحالات السحب الإداري</p>
+    </div>
+    <div class="comp-grid-4">
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">⏱️ vs 🅿️</div>
+        <h4>Fermata vs Sosta</h4>
+        <div class="comp-tag" style="background:rgba(56,189,248,0.15); color:var(--sky-primary);">طبيعة المناورة</div>
+        <p>• <strong>Fermata:</strong> زمن وجيز جداً لركوب أو نزول الركاب، والسائق خلف المقود وجاهز للتحرك فوراً دون إعاقة السير.<br>• <strong>Sosta:</strong> إيقاف ممتد مع مغادرة السائق للسيارة، وتتطلب إطفاء المحرك وتأمين فرامل اليد وإغلاق الأبواب.</p>
+      </div>
+
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">🚫 vs ❌</div>
+        <h4>Divieto di Sosta vs Fermata</h4>
+        <div class="comp-tag" style="background:rgba(244,63,94,0.15); color:var(--rose-primary);">نطاق الحظر</div>
+        <p>• <strong>منع الوقوف (خط مائل واحد):</strong> يمنع الركن (Sosta) فقط، لكنه يسمح بالتوقف الوجيز (Fermata).<br>• <strong>منع التوقف (صليب أحمر X):</strong> يحظر الركن والتوقف تماماً ومطلقاً ولا يسمح حتى بإنزال راكب لثانية واحدة!</p>
+      </div>
+
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">🚪 🚗</div>
+        <h4>Passo Carrabile</h4>
+        <div class="comp-tag" style="background:rgba(245,158,11,0.15); color:var(--amber-primary);">مخرج المرآب</div>
+        <p>• <strong>الركن (Sosta):</strong> ممنوع منعاً باتاً أمام المخرج ويوجب سحب السيارة بالونش (Rimozione forzata).<br>• <strong>التوقف (Fermata):</strong> مسموح به إذا ظل السائق خلف المقود ولم يغلق الطريق على سيارة قادمة من الداخل.</p>
+      </div>
+
+      <div class="comp-card-path">
+        <div style="font-size:2.8rem; margin-bottom:8px;">🚀 🛣️</div>
+        <h4>Partenza dal Margine</h4>
+        <div class="comp-tag" style="background:rgba(16,185,129,0.15); color:var(--emerald-primary);">بدء السير</div>
+        <p>• يجب إعطاء الأسبقية لجميع المركبات المارة على الطريق.<br>• فحص المرايا والنقطة العمياء (Angolo cieco) بالالتفات السريع.<br>• تشغيل إشارة تغيير الاتجاه (Freccia) قبل الانطلاق في الوقت المناسب.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER PILLS BAR -->
+  <div class="filter-pills-bar">
+    <button class="filter-pill active" onclick="filterCards('all', this)">جميع البطاقات (14)</button>
+    <button class="filter-pill" onclick="filterCards('segnali', this)">الشواخص والإشارات الرسمية</button>
+    <button class="filter-pill" onclick="filterCards('luoghi-vietati', this)">أماكن الحظر والمسافات (5m / 15m)</button>
+    <button class="filter-pill" onclick="filterCards('regole-sosta', this)">قواعد الركن والقرص والاتجاه الواحد</button>
+    <button class="filter-pill" onclick="filterCards('manovre', this)">المناورات وبدء السير والسحب</button>
+  </div>
+
+  <!-- SIGNALS GRID (14 DETAILED CARDS) -->
+  <div class="section-heading">
+    <div class="section-badge">الشرح التفصيلي لبطاقات الباب 16</div>
+    <h2 class="section-title">البطاقات المعرفية المعتمدة للوقوف والتوقف وبدء السير</h2>
+  </div>
+
+  <div class="signals-grid">
+
+    <!-- CARD 1: Divieto di Sosta -->
+    <div class="signal-card" data-category="segnali">
+      <div class="signal-img-container">
+        <img src="../assets/images/parking_parts/gallery_rimozione_forzata.jpg" alt="Divieto di Sosta" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">إشارة منع الوقوف (Divieto di Sosta) — Fig. 62</h3>
+        <span class="card-it-title">Segnale di Divieto di Sosta</span>
+      </div>
+      <p class="card-desc-text">
+        تمنع إيقاف السيارة وركنها ومغادرتها (Sosta)، لكنها تسمح بالتوقف المؤقت لركوب أو نزول الركاب (Fermata) بشرط ألا يعطل السير. داخل المدن تسري من 08:00 إلى 20:00 ما لم تذكر لوحة إضافية غير ذلك، وخارج المدن تسري 24 ساعة دائماً.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تمنع ركن السيارة الممتد ومغادرتها (Vieta la sosta ma consente la fermata)</li>
+          <li><span>✅</span> خارج المدن تسري طوال الـ 24 ساعة دون الحاجة لأي لوحة إضافية توضح الأوقات</li>
+          <li><span>✅</span> ينتهي مفعولها عند أول تقاطع طرق مقبل ما لم تتكرر بعده مع سهم إضافي</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والعبارات الخاطئة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تمنع التوقف الوجيز لإنزال راكب (Fermata) — خطأ، التوقف مسموح تماماً!</li>
+          <li><span>❌</span> تسري دائماً على جانبي الطريق معاً — خطأ، تسري فقط على الجانب المثبتة عليه!</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> إشارة منع الوقوف تسمح بالتوقف المؤقت (Fermata) دائماً، وتسري داخل المدن من 8 إلى 20 فقط!
+      </div>
+    </div>
+
+    <!-- CARD 2: Divieto di Fermata -->
+    <div class="signal-card" data-category="segnali">
+      <div class="signal-img-container">
+        <img src="../assets/images/parking_parts/divieto_di_fermata.jpg" alt="Divieto di Fermata" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">إشارة منع التوقف التام (Divieto di Fermata) — Fig. 63</h3>
+        <span class="card-it-title">Segnale di Divieto di Fermata</span>
+      </div>
+      <p class="card-desc-text">
+        تحظر منعاً باتاً ومطلقاً أي إيقاف إرادي للمركبة، سواء كان وقوفاً وركناً ممتداً (Sosta) أو توقفاً لحظياً وجيزاً (Fermata). تسري على مدار 24 ساعة في اليوم داخل وخارج المدن دون استثناء.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تحظر التوقف المؤقت والوقوف والركن معاً (Vieta sia la sosta sia la fermata)</li>
+          <li><span>✅</span> تسري 24 ساعة يومياً داخل وخارج المدن دون الحاجة إلى لوحات إضافية</li>
+          <li><span>✅</span> يترتب على مخالفتها سحب المركبة بالونش فوراً (Rimozione forzata)</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والعبارات الخاطئة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تسمح بالتوقف لمدة تقل عن دقيقة واحدة لإنزال حقيبة — خطأ، ممنوع قطعياً!</li>
+          <li><span>❌</span> تسمح بالتوقف ليلاً بعد الساعة 20:00 داخل المدن — خطأ، تسري 24 ساعة كاملة!</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> الصليب الأحمر X يعني منع كل شيء (لا وقوف ولا توقف)، ويسري 24 ساعة دائماً!
+      </div>
+    </div>
+
+    <!-- CARD 3: Sosta Regolamentata (Disco Orario) -->
+    <div class="signal-card" data-category="regole-sosta">
+      <div class="signal-img-container">
+        <img src="../assets/images/parking_parts/gallery_disco_orario.jpg" alt="Disco Orario" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الوقوف المنظم بقرص الساعات (Sosta con Disco Orario) — Fig. 64</h3>
+        <span class="card-it-title">Sosta Regolamentata con Disco Orario</span>
+      </div>
+      <p class="card-desc-text">
+        تحدد مدة قصوى مسموحة للوقوف المجاني (مثلاً 60 دقيقة). يلتزم السائق بوضع قرص الوقوف على التابلوه مع ضبط مؤشر ساعة الوصول (Ora di arrivo).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يجب الإشارة إلى وقت بدء الوقوف بوضوح عبر قرص الساعات على التابلوه</li>
+          <li><span>✅</span> إذا لم يتوفر قرص، يجوز كتابة ساعة الوصول بخط اليد ووضعها خلف الزجاج</li>
+          <li><span>✅</span> لا يلزم استخدام القرص خارج الساعات المحددة باللوحة الإضافية</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والعبارات الخاطئة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يجوز تمديد الوقوف بتدوير القرص للأمام دون تحريك السيارة — فخ شهير، ممنوع قطعياً!</li>
+          <li><span>❌</span> يجب ضبط القرص على ساعة المغادرة المتوقعة — خطأ، يضبط على ساعة الوصول!</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> يضبط القرص على وقت الوصول (Inizio sosta) وليس وقت المغادرة، وتدويره دون تحريك السيارة مخالفة!
+      </div>
+    </div>
+
+    <!-- CARD 4: Parcheggio Regolamentato -->
+    <div class="signal-card" data-category="regole-sosta">
+      <div class="signal-img-container">
+        <img src="../assets/images/parking_parts/gallery_parcometro.jpg" alt="Parcheggio" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">منطقة مواقف السيارات (Area di Parcheggio) — Fig. 83</h3>
+        <span class="card-it-title">Segnale di Parcheggio e Aree di Sosta</span>
+      </div>
+      <p class="card-desc-text">
+        تدل على ساحة أو مساحة مخصصة لركن السيارات؛ يمكن أن تكون مجانية (Strisce Bianche) أو مدفوعة الأجر بتذكرة (Strisce Blu) مع أوقات وتعرفات محددة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تدل على إمكانية ركن السيارات وفق الطريقة الموضحة باللوحات (طولياً، عرضياً، بميل)</li>
+          <li><span>✅</span> في المواقف المدفوعة يجب شراء التذكرة من الـ Parcometro وإبرازها على التابلوه</li>
+          <li><span>✅</span> قد تحدد لوحة إضافية حصر الموقف على فئة معينة من المركبات</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والعبارات الخاطئة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تبيح الوقوف في الصف الثاني إذا كانت المساحات ممتلئة — خطأ، ممنوع دائماً!</li>
+          <li><span>❌</span> تعفي السيارات الهجينة والكهربائية من دفع الرسوم تلقائياً في كافة المدن — خطأ!</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> يجب الالتزام بحدود الخطوط المرسومة على الأرض وتجنب شغل أكثر من مكان ركن واحد!
+      </div>
+    </div>
+
+    <!-- CARD 5: Passo Carrabile -->
+    <div class="signal-card" data-category="segnali">
+      <div class="signal-img-container">
+        <img src="../assets/images/parking_parts/gallery_passo_carrabile.jpg" alt="Passo Carrabile" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">مخرج المرآب المصرح به (Passo Carrabile) — Fig. 84</h3>
+        <span class="card-it-title">Pannello Integrativo Passo Carrabile</span>
+      </div>
+      <p class="card-desc-text">
+        لوحة نظامية تثبت عند مداخل الجراجات والممتلكات الجانبية؛ تمنع وقوف وركن السيارات (Sosta) على مدار 24 ساعة، لكنها تبيح التوقف الوجيز (Fermata) لإنزال راكب دون تعطيل المخرج.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تمنع الركن (Sosta) أمام البوابة لمنع إغلاق المخرج، ويترتب عليها سحب السيارة</li>
+          <li><span>✅</span> تسمح بالتوقف المؤقت (Fermata) لركوب أو نزول شخص بشرط بقاء السائق بالسيارة</li>
+          <li><span>✅</span> لكي تكون صالحة قانوناً يجب أن تحتوي على اسم البلدية ورقم الترخيص وسنة الصدور</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والعبارات الخاطئة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> تمنع التوقف الوجيز لإنزال راكب — فخ الامتحان المتكرر: التوقف مسموح!</li>
+          <li><span>❌</span> تسمح لمالك الجراج نفسه بالركن أمام بوابته على الطريق العام — خطأ، الركن ممنوع للجميع!</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> أمام Passo Carrabile الركن (Sosta) ممنوع للجميع حتى للمالك، لكن التوقف (Fermata) مباح!
+      </div>
+    </div>
+
+    <!-- CARD 6: Sosta nei Centri Abitati -->
+    <div class="signal-card" data-category="regole-sosta">
+      <div class="signal-img-container">
+        <img src="../assets/images/parking_parts/sosta_centri_abitati.jpg" alt="Sosta Centri Abitati" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الوقوف والتوقف داخل المدن (Nei Centri Abitati)</h3>
+        <span class="card-it-title">Fermata e Sosta nei Centri Abitati</span>
+      </div>
+      <p class="card-desc-text">
+        القاعدة العامة: يجب الوقوف في أقصى الجانب الأيمن من الطريق في اتجاه السير، موازياً لحافة الرصيف. في الطرق ذات الاتجاه الواحد يباح الوقوف على اليسار أيضاً بشرط ترك مساحة كافية (3 أمتار).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يجب وضع السيارة أقرب ما يكون للرصيف الأيمن وفي اتجاه السير</li>
+          <li><span>✅</span> إذا لم يوجد رصيف مرتفع، يجب ترك مساحة لا تقل عن متر واحد لمرور المشاة</li>
+          <li><span>✅</span> يمنع الوقوف فوق الأرصفة ما لم توجد خطوط ومربعات مخصصة لذلك</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والعبارات الخاطئة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يجوز الوقوف في الاتجاه المعاكس لتسهيل المغادرة — خطأ، يجب الوقوف دائماً في اتجاه السير!</li>
+          <li><span>❌</span> يجوز الصعود بعجلتين فوق الرصيف لتوسيع الطريق — خطأ، ممنوع تماماً دون علامات!</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> الرصيف مخصص للمشاة، ولا يجوز صعوده أو الوقوف فوقه إلا إذا وجدت خطوط ركن رسمية!
+      </div>
+    </div>
+
+    <!-- CARD 7: Sosta Fuori dei Centri Abitati -->
+    <div class="signal-card" data-category="regole-sosta">
+      <div class="signal-img-container">
+        <img src="../assets/images/parking_parts/gallery_fermata_autobus.jpg" alt="Sosta Fuori Centri Abitati" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الوقوف والتوقف خارج المدن (Fuori dei Centri Abitati)</h3>
+        <span class="card-it-title">Fermata e Sosta Fuori dei Centri Abitati</span>
+      </div>
+      <p class="card-desc-text">
+        خارج المدن، يجب الوقوف والتوقف خارج نهر الطريق (Carreggiata) تماماً، على الكتف الترابي (Banchina) أو في مواقف الركن الجانبية (Piazzole di sosta).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يجب إخراج السيارة كلياً من مسار السير على الكتف أو في الجيوب المخصصة</li>
+          <li><span>✅</span> إذا استحال إخراجها، يجب وضعها في أقصى حافة اليمين وتشغيل أضواء الطوارئ ليلاً</li>
+          <li><span>✅</span> ليلاً أو في ضعف الرؤية يجب ترك أضواء الموضع (Luci di posizione) مضاءة</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والعبارات الخاطئة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يجوز الوقوف على نهر الطريق خارج المدن إذا شغلت الأضواء الرباعية — خطأ!</li>
+          <li><span>❌</span> يسمح بالوقوف على حافة الطريق اليسرى خارج المدن — خطأ، محظور قطعياً!</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> خارج المدن لا يجوز إيقاف السيارة على نهر الطريق إطلاقاً إلا في حالة العطل الاضطراري القاهر!
+      </div>
+    </div>
+
+    <!-- CARD 8: Divieto di Sosta su Dossi e Curve -->
+    <div class="signal-card" data-category="luoghi-vietati">
+      <div class="signal-img-container">
+        <img src="../assets/images/parking_parts/divieto_sosta_dossi_curve.jpg" alt="Dossi e Curve" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">حظر الوقوف والتوقف في المرتفعات والمنحنيات</h3>
+        <span class="card-it-title">Divieto su Dossi, Curve e Raccordi</span>
+      </div>
+      <p class="card-desc-text">
+        تعتبر المرتفعات المحدبة (Dossi) والمنحنيات الخطرة (Curve) من أخطر النقاط على شبكة الطرق بسبب انعدام مسافة الرؤية.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> خارج المدن: يمنع الوقوف والتوقف معاً على نهر الطريق في المنحنيات والمرتفعات وبالقرب منها</li>
+          <li><span>✅</span> داخل المدن: يمنع الوقوف والتوقف على المرتفعات وفي المنحنيات؛ لكن يمنع الوقوف فقط بالقرب منها</li>
+          <li><span>✅</span> يمنع الاستدارة للخلف (Inversione) أو الرجوع للخلف على قمم المرتفعات</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والعبارات الخاطئة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يسمح بالتوقف المؤقت على قمة المرتفع لإنزال راكب — خطأ مميت، ممنوع قطعياً!</li>
+          <li><span>❌</span> يسمح بالوقوف في المنحنى إذا كانت الطريق باتجاه واحد — خطأ، محظور دائماً!</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فوق قمة المرتفع (Sul dosso) يمنع الوقوف والتوقف معاً داخل وخارج المدن دون استثناء!
+      </div>
+    </div>
+
+    <!-- CARD 9: Distanza Minima 5 Metri dagli Incroci -->
+    <div class="signal-card" data-category="luoghi-vietati">
+      <div class="signal-img-container">
+        <img src="../assets/images/parking_parts/divieto_sosta_incroci.jpg" alt="Distanza 5 Metri" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">قاعدة مسافة الـ 5 أمتار (التقاطعات ومعابر المشاة)</h3>
+        <span class="card-it-title">Distanza di 5 Metri da Incroci e Strisce Pedonali</span>
+      </div>
+      <p class="card-desc-text">
+        لحماية زوايا الرؤية ومنع وقوع الحوادث عند المنعطفات، يفرض القانون مسافة عازلة لا تقل عن 5 أمتار قبل وبعد التقاطعات داخل المدن، وقبل معابر المشاة.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يمنع الوقوف داخل المدن على مسافة تقل عن 5 أمتار من حافة التقاطع الأقرب</li>
+          <li><span>✅</span> يمنع الوقوف على مسافة تقل عن 5 أمتار قبل معابر المشاة والدراجات الهوائية</li>
+          <li><span>✅</span> يمنع الوقوف والتوقف فوق خطوط عبور المشاة تماماً</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والعبارات الخاطئة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يمنع الوقوف على مسافة 5 أمتار بعد معبر المشاة — خطأ، الحظر قبل المعبر وليس بعده!</li>
+          <li><span>❌</span> المسافة المشددة من التقاطعات داخل المدن هي 15 متراً — خطأ، 5 أمتار فقط!</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الـ 5 أمتار:</strong> عند معبر المشاة يمنع الوقوف قبل المعبر بـ 5 أمتار، بينما بعده مسموح إذا لم تكن هناك إشارة أخرى!
+      </div>
+    </div>
+
+    <!-- CARD 10: Rimozione Forzata e Blocco -->
+    <div class="signal-card" data-category="manovre">
+      <div class="signal-img-container">
+        <img src="../assets/images/parking_parts/gallery_rimozione_forzata.jpg" alt="Rimozione Forzata" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">سحب السيارة بالونش وكلبشة العجلات (Rimozione e Blocco)</h3>
+        <span class="card-it-title">Rimozione Forzata o Blocco dei Veicoli</span>
+      </div>
+      <p class="card-desc-text">
+        إجراء إداري تحفظي تنفذه الشرطة المحلية لإزالة المركبات التي تشكل خطراً جسيماً أو عائقاً لحركة المرور، أو في الأماكن المزودة باللوحة الإضافية للونش (Pannello rimozione forzata).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يطبق السحب عند الوقوف أمام Passo Carrabile أو في مواقف المعاقين أو محطات الحافلات</li>
+          <li><span>✅</span> يطبق عند الوقوف في الصف الثاني (Seconda fila) إذا شكلت السيارة عائقاً للمرور</li>
+          <li><span>✅</span> يتحمل مالك السيارة كافة مصاريف السحب والإيداع في الحجز الإداري بالإضافة للغرامة</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والعبارات الخاطئة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> السحب يطبق فقط في وجود اللوحة الإضافية — خطأ، يطبق تلقائياً أمام Passo Carrabile ومواقف الحافلات!</li>
+          <li><span>❌</span> يتم إعفاء السائق من مصاريف السحب إذا دفع الغرامة فوراً — خطأ، المصاريف إجبارية!</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> السحب يطبق تلقائياً بموجب القانون في حالات إغلاق المداخل ومواقف المعاقين حتى دون وجود لافتة ونش!
+      </div>
+    </div>
+
+    <!-- CARD 11: Arresto del Veicolo -->
+    <div class="signal-card" data-category="manovre">
+      <div class="signal-img-container">
+        <img src="../assets/images/parking_parts/divieto_sosta_incroci.jpg" alt="Arresto del Veicolo" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">التوقف القسري لحركة المرور (L'Arresto del Veicolo)</h3>
+        <span class="card-it-title">Arresto per Esigenze della Circolazione</span>
+      </div>
+      <p class="card-desc-text">
+        التوقف المؤقت الإجباري الذي تفرضه متطلبات السير على الطريق: أمام إشارة المرور الحمراء، أو بإشارة من شرطي المرور، أو بسبب الازدحام المروري، أو لإعطاء أسبقية المرور.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> ناتج عن متطلبات الطريق وقواعد المرور ولا يخضع لرغبة السائق أو اختياره</li>
+          <li><span>✅</span> لا يعتبر توقفاً مؤقتاً (Fermata) ولا وقوفاً (Sosta) ولا تنتهك به إشارات المنع</li>
+          <li><span>✅</span> يجب التوقف خلف خط التوقف العرضي (Striscia trasversale di arresto) دون تجاوزه</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والعبارات الخاطئة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> التوقف في الإشارة الحمراء ينتهك إشارة منع التوقف (Divieto di fermata) — خطأ فادح!</li>
+          <li><span>❌</span> يجب تشغيل الأضواء الرباعية (4 frecce) في كل توقف عند الإشارات الضوئية — خطأ!</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> (Arresto) هو استجابة إلزامية لنظام المرور، ولا يجوز الخلط بينه وبين (Fermata) الإرادية!
+      </div>
+    </div>
+
+    <!-- CARD 12: Partenza dal Margine della Strada -->
+    <div class="signal-card" data-category="manovre">
+      <div class="signal-img-container">
+        <img src="../assets/images/parking_parts/partenza_margine_strada.jpg" alt="Partenza dal Margine" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">مناورة بدء السير من حافة الطريق (Partenza del Veicolo)</h3>
+        <span class="card-it-title">Inizio della Marcia dal Margine della Carreggiata</span>
+      </div>
+      <p class="card-desc-text">
+        من أخطر المناورات المركبة؛ تتطلب التأكد التام من عدم تعريض مستخدمي الطريق للخطر، وإعطاء الأسبقية للمركبات المارة، واستخدام المرايا وفحص الزاوية الميتة وتشغيل الغماز.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يجب إعطاء أسبقية المرور لجميع المركبات المارة على نهر الطريق دون استثناء</li>
+          <li><span>✅</span> فحص مرآة الرؤية الخلفية والمرآة الجانبية والالتفات السريع لفحص الزاوية الميتة (Angolo cieco)</li>
+          <li><span>✅</span> تشغيل إشارة تغيير الاتجاه اليسرى (Indicatore di direzione) في وقت مبكر قبل التحرك</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والعبارات الخاطئة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> للمركبة البادئة في السير حق الأسبقية لأنها قادمة من اليمين — خطأ خطير، يجب إعطاء الأسبقية!</li>
+          <li><span>❌</span> تكفي رؤية المرآة الداخلية وحدها دون الحاجة لفحص المرايا الجانبية — خطأ!</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> البادئ في السير من الرصيف لا يتمتع بأي أسبقية، وعليه التنازل عن المرور للجميع!
+      </div>
+    </div>
+
+    <!-- CARD 13: Sosta Riservata a Persone Invalide -->
+    <div class="signal-card" data-category="regole-sosta">
+      <div class="signal-img-container">
+        <img src="../assets/images/parking_parts/gallery_stalli_invalidi.jpg" alt="Sosta Invalidi" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">مواقف ذوي الاحتياجات الخاصة (Stalli Riservati Invalidi)</h3>
+        <span class="card-it-title">Sosta dei Veicoli al Servizio di Persone Invalide</span>
+      </div>
+      <p class="card-desc-text">
+        أماكن محددة بالخطوط الصفراء وشعار الكرسي المتحرك؛ مخصصة للمركبات التي تخدم الأشخاص ذوي الإعاقة الحركية والحاملين للتصريح الخاص (Contrassegno invalidi).
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يمنع الوقوف والركن لجميع المركبات الأخرى دون استثناء وتطبق غرامة وخصم نقاط وسحب بالونش</li>
+          <li><span>✅</span> يجب إبراز التصريح الأصلي بوضوح في الجزء الأمامي من السيارة</li>
+          <li><span>✅</span> تبيح بعض البلديات للمركبات الحاملة للتصريح الركن المجاني في الخطوط الزرقاء إذا كانت مواقفهم ممتلئة</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والعبارات الخاطئة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يجوز استخدام الموقف إذا كان الشخص المعاق ليس بالسيارة — خطأ، التصريح شخصي ومقيد بوجوده!</li>
+          <li><span>❌</span> يجوز الركن مؤقتاً لمدة 10 دقائق لشراء دواء — خطأ، محظور تماماً!</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> الركن غير المشروع في مواقف المعاقين يوجب خصم نقاط مشدد من رصيد الرخصة مع سحب السيارة!
+      </div>
+    </div>
+
+    <!-- CARD 14: Sosta su Strada a Senso Unico -->
+    <div class="signal-card" data-category="regole-sosta">
+      <div class="signal-img-container">
+        <img src="../assets/images/parking_parts/sosta_centri_abitati.jpg" alt="Sosta Senso Unico" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الوقوف في الشوارع ذات الاتجاه الواحد (Strade a Senso Unico)</h3>
+        <span class="card-it-title">Sosta su Carreggiata a Senso Unico di Marcia</span>
+      </div>
+      <p class="card-desc-text">
+        استثناء قانوني هام: في الشوارع الحضرية ذات الاتجاه الواحد، يسمح بالوقوف على الجانب الأيسر أيضاً بشرط بقاء مساحة لا تقل عن 3 أمتار تكفي لمرور صف واحد من السيارات.
+      </p>
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يسمح بالوقوف على الجانبين الأيمن والأيسر في الشارع ذي الاتجاه الواحد داخل المدن</li>
+          <li><span>✅</span> يشترط بقاء مساحة خالية لا تقل عن 3 أمتار (Spazio non inferiore a 3 metri) لمرور المركبات</li>
+          <li><span>✅</span> يجب توجيه السيارة دائماً في اتجاه حركة السير القانوني</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والعبارات الخاطئة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> الوقوف على الجانب الأيسر مسموح في جميع شوارع المدينة حتى ذات الاتجاهين — خطأ خطير!</li>
+          <li><span>❌</span> الحد الأدنى للمساحة المتبقية هو متران فقط — خطأ، 3 أمتار على الأقل!</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>قاعدة الـ 3 أمتار:</strong> الوقوف يساراً جائز فقط في الشوارع ذات الاتجاه الواحد، وبشرط ترك مسافة 3 أمتار كاملة!
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 12 TRAP QUIZ CARDS SECTION (RADAR TRAPS) -->
+  <section class="traps-section">
+    <div class="section-heading">
+      <div class="section-badge">رادار فخاخ الامتحان (12 سؤالاً حاسماً)</div>
+      <h2 class="section-title">أخطر الأسئلة الوزارية المخادعة في الوقوف والتوقف</h2>
+    </div>
+
+    <div class="traps-grid">
+
+      <!-- Trap 1 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ فخ التوقف أمام Passo Carrabile</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"La fermata è vietata davanti ai passi carrabili"</p>
+        <p class="trap-quiz-trans">«يمنع التوقف المؤقت (Fermata) أمام مخارج الجراجات المصرح بها»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). الركن الممتد (Sosta) هو الممنوع أمام Passo Carrabile، أما التوقف المؤقت الوجيز (Fermata) لإنزال أو صعود راكب مع بقاء السائق خلف المقود فهو مسموح تماماً بشرط عدم تعطيل حركة الدخول والخروج!
+        </div>
+      </div>
+
+      <!-- Trap 2 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ فخ مسافة معبر المشاة بعد المعبر</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"La sosta e la fermata sono vietate su tutto il tratto di 5 metri dopo l'attraversamento pedonale"</p>
+        <p class="trap-quiz-trans">«يمنع الوقوف والتوقف على كامل مسافة الـ 5 أمتار بعد معبر المشاة»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). حظر الوقوف على مسافة 5 أمتار يسري <strong>قبل معبر المشاة (Prima)</strong> وليس بعده، والهدف هو منع حجب رؤية المشاة الموشكين على العبور عن السائقين القادمين!
+        </div>
+      </div>
+
+      <!-- Trap 3 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ فخ تدوير قرص الوقوف (Disco Orario)</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"In una zona a sosta regolamentata con disco orario, è consentito aggiornare l'orario di inizio sosta senza spostare il veicolo"</p>
+        <p class="trap-quiz-trans">«في منطقة الوقوف المنظم بقرص الساعات، يجوز تحديث وقت بدء الوقوف دون تحريك السيارة»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). يمنع القانون تمديد مدة الوقوف بتدوير القرص للأمام دون تحريك المركبة ومغادرة الموقف، ويترتب على ذلك تحرير غرامة مالية وسحب السيارة.
+        </div>
+      </div>
+
+      <!-- Trap 4 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ فخ الوقوف في الصف الثاني للدراجات</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"La sosta in seconda fila è sempre vietata per qualsiasi tipo di veicolo a motore, senza eccezioni"</p>
+        <p class="trap-quiz-trans">«الوقوف في الصف الثاني ممنوع دائماً لكافة أنواع المركبات الآلية دون أي استثناء»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). يوجد استثناء وزاري صريح: يسمح بالوقوف في الصف الثاني (Sosta in seconda fila) حصرياً للدراجات النارية ذات العجلتين (Ciclomotori e motocicli a due ruote) إذا لم تعق حركة المرور!
+        </div>
+      </div>
+
+      <!-- Trap 5 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ فخ التوقف المؤقت في موقف الحافلات</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"In prossimità della fermata autobus non segnalata da strisce a zig-zag, la fermata è vietata per 15 metri prima e dopo il cartello"</p>
+        <p class="trap-quiz-trans">«بالقرب من موقف الحافلات غير المخطط، يمنع التوقف المؤقت لمسافة 15 متراً قبل وبعد اللافتة»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). الممنوع لمسافة 15 متراً هو الركن والوقوف الممتد (Sosta)، أما التوقف الوجيز (Fermata) لصعود أو نزول الركاب فهو مسموح بشرط ألا يعطل الحافلة العامة.
+        </div>
+      </div>
+
+      <!-- Trap 6 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ قاعدة الوقوف يساراً في الشوارع ذات الاتجاه الواحد</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"Nelle strade urbane a senso unico di circolazione la sosta è consentita anche sul lato sinistro, purché rimanga uno spazio di almeno 3 metri"</p>
+        <p class="trap-quiz-trans">«في الشوارع الحضرية ذات الاتجاه الواحد، يباح الوقوف على الجانب الأيسر أيضاً بشرط بقاء مسافة 3 أمتار على الأقل»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة (VERO). هذه إحدى القواعد الذهبية للباب 16: في الطرق ذات الاتجاه الواحد داخل المدن يجوز الوقوف يساراً بشرط بقاء ممر حر لا يقل عن 3 أمتار لمرور السيارات.
+        </div>
+      </div>
+
+      <!-- Trap 7 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ فخ التوقف لـ 15 دقيقة مع إشارة منع التوقف</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Il segnale di DIVIETO DI FERMATA vieta la fermata ma consente la sosta per un tempo inferiore a 15 minuti"</p>
+        <p class="trap-quiz-trans">«إشارة منع التوقف تمنع التوقف ولكنها تسمح بالركن لمدة تقل عن 15 دقيقة»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). إشارة منع التوقف (Divieto di Fermata) تمنع التوقف والركن معاً (Vietate sia sosta sia fermata)؛ فالركن محظور بالتبعية لأن التوقف الأقصر منه ممنوع!
+        </div>
+      </div>
+
+      <!-- Trap 8 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ فخ ابتعاد السائق أثناء التوقف الوجيز</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Durante la fermata il conducente può allontanarsi dal veicolo per sbrigare commissioni rapide"</p>
+        <p class="trap-quiz-trans">«أثناء التوقف الوجيز (Fermata) يجوز للسائق الابتعاد عن المركبة لقضاء مهام سريعة»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). أثناء التوقف المؤقت (Fermata) يشترط القانون وجود السائق خلف المقود أو بجوار المركبة مباشرة، وجاهزاً لاستئناف السير فوراً في أي لحظة.
+        </div>
+      </div>
+
+      <!-- Trap 9 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ حظر الوقوف والتوقف على المرتفعات والمنحنيات خارج المدن</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"Sui dossi e nelle curve delle strade extraurbane è vietata sia la sosta sia la fermata sulla carreggiata"</p>
+        <p class="trap-quiz-trans">«على المرتفعات المحدبة والمنحنيات في الطرق خارج المدن يمنع الوقوف والتوقف معاً على نهر الطريق»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة (VERO). نظراً لانعدام الرؤية وخطورة السرعة خارج المدن، يمنع كود السير الوقوف والتوقف تماماً على نهر الطريق في المنحنيات والمرتفعات.
+        </div>
+      </div>
+
+      <!-- Trap 10 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ فخ اعتبار الوقوف في الإشارة الحمراء Fermata</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"L'arresto del veicolo al semaforo rosso è considerato fermata ed è vietato in presenza del segnale di DIVIETO DI FERMATA"</p>
+        <p class="trap-quiz-trans">«يعتبر توقف السيارة عند الإشارة الحمراء توقفاً مؤقتاً (Fermata) ويحظر في وجود إشارة منع التوقف»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). التوقف عند الإشارة الحمراء هو (Arresto) إجباري تفرضه قواعد المرور، ولا يعتبر (Fermata) إرادية ولا يخضع لإشارات حظر الوقوف أو التوقف!
+        </div>
+      </div>
+
+      <!-- Trap 11 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--rose-primary);">❌ فخ الوقوف لـ 10 دقائق في مواقف المعاقين</span>
+          <span class="card-tag-pill tag-falso">FALSO</span>
+        </div>
+        <p class="trap-quiz-text">"Negli stalli di sosta riservati agli invalidi la sosta è consentita a tutti i veicoli per una durata massima di 10 minuti con 4 frecce"</p>
+        <p class="trap-quiz-trans">«في المواقف المخصصة للمعاقين يسمح بالوقوف لجميع السيارات لمدة أقصاها 10 دقائق مع تشغيل أضواء الطوارئ»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). مواقف ذوي الاحتياجات الخاصة محظورة تماماً على غير الحاملين للتصريح، ولا يسمح فيها بالركن لأي مدة كانت حتى لو كانت دقيقة واحدة ومع تشغيل أضواء الخطر!
+        </div>
+      </div>
+
+      <!-- Trap 12 -->
+      <div class="trap-card">
+        <div class="trap-header">
+          <span style="font-weight:800; color:var(--emerald-primary);">✅ حظر الوقوف على بعد 5 أمتار من التقاطعات داخل المدن</span>
+          <span class="card-tag-pill tag-vero">VERO</span>
+        </div>
+        <p class="trap-quiz-text">"Nelle strade urbane la sosta è vietata in corrispondenza e a meno di 5 metri dall'intersezione"</p>
+        <p class="trap-quiz-trans">«في الشوارع الحضرية، يمنع الوقوف في حرم التقاطعات وعلى مسافة تقل عن 5 أمتار منها»</p>
+        <div class="trap-explanation">
+          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة (VERO). المادة 158 من كود السير تفرض حظر الوقوف في نطاق 5 أمتار من أي تقاطع داخل المدن لضمان رؤية المركبات والمشاة والمنعطفات.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CHAPTER PAGINATION -->
+  <nav class="chapter-pagination">
+    <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="pagination-btn prev-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">→</span>
+      <div class="pagination-info">
+        <span class="pagination-label">الباب السابق</span>
+        <span class="pagination-title">الباب 15: مناورة التجاوز والتخطي</span>
+      </div>
+    </a>
+
+    <a href="index.html" class="pagination-btn index-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">🏛️</span>
+      <div class="pagination-info">
+        <span class="pagination-label">العودة</span>
+        <span class="pagination-title">فهرس المكتبة الشاملة</span>
+      </div>
+    </a>
+
+    <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="pagination-btn next-btn" onclick="soundEngine.click()">
+      <div class="pagination-info" style="text-align:left;">
+        <span class="pagination-label">الباب التالي</span>
+        <span class="pagination-title">الباب 17: الأوتوستراد والمقطورات</span>
+      </div>
+      <span class="pagination-icon">←</span>
+    </a>
+  </nav>
+
+</main>
+
+<script>
+  // Unified Web Audio API Sound Engine
+  const soundEngine = window.soundEngine || {
+    ctx: null,
+    enabled: true,
+    init() {
+      if (!this.ctx) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) this.ctx = new AudioCtx();
+      }
+    },
+    click() {
+      if (!this.enabled) return;
+      this.init();
+      if (!this.ctx) return;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(600, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(800, this.ctx.currentTime + 0.05);
+      gain.gain.setValueAtTime(0.15, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.05);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.05);
+    },
+    toggle() {
+      this.enabled = !this.enabled;
+      return this.enabled;
+    }
+  };
+
+  function toggleAudio() {
+    const isEnabled = soundEngine.toggle();
+    const btn = document.querySelector('.nav-audio-btn');
+    const label = btn.querySelector('.audio-label-span');
+    const icon = btn.querySelector('.audio-icon-span');
+    if (isEnabled) {
+      soundEngine.click();
+      label.textContent = 'الصوت نشط';
+      icon.textContent = '🔊';
+    } else {
+      label.textContent = 'مكتوم';
+      icon.textContent = '🔇';
+    }
+  }
+
+  function toggleNavDropdown(e) {
+    e.stopPropagation();
+    soundEngine.click();
+    const menu = document.getElementById('navDropdownMenu');
+    menu.classList.toggle('show');
+  }
+
+  window.addEventListener('click', function() {
+    const menu = document.getElementById('navDropdownMenu');
+    if (menu && menu.classList.contains('show')) {
+      menu.classList.remove('show');
+    }
+  });
+
+  function filterCards(category, btn) {
+    soundEngine.click();
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cards = document.querySelectorAll('.signals-grid .signal-card');
+    cards.forEach(card => {
+      if (category === 'all' || card.getAttribute('data-category') === category) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+<script src="../assets/js/parking-studio.js"></script>
+</body>
+</html>
+'''
+
+target_path = 'interactive_pages/دليل_الباب_16_الوقوف_والتوقف_والركن.html'
+with open(target_path, 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print(f"Chapter 16 built successfully! File size: {len(html_content)} bytes")
