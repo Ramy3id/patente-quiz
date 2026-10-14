@@ -1044,104 +1044,6 @@
     </div>
   </section>
 
-  <!-- INTERACTIVE PARKING STUDIO -->
-  <section class="pk-studio-card" id="parking-studio">
-    <div class="pk-studio-header">
-      <div>
-        <div class="pk-studio-badge">
-          <span class="pk-pulse-dot"></span>
-          <span>استوديو رادار المسافات وقواعد الوقوف التفاعلي 60 FPS</span>
-        </div>
-        <h2 class="pk-studio-main-title">المحاكي الراداري لمسافات الوقوف والتوقف (Art. 157 & 158 CdS)</h2>
-        <p class="pk-studio-sub-title">اختر السيناريو الهندسي لمعاينة مناطق الحظر المضيئة، وحساب المسافات القانونية، واستكشاف الفخاخ الامتحانية فورياً.</p>
-      </div>
-
-      <div class="pk-scenario-nav">
-        <button class="pk-scenario-btn active" data-scenario="incrocio">تقاطع طرق (5m)</button>
-        <button class="pk-scenario-btn" data-scenario="pedonale">معبر مشاة (5m)</button>
-        <button class="pk-scenario-btn" data-scenario="bus">موقف حافلات (15m)</button>
-        <button class="pk-scenario-btn" data-scenario="passaggio_livello">مزلقان قطار (15m)</button>
-        <button class="pk-scenario-btn" data-scenario="passo_carrabile">Passo Carrabile</button>
-        <button class="pk-scenario-btn" data-scenario="senso_unico">اتجاه واحد (3m)</button>
-      </div>
-    </div>
-
-    <div class="pk-stage-layout">
-      <!-- 60 FPS Telemetry Canvas -->
-      <div class="pk-canvas-wrapper">
-        <canvas id="parkingCanvas"></canvas>
-      </div>
-
-      <!-- Real-time Telemetry Data Panel -->
-      <div class="pk-details-panel">
-        <div>
-          <span class="pk-status-badge badge-danger" id="pkScenarioBadge">ممنوع الوقوف والتوقف داخل النطاق</span>
-          <h3 class="card-ar-title" id="pkScenarioTitle" style="margin-bottom:4px;">الوقوف بالقرب من تقاطعات الطرق (Incroci)</h3>
-          <div class="card-it-title" id="pkScenarioItTitle">Sosta in corrispondenza e in prossimità degli incroci</div>
-        </div>
-
-        <div class="pk-detail-box">
-          <div class="pk-detail-title">📏 المسافة القانونية المشددة:</div>
-          <div class="pk-detail-text"><strong id="pkScenarioDist" style="color:#38bdf8;">5 أمتار (Metri)</strong> — <span id="pkScenarioLimit">أقل من 5 أمتار = ممنوع منعاً باتاً</span></div>
-        </div>
-
-        <div class="pk-detail-box">
-          <div class="pk-detail-title">⚖️ القاعدة داخل المدن (Centri Abitati):</div>
-          <div class="pk-detail-text" id="pkScenarioUrban">داخل المدن: يمنع الوقوف والتوقف على مسافة تقل عن 5 أمتار من حافة التقاطع الأقرب.</div>
-        </div>
-
-        <div class="pk-detail-box">
-          <div class="pk-detail-title">🛣️ القاعدة خارج المدن (Fuori dei Centri Abitati):</div>
-          <div class="pk-detail-text" id="pkScenarioExtra">خارج المدن: يمنع الوقوف والتوقف في حرم التقاطع تماماً وعلى جوانب الطريق بالقرب منه.</div>
-        </div>
-
-        <div class="pk-trap-alert" id="pkScenarioTrap">
-          🚨 <strong>فخ امتحاني خطير:</strong> داخل المدن، يمنع الوقوف والتوقف على بعد أقل من 5 أمتار من التقاطع، ولا يجوز حتى للنزول المؤقت!
-        </div>
-      </div>
-    </div>
-
-    <!-- Maneuver Discriminator Tabs -->
-    <div class="pk-maneuvers-section">
-      <div style="margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
-        <h4 style="color:#fff; font-size:1.05rem; font-weight:800;">التمييز القاطع بين حالات إيقاف المركبة الأربع:</h4>
-        <span style="font-size:0.78rem; color:#94a3b8; font-family:var(--font-mono);">Art. 157 Codice della Strada</span>
-      </div>
-      <div class="pk-maneuver-nav">
-        <button class="pk-maneuver-btn active" data-maneuver="fermata">⏱️ التوقف المؤقت (Fermata)</button>
-        <button class="pk-maneuver-btn" data-maneuver="sosta">🅿️ الوقوف والركن (Sosta)</button>
-        <button class="pk-maneuver-btn" data-maneuver="arresto">🛑 التوقف القسري (Arresto)</button>
-        <button class="pk-maneuver-btn" data-maneuver="emergenza">🚨 الوقوف الاضطراري (Emergenza)</button>
-      </div>
-
-      <div class="pk-maneuver-content">
-        <div class="pk-man-title" id="pkManTitle"><span>⏱️</span> <span>التوقف المؤقت الإرادي (La Fermata)</span></div>
-        <p class="pk-man-summary" id="pkManSummary">تعليق السير لزمن وجيز جداً لتمكين الركاب من الصعود أو النزول، مع بقاء السائق خلف المقود وجاهزاً للتحرك فوراً.</p>
-
-        <div class="pk-man-grid">
-          <div class="pk-man-col">
-            <h5 style="color:#10b981;"><span>✅</span> الشروط والحالات المسموحة (Ammessa):</h5>
-            <ul id="pkManCondList">
-              <li><span style="color:#10b981;">✓</span> <span>بقاء السائق خلف المقود ومستعداً للتحرك في أي لحظة</span></li>
-              <li><span style="color:#10b981;">✓</span> <span>مسموح أمام مداخل الجراجات (Passo carrabile) إذا لم يعطل المرور</span></li>
-            </ul>
-          </div>
-          <div class="pk-man-col">
-            <h5 style="color:#f43f5e;"><span>❌</span> الحالات الممنوعة قطعاً (Vietata):</h5>
-            <ul id="pkManProhibList">
-              <li><span style="color:#f43f5e;">✗</span> <span>ممنوع في المنحنيات والمرتفعات والأنفاق والجسور</span></li>
-              <li><span style="color:#f43f5e;">✗</span> <span>ممنوع مع وجود إشارة Divieto di Fermata (الصليب الأحمر X)</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="pk-trap-alert" id="pkManTrap" style="margin-top:12px; background:rgba(245,158,11,0.12); border-color:rgba(245,158,11,0.3); color:#fde68a;">
-          💡 <strong>التحليل الوزاري:</strong> التوقف (Fermata) لا يتطلب وضع مثلث الخطر، ولا يعتبر وقوفاً ممتداً، ويسمح به أمام Passo carrabile!
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- WORKSHOP PHOTOGRAPHIC GALLERY (6 CARDS - 16:9 REAL IMAGES) -->
   <section class="workshop-gallery-section">
     <div class="section-heading">
@@ -2007,7 +1909,5 @@
     });
   }
 </script>
-
-<script src="../assets/js/parking-studio.js"></script>
 </body>
 </html>

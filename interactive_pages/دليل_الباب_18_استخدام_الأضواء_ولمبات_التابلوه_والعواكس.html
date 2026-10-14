@@ -1,61 +1,73 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="dark">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes">
-<title>دليل الباب 18: استخدام الأضواء ولمبات التابلوه والعواكس — Patente B Pro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>دليل الباب 18: استخدام الأضواء ولمبات التابلوه والعواكس والتنبيه الصوتي | رخصة القيادة الإيطالية Patente B Pro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/theme-modes.css">
 <script src="../assets/js/theme-engine.js"></script>
-  <script src="../assets/js/unified-nav.js" defer></script>
+<script src="../assets/js/unified-nav.js" defer></script>
 <style>
+
   :root {
-    --bg-page: #090a0f;
-    --bg-surface: #13151f;
-    --bg-card: #1a1d2e;
+    --bg-base: #09090b;
+    --bg-surface: rgba(24, 24, 27, 0.75);
+    --bg-surface-elevated: rgba(39, 39, 42, 0.85);
     --border-subtle: rgba(255, 255, 255, 0.08);
-    --border-accent: rgba(245, 158, 11, 0.3);
-    --gold-primary: #f59e0b;
-    --gold-glow: rgba(245, 158, 11, 0.2);
-    --sky-primary: #38bdf8;
+    --border-highlight: rgba(255, 255, 255, 0.16);
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
     --emerald-primary: #10b981;
+    --emerald-dark: #059669;
+    --emerald-glow: rgba(16, 185, 129, 0.25);
     --rose-primary: #f43f5e;
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
-    --font-ar: 'Cairo', system-ui, -apple-system, sans-serif;
+    --rose-glow: rgba(244, 63, 94, 0.25);
+    --amber-primary: #f59e0b;
+    --amber-glow: rgba(245, 158, 11, 0.25);
+    --sky-primary: #38bdf8;
+    --sky-glow: rgba(56, 189, 248, 0.25);
+    --indigo-primary: #6366f1;
+    --nav-base-height: 54px;
+    --font-sans: 'Cairo', system-ui, -apple-system, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background-color: var(--bg-page);
+
+  html, body {
+    background-color: var(--bg-base);
     color: var(--text-primary);
-    font-family: var(--font-ar);
+    font-family: var(--font-sans);
     line-height: 1.6;
     overflow-x: hidden;
-    padding-top: 54px;
+    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
   }
 
-  /* 54px Strict Portal Header */
+  body.nav-scroll-lock {
+    overflow: hidden !important;
+    touch-action: none;
+  }
+
+  /* Portal Nav Header (Strict 54px, Apple HIG) */
   .unified-portal-nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 54px;
-    background: rgba(9, 10, 15, 0.88);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    top: 0; left: 0; right: 0;
+    height: var(--nav-base-height);
+    background: rgba(15, 15, 18, 0.82);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-subtle);
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 16px;
-    z-index: 1000;
+    padding-top: env(safe-area-inset-top, 0px);
   }
 
   .nav-brand {
@@ -63,18 +75,20 @@
     align-items: center;
     gap: 8px;
     text-decoration: none;
-    color: var(--text-primary);
+    color: #fff;
     font-weight: 800;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
   }
-  .nav-brand .badge-tag {
-    background: linear-gradient(135deg, #f59e0b, #d97706);
-    color: #000;
-    font-size: 0.68rem;
-    font-weight: 800;
+
+  .badge-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--amber-primary);
+    border: 1px solid rgba(245, 158, 11, 0.3);
     padding: 2px 7px;
     border-radius: 6px;
-    letter-spacing: 0.5px;
   }
 
   .desktop-nav-links {
@@ -83,22 +97,22 @@
     gap: 8px;
   }
   .desktop-nav-link {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 6px;
-    padding: 6px 12px;
+    padding: 6px 14px;
     border-radius: 8px;
-    font-size: 0.82rem;
-    font-weight: 600;
     color: var(--text-secondary);
     text-decoration: none;
-    border: 1px solid transparent;
+    font-size: 0.86rem;
+    font-weight: 600;
     transition: all 0.15s ease;
+    border: 1px solid transparent;
   }
   .desktop-nav-link:hover {
     color: #fff;
     background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--border-subtle);
   }
 
   .desktop-nav-controls {
@@ -107,7 +121,7 @@
     gap: 10px;
   }
 
-  .nav-audio-btn {
+  .nav-audio-btn, .nav-theme-btn {
     height: 34px;
     display: flex;
     align-items: center;
@@ -122,10 +136,6 @@
     cursor: pointer;
     transition: all 0.15s ease;
     font-family: inherit;
-  }
-  .nav-audio-btn:hover {
-    background: rgba(255, 255, 255, 0.09);
-    border-color: rgba(255, 255, 255, 0.2);
   }
 
   .nav-dropdown-wrapper {
@@ -149,11 +159,6 @@
     font-family: inherit;
     white-space: nowrap;
   }
-  .nav-dropdown-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.22);
-    color: #fff;
-  }
   .nav-dropdown-menu {
     position: absolute;
     top: calc(100% + 8px);
@@ -161,35 +166,29 @@
     width: 290px;
     max-height: 480px;
     overflow-y: auto;
-    background: rgba(19, 21, 31, 0.96);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #18181b;
+    border: 1px solid var(--border-highlight);
     border-radius: 12px;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
-    padding: 6px;
+    padding: 8px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
     display: none;
-    flex-direction: column;
-    gap: 2px;
-    z-index: 1010;
+    z-index: 1001;
   }
-  .nav-dropdown-menu.active {
-    display: flex;
-  }
+  .nav-dropdown-menu.show { display: block; }
   .nav-dropdown-item {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     padding: 8px 12px;
     border-radius: 8px;
-    color: #cbd5e1;
+    color: #d4d4d8;
     text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: 600;
-    transition: all 0.12s ease;
+    font-size: 0.84rem;
+    transition: all 0.15s ease;
   }
   .nav-dropdown-item:hover, .nav-dropdown-item.active {
     background: rgba(245, 158, 11, 0.15);
-    color: var(--gold-primary);
+    color: var(--amber-primary);
   }
 
   .nav-hamburger-btn {
@@ -206,7 +205,6 @@
   .hamburger-box {
     width: 20px;
     height: 14px;
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -217,89 +215,19 @@
     height: 2px;
     background: #e4e4e7;
     border-radius: 2px;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .nav-hamburger-btn.active .line-top {
-    transform: translateY(6px) rotate(45deg);
-  }
-  .nav-hamburger-btn.active .line-mid {
-    opacity: 0;
-  }
-  .nav-hamburger-btn.active .line-bot {
-    transform: translateY(-6px) rotate(-45deg);
-  }
-
-  /* Mobile Drawer */
-  .mobile-drawer-overlay {
-    position: fixed;
-    top: 54px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(4px);
-    z-index: 998;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s ease;
-  }
-  .mobile-drawer-overlay.active {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  .mobile-drawer-panel {
-    position: fixed;
-    top: 54px;
-    left: 0;
-    right: 0;
-    max-height: calc(100vh - 54px);
-    background: rgba(19, 21, 31, 0.98);
-    border-bottom: 1px solid var(--border-subtle);
-    z-index: 999;
-    padding: 16px;
-    overflow-y: auto;
-    transform: translateY(-100%);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .mobile-drawer-panel.active {
-    transform: translateY(0);
-  }
-  .mobile-nav-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .mobile-nav-link {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    min-height: 48px;
-    padding: 0 16px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border-subtle);
-    border-radius: 10px;
-    color: #f1f5f9;
-    text-decoration: none;
-    font-size: 0.92rem;
-    font-weight: 600;
-  }
-  .mobile-nav-link.active {
-    background: rgba(245, 158, 11, 0.15);
-    border-color: var(--gold-primary);
-    color: var(--gold-primary);
   }
 
   /* Main Container */
   .guide-container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 24px 16px 80px 16px;
+    padding: calc(var(--nav-base-height) + 24px) 16px 80px 16px;
   }
 
   /* Chapter Hero */
   .chapter-hero {
-    background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(19, 21, 31, 0.9) 100%);
-    border: 1px solid var(--border-accent);
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(19, 21, 31, 0.95) 100%);
+    border: 1px solid rgba(245, 158, 11, 0.3);
     border-radius: 20px;
     padding: 36px 28px;
     margin-bottom: 32px;
@@ -314,7 +242,7 @@
     background: rgba(245, 158, 11, 0.15);
     border: 1px solid rgba(245, 158, 11, 0.3);
     border-radius: 20px;
-    color: var(--gold-primary);
+    color: var(--amber-primary);
     font-size: 0.8rem;
     font-weight: 700;
     margin-bottom: 12px;
@@ -329,7 +257,7 @@
   .hero-subtitle {
     font-family: var(--font-mono);
     font-size: 1rem;
-    color: var(--gold-primary);
+    color: var(--amber-primary);
     direction: ltr;
     text-align: right;
     margin-bottom: 14px;
@@ -338,7 +266,7 @@
   .hero-desc {
     font-size: 0.98rem;
     color: #cbd5e1;
-    max-width: 900px;
+    max-width: 950px;
     line-height: 1.7;
     margin-bottom: 24px;
   }
@@ -348,31 +276,27 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 12px;
-    margin-top: 20px;
   }
   .hero-stat-badge {
-    background: rgba(0, 0, 0, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid var(--border-subtle);
     border-radius: 12px;
     padding: 12px 16px;
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 0.88rem;
+    font-size: 0.86rem;
     font-weight: 700;
-    color: #f1f5f9;
-  }
-  .hero-stat-badge span:first-child {
-    font-size: 1.3rem;
+    color: #e2e8f0;
   }
 
   /* Golden Rules Banner */
   .golden-rules-banner {
-    background: rgba(24, 27, 44, 0.7);
-    border: 1px solid var(--border-subtle);
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(24, 24, 27, 0.8) 100%);
+    border: 1px solid rgba(245, 158, 11, 0.25);
     border-radius: 16px;
     padding: 24px;
-    margin-bottom: 32px;
+    margin-bottom: 36px;
   }
   .golden-rules-title {
     display: flex;
@@ -380,27 +304,22 @@
     gap: 8px;
     font-size: 1.15rem;
     font-weight: 800;
-    color: var(--gold-primary);
+    color: var(--amber-primary);
     margin-bottom: 16px;
   }
   .rules-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 16px;
+    gap: 14px;
   }
   .rule-box {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
     border-radius: 12px;
     padding: 16px;
-    transition: transform 0.2s ease;
-  }
-  .rule-box:hover {
-    transform: translateY(-2px);
-    border-color: rgba(245, 158, 11, 0.25);
   }
   .rule-box h4 {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     font-weight: 800;
     color: #fff;
     margin-bottom: 6px;
@@ -409,860 +328,252 @@
     gap: 6px;
   }
   .rule-box p {
-    font-size: 0.85rem;
+    font-size: 0.84rem;
     color: var(--text-secondary);
     line-height: 1.6;
   }
 
-  /* Interactive Simulators */
-  .interactive-sim-container {
-    background: rgba(19, 21, 31, 0.85);
-    border: 1px solid rgba(245, 158, 11, 0.3);
-    border-radius: 16px;
-    padding: 24px;
-    margin-bottom: 32px;
-  }
-  .sim-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 18px;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .sim-title {
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .sim-badge {
-    background: rgba(245, 158, 11, 0.15);
-    color: var(--gold-primary);
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    font-family: var(--font-mono);
-  }
-  .sim-controls-row {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 18px;
-  }
-  .sim-btn {
-    padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-subtle);
-    border-radius: 8px;
-    color: #e4e4e7;
-    font-family: inherit;
-    font-size: 0.85rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.15s ease;
-  }
-  .sim-btn:hover, .sim-btn.active {
-    background: var(--gold-primary);
-    color: #000;
-    border-color: var(--gold-primary);
-  }
-  .sim-display-panel {
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-  .sim-view-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 140px;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 8px;
-    padding: 16px;
-    text-align: center;
-  }
-  .sim-view-icon {
-    font-size: 3rem;
-    margin-bottom: 8px;
-  }
-  .sim-view-label {
-    font-size: 1.05rem;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 4px;
-  }
-  .sim-view-sub {
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    color: var(--gold-primary);
-  }
-  .sim-details-box {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .sim-detail-item {
-    font-size: 0.88rem;
-    line-height: 1.6;
-    color: #e2e8f0;
-  }
-  .sim-detail-item strong {
-    color: #fff;
-  }
-  .sim-status-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    font-weight: 800;
-    width: fit-content;
-  }
-  .sim-status-allowed {
-    background: rgba(16, 185, 129, 0.15);
-    color: var(--emerald-primary);
-    border: 1px solid rgba(16, 185, 129, 0.3);
-  }
-  .sim-status-prohibited {
-    background: rgba(244, 63, 94, 0.15);
-    color: var(--rose-primary);
-    border: 1px solid rgba(244, 63, 94, 0.3);
-  }
-
-  /* Comparison Matrix */
-  .comp-section {
-    margin-bottom: 36px;
-  }
-  .comp-title {
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .comp-grid-4 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px;
-  }
-  .comp-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: 14px;
-    padding: 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .comp-card-header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding-bottom: 10px;
-  }
-  .comp-card-badge {
-    font-size: 0.72rem;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 4px;
-    margin-bottom: 6px;
-    display: inline-block;
-  }
-  .comp-card-title {
-    font-size: 1rem;
-    font-weight: 800;
-    color: #fff;
-  }
-  .comp-card-sub {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--gold-primary);
-  }
-  .comp-card-body {
-    font-size: 0.85rem;
-    color: #cbd5e1;
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  /* Filter Pills Quick Nav */
-  .quick-nav-bar {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 8px;
-    margin-bottom: 24px;
-    scrollbar-width: thin;
-  }
-  .filter-pill {
-    padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border-subtle);
+  /* Interactive Studio Container */
+  .pk-studio-card {
+    background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+    border: 1px solid rgba(56, 189, 248, 0.25);
     border-radius: 20px;
-    color: #94a3b8;
-    font-size: 0.82rem;
-    font-weight: 700;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: all 0.15s ease;
-    font-family: inherit;
-  }
-  .filter-pill:hover, .filter-pill.active {
-    background: rgba(245, 158, 11, 0.15);
-    border-color: var(--gold-primary);
-    color: var(--gold-primary);
-  }
-
-  /* Technical Cards Grid */
-  .technical-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    gap: 24px;
-    margin-bottom: 40px;
-  }
-  .technical-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-  }
-  .technical-card:hover {
-    border-color: rgba(245, 158, 11, 0.35);
-    transform: translateY(-2px);
-  }
-  .card-img-container {
-    height: 160px;
-    background: #0f111a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 12px;
-  }
-  .card-img-container img {
-    max-height: 136px;
-    max-width: 90%;
-    object-fit: contain;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
-  }
-  .card-img-placeholder {
-    font-size: 3rem;
-  }
-  .card-content {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    gap: 14px;
-  }
-  .card-header-info {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    padding-bottom: 10px;
-  }
-  .card-title-it {
-    font-family: var(--font-mono);
-    font-size: 0.95rem;
-    color: var(--gold-primary);
-    font-weight: 700;
-    direction: ltr;
-    text-align: right;
-    margin-bottom: 4px;
-  }
-  .card-title-ar {
-    font-size: 1.1rem;
-    font-weight: 800;
-    color: #fff;
-  }
-  
-  /* ZERO-FLEX RULE on card bullet list (Guaranteed Alignment) */
-  .card-bullet-list {
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  .card-bullet-list li {
-    display: block !important;
-    position: relative !important;
-    padding-right: 28px !important;
-    line-height: 1.7 !important;
-    font-size: 0.86rem !important;
-    color: #cbd5e1 !important;
-    margin-bottom: 8px !important;
-  }
-  .card-bullet-list li .bullet-icon {
-    position: absolute !important;
-    right: 0 !important;
-    top: 2px !important;
-    font-size: 0.95rem !important;
-    line-height: 1 !important;
-  }
-
-  .card-box-vero {
-    background: rgba(16, 185, 129, 0.05);
-    border: 1px solid rgba(16, 185, 129, 0.2);
-    border-radius: 10px;
-    padding: 12px;
-  }
-  .card-box-vero-title {
-    font-size: 0.82rem;
-    font-weight: 800;
-    color: var(--emerald-primary);
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .card-box-falso {
-    background: rgba(244, 63, 94, 0.05);
-    border: 1px solid rgba(244, 63, 94, 0.2);
-    border-radius: 10px;
-    padding: 12px;
-  }
-  .card-box-falso-title {
-    font-size: 0.82rem;
-    font-weight: 800;
-    color: var(--rose-primary);
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .card-trap-box {
-    background: rgba(244, 63, 94, 0.08);
-    border: 1px solid rgba(244, 63, 94, 0.25);
-    border-radius: 10px;
-    padding: 12px;
-    margin-top: auto;
-  }
-  .card-trap-box-title {
-    font-size: 0.82rem;
-    font-weight: 800;
-    color: #fda4af;
-    margin-bottom: 4px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .card-trap-box p {
-    font-size: 0.82rem;
-    color: #fecdd3;
-    line-height: 1.5;
-  }
-
-  /* Audio Glossary */
-  .glossary-section {
-    background: rgba(19, 21, 31, 0.7);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
     padding: 24px;
-    margin-bottom: 40px;
+    margin: 32px 0 40px;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
   }
-  .glossary-title {
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 16px;
+  .pk-studio-header {
     display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .glossary-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 12px;
-  }
-  .glossary-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 10px;
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 10px;
-  }
-  .glossary-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .glossary-term-it {
-    font-family: var(--font-mono);
-    font-size: 0.92rem;
-    color: var(--gold-primary);
-    font-weight: 700;
-  }
-  .glossary-term-ar {
-    font-size: 0.82rem;
-    color: #94a3b8;
-  }
-  .glossary-audio-btn {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(245, 158, 11, 0.12);
-    border: 1px solid rgba(245, 158, 11, 0.3);
-    color: var(--gold-primary);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    transition: all 0.15s ease;
-  }
-  .glossary-audio-btn:hover {
-    background: var(--gold-primary);
-    color: #000;
-    transform: scale(1.08);
-  }
-
-  /* Ministerial Traps Section */
-  .traps-section {
-    background: linear-gradient(135deg, rgba(244, 63, 94, 0.06) 0%, rgba(19, 21, 31, 0.8) 100%);
-    border: 1px solid rgba(244, 63, 94, 0.3);
-    border-radius: 16px;
-    padding: 24px;
-    margin-bottom: 40px;
-  }
-  .traps-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 18px;
-  }
-  .traps-title {
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: #fff;
-  }
-  .traps-list {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  .trap-item {
-    background: rgba(0, 0, 0, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .trap-statement-it {
-    font-family: var(--font-mono);
-    font-size: 0.92rem;
-    color: #f8fafc;
-    direction: ltr;
-    text-align: right;
-    line-height: 1.5;
-  }
-  .trap-meta-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    align-items: flex-start;
     flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
   }
-  .trap-badge-falso {
-    background: rgba(244, 63, 94, 0.2);
-    color: var(--rose-primary);
-    border: 1px solid rgba(244, 63, 94, 0.4);
-    padding: 2px 8px;
-    border-radius: 6px;
-    font-weight: 800;
-    font-size: 0.75rem;
-  }
-  .trap-badge-vero {
-    background: rgba(16, 185, 129, 0.2);
-    color: var(--emerald-primary);
-    border: 1px solid rgba(16, 185, 129, 0.4);
-    padding: 2px 8px;
-    border-radius: 6px;
-    font-weight: 800;
-    font-size: 0.75rem;
-  }
-  .trap-explanation-ar {
-    font-size: 0.85rem;
-    color: #cbd5e1;
-    line-height: 1.5;
-    background: rgba(255, 255, 255, 0.02);
-    padding: 8px 12px;
-    border-radius: 8px;
-    border-right: 3px solid var(--gold-primary);
-  }
-
-  /* Self-Testing Quiz Engine */
-  .quiz-section {
-    background: rgba(19, 21, 31, 0.7);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    padding: 24px;
-    margin-bottom: 40px;
-  }
-  .quiz-title {
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .quiz-card {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .quiz-question-it {
-    font-family: var(--font-mono);
-    font-size: 0.95rem;
-    color: #f1f5f9;
-    direction: ltr;
-    text-align: right;
-  }
-  .quiz-question-ar {
-    font-size: 0.88rem;
-    color: var(--text-secondary);
-  }
-  .quiz-actions {
-    display: flex;
-    gap: 10px;
-  }
-  .quiz-btn {
-    padding: 6px 18px;
-    border-radius: 8px;
-    border: 1px solid transparent;
-    font-size: 0.85rem;
-    font-weight: 800;
-    cursor: pointer;
-    font-family: inherit;
-    transition: all 0.15s ease;
-  }
-  .quiz-btn-vero {
-    background: rgba(16, 185, 129, 0.15);
-    color: var(--emerald-primary);
-    border-color: rgba(16, 185, 129, 0.3);
-  }
-  .quiz-btn-vero:hover {
-    background: var(--emerald-primary);
-    color: #000;
-  }
-  .quiz-btn-falso {
-    background: rgba(244, 63, 94, 0.15);
-    color: var(--rose-primary);
-    border-color: rgba(244, 63, 94, 0.3);
-  }
-  .quiz-btn-falso:hover {
-    background: var(--rose-primary);
-    color: #fff;
-  }
-  .quiz-feedback {
-    display: none;
-    font-size: 0.85rem;
-    padding: 8px 12px;
-    border-radius: 6px;
-    margin-top: 4px;
-  }
-
-  /* Continuous Serial Pagination */
-  .chapter-pagination {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 40px;
-    padding-top: 24px;
-    border-top: 1px solid var(--border-subtle);
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .pagination-btn {
+  .pk-studio-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 18px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border-subtle);
-    border-radius: 10px;
-    color: #f1f5f9;
-    text-decoration: none;
-    font-size: 0.88rem;
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #38bdf8;
+    font-size: 0.8rem;
     font-weight: 700;
-    transition: all 0.15s ease;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 10px;
   }
-  .pagination-btn:hover {
-    background: rgba(245, 158, 11, 0.15);
-    border-color: var(--gold-primary);
-    color: var(--gold-primary);
+  .pk-pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #38bdf8;
+    box-shadow: 0 0 10px #38bdf8;
+    animation: pkPulse 1.5s infinite;
   }
-
-  /* Responsive Rules */
-  @media (max-width: 768px) {
-    .desktop-nav-links, .desktop-nav-controls { display: none; }
-    .nav-hamburger-btn { display: flex; }
-    .hero-title { font-size: 1.45rem; }
-    .sim-display-panel { grid-template-columns: 1fr; }
-    .technical-grid { grid-template-columns: 1fr; }
-    .chapter-pagination { flex-direction: column; gap: 12px; }
-    .pagination-btn { width: 100%; justify-content: center; }
+  @keyframes pkPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
   }
-
-  /* Real Photographic Visuals on Technical Cards */
-  .card-img-container {
-    height: 190px !important;
-    background: #0d111a !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    border-bottom: 1px solid var(--border-subtle) !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-    position: relative !important;
-  }
-  .card-img-real {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    display: block !important;
-    transition: transform 0.35s ease !important;
-  }
-  .technical-card:hover .card-img-real {
-    transform: scale(1.04) !important;
-  }
-
-  /* 60 FPS Lighting Studio Section */
-  .lighting-studio-section {
-    background: linear-gradient(145deg, #131722 0%, #0b0e14 100%);
-    border: 1px solid rgba(59, 130, 246, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border-radius: 16px;
-    padding: 24px;
-    margin: 36px 0;
-  }
-  .lighting-studio-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding-bottom: 16px;
-  }
-  .lighting-studio-title-box h2 {
-    font-size: 1.4rem;
+  .pk-studio-main-title {
+    font-size: 1.45rem;
     font-weight: 800;
     color: #f8fafc;
     margin: 0 0 6px;
   }
-  .lighting-studio-title-box p {
-    font-size: 0.95rem;
+  .pk-studio-sub-title {
+    font-size: 0.92rem;
     color: #94a3b8;
     margin: 0;
-  }
-  .lighting-tabs-row {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .lighting-tab-btn {
-    background: #1e293b;
-    color: #cbd5e1;
-    border: 1px solid #334155;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  .lighting-tab-btn:hover {
-    background: #334155;
-    color: #f8fafc;
-  }
-  .lighting-tab-btn.active {
-    background: #2563eb;
-    color: #ffffff;
-    border-color: #60a5fa;
-    box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
-  }
-  .lighting-canvas-wrapper {
-    background: #020617;
-    border: 1px solid #1e293b;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 20px;
-  }
-  #lightingCanvas {
-    width: 100%;
-    height: 380px;
-    display: block;
-  }
-  .lighting-controls-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 16px;
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 18px;
-  }
-  .lighting-ctrl-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .lighting-ctrl-group label {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #e2e8f0;
-  }
-  .lighting-select, .lighting-input {
-    background: #0f172a;
-    border: 1px solid #334155;
-    color: #f1f5f9;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.9rem;
-  }
-  .lighting-range-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .lighting-range-row input[type="range"] {
-    flex: 1;
-    accent-color: #2563eb;
-  }
-  .lighting-range-val {
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 800;
-    color: #38bdf8;
-    background: #0f172a;
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 0.88rem;
-    border: 1px solid #334155;
-  }
-  .lighting-checkbox-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #cbd5e1;
-  }
-  .lighting-checkbox-label input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    accent-color: #2563eb;
-  }
-  .lighting-btn-action {
-    background: #1e293b;
-    color: #f8fafc;
-    border: 1px solid #475569;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-weight: 700;
-    font-size: 0.88rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  .lighting-btn-action:hover {
-    background: #334155;
-    border-color: #94a3b8;
-  }
-  .lighting-btn-action.active {
-    background: #dc2626;
-    border-color: #ef4444;
-    color: white;
-  }
-  .lighting-alert-box {
-    padding: 16px;
-    border-radius: 10px;
-    margin-top: 16px;
-  }
-  .lighting-alert-box.alert-danger {
-    background: rgba(239, 68, 68, 0.15);
-    border: 1px solid #ef4444;
-    border-right: 4px solid #ef4444;
-  }
-  .lighting-alert-box.alert-safe {
-    background: rgba(16, 185, 129, 0.12);
-    border: 1px solid #10b981;
-    border-right: 4px solid #10b981;
-  }
-  .lighting-report-text-ar {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #f8fafc;
-    margin-bottom: 6px;
     line-height: 1.6;
   }
-  .lighting-report-text-it {
-    font-size: 0.85rem;
+  .pk-scenario-nav {
+    display: flex;
+    gap: 8px;
+    background: rgba(15, 23, 42, 0.6);
+    padding: 6px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    flex-wrap: wrap;
+  }
+  .pk-scenario-btn {
+    background: transparent;
+    border: none;
     color: #94a3b8;
-    font-style: italic;
-  }
-
-  /* Spia Selector Grid */
-  .spia-selector-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 10px;
-    margin-bottom: 16px;
-  }
-  .spia-pill-btn {
-    background: #0f172a;
-    border: 1px solid #334155;
-    color: #cbd5e1;
-    padding: 8px 10px;
-    border-radius: 8px;
     font-size: 0.84rem;
     font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+  }
+  .pk-scenario-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.05); }
+  .pk-scenario-btn.active {
+    background: #0284c7;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+  }
+
+  .pk-stage-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media (min-width: 992px) {
+    .pk-stage-layout {
+      grid-template-columns: 1.35fr 1fr;
+    }
+  }
+
+  .pk-canvas-wrapper {
+    position: relative;
+    background: #090d16;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.8);
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pk-canvas-wrapper canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .pk-details-panel {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .pk-status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    width: fit-content;
+  }
+  .badge-danger { background: rgba(244, 63, 94, 0.2); color: var(--rose-primary); border: 1px solid rgba(244, 63, 94, 0.4); }
+  .badge-warning { background: rgba(245, 158, 11, 0.2); color: var(--amber-primary); border: 1px solid rgba(245, 158, 11, 0.4); }
+  .badge-success { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); border: 1px solid rgba(16, 185, 129, 0.4); }
+
+  .pk-detail-box {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    padding: 12px;
+  }
+  .pk-detail-title {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: var(--sky-primary);
+    margin-bottom: 4px;
+  }
+  .pk-detail-text {
+    font-size: 0.85rem;
+    color: #e2e8f0;
+    line-height: 1.6;
+  }
+  .pk-trap-alert {
+    background: rgba(244, 63, 94, 0.1);
+    border: 1px solid rgba(244, 63, 94, 0.25);
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 0.84rem;
+    color: #fecdd3;
+    line-height: 1.6;
+  }
+
+  /* Maneuver Mode Tabs */
+  .pk-maneuvers-section {
+    margin-top: 24px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 14px;
+    padding: 16px;
+    border: 1px solid var(--border-subtle);
+  }
+  .pk-maneuver-nav {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .pk-maneuver-btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: #cbd5e1;
+    font-weight: 700;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .pk-maneuver-btn.active {
+    background: var(--amber-primary);
+    color: #000;
+    border-color: var(--amber-primary);
+  }
+  .pk-maneuver-content {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .pk-man-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .pk-man-summary {
+    font-size: 0.88rem;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+  .pk-man-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  @media (max-width: 640px) {
+    .pk-man-grid { grid-template-columns: 1fr; }
+  }
+  .pk-man-col h5 {
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-bottom: 6px;
     display: flex;
     align-items: center;
     gap: 6px;
-    transition: all 0.18s ease;
   }
-  .spia-pill-btn:hover {
-    background: #1e293b;
-    border-color: #64748b;
+  .pk-man-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
-  .spia-pill-btn.active {
-    background: #1e3a8a;
-    border-color: #60a5fa;
-    color: #ffffff;
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
-  }
-  .spia-card-details {
-    background: #0f172a;
-    border: 1px solid #334155;
-    border-radius: 12px;
-    padding: 18px;
+  .pk-man-col li {
+    font-size: 0.82rem;
+    color: #cbd5e1;
+    margin-bottom: 4px;
+    line-height: 1.5;
+    display: flex;
+    gap: 6px;
   }
 
   /* Workshop Photo Gallery Section */
@@ -1284,85 +595,383 @@
   }
   .workshop-gallery-card:hover {
     transform: translateY(-4px);
-    border-color: rgba(59, 130, 246, 0.4);
+    border-color: rgba(56, 189, 248, 0.4);
   }
   .workshop-gallery-media {
     position: relative;
-    height: 180px;
+    height: 170px;
     overflow: hidden;
-    background: #0b0f17;
   }
   .workshop-gallery-media img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
     transition: transform 0.35s ease;
   }
   .workshop-gallery-card:hover .workshop-gallery-media img {
-    transform: scale(1.05);
+    transform: scale(1.06);
   }
   .workshop-gallery-badge {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(15, 23, 42, 0.85);
-    color: #38bdf8;
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    font-size: 0.72rem;
+    top: 8px;
+    right: 8px;
+    background: rgba(2, 132, 199, 0.85);
+    backdrop-filter: blur(6px);
+    color: #ffffff;
+    font-size: 0.7rem;
     font-weight: 700;
     padding: 3px 8px;
     border-radius: 6px;
-    letter-spacing: 0.3px;
   }
   .workshop-gallery-content {
-    padding: 14px 16px;
+    padding: 14px;
   }
   .workshop-gallery-title {
     font-size: 0.98rem;
     font-weight: 800;
     color: #f1f5f9;
-    margin: 0 0 4px;
+    margin: 0 0 6px;
   }
   .workshop-gallery-sub {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: #38bdf8;
-    font-weight: 700;
-    margin-bottom: 6px;
-    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    margin: 0 0 8px;
   }
   .workshop-gallery-desc {
-    font-size: 0.84rem;
+    font-size: 0.82rem;
     color: #94a3b8;
-    margin: 0;
     line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Comparison Section: 4 Cards */
+  .comp-section {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .comp-header { margin-bottom: 20px; text-align: right; }
+  .comp-header h3 { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+  .comp-header p { font-size: 0.9rem; color: var(--text-secondary); }
+  .comp-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .comp-card-path {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .comp-card-path h4 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .comp-tag {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .comp-card-path p {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    text-align: right;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  /* Filter Pills Bar */
+  .filter-pills-bar {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    margin-bottom: 24px;
+    scrollbar-width: thin;
+  }
+  .filter-pill {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    color: #94a3b8;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .filter-pill:hover, .filter-pill.active {
+    background: var(--sky-primary);
+    border-color: var(--sky-primary);
+    color: #000;
+  }
+
+  /* Signals Grid & Technical Cards */
+  .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .section-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-badge {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: var(--sky-primary);
+    background: rgba(56, 189, 248, 0.1);
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+  }
+
+  .signals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+  .signal-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .signal-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-highlight);
+  }
+  .signal-img-container {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 16px;
+  }
+  .signal-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .card-header-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+  .card-ar-title {
+    font-size: 1.12rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  .card-it-title {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--sky-primary);
+    direction: ltr;
+    text-align: right;
+  }
+  .card-desc-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .card-points-group { margin-bottom: 14px; }
+  .points-group-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .points-group-title.vero-title { color: var(--emerald-primary); }
+  .points-group-title.falso-title { color: var(--rose-primary); }
+
+  .card-points-list { list-style: none; margin: 0; padding: 0; }
+  .card-points-list li {
+    display: block;
+    position: relative;
+    padding-right: 28px;
+    line-height: 1.7;
+    text-align: right;
+    font-size: 0.86rem;
+    color: #d4d4d8;
+    margin-bottom: 6px;
+  }
+  .card-points-list li > span:first-child {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .card-trap-alert {
+    background: rgba(244, 63, 94, 0.08);
+    border: 1px solid rgba(244, 63, 94, 0.22);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    color: #fca5a5;
+    line-height: 1.6;
+    margin-top: auto;
+  }
+  .card-trap-alert strong { color: var(--rose-primary); }
+
+  /* 12 Trap Quiz Cards (Ministerial Radar) */
+  .traps-section { margin-bottom: 50px; }
+  .traps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+  }
+  .trap-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .trap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card-tag-pill {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  .tag-vero { background: rgba(16, 185, 129, 0.2); color: var(--emerald-primary); }
+  .tag-falso { background: rgba(244, 63, 94, 0.2); color: var(--rose-primary); }
+  .trap-quiz-text {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: #e4e4e7;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 8px;
+    padding: 10px;
+    direction: ltr;
+    text-align: left;
+    line-height: 1.5;
+  }
+  .trap-quiz-trans {
+    font-size: 0.88rem;
+    color: var(--sky-primary);
+    font-weight: 600;
+    line-height: 1.6;
+  }
+  .trap-explanation {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    padding: 10px;
+    border-right: 3px solid var(--amber-primary);
+  }
+
+  /* Pagination Bar */
+  .chapter-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    margin-top: 40px;
+  }
+  .pagination-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.15s ease;
+  }
+  .pagination-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--border-highlight);
+  }
+  .pagination-info { display: flex; flex-direction: column; text-align: right; }
+  .pagination-label { font-size: 0.75rem; color: var(--text-muted); }
+  .pagination-title { font-size: 0.92rem; color: #fff; }
+
+  /* Responsive Rules (< 768px) */
+  @media (max-width: 768px) {
+    .desktop-nav-links, .desktop-nav-controls { display: none !important; }
+    .nav-hamburger-btn { display: flex !important; }
+    .guide-container { padding-top: calc(var(--nav-base-height) + 16px); padding-left: 14px; padding-right: 14px; }
+    .hero-title { font-size: 1.6rem; }
+    .signals-grid { grid-template-columns: 1fr; }
+    .chapter-pagination { flex-direction: column; align-items: stretch; }
   }
 
 </style>
-  <link rel="manifest" href="../manifest.json">
+<link rel="manifest" href="../manifest.json">
 </head>
 <body>
 
-<!-- UNIFIED PORTAL HEADER (Apple HIG, 54px) -->
-<header class="unified-portal-nav">
-  <a href="index.html" class="nav-brand" onclick="soundEngine.click()">
-    <span>📚</span>
-    <span>رخصة القيادة الإيطالية</span>
-    <span class="badge-tag">Patente B Pro</span>
-  </a>
+<!-- Unified Top Navigation (54px) -->
+<nav class="unified-portal-nav" aria-label="شريط التنقل الموحد">
+  <div style="display:flex; align-items:center; gap:12px;">
+    <a href="index.html" class="nav-brand">
+      <span>🚦 Patente B Pro</span>
+      <span class="badge-tag">الباب 18</span>
+    </a>
+  </div>
 
   <div class="desktop-nav-links">
-    <a href="index.html" class="desktop-nav-link" onclick="soundEngine.click()">
-      <span>🏛️</span>
-      <span>فهرس المكتبة الشاملة</span>
-    </a>
-    <a href="../Capitoli_Divisi/index.html" class="desktop-nav-link" onclick="soundEngine.click()">
-      <span>📚</span>
-      <span>مذاكرة الأبواب المقسمة</span>
-    </a>
-    <a href="scheda-esame.html" class="desktop-nav-link" onclick="soundEngine.click()">
-      <span>⏱️</span>
-      <span>محاكي الامتحان الوزاري</span>
-    </a>
+    <a href="index.html" class="desktop-nav-link"><span>🏛️</span><span>فهرس المكتبة الشاملة</span></a>
+    <a href="../Capitoli_Divisi/index.html" class="desktop-nav-link"><span>📚</span><span>الأبواب المقسمة (25)</span></a>
+    <a href="scheda-esame.html" class="desktop-nav-link"><span>⏱️</span><span>محاكي الامتحان</span></a>
   </div>
 
   <div class="desktop-nav-controls">
@@ -1372,35 +981,18 @@
         <span style="font-size:0.75rem;">▾</span>
       </button>
       <div class="nav-dropdown-menu" id="navDropdownMenu">
-        <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
-        <a href="دليل_الباب_02_إشارات_الخطر.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
-        <a href="دليل_الباب_03_إشارات_المنع.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
-        <a href="دليل_الباب_04_إشارات_الإلزام.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
-        <a href="دليل_الباب_05_إشارات_الأسبقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
-        <a href="دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأرضية والعوائق</span></a>
-        <a href="دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
-        <a href="دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
-        <a href="دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: الإشارات التكميلية وورش العمل</span></a>
-        <a href="دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات الإضافية</span></a>
-        <a href="دليل_الباب_11_حدود_السرعة_ومخاطرها.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة ومخاطرها</span></a>
-        <a href="دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
-        <a href="دليل_الباب_13_قواعد_السير_والمسارات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
-        <a href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
-        <a href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
-        <a href="دليل_الباب_16_الوقوف_والتوقف_والركن.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
-        <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
-        <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="nav-dropdown-item active"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
-        <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
-        <a href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
-        <a href="دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: حوادث السير والطقس</span></a>
-        <a href="دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
-        <a href="دليل_الباب_23_المسؤولية_والتأمين.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 23: المسؤولية والتأمين RCA</span></a>
-        <a href="دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 24: استهلاك الوقود والبيئة</span></a>
-        <a href="دليل_الباب_الأخير.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
+
+<a class="nav-dropdown-item" href="دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
+<a class="nav-dropdown-item" href="دليل_الباب_15_مناورة_التجاوز_والتخطي.html"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
+<a class="nav-dropdown-item active" href="دليل_الباب_16_الوقوف_والتوقف_والركن.html"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
+<a class="nav-dropdown-item" href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
+<a class="nav-dropdown-item" href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
+<a class="nav-dropdown-item" href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
+<a class="nav-dropdown-item" href="دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
+
       </div>
     </div>
-
-    <button class="nav-audio-btn" onclick="soundEngine.toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية">
+    <button class="nav-audio-btn" onclick="soundEngine.toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
       <span class="audio-icon-span">🔊</span>
       <span class="audio-label-span">الصوت نشط</span>
     </button>
@@ -1409,63 +1001,24 @@
       <span class="theme-label-span">الوضع النهاري</span>
     </button>
   </div>
+</nav>
 
-  <button class="nav-hamburger-btn" id="navHamburgerBtn" onclick="toggleMobileNav()" aria-label="قائمة التنقل">
-    <div class="hamburger-box">
-      <span class="hamburger-line line-top"></span>
-      <span class="hamburger-line line-mid"></span>
-      <span class="hamburger-line line-bot"></span>
-    </div>
-  </button>
-</header>
-
-<!-- Mobile Drawer Overlay & Panel -->
-<div class="mobile-drawer-overlay" id="mobileDrawerOverlay" onclick="closeMobileNav()"></div>
-<div class="mobile-drawer-panel" id="mobileDrawerPanel">
-  <div class="mobile-nav-list">
-    <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>🏛️</span> <span>فهرس المكتبة الشاملة المعتمدة</span>
-    </a>
-    <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📚</span> <span>مذاكرة الأبواب المقسمة (25 باب)</span>
-    </a>
-    <a href="scheda-esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>⏱️</span> <span>محاكي الامتحان الوزاري</span>
-    </a>
-    <div style="height: 1px; background: rgba(255,255,255,0.08); margin: 6px 0;"></div>
-    <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📖</span> <span>دليل الباب 17 (الأوتوستراد والمقطورات)</span>
-    </a>
-    <a href="دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html" class="mobile-nav-link active" onclick="closeMobileNav()">
-      <span>📖</span> <span>دليل الباب 18 (الأضواء ولمبات التابلوه)</span>
-    </a>
-    <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📖</span> <span>دليل الباب 19 (أحزمة الأمان والخوذة)</span>
-    </a>
-  </div>
-</div>
-
-<!-- MAIN PAGE CONTAINER -->
 <main class="guide-container">
 
-  <!-- CHAPTER HERO -->
+  <!-- HERO SECTION -->
   <section class="chapter-hero">
-    <div class="hero-tag">
-      <span>💡</span>
-      <span>الباب الثامن عشر • Capitolo 18</span>
-    </div>
-    <h1 class="hero-title">استخدام الأضواء ولمبات التابلوه والعواكس</h1>
-    <div class="hero-subtitle">Luci, spie sul cruscotto, catadiottri e segnalatori acustici</div>
+    <div class="hero-tag">💡 المرجع المعتمد للدراسة والامتحان الوزاري</div>
+    <h1 class="hero-title">الباب 18: استخدام الأضواء ولمبات التابلوه والعواكس والتنبيه الصوتي</h1>
+    <div class="hero-subtitle">Capitolo 18: Uso delle luci, spie del cruscotto, catadiottri e avvisatore acustico</div>
     <p class="hero-desc">
-      الدليل الهندسي الشامل لأنظمة الإضاءة وأجهزة التحذير في كود السير الإيطالي: التمييز القاطع بين الضوء المنخفض (Anabbaglianti) والعالي (Abbaglianti)، فك شفرة لمبات لوحة القيادة (الأزرق، الأخضر، الأحمر)، أضواء الخطر الرباعية، والعواكس الضوئية (Catadiottri) وأشكالها الهندسية للمركبات والمقطورات.
+      الدليل الهندسي الشامل لجميع منظومات الإضاءة في المركبة: الاستخدام الإلزامي للضوء المنخفض (Anabbaglianti) نهاراً وليلاً خارج المدن وداخل الأنفاق، حالات حظر الضوء العالي (Abbaglianti) لمنع الإبهار، فك شفرات لمبات لوحة العدادات الملونة (الأحمر للخطر الفوري، الأصفر للتحذير، الأزرق للضوء العالي)، أحكام أضواء الخطر الرباعية (4 Frecce)، والعواكس الضوئية السلبية (Catadiottri).
     </p>
 
-    <!-- Hero Badges Row (Explicit User Specification) -->
     <div class="hero-badges-row">
-      <div class="hero-stat-badge"><span>📊</span> <span>176 سؤالاً وزارياً معتمداً ومطابقاً 100%</span></div>
-      <div class="hero-stat-badge"><span>💡</span> <span>14 بطاقة شاملة للإضاءة والتابلوه والعواكس</span></div>
-      <div class="hero-stat-badge"><span>📸</span> <span>معرض توثيقي ميداني (6 تجهيزات أصلية)</span></div>
-      <div class="hero-stat-badge"><span>⚡</span> <span>استوديو تفاعلي 60 FPS للإضاءة وفحص اللمبات</span></div>
+      <div class="hero-stat-badge"><span>📊</span> <span>296 سؤالاً وزارياً معتمداً ومطابقاً 100%</span></div>
+      <div class="hero-stat-badge"><span>⚠️</span> <span>12 فخاً وزارياً دقيقاً</span></div>
+      <div class="hero-stat-badge"><span>💡</span> <span>14 بطاقة تفصيلية للمنظومة الضوئية والتابلوه</span></div>
+      <div class="hero-stat-badge"><span>🎯</span> <span>دقة 100% كود السير 2026</span></div>
     </div>
   </section>
 
@@ -1473,749 +1026,39 @@
   <section class="golden-rules-banner">
     <div class="golden-rules-title">
       <span>⭐</span>
-      <span>القواعد الذهبية الأربع لأنظمة الإضاءة والتحذير (Regole d'Oro delle Luci)</span>
+      <span>القواعد الذهبية الأربع (الباب 18)</span>
     </div>
     <div class="rules-grid">
       <div class="rule-box">
-        <h4><span>1️⃣</span> الضوء المنخفض إلزامي خارج المدن</h4>
-        <p>يلزم تشغيل الضوء المنخفض (*Anabbaglianti*) طوال 24 ساعة خارج المدن وفي جميع الأنفاق المضاءة وغير المضاءة، وداخل المدن من 30 دقيقة بعد الغروب حتى 30 دقيقة قبل الشروق.</p>
+        <h4><span>1️⃣</span> إلزامية الضوء المنخفض (Anabbaglianti)</h4>
+        <p>إلزامي دائماً خارج المدن نهاراً وليلاً، وداخل الأنفاق حتى لو كانت مضاءة، وفي الظروف الجوية السيئة (مطر، ضباب، ثلج) مع الدراجات النارية في كل الأوقات.</p>
       </div>
       <div class="rule-box">
-        <h4><span>2️⃣</span> اللمبة الزرقاء للضوء العالي</h4>
-        <p>اللمبة الزرقاء الوحيدة في طبلون القيادة (Fig 705) مخصصة للضوء العالي (*Abbaglianti*). يحظر تشغيله عند وجود سيارة تسبقك أو تقابلك منعاً لإبهار البصر (*Abbagliamento*).</p>
+        <h4><span>2️⃣</span> حظر الضوء العالي (Abbaglianti)</h4>
+        <p>يُحظر استخدامه عند تتبع مركبة أخرى أو التقابل مع مركبات قادمة لتجنب الإبهار (Abbagliamento)، ويُستبدل فوراً بالضوء المنخفض.</p>
       </div>
       <div class="rule-box">
-        <h4><span>3️⃣</span> أضواء الخطر الرباعية (4 Frecce)</h4>
-        <p>إلزامية عند التوقف الاضطراري، والتباطؤ المفاجئ بسبب عائق أو حادث، وعند سحب مركبة معطلة. يمنع استخدامها كذريعة للركن في الصف الثاني.</p>
+        <h4><span>3️⃣</span> ألوان ودلالات لمبات التابلوه</h4>
+        <p>اللون الأحمر يعني خطراً داهماً يقتضي التوقف الفوري (حرارة الردياتير، ضغط الزيت، الفرامل). اللون الأصفر للتحذير ومراقبة الأعطال. الأزرق للضوء العالي والأخضر للمنخفض.</p>
       </div>
       <div class="rule-box">
-        <h4><span>4️⃣</span> العواكس الضوئية للمقطورات</h4>
-        <p>العواكس الخلفية (Catadiottri) تكون <strong>مثلثة الشكل حمراء</strong> حصرياً للمقطورات (Rimorchi)، وتكون دائرية أو مستطيلة لسيارات الركوب العادية والشاحنات.</p>
+        <h4><span>4️⃣</span> العواكس الضوئية (Catadiottri)</h4>
+        <p>العواكس الخلفية حمراء دائماً، والبيضاء للأمام، والصفراء للجوانب. الشكل المثلثي حصري بمؤخرة المقطورات ويُمنع تركيبه على السيارات العادية.</p>
       </div>
     </div>
   </section>
 
-  <!-- INTERACTIVE SIMULATORS -->
-  <section class="interactive-sim-container">
-    <div class="sim-header">
-      <div class="sim-title">
-        <span>🎮</span>
-        <span>محاكي لمبات لوحة القيادة التفاعلي (Simulatore Spie del Cruscotto)</span>
+  <!-- WORKSHOP PHOTO GALLERY -->
+  <section class="workshop-gallery-section">
+    <div class="section-heading">
+      <div>
+        <h2 class="section-title"><span>📸</span> المشاهد الميدانية لمنظومات الإضاءة ولوحة العدادات</h2>
+        <p style="font-size:0.86rem; color:var(--text-secondary); margin-top:4px;">معرض توثيقي عالي الدقة لكشافات LED، مفاتيح التحكم، لوحة العدادات، وعواكس المقطورة</p>
       </div>
-      <div class="sim-badge">Simulatore Cruscotto</div>
-    </div>
-    <div class="sim-controls-row">
-      <button class="sim-btn active" onclick="setSim18(1, 'spia_abbaglianti')">اللمبة الزرقاء (ضوء عالي)</button>
-      <button class="sim-btn" onclick="setSim18(1, 'spia_olio')">اللمبة الحمراء (ضغط الزيت)</button>
-      <button class="sim-btn" onclick="setSim18(1, 'spia_temp')">اللمبة الحمراء (حرارة المبرد)</button>
-      <button class="sim-btn" onclick="setSim18(1, 'spia_anabbaglianti')">اللمبة الخضراء (ضوء منخفض)</button>
-    </div>
-    <div class="sim-display-panel" id="sim1Display">
-      <div class="sim-view-box">
-        <div class="sim-view-icon">🔵</div>
-        <div class="sim-view-label">لمبة الضوء العالي (Spia Luci Abbaglianti)</div>
-        <div class="sim-view-sub">Colore Blu - Fig. 705</div>
-      </div>
-      <div class="sim-details-box">
-        <div class="sim-status-pill sim-status-allowed">تنبيه تشغيل فوانيس العمق</div>
-        <div class="sim-detail-item"><strong>الرمز واللون:</strong> لون أزرق فريد لا يتكرر في لوحة العدادات إلا لهذا المؤشر (Fig 705).</div>
-        <div class="sim-detail-item"><strong>المعنى الوزاري:</strong> تفيد بأن فوانيس العمق (Proiettori di profondità) تعمل بكامل طاقتها.</div>
-        <div class="sim-detail-item"><strong>واجب السائق:</strong> إطفاؤها والتحول للمنخفض فور رؤية أضواء سيارة قادمة في الاتجاه المعاكس أو تسبقك.</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="interactive-sim-container">
-    <div class="sim-header">
-      <div class="sim-title">
-        <span>💡</span>
-        <span>محاكي الاختيار الذكي لنوع الضوء (Anabbaglianti vs Abbaglianti)</span>
-      </div>
-      <div class="sim-badge">Guida Notturna</div>
-    </div>
-    <div class="sim-controls-row">
-      <button class="sim-btn active" onclick="setSim18(2, 'tunnel')">دخول نفق مضاء نهاراً</button>
-      <button class="sim-btn" onclick="setSim18(2, 'fog')">ضباب كثيف (رؤية أقل من 50م)</button>
-      <button class="sim-btn" onclick="setSim18(2, 'highway_empty')">طريق ريفي مظلم وخالٍ تماماً</button>
-    </div>
-    <div class="sim-display-panel" id="sim2Display">
-      <div class="sim-view-box">
-        <div class="sim-view-icon">🚇</div>
-        <div class="sim-view-label">دخول نفق مضاء نهاراً</div>
-        <div class="sim-view-sub">Galleria illuminata di giorno</div>
-      </div>
-      <div class="sim-details-box">
-        <div class="sim-status-pill sim-status-allowed">الضوء المنخفض إلزامي حتماً</div>
-        <div class="sim-detail-item"><strong>القاعدة الصارمة:</strong> يلزم تشغيل الضوء المنخفض (Anabbaglianti) داخل كل الأنفاق بدون استثناء.</div>
-        <div class="sim-detail-item"><strong>فخ وزاري:</strong> لا يكفي أبداً استخدام أضواء الموضع (Luci di posizione) فقط، بل المنخفض إجباري!</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COMPARISON MATRIX -->
-  <section class="comp-section">
-    <div class="comp-title">
-      <span>⚖️</span>
-      <span>مصفوفة المقارنة الفنية بين أنواع الأضواء والعواكس</span>
-    </div>
-    <div class="comp-grid-4">
-      <div class="comp-card">
-        <div class="comp-card-header">
-          <span class="comp-card-badge" style="background:rgba(56,189,248,0.2); color:var(--sky-primary);">أخضر 5W</span>
-          <div class="comp-card-title">أضواء الموضع (Posizione)</div>
-          <div class="comp-card-sub">Rendere visibile il veicolo</div>
-        </div>
-        <div class="comp-card-body">
-          <div>• غايتها جعل المركبة مرئية للآخرين وليس إضاءة الطريق.</div>
-          <div>• بيضاء في الأمام، وحمراء في الخلف.</div>
-          <div>• تضاء تزامناً مع لمبات لوحة الأرقام الخلفية.</div>
-          <div>• لا تكفي وحدها أثناء السير خارج المدن أو في الأنفاق.</div>
-        </div>
-      </div>
-
-      <div class="comp-card">
-        <div class="comp-card-header">
-          <span class="comp-card-badge" style="background:rgba(16,185,129,0.2); color:var(--emerald-primary);">أخضر Fig 704</span>
-          <div class="comp-card-title">الضوء المنخفض (Anabbaglianti)</div>
-          <div class="comp-card-sub">Illuminare senza abbagliare</div>
-        </div>
-        <div class="comp-card-body">
-          <div>• يضيء الطريق لمسافة كافية دون إبهار عيون الآخرين.</div>
-          <div>• إلزامي خارج المدن طوال 24 ساعة وفي الأنفاق.</div>
-          <div>• يستخدم عند نزول المطر أو الثلج أو الضباب.</div>
-          <div>• مؤشره الأخضر يحمل أشعة مائلة للأسفل.</div>
-        </div>
-      </div>
-
-      <div class="comp-card">
-        <div class="comp-card-header">
-          <span class="comp-card-badge" style="background:rgba(59,130,246,0.2); color:#60a5fa;">أزرق Fig 705</span>
-          <div class="comp-card-title">الضوء العالي (Abbaglianti)</div>
-          <div class="comp-card-sub">Proiettori di profondità</div>
-        </div>
-        <div class="comp-card-body">
-          <div>• يضيء الطريق بعمق لمسافات بعيدة بخطوط أفقية.</div>
-          <div>• مسموح فقط خارج المدن على الطرق المظلمة الخالية.</div>
-          <div>• ممنوع داخل المدن وممنوع عند وجود مركبات مقابلة.</div>
-          <div>• لمبته زرقاء حصرية في لوحة القيادة.</div>
-        </div>
-      </div>
-
-      <div class="comp-card">
-        <div class="comp-card-header">
-          <span class="comp-card-badge" style="background:rgba(244,63,94,0.2); color:var(--rose-primary);">عاكس سلبي</span>
-          <div class="comp-card-title">العواكس الضوئية (Catadiottri)</div>
-          <div class="comp-card-sub">Riflettono la luce altrui</div>
-        </div>
-        <div class="comp-card-body">
-          <div>• لا تصدر ضوءاً ذاتياً بل تعكس أضواء السيارات الأخرى.</div>
-          <div>• أحمر بالمؤخرة، وأبيض بالمقدمة، وأصفر بالجوانب.</div>
-          <div>• مثلثة الشكل حصرياً للمقطورات (Rimorchi).</div>
-          <div>• تضمن رؤية المركبة حتى لو كانت متوقفة ومطفأة بالكامل.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FILTER PILLS QUICK NAV -->
-  
-  <!-- ========================================== -->
-  <!-- 60 FPS HTML5 LIGHTING & DASHBOARD STUDIO   -->
-  <!-- ========================================== -->
-  <section class="lighting-studio-section" id="lighting-studio">
-    <div class="lighting-studio-header">
-      <div class="lighting-studio-title-box">
-        <h2>⚡ استوديو الإضاءة ولوحة العدادات التفاعلي (Lighting & Dashboard Studio)</h2>
-        <p>محاكاة فيزيائية في الوقت الفعلي (60 FPS) لحزم الأضواء الليلية والإبهار، مصفوفة تشخيص لمبات التابلوه، ومختبر العواكس وألواح الحمولة</p>
-      </div>
-      <div class="lighting-tabs-row">
-        <button class="lighting-tab-btn active" data-mode="beam">💡 محاكي حزمة الإضاءة والإبهار</button>
-        <button class="lighting-tab-btn" data-mode="spie">🚗 مصفوفة لمبات التابلوه التفاعلية</button>
-        <button class="lighting-tab-btn" data-mode="cargo">🔺 مختبر العواكس وألواح الحمولة</button>
-      </div>
-    </div>
-
-    <!-- Canvas Simulation Stage -->
-    <div class="lighting-canvas-wrapper">
-      <canvas id="lightingCanvas" width="900" height="380"></canvas>
-    </div>
-
-    <!-- Controls Panel: Mode 1 - Beam -->
-    <div class="lighting-panel-ctrl" data-panel="beam">
-      <div class="lighting-controls-grid">
-        <div class="lighting-ctrl-group">
-          <label>ظروف الطريق والرؤية المحيطة (Condizioni Stradali):</label>
-          <select id="beamConditionSelect" class="lighting-select">
-            <option value="extraurbana_buia">طريق خارجي مظلم تماماً (Extraurbana non illuminata)</option>
-            <option value="citta_notte">طريق داخل المدينة ليلاً بإضاءة كافية (Centro abitato)</option>
-            <option value="incrocio_veicolo">عبور سيارة مقابلة في الاتجاه المعاكس (Incrocio veicolo)</option>
-            <option value="seguire_veicolo">السير خلف سيارة أخرى عن قرب (Seguire veicolo)</option>
-            <option value="nebbia_fitta">ضباب كثيف انخفاض الرؤية دون 50م (Nebbia fitta &lt; 50m)</option>
-          </select>
-        </div>
-        <div class="lighting-ctrl-group">
-          <label>مفتاح اختيار وضع الإضاءة (Selettore Luci):</label>
-          <select id="beamLampSelect" class="lighting-select">
-            <option value="anabb" selected>ضوء منخفض (Anabbaglianti) - Spia Verde 704</option>
-            <option value="abbagl">ضوء عالي لعمق الرؤية (Abbaglianti) - Spia Blu 705</option>
-            <option value="pos">أنوار الموضع فقط (Luci di Posizione)</option>
-            <option value="fendi">كشافات الضباب الأمامية + الخلفية (Fendinebbia)</option>
-            <option value="off">أنوار مطفأة بالكامل (Spente)</option>
-          </select>
-        </div>
-        <div class="lighting-ctrl-group" style="justify-content: center; gap: 8px;">
-          <button class="lighting-btn-action" id="beamHazardBtn">🚨 تشغيل الـ 4 فلاشات (Quattro Frecce)</button>
-          <button class="lighting-btn-action" id="beamHornBtn">📢 اختبار الكلاكس (Uso Clacson)</button>
-        </div>
-      </div>
-      <div class="lighting-alert-box alert-safe" id="beamAlertBox">
-        <div class="lighting-report-text-ar" id="beamReportAr">جاري تحليل وضع الإضاءة وتوافقه مع كود السير...</div>
-        <div class="lighting-report-text-it" id="beamReportIt">Analisi conformità dispositivi visivi in corso...</div>
-      </div>
-    </div>
-
-    <!-- Controls Panel: Mode 2 - Spie Matrix -->
-    <div class="lighting-panel-ctrl" data-panel="spie" style="display: none;">
-      <div class="spia-selector-grid">
-        <button class="spia-pill-btn active" data-spia="697">🔴 زيت (697)</button>
-        <button class="spia-pill-btn" data-spia="698">🔴 حرارة (698)</button>
-        <button class="spia-pill-btn" data-spia="696">🔴 فرامل (696)</button>
-        <button class="spia-pill-btn" data-spia="699">🔴 بطارية (699)</button>
-        <button class="spia-pill-btn" data-spia="704">🟢 منخفض (704)</button>
-        <button class="spia-pill-btn" data-spia="705">🔵 عالي (705)</button>
-        <button class="spia-pill-btn" data-spia="retronebbia">🟡 ضباب خلفي</button>
-        <button class="spia-pill-btn" data-spia="abs">🟡 نظام ABS</button>
-      </div>
-      <div class="spia-card-details">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-          <h3 id="spiaTitle" style="color: #f8fafc; margin: 0; font-size: 1.15rem;">لمبة ضغط الزيت</h3>
-          <span id="spiaBadge" style="background: #ef4444; color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 800;">إيقاف فوري</span>
-        </div>
-        <p id="spiaInfoAr" style="color: #e2e8f0; font-size: 0.95rem; margin: 0 0 6px;"></p>
-        <p id="spiaInfoIt" style="color: #94a3b8; font-size: 0.85rem; font-style: italic; margin: 0 0 10px;"></p>
-        <div id="spiaAction" style="background: rgba(239, 68, 68, 0.1); border-right: 3px solid #ef4444; padding: 10px 14px; border-radius: 6px; color: #fca5a5; font-size: 0.9rem; margin-bottom: 8px;"></div>
-        <div id="spiaTrap" style="background: rgba(245, 158, 11, 0.1); border-right: 3px solid #f59e0b; padding: 10px 14px; border-radius: 6px; color: #fde68a; font-size: 0.88rem;"></div>
-      </div>
-    </div>
-
-    <!-- Controls Panel: Mode 3 - Cargo & Reflectors -->
-    <div class="lighting-panel-ctrl" data-panel="cargo" style="display: none;">
-      <div class="lighting-controls-grid">
-        <div class="lighting-ctrl-group">
-          <label>نوع المركبة (Tipo Veicolo):</label>
-          <select id="cargoVehicleSelect" class="lighting-select">
-            <option value="autovettura">سيارة ركاب خاصة (Autovettura)</option>
-            <option value="rimorchio" selected>مقطورة أو نصف مقطورة (Rimorchio)</option>
-          </select>
-        </div>
-        <div class="lighting-ctrl-group">
-          <label>نسبة البروز الخلفي للحمولة (% della lunghezza):</label>
-          <div class="lighting-range-row">
-            <input type="range" id="cargoOverhangSlider" min="0" max="50" step="5" value="20">
-            <span class="lighting-range-val" id="cargoOverhangVal">20%</span>
-          </div>
-        </div>
-        <div class="lighting-ctrl-group">
-          <label>شكل العواكس الخلفية (Forma Catadiottri):</label>
-          <select id="cargoReflectorSelect" class="lighting-select">
-            <option value="triangolare" selected>مثلث أحمر (Triangolare rosso)</option>
-            <option value="non_triangolare">غير مثلث - دائري/مستطيل (Non triangolare)</option>
-          </select>
-        </div>
-        <div class="lighting-ctrl-group" style="justify-content: center;">
-          <label class="lighting-checkbox-label">
-            <input type="checkbox" id="cargoPanelCheck" checked>
-            <span>تثبيت اللوح المربع المخطط Fig. 302</span>
-          </label>
-          <label class="lighting-checkbox-label">
-            <input type="checkbox" id="cargoFrontCheck">
-            <span>بروز الحمولة من المقدمة (Sporgenza anteriore)</span>
-          </label>
-        </div>
-      </div>
-      <div class="lighting-alert-box alert-safe" id="cargoAlertBox">
-        <div class="lighting-report-text-ar" id="cargoStatusAr">جاري تقييم قانونية الحمولة والعواكس...</div>
-        <div class="lighting-report-text-it" id="cargoStatusIt">Valutazione conformità carico sporgente in corso...</div>
-      </div>
-    </div>
-  </section>
-
-  <div class="quick-nav-bar">
-    <button class="filter-pill active" onclick="filterCards('all')">جميع البطاقات (14)</button>
-    <button class="filter-pill" onclick="filterCards('lights')">كشافات الإضاءة الأمامية والخلفية (5)</button>
-    <button class="filter-pill" onclick="filterCards('dashboard')">لمبات التابلوه التحذيرية (4)</button>
-    <button class="filter-pill" onclick="filterCards('signals')">العواكس، الحمولة والتنبيه الصوتي (5)</button>
-  </div>
-
-  <!-- TECHNICAL CARDS GRID -->
-  <section class="technical-grid">
-
-    <!-- Card 1: Anabbaglianti Fig 704 -->
-    <div class="technical-card" data-category="lights">
-      <div class="card-img-container">
-        <img src="../assets/images/lighting_parts/luci_anabbaglianti_fascio.jpg" alt="Proiettori anabbaglianti e spia verde 704" class="card-img-real" loading="lazy">
-      </div>
-      <div class="card-content">
-        <div class="card-header-info">
-          <div class="card-title-it">Proiettori anabbaglianti (Fig. 704)</div>
-          <h3 class="card-title-ar">الضوء المنخفض ولمبته الخضراء</h3>
-        </div>
-        <div class="card-box-vero">
-          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">✅</span> إلزامي الاستخدام طوال الـ 24 ساعة خارج المدن لجميع المركبات ذات المحرك.</li>
-            <li><span class="bullet-icon">✅</span> إلزامي داخل جميع الأنفاق (Gallerie) ليلاً ونهاراً حتى لو كانت مضاءة تماماً.</li>
-            <li><span class="bullet-icon">✅</span> لمبته في لوحة القيادة خضراء بأشعة متجهة للأسفل (Fig 704).</li>
-          </ul>
-        </div>
-        <div class="card-box-falso">
-          <div class="card-box-falso-title"><span>❌</span> ادعاءات شائعة مضللة (FALSO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">⛔</span> يزعم الاكتفاء بأضواء الموضع (Posizione) داخل الأنفاق المضاءة جيداً (FALSO، المنخفض إجباري).</li>
-            <li><span class="bullet-icon">⛔</span> يزعم أن لونه أزرق في طبلون القيادة (FALSO، الأزرق خاص بالضوء العالي فقط).</li>
-          </ul>
-        </div>
-        <div class="card-trap-box">
-          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الدقيق</div>
-          <p>داخل أي نفق (Galleria)، سواء كان مضاءً كالشمس أو مظلماً، يلزم تشغيل الضوء المنخفض فوراً ولا تكفي أضواء الموضع إطلاقاً!</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 2: Abbaglianti Fig 705 -->
-    <div class="technical-card" data-category="lights">
-      <div class="card-img-container">
-        <img src="../assets/images/lighting_parts/luci_abbaglianti_profondita.jpg" alt="Proiettori di profondità abbaglianti e spia blu 705" class="card-img-real" loading="lazy">
-      </div>
-      <div class="card-content">
-        <div class="card-header-info">
-          <div class="card-title-it">Proiettori abbaglianti (Fig. 705)</div>
-          <h3 class="card-title-ar">الضوء العالي وفوانيس العمق ولمبته الزرقاء</h3>
-        </div>
-        <div class="card-box-vero">
-          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">✅</span> يستخدم خارج المدن فقط عندما تكون الإضاءة العامة مفقودة أو غير كافية والطريق خالياً.</li>
-            <li><span class="bullet-icon">✅</span> يجب استبداله فوراً بالضوء المنخفض عند اقتراب مركبة في الاتجاه المعاكس أو تسبقك بمسافة قريبة.</li>
-            <li><span class="bullet-icon">✅</span> اللمبة الزرقاء الوحيدة في طبلون السيارة هي لمبة الضوء العالي (Fig 705).</li>
-          </ul>
-        </div>
-        <div class="card-box-falso">
-          <div class="card-box-falso-title"><span>❌</span> ادعاءات شائعة مضللة (FALSO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">⛔</span> يزعم جواز استخدامه داخل المدن إذا كان الشارع مظلماً جداً (ممنوع تماماً داخل المدن).</li>
-            <li><span class="bullet-icon">⛔</span> يزعم إبقاءه مشتعلاً إذا كانت السيارة المقابلة تستخدم ضوءاً عالياً لمعاقبتها (تصرف خطير وممنوع).</li>
-          </ul>
-        </div>
-        <div class="card-trap-box">
-          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الدقيق</div>
-          <p>إذا بهرك سائق قادم بالضوء العالي، لا تقم بالرد عليه بتشغيل العالي، بل انظر نحو الحافة اليمنى للطريق وخفف سرعتك بحذر!</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 3: 4 Frecce (Segnalazione di Pericolo) -->
-    <div class="technical-card" data-category="lights">
-      <div class="card-img-container">
-        <img src="../assets/images/lighting_parts/quattro_frecce_emergenza.jpg" alt="Segnalazione luminosa di pericolo 4 frecce" class="card-img-real" loading="lazy">
-      </div>
-      <div class="card-content">
-        <div class="card-header-info">
-          <div class="card-title-it">Segnalazione luminosa di pericolo (4 frecce)</div>
-          <h3 class="card-title-ar">أضواء الخطر الرباعية التزامنية</h3>
-        </div>
-        <div class="card-box-vero">
-          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">✅</span> تشغيل جميع ومضات الاتجاه الأربعة في وقت واحد عبر زر الطوارئ ذي المثلث الأحمر.</li>
-            <li><span class="bullet-icon">✅</span> إلزامية عند التوقف الاضطراري (Sosta di emergenza) في مسار السير أو حارة الطوارئ.</li>
-            <li><span class="bullet-icon">✅</span> إلزامية عند الاضطرار لفرملة حادة مفاجئة بسبب طابور سيارات متوقف أمامك لتنبيه الخلف.</li>
-          </ul>
-        </div>
-        <div class="card-box-falso">
-          <div class="card-box-falso-title"><span>❌</span> ادعاءات شائعة مضللة (FALSO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">⛔</span> يزعم استخدامها لتبرير الركن في الصف الثاني (Seconda fila) أمام محل تجاري (مخالفة مزدوجة).</li>
-            <li><span class="bullet-icon">⛔</span> يزعم تشغيلها أثناء عبور التقاطعات المزدحمة لطلب الأولوية (FALSO).</li>
-          </ul>
-        </div>
-        <div class="card-trap-box">
-          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الدقيق</div>
-          <p>تشغيل الـ 4 Frecce لا يعطيك أي حق للركن الخاطئ في الصف الثاني، واستخدامها مقتصر حصرياً على مواقف الخطر والفرملة المفاجئة!</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 4: Spia Olio Motore Fig 697 -->
-    <div class="technical-card" data-category="dashboard">
-      <div class="card-img-container">
-        <img src="../assets/images/lighting_parts/spia_pressione_olio_motore.jpg" alt="Spia pressione olio motore Fig. 697" class="card-img-real" loading="lazy">
-      </div>
-      <div class="card-content">
-        <div class="card-header-info">
-          <div class="card-title-it">Spia pressione olio motore (Fig. 697)</div>
-          <h3 class="card-title-ar">لمبة ضغط زيت المحرك الحمراء</h3>
-        </div>
-        <div class="card-box-vero">
-          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">✅</span> تضيء باللون الأحمر على شكل إبريق زيت وتدل على نقص حرج في ضغط دورة تزييت المحرك.</li>
-            <li><span class="bullet-icon">✅</span> إذا أضاءت أثناء السير، يجب التوقف فوراً بأمان وإطفاء المحرك لتجنب تدميره بالكامل.</li>
-            <li><span class="bullet-icon">✅</span> تضيء طبيعياً عند فتح الكونتاكت وتنطفئ بمجرد دوران المحرك.</li>
-          </ul>
-        </div>
-        <div class="card-box-falso">
-          <div class="card-box-falso-title"><span>❌</span> ادعاءات شائعة مضللة (FALSO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">⛔</span> يزعم أنها تشير إلى ارتفاع درجة حرارة الزيت فقط ويمكن متابعة السير حتى أقرب ورشة (خطأ قاتل للمحرك).</li>
-            <li><span class="bullet-icon">⛔</span> يزعم أنها تضيء باللون البرتقالي للتحذير من موعد الصيانة الدورية (FALSO، حمراء حرجة).</li>
-          </ul>
-        </div>
-        <div class="card-trap-box">
-          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الدقيق</div>
-          <p>إضاءة لمبة الزيت الحمراء أثناء السير تعني: توقف فوراً وأطفئ المحرك دون تأخير دقيقة واحدة!</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 5: Spia Temperatura Liquido Fig 698 -->
-    <div class="technical-card" data-category="dashboard">
-      <div class="card-img-container">
-        <img src="../assets/images/lighting_parts/spia_temperatura_liquido_radiatore.jpg" alt="Spia temperatura liquido raffreddamento Fig. 698" class="card-img-real" loading="lazy">
-      </div>
-      <div class="card-content">
-        <div class="card-header-info">
-          <div class="card-title-it">Spia temperatura liquido raffreddamento (Fig. 698)</div>
-          <h3 class="card-title-ar">لمبة حرارة سائل تبريد المحرك الحمراء</h3>
-        </div>
-        <div class="card-box-vero">
-          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">✅</span> تضيء باللون الأحمر على شكل ميزان حرارة في سائل وتدل على سخونة مفرطة لسائل تبريد المحرك.</li>
-            <li><span class="bullet-icon">✅</span> توجب التوقف الفوري الآمن وإطفاء المحرك للتحقق من مستوى سائل الردياتير بعد أن يبرد.</li>
-            <li><span class="bullet-icon">✅</span> يحظر فتح غطاء الردياتير والمحرك ساخن جداً لتجنب اندفاع البخار الحارق.</li>
-          </ul>
-        </div>
-        <div class="card-box-falso">
-          <div class="card-box-falso-title"><span>❌</span> ادعاءات شائعة مضللة (FALSO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">⛔</span> يزعم أنها تشير إلى تجمد السائل فقط في فصل الشتاء (FALSO، تدل على فرط الحرارة).</li>
-            <li><span class="bullet-icon">⛔</span> يزعم إمكانية تبريد المحرك بصب ماء مثلج مباشرة فوق المحرك الساخن (يسبب كسر رأس المحرك).</li>
-          </ul>
-        </div>
-        <div class="card-trap-box">
-          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الدقيق</div>
-          <p>إضاءة لمبة الحرارة توجب إيقاف المحرك، ولا يجوز مطلقاً فتح غطاء سائل التبريد إلا بعد هبوط الحرارة تفادياً للحروق الخطيرة!</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 6: Spia Freni Fig 696 -->
-    <div class="technical-card" data-category="dashboard">
-      <div class="card-img-container">
-        <img src="../assets/images/lighting_parts/spia_freni_livello_pastiglie.jpg" alt="Spia impianto frenante Fig. 696" class="card-img-real" loading="lazy">
-      </div>
-      <div class="card-content">
-        <div class="card-header-info">
-          <div class="card-title-it">Spia impianto frenante / freno a mano (Fig. 696)</div>
-          <h3 class="card-title-ar">لمبة فرامل اليد ونظام الفرامل الحمراء</h3>
-        </div>
-        <div class="card-box-vero">
-          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">✅</span> علامة تعجب حمراء بين قوسين: تدل إما على أن فرامل اليد مشدودة أو على انخفاض حاد بسائل الفرامل.</li>
-            <li><span class="bullet-icon">✅</span> إذا ظلت مضاءة بعد تنزيل فرامل اليد بالكامل، فإن ذلك يعني خللاً خطيراً في دورة الفرامل الهيدروليكية أو تآكل أقمشة الفرامل.</li>
-            <li><span class="bullet-icon">✅</span> توجب الفحص الفوري لأن مسافة الفرملة قد تزداد بشكل مفاجئ وخطير.</li>
-          </ul>
-        </div>
-        <div class="card-box-falso">
-          <div class="card-box-falso-title"><span>❌</span> ادعاءات شائعة مضللة (FALSO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">⛔</span> يزعم أنها تشير إلى انخفاض ضغط هواء الإطارات (FALSO، خاصة بنظام الفرامل).</li>
-            <li><span class="bullet-icon">⛔</span> يزعم إمكانية القيادة بسرعة عالية طالما أن دواسة الفرامل تعمل نسبياً (FALSO).</li>
-          </ul>
-        </div>
-        <div class="card-trap-box">
-          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الدقيق</div>
-          <p>علامة التعجب الحمراء Fig 696: إذا لم تنطفئ بعد تحرير فرامل اليد، فهذا يعني نقص سائل الفرامل أو عطل بالدائرة الهيدروليكية!</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 7: I Catadiottri -->
-    <div class="technical-card" data-category="signals">
-      <div class="card-img-container">
-        <img src="../assets/images/lighting_parts/catadiottri_triangolari_non_triangolari.jpg" alt="Catadiottri triangolari e non triangolari" class="card-img-real" loading="lazy">
-      </div>
-      <div class="card-content">
-        <div class="card-header-info">
-          <div class="card-title-it">I catadiottri (Dispositivi a luce riflessa)</div>
-          <h3 class="card-title-ar">العواكس الضوئية السلبية</h3>
-        </div>
-        <div class="card-box-vero">
-          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">✅</span> عواكس سلبية تعكس الضوء المسلط عليها لتحديد وجود المركبة وأبعادها في الظلام عند انطفاء أنوارها.</li>
-            <li><span class="bullet-icon">✅</span> **حمراء مثلثة**: حصرياً للمقطورات ونصف المقطورات في المؤخرة (مثلث رأسه للأعلى).</li>
-            <li><span class="bullet-icon">✅</span> **غير مثلثة**: دائرية أو مستطيلة لسيارات الركوب والشاحنات والدراجات.</li>
-          </ul>
-        </div>
-        <div class="card-box-falso">
-          <div class="card-box-falso-title"><span>❌</span> ادعاءات شائعة مضللة (FALSO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">⛔</span> يزعم أن العواكس المثلثية تركب على مقدمة المقطورات أو على مؤخرة السيارات العادية (FALSO).</li>
-            <li><span class="bullet-icon">⛔</span> يزعم أنها تحتوي على لمبات وتصدر إضاءة كهربائية ذاتية (FALSO، أجهزة عاكسة فقط).</li>
-          </ul>
-        </div>
-        <div class="card-trap-box">
-          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الدقيق</div>
-          <p>عاكس مثلث أحمر = مقطورة (Rimorchio) حصرياً. عاكس غير مثلث أحمر = سيارة أو شاحنة عادية!</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 8: Avvisatore Acustico (Il Clacson) -->
-    <div class="technical-card" data-category="signals">
-      <div class="card-img-container">
-        <img src="../assets/images/lighting_parts/clacson_segnalazione_acustica.jpg" alt="Avvisatore acustico clacson" class="card-img-real" loading="lazy">
-      </div>
-      <div class="card-content">
-        <div class="card-header-info">
-          <div class="card-title-it">L'avvisatore acustico (Uso del clacson)</div>
-          <h3 class="card-title-ar">جهاز التنبيه الصوتي (الكلاكس)</h3>
-        </div>
-        <div class="card-box-vero">
-          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">✅</span> يجب استخدامه بأقصى درجات الاعتدال ولقصر وقت ممكن فقط لدواعي السلامة المرورية المباشرة.</li>
-            <li><span class="bullet-icon">✅</span> داخل المدن: ممنوع استخدام الكلاكس إلا في حالات الخطر الوشيك المباشر أو عند نقل جريح أو مصاب بحالة خطيرة.</li>
-            <li><span class="bullet-icon">✅</span> يستعاض عنه نهاراً وليلاً بومضات الضوء العالي المتقطعة (Lampeggio) كلما أمكن ذلك.</li>
-          </ul>
-        </div>
-        <div class="card-box-falso">
-          <div class="card-box-falso-title"><span>❌</span> ادعاءات شائعة مضللة (FALSO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">⛔</span> يزعم استخدام الكلاكس لحث السيارة الأمامية على الإسراع عند فتح الإشارة الخضراء (مخالفة مزعجة).</li>
-            <li><span class="bullet-icon">⛔</span> يزعم استخدامه للتحية أو إبداء الغضب والاحتجاج في الازدحام (يعاقب بغرامة مالية).</li>
-          </ul>
-        </div>
-        <div class="card-trap-box">
-          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الدقيق</div>
-          <p>داخل المدن: الكلاكس ممنوع تماماً كأصل عام، والاستثناء الوحيد هو الخطر المباشر أو إسعاف مصاب بجروح خطيرة للمستشفى!</p>
-        </div>
-      </div>
-    </div>
-
-  
-    <!-- Card 9: Luci di Posizione e Luce Targa -->
-    <div class="technical-card" data-category="lights">
-      <div class="card-img-container">
-        <img src="../assets/images/lighting_parts/luci_posizione_targa.jpg" alt="Luci di posizione e illuminazione targa" class="card-img-real" loading="lazy">
-      </div>
-      <div class="card-content">
-        <div class="card-header-info">
-          <div class="card-title-it">Luci di posizione e luce della targa (Art. 151-152)</div>
-          <h3 class="card-title-ar">أنوار الموضع وإضاءة لوحة الأرقام الخلفية</h3>
-        </div>
-        <div class="card-box-vero">
-          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">✅</span> أنوار الموضع الأمامية بيضاء والخلفية حمراء، وتحدد أبعاد وعرض المركبة عند التوقف أو السير.</li>
-            <li><span class="bullet-icon">✅</span> يجب إشعالها من نصف ساعة بعد الغروب إلى نصف ساعة قبل الشروق كلما كانت السيارة متوقفة على طريق غير مضاء.</li>
-            <li><span class="bullet-icon">✅</span> إضاءة اللوحة الخلفية (Luce targa) إلزامية بضوء أبيض ناصع يجعل أرقامها وحروفها مقروءة على مسافة لا تقل عن 20 متراً.</li>
-          </ul>
-        </div>
-        <div class="card-box-falso">
-          <div class="card-box-falso-title"><span>❌</span> أخطاء شائعة في الاختبار (FALSO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">🚫</span> [FALSO] أنوار الموضع وحدها كافية لإنارة الطريق أثناء السير في الطرق المظلمة ليلاً.</li>
-            <li><span class="bullet-icon">🚫</span> [FALSO] يجوز أن تكون إضاءة لوحة الأرقام بلون أحمر أو أزرق أو خافتة تكفي لمسافة 5 أمتار فقط.</li>
-          </ul>
-        </div>
-        <div class="card-trap-box">
-          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الحاسم (Trabocchetto)</div>
-          <p>احذر: في المركبات العادية لا يجوز السير بأنوار الموضع فقط (Luci di posizione) ليلاً، بل يلزم إشعال الضوء المنخفض معها حتماً.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 10: Fendinebbia Anteriori e Retronebbia -->
-    <div class="technical-card" data-category="lights">
-      <div class="card-img-container">
-        <img src="../assets/images/lighting_parts/fendinebbia_anteriori_retronebbia.jpg" alt="Fendinebbia anteriori e retronebbia" class="card-img-real" loading="lazy">
-      </div>
-      <div class="card-content">
-        <div class="card-header-info">
-          <div class="card-title-it">Fendinebbia anteriori e luce posteriore retronebbia</div>
-          <h3 class="card-title-ar">كشافات الضباب الأمامية وكشاف الضباب الخلفي</h3>
-        </div>
-        <div class="card-box-vero">
-          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">✅</span> الكشاف الخلفي (Retronebbia) يرسل ضوءاً أحمر شديد الكثافة، ولمبته في التابلوه صفراء كهرمانية (Ambra).</li>
-            <li><span class="bullet-icon">✅</span> إشعال الريترونيبيا إلزامي فقط إذا انخفضت الرؤية عن 50 متراً بسبب الضباب أو المطر الغزير أو تساقط الثلوج.</li>
-            <li><span class="bullet-icon">✅</span> كشافات الضباب الأمامية (لمبتها خضراء) توجه حزمة عريضة ملاصقة للإسفلت تحت طبقة الضباب.</li>
-            <li><span class="bullet-icon">✅</span> يجب إطفاء الريترونيبيا فور انقشاع الضباب لتفادي إبهار وإزعاج السائقين القادمين من الخلف.</li>
-          </ul>
-        </div>
-        <div class="card-box-falso">
-          <div class="card-box-falso-title"><span>❌</span> أخطاء شائعة في الاختبار (FALSO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">🚫</span> [FALSO] كشاف الضباب الخلفي يضاء دائماً في الأوتوستراد حتى في الأيام الصافية لزيادة الأمان.</li>
-            <li><span class="bullet-icon">🚫</span> [FALSO] لمبة كشاف الضباب الخلفي في لوحة العدادات تضيء بلون أزرق أو أحمر.</li>
-          </ul>
-        </div>
-        <div class="card-trap-box">
-          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الحاسم (Trabocchetto)</div>
-          <p>قاعدة الـ 50 متراً: الريترونيبيا مخصص فقط لحالات الرؤية دون 50 متراً. تشغيله في الظروف العادية يعتبر مخالفة صريحة لإبهاره الشديد.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 11: Indicatori di Direzione -->
-    <div class="technical-card" data-category="signals">
-      <div class="card-img-container">
-        <img src="../assets/images/lighting_parts/indicatori_direzione_svolta.jpg" alt="Indicatori di direzione frecce" class="card-img-real" loading="lazy">
-      </div>
-      <div class="card-content">
-        <div class="card-header-info">
-          <div class="card-title-it">Indicatori di direzione (Le frecce luminose)</div>
-          <h3 class="card-title-ar">إشارات تغيير الاتجاه (الفلاشات / الفريتشي)</h3>
-        </div>
-        <div class="card-box-vero">
-          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">✅</span> يجب تشغيلها بوقت كافٍ ومسبق (Con sufficiente anticipo) قبل الشروع في أي حركة جانبية أو دوران.</li>
-            <li><span class="bullet-icon">✅</span> إلزامية عند الانعطاف يميناً أو يساراً، وعند تغيير المسار، وعند الخروج من الميدان (Rotatoria).</li>
-            <li><span class="bullet-icon">✅</span> إلزامية عند التجاوز (قبل الخروج من المسار وقبل العودة إليه)، وعند التحرك من حافة الطريق بعد التوقف.</li>
-            <li><span class="bullet-icon">✅</span> لمبتها في التابلوه سهمان يومضان باللون الأخضر مع صوت تكتكة تزامني مسموع.</li>
-          </ul>
-        </div>
-        <div class="card-box-falso">
-          <div class="card-box-falso-title"><span>❌</span> أخطاء شائعة في الاختبار (FALSO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">🚫</span> [FALSO] إذا كان الشارع خالياً تماماً من السيارات يمكن الاستغناء عن إشارة الانعطاف.</li>
-            <li><span class="bullet-icon">🚫</span> [FALSO] يتم تشغيل الإشارة فقط لحظة بدء تدوير المقود وليس مسبقاً.</li>
-          </ul>
-        </div>
-        <div class="card-trap-box">
-          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الحاسم (Trabocchetto)</div>
-          <p>فخ الميدان: عند الدخول في الدوران لا يلزم تشغيل الإشارة إذا كنت ستسير للأمام، لكن إشارة اليمين إلزامية دائماً قبل مخرجك الذي ستغادر منه الميدان!</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 12: Spia Batteria Alternatore Fig. 699 -->
-    <div class="technical-card" data-category="dashboard">
-      <div class="card-img-container">
-        <img src="../assets/images/lighting_parts/spia_batteria_alternatore.jpg" alt="Spia ricarica batteria Fig 699" class="card-img-real" loading="lazy">
-      </div>
-      <div class="card-content">
-        <div class="card-header-info">
-          <div class="card-title-it">Spia ricarica batteria / alternatore (Fig. 699)</div>
-          <h3 class="card-title-ar">لمبة شحن البطارية والدينامو الحمراء</h3>
-        </div>
-        <div class="card-box-vero">
-          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">✅</span> تضيء باللون الأحمر عند فتح الكونتاكت وتجب أن تنطفئ تلقائياً بمجرد دوران المحرك.</li>
-            <li><span class="bullet-icon">✅</span> إذا أضاءت أثناء السير فهي تعني أن المولد (Alternatore) لا يقوم بشحن البطارية.</li>
-            <li><span class="bullet-icon">✅</span> قد يكون السبب انقطاع أو ارتخاء سير الدينامو، أو تلف داخلي في منظم الجهد الكهربائي.</li>
-            <li><span class="bullet-icon">✅</span> السيارة ستتوقف قريباً بمجرد نفاد شحنة البطارية المخزنة لانقطاع شرارة الإشعال أو البخاخات.</li>
-          </ul>
-        </div>
-        <div class="card-box-falso">
-          <div class="card-box-falso-title"><span>❌</span> أخطاء شائعة في الاختبار (FALSO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">🚫</span> [FALSO] إضاءة اللمبة تعني أن سائل حمض البطارية قد تبخر بالكامل ويجب إضافة حمض مركز.</li>
-            <li><span class="bullet-icon">🚫</span> [FALSO] يمكن مواصلة السفر لمسافات طويلة دون قلق طالما أن خزان الوقود ممتلئ.</li>
-          </ul>
-        </div>
-        <div class="card-trap-box">
-          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الحاسم (Trabocchetto)</div>
-          <p>احذر: اللمبة تشير إلى خلل في عملية الشحن من المولد (Mancata ricarica)، وليس مجرد أن البطارية قديمة أو مستهلكة.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 13: Pannello Carichi Sporgenti Fig. 302 -->
-    <div class="technical-card" data-category="signals">
-      <div class="card-img-container">
-        <img src="../assets/images/lighting_parts/pannello_carichi_sporgenti_302.jpg" alt="Pannello per carichi sporgenti Fig 302" class="card-img-real" loading="lazy">
-      </div>
-      <div class="card-content">
-        <div class="card-header-info">
-          <div class="card-title-it">Pannello per carichi sporgenti (Fig. 302 - Art. 164)</div>
-          <h3 class="card-title-ar">لوح الإشارة للحمولة البارزة للخلف (50x50 سم)</h3>
-        </div>
-        <div class="card-box-vero">
-          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">✅</span> لوح معدني مربع مقاسه 50×50 سم مغطى بشرائح عاكسة مائلة باللونين الأحمر والأبيض.</li>
-            <li><span class="bullet-icon">✅</span> يثبت عند طرف أي حمولة تبرز طولياً من خلف المركبة (مثل حامل الدراجات الهوائية Portabici).</li>
-            <li><span class="bullet-icon">✅</span> يسمح بالبروز الخلفي بحد أقصى 30% من الطول الإجمالي للمركبة للأحمال غير القابلة للتجزئة.</li>
-            <li><span class="bullet-icon">✅</span> يمنع منعاً باتاً أي بروز للحمولة من مقدمة السيارات الخاصة (Nessuna sporgenza anteriore).</li>
-          </ul>
-        </div>
-        <div class="card-box-falso">
-          <div class="card-box-falso-title"><span>❌</span> أخطاء شائعة في الاختبار (FALSO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">🚫</span> [FALSO] يمكن استبدال اللوح بقطعة قماش حمراء تتدلى من الحمولة أثناء النهار.</li>
-            <li><span class="bullet-icon">🚫</span> [FALSO] يسمح ببروز الحمولة من الأمام بنسبة 10% من طول السيارة.</li>
-          </ul>
-        </div>
-        <div class="card-trap-box">
-          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الحاسم (Trabocchetto)</div>
-          <p>لوحان اثنان: إذا كانت الحمولة البارزة للخلف تغطي كامل عرض مؤخرة السيارة، فيجب تثبيت لوحين Fig. 302 في الطرفين يشكلان رقم 8 بالعكس (V rovesciata).</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 14: Luci diurne DRL a LED -->
-    <div class="technical-card" data-category="lights">
-      <div class="card-img-container">
-        <img src="../assets/images/lighting_parts/luci_diurne_drl_led.jpg" alt="Luci di marcia diurna DRL" class="card-img-real" loading="lazy">
-      </div>
-      <div class="card-content">
-        <div class="card-header-info">
-          <div class="card-title-it">Luci di marcia diurna (DRL - Daytime Running Lights)</div>
-          <h3 class="card-title-ar">أضواء القيادة النهارية المعتمدة (DRL)</h3>
-        </div>
-        <div class="card-box-vero">
-          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">✅</span> أضواء أمامية بيضاء ساطعة تعمل تلقائياً عند بدء تشغيل المحرك لتحسين رؤية المركبة نهاراً.</li>
-            <li><span class="bullet-icon">✅</span> تغني عن إشعال الضوء المنخفض (Anabbaglianti) نهاراً خارج المدن في ظروف الرؤية العادية والصافية.</li>
-            <li><span class="bullet-icon">✅</span> لا تضيء المصابيح الخلفية للمركبة عند تشغيلها وحدها في معظم السيارات الحديثة.</li>
-            <li><span class="bullet-icon">✅</span> يجب التحول فوراً للأناباجلينتي عند دخول الأنفاق أو عند حلول الغسق والظلام أو سوء الطقس.</li>
-          </ul>
-        </div>
-        <div class="card-box-falso">
-          <div class="card-box-falso-title"><span>❌</span> أخطاء شائعة في الاختبار (FALSO)</div>
-          <ul class="card-bullet-list">
-            <li><span class="bullet-icon">🚫</span> [FALSO] أضواء الـ DRL تكفي للقيادة ليلاً في الشوارع المضاءة داخل المدينة.</li>
-            <li><span class="bullet-icon">🚫</span> [FALSO] أضواء الـ DRL تغني عن إشعال الضوء المنخفض داخل الأنفاق أثناء النهار.</li>
-          </ul>
-        </div>
-        <div class="card-trap-box">
-          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الحاسم (Trabocchetto)</div>
-          <p>فخ الأنفاق: أضواء DRL لا تغني أبداً عن تشغيل الضوء المنخفض داخل أي نفق (Galleria)، لأن الأنفاق تتطلب إضاءة الأنوار الخلفية أيضاً!</p>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- ========================================== -->
-  <!-- WORKSHOP PHOTO GALLERY (6 AUTHENTIC PHOTOS)-->
-  <!-- ========================================== -->
-  <section class="workshop-gallery-section" id="workshop-gallery">
-    <div class="section-heading" style="margin-bottom: 24px;">
-      <div class="section-badge" style="display: inline-block; background: #1e3a8a; color: #93c5fd; padding: 4px 12px; border-radius: 6px; font-weight: 700; font-size: 0.85rem; margin-bottom: 8px;">المعرض التوثيقي الميداني للباب 18</div>
-      <h2 class="section-title" style="font-size: 1.5rem; font-weight: 800; color: #f8fafc; margin: 0;">منظومات الإضاءة، لوحة العدادات، العواكس وألواح الحمولة الرسمية</h2>
+      <span class="section-badge">6 مشاهد أصلية 16:9</span>
     </div>
     <div class="workshop-gallery-grid">
-      <!-- 1: Dashboard Cluster -->
+
       <div class="workshop-gallery-card">
         <div class="workshop-gallery-media">
           <img src="../assets/images/lighting_parts/gallery_quadro_strumenti_spie.jpg" alt="Quadro strumenti e spie" loading="lazy">
@@ -2227,8 +1070,6 @@
           <p class="workshop-gallery-desc">التوزيع القياسي للمبات التابلوه: الحمراء للتوقف الفوري والأعطال الجسيمة، الصفراء للتنبيه والعطل الجزئي، الخضراء للأجهزة الفعالة، والزرقاء للضوء العالي فقط.</p>
         </div>
       </div>
-
-      <!-- 2: Headlight Cutaway -->
       <div class="workshop-gallery-card">
         <div class="workshop-gallery-media">
           <img src="../assets/images/lighting_parts/gallery_gruppo_ottico_faro_led.jpg" alt="Gruppo ottico faro LED" loading="lazy">
@@ -2240,8 +1081,6 @@
           <p class="workshop-gallery-desc">المقطع الهندسي لكشاف السيارة الحديث يوضح العدسة المقوسة المانعة للإبهار لمسار المنخفض، وعاكس مسار العالي الممتد لمسافة تتجاوز 100 متر.</p>
         </div>
       </div>
-
-      <!-- 3: Headlamp Switch -->
       <div class="workshop-gallery-card">
         <div class="workshop-gallery-media">
           <img src="../assets/images/lighting_parts/gallery_interruttore_fari_selettore.jpg" alt="Interruttore fari selettore rotativo" loading="lazy">
@@ -2253,8 +1092,6 @@
           <p class="workshop-gallery-desc">المفتاح الدوار الرسمي لتحديد وضعية الأنوار؛ وبالسحب للخارج يتم تفعيل كشافات الضباب الأمامية والخلفية (Retronebbia).</p>
         </div>
       </div>
-
-      <!-- 4: Trailer Triangular Reflectors -->
       <div class="workshop-gallery-card">
         <div class="workshop-gallery-media">
           <img src="../assets/images/lighting_parts/gallery_catadiottro_rimorchio_triangolo.jpg" alt="Catadiottri triangolari rimorchio" loading="lazy">
@@ -2266,8 +1103,6 @@
           <p class="workshop-gallery-desc">الميزة البصرية الحصرية لتمييز المقطورات وشبه المقطورات؛ وجود المثلثين بالخلف يحذر فوراً من وجود عربة مسحوبة ويحظر تركيبها على السيارات العادية.</p>
         </div>
       </div>
-
-      <!-- 5: Overhanging Cargo Panel -->
       <div class="workshop-gallery-card">
         <div class="workshop-gallery-media">
           <img src="../assets/images/lighting_parts/gallery_pannello_carico_sporgente_retro.jpg" alt="Pannello carico sporgente Fig 302" loading="lazy">
@@ -2279,8 +1114,6 @@
           <p class="workshop-gallery-desc">التثبيت الصحيح للوح المخطط بالأحمر والأبيض على حامل الدراجات الخلفي؛ مع وجود اللوحة الصفراء المكررة (Targa ripetitrice) إذا حجبت اللوحة الأصلية.</p>
         </div>
       </div>
-
-      <!-- 6: Hazard Warning Flasher Switch -->
       <div class="workshop-gallery-card">
         <div class="workshop-gallery-media">
           <img src="../assets/images/lighting_parts/gallery_interruttore_quattro_frecce_plancia.jpg" alt="Interruttore quattro frecce emergenza" loading="lazy">
@@ -2295,611 +1128,658 @@
     </div>
   </section>
 
-
-
-  <!-- AUDIO GLOSSARY SECTION -->
-  <section class="glossary-section">
-    <div class="glossary-title">
-      <span>🎧</span>
-      <span>القاموس الصوتي للمصطلحات الوزارية للباب 18 (Glossario Audio)</span>
+  <!-- COMPREHENSIVE CARDS SECTION -->
+  <section class="comp-section">
+    <div class="section-heading">
+      <div>
+        <h2 class="section-title"><span>📖</span> البطاقات الفنية وقواعد منظومات الإضاءة والتابلوه</h2>
+        <p style="font-size:0.86rem; color:var(--text-secondary); margin-top:4px;">تحليل وزاري دقيق يوضح الحالات المعتمدة والأفخاخ الشائعة لكل موضوع</p>
+      </div>
+      <span class="section-badge">14 بطاقة معتمدة</span>
     </div>
-    <div class="glossary-grid">
-      <div class="glossary-card">
-        <div class="glossary-info">
-          <div class="glossary-term-it">Luci anabbaglianti</div>
-          <div class="glossary-term-ar">الضوء المنخفض (اللمبة الخضراء)</div>
-        </div>
-        <button class="glossary-audio-btn" onclick="speakTerm('Luci anabbaglianti')">🔊</button>
-      </div>
 
-      <div class="glossary-card">
-        <div class="glossary-info">
-          <div class="glossary-term-it">Luci abbaglianti</div>
-          <div class="glossary-term-ar">الضوء العالي / فوانيس العمق</div>
-        </div>
-        <button class="glossary-audio-btn" onclick="speakTerm('Luci abbaglianti')">🔊</button>
-      </div>
+    <!-- Filter Pills -->
+    <div class="quick-nav-bar">
+      <button class="filter-pill active" onclick="filterCards('all', this)">جميع البطاقات (14)</button>
+      <button class="filter-pill " onclick="filterCards('lights', this)">الأنوار والكشافات (6)</button>
+      <button class="filter-pill " onclick="filterCards('dashboard', this)">لمبات التابلوه (4)</button>
+      <button class="filter-pill " onclick="filterCards('signals', this)">العواكس والتحذيرات (4)</button>
+    </div>
 
-      <div class="glossary-card">
-        <div class="glossary-info">
-          <div class="glossary-term-it">Luci di posizione</div>
-          <div class="glossary-term-ar">أضواء الموضع وتحديد الأبعاد</div>
-        </div>
-        <button class="glossary-audio-btn" onclick="speakTerm('Luci di posizione')">🔊</button>
-      </div>
+    <!-- Cards Grid -->
+    <div class="signals-grid">
 
-      <div class="glossary-card">
-        <div class="glossary-info">
-          <div class="glossary-term-it">Catadiottri</div>
-          <div class="glossary-term-ar">العواكس الضوئية السلبية</div>
-        </div>
-        <button class="glossary-audio-btn" onclick="speakTerm('Catadiottri')">🔊</button>
+    <!-- CARD: الضوء المنخفض ولمبته الخضراء -->
+    <div class="signal-card" data-category="lights">
+      <div class="signal-img-container">
+        <img src="../assets/images/lighting_parts/luci_anabbaglianti_fascio.jpg" alt="Proiettori anabbaglianti e spia verde 704" loading="lazy">
       </div>
-
-      <div class="glossary-card">
-        <div class="glossary-info">
-          <div class="glossary-term-it">Spia di colore blu</div>
-          <div class="glossary-term-ar">المؤشر الأزرق للضوء العالي</div>
-        </div>
-        <button class="glossary-audio-btn" onclick="speakTerm('Spia di colore blu')">🔊</button>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الضوء المنخفض ولمبته الخضراء</h3>
+        <span class="card-it-title">Proiettori anabbaglianti (Fig. 704)</span>
       </div>
-
-      <div class="glossary-card">
-        <div class="glossary-info">
-          <div class="glossary-term-it">Quattro frecce</div>
-          <div class="glossary-term-ar">أضواء التحذير الرباعية من الخطر</div>
-        </div>
-        <button class="glossary-audio-btn" onclick="speakTerm('Quattro frecce')">🔊</button>
+      
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> إلزامي الاستخدام طوال الـ 24 ساعة خارج المدن لجميع المركبات ذات المحرك.</li>
+          <li><span>✅</span> إلزامي داخل جميع الأنفاق (Gallerie) ليلاً ونهاراً حتى لو كانت مضاءة تماماً.</li>
+          <li><span>✅</span> لمبته في لوحة القيادة خضراء بأشعة متجهة للأسفل (Fig 704).</li>
+        </ul>
       </div>
-
-      <div class="glossary-card">
-        <div class="glossary-info">
-          <div class="glossary-term-it">Abbagliamento</div>
-          <div class="glossary-term-ar">إبهار البصر بالضوء الشديد</div>
-        </div>
-        <button class="glossary-audio-btn" onclick="speakTerm('Abbagliamento')">🔊</button>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والادعاءات المضللة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يزعم الاكتفاء بأضواء الموضع (Posizione) داخل الأنفاق المضاءة جيداً (FALSO، المنخفض إجباري).</li>
+          <li><span>❌</span> يزعم أن لونه أزرق في طبلون القيادة (FALSO، الأزرق خاص بالضوء العالي فقط).</li>
+        </ul>
       </div>
-
-      <div class="glossary-card">
-        <div class="glossary-info">
-          <div class="glossary-term-it">Avvisatore acustico</div>
-          <div class="glossary-term-ar">آلة التنبيه الصوتي (الكلاكس)</div>
-        </div>
-        <button class="glossary-audio-btn" onclick="speakTerm('Avvisatore acustico')">🔊</button>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> داخل أي نفق (Galleria)، سواء كان مضاءً كالشمس أو مظلماً، يلزم تشغيل الضوء المنخفض فوراً ولا تكفي أضواء الموضع إطلاقاً!
       </div>
+    </div>
+    <!-- CARD: الضوء العالي وفوانيس العمق ولمبته الزرقاء -->
+    <div class="signal-card" data-category="lights">
+      <div class="signal-img-container">
+        <img src="../assets/images/lighting_parts/luci_abbaglianti_profondita.jpg" alt="Proiettori di profondità abbaglianti e spia blu 705" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">الضوء العالي وفوانيس العمق ولمبته الزرقاء</h3>
+        <span class="card-it-title">Proiettori abbaglianti (Fig. 705)</span>
+      </div>
+      
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يستخدم خارج المدن فقط عندما تكون الإضاءة العامة مفقودة أو غير كافية والطريق خالياً.</li>
+          <li><span>✅</span> يجب استبداله فوراً بالضوء المنخفض عند اقتراب مركبة في الاتجاه المعاكس أو تسبقك بمسافة قريبة.</li>
+          <li><span>✅</span> اللمبة الزرقاء الوحيدة في طبلون السيارة هي لمبة الضوء العالي (Fig 705).</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والادعاءات المضللة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يزعم جواز استخدامه داخل المدن إذا كان الشارع مظلماً جداً (ممنوع تماماً داخل المدن).</li>
+          <li><span>❌</span> يزعم إبقاءه مشتعلاً إذا كانت السيارة المقابلة تستخدم ضوءاً عالياً لمعاقبتها (تصرف خطير وممنوع).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> إذا بهرك سائق قادم بالضوء العالي، لا تقم بالرد عليه بتشغيل العالي، بل انظر نحو الحافة اليمنى للطريق وخفف سرعتك بحذر!
+      </div>
+    </div>
+    <!-- CARD: أضواء الخطر الرباعية التزامنية -->
+    <div class="signal-card" data-category="lights">
+      <div class="signal-img-container">
+        <img src="../assets/images/lighting_parts/quattro_frecce_emergenza.jpg" alt="Segnalazione luminosa di pericolo 4 frecce" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">أضواء الخطر الرباعية التزامنية</h3>
+        <span class="card-it-title">Segnalazione luminosa di pericolo (4 frecce)</span>
+      </div>
+      
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تشغيل جميع ومضات الاتجاه الأربعة في وقت واحد عبر زر الطوارئ ذي المثلث الأحمر.</li>
+          <li><span>✅</span> إلزامية عند التوقف الاضطراري (Sosta di emergenza) في مسار السير أو حارة الطوارئ.</li>
+          <li><span>✅</span> إلزامية عند الاضطرار لفرملة حادة مفاجئة بسبب طابور سيارات متوقف أمامك لتنبيه الخلف.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والادعاءات المضللة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يزعم استخدامها لتبرير الركن في الصف الثاني (Seconda fila) أمام محل تجاري (مخالفة مزدوجة).</li>
+          <li><span>❌</span> يزعم تشغيلها أثناء عبور التقاطعات المزدحمة لطلب الأولوية (FALSO).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> تشغيل الـ 4 Frecce لا يعطيك أي حق للركن الخاطئ في الصف الثاني، واستخدامها مقتصر حصرياً على مواقف الخطر والفرملة المفاجئة!
+      </div>
+    </div>
+    <!-- CARD: لمبة ضغط زيت المحرك الحمراء -->
+    <div class="signal-card" data-category="dashboard">
+      <div class="signal-img-container">
+        <img src="../assets/images/lighting_parts/spia_pressione_olio_motore.jpg" alt="Spia pressione olio motore Fig. 697" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لمبة ضغط زيت المحرك الحمراء</h3>
+        <span class="card-it-title">Spia pressione olio motore (Fig. 697)</span>
+      </div>
+      
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تضيء باللون الأحمر على شكل إبريق زيت وتدل على نقص حرج في ضغط دورة تزييت المحرك.</li>
+          <li><span>✅</span> إذا أضاءت أثناء السير، يجب التوقف فوراً بأمان وإطفاء المحرك لتجنب تدميره بالكامل.</li>
+          <li><span>✅</span> تضيء طبيعياً عند فتح الكونتاكت وتنطفئ بمجرد دوران المحرك.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والادعاءات المضللة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يزعم أنها تشير إلى ارتفاع درجة حرارة الزيت فقط ويمكن متابعة السير حتى أقرب ورشة (خطأ قاتل للمحرك).</li>
+          <li><span>❌</span> يزعم أنها تضيء باللون البرتقالي للتحذير من موعد الصيانة الدورية (FALSO، حمراء حرجة).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> إضاءة لمبة الزيت الحمراء أثناء السير تعني: توقف فوراً وأطفئ المحرك دون تأخير دقيقة واحدة!
+      </div>
+    </div>
+    <!-- CARD: لمبة حرارة سائل تبريد المحرك الحمراء -->
+    <div class="signal-card" data-category="dashboard">
+      <div class="signal-img-container">
+        <img src="../assets/images/lighting_parts/spia_temperatura_liquido_radiatore.jpg" alt="Spia temperatura liquido raffreddamento Fig. 698" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لمبة حرارة سائل تبريد المحرك الحمراء</h3>
+        <span class="card-it-title">Spia temperatura liquido raffreddamento (Fig. 698)</span>
+      </div>
+      
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تضيء باللون الأحمر على شكل ميزان حرارة في سائل وتدل على سخونة مفرطة لسائل تبريد المحرك.</li>
+          <li><span>✅</span> توجب التوقف الفوري الآمن وإطفاء المحرك للتحقق من مستوى سائل الردياتير بعد أن يبرد.</li>
+          <li><span>✅</span> يحظر فتح غطاء الردياتير والمحرك ساخن جداً لتجنب اندفاع البخار الحارق.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والادعاءات المضللة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يزعم أنها تشير إلى تجمد السائل فقط في فصل الشتاء (FALSO، تدل على فرط الحرارة).</li>
+          <li><span>❌</span> يزعم إمكانية تبريد المحرك بصب ماء مثلج مباشرة فوق المحرك الساخن (يسبب كسر رأس المحرك).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> إضاءة لمبة الحرارة توجب إيقاف المحرك، ولا يجوز مطلقاً فتح غطاء سائل التبريد إلا بعد هبوط الحرارة تفادياً للحروق الخطيرة!
+      </div>
+    </div>
+    <!-- CARD: لمبة فرامل اليد ونظام الفرامل الحمراء -->
+    <div class="signal-card" data-category="dashboard">
+      <div class="signal-img-container">
+        <img src="../assets/images/lighting_parts/spia_freni_livello_pastiglie.jpg" alt="Spia impianto frenante Fig. 696" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لمبة فرامل اليد ونظام الفرامل الحمراء</h3>
+        <span class="card-it-title">Spia impianto frenante / freno a mano (Fig. 696)</span>
+      </div>
+      
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> علامة تعجب حمراء بين قوسين: تدل إما على أن فرامل اليد مشدودة أو على انخفاض حاد بسائل الفرامل.</li>
+          <li><span>✅</span> إذا ظلت مضاءة بعد تنزيل فرامل اليد بالكامل، فإن ذلك يعني خللاً خطيراً في دورة الفرامل الهيدروليكية أو تآكل أقمشة الفرامل.</li>
+          <li><span>✅</span> توجب الفحص الفوري لأن مسافة الفرملة قد تزداد بشكل مفاجئ وخطير.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والادعاءات المضللة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يزعم أنها تشير إلى انخفاض ضغط هواء الإطارات (FALSO، خاصة بنظام الفرامل).</li>
+          <li><span>❌</span> يزعم إمكانية القيادة بسرعة عالية طالما أن دواسة الفرامل تعمل نسبياً (FALSO).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> علامة التعجب الحمراء Fig 696: إذا لم تنطفئ بعد تحرير فرامل اليد، فهذا يعني نقص سائل الفرامل أو عطل بالدائرة الهيدروليكية!
+      </div>
+    </div>
+    <!-- CARD: العواكس الضوئية السلبية -->
+    <div class="signal-card" data-category="signals">
+      <div class="signal-img-container">
+        <img src="../assets/images/lighting_parts/catadiottri_triangolari_non_triangolari.jpg" alt="Catadiottri triangolari e non triangolari" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">العواكس الضوئية السلبية</h3>
+        <span class="card-it-title">I catadiottri (Dispositivi a luce riflessa)</span>
+      </div>
+      
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> عواكس سلبية تعكس الضوء المسلط عليها لتحديد وجود المركبة وأبعادها في الظلام عند انطفاء أنوارها.</li>
+          <li><span>✅</span> **حمراء مثلثة**: حصرياً للمقطورات ونصف المقطورات في المؤخرة (مثلث رأسه للأعلى).</li>
+          <li><span>✅</span> **غير مثلثة**: دائرية أو مستطيلة لسيارات الركوب والشاحنات والدراجات.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والادعاءات المضللة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يزعم أن العواكس المثلثية تركب على مقدمة المقطورات أو على مؤخرة السيارات العادية (FALSO).</li>
+          <li><span>❌</span> يزعم أنها تحتوي على لمبات وتصدر إضاءة كهربائية ذاتية (FALSO، أجهزة عاكسة فقط).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> عاكس مثلث أحمر = مقطورة (Rimorchio) حصرياً. عاكس غير مثلث أحمر = سيارة أو شاحنة عادية!
+      </div>
+    </div>
+    <!-- CARD: جهاز التنبيه الصوتي (الكلاكس) -->
+    <div class="signal-card" data-category="signals">
+      <div class="signal-img-container">
+        <img src="../assets/images/lighting_parts/clacson_segnalazione_acustica.jpg" alt="Avvisatore acustico clacson" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">جهاز التنبيه الصوتي (الكلاكس)</h3>
+        <span class="card-it-title">L'avvisatore acustico (Uso del clacson)</span>
+      </div>
+      
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يجب استخدامه بأقصى درجات الاعتدال ولقصر وقت ممكن فقط لدواعي السلامة المرورية المباشرة.</li>
+          <li><span>✅</span> داخل المدن: ممنوع استخدام الكلاكس إلا في حالات الخطر الوشيك المباشر أو عند نقل جريح أو مصاب بحالة خطيرة.</li>
+          <li><span>✅</span> يستعاض عنه نهاراً وليلاً بومضات الضوء العالي المتقطعة (Lampeggio) كلما أمكن ذلك.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والادعاءات المضللة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> يزعم استخدام الكلاكس لحث السيارة الأمامية على الإسراع عند فتح الإشارة الخضراء (مخالفة مزعجة).</li>
+          <li><span>❌</span> يزعم استخدامه للتحية أو إبداء الغضب والاحتجاج في الازدحام (يعاقب بغرامة مالية).</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> داخل المدن: الكلاكس ممنوع تماماً كأصل عام، والاستثناء الوحيد هو الخطر المباشر أو إسعاف مصاب بجروح خطيرة للمستشفى!
+      </div>
+    </div>
+    <!-- CARD: أنوار الموضع وإضاءة لوحة الأرقام الخلفية -->
+    <div class="signal-card" data-category="lights">
+      <div class="signal-img-container">
+        <img src="../assets/images/lighting_parts/luci_posizione_targa.jpg" alt="Luci di posizione e illuminazione targa" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">أنوار الموضع وإضاءة لوحة الأرقام الخلفية</h3>
+        <span class="card-it-title">Luci di posizione e luce della targa (Art. 151-152)</span>
+      </div>
+      
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> أنوار الموضع الأمامية بيضاء والخلفية حمراء، وتحدد أبعاد وعرض المركبة عند التوقف أو السير.</li>
+          <li><span>✅</span> يجب إشعالها من نصف ساعة بعد الغروب إلى نصف ساعة قبل الشروق كلما كانت السيارة متوقفة على طريق غير مضاء.</li>
+          <li><span>✅</span> إضاءة اللوحة الخلفية (Luce targa) إلزامية بضوء أبيض ناصع يجعل أرقامها وحروفها مقروءة على مسافة لا تقل عن 20 متراً.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والادعاءات المضللة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> 🚫[FALSO] أنوار الموضع وحدها كافية لإنارة الطريق أثناء السير في الطرق المظلمة ليلاً.</li>
+          <li><span>❌</span> 🚫[FALSO] يجوز أن تكون إضاءة لوحة الأرقام بلون أحمر أو أزرق أو خافتة تكفي لمسافة 5 أمتار فقط.</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> احذر: في المركبات العادية لا يجوز السير بأنوار الموضع فقط (Luci di posizione) ليلاً، بل يلزم إشعال الضوء المنخفض معها حتماً.
+      </div>
+    </div>
+    <!-- CARD: كشافات الضباب الأمامية وكشاف الضباب الخلفي -->
+    <div class="signal-card" data-category="lights">
+      <div class="signal-img-container">
+        <img src="../assets/images/lighting_parts/fendinebbia_anteriori_retronebbia.jpg" alt="Fendinebbia anteriori e retronebbia" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">كشافات الضباب الأمامية وكشاف الضباب الخلفي</h3>
+        <span class="card-it-title">Fendinebbia anteriori e luce posteriore retronebbia</span>
+      </div>
+      
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> الكشاف الخلفي (Retronebbia) يرسل ضوءاً أحمر شديد الكثافة، ولمبته في التابلوه صفراء كهرمانية (Ambra).</li>
+          <li><span>✅</span> إشعال الريترونيبيا إلزامي فقط إذا انخفضت الرؤية عن 50 متراً بسبب الضباب أو المطر الغزير أو تساقط الثلوج.</li>
+          <li><span>✅</span> كشافات الضباب الأمامية (لمبتها خضراء) توجه حزمة عريضة ملاصقة للإسفلت تحت طبقة الضباب.</li>
+          <li><span>✅</span> يجب إطفاء الريترونيبيا فور انقشاع الضباب لتفادي إبهار وإزعاج السائقين القادمين من الخلف.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والادعاءات المضللة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> 🚫[FALSO] كشاف الضباب الخلفي يضاء دائماً في الأوتوستراد حتى في الأيام الصافية لزيادة الأمان.</li>
+          <li><span>❌</span> 🚫[FALSO] لمبة كشاف الضباب الخلفي في لوحة العدادات تضيء بلون أزرق أو أحمر.</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> قاعدة الـ 50 متراً: الريترونيبيا مخصص فقط لحالات الرؤية دون 50 متراً. تشغيله في الظروف العادية يعتبر مخالفة صريحة لإبهاره الشديد.
+      </div>
+    </div>
+    <!-- CARD: إشارات تغيير الاتجاه (الفلاشات / الفريتشي) -->
+    <div class="signal-card" data-category="signals">
+      <div class="signal-img-container">
+        <img src="../assets/images/lighting_parts/indicatori_direzione_svolta.jpg" alt="Indicatori di direzione frecce" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">إشارات تغيير الاتجاه (الفلاشات / الفريتشي)</h3>
+        <span class="card-it-title">Indicatori di direzione (Le frecce luminose)</span>
+      </div>
+      
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> يجب تشغيلها بوقت كافٍ ومسبق (Con sufficiente anticipo) قبل الشروع في أي حركة جانبية أو دوران.</li>
+          <li><span>✅</span> إلزامية عند الانعطاف يميناً أو يساراً، وعند تغيير المسار، وعند الخروج من الميدان (Rotatoria).</li>
+          <li><span>✅</span> إلزامية عند التجاوز (قبل الخروج من المسار وقبل العودة إليه)، وعند التحرك من حافة الطريق بعد التوقف.</li>
+          <li><span>✅</span> لمبتها في التابلوه سهمان يومضان باللون الأخضر مع صوت تكتكة تزامني مسموع.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والادعاءات المضللة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> 🚫[FALSO] إذا كان الشارع خالياً تماماً من السيارات يمكن الاستغناء عن إشارة الانعطاف.</li>
+          <li><span>❌</span> 🚫[FALSO] يتم تشغيل الإشارة فقط لحظة بدء تدوير المقود وليس مسبقاً.</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الميدان: عند الدخول في الدوران لا يلزم تشغيل الإشارة إذا كنت ستسير للأمام، لكن إشارة اليمين إلزامية دائماً قبل مخرجك الذي ستغادر منه الميدان!
+      </div>
+    </div>
+    <!-- CARD: لمبة شحن البطارية والدينامو الحمراء -->
+    <div class="signal-card" data-category="dashboard">
+      <div class="signal-img-container">
+        <img src="../assets/images/lighting_parts/spia_batteria_alternatore.jpg" alt="Spia ricarica batteria Fig 699" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لمبة شحن البطارية والدينامو الحمراء</h3>
+        <span class="card-it-title">Spia ricarica batteria / alternatore (Fig. 699)</span>
+      </div>
+      
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> تضيء باللون الأحمر عند فتح الكونتاكت وتجب أن تنطفئ تلقائياً بمجرد دوران المحرك.</li>
+          <li><span>✅</span> إذا أضاءت أثناء السير فهي تعني أن المولد (Alternatore) لا يقوم بشحن البطارية.</li>
+          <li><span>✅</span> قد يكون السبب انقطاع أو ارتخاء سير الدينامو، أو تلف داخلي في منظم الجهد الكهربائي.</li>
+          <li><span>✅</span> السيارة ستتوقف قريباً بمجرد نفاد شحنة البطارية المخزنة لانقطاع شرارة الإشعال أو البخاخات.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والادعاءات المضللة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> 🚫[FALSO] إضاءة اللمبة تعني أن سائل حمض البطارية قد تبخر بالكامل ويجب إضافة حمض مركز.</li>
+          <li><span>❌</span> 🚫[FALSO] يمكن مواصلة السفر لمسافات طويلة دون قلق طالما أن خزان الوقود ممتلئ.</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> احذر: اللمبة تشير إلى خلل في عملية الشحن من المولد (Mancata ricarica)، وليس مجرد أن البطارية قديمة أو مستهلكة.
+      </div>
+    </div>
+    <!-- CARD: لوح الإشارة للحمولة البارزة للخلف (50x50 سم) -->
+    <div class="signal-card" data-category="signals">
+      <div class="signal-img-container">
+        <img src="../assets/images/lighting_parts/pannello_carichi_sporgenti_302.jpg" alt="Pannello per carichi sporgenti Fig 302" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">لوح الإشارة للحمولة البارزة للخلف (50x50 سم)</h3>
+        <span class="card-it-title">Pannello per carichi sporgenti (Fig. 302 - Art. 164)</span>
+      </div>
+      
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> لوح معدني مربع مقاسه 50×50 سم مغطى بشرائح عاكسة مائلة باللونين الأحمر والأبيض.</li>
+          <li><span>✅</span> يثبت عند طرف أي حمولة تبرز طولياً من خلف المركبة (مثل حامل الدراجات الهوائية Portabici).</li>
+          <li><span>✅</span> يسمح بالبروز الخلفي بحد أقصى 30% من الطول الإجمالي للمركبة للأحمال غير القابلة للتجزئة.</li>
+          <li><span>✅</span> يمنع منعاً باتاً أي بروز للحمولة من مقدمة السيارات الخاصة (Nessuna sporgenza anteriore).</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والادعاءات المضللة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> 🚫[FALSO] يمكن استبدال اللوح بقطعة قماش حمراء تتدلى من الحمولة أثناء النهار.</li>
+          <li><span>❌</span> 🚫[FALSO] يسمح ببروز الحمولة من الأمام بنسبة 10% من طول السيارة.</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> لوحان اثنان: إذا كانت الحمولة البارزة للخلف تغطي كامل عرض مؤخرة السيارة، فيجب تثبيت لوحين Fig. 302 في الطرفين يشكلان رقم 8 بالعكس (V rovesciata).
+      </div>
+    </div>
+    <!-- CARD: أضواء القيادة النهارية المعتمدة (DRL) -->
+    <div class="signal-card" data-category="lights">
+      <div class="signal-img-container">
+        <img src="../assets/images/lighting_parts/luci_diurne_drl_led.jpg" alt="Luci di marcia diurna DRL" loading="lazy">
+      </div>
+      <div class="card-header-row">
+        <h3 class="card-ar-title">أضواء القيادة النهارية المعتمدة (DRL)</h3>
+        <span class="card-it-title">Luci di marcia diurna (DRL - Daytime Running Lights)</span>
+      </div>
+      
+      <div class="card-points-group">
+        <div class="points-group-title vero-title"><span>✅</span> <span>الحالات والقواعد الصحيحة وزارياً (VERO):</span></div>
+        <ul class="card-points-list">
+          <li><span>✅</span> أضواء أمامية بيضاء ساطعة تعمل تلقائياً عند بدء تشغيل المحرك لتحسين رؤية المركبة نهاراً.</li>
+          <li><span>✅</span> تغني عن إشعال الضوء المنخفض (Anabbaglianti) نهاراً خارج المدن في ظروف الرؤية العادية والصافية.</li>
+          <li><span>✅</span> لا تضيء المصابيح الخلفية للمركبة عند تشغيلها وحدها في معظم السيارات الحديثة.</li>
+          <li><span>✅</span> يجب التحول فوراً للأناباجلينتي عند دخول الأنفاق أو عند حلول الغسق والظلام أو سوء الطقس.</li>
+        </ul>
+      </div>
+      <div class="card-points-group">
+        <div class="points-group-title falso-title"><span>❌</span> <span>الأفخاخ والادعاءات المضللة (FALSO):</span></div>
+        <ul class="card-points-list">
+          <li><span>❌</span> 🚫[FALSO] أضواء الـ DRL تكفي للقيادة ليلاً في الشوارع المضاءة داخل المدينة.</li>
+          <li><span>❌</span> 🚫[FALSO] أضواء الـ DRL تغني عن إشعال الضوء المنخفض داخل الأنفاق أثناء النهار.</li>
+        </ul>
+      </div>
+      <div class="card-trap-alert">
+        <strong>فخ الامتحان:</strong> فخ الأنفاق: أضواء DRL لا تغني أبداً عن تشغيل الضوء المنخفض داخل أي نفق (Galleria)، لأن الأنفاق تتطلب إضاءة الأنوار الخلفية أيضاً!
+      </div>
+    </div>
     </div>
   </section>
 
-  <!-- MINISTERIAL TRAPS SECTION -->
-  <section class="traps-section">
-    <div class="traps-header">
-      <span>🚨</span>
-      <h2 class="traps-title">فخاخ الامتحان الوزاري الحاسمة في الباب 18 (Trabocchetti Ministeriali)</h2>
-    </div>
-    <div class="traps-list">
-      <div class="trap-item">
-        <div class="trap-statement-it">Nelle gallerie illuminate è sufficiente accendere le sole luci di posizione.</div>
-        <div class="trap-meta-row">
-          <span class="trap-badge-falso">الإجابة: FALSO</span>
-          <span style="font-size:0.8rem; color:#94a3b8;">فخ أضواء الأنفاق المضاءة</span>
-        </div>
-        <div class="trap-explanation-ar">
-          في جميع الأنفاق (Gallerie) بدون استثناء، يجب تشغيل الضوء المنخفض (Anabbaglianti) حتى لو كان النفق مضاءً بإضاءة قوية وواضحة جداً.
-        </div>
-      </div>
-
-      <div class="trap-item">
-        <div class="trap-statement-it">La spia di figura 705 è di colore blu ed indica che sono accesi i proiettori abbaglianti.</div>
-        <div class="trap-meta-row">
-          <span class="trap-badge-vero">الإجابة: VERO</span>
-          <span style="font-size:0.8rem; color:#94a3b8;">لون لمبة الضوء العالي</span>
-        </div>
-        <div class="trap-explanation-ar">
-          صحيح تماماً، اللون الأزرق مخصص حصرياً للمبة الضوء العالي وفوانيس العمق (Abbaglianti) في جميع السيارات المصنعة.
-        </div>
-      </div>
-
-      <div class="trap-item">
-        <div class="trap-statement-it">I catadiottri posteriori dei rimorchi devono essere di forma triangolare con un vertice rivolto verso l'alto.</div>
-        <div class="trap-meta-row">
-          <span class="trap-badge-vero">الإجابة: VERO</span>
-          <span style="font-size:0.8rem; color:#94a3b8;">شكل عواكس المقطورة</span>
-        </div>
-        <div class="trap-explanation-ar">
-          صحيح تماماً، العواكس الخلفية للمقطورات ونصف المقطورات مثلثة حمراء حصرياً برأس متجه للأعلى، بينما للمركبات الأخرى غير مثلثة.
-        </div>
-      </div>
-
-      <div class="trap-item">
-        <div class="trap-statement-it">È consentito usare l'avvisatore acustico nei centri abitati per salutare conoscenti.</div>
-        <div class="trap-meta-row">
-          <span class="trap-badge-falso">الإجابة: FALSO</span>
-          <span style="font-size:0.8rem; color:#94a3b8;">فخ استخدام الكلاكس للتحية</span>
-        </div>
-        <div class="trap-explanation-ar">
-          ممنوع قطعاً، الكلاكس داخل المدن محظور استخدامه إلا في حالات الخطر المباشر أو عند نقل مصاب بحالة حرجة إلى المستشفى.
-        </div>
-      </div>
-
-      <div class="trap-item">
-        <div class="trap-statement-it">La segnalazione luminosa di pericolo (quattro frecce) può essere usata per sostare in seconda fila.</div>
-        <div class="trap-meta-row">
-          <span class="trap-badge-falso">الإجابة: FALSO</span>
-          <span style="font-size:0.8rem; color:#94a3b8;">فخ الركن بالصف الثاني وأضواء الخطر</span>
-        </div>
-        <div class="trap-explanation-ar">
-          أضواء الخطر لا تمنح أي تصريح أو شرعية للركن الخاطئ في الصف الثاني، واستخدامها مقتصر على حالات الطوارئ والفرملة الحادة المفاجئة.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- INTERACTIVE QUIZ SECTION -->
-  <!-- 12 TRAP QUIZ CARDS SECTION (RADAR TRAPS) -->
+  <!-- 12 TRAP QUIZ CARDS -->
   <section class="traps-section">
     <div class="section-heading">
-      <div class="section-badge">رادار فخاخ الامتحان (12 سؤالاً حاسماً)</div>
-      <h2 class="section-title">أخطر الأسئلة الوزارية المخادعة في الأضواء ولمبات التابلوه والعواكس</h2>
+      <div>
+        <h2 class="section-title"><span>⚠️</span> أخطر 12 فخاً وزارياً في الباب 18</h2>
+        <p style="font-size:0.86rem; color:var(--text-secondary); margin-top:4px;">الأسئلة الأكثر خداعاً في الامتحانات الرسمية مع بيان سبب الخطأ والصواب هندسياً وقانونياً</p>
+      </div>
+      <span class="section-badge">12 فخاً وزارياً معتمداً</span>
     </div>
-
     <div class="traps-grid">
 
-      <!-- Trap 1 -->
       <div class="trap-card">
         <div class="trap-header">
-          <span style="font-weight:800; color:var(--emerald-primary);">✅ إضاءة المصابيح نهاراً خارج المدن</span>
           <span class="card-tag-pill tag-vero">VERO</span>
+          <span style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Quiz #01</span>
         </div>
-        <p class="trap-quiz-text">"I fari anabbaglianti devono essere tenuti accesi anche di giorno su autostrade e strade extraurbane da tutti i veicoli a motore"</p>
-        <p class="trap-quiz-trans">«المصابيح الخافتة (الواطية) يجب أن تظل مضاءة نهاراً على الأوتوستراد والطرق خارج المدن لكافة المركبات الآلية»</p>
-        <div class="trap-explanation">
-          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة (VERO). إلزام قانوني صارم: خارج المدن وعلى الأوتوستراد يجب إضاءة المصابيح الخافتة (Anabbaglianti) نهاراً وليلاً، أما الدراجات النارية فيلزمها إضاءتها دائماً حتى داخل المدن.
-        </div>
+        <div class="trap-quiz-text">"I fari anabbaglianti devono essere tenuti accesi anche di giorno su autostrade e strade extraurbane da tutti i veicoli a motore"</div>
+        <div class="trap-quiz-trans">«المصابيح الخافتة (الواطية) يجب أن تظل مضاءة نهاراً على الأوتوستراد والطرق خارج المدن لكافة المركبات الآلية»</div>
+        <div class="trap-explanation">💡التحليل الوزاري:العبارة صحيحة (VERO). إلزام قانوني صارم: خارج المدن وعلى الأوتوستراد يجب إضاءة المصابيح الخافتة (Anabbaglianti) نهاراً وليلاً، أما الدراجات النارية فيلزمها إضاءتها دائماً حتى داخل المدن.</div>
       </div>
-
-      <!-- Trap 2 -->
       <div class="trap-card">
         <div class="trap-header">
-          <span style="font-weight:800; color:var(--rose-primary);">❌ فخ الأضواء العالية (Abbaglianti) داخل المدن</span>
           <span class="card-tag-pill tag-falso">FALSO</span>
+          <span style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Quiz #02</span>
         </div>
-        <p class="trap-quiz-text">"L'uso dei fari abbaglianti è consentito nei centri abitati quando la strada è scarsamente illuminata"</p>
-        <p class="trap-quiz-trans">«يسمح باستخدام المصابيح الكاشفة العالية (العالي) داخل المدن إذا كان الشارع قليل الإضاءة»</p>
-        <div class="trap-explanation">
-          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). داخل المدن (Centri abitati) يحظر استخدام المصابيح العالية تماماً وبشكل مستمر حتى لو كان الشارع مظلماً؛ يجب استخدام الأضواء الخافتة (Anabbaglianti) فقط لتجنب إبهار الآخرين!
-        </div>
+        <div class="trap-quiz-text">"L'uso dei fari abbaglianti è consentito nei centri abitati quando la strada è scarsamente illuminata"</div>
+        <div class="trap-quiz-trans">«يسمح باستخدام المصابيح الكاشفة العالية (العالي) داخل المدن إذا كان الشارع قليل الإضاءة»</div>
+        <div class="trap-explanation">💡التحليل الوزاري:العبارة خاطئة (FALSO). داخل المدن (Centri abitati) يحظر استخدام المصابيح العالية تماماً وبشكل مستمر حتى لو كان الشارع مظلماً؛ يجب استخدام الأضواء الخافتة (Anabbaglianti) فقط لتجنب إبهار الآخرين!</div>
       </div>
-
-      <!-- Trap 3 -->
       <div class="trap-card">
         <div class="trap-header">
-          <span style="font-weight:800; color:var(--emerald-primary);">✅ التنبيه المتقطع بالضوء العالي (Lampeggio) للتجاوز</span>
           <span class="card-tag-pill tag-vero">VERO</span>
+          <span style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Quiz #03</span>
         </div>
-        <p class="trap-quiz-text">"È consentito l'uso intermittente dei fari abbaglianti per segnalare al veicolo che precede l'intenzione di sorpassare, sia di giorno che di notte"</p>
-        <p class="trap-quiz-trans">«يجوز استخدام المصابيح العالية بشكل متقطع (تكبيس النور) لإعلام المركبة التي في الأمام بالرغبة في التجاوز نهاراً وليلاً»</p>
-        <div class="trap-explanation">
-          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة (VERO). التنبيه المتقطع الخاطف (Lampeggio) مسموح به قانوناً كإشارة بصرية بديلة للمنبه الصوتي عند التجاوز أو للتحذير من خطر وشيك.
-        </div>
+        <div class="trap-quiz-text">"È consentito l'uso intermittente dei fari abbaglianti per segnalare al veicolo che precede l'intenzione di sorpassare, sia di giorno che di notte"</div>
+        <div class="trap-quiz-trans">«يجوز استخدام المصابيح العالية بشكل متقطع (تكبيس النور) لإعلام المركبة التي في الأمام بالرغبة في التجاوز نهاراً وليلاً»</div>
+        <div class="trap-explanation">💡التحليل الوزاري:العبارة صحيحة (VERO). التنبيه المتقطع الخاطف (Lampeggio) مسموح به قانوناً كإشارة بصرية بديلة للمنبه الصوتي عند التجاوز أو للتحذير من خطر وشيك.</div>
       </div>
-
-      <!-- Trap 4 -->
       <div class="trap-card">
         <div class="trap-header">
-          <span style="font-weight:800; color:var(--emerald-primary);">✅ الشكل المثلث لعواكس المقطورة الخلفية</span>
           <span class="card-tag-pill tag-vero">VERO</span>
+          <span style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Quiz #04</span>
         </div>
-        <p class="trap-quiz-text">"I catadiottri installati sulla parte posteriore dei rimorchi devono essere di forma triangolare con vertice rivolto verso l'alto"</p>
-        <p class="trap-quiz-trans">«العواكس المثبتة في الجزء الخلفي للمقطورات يجب أن تكون مثلثة الشكل ورأسها لأعلى»</p>
-        <div class="trap-explanation">
-          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة (VERO). قاعدة تصنيف العواكس: العواكس الخلفية المثلثة الحمراء (Catadiottri triangolari) حصرية ومخصصة فقط للمقطورات وشبه المقطورات لتمييزها فوراً في الظلام!
-        </div>
+        <div class="trap-quiz-text">"I catadiottri installati sulla parte posteriore dei rimorchi devono essere di forma triangolare con vertice rivolto verso l'alto"</div>
+        <div class="trap-quiz-trans">«العواكس المثبتة في الجزء الخلفي للمقطورات يجب أن تكون مثلثة الشكل ورأسها لأعلى»</div>
+        <div class="trap-explanation">💡التحليل الوزاري:العبارة صحيحة (VERO). قاعدة تصنيف العواكس: العواكس الخلفية المثلثة الحمراء (Catadiottri triangolari) حصرية ومخصصة فقط للمقطورات وشبه المقطورات لتمييزها فوراً في الظلام!</div>
       </div>
-
-      <!-- Trap 5 -->
       <div class="trap-card">
         <div class="trap-header">
-          <span style="font-weight:800; color:var(--rose-primary);">❌ فخ مدلول اللمبات الحمراء في التابلوه</span>
           <span class="card-tag-pill tag-falso">FALSO</span>
+          <span style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Quiz #05</span>
         </div>
-        <p class="trap-quiz-text">"La spia di colore rosso nel quadro strumenti indica semplicemente un'avvertenza di manutenzione programmata senza pericolo immediato"</p>
-        <p class="trap-quiz-trans">«اللمبة ذات اللون الأحمر في التابلوه تشير ببساطة إلى تنبيه لصيانة دورية دون خطر فوري»</p>
-        <div class="trap-explanation">
-          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). اللمبات الحمراء (Spie rosse) تدل على عطل خطير أو خطر وشيك يوجب إيقاف السيارة فوراً (مثل ضغط الزيت، حرارة المبرد، عطل الفرامل)؛ أما التحذيرات البسيطة فتكون صفراء برتقالية!
-        </div>
+        <div class="trap-quiz-text">"La spia di colore rosso nel quadro strumenti indica semplicemente un'avvertenza di manutenzione programmata senza pericolo immediato"</div>
+        <div class="trap-quiz-trans">«اللمبة ذات اللون الأحمر في التابلوه تشير ببساطة إلى تنبيه لصيانة دورية دون خطر فوري»</div>
+        <div class="trap-explanation">💡التحليل الوزاري:العبارة خاطئة (FALSO). اللمبات الحمراء (Spie rosse) تدل على عطل خطير أو خطر وشيك يوجب إيقاف السيارة فوراً (مثل ضغط الزيت، حرارة المبرد، عطل الفرامل)؛ أما التحذيرات البسيطة فتكون صفراء برتقالية!</div>
       </div>
-
-      <!-- Trap 6 -->
       <div class="trap-card">
         <div class="trap-header">
-          <span style="font-weight:800; color:var(--emerald-primary);">✅ إضاءة لوحة الأرقام متزامنة مع أضواء الموضع</span>
           <span class="card-tag-pill tag-vero">VERO</span>
+          <span style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Quiz #06</span>
         </div>
-        <p class="trap-quiz-text">"La luce della targa deve accendersi contemporaneamente alle luci di posizione"</p>
-        <p class="trap-quiz-trans">«ضوء لوحة الأرقام الخلفية يجب أن يضاء بالتزامن مع أضواء الموضع (المارش)»</p>
-        <div class="trap-explanation">
-          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة (VERO). لمبة اللوحة الخلفية متصلة بدائرة أضواء الموضع وتعمل معها تلقائياً لتكون أرقام اللوحة مقروءة بوضوح من مسافة لا تقل عن 20 متراً.
-        </div>
+        <div class="trap-quiz-text">"La luce della targa deve accendersi contemporaneamente alle luci di posizione"</div>
+        <div class="trap-quiz-trans">«ضوء لوحة الأرقام الخلفية يجب أن يضاء بالتزامن مع أضواء الموضع (المارش)»</div>
+        <div class="trap-explanation">💡التحليل الوزاري:العبارة صحيحة (VERO). لمبة اللوحة الخلفية متصلة بدائرة أضواء الموضع وتعمل معها تلقائياً لتكون أرقام اللوحة مقروءة بوضوح من مسافة لا تقل عن 20 متراً.</div>
       </div>
-
-      <!-- Trap 7 -->
       <div class="trap-card">
         <div class="trap-header">
-          <span style="font-weight:800; color:var(--rose-primary);">❌ فخ استخدام الضوء العالي في الضباب الكثيف</span>
           <span class="card-tag-pill tag-falso">FALSO</span>
+          <span style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Quiz #07</span>
         </div>
-        <p class="trap-quiz-text">"In caso di nebbia fitta, l'uso dei proiettori abbaglianti migliora la visibilità rispetto agli anabbaglianti"</p>
-        <p class="trap-quiz-trans">«في حالة الضباب الكثيف، استخدام المصابيح العالية يحسن الرؤية مقارنة بالمصابيح الخافتة»</p>
-        <div class="trap-explanation">
-          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). الضوء العالي في الضباب يصطدم بقطرات الماء المعلقة في الهواء وينعكس كالمرآة مشكلاً جداراً ضوئياً مبهراً يعمي السائق! يجب استخدام أضواء الضباب الخافضة أو الأنوار الواطية فقط.
-        </div>
+        <div class="trap-quiz-text">"In caso di nebbia fitta, l'uso dei proiettori abbaglianti migliora la visibilità rispetto agli anabbaglianti"</div>
+        <div class="trap-quiz-trans">«في حالة الضباب الكثيف، استخدام المصابيح العالية يحسن الرؤية مقارنة بالمصابيح الخافتة»</div>
+        <div class="trap-explanation">💡التحليل الوزاري:العبارة خاطئة (FALSO). الضوء العالي في الضباب يصطدم بقطرات الماء المعلقة في الهواء وينعكس كالمرآة مشكلاً جداراً ضوئياً مبهراً يعمي السائق! يجب استخدام أضواء الضباب الخافضة أو الأنوار الواطية فقط.</div>
       </div>
-
-      <!-- Trap 8 -->
       <div class="trap-card">
         <div class="trap-header">
-          <span style="font-weight:800; color:var(--emerald-primary);">✅ تشغيل الأضواء الرباعية في التباطؤ المفاجئ</span>
           <span class="card-tag-pill tag-vero">VERO</span>
+          <span style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Quiz #08</span>
         </div>
-        <p class="trap-quiz-text">"La segnalazione luminosa di pericolo (quattro frecce) deve essere utilizzata in caso di improvviso e forte rallentamento del traffico in autostrada"</p>
-        <p class="trap-quiz-trans">«إشارة الخطر الضوئية (الأربعة غمازات) يجب استخدامها في حال التباطؤ المفاجئ والشديد لحركة المرور في الأوتوستراد»</p>
-        <div class="trap-explanation">
-          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة (VERO). إحدى الحالات الإلزامية لتشغيل الأضواء الرباعية هي تحذير السائقين القادمين من الخلف عند الدخول فجأة في طابور متوقف أو تباطؤ حاد على الطرق السريعة.
-        </div>
+        <div class="trap-quiz-text">"La segnalazione luminosa di pericolo (quattro frecce) deve essere utilizzata in caso di improvviso e forte rallentamento del traffico in autostrada"</div>
+        <div class="trap-quiz-trans">«إشارة الخطر الضوئية (الأربعة غمازات) يجب استخدامها في حال التباطؤ المفاجئ والشديد لحركة المرور في الأوتوستراد»</div>
+        <div class="trap-explanation">💡التحليل الوزاري:العبارة صحيحة (VERO). إحدى الحالات الإلزامية لتشغيل الأضواء الرباعية هي تحذير السائقين القادمين من الخلف عند الدخول فجأة في طابور متوقف أو تباطؤ حاد على الطرق السريعة.</div>
       </div>
-
-      <!-- Trap 9 -->
       <div class="trap-card">
         <div class="trap-header">
-          <span style="font-weight:800; color:var(--emerald-primary);">✅ استبدال الأنوار الخافتة بمصابيح الضباب الأمامية</span>
           <span class="card-tag-pill tag-vero">VERO</span>
+          <span style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Quiz #09</span>
         </div>
-        <p class="trap-quiz-text">"I proiettori fendinebbia anteriori possono sostituire gli anabbaglianti in caso di nebbia fitta, fumo o forte nevicata"</p>
-        <p class="trap-quiz-trans">«يجوز لمصابيح الضباب الأمامية أن تحل محل الأضواء الخافتة في حالة الضباب الكثيف أو الدخان أو تساقط الثلوج الشديد»</p>
-        <div class="trap-explanation">
-          💡 <strong>التحليل الوزاري:</strong> العبارة صحيحة (VERO). مصابيح الضباب الأمامية مصممة لتسليط شعاع مسطح عريض تحت طبقة الضباب، لذا يجوز أن تحل محل الأنوار الواطية في ظروف الطقس شديدة السوء.
-        </div>
+        <div class="trap-quiz-text">"I proiettori fendinebbia anteriori possono sostituire gli anabbaglianti in caso di nebbia fitta, fumo o forte nevicata"</div>
+        <div class="trap-quiz-trans">«يجوز لمصابيح الضباب الأمامية أن تحل محل الأضواء الخافتة في حالة الضباب الكثيف أو الدخان أو تساقط الثلوج الشديد»</div>
+        <div class="trap-explanation">💡التحليل الوزاري:العبارة صحيحة (VERO). مصابيح الضباب الأمامية مصممة لتسليط شعاع مسطح عريض تحت طبقة الضباب، لذا يجوز أن تحل محل الأنوار الواطية في ظروف الطقس شديدة السوء.</div>
       </div>
-
-      <!-- Trap 10 -->
       <div class="trap-card">
         <div class="trap-header">
-          <span style="font-weight:800; color:var(--rose-primary);">❌ فخ استخدام كلاكسون المرور لتحية الأصدقاء</span>
           <span class="card-tag-pill tag-falso">FALSO</span>
+          <span style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Quiz #10</span>
         </div>
-        <p class="trap-quiz-text">"L'uso del segnalatore acustico (clacson) nei centri abitati è consentito per sollecitare il veicolo che precede a ripartire al semaforo verde"</p>
-        <p class="trap-quiz-trans">«يسمح باستخدام كلاكسون السيارة داخل المدن لحث السيارة التي في الأمام على الانطلاق عند الإشارة الخضراء»</p>
-        <div class="trap-explanation">
-          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). داخل المدن، المنبه الصوتي محظور قطعياً إلا في حالتين حصريتين: 1) تفادي خطر حادث وشيك على السلامة، 2) أثناء نقل جريح أو مريض في حالة طوارئ قصوى!
-        </div>
+        <div class="trap-quiz-text">"L'uso del segnalatore acustico (clacson) nei centri abitati è consentito per sollecitare il veicolo che precede a ripartire al semaforo verde"</div>
+        <div class="trap-quiz-trans">«يسمح باستخدام كلاكسون السيارة داخل المدن لحث السيارة التي في الأمام على الانطلاق عند الإشارة الخضراء»</div>
+        <div class="trap-explanation">💡التحليل الوزاري:العبارة خاطئة (FALSO). داخل المدن، المنبه الصوتي محظور قطعياً إلا في حالتين حصريتين: 1) تفادي خطر حادث وشيك على السلامة، 2) أثناء نقل جريح أو مريض في حالة طوارئ قصوى!</div>
       </div>
-
-      <!-- Trap 11 -->
       <div class="trap-card">
         <div class="trap-header">
-          <span style="font-weight:800; color:var(--rose-primary);">❌ فخ عمل العواكس ببطارية كهربائية</span>
           <span class="card-tag-pill tag-falso">FALSO</span>
+          <span style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Quiz #11</span>
         </div>
-        <p class="trap-quiz-text">"I catadiottri funzionano a batteria autonoma e si accendono insieme alle luci di posizione del veicolo"</p>
-        <p class="trap-quiz-trans">«تعمل العواكس ببطارية مستقلة وتضاء مع أضواء الموضع للسيارة»</p>
-        <div class="trap-explanation">
-          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). العواكس (Catadiottri) هي أجهزة بصرية سالبة تعكس ضوء مصابيح المركبات الأخرى دون أي استهلاك للكهرباء ودون وجود لمبات أو بطاريات داخلها!
-        </div>
+        <div class="trap-quiz-text">"I catadiottri funzionano a batteria autonoma e si accendono insieme alle luci di posizione del veicolo"</div>
+        <div class="trap-quiz-trans">«تعمل العواكس ببطارية مستقلة وتضاء مع أضواء الموضع للسيارة»</div>
+        <div class="trap-explanation">💡التحليل الوزاري:العبارة خاطئة (FALSO). العواكس (Catadiottri) هي أجهزة بصرية سالبة تعكس ضوء مصابيح المركبات الأخرى دون أي استهلاك للكهرباء ودون وجود لمبات أو بطاريات داخلها!</div>
       </div>
-
-      <!-- Trap 12 -->
       <div class="trap-card">
         <div class="trap-header">
-          <span style="font-weight:800; color:var(--rose-primary);">❌ فخ لمبة زيت المحرك ومستوى مياه التبريد</span>
           <span class="card-tag-pill tag-falso">FALSO</span>
+          <span style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Quiz #12</span>
         </div>
-        <p class="trap-quiz-text">"La spia rossa dell'olio motore indica che la temperatura del liquido di raffreddamento ha raggiunto un livello pericoloso"</p>
-        <p class="trap-quiz-trans">«لمبة زيت المحرك الحمراء تشير إلى أن درجة حرارة سائل التبريد بلغت مستوى خطيراً»</p>
-        <div class="trap-explanation">
-          💡 <strong>التحليل الوزاري:</strong> العبارة خاطئة (FALSO). لمبة الزيت الحمراء تشير إلى انخفاض ضغط دورة تزييت المحرك (Pressione insufficiente)، بينما حرارة سائل التبريد لها لمبة مستقلة على شكل مقياس حرارة يطفو في سائل!
-        </div>
+        <div class="trap-quiz-text">"La spia rossa dell'olio motore indica che la temperatura del liquido di raffreddamento ha raggiunto un livello pericoloso"</div>
+        <div class="trap-quiz-trans">«لمبة زيت المحرك الحمراء تشير إلى أن درجة حرارة سائل التبريد بلغت مستوى خطيراً»</div>
+        <div class="trap-explanation">💡التحليل الوزاري:العبارة خاطئة (FALSO). لمبة الزيت الحمراء تشير إلى انخفاض ضغط دورة تزييت المحرك (Pressione insufficiente)، بينما حرارة سائل التبريد لها لمبة مستقلة على شكل مقياس حرارة يطفو في سائل!</div>
       </div>
-
     </div>
   </section>
 
-  <!-- CONTINUOUS SERIAL PAGINATION CHAIN -->
+  <!-- PAGINATION -->
   <nav class="chapter-pagination">
-    <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="pagination-btn">
-      <span>👉</span>
-      <span>الباب السابق: 17 (الأوتوستراد وسحب المقطورات)</span>
+    <a href="دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html" class="pagination-btn prev-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">→</span>
+      <div class="pagination-info">
+        <span class="pagination-label">الباب السابق</span>
+        <span class="pagination-title">الباب 17: الأوتوستراد والمقطورات</span>
+      </div>
     </a>
-    <a href="index.html" class="pagination-btn" style="border-color: rgba(245, 158, 11, 0.3);">
-      <span>🏛️</span>
-      <span>فهرس المكتبة الشاملة المعتمدة</span>
+
+    <a href="index.html" class="pagination-btn index-btn" onclick="soundEngine.click()">
+      <span class="pagination-icon">🏛️</span>
+      <div class="pagination-info">
+        <span class="pagination-label">العودة</span>
+        <span class="pagination-title">فهرس المكتبة الشاملة</span>
+      </div>
     </a>
-    <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="pagination-btn">
-      <span>الباب التالي: 19 (أحزمة الأمان والخوذة ومقاعد الأطفال)</span>
-      <span>👈</span>
+
+    <a href="دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html" class="pagination-btn next-btn" onclick="soundEngine.click()">
+      <div class="pagination-info" style="text-align:left;">
+        <span class="pagination-label">الباب التالي</span>
+        <span class="pagination-title">الباب 19: أحزمة الأمان والخوذة</span>
+      </div>
+      <span class="pagination-icon">←</span>
     </a>
   </nav>
 
 </main>
 
+
 <script>
-  // Web Audio API Sound Engine
-  class SoundEngine {
-    constructor() {
-      this.enabled = true;
-      this.ctx = null;
-    }
-    init() {
+  const soundEngine = {
+    ctx: null,
+    muted: false,
+    init: function() {
       if (!this.ctx) {
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        if (AudioContext) this.ctx = new AudioContext();
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) this.ctx = new AudioCtx();
       }
-    }
-    click() {
-      if (!this.enabled) return;
+    },
+    click: function() {
+      if (this.muted) return;
       this.init();
       if (!this.ctx) return;
-      const osc = this.ctx.createOscillator();
-      const gain = this.ctx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(600, this.ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(300, this.ctx.currentTime + 0.04);
-      gain.gain.setValueAtTime(0.08, this.ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
-      osc.connect(gain);
-      gain.connect(this.ctx.destination);
-      osc.start();
-      osc.stop(this.ctx.currentTime + 0.04);
+      try {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(800, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(400, this.ctx.currentTime + 0.04);
+        gain.gain.setValueAtTime(0.08, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.04);
+      } catch(e) {}
+    },
+    toggleAudio: function() {
+      this.muted = !this.muted;
+      const spans = document.querySelectorAll('.audio-label-span');
+      const icons = document.querySelectorAll('.audio-icon-span');
+      spans.forEach(s => s.textContent = this.muted ? 'الصوت صامت' : 'الصوت نشط');
+      icons.forEach(i => i.textContent = this.muted ? '🔇' : '🔊');
     }
-    success() {
-      if (!this.enabled) return;
-      this.init();
-      if (!this.ctx) return;
-      const osc = this.ctx.createOscillator();
-      const gain = this.ctx.createGain();
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(440, this.ctx.currentTime);
-      osc.frequency.setValueAtTime(880, this.ctx.currentTime + 0.08);
-      gain.gain.setValueAtTime(0.12, this.ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.2);
-      osc.connect(gain);
-      gain.connect(this.ctx.destination);
-      osc.start();
-      osc.stop(this.ctx.currentTime + 0.2);
-    }
-    error() {
-      if (!this.enabled) return;
-      this.init();
-      if (!this.ctx) return;
-      const osc = this.ctx.createOscillator();
-      const gain = this.ctx.createGain();
-      osc.type = 'sawtooth';
-      osc.frequency.setValueAtTime(220, this.ctx.currentTime);
-      osc.frequency.setValueAtTime(150, this.ctx.currentTime + 0.08);
-      gain.gain.setValueAtTime(0.12, this.ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.25);
-      osc.connect(gain);
-      gain.connect(this.ctx.destination);
-      osc.start();
-      osc.stop(this.ctx.currentTime + 0.25);
-    }
-    toggleAudio() {
-      this.enabled = !this.enabled;
-      const icon = document.querySelector('.audio-icon-span');
-      const label = document.querySelector('.audio-label-span');
-      if (icon && label) {
-        icon.textContent = this.enabled ? '🔊' : '🔇';
-        label.textContent = this.enabled ? 'الصوت نشط' : 'الصوت مكتوم';
-      }
-      if (this.enabled) this.click();
-    }
-  }
-  const soundEngine = new SoundEngine();
+  };
 
-  // Mobile Navigation Functions
-  function toggleMobileNav() {
-    const btn = document.getElementById('navHamburgerBtn');
-    const panel = document.getElementById('mobileDrawerPanel');
-    const overlay = document.getElementById('mobileDrawerOverlay');
-    const isActive = btn.classList.contains('active');
-    if (isActive) {
-      closeMobileNav();
-    } else {
-      btn.classList.add('active');
-      panel.classList.add('active');
-      overlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      soundEngine.click();
-    }
-  }
-  function closeMobileNav() {
-    const btn = document.getElementById('navHamburgerBtn');
-    const panel = document.getElementById('mobileDrawerPanel');
-    const overlay = document.getElementById('mobileDrawerOverlay');
-    if (btn) btn.classList.remove('active');
-    if (panel) panel.classList.remove('active');
-    if (overlay) overlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  // Desktop Dropdown
   function toggleNavDropdown(e) {
     e.stopPropagation();
-    const menu = document.getElementById('navDropdownMenu');
-    menu.classList.toggle('active');
     soundEngine.click();
-  }
-  window.addEventListener('click', () => {
     const menu = document.getElementById('navDropdownMenu');
-    if (menu) menu.classList.remove('active');
+    if (menu) menu.classList.toggle('show');
+  }
+
+  window.addEventListener('click', function() {
+    const menu = document.getElementById('navDropdownMenu');
+    if (menu && menu.classList.contains('show')) {
+      menu.classList.remove('show');
+    }
   });
 
-  // Simulator Chapter 18
-  function setSim18(simNum, mode) {
+  function filterCards(category, btn) {
     soundEngine.click();
-    if (simNum === 1) {
-      const panel = document.getElementById('sim1Display');
-      const container = panel.closest('.interactive-sim-container');
-      const btns = container.querySelectorAll('.sim-btn');
-      btns.forEach(b => b.classList.remove('active'));
-      event.target.classList.add('active');
-
-      if (mode === 'spia_abbaglianti') {
-        panel.innerHTML = `
-          <div class="sim-view-box">
-            <div class="sim-view-icon">🔵</div>
-            <div class="sim-view-label">لمبة الضوء العالي (Spia Luci Abbaglianti)</div>
-            <div class="sim-view-sub">Colore Blu - Fig. 705</div>
-          </div>
-          <div class="sim-details-box">
-            <div class="sim-status-pill sim-status-allowed">تنبيه تشغيل فوانيس العمق</div>
-            <div class="sim-detail-item"><strong>الرمز واللون:</strong> لون أزرق فريد لا يتكرر في لوحة العدادات إلا لهذا المؤشر (Fig 705).</div>
-            <div class="sim-detail-item"><strong>المعنى الوزاري:</strong> تفيد بأن فوانيس العمق (Proiettori di profondità) تعمل بكامل طاقتها.</div>
-            <div class="sim-detail-item"><strong>واجب السائق:</strong> إطفاؤها والتحول للمنخفض فور رؤية أضواء سيارة قادمة في الاتجاه المعاكس أو تسبقك.</div>
-          </div>`;
-      } else if (mode === 'spia_olio') {
-        panel.innerHTML = `
-          <div class="sim-view-box">
-            <div class="sim-view-icon">🔴</div>
-            <div class="sim-view-label">لمبة ضغط زيت المحرك (Pressione Olio)</div>
-            <div class="sim-view-sub">Colore Rosso - Fig. 697</div>
-          </div>
-          <div class="sim-details-box">
-            <div class="sim-status-pill sim-status-prohibited">حالة خطر ميكانيكي حرج</div>
-            <div class="sim-detail-item"><strong>السبب:</strong> انخفاض ضغط الزيت في المحرك لأقل من المعدل الآمن للدوران.</div>
-            <div class="sim-detail-item"><strong>الإجراء الفوري:</strong> ركن السيارة بأمان فوري وإطفاء المحرك وعدم استئناف السير إطلاقاً.</div>
-            <div class="sim-detail-item"><strong>فخ وزاري:</strong> لا تعني ارتفاع حرارة الزيت ولا تدل على موعد تغيير الزيت فقط بل نقص الضغط!</div>
-          </div>`;
-      } else if (mode === 'spia_temp') {
-        panel.innerHTML = `
-          <div class="sim-view-box">
-            <div class="sim-view-icon">🌡️</div>
-            <div class="sim-view-label">حرارة سائل التبريد (Temperatura Liquido)</div>
-            <div class="sim-view-sub">Colore Rosso - Fig. 698</div>
-          </div>
-          <div class="sim-details-box">
-            <div class="sim-status-pill sim-status-prohibited">ارتفاع مفرط في حرارة المحرك</div>
-            <div class="sim-detail-item"><strong>الخطر:</strong> غليان سائل التبريد داخل الردياتير واحتمال تشوه رأس المحرك.</div>
-            <div class="sim-detail-item"><strong>الإجراء:</strong> التوقف وإطفاء المحرك والانتظار حتى يبرد تماماً قبل فتح الغطاء.</div>
-          </div>`;
-      } else if (mode === 'spia_anabbaglianti') {
-        panel.innerHTML = `
-          <div class="sim-view-box">
-            <div class="sim-view-icon">🟢</div>
-            <div class="sim-view-label">لمبة الضوء المنخفض (Anabbaglianti)</div>
-            <div class="sim-view-sub">Colore Verde - Fig. 704</div>
-          </div>
-          <div class="sim-details-box">
-            <div class="sim-status-pill sim-status-allowed">إضاءة السير القياسية العادية</div>
-            <div class="sim-detail-item"><strong>الرمز:</strong> لون أخضر بأشعة ضوئية متجهة بميل نحو الأسفل.</div>
-            <div class="sim-detail-item"><strong>الاستخدام:</strong> إلزامي خارج المدن ليلاً ونهاراً وفي جميع الأنفاق.</div>
-          </div>`;
-      }
-    } else if (simNum === 2) {
-      const panel = document.getElementById('sim2Display');
-      const container = panel.closest('.interactive-sim-container');
-      const btns = container.querySelectorAll('.sim-btn');
-      btns.forEach(b => b.classList.remove('active'));
-      event.target.classList.add('active');
-
-      if (mode === 'tunnel') {
-        panel.innerHTML = `
-          <div class="sim-view-box">
-            <div class="sim-view-icon">🚇</div>
-            <div class="sim-view-label">دخول نفق مضاء نهاراً</div>
-            <div class="sim-view-sub">Galleria illuminata di giorno</div>
-          </div>
-          <div class="sim-details-box">
-            <div class="sim-status-pill sim-status-allowed">الضوء المنخفض إلزامي حتماً</div>
-            <div class="sim-detail-item"><strong>القاعدة الصارمة:</strong> يلزم تشغيل الضوء المنخفض (Anabbaglianti) داخل كل الأنفاق بدون استثناء.</div>
-            <div class="sim-detail-item"><strong>فخ وزاري:</strong> لا يكفي أبداً استخدام أضواء الموضع (Luci di posizione) فقط، بل المنخفض إجباري!</div>
-          </div>`;
-      } else if (mode === 'fog') {
-        panel.innerHTML = `
-          <div class="sim-view-box">
-            <div class="sim-view-icon">🌫️</div>
-            <div class="sim-view-label">ضباب كثيف (Nebbia fitta)</div>
-            <div class="sim-view-sub">Visibilità inferiore a 50 metri</div>
-          </div>
-          <div class="sim-details-box">
-            <div class="sim-status-pill sim-status-allowed">ضوء منخفض + فوانيس ضباب</div>
-            <div class="sim-detail-item"><strong>الضوء المسموح:</strong> الضوء المنخفض (Anabbaglianti) وأضواء الضباب الأمامية والخلفية (Retronebbia).</div>
-            <div class="sim-detail-item"><strong>الضوء الممنوع:</strong> الضوء العالي (Abbaglianti) لأنه ينعكس على قطرات الضباب ويحدث جداراً أبيض يعمي السائق!</div>
-          </div>`;
-      } else if (mode === 'highway_empty') {
-        panel.innerHTML = `
-          <div class="sim-view-box">
-            <div class="sim-view-icon">🛣️🌌</div>
-            <div class="sim-view-label">طريق ريفي مظلم وخالٍ تماماً</div>
-            <div class="sim-view-sub">Strada extraurbana non illuminata</div>
-          </div>
-          <div class="sim-details-box">
-            <div class="sim-status-pill sim-status-allowed">الضوء العالي مسموح ومطلوب</div>
-            <div class="sim-detail-item"><strong>الشروط المحققة:</strong> خارج المدينة + إضاءة عامة منعدمة + عدم وجود أي سيارة أمامك أو مقابلة.</div>
-            <div class="sim-detail-item"><strong>التحول الفوري:</strong> بمجرد ظهور أضواء أي سيارة أخرى، يجب التحول فوراً للمنخفض.</div>
-          </div>`;
-      }
-    }
-  }
-
-  // Text-To-Speech for Italian Terms
-  function speakTerm(text) {
-    soundEngine.click();
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'it-IT';
-      utterance.rate = 0.9;
-      window.speechSynthesis.speak(utterance);
-    }
-  }
-
-  // Filter Cards
-  function filterCards(cat) {
-    soundEngine.click();
-    const pills = document.querySelectorAll('.filter-pill');
-    pills.forEach(p => p.classList.remove('active'));
-    event.target.classList.add('active');
-
-    const cards = document.querySelectorAll('.technical-card');
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cards = document.querySelectorAll('.signals-grid .signal-card');
     cards.forEach(card => {
-      if (cat === 'all' || card.dataset.category === cat) {
+      if (category === 'all' || card.getAttribute('data-category') === category) {
         card.style.display = 'flex';
       } else {
         card.style.display = 'none';
       }
     });
   }
-
-  // Quiz Engine
-  function checkAnswer(qId, userChoice, isVero, explanation) {
-    const isCorrect = (userChoice === isVero);
-    const fb = document.getElementById(qId + '-fb');
-    fb.style.display = 'block';
-    if (isCorrect) {
-      soundEngine.success();
-      fb.style.background = 'rgba(16, 185, 129, 0.15)';
-      fb.style.color = 'var(--emerald-primary)';
-      fb.style.border = '1px solid rgba(16, 185, 129, 0.3)';
-      fb.innerHTML = '🎉 ' + explanation;
-    } else {
-      soundEngine.error();
-      fb.style.background = 'rgba(244, 63, 94, 0.15)';
-      fb.style.color = 'var(--rose-primary)';
-      fb.style.border = '1px solid rgba(244, 63, 94, 0.3)';
-      fb.innerHTML = '⚠️ ' + explanation;
-    }
-  }
 </script>
 
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('../service-worker.js').catch(err => console.log('SW registration failed', err));
-      });
-    }
-  </script>
-
-  <script src="../assets/js/lighting-studio.js"></script>
 </body>
 </html>
