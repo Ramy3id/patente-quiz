@@ -954,6 +954,56 @@
     .chapter-pagination { flex-direction: column; align-items: stretch; }
   }
 
+
+  /* Signal Rule Banner (Clean Apple HIG badge replacing crude drawings) */
+  .signal-rule-banner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: rgba(56, 189, 248, 0.06);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 14px;
+    margin-bottom: 8px;
+    transition: all 0.2s ease;
+  }
+  .signal-card:hover .signal-rule-banner {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: rgba(56, 189, 248, 0.35);
+  }
+  .rule-icon {
+    font-size: 2rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .rule-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .rule-badge-ar {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--text-primary);
+  }
+  .rule-badge-it {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--sky-primary);
+    direction: ltr;
+    text-align: right;
+  }
+  html:not(.dark) .signal-rule-banner {
+    background: rgba(14, 165, 233, 0.08);
+    border-color: rgba(14, 165, 233, 0.25);
+  }
+  html:not(.dark) .rule-badge-ar {
+    color: #0f172a;
+  }
+  html:not(.dark) .rule-badge-it {
+    color: #0284c7;
+  }
+
 </style>
 <link rel="manifest" href="../manifest.json">
 </head>
@@ -1049,84 +1099,7 @@
   </section>
 
   <!-- WORKSHOP PHOTO GALLERY -->
-  <section class="workshop-gallery-section">
-    <div class="section-heading">
-      <div>
-        <h2 class="section-title"><span>📸</span> المشاهد الميدانية لمنظومات الإضاءة ولوحة العدادات</h2>
-        <p style="font-size:0.86rem; color:var(--text-secondary); margin-top:4px;">معرض توثيقي عالي الدقة لكشافات LED، مفاتيح التحكم، لوحة العدادات، وعواكس المقطورة</p>
-      </div>
-      <span class="section-badge">6 مشاهد أصلية 16:9</span>
-    </div>
-    <div class="workshop-gallery-grid">
-
-      <div class="workshop-gallery-card">
-        <div class="workshop-gallery-media">
-          <img src="../assets/images/lighting_parts/gallery_quadro_strumenti_spie.jpg" alt="Quadro strumenti e spie" loading="lazy">
-          <span class="workshop-gallery-badge">لوحة العدادات</span>
-        </div>
-        <div class="workshop-gallery-content">
-          <h4 class="workshop-gallery-title">خريطة لمبات لوحة العدادات (Quadro Strumenti)</h4>
-          <div class="workshop-gallery-sub">Colori e significati normati ISO</div>
-          <p class="workshop-gallery-desc">التوزيع القياسي للمبات التابلوه: الحمراء للتوقف الفوري والأعطال الجسيمة، الصفراء للتنبيه والعطل الجزئي، الخضراء للأجهزة الفعالة، والزرقاء للضوء العالي فقط.</p>
-        </div>
-      </div>
-      <div class="workshop-gallery-card">
-        <div class="workshop-gallery-media">
-          <img src="../assets/images/lighting_parts/gallery_gruppo_ottico_faro_led.jpg" alt="Gruppo ottico faro LED" loading="lazy">
-          <span class="workshop-gallery-badge">عدسات الإضاءة</span>
-        </div>
-        <div class="workshop-gallery-content">
-          <h4 class="workshop-gallery-title">مجموعة الكشاف الأمامي والعدسات البيضاوية (Bi-LED)</h4>
-          <div class="workshop-gallery-sub">Lenti anabbaglianti e abbaglianti</div>
-          <p class="workshop-gallery-desc">المقطع الهندسي لكشاف السيارة الحديث يوضح العدسة المقوسة المانعة للإبهار لمسار المنخفض، وعاكس مسار العالي الممتد لمسافة تتجاوز 100 متر.</p>
-        </div>
-      </div>
-      <div class="workshop-gallery-card">
-        <div class="workshop-gallery-media">
-          <img src="../assets/images/lighting_parts/gallery_interruttore_fari_selettore.jpg" alt="Interruttore fari selettore rotativo" loading="lazy">
-          <span class="workshop-gallery-badge">مفتاح التحكم الدائري</span>
-        </div>
-        <div class="workshop-gallery-content">
-          <h4 class="workshop-gallery-title">مفتاح اختيار وضعيات الإضاءة بالتابلوه (Selettore Fari)</h4>
-          <div class="workshop-gallery-sub">Posizioni 0, Auto, Posizione, Anabbaglianti</div>
-          <p class="workshop-gallery-desc">المفتاح الدوار الرسمي لتحديد وضعية الأنوار؛ وبالسحب للخارج يتم تفعيل كشافات الضباب الأمامية والخلفية (Retronebbia).</p>
-        </div>
-      </div>
-      <div class="workshop-gallery-card">
-        <div class="workshop-gallery-media">
-          <img src="../assets/images/lighting_parts/gallery_catadiottro_rimorchio_triangolo.jpg" alt="Catadiottri triangolari rimorchio" loading="lazy">
-          <span class="workshop-gallery-badge">عواكس المقطورة</span>
-        </div>
-        <div class="workshop-gallery-content">
-          <h4 class="workshop-gallery-title">العواكس المثلثية الحمراء لمؤخرة المقطورات</h4>
-          <div class="workshop-gallery-sub">Catadiottri triangolari posteriori rossi</div>
-          <p class="workshop-gallery-desc">الميزة البصرية الحصرية لتمييز المقطورات وشبه المقطورات؛ وجود المثلثين بالخلف يحذر فوراً من وجود عربة مسحوبة ويحظر تركيبها على السيارات العادية.</p>
-        </div>
-      </div>
-      <div class="workshop-gallery-card">
-        <div class="workshop-gallery-media">
-          <img src="../assets/images/lighting_parts/gallery_pannello_carico_sporgente_retro.jpg" alt="Pannello carico sporgente Fig 302" loading="lazy">
-          <span class="workshop-gallery-badge">لوح الحمولة المعتمد</span>
-        </div>
-        <div class="workshop-gallery-content">
-          <h4 class="workshop-gallery-title">لوح الحمولة البارزة وحامل الدراجات (Fig. 302)</h4>
-          <div class="workshop-gallery-sub">Pannello retro-riflettente 50x50 cm</div>
-          <p class="workshop-gallery-desc">التثبيت الصحيح للوح المخطط بالأحمر والأبيض على حامل الدراجات الخلفي؛ مع وجود اللوحة الصفراء المكررة (Targa ripetitrice) إذا حجبت اللوحة الأصلية.</p>
-        </div>
-      </div>
-      <div class="workshop-gallery-card">
-        <div class="workshop-gallery-media">
-          <img src="../assets/images/lighting_parts/gallery_interruttore_quattro_frecce_plancia.jpg" alt="Interruttore quattro frecce emergenza" loading="lazy">
-          <span class="workshop-gallery-badge">زر الطوارئ</span>
-        </div>
-        <div class="workshop-gallery-content">
-          <h4 class="workshop-gallery-title">زر تشغيل أضواء الخطر الرباعية (4 Frecce)</h4>
-          <div class="workshop-gallery-sub">Comando luci d'emergenza plancia</div>
-          <p class="workshop-gallery-desc">الزر المثلث الأحمر المركزي بالكونسول يعمل بشكل دائم حتى لو كان المحرك مطفأ والمفتاح مسحوباً، لتشغيل جميع مؤشرات الاتجاه في آن واحد.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- COMPREHENSIVE CARDS SECTION -->
   <section class="comp-section">
@@ -1152,7 +1125,7 @@
     <!-- CARD: الضوء المنخفض ولمبته الخضراء -->
     <div class="signal-card" data-category="lights">
       <div class="signal-img-container">
-        <img src="../assets/images/lighting_parts/luci_anabbaglianti_fascio.jpg" alt="Proiettori anabbaglianti e spia verde 704" loading="lazy">
+        <img src="../Capitoli_Divisi/Capitolo_18_luci_dispositivi_acustici/immagini/695.png" alt="Proiettori anabbaglianti e spia verde 704" loading="lazy">
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">الضوء المنخفض ولمبته الخضراء</h3>
@@ -1181,7 +1154,7 @@
     <!-- CARD: الضوء العالي وفوانيس العمق ولمبته الزرقاء -->
     <div class="signal-card" data-category="lights">
       <div class="signal-img-container">
-        <img src="../assets/images/lighting_parts/luci_abbaglianti_profondita.jpg" alt="Proiettori di profondità abbaglianti e spia blu 705" loading="lazy">
+        <img src="../Capitoli_Divisi/Capitolo_18_luci_dispositivi_acustici/immagini/696.png" alt="Proiettori di profondità abbaglianti e spia blu 705" loading="lazy">
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">الضوء العالي وفوانيس العمق ولمبته الزرقاء</h3>
@@ -1210,7 +1183,7 @@
     <!-- CARD: أضواء الخطر الرباعية التزامنية -->
     <div class="signal-card" data-category="lights">
       <div class="signal-img-container">
-        <img src="../assets/images/lighting_parts/quattro_frecce_emergenza.jpg" alt="Segnalazione luminosa di pericolo 4 frecce" loading="lazy">
+        <img src="../Capitoli_Divisi/Capitolo_18_luci_dispositivi_acustici/immagini/721.png" alt="Segnalazione luminosa di pericolo 4 frecce" loading="lazy">
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">أضواء الخطر الرباعية التزامنية</h3>
@@ -1238,8 +1211,12 @@
     </div>
     <!-- CARD: لمبة ضغط زيت المحرك الحمراء -->
     <div class="signal-card" data-category="dashboard">
-      <div class="signal-img-container">
-        <img src="../assets/images/lighting_parts/spia_pressione_olio_motore.jpg" alt="Spia pressione olio motore Fig. 697" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">🛢️</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">لمبة ضغط زيت المحرك الحمراء</div>
+          <div class="rule-badge-it">Spia Pressione Olio Motore (Rossa)</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">لمبة ضغط زيت المحرك الحمراء</h3>
@@ -1267,8 +1244,12 @@
     </div>
     <!-- CARD: لمبة حرارة سائل تبريد المحرك الحمراء -->
     <div class="signal-card" data-category="dashboard">
-      <div class="signal-img-container">
-        <img src="../assets/images/lighting_parts/spia_temperatura_liquido_radiatore.jpg" alt="Spia temperatura liquido raffreddamento Fig. 698" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">🌡️</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">لمبة حرارة سائل التبريد الحمراء</div>
+          <div class="rule-badge-it">Spia Temperatura Liquido di Raffreddamento</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">لمبة حرارة سائل تبريد المحرك الحمراء</h3>
@@ -1296,8 +1277,12 @@
     </div>
     <!-- CARD: لمبة فرامل اليد ونظام الفرامل الحمراء -->
     <div class="signal-card" data-category="dashboard">
-      <div class="signal-img-container">
-        <img src="../assets/images/lighting_parts/spia_freni_livello_pastiglie.jpg" alt="Spia impianto frenante Fig. 696" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">🛑</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">لمبة فرامل اليد وسوائل الفرامل</div>
+          <div class="rule-badge-it">Spia Freno di Stazionamento & Liquido Freni</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">لمبة فرامل اليد ونظام الفرامل الحمراء</h3>
@@ -1326,7 +1311,7 @@
     <!-- CARD: العواكس الضوئية السلبية -->
     <div class="signal-card" data-category="signals">
       <div class="signal-img-container">
-        <img src="../assets/images/lighting_parts/catadiottri_triangolari_non_triangolari.jpg" alt="Catadiottri triangolari e non triangolari" loading="lazy">
+        <img src="../Capitoli_Divisi/Capitolo_18_luci_dispositivi_acustici/immagini/706.png" alt="Catadiottri triangolari e non triangolari" loading="lazy">
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">العواكس الضوئية السلبية</h3>
@@ -1354,8 +1339,12 @@
     </div>
     <!-- CARD: جهاز التنبيه الصوتي (الكلاكس) -->
     <div class="signal-card" data-category="signals">
-      <div class="signal-img-container">
-        <img src="../assets/images/lighting_parts/clacson_segnalazione_acustica.jpg" alt="Avvisatore acustico clacson" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">📢</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">المادة 156 من كود السير</div>
+          <div class="rule-badge-it">Art. 156 CdS • Uso dei Dispositivi di Segnalazione Acustica</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">جهاز التنبيه الصوتي (الكلاكس)</h3>
@@ -1384,7 +1373,7 @@
     <!-- CARD: أنوار الموضع وإضاءة لوحة الأرقام الخلفية -->
     <div class="signal-card" data-category="lights">
       <div class="signal-img-container">
-        <img src="../assets/images/lighting_parts/luci_posizione_targa.jpg" alt="Luci di posizione e illuminazione targa" loading="lazy">
+        <img src="../Capitoli_Divisi/Capitolo_18_luci_dispositivi_acustici/immagini/697.png" alt="Luci di posizione e illuminazione targa" loading="lazy">
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">أنوار الموضع وإضاءة لوحة الأرقام الخلفية</h3>
@@ -1413,7 +1402,7 @@
     <!-- CARD: كشافات الضباب الأمامية وكشاف الضباب الخلفي -->
     <div class="signal-card" data-category="lights">
       <div class="signal-img-container">
-        <img src="../assets/images/lighting_parts/fendinebbia_anteriori_retronebbia.jpg" alt="Fendinebbia anteriori e retronebbia" loading="lazy">
+        <img src="../Capitoli_Divisi/Capitolo_18_luci_dispositivi_acustici/immagini/704.png" alt="Fendinebbia anteriori e retronebbia" loading="lazy">
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">كشافات الضباب الأمامية وكشاف الضباب الخلفي</h3>
@@ -1443,7 +1432,7 @@
     <!-- CARD: إشارات تغيير الاتجاه (الفلاشات / الفريتشي) -->
     <div class="signal-card" data-category="signals">
       <div class="signal-img-container">
-        <img src="../assets/images/lighting_parts/indicatori_direzione_svolta.jpg" alt="Indicatori di direzione frecce" loading="lazy">
+        <img src="../Capitoli_Divisi/Capitolo_18_luci_dispositivi_acustici/immagini/698.png" alt="Indicatori di direzione frecce" loading="lazy">
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">إشارات تغيير الاتجاه (الفلاشات / الفريتشي)</h3>
@@ -1472,8 +1461,12 @@
     </div>
     <!-- CARD: لمبة شحن البطارية والدينامو الحمراء -->
     <div class="signal-card" data-category="dashboard">
-      <div class="signal-img-container">
-        <img src="../assets/images/lighting_parts/spia_batteria_alternatore.jpg" alt="Spia ricarica batteria Fig 699" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">🔋</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">لمبة شحن البطارية والدينامو</div>
+          <div class="rule-badge-it">Spia Generatore/Alternatore di Carica</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">لمبة شحن البطارية والدينامو الحمراء</h3>
@@ -1503,7 +1496,7 @@
     <!-- CARD: لوح الإشارة للحمولة البارزة للخلف (50x50 سم) -->
     <div class="signal-card" data-category="signals">
       <div class="signal-img-container">
-        <img src="../assets/images/lighting_parts/pannello_carichi_sporgenti_302.jpg" alt="Pannello per carichi sporgenti Fig 302" loading="lazy">
+        <img src="../Capitoli_Divisi/Capitolo_17_norme_varie_autostrade_pannelli/immagini/302.png" alt="Pannello per carichi sporgenti Fig 302" loading="lazy">
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">لوح الإشارة للحمولة البارزة للخلف (50x50 سم)</h3>
@@ -1532,8 +1525,12 @@
     </div>
     <!-- CARD: أضواء القيادة النهارية المعتمدة (DRL) -->
     <div class="signal-card" data-category="lights">
-      <div class="signal-img-container">
-        <img src="../assets/images/lighting_parts/luci_diurne_drl_led.jpg" alt="Luci di marcia diurna DRL" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">☀️</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">مصابيح الإضاءة النهارية (DRL)</div>
+          <div class="rule-badge-it">Luci di Marcia Diurna (Daytime Running Lights)</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">أضواء القيادة النهارية المعتمدة (DRL)</h3>

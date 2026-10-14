@@ -954,6 +954,56 @@
     .chapter-pagination { flex-direction: column; align-items: stretch; }
   }
 
+
+  /* Signal Rule Banner (Clean Apple HIG badge replacing crude drawings) */
+  .signal-rule-banner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: rgba(56, 189, 248, 0.06);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 14px;
+    margin-bottom: 8px;
+    transition: all 0.2s ease;
+  }
+  .signal-card:hover .signal-rule-banner {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: rgba(56, 189, 248, 0.35);
+  }
+  .rule-icon {
+    font-size: 2rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .rule-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .rule-badge-ar {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--text-primary);
+  }
+  .rule-badge-it {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--sky-primary);
+    direction: ltr;
+    text-align: right;
+  }
+  html:not(.dark) .signal-rule-banner {
+    background: rgba(14, 165, 233, 0.08);
+    border-color: rgba(14, 165, 233, 0.25);
+  }
+  html:not(.dark) .rule-badge-ar {
+    color: #0f172a;
+  }
+  html:not(.dark) .rule-badge-it {
+    color: #0284c7;
+  }
+
 </style>
 <link rel="manifest" href="../manifest.json">
 </head>
@@ -1049,84 +1099,7 @@
   </section>
 
   <!-- WORKSHOP PHOTO GALLERY -->
-  <section class="workshop-gallery-section">
-    <div class="section-heading">
-      <div>
-        <h2 class="section-title"><span>📸</span> المشاهد البصرية الميدانية للأوتوستراد ومعدات السحب والطوارئ</h2>
-        <p style="font-size:0.86rem; color:var(--text-secondary); margin-top:4px;">معرض توثيقي عالي الدقة يوضح بوابات التحصيل، أعمدة الاستغاثة، ألواح التمييز، وتجهيزات الأمان</p>
-      </div>
-      <span class="section-badge">6 مشاهد أصلية 16:9</span>
-    </div>
-    <div class="workshop-gallery-grid">
-
-      <div class="workshop-gallery-card">
-        <div class="workshop-gallery-media">
-          <img src="../assets/images/autostrada_parts/gallery_casello_autostradale_telepass.jpg" alt="Casello autostradale e piste di pedaggio" loading="lazy">
-          <span class="workshop-gallery-badge">بوابات التحصيل</span>
-        </div>
-        <div class="workshop-gallery-content">
-          <h4 class="workshop-gallery-title">بوابة رسوم الأوتوستراد ومسارات الدفع (Casello)</h4>
-          <div class="workshop-gallery-sub">Piste Telepass, Carte e Contanti</div>
-          <p class="workshop-gallery-desc">المسارات المعتمدة لبوابات الدفع؛ المسار الأصفر لـ Telepass بدون توقف، والمسار الأزرق لبطاقات الائتمان، ومسار الكاش باللون الأبيض.</p>
-        </div>
-      </div>
-      <div class="workshop-gallery-card">
-        <div class="workshop-gallery-media">
-          <img src="../assets/images/autostrada_parts/gallery_colonnina_sos_autostradale.jpg" alt="Colonnina SOS autostradale" loading="lazy">
-          <span class="workshop-gallery-badge">صندوق الإسعاف</span>
-        </div>
-        <div class="workshop-gallery-content">
-          <h4 class="workshop-gallery-title">عمود الطوارئ والاتصال اللاسلكي (Colonnina SOS)</h4>
-          <div class="workshop-gallery-sub">Chiamata diretta Soccorso Meccanico e Medico</div>
-          <p class="workshop-gallery-desc">أعمدة الاستغاثة الصفراء المنتشرة كل 2 كم على جانبي الأوتوستراد؛ تضم زراً لطلب الونش الميكانيكي وزراً لطلب الإسعاف الطبي مع تحديد الموقع آلياً.</p>
-        </div>
-      </div>
-      <div class="workshop-gallery-card">
-        <div class="workshop-gallery-media">
-          <img src="../assets/images/autostrada_parts/gallery_gancio_traino_omologato.jpg" alt="Gancio di traino a sfera omologato" loading="lazy">
-          <span class="workshop-gallery-badge">وصلة السحب الصلبة</span>
-        </div>
-        <div class="workshop-gallery-content">
-          <h4 class="workshop-gallery-title">آلية إقفال كرة السحب وكابل الفرملة التلقائية</h4>
-          <div class="workshop-gallery-sub">Sfera 50mm e cavetto a strappo ECE</div>
-          <p class="workshop-gallery-desc">رأس القطر المعدني المعتمد بقطر 50 مم مع مقبض الأمان ذي المؤشر الأخضر، موصولاً بكابل الصلب الأحمر الذي يفعل فرامل المقطورة عند الطوارئ.</p>
-        </div>
-      </div>
-      <div class="workshop-gallery-card">
-        <div class="workshop-gallery-media">
-          <img src="../assets/images/autostrada_parts/gallery_kit_triangolo_giubbotto.jpg" alt="Kit triangolo di pericolo e giubbotto alta visibilità" loading="lazy">
-          <span class="workshop-gallery-badge">حقيبة الأمان الإلزامية</span>
-        </div>
-        <div class="workshop-gallery-content">
-          <h4 class="workshop-gallery-title">طقم الطوارئ الإلزامي بالمركبة (المثلث والسترة)</h4>
-          <div class="workshop-gallery-sub">Dotazione obbligatoria Art. 162 e 162-bis</div>
-          <p class="workshop-gallery-desc">المثلث العاكس ذو الأرجل المعدنية القابلة للطي، مع السترة الفسفورية عالية الانعكاس التي يجب حفظها داخل كابينة السيارة وليس بالشنطة الخلفية.</p>
-        </div>
-      </div>
-      <div class="workshop-gallery-card">
-        <div class="workshop-gallery-media">
-          <img src="../assets/images/autostrada_parts/gallery_pannelli_autocarro_rimorchio_confronto.jpg" alt="Confronto pannelli autocarro 303 e rimorchio 305" loading="lazy">
-          <span class="workshop-gallery-badge">تمييز الشاحنة والمقطورة</span>
-        </div>
-        <div class="workshop-gallery-content">
-          <h4 class="workshop-gallery-title">مقارنة ألواح الشاحنات (303) وألواح المقطورات (305)</h4>
-          <div class="workshop-gallery-sub">Strisce oblique vs Chevrons a spina di pesce</div>
-          <p class="workshop-gallery-desc">التمييز البصري الحاسم للامتحان الوزاري: اللوح ذو الخطوط المائلة للشاحنة الفردية، واللوح ذو رأس السهم المتداخل (Spina di pesce) للمقطورة فقط.</p>
-        </div>
-      </div>
-      <div class="workshop-gallery-card">
-        <div class="workshop-gallery-media">
-          <img src="../assets/images/autostrada_parts/gallery_svincolo_rampa_autostrada.jpg" alt="Svincolo autostradale e rampe di raccordo" loading="lazy">
-          <span class="workshop-gallery-badge">التقاطعات الحرة</span>
-        </div>
-        <div class="workshop-gallery-content">
-          <h4 class="workshop-gallery-title">المنحدرات التبادلية وحارات التسارع (Svincolo)</h4>
-          <div class="workshop-gallery-sub">Intersezione a livelli sfalsati</div>
-          <p class="workshop-gallery-desc">التصميم الهندسي المتطور لمخارج ومداخل الأوتوستراد بطوابق منفصلة علوية وسفلية تمنع أي تقاطع مباشر وتضمن انسياب حركة السير بسرعة 130 كم/س.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- COMPREHENSIVE CARDS SECTION -->
   <section class="comp-section">
@@ -1152,7 +1125,7 @@
     <!-- CARD: إشارة بداية طريق الأوتوستراد -->
     <div class="signal-card" data-category="highway">
       <div class="signal-img-container">
-        <img src="../assets/images/autostrada_parts/segnale_inizio_autostrada_279.jpg" alt="Segnale inizio autostrada Fig. 279" loading="lazy">
+        <img src="../Capitoli_Divisi/Capitolo_17_norme_varie_autostrade_pannelli/immagini/279.png" alt="Segnale inizio autostrada Fig. 279" loading="lazy">
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">إشارة بداية طريق الأوتوستراد</h3>
@@ -1180,8 +1153,12 @@
     </div>
     <!-- CARD: المركبات الممنوعة من دخول الأوتوستراد -->
     <div class="signal-card" data-category="highway">
-      <div class="signal-img-container">
-        <img src="../assets/images/autostrada_parts/veicoli_non_ammessi_autostrada.jpg" alt="Veicoli non ammessi in autostrada" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">🚫</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">المادة 175 من كود السير</div>
+          <div class="rule-badge-it">Art. 175 CdS • Divieti di Circolazione in Autostrada</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">المركبات الممنوعة من دخول الأوتوستراد</h3>
@@ -1209,8 +1186,12 @@
     </div>
     <!-- CARD: حارة الطوارئ ومحطات الخدمة -->
     <div class="signal-card" data-category="highway">
-      <div class="signal-img-container">
-        <img src="../assets/images/autostrada_parts/corsia_emergenza_sos_autostrada.jpg" alt="Corsia di emergenza e colonnina SOS" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">🚨</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">المادة 176 من كود السير</div>
+          <div class="rule-badge-it">Art. 176 CdS • Corsia di Emergenza & Piazzole SOS</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">حارة الطوارئ ومحطات الخدمة</h3>
@@ -1238,8 +1219,12 @@
     </div>
     <!-- CARD: قاعدة الـ 7 أمتار واستخدام الحارات -->
     <div class="signal-card" data-category="highway">
-      <div class="signal-img-container">
-        <img src="../assets/images/autostrada_parts/regola_7_metri_corsie_autostrada.jpg" alt="Regola dei 7 metri e uso corsie" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">📏</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">قاعدة السبعة أمتار</div>
+          <div class="rule-badge-it">Regola 7 Metri • Corsie Riservate Autostrada</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">قاعدة الـ 7 أمتار واستخدام الحارات</h3>
@@ -1268,7 +1253,7 @@
     <!-- CARD: لوحة بروز الحمولة الخلفية المربعة -->
     <div class="signal-card" data-category="cargo">
       <div class="signal-img-container">
-        <img src="../assets/images/autostrada_parts/pannello_carichi_sporgenti_302.jpg" alt="Pannello per carichi sporgenti Fig. 302" loading="lazy">
+        <img src="../Capitoli_Divisi/Capitolo_17_norme_varie_autostrade_pannelli/immagini/302.png" alt="Pannello per carichi sporgenti Fig. 302" loading="lazy">
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">لوحة بروز الحمولة الخلفية المربعة</h3>
@@ -1297,7 +1282,7 @@
     <!-- CARD: لوحة الشاحنات الأفقية بأكثر من 3.5 طن -->
     <div class="signal-card" data-category="cargo">
       <div class="signal-img-container">
-        <img src="../assets/images/autostrada_parts/pannello_autocarri_pesanti_303.jpg" alt="Pannello autocarri oltre 3.5t Fig. 303" loading="lazy">
+        <img src="../Capitoli_Divisi/Capitolo_17_norme_varie_autostrade_pannelli/immagini/303.png" alt="Pannello autocarri oltre 3.5t Fig. 303" loading="lazy">
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">لوحة الشاحنات الأفقية بأكثر من 3.5 طن</h3>
@@ -1326,7 +1311,7 @@
     <!-- CARD: لوحة المقطورات بأكثر من 3.5 طن -->
     <div class="signal-card" data-category="cargo">
       <div class="signal-img-container">
-        <img src="../assets/images/autostrada_parts/pannello_rimorchi_pesanti_305.jpg" alt="Pannello rimorchi oltre 3.5t Fig. 305" loading="lazy">
+        <img src="../Capitoli_Divisi/Capitolo_17_norme_varie_autostrade_pannelli/immagini/305.png" alt="Pannello rimorchi oltre 3.5t Fig. 305" loading="lazy">
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">لوحة المقطورات بأكثر من 3.5 طن</h3>
@@ -1354,8 +1339,12 @@
     </div>
     <!-- CARD: سحب المركبات المعطلة وقواعد الأمان -->
     <div class="signal-card" data-category="towing">
-      <div class="signal-img-container">
-        <img src="../assets/images/autostrada_parts/traino_veicolo_avaria_barra.jpg" alt="Traino di veicoli in avaria" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">🔗</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">المادة 165 من كود السير</div>
+          <div class="rule-badge-it">Art. 165 CdS • Traino di Veicoli in Avaria</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">سحب المركبات المعطلة وقواعد الأمان</h3>
@@ -1384,7 +1373,7 @@
     <!-- CARD: المثلث العاكس المتنقل لحالات الخطر والتوقف -->
     <div class="signal-card" data-category="towing">
       <div class="signal-img-container">
-        <img src="../assets/images/autostrada_parts/triangolo_mobile_pericolo_162.jpg" alt="Segnale mobile triangolare di pericolo" loading="lazy">
+        <img src="../img_sign/162.png" alt="Segnale mobile triangolare di pericolo" loading="lazy">
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">المثلث العاكس المتنقل لحالات الخطر والتوقف</h3>
@@ -1413,8 +1402,12 @@
     </div>
     <!-- CARD: السترة العاكسة عالية الرؤية المعتمدة -->
     <div class="signal-card" data-category="towing">
-      <div class="signal-img-container">
-        <img src="../assets/images/autostrada_parts/giubbotto_alta_visibilita_ce.jpg" alt="Giubbotto retroriflettente alta visibilità" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">🦺</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">المادة 162 من كود السير</div>
+          <div class="rule-badge-it">Art. 162 CdS • Giubbotto Retroriflettente ad Alta Visibilità</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">السترة العاكسة عالية الرؤية المعتمدة</h3>
@@ -1443,8 +1436,12 @@
     </div>
     <!-- CARD: وصلة السحب بكرة الشد وكابل الأمان الفولاذي -->
     <div class="signal-card" data-category="towing">
-      <div class="signal-img-container">
-        <img src="../assets/images/autostrada_parts/gancio_traino_sfera_cavetto.jpg" alt="Organo di traino gancio a sfera" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">⚙️</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">المادة 78 من كود السير</div>
+          <div class="rule-badge-it">Art. 78 CdS • Gancio di Traino a Sfera & Freno a Inerzia</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">وصلة السحب بكرة الشد وكابل الأمان الفولاذي</h3>
@@ -1473,8 +1470,12 @@
     </div>
     <!-- CARD: اللوح البرتقالي العاكس لنقل المواد الخطرة (ADR) -->
     <div class="signal-card" data-category="cargo">
-      <div class="signal-img-container">
-        <img src="../assets/images/autostrada_parts/pannello_merci_pericolose_adr_306.jpg" alt="Pannello arancione merci pericolose ADR" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">☣️</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">نقل المواد الخطرة ADR</div>
+          <div class="rule-badge-it">Pannello Arancione ADR Merci Pericolose</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">اللوح البرتقالي العاكس لنقل المواد الخطرة (ADR)</h3>
@@ -1503,8 +1504,12 @@
     </div>
     <!-- CARD: حارات التسارع والتباطؤ ومداخل ومخارج الأوتوستراد -->
     <div class="signal-card" data-category="highway">
-      <div class="signal-img-container">
-        <img src="../assets/images/autostrada_parts/corsia_accelerazione_decelerazione.jpg" alt="Corsia di accelerazione e decelerazione" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">🛣️</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">مداخل ومخارج الأوتوستراد</div>
+          <div class="rule-badge-it">Corsie Specializzate di Accelerazione & Decelerazione</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">حارات التسارع والتباطؤ ومداخل ومخارج الأوتوستراد</h3>
@@ -1533,8 +1538,12 @@
     </div>
     <!-- CARD: ديناميكا وثبات سحب المقطورات والكرفانات -->
     <div class="signal-card" data-category="towing">
-      <div class="signal-img-container">
-        <img src="../assets/images/autostrada_parts/stabilita_traino_rimorchio_caravan.jpg" alt="Stabilità del rimorchio e caravan in marcia" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">⚖️</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">ديناميكا ثبات المقطورات</div>
+          <div class="rule-badge-it">Art. 141 & 142 CdS • Dinamica di Traino & Stabilità Rimorchi</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">ديناميكا وثبات سحب المقطورات والكرفانات</h3>

@@ -954,6 +954,56 @@
     .chapter-pagination { flex-direction: column; align-items: stretch; }
   }
 
+
+  /* Signal Rule Banner (Clean Apple HIG badge replacing crude drawings) */
+  .signal-rule-banner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: rgba(56, 189, 248, 0.06);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 14px;
+    margin-bottom: 8px;
+    transition: all 0.2s ease;
+  }
+  .signal-card:hover .signal-rule-banner {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: rgba(56, 189, 248, 0.35);
+  }
+  .rule-icon {
+    font-size: 2rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .rule-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .rule-badge-ar {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--text-primary);
+  }
+  .rule-badge-it {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--sky-primary);
+    direction: ltr;
+    text-align: right;
+  }
+  html:not(.dark) .signal-rule-banner {
+    background: rgba(14, 165, 233, 0.08);
+    border-color: rgba(14, 165, 233, 0.25);
+  }
+  html:not(.dark) .rule-badge-ar {
+    color: #0f172a;
+  }
+  html:not(.dark) .rule-badge-it {
+    color: #0284c7;
+  }
+
 </style>
 <link rel="manifest" href="../manifest.json">
 </head>
@@ -1049,84 +1099,7 @@
   </section>
 
   <!-- WORKSHOP PHOTO GALLERY -->
-  <section class="workshop-gallery-section">
-    <div class="section-heading">
-      <div>
-        <h2 class="section-title"><span>📸</span> المشاهد الميدانية ومعدات السلامة والاعتمادات الأوروبية</h2>
-        <p style="font-size:0.86rem; color:var(--text-secondary); margin-top:4px;">معرض توثيقي عالي الدقة يوضح ملصقات الاعتماد الرسمية، تثبيت أيزوفيكس، ومفاتيح الإيرباج</p>
-      </div>
-      <span class="section-badge">6 مشاهد أصلية 16:9</span>
-    </div>
-    <div class="workshop-gallery-grid">
-
-      <div class="workshop-gallery-card">
-        <div class="workshop-gallery-media">
-          <img src="../assets/images/safety_parts/gallery_etichetta_omologazione_casco.jpg" alt="Etichetta omologazione casco ECE 22.06" loading="lazy">
-          <span class="workshop-gallery-badge">ملصق وزارة النقل</span>
-        </div>
-        <div class="workshop-gallery-content">
-          <h4 class="workshop-gallery-title">ملصق اعتماد الخوذة (Omologazione ECE 22.06)</h4>
-          <div class="workshop-gallery-sub">Regolamento ONU/ECE 22.06 — Sigla E3 Italia</div>
-          <p class="workshop-gallery-desc">الملصق القماشي الإلزامي داخل الخوذة؛ حرف E داخل دائرة متبوعاً برقم الدولة (E3 إيطاليا) ورقم اللائحة 06 وحرف P الدال على الفك الواقي.</p>
-        </div>
-      </div>
-      <div class="workshop-gallery-card">
-        <div class="workshop-gallery-media">
-          <img src="../assets/images/safety_parts/gallery_seggiolino_isofix_ancoraggio.jpg" alt="Ancoraggi ISOFIX e Top Tether" loading="lazy">
-          <span class="workshop-gallery-badge">تثبيت ميكانيكي صلب</span>
-        </div>
-        <div class="workshop-gallery-content">
-          <h4 class="workshop-gallery-title">نقاط تثبيت أيزوفيكس والحزام العلوي (ISOFIX & Top Tether)</h4>
-          <div class="workshop-gallery-sub">Ancoraggi rigidi telaio vettura</div>
-          <p class="workshop-gallery-desc">حلقات معدنية فولاذية ملحومة بهيكل السيارة لتثبيت مقعد الطفل مباشرة دون استخدام حزام السيارة العادي، مع خطاف الشد العلوي المضاد للانقلاب.</p>
-        </div>
-      </div>
-      <div class="workshop-gallery-card">
-        <div class="workshop-gallery-media">
-          <img src="../assets/images/safety_parts/gallery_interruttore_airbag_passeggero.jpg" alt="Interruttore esclusione airbag passeggero" loading="lazy">
-          <span class="workshop-gallery-badge">مفتاح إبطال الإيرباج</span>
-        </div>
-        <div class="workshop-gallery-content">
-          <h4 class="workshop-gallery-title">مفتاح تعطيل الوسادة الهوائية للراكب الأمامي</h4>
-          <div class="workshop-gallery-sub">Passenger Airbag OFF Switch</div>
-          <p class="workshop-gallery-desc">مفتاح يُدار بمفتاح السيارة لإلغاء تفعيل الإيرباج الأمامي، وهو إلزام قانوني صارم عند تثبيت مقعد الرضيع عكس اتجاه السير لتفادي صدمة الانفجار.</p>
-        </div>
-      </div>
-      <div class="workshop-gallery-card">
-        <div class="workshop-gallery-media">
-          <img src="../assets/images/safety_parts/gallery_etichetta_omologazione_cintura.jpg" alt="Etichetta omologazione nastro cintura" loading="lazy">
-          <span class="workshop-gallery-badge">اعتماد حزام الأمان</span>
-        </div>
-        <div class="workshop-gallery-content">
-          <h4 class="workshop-gallery-title">ملصق اعتماد نسيج حزام الأمان (Ar4m ECE)</h4>
-          <div class="workshop-gallery-sub">Nastro omologato con pretensionatore</div>
-          <p class="workshop-gallery-desc">ملصق برتقالي مخيط على نسيج الحزام يبين كود الاعتماد الأوروبي، ويرمز Ar4m إلى حزام ثلاثي النقاط مزود بملف شد مسبق تلقائي.</p>
-        </div>
-      </div>
-      <div class="workshop-gallery-card">
-        <div class="workshop-gallery-media">
-          <img src="../assets/images/safety_parts/gallery_casco_visiera_omologata.jpg" alt="Visiera antigraffio omologata classe 1" loading="lazy">
-          <span class="workshop-gallery-badge">عدسة معتمدة بصرياً</span>
-        </div>
-        <div class="workshop-gallery-content">
-          <h4 class="workshop-gallery-title">واقية الخوذة المعتمدة المقاومة للخدش</h4>
-          <div class="workshop-gallery-sub">Visiera antigraffio Classe Ottica 1</div>
-          <p class="workshop-gallery-desc">واقية من البولي كربونات من الفئة البصرية الأولى تمنع تشوه الرؤية؛ يُحظر تظليلها ليلاً ويجب استبدالها فور تعرضها لخدوش تشتت أضواء السيارات.</p>
-        </div>
-      </div>
-      <div class="workshop-gallery-card">
-        <div class="workshop-gallery-media">
-          <img src="../assets/images/safety_parts/gallery_abbigliamento_certificato_ce.jpg" alt="Certificazione abbigliamento moto EN 17092" loading="lazy">
-          <span class="workshop-gallery-badge">شهادة CE الأوروبية</span>
-        </div>
-        <div class="workshop-gallery-content">
-          <h4 class="workshop-gallery-title">ملصق فحص الملابس الواقية للموتوسيكل (CE EN 17092)</h4>
-          <div class="workshop-gallery-sub">Classe AA / Protezioni EN 1621</div>
-          <p class="workshop-gallery-desc">بطاقة المطابقة الأوروبية التي تثبت اجتياز الجاكيت والبنطال لاختبارات مقاومة الاحتكاك والتمزق وتوفر حشوات حماية معتمدة للمفاصل والظهر.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- COMPREHENSIVE CARDS SECTION -->
   <section class="comp-section">
@@ -1150,8 +1123,12 @@
 
     <!-- CARD: أحزمة الأمان ثلاثية النقاط -->
     <div class="signal-card" data-category="belts">
-      <div class="signal-img-container">
-        <img src="../assets/images/safety_parts/cintura_sicurezza_tre_punti.jpg" alt="Le cinture di sicurezza a 3 punti" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">🎗️</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">المادة 172 من كود السير</div>
+          <div class="rule-badge-it">Art. 172 CdS • Uso Obbligatorio delle Cinture a 3 Punti</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">أحزمة الأمان ثلاثية النقاط</h3>
@@ -1179,8 +1156,12 @@
     </div>
     <!-- CARD: جهاز الشد المسبق لأحزمة الأمان -->
     <div class="signal-card" data-category="belts">
-      <div class="signal-img-container">
-        <img src="../assets/images/safety_parts/pretensionatore_pirotecnico.jpg" alt="Il pretensionatore delle cinture" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">⚡</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">جهاز الشد المسبق التلقائي</div>
+          <div class="rule-badge-it">Il Pretensionatore • Attivazione Piromecanica Istantanea</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">جهاز الشد المسبق لأحزمة الأمان</h3>
@@ -1208,8 +1189,12 @@
     </div>
     <!-- CARD: الوسادة الهوائية الأمامية والجانبية -->
     <div class="signal-card" data-category="belts">
-      <div class="signal-img-container">
-        <img src="../assets/images/safety_parts/airbag_frontale_laterale.jpg" alt="L'airbag frontale e laterale" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">🛡️</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">الوسائد الهوائية والحماية التكميلية</div>
+          <div class="rule-badge-it">Airbag Frontali & Laterali • Dispositivo Salvavita Ausiliario</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">الوسادة الهوائية الأمامية والجانبية</h3>
@@ -1237,8 +1222,12 @@
     </div>
     <!-- CARD: مقاعد الأطفال وقاعدة الـ 1.50 متراً -->
     <div class="signal-card" data-category="kids">
-      <div class="signal-img-container">
-        <img src="../assets/images/safety_parts/seggiolino_bambini_isofix.jpg" alt="Sistemi di ritenuta per bambini ISOFIX" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">👶</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">أنظمة تثبيت مقاعد الأطفال</div>
+          <div class="rule-badge-it">Sistemi di Ritenuta per Bambini ISOFIX (< 1.50m)</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">مقاعد الأطفال وقاعدة الـ 1.50 متراً</h3>
@@ -1266,8 +1255,12 @@
     </div>
     <!-- CARD: مقعد الرضيع عكس اتجاه السير وإلغاء الإيرباج -->
     <div class="signal-card" data-category="kids">
-      <div class="signal-img-container">
-        <img src="../assets/images/safety_parts/seggiolino_contrario_marcia_airbag.jpg" alt="Seggiolino contrario al senso di marcia" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">🚼</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">تثبيت المقعد عكس اتجاه السير</div>
+          <div class="rule-badge-it">Seggiolino Contrario al Senso di Marcia & Airbag Disattivato</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">مقعد الرضيع عكس اتجاه السير وإلغاء الإيرباج</h3>
@@ -1295,8 +1288,12 @@
     </div>
     <!-- CARD: مسند الرأس والوقاية من صدمة الارتداد العنقي -->
     <div class="signal-card" data-category="belts">
-      <div class="signal-img-container">
-        <img src="../assets/images/safety_parts/poggiatesta_colpo_frusta.jpg" alt="Il poggiatesta e colpo di frusta" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">💺</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">مساند الرأس والوقاية من الارتداد</div>
+          <div class="rule-badge-it">Poggiatesta • Protezione dal Colpo di Frusta (Whiplash)</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">مسند الرأس والوقاية من صدمة الارتداد العنقي</h3>
@@ -1324,8 +1321,12 @@
     </div>
     <!-- CARD: الخوذة الواقية المعتمدة للدراجات -->
     <div class="signal-card" data-category="moto">
-      <div class="signal-img-container">
-        <img src="../assets/images/safety_parts/casco_integrale_omologato.jpg" alt="Il casco protettivo omologato ECE 22.06" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">🪖</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">المادة 171 من كود السير</div>
+          <div class="rule-badge-it">Art. 171 CdS • Obbligo del Casco Protettivo Omologato</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">الخوذة الواقية المعتمدة للدراجات</h3>
@@ -1353,8 +1354,12 @@
     </div>
     <!-- CARD: استبدال الخوذة بعد التعرض لصدمة -->
     <div class="signal-card" data-category="moto">
-      <div class="signal-img-container">
-        <img src="../assets/images/safety_parts/casco_danneggiato_sostituzione.jpg" alt="Sostituzione del casco dopo un urto" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">⚠️</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">قواعد استبدال الخوذة بعد الصدمات</div>
+          <div class="rule-badge-it">Integrità Strutturale & Sostituzione Immediata</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">استبدال الخوذة بعد التعرض لصدمة</h3>
@@ -1382,8 +1387,12 @@
     </div>
     <!-- CARD: قفازات قيادة الدراجات النارية المعتمدة -->
     <div class="signal-card" data-category="moto">
-      <div class="signal-img-container">
-        <img src="../assets/images/safety_parts/guanti_moto_omologati.jpg" alt="Guanti ad uso motociclistico omologati" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">🧤</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">قفازات القيادة الواقية المعتمدة</div>
+          <div class="rule-badge-it">Guanti da Moto Certificati CE • Protezione Nocche e Palmo</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">قفازات قيادة الدراجات النارية المعتمدة</h3>
@@ -1412,8 +1421,12 @@
     </div>
     <!-- CARD: أحذية الدراجات النارية المقواة والمحمية -->
     <div class="signal-card" data-category="moto">
-      <div class="signal-img-container">
-        <img src="../assets/images/safety_parts/stivali_moto_protettivi.jpg" alt="Stivali ad uso motociclistico protettivi" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">🥾</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">أحذية القيادة المصفحة للدراجات</div>
+          <div class="rule-badge-it">Stivali Tecnici da Moto con Protezione Malleolo</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">أحذية الدراجات النارية المقواة والمحمية</h3>
@@ -1442,8 +1455,12 @@
     </div>
     <!-- CARD: السترة الواقية وحامي الظهر والوسائد الهوائية للدراجات -->
     <div class="signal-card" data-category="moto">
-      <div class="signal-img-container">
-        <img src="../assets/images/safety_parts/giacca_moto_paraschiena.jpg" alt="Giacca moto con paraschiena e airbag" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">🧥</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">السترة التقنية وواقي الظهر</div>
+          <div class="rule-badge-it">Giacca Tecnica con Paraschiena Integrato (Back Protector)</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">السترة الواقية وحامي الظهر والوسائد الهوائية للدراجات</h3>
@@ -1472,8 +1489,12 @@
     </div>
     <!-- CARD: الإعفاءات القانونية والطبية من ربط حزام الأمان -->
     <div class="signal-card" data-category="belts">
-      <div class="signal-img-container">
-        <img src="../assets/images/safety_parts/esenzioni_cinture_mediche.jpg" alt="Esenzioni dall'obbligo delle cinture di sicurezza" loading="lazy">
+      <div class="signal-rule-banner">
+        <span class="rule-icon">📜</span>
+        <div class="rule-meta">
+          <div class="rule-badge-ar">استثناءات ربط حزام الأمان القانونية</div>
+          <div class="rule-badge-it">Esenzioni Mediche & Forze di Polizia in Emergenza</div>
+        </div>
       </div>
       <div class="card-header-row">
         <h3 class="card-ar-title">الإعفاءات القانونية والطبية من ربط حزام الأمان</h3>
