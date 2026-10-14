@@ -858,7 +858,87 @@
     .chapter-pagination { flex-direction: column; align-items: stretch; }
   }
 
-  </style>
+  
+  /* Workshop Photo Gallery Section (16:9 Realistic Photography) */
+  .workshop-gallery-section {
+    margin: 40px 0 32px;
+  }
+  .workshop-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .workshop-gallery-card {
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .workshop-gallery-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.5), 0 0 16px rgba(56, 189, 248, 0.15);
+  }
+  .workshop-gallery-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    overflow: hidden;
+  }
+  .workshop-gallery-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .workshop-gallery-card:hover .workshop-gallery-media img {
+    transform: scale(1.04);
+  }
+  .workshop-gallery-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #38bdf8;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+  }
+  .workshop-gallery-content {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+  .workshop-gallery-title {
+    font-size: 0.96rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.35;
+  }
+  .workshop-gallery-sub {
+    font-size: 0.76rem;
+    color: #38bdf8;
+    font-family: var(--font-mono);
+  }
+  .workshop-gallery-desc {
+    font-size: 0.82rem;
+    color: #94a3b8;
+    line-height: 1.5;
+  }
+
+</style>
   <link rel="manifest" href="../manifest.json">
 </head>
 <body>
@@ -967,7 +1047,12 @@
     </p>
 
     <div class="hero-badges-row">
-      <div class="hero-stat-badge"><span>📊</span> <span>135 سؤالاً وزارياً معتمداً</span></div>
+      <div class="hero-stat-badge"><span>📊</span> <span>135 سؤالاً وزارياً معتمداً ومفحوصاً</span></div>
+      <div class="hero-stat-badge"><span>✅</span> <span>66 VERO | 69 FALSO</span></div>
+      <div class="hero-stat-badge"><span>🎯</span> <span>نسبة الاكتمال 100% تدقيق أكاديمي شامل</span></div>
+      <div class="hero-stat-badge"><span>🧮</span> <span>12 قاعدة ومحوراً حسابياً</span></div>
+      <div class="hero-stat-badge"><span>⚠️</span> <span>12 فخاً وزارياً حاسماً</span></div>
+    </div>
       <div class="hero-stat-badge"><span>⚠️</span> <span>12 فخاً وزارياً دقيقاً</span></div>
       <div class="hero-stat-badge"><span>🧮</span> <span>12 قاعدة ومحوراً حسابياً</span></div>
       <div class="hero-stat-badge"><span>🎯</span> <span>دقة 100% كود السير 2026</span></div>
@@ -1000,6 +1085,96 @@
     </div>
   </section>
 
+  <!-- WORKSHOP PHOTO GALLERY (6 CARDS - 16:9 REAL IMAGES) -->
+  <section class="workshop-gallery-section" id="workshop-gallery">
+    <div class="section-heading" style="margin-bottom:16px;">
+      <div class="badge-tag" style="display:inline-block; margin-bottom:6px;">معرض الورشة البصري 16:9 • REAL PHOTO GALLERY</div>
+      <h2 style="font-size:1.35rem; font-weight:900; color:#fff;">المشاهد البصرية الميدانية لمسافة الأمان وعوامل الفرملة في إيطاليا</h2>
+    </div>
+
+    <div class="workshop-gallery-grid">
+      <!-- 1: Distanza in Autostrada -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/safety_distance_parts/gallery_distanza_autostrada.jpg" alt="Distanza Autostrada" loading="lazy">
+          <span class="workshop-gallery-badge">مسافة الأمان</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">مسافة الأمان على الأوتوستراد والطرق السريعة</h4>
+          <div class="workshop-gallery-sub">Art. 149 comma 1 Codice della Strada</div>
+          <p class="workshop-gallery-desc">المسافة التي تضمن في جميع الأحوال إيقاف السيارة في الوقت المناسب وتجنب الاصطدام الخلفي (Tamponamento) بالمركبة التي تسير في الأمام.</p>
+        </div>
+      </div>
+
+      <!-- 2: Tempo di Reazione -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/safety_distance_parts/gallery_tempo_reazione.jpg" alt="Tempo Reazione" loading="lazy">
+          <span class="workshop-gallery-badge">زمن رد الفعل</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">زمن رد الفعل والمسافة المقطوعة (Spazio di Reazione)</h4>
+          <div class="workshop-gallery-sub">Tempo Medio di Reazione: 1 Secondo</div>
+          <p class="workshop-gallery-desc">الزمن بين رؤية الخطر والبدء بلمس الفرامل (حوالي ثانية واحدة)؛ تقطع السيارة خلالها مسافة تحسب ذهنياً بـ (عشر السرعة × 3).</p>
+        </div>
+      </div>
+
+      <!-- 3: Frenatura su Bagnato e Ghiaccio -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/safety_distance_parts/gallery_frenatura_bagnato_ghiaccio.jpg" alt="Frenatura Ghiaccio" loading="lazy">
+          <span class="workshop-gallery-badge">معامل الالتصاق</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">مسافة الفرملة على الأسفلت المبلل والجليد</h4>
+          <div class="workshop-gallery-sub">Spazio di Frenatura e Condizioni del Fondo</div>
+          <p class="workshop-gallery-desc">مسافة الفرملة تتضاعف مرتين إلى أربع مرات على الطرق المبللة، وتصل إلى 8 أضعاف على الطرق المغطاة بالثلوج أو الجليد مقارنة بالطريق الجاف.</p>
+        </div>
+      </div>
+
+      <!-- 4: Aquaplaning -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/safety_distance_parts/gallery_aquaplaning.jpg" alt="Aquaplaning" loading="lazy">
+          <span class="workshop-gallery-badge">التزحلق المائي</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">ظاهرة التزحلق المائي (Aquaplaning) وفقدان التوجيه</h4>
+          <div class="workshop-gallery-sub">Galleggiamento dello Pneumatico sull'Acqua</div>
+          <p class="workshop-gallery-desc">تطفو عجلات السيارة فوق وسادة مائية لعجز قنوات المداس عن تصريف المياه، مما يؤدي لفقدان تام للالتصاق وعجز المقود والفرامل عن التحكم.</p>
+        </div>
+      </div>
+
+      <!-- 5: Sgombraneve 20 Metri -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/safety_distance_parts/gallery_sgombraneve_20m.jpg" alt="Sgombraneve" loading="lazy">
+          <span class="workshop-gallery-badge">مسافة ثابتة 20m</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">مسافة 20 متراً خلف سيارات كسح الثلوج العاملة</h4>
+          <div class="workshop-gallery-sub">Art. 149 comma 5 - Macchine Sgombraneve</div>
+          <p class="workshop-gallery-desc">مسافة أمان إلزامية لا تقل عن 20 متراً عند اتباع آلات كسح الثلوج أو رش الملح أثناء عملها في الطريق لتفادي تطاير الجليد والرمال.</p>
+        </div>
+      </div>
+
+      <!-- 6: Autocarri 100 Metri -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/safety_distance_parts/gallery_autocarri_100m.jpg" alt="Autocarri 100m" loading="lazy">
+          <span class="workshop-gallery-badge">مسافة ثابتة 100m</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">مسافة 100 متر بين الشاحنات الثقيلة (> 3.5t)</h4>
+          <div class="workshop-gallery-sub">Art. 149 comma 6 - Divieto di Sorpasso Autocarri</div>
+          <p class="workshop-gallery-desc">خارج المدن على الطرق ذات المسار الواحد للاتجاه وفي وجود حظر التجاوز، تلتزم الشاحنات بترك 100 متر بينها لتمكين السيارات من التجاوز والانتقال بينها بأمان.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
   <!-- INTERACTIVE SIMULATORS -->
 
   <!-- SIMULATOR 1: Spazio di Reazione Formula -->
@@ -1018,7 +1193,7 @@
     </div>
     <div class="sim-output-card">
       <div class="sim-img-wrapper" id="simReactImgWrapper" style="font-size:3.5rem; text-align:center; min-width:110px;">
-        ⏱️🚗
+        <img src="../assets/images/safety_distance_parts/gallery_tempo_reazione.jpg" alt="Tempo Reazione" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">
       </div>
       <div class="sim-details">
         <div class="sim-state-badge state-rot-precedence" id="simReactBadge">سرعة 50 كم/س = 14 متراً خلال ثانية واحدة</div>
@@ -1045,7 +1220,7 @@
     </div>
     <div class="sim-output-card">
       <div class="sim-img-wrapper" id="simAderenzaImgWrapper" style="font-size:3.5rem; text-align:center; min-width:110px;">
-        ☀️🛣️
+        <img src="../assets/images/safety_distance_parts/gallery_distanza_autostrada.jpg" alt="Asfalto Asciutto" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">
       </div>
       <div class="sim-details">
         <div class="sim-state-badge state-rot-precedence" id="simAderenzaBadge">أسفلت جاف: معامل الالتصاق ممتاز والمسافة قياسية</div>
@@ -1072,7 +1247,7 @@
     </div>
     <div class="sim-output-card">
       <div class="sim-img-wrapper" id="simFisseImgWrapper" style="font-size:3.5rem; text-align:center; min-width:110px;">
-        🚜❄️
+        <img src="../assets/images/safety_distance_parts/gallery_sgombraneve_20m.jpg" alt="Sgombraneve" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">
       </div>
       <div class="sim-details">
         <div class="sim-state-badge state-normal" id="simFisseBadge">كاسحة الثلوج: 100 متر كحد أدنى إلزامي</div>
@@ -1861,10 +2036,13 @@
   }
 
   // Simulator 1 Logic: Reaction Speed Calculation
+    // Simulator 1 Logic: Spazio di Reazione (Real HD Photography, Zero Emojis)
   function simulateReactionSpeed(speed) {
+    if (window.soundEngine && typeof window.soundEngine.click === 'function') window.soundEngine.click();
     const btn50 = document.getElementById('btnSpeed50');
     const btn100 = document.getElementById('btnSpeed100');
     const btn130 = document.getElementById('btnSpeed130');
+    const imgWrapper = document.getElementById('simReactImgWrapper');
     const badge = document.getElementById('simReactBadge');
     const text = document.getElementById('simReactText');
 
@@ -1874,10 +2052,24 @@
 
     if (speed === 50) {
       btn50.classList.add('active');
+      if (imgWrapper) imgWrapper.innerHTML = '<img src="../assets/images/safety_distance_parts/gallery_tempo_reazione.jpg" alt="Reazione 50 km/h" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
       badge.textContent = 'سرعة 50 كم/س = 14 متراً خلال ثانية واحدة';
       badge.className = 'sim-state-badge state-rot-precedence';
-      text.innerHTML = '<strong>طريقة الحساب السريع:</strong> نأخذ عشر السرعة ونضربه في 3: (50 ÷ 10 = 5) ثم (5 × 3 = 15 متراً تقريباً، الحساب الدقيق 13.9م). السيارة تقطع 14 متراً بالكامل قبل أن تبدأ قدمك بلمس بدال الفرامل!';
+      text.innerHTML = '<strong>طريقة الحساب السريع للامتحان الوزاري:</strong> نأخذ خانة العشرات ونضربها في 3: (50 ÷ 10 = 5) ثم (5 × 3 = 15 متراً تقريباً، الحساب الدقيق 13.9م). السيارة تقطع 14 متراً بالكامل قبل أن تبدأ قدمك بلمس بدال الفرامل!';
     } else if (speed === 100) {
+      btn100.classList.add('active');
+      if (imgWrapper) imgWrapper.innerHTML = '<img src="../assets/images/safety_distance_parts/gallery_distanza_autostrada.jpg" alt="Reazione 100 km/h" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.textContent = 'سرعة 100 كم/س = 28 متراً خلال ثانية واحدة';
+      badge.className = 'sim-state-badge state-normal';
+      text.innerHTML = '<strong>طريقة الحساب السريع للامتحان الوزاري:</strong> (100 ÷ 10 = 10) ثم (10 × 3 = 30 متراً تقريباً، الحساب الدقيق 27.8م). مسافة رد الفعل تزداد تناسبياً طردياً مع السرعة (Se raddoppia la velocità, raddoppia lo spazio di reazione).';
+    } else if (speed === 130) {
+      btn130.classList.add('active');
+      if (imgWrapper) imgWrapper.innerHTML = '<img src="../assets/images/safety_distance_parts/gallery_distanza_autostrada.jpg" alt="Reazione 130 km/h" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.textContent = 'سرعة 130 كم/س = 36 متراً خلال ثانية واحدة';
+      badge.className = 'sim-state-badge state-rot-island';
+      text.innerHTML = '<strong>طريقة الحساب السريع للامتحان الوزاري:</strong> (130 ÷ 10 = 13) ثم (13 × 3 = 39 متراً تقريباً، الحساب الدقيق 36.1م). في السرعات القصوى على الأوتوستراد تقطع مسافة نصف ملعب كرة قدم قبل بدء الفرملة الفعالة!';
+    }
+  } else if (speed === 100) {
       btn100.classList.add('active');
       badge.textContent = 'سرعة 100 كم/س = 28 متراً خلال ثانية واحدة';
       badge.className = 'sim-state-badge state-normal';
@@ -1892,7 +2084,9 @@
   }
 
   // Simulator 2 Logic: Aderenza
+    // Simulator 2 Logic: Aderenza e Frenatura (Real HD Photography, Zero Emojis)
   function simulateAderenza(type) {
+    if (window.soundEngine && typeof window.soundEngine.click === 'function') window.soundEngine.click();
     const btnA = document.getElementById('btnAsfaltoAsciutto');
     const btnB = document.getElementById('btnAsfaltoBagnato');
     const btnG = document.getElementById('btnAsfaltoGhiaccio');
@@ -1906,11 +2100,24 @@
 
     if (type === 'asciutto') {
       btnA.classList.add('active');
-      imgWrapper.innerHTML = '☀️🛣️';
+      if (imgWrapper) imgWrapper.innerHTML = '<img src="../assets/images/safety_distance_parts/gallery_distanza_autostrada.jpg" alt="Asfalto Asciutto" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.textContent = 'أسفلت جاف: معامل الالتصاق ممتاز (Aderenza Ottimale)';
       badge.className = 'sim-state-badge state-rot-precedence';
-      badge.textContent = 'أسفلت جاف: معامل الالتصاق ممتاز والمسافة قياسية';
-      text.innerHTML = '<strong>الوضع الفيزيائي:</strong> أقصى درجات التماسك بين الإطار والأسفلت؛ مسافة الفرملة في حدها الأدنى الطبيعي، والسيارة تستجيب بكفاءة تامة لمنظومة الفرامل.';
+      text.innerHTML = '<strong>القاعدة الفيزيائية:</strong> عند سرعة 100 كم/س، مسافة الفرملة على الطريق الجاف بحالة ممتازة تبلغ حوالي 40 متراً (مسافة التوقف الكلية = 28 رد فعل + 40 فرملة = 68 متراً).';
     } else if (type === 'bagnato') {
+      btnB.classList.add('active');
+      if (imgWrapper) imgWrapper.innerHTML = '<img src="../assets/images/safety_distance_parts/gallery_aquaplaning.jpg" alt="Asfalto Bagnato" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.textContent = 'أسفلت مبلل: تتضاعف مسافة الفرملة (Circa il Doppio)';
+      badge.className = 'sim-state-badge state-normal';
+      text.innerHTML = '<strong>القاعدة الفيزيائية:</strong> على الأسفلت المبلل يقل معامل الاحتكاك وتتضاعف مسافة الفرملة من 40 متراً إلى حوالي 80 متراً، وتزيد مسافة التوقف الكلية إلى أكثر من 108 أمتار!';
+    } else if (type === 'ghiaccio') {
+      btnG.classList.add('active');
+      if (imgWrapper) imgWrapper.innerHTML = '<img src="../assets/images/safety_distance_parts/gallery_frenatura_bagnato_ghiaccio.jpg" alt="Asfalto Innevato / Ghiaccio" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.textContent = 'طريق جليدي: تزيد مسافة الفرملة حتى 8 أضعاف!';
+      badge.className = 'sim-state-badge state-rot-island';
+      text.innerHTML = '<strong>القاعدة الفيزيائية:</strong> على الجليد أو الثلج المضغوط، تكاد تنعدم قوة التماسك، وتتضاعف مسافة الفرملة حتى 8 أضعاف مسافة الطريق الجاف، ويصبح الاصطدام حتمياً إذا لم تضاعف مسافة الأمان أضعافاً مضاعفة.';
+    }
+  } else if (type === 'bagnato') {
       btnB.classList.add('active');
       imgWrapper.innerHTML = '🌧️🛣️';
       badge.className = 'sim-state-badge state-normal';
@@ -1927,7 +2134,9 @@
   }
 
   // Simulator 3 Logic: Distanze Fisse
+    // Simulator 3 Logic: Distanze Fisse (Real HD Photography, Zero Emojis)
   function simulateFisse(type) {
+    if (window.soundEngine && typeof window.soundEngine.click === 'function') window.soundEngine.click();
     const btnS = document.getElementById('btnFissaSgombraneve');
     const btnC = document.getElementById('btnFissaCamion');
     const btnM = document.getElementById('btnFissaManutenzione');
@@ -1941,11 +2150,24 @@
 
     if (type === 'sgombraneve') {
       btnS.classList.add('active');
-      imgWrapper.innerHTML = '🚜❄️';
+      if (imgWrapper) imgWrapper.innerHTML = '<img src="../assets/images/safety_distance_parts/gallery_sgombraneve_20m.jpg" alt="Sgombraneve 20m" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.textContent = 'كاسحة الثلوج ورش الملح: 20 متراً كحد أدنى إلزامي';
       badge.className = 'sim-state-badge state-normal';
-      badge.textContent = 'كاسحة الثلوج: 100 متر كحد أدنى إلزامي';
-      text.innerHTML = '<strong>القاعدة الوزارية الصارمة:</strong> يجب ترك مسافة لا تقل عن 100 متر خلف آلات كاسحات الثلوج أثناء عملها ونثرها للملح في الأوتوستراد، ويحظر تجاوزها لتفادي تطاير الكتل الجليدية والملح على الزجاج الأمامي.';
+      text.innerHTML = '<strong>الحكم الوزاري الدقيق:</strong> يفرض القانون مسافة أمان ثابتة لا تقل عن 20 متراً خلف آلات كسح الثلوج أو رش الملح أثناء عملها في الطريق (In funzione).';
     } else if (type === 'camion') {
+      btnC.classList.add('active');
+      if (imgWrapper) imgWrapper.innerHTML = '<img src="../assets/images/safety_distance_parts/gallery_autocarri_100m.jpg" alt="Camion 100m" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.textContent = 'الشاحنات الثقيلة (>3.5t): 100 متر بين مركبة وأخرى';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      text.innerHTML = '<strong>الحكم الوزاري الدقيق:</strong> خارج المراكز العمرانية على الطرق ذات المسار الواحد للاتجاه وفي وجود لافتة حظر التجاوز للشاحنات (Fig. 58)، يجب أن تترك الشاحنات التي تزيد كتلتها عن 3.5 طن مسافة 100 متر بينها للسماح للسيارات الخفيفة بالتجاوز والانتقال بينها.';
+    } else if (type === 'manutenzione') {
+      btnM.classList.add('active');
+      if (imgWrapper) imgWrapper.innerHTML = '<img src="../assets/images/safety_distance_parts/gallery_distanza_autostrada.jpg" alt="Colonne Militari" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.textContent = 'القوافل العسكرية وقوافل الصيانة: الحفاظ على مسافة تسمح بالتجاوز';
+      badge.className = 'sim-state-badge state-rot-island';
+      text.innerHTML = '<strong>الحكم الوزاري الدقيق:</strong> عند السير خلف قوافل صيانة الطرق أو القوافل العسكرية المنظمة، يجب الحفاظ على مسافة أمان كافية وتجنب الاندساس بين مركبات القافلة إلا في حالات الضرورة.';
+    }
+  } else if (type === 'camion') {
       btnC.classList.add('active');
       imgWrapper.innerHTML = '🚛↔️🚛';
       badge.className = 'sim-state-badge state-rot-precedence';
