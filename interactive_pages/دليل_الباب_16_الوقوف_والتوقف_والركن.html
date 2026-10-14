@@ -972,6 +972,73 @@
     .signals-grid { grid-template-columns: 1fr; }
     .chapter-pagination { flex-direction: column; align-items: stretch; }
   }
+
+  /* Chapter 16 Interactive Simulator Styles (Apple HIG Benchmark) */
+  .interactive-sim-container {
+    background: rgba(18, 18, 22, 0.75);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 40px;
+    backdrop-filter: blur(16px);
+  }
+  .sim-tabs-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .sim-tab-btn {
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    color: var(--text-secondary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+  .sim-tab-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .sim-tab-btn.active {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: var(--sky-primary);
+    color: #fff;
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.15);
+  }
+  .sim-display-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .sim-visual-box {
+    background: #0e0e11;
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .sim-info-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  @media (max-width: 768px) {
+    .sim-display-panel { grid-template-columns: 1fr; }
+    .interactive-sim-container { padding: 18px; }
+  }
+
 </style>
 <link rel="manifest" href="../manifest.json">
 </head>
@@ -1060,6 +1127,57 @@
       <div class="rule-box">
         <h4><span>4️⃣</span> قاعدة حظر تحريك قرص الساعات</h4>
         <p>في المناطق المحددة بقرص الساعات (Disco Orario)، يمنع قانوناً تحديث الوقت دون تحريك السيارة ومغادرة المكان، وإلا تطبق الغرامة والسحب.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE SIMULATOR (BENCHMARK CHAPTER 15 ARCHITECTURE) -->
+  <section class="interactive-sim-container simulator-container" id="parking-sim">
+    <div class="golden-rules-title" style="margin-bottom:16px;">
+      <span>🎮</span>
+      <span>المختبر التفاعلي لقواعد ومسافات الوقوف والتوقف (Simulatore Sosta & Fermata)</span>
+    </div>
+    
+    <!-- Simulator Navigation Tabs -->
+    <div class="sim-tabs-row">
+      <button class="sim-tab-btn active" onclick="switchPkSim(1, this)">
+        <span>المحاكي 1:</span> رادار المسافات القانونية المشددة (Distanze Legali)
+      </button>
+      <button class="sim-tab-btn" onclick="switchPkSim(2, this)">
+        <span>المحاكي 2:</span> التمييز القاطع بين الحالات الأربع (Fermata vs Sosta)
+      </button>
+      <button class="sim-tab-btn" onclick="switchPkSim(3, this)">
+        <span>المحاكي 3:</span> قرص الوقوف والسحب بالونش (Disco & Rimozione)
+      </button>
+    </div>
+
+    <!-- Simulator Interactive Display Panel -->
+    <div class="sim-display-panel" id="pkSimDisplay">
+      <!-- Visual Column (Real Photographic Asset + Dynamic Tag) -->
+      <div class="sim-visual-box" id="pkSimVisual">
+        <div class="sim-img-frame" style="width:100%; height:180px; border-radius:12px; overflow:hidden; margin-bottom:12px; background:#000; display:flex; align-items:center; justify-content:center;">
+          <img id="pkSimImg" src="../assets/images/parking_parts/divieto_sosta_incroci.jpg" alt="Sim Scenario" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div style="font-size:1.15rem; font-weight:800; color:#fff;" id="pkSimTitle">تقاطعات الطرق (Incroci - 5 Metri)</div>
+        <div style="font-size:0.85rem; color:var(--sky-primary); font-family:var(--font-mono); margin-top:4px;" id="pkSimSub">Art. 158 comma 1 lett. f Codice della Strada</div>
+      </div>
+
+      <!-- Information & Controls Column -->
+      <div class="sim-info-box">
+        <!-- Scenario Selector Buttons -->
+        <div class="sim-sub-nav" id="pkSubNav" style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px;">
+          <!-- Dynamically populated by switchPkSim -->
+        </div>
+
+        <h4 style="font-size:1.05rem; font-weight:800; color:#fff;" id="pkActionTitle">الشروط والواجبات القانونية:</h4>
+        <ul class="card-bullet-list" id="pkSimList">
+          <li><span class="bullet-icon">📏</span> <strong>المسافة الإلزامية:</strong> 5 أمتار على الأقل من حافة التقاطع الأقرب داخل المدن (Centri abitati).</li>
+          <li><span class="bullet-icon">🚫</span> <strong>نطاق الحظر:</strong> ممنوع الوقوف (Sosta) وممنوع التوقف (Fermata) منعاً باتاً لأقل من 5 أمتار.</li>
+          <li><span class="bullet-icon">🛣️</span> <strong>خارج المدن:</strong> يمنع الوقوف والتوقف في حرم التقاطع تماماً وعلى جوانب الطريق بالقرب منه.</li>
+        </ul>
+        <div class="trap-alert-box" id="pkSimAlert" style="background:rgba(244,63,94,0.1); border-color:rgba(244,63,94,0.3); color:#fecdd3;">
+          🚨 <strong>فخ الامتحان المتكرر:</strong> داخل المدن، يمنع الوقوف والتوقف على مسافة تقل عن 5 أمتار، ولا يسمح بها حتى للنزول السريع للركاب!
+        </div>
       </div>
     </div>
   </section>
@@ -1929,5 +2047,281 @@
     });
   }
 </script>
+
+<script>
+// ==============================================================================
+// CHAPTER 16 INTERACTIVE SIMULATOR ENGINE (Zero Canvas, Pure High-Fidelity DOM)
+// ==============================================================================
+const pkSimData = {
+  1: {
+    name: "رادار المسافات القانونية",
+    scenarios: [
+      {
+        id: "incrocio",
+        label: "🚦 تقاطع طرق (5m)",
+        img: "../assets/images/parking_parts/divieto_sosta_incroci.jpg",
+        title: "تقاطعات الطرق (Incroci - 5 Metri)",
+        sub: "Art. 158 comma 1 lett. f Codice della Strada",
+        actionTitle: "القاعدة الوزارية الصارمة للتقاطعات:",
+        list: [
+          '<span class="bullet-icon">📏</span> <strong>المسافة الإلزامية:</strong> 5 أمتار على الأقل من حافة التقاطع الأقرب داخل المدن (Centri abitati).',
+          '<span class="bullet-icon">🚫</span> <strong>نطاق الحظر:</strong> ممنوع الوقوف (Sosta) وممنوع التوقف (Fermata) منعاً باتاً لأقل من 5 أمتار.',
+          '<span class="bullet-icon">🛣️</span> <strong>خارج المدن:</strong> يمنع الوقوف والتوقف في حرم التقاطع تماماً وعلى جوانب الطريق بالقرب منه.'
+        ],
+        alert: '🚨 <strong>فخ الامتحان:</strong> يمنع الوقوف والتوقف على بعد أقل من 5 أمتار من التقاطع داخل المدن؛ العبارة التي تجيز التوقف للنزول خاطئة (FALSO)!'
+      },
+      {
+        id: "pedonale",
+        label: "🚸 معبر مشاة (5m)",
+        img: "../assets/images/parking_parts/divieto_sosta_dossi_curve.jpg",
+        title: "معابر المشاة والدراجات (Passaggi Pedonali - 5m)",
+        sub: "Art. 158 comma 1 lett. g Codice della Strada",
+        actionTitle: "قواعد الرؤية وحماية عابري الطريق:",
+        list: [
+          '<span class="bullet-icon">🛑</span> <strong>فوق المعبر مباشرة:</strong> يمنع الوقوف (Sosta) ويمنع التوقف (Fermata) فوق الخطوط البيضاء تماماً.',
+          '<span class="bullet-icon">📏</span> <strong>قبل المعبر:</strong> يمنع الوقوف على مسافة تقل عن 5 أمتار قبل المعبر لضمان رؤية المشاة القادمين.',
+          '<span class="bullet-icon">✅</span> <strong>بعد المعبر:</strong> يسمح بالوقوف مباشرة بعد اجتياز المعبر إذا لم توجد موانع أخرى.'
+        ],
+        alert: '💡 <strong>سر الامتحان:</strong> الحظر لمسافة 5 أمتار يطبق *قبل المعبر* حصراً لحماية زاوية الرؤية، بينما فوق المعبر ممنوع الوقوف والتوقف مطلقاً!'
+      },
+      {
+        id: "bus",
+        label: "🚌 موقف الحافلات (15m)",
+        img: "../assets/images/parking_parts/gallery_fermata_autobus.jpg",
+        title: "مواقف حافلات النقل العام (Fermata Autobus - 15m)",
+        sub: "Art. 158 comma 2 lett. d Codice della Strada",
+        actionTitle: "التمييز بين الوقوف والتوقف عند مواقف الحافلات:",
+        list: [
+          '<span class="bullet-icon">📏</span> <strong>المسافة القانونية:</strong> 15 متراً قبل وبعد لافتة الموقف في حال غياب الخطوط الصفراء المتعرجة.',
+          '<span class="bullet-icon">🅿️</span> <strong>الوقوف (Sosta):</strong> ممنوع منعاً باتاً في حيز الـ 15 متراً أو فوق الخطوط المتعرجة الصفراء.',
+          '<span class="bullet-icon">⏱️</span> <strong>التوقف (Fermata):</strong> مسموح به وجيزاً لإنزال ركاب بشرط عدم تعطيل حركة الحافلة إطلاقاً.'
+        ],
+        alert: '⚠️ <strong>أخطر فخ امتحاني:</strong> التوقف (Fermata) مسموح به في نطاق موقف الحافلات لإنزال ركاب دون تعطيل الحافلة (VERO)، بينما الركن (Sosta) ممنوع قطعاً!'
+      },
+      {
+        id: "passo",
+        label: "🚪 مدخل المرآب (Passo Carrabile)",
+        img: "../assets/images/parking_parts/gallery_passo_carrabile.jpg",
+        title: "مخارج الجراجات المرخصة (Passo Carrabile)",
+        sub: "Art. 158 comma 2 lett. a Codice della Strada",
+        actionTitle: "أحكام مدخل العقار المصرح به رسمياً:",
+        list: [
+          '<span class="bullet-icon">🏛️</span> <strong>اللوحة الرسمية:</strong> تحمل شعار البلدية ورقم الترخيص وسنة الإصدار وعبارة Passo Carrabile.',
+          '<span class="bullet-icon">🅿️</span> <strong>الوقوف والركن (Sosta):</strong> ممنوع منعاً باتاً أمام المدخل ويؤدي لسحب السيارة بالونش.',
+          '<span class="bullet-icon">⏱️</span> <strong>التوقف الوجيز (Fermata):</strong> مسموح به بشرط بقاء السائق بالسيارة واستعداده للتحرك فوراً.'
+        ],
+        alert: '✅ <strong>قاعدة ذهبية للامتحان:</strong> أمام الـ Passo Carrabile يمنع الركن (Sosta)، لكن يسمح بالتوقف المؤقت (Fermata) لصعود الركاب!'
+      },
+      {
+        id: "senso_unico",
+        label: "↔️ شارع اتجاه واحد (3m)",
+        img: "../assets/images/parking_parts/sosta_centri_abitati.jpg",
+        title: "الوقوف على الجانب الأيسر (Senso Unico - 3m)",
+        sub: "Art. 157 comma 2 Codice della Strada",
+        actionTitle: "شروط الركن على يسار الطريق داخل المدن:",
+        list: [
+          '<span class="bullet-icon">🛣️</span> <strong>الشارع ذو الاتجاهين:</strong> يلزم الركن حصراً على الجانب الأيمن في اتجاه السير.',
+          '<span class="bullet-icon">🔄</span> <strong>الشارع ذو الاتجاه الواحد:</strong> يباح الركن على اليسار أيضاً استثناءً.',
+          '<span class="bullet-icon">📏</span> <strong>شرط المساحة المشدد:</strong> وجوب ترك مسافة فارغة لا تقل عن 3 أمتار لمرور صف مركبات على الأقل.'
+        ],
+        alert: '💡 <strong>فخ الامتحان:</strong> الركن على اليسار ممنوع في الطريق ذي الاتجاهين، ومسموح فقط في الاتجاه الواحد بشرط ترك 3 أمتار ممر حر!'
+      }
+    ]
+  },
+  2: {
+    name: "التمييز بين الحالات الأربع",
+    scenarios: [
+      {
+        id: "fermata",
+        label: "⏱️ التوقف المؤقت (Fermata)",
+        img: "../assets/images/parking_parts/divieto_di_fermata.jpg",
+        title: "التوقف المؤقت الإرادي (La Fermata)",
+        sub: "Art. 157 comma 1 lett. b CdS",
+        actionTitle: "خصائص وشروط التوقف المؤقت (Fermata):",
+        list: [
+          '<span class="bullet-icon">⏱️</span> <strong>المدة:</strong> زمن وجيز جداً لتمكين الركاب من الصعود أو النزول، أو لتفريغ بضائع خفيفة.',
+          '<span class="bullet-icon">👤</span> <strong>موضع السائق:</strong> السائق خلف مقود القيادة وجاهز لاستئناف السير فوراً في أي لحظة.',
+          '<span class="bullet-icon">⚠️</span> <strong>مثلث الخطر:</strong> لا يلزم وضع مثلث الخطر إطلاقاً أثناء التوقف المؤقت.',
+          '<span class="bullet-icon">✅</span> <strong>المواقع المسموحة:</strong> مسموح أمام Passo Carrabile ومواقف الحافلات إذا لم يعطل المرور.'
+        ],
+        alert: '✅ <strong>حقيقة وزارية:</strong> التوقف المؤقت (Fermata) لا يعتبر وقوفاً ممتداً، ولا يتطلب تأمين السيارة بالمكابح ومغادرتها!'
+      },
+      {
+        id: "sosta",
+        label: "🅿️ الوقوف والركن (Sosta)",
+        img: "../assets/images/parking_parts/gallery_parcometro.jpg",
+        title: "الوقوف الممتد والركن (La Sosta)",
+        sub: "Art. 157 comma 1 lett. c CdS",
+        actionTitle: "واجبات السائق عند مغادرة المركبة:",
+        list: [
+          '<span class="bullet-icon">⏳</span> <strong>التعريف:</strong> تعليق حركة المركبة لمدة ممتدة مع إمكانية مغادرة السائق للسيارة.',
+          '<span class="bullet-icon">🔒</span> <strong>إجراءات الأمان الإلزامية:</strong> إيقاف المحرك، شد فرامل اليد، تعشيق الغيار الأول في الصعود أو الرجوع في الهبوط، وتدوير العجلات نحو الرصيف.',
+          '<span class="bullet-icon">🔑</span> <strong>تأمين المركبة:</strong> إغلاق النوافذ والأبواب لمنع سرقتها أو استخدامها دون إذن (مسؤولية مدنية وجنائية).'
+        ],
+        alert: '🚨 <strong>فخ امتحاني:</strong> يلتزم السائق باتخاذ كافة التدابير لمنع حركة السيارة وحمايتها من الاستخدام غير المصرح به قبل الابتعاد عنها (VERO)!'
+      },
+      {
+        id: "arresto",
+        label: "🛑 التوقف القسري (Arresto)",
+        img: "../assets/images/parking_parts/partenza_margine_strada.jpg",
+        title: "التوقف القسري المروري (L'Arresto)",
+        sub: "Art. 157 comma 1 lett. a CdS",
+        actionTitle: "طبيعة التوقف بحكم متطلبات المرور:",
+        list: [
+          '<span class="bullet-icon">🛑</span> <strong>السبب:</strong> تعليق السير المفروض بإشارة ضوئية حمراء، لافتة STOP، إشارة شرطي المرور، أو ازدحام السير.',
+          '<span class="bullet-icon">🚫</span> <strong>ليس توقفاً إرادياً:</strong> لا يخضع لقواعد وأماكن حظر التوقف (Divieto di Fermata).',
+          '<span class="bullet-icon">🚙</span> <strong>المحرك:</strong> يظل المحرك مشتغلاً والسائق متحفزاً للتحرك فور فتح المسار.'
+        ],
+        alert: '💡 <strong>التحليل الوزاري:</strong> التوقف أمام الإشارة الحمراء يسمى Arresto وليس Fermata ولا Sosta!'
+      },
+      {
+        id: "emergenza",
+        label: "🚨 الوقوف الاضطراري (Emergenza)",
+        img: "../assets/images/parking_parts/gallery_rimozione_forzata.jpg",
+        title: "الوقوف الاضطراري للأعطال (Sosta di Emergenza)",
+        sub: "Art. 157 comma 1 lett. d CdS",
+        actionTitle: "إجراءات الطوارئ عند حدوث عطل أو وعكة صحية:",
+        list: [
+          '<span class="bullet-icon">🚨</span> <strong>أضواء الخطر:</strong> تشغيل أضواء الطوارئ الرباعية فوراً (4 Frecce).',
+          '<span class="bullet-icon">🦺</span> <strong>السترة الفسفورية:</strong> ارتداء سترة الأمان العاكسة قبل النزول من المركبة ليلاً أو في ظروف ضعف الرؤية خارج المدن.',
+          '<span class="bullet-icon">🔺</span> <strong>مثلث الخطر:</strong> وضعه على بعد 50 متراً على الأقل خلف المركبة ليرى من مسافة 100 متر إذا تعذر نقلها لحارة الطوارئ.'
+        ],
+        alert: '⚠️ <strong>قاعدة مشددة:</strong> في الأوتوستراد، لا يجوز أن يزيد الوقوف الاضطراري في حارة الطوارئ عن 3 ساعات متصلة!'
+      }
+    ]
+  },
+  3: {
+    name: "قرص الوقوف والسحب بالونش",
+    scenarios: [
+      {
+        id: "disco",
+        label: "🕐 قرص الوقوف (Disco Orario)",
+        img: "../assets/images/parking_parts/gallery_disco_orario.jpg",
+        title: "قرص توثيق وقت بدء الوقوف (Disco Orario)",
+        sub: "Art. 157 comma 6 Codice della Strada",
+        actionTitle: "الاستخدام النظامي في مناطق الوقوف محددة الوقت:",
+        list: [
+          '<span class="bullet-icon">🪟</span> <strong>الموضع الإلزامي:</strong> يوضع بوضوح خلف الزجاج الأمامي من الداخل بحيث يسهل قراءته من الخارج.',
+          '<span class="bullet-icon">⏰</span> <strong>الضبط:</strong> يتم ضبط العقرب على وقت الوصول الفعلي إلى الموقف.',
+          '<span class="bullet-icon">🚫</span> <strong>الحظر الصارم:</strong> يمنع تحريك العقارب أو تمديد الوقت دون تحريك السيارة ومغادرة الموقف فعلياً.'
+        ],
+        alert: '🚨 <strong>فخ الامتحان:</strong> يعتبر تحريك عقارب قرص الوقوف دون مغادرة المكان مخالفة قانونية تستوجب الغرامة (VERO)!'
+      },
+      {
+        id: "parcometro",
+        label: "💳 المواقف المدفوعة (Strisce Blu)",
+        img: "../assets/images/parking_parts/gallery_parcometro.jpg",
+        title: "المواقف المدفوعة وجهاز التذاكر (Parcometro)",
+        sub: "Art. 157 comma 8 Codice della Strada",
+        actionTitle: "قواعد الخطوط الزرقاء والدفع الآلي:",
+        list: [
+          '<span class="bullet-icon">🟦</span> <strong>الخطوط الزرقاء:</strong> تدل على مواقف ركن مدفوعة الأجر (Sosta a pagamento).',
+          '<span class="bullet-icon">🧾</span> <strong>تذكرة الوقوف:</strong> شراء التذكرة من الـ Parcometro وإبرازها واضحة على تابلوه السيارة.',
+          '<span class="bullet-icon">⏱️</span> <strong>انتهاء المدة:</strong> يلزم تجديد الدفع أو مغادرة الموقف فور انتهاء الدقائق المشتراة.'
+        ],
+        alert: '💡 <strong>تنبيه:</strong> في المواقف الزرقاء، عدم وضع تذكرة الدفع المسبق يعرض السائق لمخالفة فورية!'
+      },
+      {
+        id: "rimozione",
+        label: "🚜 سحب السيارة بالونش (Rimozione)",
+        img: "../assets/images/parking_parts/gallery_rimozione_forzata.jpg",
+        title: "السحب الإداري للمركبة (Rimozione Forzata)",
+        sub: "Art. 159 Codice della Strada",
+        actionTitle: "الحالات التي تستوجب سحب السيارة بالونش فوراً:",
+        list: [
+          '<span class="bullet-icon">♿</span> <strong>أماكن المعاقين:</strong> الوقوف في المساحات الصفراء المخصصة لذوي الاحتياجات الخاصة دون تصريح رسمي.',
+          '<span class="bullet-icon">🚪</span> <strong>مداخل الجراجات:</strong> إغلاق مخرج Passo Carrabile المرخص.',
+          '<span class="bullet-icon">🚗</span> <strong>الصف الثاني:</strong> الوقوف في صف ثانٍ (In seconda fila) معطلاً السير.',
+          '<span class="bullet-icon">⚠️</span> <strong>الأماكن الخطرة:</strong> في المنعطفات، المرتفعات (Dossi)، الأنفاق، والجسور.'
+        ],
+        alert: '🚨 <strong>قاعدة وزارية:</strong> سحب المركبة بالونش يتم بقوة القانون عند إعاقة مخرج جراج أو الركن في أماكن المعاقين أو عند وجود اللوحة التكميلية لرمز الونش!'
+      }
+    ]
+  }
+};
+
+let currentTabId = 1;
+let currentScenarioIdx = 0;
+
+function switchPkSim(tabId, btn) {
+  if (window.soundEngine && typeof window.soundEngine.click === 'function') {
+    window.soundEngine.click();
+  }
+  document.querySelectorAll('.sim-tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentTabId = tabId;
+  currentScenarioIdx = 0;
+
+  renderPkSubNav();
+  renderPkScenario();
+}
+
+function renderPkSubNav() {
+  const container = document.getElementById('pkSubNav');
+  container.innerHTML = '';
+  const tab = pkSimData[currentTabId];
+  if (!tab) return;
+
+  tab.scenarios.forEach((sc, idx) => {
+    const b = document.createElement('button');
+    b.className = `pk-sub-btn ${idx === currentScenarioIdx ? 'active' : ''}`;
+    b.style.cssText = 'padding:6px 12px; background:rgba(255,255,255,0.06); border:1px solid var(--border-subtle); border-radius:8px; color:#cbd5e1; font-size:0.8rem; font-weight:700; cursor:pointer; transition:all 0.15s ease; font-family:inherit;';
+    b.innerHTML = sc.label;
+    b.onclick = function() {
+      if (window.soundEngine && typeof window.soundEngine.click === 'function') {
+        window.soundEngine.click();
+      }
+      currentScenarioIdx = idx;
+      document.querySelectorAll('.pk-sub-btn').forEach(x => {
+        x.style.background = 'rgba(255,255,255,0.06)';
+        x.style.borderColor = 'var(--border-subtle)';
+        x.style.color = '#cbd5e1';
+      });
+      b.style.background = 'rgba(56, 189, 248, 0.25)';
+      b.style.borderColor = 'var(--sky-primary)';
+      b.style.color = '#fff';
+      renderPkScenario();
+    };
+    if (idx === currentScenarioIdx) {
+      b.style.background = 'rgba(56, 189, 248, 0.25)';
+      b.style.borderColor = 'var(--sky-primary)';
+      b.style.color = '#fff';
+    }
+    container.appendChild(b);
+  });
+}
+
+function renderPkScenario() {
+  const tab = pkSimData[currentTabId];
+  if (!tab) return;
+  const sc = tab.scenarios[currentScenarioIdx];
+  if (!sc) return;
+
+  const imgEl = document.getElementById('pkSimImg');
+  imgEl.src = sc.img;
+  imgEl.alt = sc.title;
+
+  document.getElementById('pkSimTitle').textContent = sc.title;
+  document.getElementById('pkSimSub').textContent = sc.sub;
+  document.getElementById('pkActionTitle').textContent = sc.actionTitle;
+
+  const ul = document.getElementById('pkSimList');
+  ul.innerHTML = '';
+  sc.list.forEach(item => {
+    const li = document.createElement('li');
+    li.innerHTML = item;
+    ul.appendChild(li);
+  });
+
+  document.getElementById('pkSimAlert').innerHTML = sc.alert;
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+  renderPkSubNav();
+  renderPkScenario();
+});
+</script>
+
 </body>
 </html>
