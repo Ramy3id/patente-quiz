@@ -111,7 +111,11 @@
     const cur = ctx.currentFile.toLowerCase();
     const full = (ctx.fullPath || '').toLowerCase();
 
-    const isHub = (full.includes('capitoli_divisi') && cur.includes('index')) || (!full.includes('interactive_pages') && cur.includes('index'));
+    const isGuide = (full.includes('interactive_pages') && (cur.includes('index') || cur === '' || cur === 'interactive_pages')) || 
+                    cur.includes('دليل') || 
+                    cur.includes('guida');
+    const isHub = (full.includes('capitoli_divisi') && cur.includes('index')) || 
+                  (!full.includes('interactive_pages') && cur.includes('index') && !isGuide);
     const isPiano = cur.includes('piano-studio');
     const isParole = cur.includes('parole-spia');
     const isIncroci = cur.includes('decodificatore-incroci');
@@ -125,14 +129,15 @@
     const isAllenamento = cur.includes('allenamento-capitolo');
 
     const navItems = [
-      { id: 'hub', label: 'الأبواب وبنك الأسئلة', icon: '📚', href: ctx.capitoli + 'index.html', active: isHub },
+      { id: 'guide', label: 'شرح الأبواب (1-25)', icon: '📖', href: ctx.interactive + 'index.html', active: isGuide },
+      { id: 'hub', label: 'بنك أسئلة الأبواب', icon: '📝', href: ctx.capitoli + 'index.html', active: isHub },
       { id: 'piano', label: 'خطة الدراسة', icon: '📅', href: ctx.interactive + 'piano-studio.html', active: isPiano },
       { id: 'parole', label: 'رادار الكلمات', icon: '🎯', href: ctx.interactive + 'parole-spia.html', active: isParole },
       { id: 'incroci', label: 'مفكك التقاطعات', icon: '🔄', href: ctx.interactive + 'decodificatore-incroci.html', active: isIncroci },
       { id: 'trucchi', label: 'خزينة التريكات', icon: '💎', href: ctx.interactive + 'trucchi-esame.html', active: isTrucchi },
       { id: 'numeri', label: 'معمل الأرقام', icon: '📏', href: ctx.interactive + 'laboratorio-numeri.html', active: isNumeri },
       { id: 'soccorso', label: 'الإسعافات', icon: '🚑', href: ctx.interactive + 'primo-soccorso.html', active: isSoccorso },
-      { id: 'scheda', label: 'محاكي الامتحان', icon: '📝', href: ctx.interactive + 'scheda-esame.html', active: isScheda },
+      { id: 'scheda', label: 'محاكي الامتحان', icon: '⏱️', href: ctx.interactive + 'scheda-esame.html', active: isScheda },
       { id: 'flashcards', label: 'فلاش كاردز', icon: '🗂️', href: ctx.interactive + 'flashcards.html', active: isCards },
       { id: 'dashboard', label: 'لوحة التقدم', icon: '📊', href: ctx.interactive + 'dashboard.html', active: isDash },
       { id: 'traps', label: 'بنك الفخاخ', icon: '🎮', href: ctx.interactive + 'traps_and_games.html', active: isTraps }
@@ -400,6 +405,87 @@
       @media (max-width: 992px) {
         .nav-desktop-tabs { display: none !important; }
         .nav-mobile-hamburger { display: flex !important; }
+      }
+
+      /* القوائم المنسدلة الذكية */
+      .nav-dropdown-wrapper {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+      }
+      .nav-dropdown-btn {
+        height: 34px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0 12px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 8px;
+        color: #e4e4e7;
+        font-size: 0.82rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        font-family: inherit;
+        white-space: nowrap;
+      }
+      html.light .nav-dropdown-btn {
+        background: rgba(15, 23, 42, 0.05);
+        border-color: rgba(15, 23, 42, 0.15);
+        color: #0f172a;
+      }
+      .nav-dropdown-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(56, 189, 248, 0.3);
+      }
+      html.light .nav-dropdown-btn:hover {
+        background: rgba(15, 23, 42, 0.08);
+        border-color: rgba(2, 132, 199, 0.35);
+      }
+      .nav-dropdown-menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        width: 290px;
+        max-height: 480px;
+        overflow-y: auto;
+        background: #18181b;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 12px;
+        padding: 8px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 10001;
+      }
+      html.light .nav-dropdown-menu {
+        background: #ffffff;
+        border-color: rgba(15, 23, 42, 0.12);
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.15);
+      }
+      .nav-dropdown-menu.show { display: block; }
+      .nav-dropdown-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 12px;
+        border-radius: 8px;
+        color: #d4d4d8;
+        text-decoration: none;
+        font-size: 0.84rem;
+        font-weight: 600;
+        transition: all 0.15s ease;
+      }
+      html.light .nav-dropdown-item {
+        color: #334155;
+      }
+      .nav-dropdown-item:hover, .nav-dropdown-item.active {
+        background: rgba(245, 158, 11, 0.15);
+        color: #f59e0b;
+      }
+      html.light .nav-dropdown-item:hover, html.light .nav-dropdown-item.active {
+        background: rgba(217, 119, 6, 0.12);
+        color: #d97706;
       }
 
       /* قائمة الموبايل Drawer */
@@ -736,6 +822,24 @@
       }
     });
 
+    // تفعيل القوائم المنسدلة الذكية (مثل تصفح الأبواب)
+    document.addEventListener('click', function (e) {
+      const dropdownBtn = e.target.closest('.nav-dropdown-btn');
+      const allMenus = document.querySelectorAll('.nav-dropdown-menu');
+      if (dropdownBtn) {
+        e.stopPropagation();
+        if (window.soundEngine && typeof window.soundEngine.click === 'function') {
+          try { window.soundEngine.click(); } catch (_) {}
+        }
+        const parent = dropdownBtn.closest('.nav-dropdown-wrapper');
+        const menu = parent ? parent.querySelector('.nav-dropdown-menu') : null;
+        allMenus.forEach(function (m) { if (m !== menu) m.classList.remove('show'); });
+        if (menu) menu.classList.toggle('show');
+      } else {
+        allMenus.forEach(function (m) { m.classList.remove('show'); });
+      }
+    });
+
     // مزامنة حالة الثيم مع الزرار
     if (window.updateThemeButtons) {
       const isLight = document.documentElement.classList.contains('light');
@@ -762,6 +866,14 @@
       const drawerEl = wrapper.lastElementChild;
 
       if (oldNav) {
+        // الحفاظ على قائمة تصفح الأبواب المنسدلة إن وجدت في الهيدر القديم ونقلها بسلاسة
+        const existingDropdown = oldNav.querySelector('.nav-dropdown-wrapper');
+        if (existingDropdown) {
+          const actionsContainer = newHeaderEl.querySelector('.nav-desktop-actions');
+          if (actionsContainer) {
+            actionsContainer.insertBefore(existingDropdown, actionsContainer.firstElementChild);
+          }
+        }
         oldNav.remove();
       }
       const headerContainer = document.getElementById('unified-header') || document.getElementById('app-header');
