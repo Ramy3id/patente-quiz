@@ -1024,6 +1024,73 @@
     color: #0284c7;
   }
 
+
+  /* Chapter 18 Interactive Simulator Styles (Apple HIG Benchmark) */
+  .interactive-sim-container {
+    background: rgba(18, 18, 22, 0.75);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 40px;
+    backdrop-filter: blur(16px);
+  }
+  .sim-tabs-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .sim-tab-btn {
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    color: var(--text-secondary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+  .sim-tab-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .sim-tab-btn.active {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: var(--sky-primary);
+    color: #fff;
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.15);
+  }
+  .sim-display-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .sim-visual-box {
+    background: #0e0e11;
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .sim-info-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  @media (max-width: 768px) {
+    .sim-display-panel { grid-template-columns: 1fr; }
+    .interactive-sim-container { padding: 18px; }
+  }
+
 </style>
 <link rel="manifest" href="../manifest.json">
 </head>
@@ -1114,6 +1181,57 @@
       <div class="rule-box">
         <h4><span>4️⃣</span> العواكس الضوئية (Catadiottri)</h4>
         <p>العواكس الخلفية حمراء دائماً، والبيضاء للأمام، والصفراء للجوانب. الشكل المثلثي حصري بمؤخرة المقطورات ويُمنع تركيبه على السيارات العادية.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE SIMULATOR (BENCHMARK CHAPTER 15 ARCHITECTURE) -->
+  <section class="interactive-sim-container simulator-container" id="lighting-sim">
+    <div class="golden-rules-title" style="margin-bottom:16px;">
+      <span>🎮</span>
+      <span>المختبر التفاعلي لمنظومة الإضاءة ولمبات التابلوه (Simulatore Luci & Quadro Spie)</span>
+    </div>
+    
+    <!-- Simulator Navigation Tabs -->
+    <div class="sim-tabs-row">
+      <button class="sim-tab-btn active" onclick="switchLightSim(1, this)">
+        <span>المحاكي 1:</span> قواعد استخدام الأضواء نهاراً وليلاً (Uso dei Fari)
+      </button>
+      <button class="sim-tab-btn" onclick="switchLightSim(2, this)">
+        <span>المحاكي 2:</span> رادار لمبات لوحة العدادات (Quadro Strumenti & Spie)
+      </button>
+      <button class="sim-tab-btn" onclick="switchLightSim(3, this)">
+        <span>المحاكي 3:</span> العواكس الضوئية للمركبات والمقطورات (Catadiottri)
+      </button>
+    </div>
+
+    <!-- Simulator Interactive Display Panel -->
+    <div class="sim-display-panel" id="lightSimDisplay">
+      <!-- Visual Column (Real Photographic Asset + Dynamic Tag) -->
+      <div class="sim-visual-box" id="lightSimVisual">
+        <div class="sim-img-frame" style="width:100%; height:180px; border-radius:12px; overflow:hidden; margin-bottom:12px; background:#000; display:flex; align-items:center; justify-content:center;">
+          <img id="lightSimImg" src="../assets/images/lighting_parts/gallery_gruppo_ottico_faro_led.jpg" alt="Sim Scenario" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div style="font-size:1.15rem; font-weight:800; color:#fff;" id="lightSimTitle">الضوء الواطي الخافت (Luce Anabbagliante)</div>
+        <div style="font-size:0.85rem; color:var(--sky-primary); font-family:var(--font-mono); margin-top:4px;" id="lightSimSub">Art. 152 e 153 Codice della Strada</div>
+      </div>
+
+      <!-- Information & Controls Column -->
+      <div class="sim-info-box">
+        <!-- Scenario Selector Buttons -->
+        <div class="sim-sub-nav" id="lightSubNav" style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px;">
+          <!-- Dynamically populated by switchLightSim -->
+        </div>
+
+        <h4 style="font-size:1.05rem; font-weight:800; color:#fff;" id="lightActionTitle">الشروط والواجبات القانونية:</h4>
+        <ul class="card-bullet-list" id="lightSimList">
+          <li><span class="bullet-icon">💡</span> <strong>خارج المدن:</strong> تشغيل الضوء الواطي إلزامي نهاراً وليلاً على جميع الطرق السريعة والأوتوستراد.</li>
+          <li><span class="bullet-icon">🚇</span> <strong>الأنفاق والطقس:</strong> إلزامي فوراً عند دخول أي نفق، وأثناء تساقط المطر أو الثلج أو وجود الضباب.</li>
+          <li><span class="bullet-icon">🏍️</span> <strong>الدراجات النارية:</strong> يلزم سائقو الدراجات بتشغيل الضوء الواطي دائماً داخل وخارج المدن.</li>
+        </ul>
+        <div class="trap-alert-box" id="lightSimAlert" style="background:rgba(244,63,94,0.1); border-color:rgba(244,63,94,0.3); color:#fecdd3;">
+          🚨 <strong>فخ الامتحان المتكرر:</strong> استخدام الأضواء الواطية نهاراً إلزامي خارج المراكز العمرانية (Centri abitati) وفي جميع الأنفاق حتى لو كانت مضاءة (VERO)!
+        </div>
       </div>
     </div>
   </section>
@@ -1796,6 +1914,253 @@
       }
     });
   }
+</script>
+
+
+<script>
+// ==============================================================================
+// CHAPTER 18 INTERACTIVE SIMULATOR ENGINE (Zero Canvas, Pure High-Fidelity DOM)
+// ==============================================================================
+const lightSimData = {
+  1: {
+    name: "قواعد استخدام الأضواء نهاراً وليلاً",
+    scenarios: [
+      {
+        id: "anabbaglianti",
+        label: "💡 الضوء الواطي (Anabbaglianti)",
+        img: "../assets/images/lighting_parts/gallery_gruppo_ottico_faro_led.jpg",
+        title: "الضوء الواطي الخافت (Luce Anabbagliante)",
+        sub: "Art. 152 e 153 Codice della Strada",
+        actionTitle: "مواضع الاستخدام الإلزامية للضوء الواطي:",
+        list: [
+          '<span class="bullet-icon">🛣️</span> <strong>خارج المدن نهاراً:</strong> إلزامي لجميع السيارات والشاحنات على الطرق السريعة والأوتوستراد.',
+          '<span class="bullet-icon">🚇</span> <strong>في الأنفاق:</strong> إلزامي دائماً عند دخول أي نفق نهاري أو ليلي حتى لو كان مضاءً بإضاءة قوية.',
+          '<span class="bullet-icon">🌧️</span> <strong>ظروف الطقس:</strong> إلزامي أثناء هطول المطر أو الثلوج أو انتشار الضباب.'
+        ],
+        alert: '✅ <strong>قاعدة وزارية:</strong> الضوء الواطي إلزامي نهاراً على الطرق خارج المدن والأنفاق لجميع المركبات (VERO)!'
+      },
+      {
+        id: "abbaglianti",
+        label: "🔦 الضوء العالي (Abbaglianti)",
+        img: "../assets/images/lighting_parts/gallery_interruttore_fari_selettore.jpg",
+        title: "الضوء العالي المبهر (Luce Abbagliante / Di Profondità)",
+        sub: "Art. 153 comma 2 Codice della Strada",
+        actionTitle: "القيود الصارمة لاستخدام الضوء العالي:",
+        list: [
+          '<span class="bullet-icon">🌲</span> <strong>النطاق المسموح:</strong> خارج المدن فقط ليلاً عندما تكون الطريق مظلمة أو غير مضاءة بما يكفي.',
+          '<span class="bullet-icon">🔄</span> <strong>واجب الإطفاء الفوري:</strong> يجب التحول للواطي فوراً عند اقتراب سيارة مقابلة لمنع إبهار بصر سائقها.',
+          '<span class="bullet-icon">🚗</span> <strong>تتبع مركبة:</strong> يجب إطفاؤه عند السير خلف مركبة أخرى بمسافة قصيرة لمنع إبهار سائقها عبر المرآة الداخلية.',
+          '<span class="bullet-icon">🏙️</span> <strong>داخل المدن:</strong> يمنع منعاً باتاً استخدام الضوء العالي داخل المدن حتى لو كانت الطريق مظلمة.'
+        ],
+        alert: '🚨 <strong>فخ الامتحان:</strong> العبارة التي تجيز استخدام الضوء العالي داخل المدن إذا كان الشارع مظلماً عبارة خاطئة تماماً (FALSO)!'
+      },
+      {
+        id: "retronebbia",
+        label: "🔴 ضوء الضباب الخلفي (Retronebbia)",
+        img: "../assets/images/lighting_parts/fendinebbia_anteriori_retronebbia.jpg",
+        title: "ضوء الضباب الخلفي الأحمر الفاقع (Luce Retronebbia)",
+        sub: "Art. 153 comma 8 Codice della Strada",
+        actionTitle: "شروط تشغيل وإطفاء ضوء الضباب الخلفي:",
+        list: [
+          '<span class="bullet-icon">🌫️</span> <strong>شرط الرؤية:</strong> يشغل فقط عندما تنخفض مسافة الرؤية الأفقية إلى أقل من 50 متراً بفعل الضباب.',
+          '<span class="bullet-icon">🌧️</span> <strong>المطر الغزير والثلج:</strong> يرخص باستخدامه أيضاً أثناء هطول أمطار كثيفة جداً أو تساقط ثلوج كثيف.',
+          '<span class="bullet-icon">⚠️</span> <strong>الإطفاء الإلزامي:</strong> يجب إطفاؤه فور تحسن مدى الرؤية لتجنب إبهار وإزعاج السائقين في الخلف.'
+        ],
+        alert: '💡 <strong>سر الامتحان:</strong> مصباح الضباب الخلفي شديد التوهج، لذا يحظر تشغيله إذا كان مدى الرؤية يتجاوز 50 متراً (VERO)!'
+      },
+      {
+        id: "frecce",
+        label: "🚨 أضواء الخطر (4 Frecce)",
+        img: "../assets/images/lighting_parts/gallery_interruttore_quattro_frecce_plancia.jpg",
+        title: "إشارات الطوارئ الرباعية المتزامنة (Quattro Frecce)",
+        sub: "Art. 150 Codice della Strada",
+        actionTitle: "حالات الاستخدام الحصرية لأضواء الطوارئ:",
+        list: [
+          '<span class="bullet-icon">🛑</span> <strong>التباطؤ المفاجئ:</strong> عند مواجهة طابور توقف أو حادث سير مفاجئ على طريق سريع.',
+          '<span class="bullet-icon">🛠️</span> <strong>التوقف الاضطراري:</strong> عند تعطل السيارة على جانب الطريق أو حارة الطوارئ.',
+          '<span class="bullet-icon">🚜</span> <strong>سحب مركبة:</strong> أثناء سحب مركبة معطلة بواسطة حبل أو قضيب صلب معتمد.'
+        ],
+        alert: '🚨 <strong>فخ متكرر:</strong> تشغيل أضواء الخطر الرباعية لا يمنحك حق الوقوف في الأماكن المحظورة (Divieto di Sosta)!'
+      }
+    ]
+  },
+  2: {
+    name: "رادار لمبات لوحة العدادات",
+    scenarios: [
+      {
+        id: "rosse",
+        label: "🔴 لمبات الخطر الأحمر (Stop)",
+        img: "../assets/images/lighting_parts/gallery_quadro_strumenti_spie.jpg",
+        title: "اللمبات الحمراء: خطر داهم وواجب إيقاف المحرك فوراً",
+        sub: "Art. 72 e 79 Codice della Strada",
+        actionTitle: "دلالات اللمبات الحمراء وإجراءات السائق:",
+        list: [
+          '<span class="bullet-icon">🛢️</span> <strong>ضغط الزيت (Spia Olio):</strong> تعني نقص ضغط تزييت المحرك؛ يجب إيقاف السيارة وإطفاء المحرك فوراً لتجنب كسره.',
+          '<span class="bullet-icon">🌡️</span> <strong>حرارة السائل (Temperatura):</strong> غليان سائل التبريد وخطر تلف رأس المحرك.',
+          '<span class="bullet-icon">🛑</span> <strong>نظام الفرامل (Freni):</strong> انخفاض سائل الفرامل أو تآكل بطانات الاحتكاك أو فرامل اليد مشدودة.',
+          '<span class="bullet-icon">🔋</span> <strong>البطارية والدينامو:</strong> عدم شحن المولد للبطارية.'
+        ],
+        alert: '🚨 <strong>فخ فني هام:</strong> لمبة الزيت الحمراء تدل على انخفاض ضغط الزيت (Pressione insufficiente) وليس مجرد نقص منسوب الزيت!'
+      },
+      {
+        id: "gialle",
+        label: "🟡 لمبات التحذير الصفراء",
+        img: "../assets/images/lighting_parts/gallery_quadro_strumenti_spie.jpg",
+        title: "اللمبات الصفراء والكهرمانية: تنبيه وصيانة وقائية",
+        sub: "Art. 72 Codice della Strada",
+        actionTitle: "دلالات اللمبات الصفراء/البرتقالية في التابلوه:",
+        list: [
+          '<span class="bullet-icon">🔧</span> <strong>فحص المحرك (Check Engine):</strong> عطل في حقن الوقود أو نظام العادم وانبعاث الغازات.',
+          '<span class="bullet-icon">🛑</span> <strong>نظام ABS:</strong> تعطل نظام مانع انغلاق المكابح (تظل الفرامل العادية تعمل لكن بدون ABS).',
+          '<span class="bullet-icon">⛽</span> <strong>احتياطي الوقود (Riserva):</strong> السير بالوقود الاحتياطي ووجوب التزود سريعاً.',
+          '<span class="bullet-icon">🌫️</span> <strong>الضباب الخلفي (Retronebbia):</strong> لونها أصفر كهرماني لتنبيه السائق بأن الضوء الفاقع مشتغل.'
+        ],
+        alert: '💡 <strong>قاعدة وزارية:</strong> عند إضاءة لمبة ABS الصفراء، تظل فرامل السيارة الأساسية تعمل بكفاءة ولكن بدون ميزة منع انغلاق العجلات (VERO)!'
+      },
+      {
+        id: "verdi_blu",
+        label: "🟢🔵 لمبات الإشارات والضوء العالي",
+        img: "../assets/images/lighting_parts/indicatori_direzione_svolta.jpg",
+        title: "اللمبات الخضراء والزرقاء: مؤشرات التشغيل العادية",
+        sub: "Art. 151 Codice della Strada",
+        actionTitle: "التمييز اللوني للمؤشرات الوظيفية:",
+        list: [
+          '<span class="bullet-icon">🟢</span> <strong>اللمبات الخضراء:</strong> تشمل أضواء الموضع (Posizione)، الأضواء الواطية (Anabbaglianti)، وأسهم إشارات الانعطاف (Frecce).',
+          '<span class="bullet-icon">🔵</span> <strong>اللمبة الزرقاء الوحيدة:</strong> مخصصة حصرياً للضوء العالي المبهر (Proiettori di Profondità / Abbaglianti).',
+          '<span class="bullet-icon">⚡</span> <strong>الوميض السريع:</strong> وميض سهم الإشارة الأخضر بسرعة غير معتادة يشير لتلف أحد مصابيح الاتجاه الخارجية.'
+        ],
+        alert: '✅ <strong>سؤال امتحان مؤكد:</strong> اللمبة الزرقاء في لوحة العدادات تدل على تشغيل الأضواء العالية (Abbaglianti) وتذكّر السائق بعدم إبهار الآخرين (VERO)!'
+      }
+    ]
+  },
+  3: {
+    name: "العواكس الضوئية للمركبات والمقطورات",
+    scenarios: [
+      {
+        id: "triangolari",
+        label: "🔺 عواكس المقطورات المثلثة",
+        img: "../assets/images/lighting_parts/gallery_catadiottro_rimorchio_triangolo.jpg",
+        title: "العواكس الحمراء المثلثة للمقطورات (Catadiottri Triangolari)",
+        sub: "Art. 151 Codice della Strada",
+        actionTitle: "القاعدة الصارمة للعواكس المثلثية:",
+        list: [
+          '<span class="bullet-icon">🔺</span> <strong>الشكل المثلثي الإلزامي:</strong> يخصص الشكل المثلثي حصراً للمقطورات (Rimorchi و Semirimorchi).',
+          '<span class="bullet-icon">🔴</span> <strong>اللون والموضع:</strong> عاكسان مثلثان باللون الأحمر مثبتان في الجزء الخلفي من المقطورة مع توجيه الرأس للأعلى.',
+          '<span class="bullet-icon">🚫</span> <strong>حظر التركيب على السيارات:</strong> يحظر قانوناً تركيب عواكس مثلثة على مؤخرة سيارات الركوب العادية أو الشاحنات.'
+        ],
+        alert: '🚨 <strong>أخطر فخ في كويزات العواكس:</strong> العواكس الخلفية المثلثية توضع حصراً على المقطورات، ووضعها على سيارة عادية مخالفة للقانون (VERO)!'
+      },
+      {
+        id: "non_triangolari",
+        label: "⚪🟡 عواكس المركبات الأخرى",
+        img: "../assets/images/lighting_parts/catadiottri_triangolari_non_triangolari.jpg",
+        title: "العواكس الضوئية غير المثلثية لبقية المركبات",
+        sub: "Art. 151 Codice della Strada",
+        actionTitle: "توزيع ألوان العواكس بحسب موضعها من المركبة:",
+        list: [
+          '<span class="bullet-icon">⚪</span> <strong>في الأمام:</strong> عواكس بيضاء غير مثلثة (تثبت على المقطورات أيضاً لتمييز عرضها ليلاً).',
+          '<span class="bullet-icon">🟡</span> <strong>على الجوانب:</strong> عواكس بلون أصفر كهرماني (Giallo ambra) على جانبي المركبة.',
+          '<span class="bullet-icon">🔴</span> <strong>في الخلف:</strong> عواكس حمراء غير مثلثة لجميع المركبات ذات المحرك (سيارات، دراجات، شاحنات).',
+          '<span class="bullet-icon">🔦</span> <strong>طبيعة العمل:</strong> لا تولد ضوءاً ذاتياً، بل تعكس أضواء المركبات القادمة لإبراز وجود السيارة المتوقفة في الظلام.'
+        ],
+        alert: '💡 <strong>حقيقة وزارية:</strong> العواكس (Catadiottri) تعمل دون استهلاك أي طاقة كهربائية وتعكس الضوء ليلاً لزيادة الأمان البصري (VERO)!'
+      }
+    ]
+  }
+};
+
+let lightCurrentTabId = 1;
+let lightCurrentScenarioIdx = 0;
+
+function switchLightSim(tabId, btn) {
+  if (window.soundEngine && typeof window.soundEngine.click === 'function') {
+    window.soundEngine.click();
+  }
+  document.querySelectorAll('#lighting-sim .sim-tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  lightCurrentTabId = tabId;
+  lightCurrentScenarioIdx = 0;
+
+  renderLightSubNav();
+  renderLightScenario();
+}
+
+function renderLightSubNav() {
+  const container = document.getElementById('lightSubNav');
+  if (!container) return;
+  container.innerHTML = '';
+  const tab = lightSimData[lightCurrentTabId];
+  if (!tab) return;
+
+  tab.scenarios.forEach((sc, idx) => {
+    const b = document.createElement('button');
+    b.className = `light-sub-btn ${idx === lightCurrentScenarioIdx ? 'active' : ''}`;
+    b.style.cssText = 'padding:6px 12px; background:rgba(255,255,255,0.06); border:1px solid var(--border-subtle); border-radius:8px; color:#cbd5e1; font-size:0.8rem; font-weight:700; cursor:pointer; transition:all 0.15s ease; font-family:inherit;';
+    b.innerHTML = sc.label;
+    b.onclick = function() {
+      if (window.soundEngine && typeof window.soundEngine.click === 'function') {
+        window.soundEngine.click();
+      }
+      lightCurrentScenarioIdx = idx;
+      document.querySelectorAll('.light-sub-btn').forEach(x => {
+        x.style.background = 'rgba(255,255,255,0.06)';
+        x.style.borderColor = 'var(--border-subtle)';
+        x.style.color = '#cbd5e1';
+      });
+      b.style.background = 'rgba(56, 189, 248, 0.25)';
+      b.style.borderColor = 'var(--sky-primary)';
+      b.style.color = '#fff';
+      renderLightScenario();
+    };
+    if (idx === lightCurrentScenarioIdx) {
+      b.style.background = 'rgba(56, 189, 248, 0.25)';
+      b.style.borderColor = 'var(--sky-primary)';
+      b.style.color = '#fff';
+    }
+    container.appendChild(b);
+  });
+}
+
+function renderLightScenario() {
+  const tab = lightSimData[lightCurrentTabId];
+  if (!tab) return;
+  const sc = tab.scenarios[lightCurrentScenarioIdx];
+  if (!sc) return;
+
+  const imgEl = document.getElementById('lightSimImg');
+  if (imgEl) {
+    imgEl.src = sc.img;
+    imgEl.alt = sc.title;
+  }
+
+  const titleEl = document.getElementById('lightSimTitle');
+  if (titleEl) titleEl.textContent = sc.title;
+
+  const subEl = document.getElementById('lightSimSub');
+  if (subEl) subEl.textContent = sc.sub;
+
+  const actTitleEl = document.getElementById('lightActionTitle');
+  if (actTitleEl) actTitleEl.textContent = sc.actionTitle;
+
+  const ul = document.getElementById('lightSimList');
+  if (ul) {
+    ul.innerHTML = '';
+    sc.list.forEach(item => {
+      const li = document.createElement('li');
+      li.innerHTML = item;
+      ul.appendChild(li);
+    });
+  }
+
+  const alertEl = document.getElementById('lightSimAlert');
+  if (alertEl) alertEl.innerHTML = sc.alert;
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+  renderLightSubNav();
+  renderLightScenario();
+});
 </script>
 
 </body>

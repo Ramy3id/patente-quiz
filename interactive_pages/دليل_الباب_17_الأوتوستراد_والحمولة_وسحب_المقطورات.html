@@ -1024,6 +1024,73 @@
     color: #0284c7;
   }
 
+
+  /* Chapter 17 Interactive Simulator Styles (Apple HIG Benchmark) */
+  .interactive-sim-container {
+    background: rgba(18, 18, 22, 0.75);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 40px;
+    backdrop-filter: blur(16px);
+  }
+  .sim-tabs-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .sim-tab-btn {
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    color: var(--text-secondary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+  .sim-tab-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .sim-tab-btn.active {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: var(--sky-primary);
+    color: #fff;
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.15);
+  }
+  .sim-display-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .sim-visual-box {
+    background: #0e0e11;
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .sim-info-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  @media (max-width: 768px) {
+    .sim-display-panel { grid-template-columns: 1fr; }
+    .interactive-sim-container { padding: 18px; }
+  }
+
 </style>
 <link rel="manifest" href="../manifest.json">
 </head>
@@ -1114,6 +1181,57 @@
       <div class="rule-box">
         <h4><span>4️⃣</span> قاعدة الـ 7 أمتار وسرعات المقطورة</h4>
         <p>الشاحنات والمقطورات بطول إجمالي يتجاوز 7 أمتار تُمنع من الحارة الثالثة في الأوتوستراد. السرعة القصوى مع مقطورة هي 80 كم/س بالأوتوستراد و70 كم/س خارج المدن.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE SIMULATOR (BENCHMARK CHAPTER 15 ARCHITECTURE) -->
+  <section class="interactive-sim-container simulator-container" id="autostrada-sim">
+    <div class="golden-rules-title" style="margin-bottom:16px;">
+      <span>🎮</span>
+      <span>المختبر التفاعلي لقواعد الأوتوستراد والحمولة والمقطورات (Simulatore Autostrada & Traino)</span>
+    </div>
+    
+    <!-- Simulator Navigation Tabs -->
+    <div class="sim-tabs-row">
+      <button class="sim-tab-btn active" onclick="switchAutostradaSim(1, this)">
+        <span>المحاكي 1:</span> رادار الأوتوستراد وحالات الطوارئ (Autostrada & Emergenza)
+      </button>
+      <button class="sim-tab-btn" onclick="switchAutostradaSim(2, this)">
+        <span>المحاكي 2:</span> قواعد بروز الحمولة وألواح الخطر (Pannelli & Carico)
+      </button>
+      <button class="sim-tab-btn" onclick="switchAutostradaSim(3, this)">
+        <span>المحاكي 3:</span> منظومة سحب المقطورات وكابل الأمان (Gancio & Traino)
+      </button>
+    </div>
+
+    <!-- Simulator Interactive Display Panel -->
+    <div class="sim-display-panel" id="autoSimDisplay">
+      <!-- Visual Column (Real Photographic Asset + Dynamic Tag) -->
+      <div class="sim-visual-box" id="autoSimVisual">
+        <div class="sim-img-frame" style="width:100%; height:180px; border-radius:12px; overflow:hidden; margin-bottom:12px; background:#000; display:flex; align-items:center; justify-content:center;">
+          <img id="autoSimImg" src="../assets/images/autostrada_parts/corsia_accelerazione_decelerazione.jpg" alt="Sim Scenario" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div style="font-size:1.15rem; font-weight:800; color:#fff;" id="autoSimTitle">حارات التسارع والتباطؤ (Corsie di Accelerazione & Decelerazione)</div>
+        <div style="font-size:0.85rem; color:var(--sky-primary); font-family:var(--font-mono); margin-top:4px;" id="autoSimSub">Art. 140 e 176 Codice della Strada</div>
+      </div>
+
+      <!-- Information & Controls Column -->
+      <div class="sim-info-box">
+        <!-- Scenario Selector Buttons -->
+        <div class="sim-sub-nav" id="autoSubNav" style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px;">
+          <!-- Dynamically populated by switchAutostradaSim -->
+        </div>
+
+        <h4 style="font-size:1.05rem; font-weight:800; color:#fff;" id="autoActionTitle">الشروط والواجبات القانونية:</h4>
+        <ul class="card-bullet-list" id="autoSimList">
+          <li><span class="bullet-icon">🛣️</span> <strong>حارة التسارع:</strong> تستخدم لبلوغ السرعة المناسبة والاندماج بحذر في تيار السير.</li>
+          <li><span class="bullet-icon">🛑</span> <strong>حق الأسبقية:</strong> يجب إعطاء الأسبقية (Dare precedenza) للمركبات السائرة بالفعل على الأوتوستراد.</li>
+          <li><span class="bullet-icon">⚡</span> <strong>حارة التباطؤ:</strong> يمنع الإبطاء المفاجئ على مسار الأوتوستراد؛ يتم الإبطاء حصراً بعد الدخول إلى حارة التباطؤ.</li>
+        </ul>
+        <div class="trap-alert-box" id="autoSimAlert" style="background:rgba(244,63,94,0.1); border-color:rgba(244,63,94,0.3); color:#fecdd3;">
+          🚨 <strong>فخ الامتحان المتكرر:</strong> المركبات القادمة من حارة التسارع لا تملك الأسبقية إطلاقاً وعليها انتظار خلو المسار قبل الاندماج (FALSO أنها تملك الأسبقية)!
+        </div>
       </div>
     </div>
   </section>
@@ -1809,6 +1927,263 @@
       }
     });
   }
+</script>
+
+
+<script>
+// ==============================================================================
+// CHAPTER 17 INTERACTIVE SIMULATOR ENGINE (Zero Canvas, Pure High-Fidelity DOM)
+// ==============================================================================
+const autoSimData = {
+  1: {
+    name: "رادار الأوتوستراد وحالات الطوارئ",
+    scenarios: [
+      {
+        id: "svincolo",
+        label: "🛣️ حارات التسارع والتباطؤ",
+        img: "../assets/images/autostrada_parts/corsia_accelerazione_decelerazione.jpg",
+        title: "حارات التسارع والتباطؤ (Corsie di Accelerazione & Decelerazione)",
+        sub: "Art. 140 e 176 Codice della Strada",
+        actionTitle: "القواعد المنظمة للدخول والخروج من الأوتوستراد:",
+        list: [
+          '<span class="bullet-icon">🛣️</span> <strong>حارة التسارع:</strong> تستخدم لبلوغ سرعة تيار السير والاندماج الآمن بين المركبات.',
+          '<span class="bullet-icon">🛑</span> <strong>واجب الأسبقية:</strong> الالتزام التام بإعطاء الأسبقية للمركبات السائرة على الطريق السريع.',
+          '<span class="bullet-icon">⚡</span> <strong>حارة التباطؤ:</strong> يتم تقليل السرعة فقط بعد الدخول الكامل في حارة التباطؤ وليس على حارات السفر السريعة.'
+        ],
+        alert: '🚨 <strong>فخ الامتحان:</strong> العبارة التي تدعي أن للمركبة في حارة التسارع حق الأسبقية على سيارات الأوتوستراد خاطئة تماماً (FALSO)!'
+      },
+      {
+        id: "emergenza",
+        label: "🚨 حارة الطوارئ (Max 3h)",
+        img: "../assets/images/autostrada_parts/corsia_emergenza_sos_autostrada.jpg",
+        title: "حارة الطوارئ وأقصى مدة مكوث (Corsia di Emergenza)",
+        sub: "Art. 176 comma 5 Codice della Strada",
+        actionTitle: "الحالات الحصرية المسموحة للوقوف في حارة الطوارئ:",
+        list: [
+          '<span class="bullet-icon">⚠️</span> <strong>دواعي الوقوف:</strong> فقط في حالات الأعطال الميكانيكية المفاجئة أو الوعكة الصحية الشديدة للركاب.',
+          '<span class="bullet-icon">⏱️</span> <strong>الحد الزمني الأقصى:</strong> لا يجوز البقاء في حارة الطوارئ لأكثر من 3 ساعات متصلة.',
+          '<span class="bullet-icon">🦺</span> <strong>أدوات السلامة:</strong> تشغيل إشارات الطوارئ الرباعية (4 Frecce) وارتداء السترة العاكسة قبل النزول.'
+        ],
+        alert: '🚨 <strong>فخ خطير:</strong> يمنع استخدام حارة الطوارئ لأخذ قسط من النوم أو الراحة أو لإجراء مكالمة هاتفية (FALSO)!'
+      },
+      {
+        id: "sos",
+        label: "📞 كابينة الطوارئ (SOS)",
+        img: "../assets/images/autostrada_parts/gallery_colonnina_sos_autostradale.jpg",
+        title: "كابينة الاستغاثة ومثلث الخطر (Colonnina SOS & Triangolo)",
+        sub: "Art. 175 e 176 Codice della Strada",
+        actionTitle: "بروتوكول طلب النجدة على الأوتوستراد:",
+        list: [
+          '<span class="bullet-icon">📞</span> <strong>كابينة SOS:</strong> تتيح الاتصال المباشر بفرق الإنقاذ الميكانيكي أو الإسعاف الطبي مع تحديد الموقع آلياً.',
+          '<span class="bullet-icon">🚶</span> <strong>المشي على الأوتوستراد:</strong> ممنوع قطعاً، ويستثنى فقط المشي على حارة الطوارئ للوصول لكابينة SOS مع ارتداء السترة العاكسة.',
+          '<span class="bullet-icon">🔺</span> <strong>مثلث الخطر:</strong> يوضع على بعد 100 متر خلف السيارة في الأوتوستراد ليرى من مسافة 100 متر على الأقل.'
+        ],
+        alert: '✅ <strong>قاعدة وزارية:</strong> يُسمح بالسير على الأقدام في الأوتوستراد حصراً في حارة الطوارئ للوصول إلى كابينة الاستغاثة SOS مع ارتداء السترة المعتمدة (VERO)!'
+      },
+      {
+        id: "casello",
+        label: "💳 محطة الرسوم (Telepass)",
+        img: "../assets/images/autostrada_parts/gallery_casello_autostradale_telepass.jpg",
+        title: "بوابات التحصيل والمسار الأصفر (Casello Autostradale)",
+        sub: "Art. 176 comma 11 Codice della Strada",
+        actionTitle: "التعليمات الصارمة عند بوابات الدفع:",
+        list: [
+          '<span class="bullet-icon">🟡</span> <strong>مسار Telepass:</strong> مخصص حصراً للمركبات المجهزة بجهاز الدفع الإلكتروني عن بُعد.',
+          '<span class="bullet-icon">🚫</span> <strong>حظر الرجوع للخلف:</strong> يمنع منعاً باتاً الرجوع للخلف (Retromarcia) أو الدوران للخلف (Inversione) أمام البوابات.',
+          '<span class="bullet-icon">🧾</span> <strong>في حال تعطل الدفع:</strong> يلزم الضغط على زر المساعدة وأخذ وصل عدم الدفع (Mancato Pagamento) لتسويته لاحقاً.'
+        ],
+        alert: '🚨 <strong>عقوبة مغلظة:</strong> الرجوع للخلف عند بوابات رسوم الأوتوستراد يعاقب عليه بغرامة مالية باهظة وسحب رخصة القيادة (VERO)!'
+      }
+    ]
+  },
+  2: {
+    name: "قواعد بروز الحمولة وألواح الخطر",
+    scenarios: [
+      {
+        id: "sporgenza",
+        label: "📏 حدود البروز المسموحة",
+        img: "../assets/images/autostrada_parts/gallery_pannello_carico_sporgente_retro.jpg",
+        title: "حدود أبعاد وبروز الحمولة (Limiti di Sporgenza)",
+        sub: "Art. 164 Codice della Strada",
+        actionTitle: "الحدود القصوى لبروز الحمولة غير القابلة للتجزئة:",
+        list: [
+          '<span class="bullet-icon">⬅️</span> <strong>البروز الخلفي:</strong> مسموح بحد أقصى 3/10 (أي 30%) من الطول الإجمالي للمركبة.',
+          '<span class="bullet-icon">⬆️</span> <strong>البروز الأمامي:</strong> يمنع منعاً باتاً أن تبرز الحمولة من مقدمة السيارات العادية والشاحنات الخفيفة.',
+          '<span class="bullet-icon">↔️</span> <strong>البروز الجانبي:</strong> مسموح بحد أقصى 30 سم من مصابيح الموضع الأمامية والخلفية بشرط ألا يتجاوز العرض الإجمالي 2.55 متر.'
+        ],
+        alert: '⚠️ <strong>فخ متكرر:</strong> البروز للخلف بنسبة 30% مسموح حصراً للحمولة غير القابلة للتجزئة (Carico indivisibile) مع وضع اللوحة المربعة المعتمدة!'
+      },
+      {
+        id: "pannello",
+        label: "🟥 لوحة الحمولة المربعة",
+        img: "../assets/images/lighting_parts/gallery_pannello_carico_sporgente_retro.jpg",
+        title: "لوحة الحمولة البارزة للخلف (Pannello Carico Sporgente)",
+        sub: "Art. 164 comma 6 Codice della Strada",
+        actionTitle: "المواصفات الفنية وطريقة التثبيت:",
+        list: [
+          '<span class="bullet-icon">📐</span> <strong>الشكل واللون:</strong> لوحة مربعة عاكسة (50x50 سم) مقسمة بخطوط قطرية بيضاء وحمراء عاكسة للضوء.',
+          '<span class="bullet-icon">✌️</span> <strong>استخدام لوحين:</strong> إذا كانت الحمولة البارزة تشغل كامل عرض المركبة، يجب وضع لوحين عند الطرفين بحيث تشكل الخطوط شكلاً ثمانياً (V مقلوب).',
+          '<span class="bullet-icon">🌙</span> <strong>الرؤية الليلية:</strong> يجب أن تكون اللوحة مرئية نهاراً وليلاً ومثبتة بإحكام في أقصى نقطة بارزة من الخلف.'
+        ],
+        alert: '✅ <strong>قاعدة وزارية:</strong> اللوحة المربعة إلزامية في أي وقت تبرز فيه الحمولة للخلف ولو بسنتيمترات قليلة عن نهاية هيكل السيارة (VERO)!'
+      },
+      {
+        id: "confronto",
+        label: "🚛 لوحات الشاحنات والمقطورات",
+        img: "../assets/images/autostrada_parts/gallery_pannelli_autocarro_rimorchio_confronto.jpg",
+        title: "التمييز بين لوحات الشاحنات والمقطورات الثقيلة",
+        sub: "Art. 164 CdS - Figg. 279-282",
+        actionTitle: "اللوحات العاكسة الخلفية للمركبات الكبيرة (> 3.5t):",
+        list: [
+          '<span class="bullet-icon">🚛</span> <strong>الشاحنات الثقيلة (Autocarri > 3.5t):</strong> لوحات بخطوط مائلة صفراء وحمراء عاكسة (Fig. 279-280).',
+          '<span class="bullet-icon">🚜</span> <strong>المقطورات الثقيلة (Rimorchi > 3.5t):</strong> لوحات بإطار أصفر عاكس مع مستطيل برتقالي فسفوري داخلي (Fig. 281-282).',
+          '<span class="bullet-icon">📏</span> <strong>التركيب:</strong> تثبت في الجزء الخلفي من المركبة للمساعدة في تمييز نوعها وطولها ليلاً من مسافة بعيدة.'
+        ],
+        alert: '🚨 <strong>فخ امتحان مشهور:</strong> اللوحات ذات الخطوط المائلة الصفراء والحمراء توضع على الشاحنات فقط، أما ذات الخلفية البرتقالية فتوضع على المقطورات (Rimorchi)!'
+      }
+    ]
+  },
+  3: {
+    name: "منظومة سحب المقطورات وكابل الأمان",
+    scenarios: [
+      {
+        id: "gancio",
+        label: "🔘 خطاف السحب المعتمد",
+        img: "../assets/images/autostrada_parts/gallery_gancio_traino_omologato.jpg",
+        title: "خطاف السحب الكروي المعتمد (Gancio di Traino Omologato)",
+        sub: "Art. 238 Regolamento Codice della Strada",
+        actionTitle: "شروط السلامة والاعتماد الفني لمنظومة السحب:",
+        list: [
+          '<span class="bullet-icon">📜</span> <strong>المطابقة الرسمية:</strong> يجب أن يكون الخطاف معتمداً (Omologato) ومسجلاً رسمياً في بطاقة تسجيل المركبة (Carta di Circolazione).',
+          '<span class="bullet-icon">🔍</span> <strong>الفحص الدوري:</strong> فحص تآكل كرة السحب (Sfera) ونظافتها وتشحيمها لضمان ثبات القفل الميكانيكي.',
+          '<span class="bullet-icon">🔌</span> <strong>التوصيلة الكهربائية:</strong> ربط المقبس الكهربائي لنقل أضواء الإشارات والفرامل ولوحة الأرقام للمقطورة.'
+        ],
+        alert: '🚨 <strong>قاعدة وزارية:</strong> يحظر قانوناً تركيب أو تعديل خطاف السحب دون ترخيص رسمي وفحص فني معتمد (VERO)!'
+      },
+      {
+        id: "cavetto",
+        label: "⛓️ كابل الأمان الفولاذي",
+        img: "../assets/images/autostrada_parts/gancio_traino_sfera_cavetto.jpg",
+        title: "كابل الأمان وفرملة الطوارئ (Cavo di Sicurezza / Freno a Strappo)",
+        sub: "Art. 104 Codice della Strada",
+        actionTitle: "وظيفة الحماية التلقائية عند انفصال المقطورة:",
+        list: [
+          '<span class="bullet-icon">⛓️</span> <strong>التثبيت:</strong> يتم ربط الكابل الفولاذي المساعد بنقطة ارتكاز مخصصة في هيكل السيارة القاطرة.',
+          '<span class="bullet-icon">🛑</span> <strong>فرملة الانفصال:</strong> في حال انفصال كرة الخطاف أثناء السير، يشد الكابل فرامل المقطورة تلقائياً لإيقافها فوراً.',
+          '<span class="bullet-icon">🛡️</span> <strong>المقطورات الخفيفة:</strong> في المقطورات بدون فرامل، يعمل الكابل الثانوي على منع ارتطام ذراع السحب بالأرض.'
+        ],
+        alert: '💡 <strong>سر الامتحان:</strong> كابل الأمان الفولاذي إلزامي لضمان تفعيل فرامل المقطورة آلياً عند الانفصال العرضي عن القاطرة!'
+      },
+      {
+        id: "limiti_svincolo",
+        label: "⚡ حدود السرعة والمرايا",
+        img: "../assets/images/autostrada_parts/gallery_svincolo_rampa_autostrada.jpg",
+        title: "حدود السرعة والمرايا الإضافية لسحب المقطورات",
+        sub: "Art. 142 e 164 Codice della Strada",
+        actionTitle: "القيود الخاصة بالسيارات التي تسحب مقطورة أو كرفان:",
+        list: [
+          '<span class="bullet-icon">🏎️</span> <strong>السرعة في الأوتوستراد:</strong> 80 كم/س كحد أقصى (وليس 130 كم/س!).',
+          '<span class="bullet-icon">🛣️</span> <strong>خارج المدن الرئيسية:</strong> 70 كم/س كحد أقصى (وليس 110 كم/س!).',
+          '<span class="bullet-icon">🪞</span> <strong>المرايا الممتدة:</strong> إذا حجب الكرفان مجال الرؤية الخلفية، يلزم تركيب مرآتين جانبيتين إضافيتين لا تتجاوزان 20 سم عن أقصى عرض.'
+        ],
+        alert: '🚨 <strong>أشهر فخ في الباب 17:</strong> السرعة القصوى للسيارة التي تسحب مقطورة على الأوتوستراد هي 80 كم/س، والسؤال الذي يذكر 100 أو 130 كم/س خطأ (FALSO)!'
+      }
+    ]
+  }
+};
+
+let autoCurrentTabId = 1;
+let autoCurrentScenarioIdx = 0;
+
+function switchAutostradaSim(tabId, btn) {
+  if (window.soundEngine && typeof window.soundEngine.click === 'function') {
+    window.soundEngine.click();
+  }
+  document.querySelectorAll('#autostrada-sim .sim-tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  autoCurrentTabId = tabId;
+  autoCurrentScenarioIdx = 0;
+
+  renderAutoSubNav();
+  renderAutoScenario();
+}
+
+function renderAutoSubNav() {
+  const container = document.getElementById('autoSubNav');
+  if (!container) return;
+  container.innerHTML = '';
+  const tab = autoSimData[autoCurrentTabId];
+  if (!tab) return;
+
+  tab.scenarios.forEach((sc, idx) => {
+    const b = document.createElement('button');
+    b.className = `auto-sub-btn ${idx === autoCurrentScenarioIdx ? 'active' : ''}`;
+    b.style.cssText = 'padding:6px 12px; background:rgba(255,255,255,0.06); border:1px solid var(--border-subtle); border-radius:8px; color:#cbd5e1; font-size:0.8rem; font-weight:700; cursor:pointer; transition:all 0.15s ease; font-family:inherit;';
+    b.innerHTML = sc.label;
+    b.onclick = function() {
+      if (window.soundEngine && typeof window.soundEngine.click === 'function') {
+        window.soundEngine.click();
+      }
+      autoCurrentScenarioIdx = idx;
+      document.querySelectorAll('.auto-sub-btn').forEach(x => {
+        x.style.background = 'rgba(255,255,255,0.06)';
+        x.style.borderColor = 'var(--border-subtle)';
+        x.style.color = '#cbd5e1';
+      });
+      b.style.background = 'rgba(56, 189, 248, 0.25)';
+      b.style.borderColor = 'var(--sky-primary)';
+      b.style.color = '#fff';
+      renderAutoScenario();
+    };
+    if (idx === autoCurrentScenarioIdx) {
+      b.style.background = 'rgba(56, 189, 248, 0.25)';
+      b.style.borderColor = 'var(--sky-primary)';
+      b.style.color = '#fff';
+    }
+    container.appendChild(b);
+  });
+}
+
+function renderAutoScenario() {
+  const tab = autoSimData[autoCurrentTabId];
+  if (!tab) return;
+  const sc = tab.scenarios[autoCurrentScenarioIdx];
+  if (!sc) return;
+
+  const imgEl = document.getElementById('autoSimImg');
+  if (imgEl) {
+    imgEl.src = sc.img;
+    imgEl.alt = sc.title;
+  }
+
+  const titleEl = document.getElementById('autoSimTitle');
+  if (titleEl) titleEl.textContent = sc.title;
+
+  const subEl = document.getElementById('autoSimSub');
+  if (subEl) subEl.textContent = sc.sub;
+
+  const actTitleEl = document.getElementById('autoActionTitle');
+  if (actTitleEl) actTitleEl.textContent = sc.actionTitle;
+
+  const ul = document.getElementById('autoSimList');
+  if (ul) {
+    ul.innerHTML = '';
+    sc.list.forEach(item => {
+      const li = document.createElement('li');
+      li.innerHTML = item;
+      ul.appendChild(li);
+    });
+  }
+
+  const alertEl = document.getElementById('autoSimAlert');
+  if (alertEl) alertEl.innerHTML = sc.alert;
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+  renderAutoSubNav();
+  renderAutoScenario();
+});
 </script>
 
 </body>

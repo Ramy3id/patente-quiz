@@ -1024,6 +1024,73 @@
     color: #0284c7;
   }
 
+
+  /* Chapter 19 Interactive Simulator Styles (Apple HIG Benchmark) */
+  .interactive-sim-container {
+    background: rgba(18, 18, 22, 0.75);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 40px;
+    backdrop-filter: blur(16px);
+  }
+  .sim-tabs-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .sim-tab-btn {
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    color: var(--text-secondary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+  .sim-tab-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .sim-tab-btn.active {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: var(--sky-primary);
+    color: #fff;
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.15);
+  }
+  .sim-display-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .sim-visual-box {
+    background: #0e0e11;
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .sim-info-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  @media (max-width: 768px) {
+    .sim-display-panel { grid-template-columns: 1fr; }
+    .interactive-sim-container { padding: 18px; }
+  }
+
 </style>
 <link rel="manifest" href="../manifest.json">
 </head>
@@ -1114,6 +1181,57 @@
       <div class="rule-box">
         <h4><span>4️⃣</span> اعتماد الخوذة واستبدالها</h4>
         <p>الخوذة يجب أن تحمل ملصق الاعتماد الأوروبي، ويجب استبدالها فوراً عند التعرض لصدمة قوية حتى لو لم تظهر شروخ خارجية على هيكلها لامتصاص البطانة الداخلية للطاقة.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE SIMULATOR (BENCHMARK CHAPTER 15 ARCHITECTURE) -->
+  <section class="interactive-sim-container simulator-container" id="safety-sim">
+    <div class="golden-rules-title" style="margin-bottom:16px;">
+      <span>🎮</span>
+      <span>المختبر التفاعلي لأنظمة الأمان السلبية (Simulatore Sistemi di Sicurezza Passiva)</span>
+    </div>
+    
+    <!-- Simulator Navigation Tabs -->
+    <div class="sim-tabs-row">
+      <button class="sim-tab-btn active" onclick="switchSafetySim(1, this)">
+        <span>المحاكي 1:</span> أحزمة الأمان والإعفاءات الطبية (Cinture & Esenzioni)
+      </button>
+      <button class="sim-tab-btn" onclick="switchSafetySim(2, this)">
+        <span>المحاكي 2:</span> مقاعد وتصنيفات أمان الأطفال (Seggiolini & ISOFIX)
+      </button>
+      <button class="sim-tab-btn" onclick="switchSafetySim(3, this)">
+        <span>المحاكي 3:</span> الخوذة الواقية والملابس المعتمدة (Casco & Abbigliamento)
+      </button>
+    </div>
+
+    <!-- Simulator Interactive Display Panel -->
+    <div class="sim-display-panel" id="safetySimDisplay">
+      <!-- Visual Column (Real Photographic Asset + Dynamic Tag) -->
+      <div class="sim-visual-box" id="safetySimVisual">
+        <div class="sim-img-frame" style="width:100%; height:180px; border-radius:12px; overflow:hidden; margin-bottom:12px; background:#000; display:flex; align-items:center; justify-content:center;">
+          <img id="safetySimImg" src="../assets/images/safety_parts/cintura_sicurezza_tre_punti.jpg" alt="Sim Scenario" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div style="font-size:1.15rem; font-weight:800; color:#fff;" id="safetySimTitle">حزام الأمان ثلاثي النقاط (Cintura a Tre Punti)</div>
+        <div style="font-size:0.85rem; color:var(--sky-primary); font-family:var(--font-mono); margin-top:4px;" id="safetySimSub">Art. 172 Codice della Strada</div>
+      </div>
+
+      <!-- Information & Controls Column -->
+      <div class="sim-info-box">
+        <!-- Scenario Selector Buttons -->
+        <div class="sim-sub-nav" id="safetySubNav" style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px;">
+          <!-- Dynamically populated by switchSafetySim -->
+        </div>
+
+        <h4 style="font-size:1.05rem; font-weight:800; color:#fff;" id="safetyActionTitle">الشروط والواجبات القانونية:</h4>
+        <ul class="card-bullet-list" id="safetySimList">
+          <li><span class="bullet-icon">🔒</span> <strong>الإلزامية الشاملة:</strong> ربط حزام الأمان إلزامي للسائق وجميع الركاب في المقاعد الأمامية والخلفية.</li>
+          <li><span class="bullet-icon">🛡️</span> <strong>الاعتماد الفني:</strong> يجب أن يكون الحزام معتمداً حاملاً علامة المطابقة الأوروبية وخالياً من أي تشققات.</li>
+          <li><span class="bullet-icon">⚡</span> <strong>حظر التلاعب:</strong> يمنع استخدام مشابك إرخاء الحزام أو الأجهزة التي تعطل صفارة الإنذار في التابلوه.</li>
+        </ul>
+        <div class="trap-alert-box" id="safetySimAlert" style="background:rgba(244,63,94,0.1); border-color:rgba(244,63,94,0.3); color:#fecdd3;">
+          🚨 <strong>فخ الامتحان المتكرر:</strong> ربط حزام الأمان إلزامي حتى في المسافات القصيرة جداً وداخل المدن وللسرعات المنخفضة، وإهماله في المقاعد الخلفية مخالفة قانونية (VERO)!
+        </div>
       </div>
     </div>
   </section>
@@ -1761,6 +1879,250 @@
       }
     });
   }
+</script>
+
+
+<script>
+// ==============================================================================
+// CHAPTER 19 INTERACTIVE SIMULATOR ENGINE (Zero Canvas, Pure High-Fidelity DOM)
+// ==============================================================================
+const safetySimData = {
+  1: {
+    name: "أحزمة الأمان والإعفاءات الطبية",
+    scenarios: [
+      {
+        id: "cintura",
+        label: "🔒 الحزام ثلاثي النقاط",
+        img: "../assets/images/safety_parts/cintura_sicurezza_tre_punti.jpg",
+        title: "حزام الأمان ثلاثي النقاط (Cintura a Tre Punti)",
+        sub: "Art. 172 Codice della Strada",
+        actionTitle: "الالتزامات القانونية لقائدي وركاب المركبات:",
+        list: [
+          '<span class="bullet-icon">🔒</span> <strong>المقاعد الأمامية والخلفية:</strong> إلزامي على كل شخص يشغل مقعداً مزوداً بحزام أمان دون استثناء.',
+          '<span class="bullet-icon">👶</span> <strong>مسؤولية القُصّر:</strong> السائق مسؤول قانونياً وتخصم من رخصته نقاط إذا كان الراكب طفلاً قاصراً غير مربوط بحزام.',
+          '<span class="bullet-icon">🚫</span> <strong>مشابك الارتخاء:</strong> يحظر استخدام أي أدوات (Molle / Pinze) تجعل الحزام مرتخياً وتقلل من كفاءته في الحوادث.'
+        ],
+        alert: '✅ <strong>قاعدة وزارية:</strong> الوسادة الهوائية (Airbag) لا تلغي ولا تعوض حزام الأمان بل تعمل بالتكامل التام معه (VERO)!'
+      },
+      {
+        id: "esenzioni",
+        label: "📜 الفئات المعفاة طبياً",
+        img: "../assets/images/safety_parts/esenzioni_cinture_mediche.jpg",
+        title: "الحالات الحصرية للإعفاء من ربط الحزام",
+        sub: "Art. 172 comma 8 Codice della Strada",
+        actionTitle: "من يحق له القيادة دون ربط حزام الأمان قانوناً؟",
+        list: [
+          '<span class="bullet-icon">🤰</span> <strong>الحوامل:</strong> فقط بوجود شهادة طبية خاصة من طبيب النساء والتوليد تفيد بوجود خطر على الجنين.',
+          '<span class="bullet-icon">🏥</span> <strong>الأمراض الخاصة:</strong> المرضى الحاصلون على شهادة معتمدة من الهيئة الصحية المحلية (ASL).',
+          '<span class="bullet-icon">🚓</span> <strong>قوات الطوارئ والشرطة:</strong> أثناء أداء مهام الطوارئ والتدخل العاجل فقط.',
+          '<span class="bullet-icon">❌</span> <strong>غير المعفين:</strong> كبار السن، قصار القامة، وأصحاب البنية الجسدية الضخمة ملزمون بربط الحزام ولا يُعفون أبداً.'
+        ],
+        alert: '🚨 <strong>أشهر فخ في الباب 19:</strong> الأشخاص كبار السن (Anziani) غير معفين إطلاقاً من ربط حزام الأمان، والسؤال الذي يعفيهم خاطئ (FALSO)!'
+      },
+      {
+        id: "omologazione_cintura",
+        label: "🏷️ بطاقة الاعتماد والصيانة",
+        img: "../assets/images/safety_parts/gallery_etichetta_omologazione_cintura.jpg",
+        title: "اعتماد الحزام وصيانة الشداد الميكانيكي (Pretensionatore)",
+        sub: "Art. 172 comma 4 Codice della Strada",
+        actionTitle: "المعايير الفنية وصيانة أحزمة الأمان:",
+        list: [
+          '<span class="bullet-icon">🏷️</span> <strong>علامة المطابقة:</strong> شريط الحزام يحمل ملصقاً برتقالياً أو أبيض بعلامة المطابقة الأوروبية (E).',
+          '<span class="bullet-icon">💥</span> <strong>الشداد المسبق (Pretensionatore):</strong> جهاز يشعل شحنة مصغرة لسحب الحزام وتثبيت الراكب بالمقعد في أجزاء الألف من الثانية.',
+          '<span class="bullet-icon">🔄</span> <strong>الاستبدال الإلزامي:</strong> بعد أي حادث تصادم عنيف أو إذا ظهر تلف أو اهتراء في النسيج، يجب استبدال الحزام والشداد فوراً.'
+        ],
+        alert: '💡 <strong>سر الامتحان:</strong> الشداد المسبق (Pretensionatore) يُستخدم لمرة واحدة فقط ويجب تغييره بعد أي حادث تصادم تسبب في تنشيطه (VERO)!'
+      }
+    ]
+  },
+  2: {
+    name: "مقاعد وتصنيفات أمان الأطفال",
+    scenarios: [
+      {
+        id: "altezza_150",
+        label: "📏 شرط الطول (150cm)",
+        img: "../assets/images/safety_parts/seggiolino_bambini_isofix.jpg",
+        title: "إلزامية مقاعد الأطفال حتى طول 1.50 متر",
+        sub: "Art. 172 comma 1 Codice della Strada",
+        actionTitle: "القاعدة الذهبية لجلوس الأطفال في السيارات:",
+        list: [
+          '<span class="bullet-icon">📏</span> <strong>الحد الفاصل:</strong> الأطفال الذين يقل طولهم عن 1.50 متر ملزمون باستخدام مقعد مخصص (Seggiolino).',
+          '<span class="bullet-icon">⚖️</span> <strong>التصنيف:</strong> يتم اختيار المقعد المناسب بحسب وزن الطفل وطوله وفق تصنيفات ECE R44 و R129 (i-Size).',
+          '<span class="bullet-icon">👤</span> <strong>فوق 1.50 متر:</strong> يمكنهم استخدام حزام الأمان العادي للسيارة دون الحاجة لمقعد إضافي.'
+        ],
+        alert: '🚨 <strong>فخ الامتحان المتكرر:</strong> الالتزام باستخدام مقعد الأطفال مرتبط بطول الطفل (أقل من 1.50 متر) وليس بعمره فقط (VERO)!'
+      },
+      {
+        id: "disattivazione_airbag",
+        label: "⚠️ وضع المقعد العكسي والإيرباج",
+        img: "../assets/images/safety_parts/seggiolino_contrario_marcia_airbag.jpg",
+        title: "تركيب المقعد عكس السير وتعطيل الإيرباج",
+        sub: "Art. 172 comma 5 Codice della Strada",
+        actionTitle: "الشرط الحياتي الصارم لمقاعد الرضع الأمامية:",
+        list: [
+          '<span class="bullet-icon">🔄</span> <strong>المقعد الأمامي عكس السير:</strong> عند وضع كرسي الرضيع في المقعد الأمامي متجهاً للخلف (Contrario al senso di marcia).',
+          '<span class="bullet-icon">🛑</span> <strong>التعطيل الإلزامي:</strong> يجب حتماً إيقاف الوسادة الهوائية للراكب (Disattivare Airbag passeggero) عبر المفتاح المخصص.',
+          '<span class="bullet-icon">💥</span> <strong>الخطر القاتل:</strong> انتفاخ الوسادة الهوائية أمام مقعد الرضيع العكسي قد يؤدي إلى الوفاة المباشرة للطفل.'
+        ],
+        alert: '🚨 <strong>أخطر قاعدة امتحانية:</strong> يحظر قانوناً وضع مقعد الطفل متجهاً للخلف في المقعد الأمامي دون تعطيل الوسادة الهوائية للراكب (VERO)!'
+      },
+      {
+        id: "isofix_ancoraggio",
+        label: "💺 نظام التثبيت ISOFIX",
+        img: "../assets/images/safety_parts/gallery_seggiolino_isofix_ancoraggio.jpg",
+        title: "نظام التثبيت المتطور (Sistema ISOFIX)",
+        sub: "Normativa ECE R129 / i-Size",
+        actionTitle: "مزايا تثبيت المقاعد بنظام ISOFIX الدولي:",
+        list: [
+          '<span class="bullet-icon">🔗</span> <strong>التثبيت المباشر:</strong> يربط مقعد الطفل مباشرة بهيكل الشاسيه للسيارة بنقاط تثبيت معدنية صلبة.',
+          '<span class="bullet-icon">🔒</span> <strong>نقطة الارتكاز الثالثة:</strong> يستخدم حزام علوي (Top Tether) أو ساق ارتكاز أرضية (Support Leg) لمنع انقلاب المقعد.',
+          '<span class="bullet-icon">✅</span> <strong>منع أخطاء التركيب:</strong> مزود بمؤشرات خضراء وحمراء تؤكد نجاح عملية الإغلاق وتمنع أخطاء التركيب الشائعة مع الأحزمة.'
+        ],
+        alert: '💡 <strong>معلومة وزارية:</strong> نظام ISOFIX لا يحتاج إلى أحزمة أمان السيارة العادية لتثبيت مقعد الطفل بل يرتبط مباشرة بهيكل السيارة (VERO)!'
+      }
+    ]
+  },
+  3: {
+    name: "الخوذة الواقية والملابس المعتمدة",
+    scenarios: [
+      {
+        id: "casco_omologato",
+        label: "🪖 الخوذة الواقية المعتمدة",
+        img: "../assets/images/safety_parts/casco_integrale_omologato.jpg",
+        title: "الخوذة الواقية للدراجات النارية (Casco Protettivo Omologato)",
+        sub: "Art. 171 Codice della Strada",
+        actionTitle: "أحكام ارتداء الخوذة لراكبي الدراجات:",
+        list: [
+          '<span class="bullet-icon">🏍️</span> <strong>الإلزامية:</strong> إلزامية على السائق والراكب المرافق لجميع الدراجات النارية والدراجات الخفيفة (Ciclomotori).',
+          '<span class="bullet-icon">🔒</span> <strong>الربط المحكم:</strong> يجب أن تكون الخوذة مربوطة بإحكام أسفل الذقن (Allacciato)؛ ترك الحزام مفتوحاً يعاقب عليه كعدم ارتدائها.',
+          '<span class="bullet-icon">🚔</span> <strong>العقوبة:</strong> عدم ارتداء الخوذة أو عدم ربطها يستوجب الحجز الإداري للدراجة (Fermo amministrativo) لـ 60 يوماً.'
+        ],
+        alert: '🚨 <strong>فخ الامتحان:</strong> ارتداء خوذة غير مربوطة بإحكام بحزام الذقن يعامل قانونياً تماماً كعدم ارتدائها ويؤدي لحجز الدراجة (VERO)!'
+      },
+      {
+        id: "visiera",
+        label: "🛡️ القناع الواقي والصيانة",
+        img: "../assets/images/safety_parts/gallery_casco_visiera_omologata.jpg",
+        title: "قناع الرؤية الواقي واستبدال الخوذة (Visiera e Manutenzione)",
+        sub: "Art. 171 Codice della Strada",
+        actionTitle: "سلامة القناع وشروط صلاحية الخوذة:",
+        list: [
+          '<span class="bullet-icon">👁️</span> <strong>القناع (Visiera):</strong> يجب أن يكون شفافاً وخالياً من الخدوش لضمان وضوح الرؤية وحماية العينين من الحشرات والأتربة.',
+          '<span class="bullet-icon">💥</span> <strong>بعد الحوادث:</strong> الخوذة التي تعرضت لصدمة قوية في حادث يجب استبدالها فوراً حتى لو لم تظهر عليها شروخ خارجية.',
+          '<span class="bullet-icon">🧼</span> <strong>التنظيف:</strong> تنظف الخوذة وقناعها بماء فاتر وصابون محايد، ويحظر استخدام المذيبات الكيميائية أو البنزين.'
+        ],
+        alert: '✅ <strong>قاعدة وزارية:</strong> يجب استبدال الخوذة الواقية إذا تعرضت لصدمة عنيفة لأن قدرتها على امتصاص الصدمات اللاحقة تتلاشى (VERO)!'
+      },
+      {
+        id: "abbigliamento",
+        label: "🧤 الملابس والأحذية الفنية",
+        img: "../assets/images/safety_parts/gallery_abbigliamento_certificato_ce.jpg",
+        title: "تجهيزات الحماية الشخصية لقائدي الدراجات (Abbigliamento Tecnico)",
+        sub: "Norme di Sicurezza Passiva Moto",
+        actionTitle: "أدوار ملابس الوقاية المعتمدة للدراجات النارية:",
+        list: [
+          '<span class="bullet-icon">🧤</span> <strong>القفازات المعتمدة (Guanti):</strong> تحمي اليدين ومفصل المعصم من الاحتكاك القاتل بالإسفلت في حالات الانزلاق.',
+          '<span class="bullet-icon">👢</span> <strong>الأحذية الفنية (Stivali):</strong> تغطي الكعبين وتحمي عظام الساق والكاحل وتمنع التواء المفصل.',
+          '<span class="bullet-icon">🧥</span> <strong>السترة والدرع (Giacca con Paraschiena):</strong> تحمي العمود الفقري والكتفين والمرفقين من الصدمات المباشرة.'
+        ],
+        alert: '💡 <strong>سر الامتحان:</strong> القفازات المخصصة للدراجات النارية تحمي اليدين من السحجات الناتجة عن الاحتكاك بالطريق فضلاً عن حمايتها من البرد (VERO)!'
+      }
+    ]
+  }
+};
+
+let safetyCurrentTabId = 1;
+let safetyCurrentScenarioIdx = 0;
+
+function switchSafetySim(tabId, btn) {
+  if (window.soundEngine && typeof window.soundEngine.click === 'function') {
+    window.soundEngine.click();
+  }
+  document.querySelectorAll('#safety-sim .sim-tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  safetyCurrentTabId = tabId;
+  safetyCurrentScenarioIdx = 0;
+
+  renderSafetySubNav();
+  renderSafetyScenario();
+}
+
+function renderSafetySubNav() {
+  const container = document.getElementById('safetySubNav');
+  if (!container) return;
+  container.innerHTML = '';
+  const tab = safetySimData[safetyCurrentTabId];
+  if (!tab) return;
+
+  tab.scenarios.forEach((sc, idx) => {
+    const b = document.createElement('button');
+    b.className = `safety-sub-btn ${idx === safetyCurrentScenarioIdx ? 'active' : ''}`;
+    b.style.cssText = 'padding:6px 12px; background:rgba(255,255,255,0.06); border:1px solid var(--border-subtle); border-radius:8px; color:#cbd5e1; font-size:0.8rem; font-weight:700; cursor:pointer; transition:all 0.15s ease; font-family:inherit;';
+    b.innerHTML = sc.label;
+    b.onclick = function() {
+      if (window.soundEngine && typeof window.soundEngine.click === 'function') {
+        window.soundEngine.click();
+      }
+      safetyCurrentScenarioIdx = idx;
+      document.querySelectorAll('.safety-sub-btn').forEach(x => {
+        x.style.background = 'rgba(255,255,255,0.06)';
+        x.style.borderColor = 'var(--border-subtle)';
+        x.style.color = '#cbd5e1';
+      });
+      b.style.background = 'rgba(56, 189, 248, 0.25)';
+      b.style.borderColor = 'var(--sky-primary)';
+      b.style.color = '#fff';
+      renderSafetyScenario();
+    };
+    if (idx === safetyCurrentScenarioIdx) {
+      b.style.background = 'rgba(56, 189, 248, 0.25)';
+      b.style.borderColor = 'var(--sky-primary)';
+      b.style.color = '#fff';
+    }
+    container.appendChild(b);
+  });
+}
+
+function renderSafetyScenario() {
+  const tab = safetySimData[safetyCurrentTabId];
+  if (!tab) return;
+  const sc = tab.scenarios[safetyCurrentScenarioIdx];
+  if (!sc) return;
+
+  const imgEl = document.getElementById('safetySimImg');
+  if (imgEl) {
+    imgEl.src = sc.img;
+    imgEl.alt = sc.title;
+  }
+
+  const titleEl = document.getElementById('safetySimTitle');
+  if (titleEl) titleEl.textContent = sc.title;
+
+  const subEl = document.getElementById('safetySimSub');
+  if (subEl) subEl.textContent = sc.sub;
+
+  const actTitleEl = document.getElementById('safetyActionTitle');
+  if (actTitleEl) actTitleEl.textContent = sc.actionTitle;
+
+  const ul = document.getElementById('safetySimList');
+  if (ul) {
+    ul.innerHTML = '';
+    sc.list.forEach(item => {
+      const li = document.createElement('li');
+      li.innerHTML = item;
+      ul.appendChild(li);
+    });
+  }
+
+  const alertEl = document.getElementById('safetySimAlert');
+  if (alertEl) alertEl.innerHTML = sc.alert;
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+  renderSafetySubNav();
+  renderSafetyScenario();
+});
 </script>
 
 </body>
