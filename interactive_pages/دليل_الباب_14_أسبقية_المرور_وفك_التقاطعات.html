@@ -893,6 +893,86 @@
     border-color: rgba(0, 0, 0, 0.1);
   }
 
+
+  /* Workshop Photo Gallery Section (16:9 Realistic Photography) */
+  .workshop-gallery-section {
+    margin: 40px 0 32px;
+  }
+  .workshop-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .workshop-gallery-card {
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .workshop-gallery-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.5), 0 0 16px rgba(56, 189, 248, 0.15);
+  }
+  .workshop-gallery-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    overflow: hidden;
+  }
+  .workshop-gallery-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .workshop-gallery-card:hover .workshop-gallery-media img {
+    transform: scale(1.04);
+  }
+  .workshop-gallery-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #38bdf8;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+  }
+  .workshop-gallery-content {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+  .workshop-gallery-title {
+    font-size: 0.96rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.35;
+  }
+  .workshop-gallery-sub {
+    font-size: 0.76rem;
+    color: #38bdf8;
+    font-family: var(--font-mono);
+  }
+  .workshop-gallery-desc {
+    font-size: 0.82rem;
+    color: #94a3b8;
+    line-height: 1.5;
+  }
+
 </style>
   <link rel="manifest" href="../manifest.json">
 </head>
@@ -1010,7 +1090,12 @@
 
     <!-- Hero Badges Row (Strict Gold Standard Pill Layout) -->
     <div class="hero-badges-row">
-      <div class="hero-stat-badge"><span>📊</span> <span>415 سؤالاً وزارياً معتمداً ومطابقاً 100%</span></div>
+      <div class="hero-stat-badge"><span>📊</span> <span>415 سؤالاً وزارياً معتمداً ومفحوصاً</span></div>
+      <div class="hero-stat-badge"><span>✅</span> <span>210 VERO | 205 FALSO</span></div>
+      <div class="hero-stat-badge"><span>🎯</span> <span>نسبة الاكتمال 100% تدقيق أكاديمي شامل</span></div>
+      <div class="hero-stat-badge"><span>🔄</span> <span>43 مخططاً وزارياً للتقاطعات</span></div>
+      <div class="hero-stat-badge"><span>⚠️</span> <span>25 فخاً وزارياً حاسماً</span></div>
+    </div>
       <div class="hero-stat-badge"><span>🔄</span> <span>43 مخططاً فوتوغرافياً للتقاطعات</span></div>
       <div class="hero-stat-badge"><span>⚠️</span> <span>25 فخاً وزارياً دقيقاً</span></div>
       <div class="hero-stat-badge"><span>🎯</span> <span>دقة 100% كود السير 2026</span></div>
@@ -1050,7 +1135,97 @@
         <div class="rule-it">Prevalenza dei Segnali Stradali</div>
         <p>عند وجود إشارات الأسبقية (STOP أو Dare Precedenza أو Diritto di Precedenza)، تسقط قاعدة اليمين وتطبق إلزامات اللوحات المرورية حرفياً.</p>
       </div>
+    
+
+  <!-- WORKSHOP PHOTO GALLERY (6 CARDS - 16:9 REAL IMAGES) -->
+  <section class="workshop-gallery-section" id="workshop-gallery">
+    <div class="section-heading" style="margin-bottom:16px;">
+      <div class="badge-tag" style="display:inline-block; margin-bottom:6px;">معرض الورشة البصري 16:9 • REAL PHOTO GALLERY</div>
+      <h2 style="font-size:1.35rem; font-weight:900; color:#fff;">المشاهد البصرية الميدانية لحركة السير والأسبقية في التقاطعات الإيطالية</h2>
     </div>
+
+    <div class="workshop-gallery-grid">
+      <!-- 1: Precedenza a Destra -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/intersection_parts/gallery_incrocio_precedenza_destra.jpg" alt="Precedenza a Destra" loading="lazy">
+          <span class="workshop-gallery-badge">القاعدة العامة</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">تقاطعات قاعدة اليمين العامة (Precedenza a Destra)</h4>
+          <div class="workshop-gallery-sub">Art. 145 comma 2 Codice della Strada</div>
+          <p class="workshop-gallery-desc">في التقاطعات غير المزودة بإشارات أو خطوط خاصة، يلتزم السائق بالوقوف وإفساح المسار للقادمين من اليمين؛ السيارة ذات اليمين الخالي تمر أولاً بدون تردد.</p>
+        </div>
+      </div>
+
+      <!-- 2: Tram -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/intersection_parts/gallery_incrocio_tram.jpg" alt="Il Tram" loading="lazy">
+          <span class="workshop-gallery-badge">استثناء الترام</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">أسبقية مركبات السكك الحديدية والترام (Il Tram)</h4>
+          <div class="workshop-gallery-sub">Art. 145 comma 3 Codice della Strada</div>
+          <p class="workshop-gallery-desc">الترام يسير على قضبان ثابتة ويتمتع بالأسبقية الدائمة على جميع السيارات سواء كان قادماً من اليمين أو اليسار، إلا إذا وجدت إشارة STOP تلزمه بالتوقف.</p>
+        </div>
+      </div>
+
+      <!-- 3: Segnale STOP -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/intersection_parts/gallery_incrocio_stop.jpg" alt="Segnale STOP" loading="lazy">
+          <span class="workshop-gallery-badge">توقف تام</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">التوقف الإجباري وإعطاء الأسبقية للجميع (Segnale STOP)</h4>
+          <div class="workshop-gallery-sub">Art. 145 comma 5 CdS - Fig. 37</div>
+          <p class="workshop-gallery-desc">التزام تام بإيقاف عجلات السيارة تماماً (Arresto) عند خط التوقف الأبيض المتصل حتى لو كان التقاطع خالياً، مع إعطاء الأسبقية لليمين واليسار معاً.</p>
+        </div>
+      </div>
+
+      <!-- 4: Diritto di Precedenza -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/intersection_parts/gallery_incrocio_diritto_precedenza.jpg" alt="Diritto di Precedenza" loading="lazy">
+          <span class="workshop-gallery-badge">طريق الأولوية</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">المرور أولاً في طريق الأولوية (Diritto di Precedenza)</h4>
+          <div class="workshop-gallery-sub">Art. 145 CdS - Fig. 43</div>
+          <p class="workshop-gallery-desc">السير في طريق الأولوية يمنح السائق حق المرور أولاً ويسقط واجب التنازل لليمين، مع وجوب تخفيف السرعة للتأكد من احترام الآخرين للأسبقية.</p>
+        </div>
+      </div>
+
+      <!-- 5: Impegno Centro -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/intersection_parts/gallery_incrocio_impegno_centro.jpg" alt="Impegno Centro" loading="lazy">
+          <span class="workshop-gallery-badge">إشغال الوسط</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">التقدم لوسط التقاطع والانتظار (Impegno del Centro)</h4>
+          <div class="workshop-gallery-sub">Svolta a Sinistra senza Sgombrare l'Incrocio</div>
+          <p class="workshop-gallery-desc">عندما ينعطف السائق لليسار ويمينه خالٍ، يتقدم لمنتصف التقاطع لتحرير مسار السيارات خلفه، لكنه يقف بانتظار مرور المركبة القادمة من اليمين دون إخلاء التقاطع.</p>
+        </div>
+      </div>
+
+      <!-- 6: Rotatoria -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/intersection_parts/gallery_incrocio_rotatoria.jpg" alt="Rotatoria" loading="lazy">
+          <span class="workshop-gallery-badge">الدوارات والميادين</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">الدوارات الأوروبية وأسبقية الداخل (Rotatoria Europea)</h4>
+          <div class="workshop-gallery-sub">Rotatoria con Segnale Dare Precedenza</div>
+          <p class="workshop-gallery-desc">الالتزام التام بإعطاء الأسبقية للقادمين من اليسار داخل الدوار قبل الدخول، وتشغيل مؤشر الاتجاه الأيمن حصراً عند الرغبة في الخروج من الميدان.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
   </div>
 
 
