@@ -858,7 +858,87 @@
     .chapter-pagination { flex-direction: column; align-items: stretch; }
   }
 
-  </style>
+  
+  /* Workshop Photo Gallery Section (16:9 Realistic Photography) */
+  .workshop-gallery-section {
+    margin: 40px 0 32px;
+  }
+  .workshop-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .workshop-gallery-card {
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .workshop-gallery-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.5), 0 0 16px rgba(56, 189, 248, 0.15);
+  }
+  .workshop-gallery-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    overflow: hidden;
+  }
+  .workshop-gallery-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .workshop-gallery-card:hover .workshop-gallery-media img {
+    transform: scale(1.04);
+  }
+  .workshop-gallery-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #38bdf8;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+  }
+  .workshop-gallery-content {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+  .workshop-gallery-title {
+    font-size: 0.96rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.35;
+  }
+  .workshop-gallery-sub {
+    font-size: 0.76rem;
+    color: #38bdf8;
+    font-family: var(--font-mono);
+  }
+  .workshop-gallery-desc {
+    font-size: 0.82rem;
+    color: #94a3b8;
+    line-height: 1.5;
+  }
+
+</style>
   <link rel="manifest" href="../manifest.json">
 </head>
 <body>
@@ -967,7 +1047,12 @@
     </p>
 
     <div class="hero-badges-row">
-      <div class="hero-stat-badge"><span>📊</span> <span>256 سؤالاً وزارياً معتمداً</span></div>
+      <div class="hero-stat-badge"><span>📊</span> <span>256 سؤالاً وزارياً معتمداً ومفحوصاً</span></div>
+      <div class="hero-stat-badge"><span>✅</span> <span>142 VERO | 114 FALSO</span></div>
+      <div class="hero-stat-badge"><span>🎯</span> <span>نسبة الاكتمال 100% تدقيق أكاديمي شامل</span></div>
+      <div class="hero-stat-badge"><span>⚡</span> <span>14 قاعدة ومحوراً معيارياً</span></div>
+      <div class="hero-stat-badge"><span>⚠️</span> <span>12 فخاً وزارياً حاسماً</span></div>
+    </div>
       <div class="hero-stat-badge"><span>⚠️</span> <span>12 فخاً وزارياً دقيقاً</span></div>
       <div class="hero-stat-badge"><span>⚡</span> <span>14 قاعدة ومحوراً معيارياً</span></div>
       <div class="hero-stat-badge"><span>🎯</span> <span>دقة 100% كود السير 2026</span></div>
@@ -1000,6 +1085,96 @@
     </div>
   </section>
 
+  <!-- WORKSHOP PHOTO GALLERY (6 CARDS - 16:9 REAL IMAGES) -->
+  <section class="workshop-gallery-section" id="workshop-gallery">
+    <div class="section-heading" style="margin-bottom:16px;">
+      <div class="badge-tag" style="display:inline-block; margin-bottom:6px;">معرض الورشة البصري 16:9 • REAL PHOTO GALLERY</div>
+      <h2 style="font-size:1.35rem; font-weight:900; color:#fff;">المشاهد البصرية الميدانية لحدود السرعة والتصنيفات في إيطاليا</h2>
+    </div>
+
+    <div class="workshop-gallery-grid">
+      <!-- 1: Velocita Autostrada -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/speed_parts/gallery_velocita_autostrada.jpg" alt="Velocita Autostrada" loading="lazy">
+          <span class="workshop-gallery-badge">أوتوستراد 130</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">السرعة القصوى في الأوتوستراد وتخفيضها عند المطر</h4>
+          <div class="workshop-gallery-sub">Art. 142 comma 1 e 2 Codice della Strada</div>
+          <p class="workshop-gallery-desc">الحد الأقصى القانوني 130 كم/س للمركبات الخفيفة في الظروف العادية، وينخفض وجوباً إلى 110 كم/س في حال هطول الأمطار أو تساقط الثلوج.</p>
+        </div>
+      </div>
+
+      <!-- 2: Extraurbana Principale e Secondaria -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/speed_parts/gallery_velocita_extraurbana.jpg" alt="Extraurbana" loading="lazy">
+          <span class="workshop-gallery-badge">خارج المدن</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">السرعة في الطرق خارج المدن (الرئيسية 110 والثانوية 90)</h4>
+          <div class="workshop-gallery-sub">Strade Extraurbane Principali e Secondarie</div>
+          <p class="workshop-gallery-desc">110 كم/س في الطرق الرئيسية (تنخفض إلى 90 كم/س عند المطر)، و90 كم/س كحد أقصى دائم في الطرق الثانوية بغض النظر عن حالة الطقس.</p>
+        </div>
+      </div>
+
+      <!-- 3: Urbana 50 e Zona 30 -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/speed_parts/gallery_velocita_urbana.jpg" alt="Centri Abitati" loading="lazy">
+          <span class="workshop-gallery-badge">داخل المدن</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">السرعة داخل المراكز العمرانية والمناطق السكنية</h4>
+          <div class="workshop-gallery-sub">Centri Abitati (50 km/h) e Zone 30</div>
+          <p class="workshop-gallery-desc">50 كم/س كحد عام داخل المدن، وتصل إلى 70 كم/س فقط في الشوارع الحضرية السريعة المجهزة، وتنخفض إلى 30 كم/س في مناطق المشاة والمدارس.</p>
+        </div>
+      </div>
+
+      <!-- 4: Neopatentati -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/speed_parts/gallery_neopatentati_limiti.jpg" alt="Neopatentati" loading="lazy">
+          <span class="workshop-gallery-badge">سائق جديد (3 سنوات)</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">القيود الصارمة للسائقين الجدد (Neopatentati)</h4>
+          <div class="workshop-gallery-sub">Art. 117 Codice della Strada - Primi 3 Anni</div>
+          <p class="workshop-gallery-desc">يلتزم الحاصلون الجدد على رخصة B بحد أقصى 100 كم/س على الأوتوستراد و90 كم/س على الطرق السريعة الرئيسية طوال السنوات الثلاث الأولى من استخراج الرخصة.</p>
+        </div>
+      </div>
+
+      <!-- 5: Rimorchi e Caravan -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/speed_parts/gallery_velocita_rimorchio.jpg" alt="Rimorchi Caravan" loading="lazy">
+          <span class="workshop-gallery-badge">مقطورات وكرفان</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">قيود السرعة للسيارات الساحبة للمقطورات والكرفان</h4>
+          <div class="workshop-gallery-sub">Autovetture che Trainano Rimorchi o Caravan</div>
+          <p class="workshop-gallery-desc">80 كم/س كحد أقصى صارم على الأوتوستراد، و70 كم/س على جميع الطرق خارج المدن (الرئيسية والثانوية)، بغض النظر عن وزن المقطورة.</p>
+        </div>
+      </div>
+
+      <!-- 6: Ciclomotori e Macchine Agricole -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/speed_parts/gallery_ciclomotore_quad.jpg" alt="Ciclomotori Quad" loading="lazy">
+          <span class="workshop-gallery-badge">فئات خاصة</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">سرعات السيكلوموتوري والكواد والآلات الزراعية</h4>
+          <div class="workshop-gallery-sub">Ciclomotori (45 km/h) e Macchine Agricole</div>
+          <p class="workshop-gallery-desc">السيكلوموتوري 45 كم/س كحد أقصى إنشائي؛ الكوادريكولي غير الخفيف 80 كم/س خارج المدن؛ الآلات الزراعية ذات العجلات 40 كم/س والمجنزرة 15 كم/س.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
   <!-- INTERACTIVE SIMULATORS -->
 
   <!-- SIMULATOR 1: Limiti Stradali Generali -->
@@ -1019,7 +1194,7 @@
     </div>
     <div class="sim-output-card">
       <div class="sim-img-wrapper" id="simRoadImgWrapper" style="font-size:3.5rem; text-align:center; min-width:110px;">
-        🛣️
+        <img src="../assets/images/speed_parts/gallery_velocita_autostrada.jpg" alt="Autostrada" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">
       </div>
       <div class="sim-details">
         <div class="sim-state-badge state-rot-precedence" id="simRoadBadge">الأوتوستراد: 130 كم/س (تنخفض لـ 110 كم/س في المطر)</div>
@@ -1045,7 +1220,7 @@
     </div>
     <div class="sim-output-card">
       <div class="sim-img-wrapper" id="simDriverImgWrapper" style="font-size:3.5rem; text-align:center; min-width:110px;">
-        🔰
+        <img src="../assets/images/speed_parts/gallery_neopatentati_limiti.jpg" alt="Neopatentati" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">
       </div>
       <div class="sim-details">
         <div class="sim-state-badge state-normal" id="simDriverBadge">السائق الجديد: 100 أوتوستراد | 90 رئيسي خارج المدن</div>
@@ -1073,7 +1248,7 @@
     </div>
     <div class="sim-output-card">
       <div class="sim-img-wrapper" id="simSpecialImgWrapper" style="font-size:3.5rem; text-align:center; min-width:110px;">
-        🚙⛺
+        <img src="../assets/images/speed_parts/gallery_velocita_rimorchio.jpg" alt="Rimorchio" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">
       </div>
       <div class="sim-details">
         <div class="sim-state-badge state-normal" id="simSpecialBadge">مقطورة وكارفان: 80 أوتوستراد | 70 خارج المدن</div>
@@ -1942,7 +2117,9 @@
   }
 
   // Simulator 1 Logic: Road Types
+    // Simulator 1 Logic: Limiti Generali (Real HD Photography, Zero Emojis)
   function simulateRoad(type) {
+    if (window.soundEngine && typeof window.soundEngine.click === 'function') window.soundEngine.click();
     const btnA = document.getElementById('btnRoadAutostrada');
     const btnP = document.getElementById('btnRoadPrincipale');
     const btnS = document.getElementById('btnRoadSecondaria');
@@ -1958,11 +2135,30 @@
 
     if (type === 'autostrada') {
       btnA.classList.add('active');
-      imgWrapper.innerHTML = '🛣️';
+      if (imgWrapper) imgWrapper.innerHTML = '<img src="../assets/images/speed_parts/gallery_velocita_autostrada.jpg" alt="Autostrada" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.textContent = 'الأوتوستراد: 130 كم/س (تنخفض لـ 110 كم/س عند المطر)';
       badge.className = 'sim-state-badge state-rot-precedence';
-      badge.textContent = 'الأوتوستراد: 130 كم/س (تنخفض لـ 110 كم/س في المطر)';
-      text.innerHTML = '<strong>الوضع القانوني:</strong> الحد الأقصى لسيارات الركوب العادية في الظروف العادية هو <strong>130 كم/س</strong>. عند هطول الأمطار أو الثلوج ينخفض فورياً إلى <strong>110 كم/س</strong>. أما السائقون الجدد فحدهم الأقصى هو <strong>100 كم/س</strong>.';
+      text.innerHTML = '<strong>الحد الأقصى العام:</strong> 130 كم/س للمركبات الخفيفة في الظروف الجوية العادية. <strong>في حالة هطول المطر:</strong> ينخفض الحد الأقصى قانوناً وإلزامياً إلى 110 كم/س لحماية المركبات من خطر الانزلاق وفقدان التماسك.';
     } else if (type === 'principale') {
+      btnP.classList.add('active');
+      if (imgWrapper) imgWrapper.innerHTML = '<img src="../assets/images/speed_parts/gallery_velocita_extraurbana.jpg" alt="Extraurbana Principale" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.textContent = 'طريق رئيسي خارج المدن: 110 كم/س (تنخفض لـ 90 كم/س عند المطر)';
+      badge.className = 'sim-state-badge state-normal';
+      text.innerHTML = '<strong>الحد الأقصى العام:</strong> 110 كم/س على الطرق السريعة ذات النهري طريق المنفصلين. <strong>في حالة المطر:</strong> ينخفض الحد الأقصى إلى 90 كم/س.';
+    } else if (type === 'secondaria') {
+      btnS.classList.add('active');
+      if (imgWrapper) imgWrapper.innerHTML = '<img src="../assets/images/speed_parts/gallery_velocita_extraurbana.jpg" alt="Extraurbana Secondaria" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.textContent = 'طريق ثانوي خارج المدن: 90 كم/س دائماً (لا تتغير بالمطر)';
+      badge.className = 'sim-state-badge state-rot-island';
+      text.innerHTML = '<strong>الحد الأقصى العام:</strong> 90 كم/س في الطرق ذات الاتجاهين العادية. <strong>فخ الامتحان:</strong> حد السرعة في الطرق الثانوية يظل 90 كم/س حتى عند المطر، والادعاء بأنه ينخفض لـ 70 كم/س خطأ تماماً (FALSO)!';
+    } else if (type === 'urbana') {
+      btnU.classList.add('active');
+      if (imgWrapper) imgWrapper.innerHTML = '<img src="../assets/images/speed_parts/gallery_velocita_urbana.jpg" alt="Strada Urbana" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.textContent = 'داخل المدن والمراكز العمرانية: 50 كم/س (قد تصل لـ 70 بمواصفات خاصة)';
+      badge.className = 'sim-state-badge state-normal';
+      text.innerHTML = '<strong>الحد الأقصى العام:</strong> 50 كم/س لحماية المشاة والدراجات. يجوز للجهة المالكة للطريق رفعه إلى 70 كم/س في الشوارع الحضرية السريعة المجهزة بمواصفات هندسية آمنة وإشارات واضحة.';
+    }
+  } else if (type === 'principale') {
       btnP.classList.add('active');
       imgWrapper.innerHTML = '🛣️';
       badge.className = 'sim-state-badge state-rot-precedence';
@@ -1985,7 +2181,9 @@
   }
 
   // Simulator 2 Logic: Driver Types
+    // Simulator 2 Logic: Neopatentati (Real HD Photography, Zero Emojis)
   function simulateDriver(type) {
+    if (window.soundEngine && typeof window.soundEngine.click === 'function') window.soundEngine.click();
     const btnN = document.getElementById('btnSimNeo');
     const btnE = document.getElementById('btnSimEsperto');
     const imgWrapper = document.getElementById('simDriverImgWrapper');
@@ -1997,11 +2195,18 @@
 
     if (type === 'neo') {
       btnN.classList.add('active');
-      imgWrapper.innerHTML = '🔰';
+      if (imgWrapper) imgWrapper.innerHTML = '<img src="../assets/images/speed_parts/gallery_neopatentati_limiti.jpg" alt="Neopatentati 100/90" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
       badge.className = 'sim-state-badge state-normal';
-      badge.textContent = 'السائق الجديد: 100 أوتوستراد | 90 رئيسي خارج المدن';
-      text.innerHTML = '<strong>القيود التشريعية الصارمة:</strong> خلال أول 3 سنوات من تاريخ الحصول على الرخصة، يُحظر على السائق الجديد تجاوز سرعة 100 كم/س في الأوتوستراد و 90 كم/س في الطرق خارج المدن الرئيسية، مع مضاعفة خصم النقاط.';
-    } else {
+      badge.textContent = 'السائق الجديد (Neopatentato): 100 أوتوستراد | 90 رئيسي خارج المدن';
+      text.innerHTML = '<strong>القيود الصارمة (أول 3 سنوات من الرخصة):</strong> 100 كم/س كحد أقصى على الأوتوستراد (بدلاً من 130)، و90 كم/س على الطرق الرئيسية خارج المدن (بدلاً من 110). كما تخصم نقاط المخالفات مضاعفة (Raddoppio dei punti) خلال هذه الفترة!';
+    } else if (type === 'esperto') {
+      btnE.classList.add('active');
+      if (imgWrapper) imgWrapper.innerHTML = '<img src="../assets/images/speed_parts/gallery_velocita_autostrada.jpg" alt="Guidatore Esperto" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      badge.textContent = 'السائق المتمرس (> 3 سنوات): 130 أوتوستراد | 110 رئيسي خارج المدن';
+      text.innerHTML = '<strong>الحدود القياسية الكاملة:</strong> تنطبق عليه الحدود العامة لكود السير الإيطالي دون قيود السائق الجديد، مع بقاء واجب تخفيض السرعة عند المطر إلى 110 أوتوستراد و90 رئيسي.';
+    }
+  } else {
       btnE.classList.add('active');
       imgWrapper.innerHTML = '🏎️';
       badge.className = 'sim-state-badge state-rot-precedence';
@@ -2012,7 +2217,9 @@
   }
 
   // Simulator 3 Logic: Special Vehicles
+    // Simulator 3 Logic: Categorie Speciali (Real HD Photography, Zero Emojis)
   function simulateSpecial(type) {
+    if (window.soundEngine && typeof window.soundEngine.click === 'function') window.soundEngine.click();
     const btnR = document.getElementById('btnSimRimorchio');
     const btnC = document.getElementById('btnSimCiclomotore');
     const btnA = document.getElementById('btnSimAgricola');
@@ -2028,11 +2235,30 @@
 
     if (type === 'rimorchio') {
       btnR.classList.add('active');
-      imgWrapper.innerHTML = '🚙⛺';
-      badge.className = 'sim-state-badge state-normal';
+      if (imgWrapper) imgWrapper.innerHTML = '<img src="../assets/images/speed_parts/gallery_velocita_rimorchio.jpg" alt="Rimorchio e Caravan" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
       badge.textContent = 'مقطورة وكارفان: 80 أوتوستراد | 70 خارج المدن';
-      text.innerHTML = '<strong>الحكم القانوني:</strong> السيارة التي تجر مقطورة أو كارفان (Roulotte) تصبح مجمع مركبات؛ سرعتها القصوى مقيدة بـ 80 كم/س في الأوتوستراد و 70 كم/س في الطرق خارج المدن.';
+      badge.className = 'sim-state-badge state-normal';
+      text.innerHTML = '<strong>الحد الوزاري الدقيق:</strong> السيارات التي تسحب مقطورة (Rimorchio) أو كارفان محددة بـ 80 كم/س في الأوتوستراد و70 كم/س في الطرق خارج المدن. السؤال الذي يذكر 100 أو 130 كم/س خطأ تماماً (FALSO)!';
     } else if (type === 'ciclomotore') {
+      btnC.classList.add('active');
+      if (imgWrapper) imgWrapper.innerHTML = '<img src="../assets/images/speed_parts/gallery_ciclomotore_quad.jpg" alt="Ciclomotore 45 km/h" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.textContent = 'سيكلوموتوري (Ciclomotore): 45 كم/س كحد أقصى إنشائي';
+      badge.className = 'sim-state-badge state-rot-island';
+      text.innerHTML = '<strong>الحد القانوني الإنشائي:</strong> الدراجات الخفيفة ثنائية وثلاثية العجلات لا يجوز أن تتجاوز سرعتها التصميمية 45 كم/س، وسعة محركها 50 سم³. تزويد السرعة يعتبر مخالفة جسيمة.';
+    } else if (type === 'agricola') {
+      btnA.classList.add('active');
+      if (imgWrapper) imgWrapper.innerHTML = '<img src="../assets/images/speed_parts/gallery_velocita_extraurbana.jpg" alt="Macchine Agricole" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.textContent = 'الآلات الزراعية: 40 كم/س ذات العجلات | 15 كم/س للمجنزرة';
+      badge.className = 'sim-state-badge state-rot-precedence';
+      text.innerHTML = '<strong>الحدود الخاصة:</strong> الآلات الزراعية والإنشائية المزودة بإطارات هوائية سرعتها القصوى 40 كم/س؛ أما الآلات المزودة بجنازير حديدية (Cingoli) فسرعتها القصوى 15 كم/س فقط.';
+    } else if (type === 'quad') {
+      btnQ.classList.add('active');
+      if (imgWrapper) imgWrapper.innerHTML = '<img src="../assets/images/speed_parts/gallery_ciclomotore_quad.jpg" alt="Quadricicli" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.textContent = 'الكواد غير الخفيف (Quadricicli non leggeri): 80 كم/س خارج المدن';
+      badge.className = 'sim-state-badge state-normal';
+      text.innerHTML = '<strong>الحد القانوني:</strong> مركبات الكواد رباعية العجلات غير الخفيفة (Quadricicli non leggeri) سرعتها القصوى 80 كم/س على جميع الطرق خارج المدن، و50 كم/س داخل المدن.';
+    }
+  } else if (type === 'ciclomotore') {
       btnC.classList.add('active');
       imgWrapper.innerHTML = '🛵';
       badge.className = 'sim-state-badge state-rot-precedence';
