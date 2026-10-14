@@ -910,6 +910,86 @@
     .chapter-pagination { flex-direction: column; gap: 12px; }
     .pagination-btn { width: 100%; justify-content: center; }
   }
+
+  /* Workshop Photo Gallery Section (16:9 Realistic Photography) */
+  .workshop-gallery-section {
+    margin: 40px 0 32px;
+  }
+  .workshop-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .workshop-gallery-card {
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .workshop-gallery-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.5), 0 0 16px rgba(56, 189, 248, 0.15);
+  }
+  .workshop-gallery-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    overflow: hidden;
+  }
+  .workshop-gallery-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .workshop-gallery-card:hover .workshop-gallery-media img {
+    transform: scale(1.04);
+  }
+  .workshop-gallery-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #38bdf8;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+  }
+  .workshop-gallery-content {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+  .workshop-gallery-title {
+    font-size: 0.96rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.35;
+  }
+  .workshop-gallery-sub {
+    font-size: 0.76rem;
+    color: #38bdf8;
+    font-family: var(--font-mono);
+  }
+  .workshop-gallery-desc {
+    font-size: 0.82rem;
+    color: #94a3b8;
+    line-height: 1.5;
+  }
+
 </style>
   <link rel="manifest" href="../manifest.json">
 </head>
@@ -1036,6 +1116,10 @@
     <!-- Hero Badges Row (Explicit User Specification) -->
     <div class="hero-badges-row">
       <div class="hero-stat-badge"><span>📊</span> <span>156 سؤالاً وزارياً معتمداً</span></div>
+      <div class="hero-stat-badge"><span>✅</span> <span>82 VERO | 74 FALSO</span></div>
+      <div class="hero-stat-badge"><span>🎯</span> <span>نسبة الاكتمال 100% تدقيق شامل</span></div>
+      <div class="hero-stat-badge"><span>⚠️</span> <span>14 فخاً وزارياً حاسماً</span></div>
+    </div>
       <div class="hero-stat-badge"><span>⚠️</span> <span>12 فخاً وزارياً دقيقاً</span></div>
       <div class="hero-stat-badge"><span>🚗</span> <span>16 حالة ومناورة للتجاوز</span></div>
       <div class="hero-stat-badge"><span>🎯</span> <span>دقة 100% كود السير 2026</span></div>
@@ -1068,39 +1152,140 @@
     </div>
   </section>
 
-  <!-- INTERACTIVE SIMULATORS -->
-  <section class="interactive-sim-container simulator-container">
-    <div class="golden-rules-title" style="margin-bottom:16px;">
-      <span>🚦</span>
-      <span>المحاكيات التفاعلية لمناورة التجاوز (Simulatore di Sorpasso)</span>
+    <!-- WORKSHOP PHOTO GALLERY (6 CARDS - 16:9 REAL IMAGES) -->
+  <section class="workshop-gallery-section" id="workshop-gallery">
+    <div class="section-heading" style="margin-bottom:16px;">
+      <div class="badge-tag" style="display:inline-block; margin-bottom:6px;">معرض الورشة البصري 16:9 • REAL PHOTO GALLERY</div>
+      <h2 style="font-size:1.35rem; font-weight:900; color:#fff;">المشاهد البصرية الميدانية لمناورات التجاوز في إيطاليا</h2>
     </div>
+
+    <div class="workshop-gallery-grid">
+      <!-- 1: Controllo Specchi e Angolo Cieco -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/overtaking_parts/fasi_sorpasso_specchi.jpg" alt="Controllo Specchi" loading="lazy">
+          <span class="workshop-gallery-badge">المرحلة الأولى</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">فحص المرايا والنقطة العمياء (Prima del Sorpasso)</h4>
+          <div class="workshop-gallery-sub">Controllo Specchietti e Angolo Cieco</div>
+          <p class="workshop-gallery-desc">التأكد القاطع من عدم شروع السيارة الخلفية في التجاوز، والتحقق عبر الالتفات الخفيف من خلو النقطة العمياء، وتشغيل الغماز الأيسر.</p>
+        </div>
+      </div>
+
+      <!-- 2: Spostamento Corsia Sinistra -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/overtaking_parts/fasi_sorpasso_corsia_sinistra.jpg" alt="Freccia Sinistra" loading="lazy">
+          <span class="workshop-gallery-badge">المرحلة الثانية</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">الانتقال لحارة التجاوز وإشارة الانعطاف (Durante)</h4>
+          <div class="workshop-gallery-sub">Spostamento a Sinistra con Freccia</div>
+          <p class="workshop-gallery-desc">الانتقال بسلاسة للحارة اليسرى مع ترك مسافة أمان جانبية كافية (Distanza laterale) خصوصاً مع الدراجات والمركبات ذات العجلتين.</p>
+        </div>
+      </div>
+
+      <!-- 3: Rientro a Destra -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/overtaking_parts/fasi_sorpasso_rientro_destra.jpg" alt="Rientro a Destra" loading="lazy">
+          <span class="workshop-gallery-badge">المرحلة الثالثة</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">العودة التدريجية للحارة اليمنى (Dopo il Sorpasso)</h4>
+          <div class="workshop-gallery-sub">Rientro Graduale sulla Corsia Destra</div>
+          <p class="workshop-gallery-desc">العودة لليمين فقط بعد رؤية مقدمة السيارة المتجاوزة في المرآة العاكسة الداخلية، دون مضايقتها أو قطع مسارها فجأة.</p>
+        </div>
+      </div>
+
+      <!-- 4: Sorpasso a Destra del Tram -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/overtaking_parts/sorpasso_destra_tram.jpg" alt="Tram con Salvagente" loading="lazy">
+          <span class="workshop-gallery-badge">استثناء يميني</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">تجاوز الترام من اليمين بوجود رصيف الأمان (Salvagente)</h4>
+          <div class="workshop-gallery-sub">Sorpasso a Destra del Tram</div>
+          <p class="workshop-gallery-desc">يباح تجاوز الترام من اليمين إذا كان متحركاً وتوفرت مسافة كافية، أو متوقفاً بشرط وجود رصيف أمان لركاب الترام (Salvagente).</p>
+        </div>
+      </div>
+
+      <!-- 5: Divieto su Dossi e Curve -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/overtaking_parts/divieto_sorpasso_dossi_curve.jpg" alt="Dossi e Curve" loading="lazy">
+          <span class="workshop-gallery-badge">حظر مشدد</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">حظر التجاوز في المنعطفات والتلال (Dossi e Curve)</h4>
+          <div class="workshop-gallery-sub">Divieto su Strada a Doppio Senso con 2 Corsie</div>
+          <p class="workshop-gallery-desc">يمنع التجاوز قطعاً عند انعدام الرؤية في المنعطفات ومطبات الطرق ذات المسار الواحد والاتجاهين، ويباح فقط إذا توفر مساران لاتجاه السير.</p>
+        </div>
+      </div>
+
+      <!-- 6: Sorpasso in Autostrada -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/overtaking_parts/gallery_sorpasso_autostrada_regole.jpg" alt="Autostrada Sorpasso" loading="lazy">
+          <span class="workshop-gallery-badge">طرق سريعة</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">قواعد التجاوز في الأوتوستراد (Sorpasso in Autostrada)</h4>
+          <div class="workshop-gallery-sub">Circolazione per File Parallele e Più Corsie</div>
+          <p class="workshop-gallery-desc">السير على الحارة اليمنى الحرة واستخدام الحارات اليسرى للتجاوز؛ يمنع التجاوز من اليمين في الأوتوستراد ويسمح فقط بالتجاوز التدفقي (Superamento).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE SIMULATOR (BENCHMARK ARCHITECTURE WITH REAL HD PHOTOGRAPHY) -->
+  <section class="interactive-sim-container simulator-container" id="sorpasso-sim">
+    <div class="golden-rules-title" style="margin-bottom:16px;">
+      <span>🎮</span>
+      <span>المختبر التفاعلي لمناورات وقواعد التجاوز (Simulatore di Sorpasso Avanzato)</span>
+    </div>
+    
+    <!-- Simulator Navigation Tabs -->
     <div class="sim-tabs-row">
-      <button class="sim-tab-btn active" onclick="switchSim(1, this)">
-        <span>المحاكي 1:</span> مراحل التجاوز الثلاث (Prima, Durante, Dopo)
+      <button class="sim-tab-btn active" onclick="switchSorpassoSim(1, this)">
+        <span>المحاكي 1:</span> المراحل الثلاث للمناورة (Prima, Durante, Dopo)
       </button>
-      <button class="sim-tab-btn" onclick="switchSim(2, this)">
-        <span>المحاكي 2:</span> التجاوز من اليمين (Sorpasso a Destra)
+      <button class="sim-tab-btn" onclick="switchSorpassoSim(2, this)">
+        <span>المحاكي 2:</span> حالات التجاوز من اليمين (Sorpasso a Destra)
       </button>
-      <button class="sim-tab-btn" onclick="switchSim(3, this)">
-        <span>المحاكي 3:</span> فخ الشاحنات vs الحافلات (Fig. 58)
+      <button class="sim-tab-btn" onclick="switchSorpassoSim(3, this)">
+        <span>المحاكي 3:</span> المنعطفات وفخ الشاحنات (Fig. 58 e Dossi)
       </button>
     </div>
 
-    <div class="sim-display-panel" id="simDisplay">
-      <div class="sim-visual-box" id="simVisual">
-        <div style="font-size:3rem; margin-bottom:8px;" id="simIcon">👀</div>
-        <div style="font-size:1.15rem; font-weight:800; color:#fff;" id="simStateTitle">المرحلة الأولى: قبل بدء التجاوز (Prima)</div>
-        <div style="font-size:0.85rem; color:var(--sky-primary); font-family:var(--font-mono); margin-top:4px;" id="simStateSub">Controllo visibilità e specchietti</div>
+    <!-- Simulator Interactive Display Panel -->
+    <div class="sim-display-panel" id="sorpassoSimDisplay">
+      <!-- Visual Column (Real Photographic Asset + Dynamic Tag) -->
+      <div class="sim-visual-box" id="sorpassoSimVisual">
+        <div class="sim-img-frame" style="width:100%; height:180px; border-radius:12px; overflow:hidden; margin-bottom:12px; background:#000; display:flex; align-items:center; justify-content:center;">
+          <img id="sorpassoSimImg" src="../assets/images/overtaking_parts/fasi_sorpasso_specchi.jpg" alt="Sim Scenario" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div style="font-size:1.15rem; font-weight:800; color:#fff;" id="sorpassoSimTitle">المرحلة الأولى: قبل بدء التجاوز (Prima del Sorpasso)</div>
+        <div style="font-size:0.85rem; color:var(--sky-primary); font-family:var(--font-mono); margin-top:4px;" id="sorpassoSimSub">Art. 148 comma 2 Codice della Strada</div>
       </div>
+
+      <!-- Information & Controls Column -->
       <div class="sim-info-box">
-        <h4 style="font-size:1.1rem; font-weight:800; color:#fff;" id="simActionTitle">الواجبات القانونية الفورية:</h4>
-        <ul class="card-bullet-list" id="simList">
-          <li><span class="bullet-icon">🔍</span> التأكد عبر المرايا الثلاث من أن السائق في الخلف لم يبدأ بمناورة تجاوزك.</li>
-          <li><span class="bullet-icon">🛣️</span> التأكد من أن مسافة الرؤية كافية تماماً ولا توجد مركبات قادمة في الاتجاه المعاكس.</li>
-          <li><span class="bullet-icon">💡</span> تشغيل مؤشر الاتجاه لليسار (*Freccia sinistra*) لتنبيه من حولك قبل التحرك.</li>
+        <!-- Scenario Selector Buttons -->
+        <div class="sim-sub-nav" id="sorpassoSubNav" style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px;">
+          <!-- Dynamically populated by switchSorpassoSim -->
+        </div>
+
+        <h4 style="font-size:1.05rem; font-weight:800; color:#fff;" id="sorpassoActionTitle">الواجبات القانونية الفورية:</h4>
+        <ul class="card-bullet-list" id="sorpassoSimList">
+          <li><span class="bullet-icon">🔍</span> <strong>فحص المرايا:</strong> التأكد من أن السائق في الخلف لم يبدأ بالفعل في تجاوزك.</li>
+          <li><span class="bullet-icon">🛣️</span> <strong>خلو المسار:</strong> التأكد من أن مسافة الرؤية كافية وخالية من أي سيارات قادمة.</li>
+          <li><span class="bullet-icon">💡</span> <strong>إشارة الانعطاف:</strong> تشغيل مؤشر الاتجاه لليسار (Freccia sinistra) لتنبيه الجميع.</li>
         </ul>
-        <div class="trap-alert-box" id="simAlert" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.3); color:#a7f3d0;">
-          ✅ <strong>قاعدة وزارية:</strong> "Prima di iniziare il sorpasso occorre accertarsi che la corsia sia libera per uno spazio sufficiente."
+        <div class="trap-alert-box" id="sorpassoSimAlert" style="background:rgba(244,63,94,0.1); border-color:rgba(244,63,94,0.3); color:#fecdd3;">
+          🚨 <strong>فخ الامتحان المتكرر:</strong> قبل التجاوز يجب التأكد من عدم وجود إشارة منع، وأن المسار المقابل خالٍ لمسافة كافية تضمن عدم إعاقة القادمين (VERO)!
         </div>
       </div>
     </div>
@@ -1514,62 +1699,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-const simStates = {
-  1: {
-    icon: '👀',
-    title: 'المرحلة الأولى: قبل بدء التجاوز (Prima)',
-    sub: 'Controllo visibilità e specchietti',
-    actionTitle: 'الواجبات القانونية الفورية:',
-    list: [
-      '<span class="bullet-icon">🔍</span> التأكد عبر المرايا الثلاث من أن السائق في الخلف لم يبدأ بمناورة تجاوزك.',
-      '<span class="bullet-icon">🛣️</span> التأكد من أن مسافة الرؤية كافية تماماً ولا توجد مركبات قادمة في الاتجاه المعاكس.',
-      '<span class="bullet-icon">💡</span> تشغيل مؤشر الاتجاه لليسار (*Freccia sinistra*) لتنبيه من حولك قبل التحرك.'
-    ],
-    alert: '✅ <strong>قاعدة وزارية:</strong> "Prima di iniziare il sorpasso occorre accertarsi che la corsia sia libera per uno spazio sufficiente."'
-  },
-  2: {
-    icon: '➡️',
-    title: 'المحاكي 2: التجاوز من اليمين (Sorpasso a Destra)',
-    sub: 'Casi eccezionali consentiti',
-    actionTitle: 'الحالات المشروعة فقط:',
-    list: [
-      '<span class="bullet-icon">🚗</span> عندما تشير المركبة الأمامية للانعطاف لليسار وتتوقف أو تتحرك ببطء في المنتصف.',
-      '<span class="bullet-icon">🚋</span> تجاوز الترام أثناء سيره إذا توفرت مساحة كافية على اليمين.',
-      '<span class="bullet-icon">🛡️</span> تجاوز الترام المتوقف لنزول الركاب فقط في حال وجود رصيف أمان (*Salvagente*).'
-    ],
-    alert: '⚠️ <strong>تحذير وزاري:</strong> يمنع تجاوز الترام المتوقف من اليمين إذا لم يكن هناك رصيف أمان (*Salvagente*)!'
-  },
-  3: {
-    icon: '🚛',
-    title: 'المحاكي 3: فخ حظر الشاحنات مقابل الحافلات (Fig. 58)',
-    sub: 'Autocarri vs Autobus / Camper',
-    actionTitle: 'قاعدة الوزن والاستخدام:',
-    list: [
-      '<span class="bullet-icon">📦</span> <strong>شاحنات البضائع > 3.5 طن:</strong> يمنع عليها التجاوز قطعياً بوجود الإشارة 58.',
-      '<span class="bullet-icon">👥</span> <strong>الحافلات والكامبر > 3.5 طن:</strong> مسموح لها بالتجاوز لأنها مخصصة لنقل الأشخاص وليست بضائع!',
-      '<span class="bullet-icon">🏎️</span> <strong>سيارات الركوب العادية:</strong> غير معنية إطلاقاً بالإشارة 58 وتتجاوز بحرية.'
-    ],
-    alert: '❌ <strong>فخ الامتحان:</strong> "Il segnale vieta il sorpasso agli autobus di massa oltre 3,5t" -> FALSO!'
-  }
-};
-
-function switchSim(simId, btn) {
-  soundEngine.click();
-  document.querySelectorAll('.sim-tab-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  const s = simStates[simId];
-  if (!s) return;
-  document.getElementById('simIcon').textContent = s.icon;
-  document.getElementById('simStateTitle').textContent = s.title;
-  document.getElementById('simStateSub').textContent = s.sub;
-  document.getElementById('simActionTitle').textContent = s.actionTitle;
-  const ul = document.getElementById('simList');
-  ul.innerHTML = '';
-  s.list.forEach(item => {
-    const li = document.createElement('li');
-    li.innerHTML = item;
-    ul.appendChild(li);
-  });
+);
   document.getElementById('simAlert').innerHTML = s.alert;
 }
 
@@ -1596,6 +1726,235 @@ function checkQuizAnswer(qNum, selectedAnswer, correctAnswer, explanation) {
       });
     }
   </script>
+
+
+<script>
+// ==============================================================================
+// CHAPTER 15 UPGRADED INTERACTIVE SIMULATOR (Real HD Photos & Dynamic State Engine)
+// ==============================================================================
+const sorpassoSimData = {
+  1: {
+    name: "المراحل الثلاث للمناورة",
+    scenarios: [
+      {
+        id: "prima",
+        label: "👀 المرحلة 1: قبل التجاوز (Prima)",
+        img: "../assets/images/overtaking_parts/fasi_sorpasso_specchi.jpg",
+        title: "المرحلة الأولى: قبل بدء التجاوز (Prima del Sorpasso)",
+        sub: "Art. 148 comma 2 Codice della Strada",
+        actionTitle: "الواجبات القانونية الإلزامية قبل التحرك:",
+        list: [
+          '<span class="bullet-icon">🔍</span> <strong>مراقبة الخلف:</strong> فحص المرآة الداخلية واليسرى للتأكد من أن السائق خلفك لم يبدأ مناورة لتجاوزك.',
+          '<span class="bullet-icon">🛣️</span> <strong>خلو المسار الأمامي:</strong> التأكد من وجود مساحة رؤية حرة كافية تضمن إتمام التجاوز دون إرباك القادمين.',
+          '<span class="bullet-icon">💡</span> <strong>مؤشر الاتجاه:</strong> تشغيل الغماز الأيسر (Freccia sinistra) بوقت كافٍ قبل تغيير المسار.'
+        ],
+        alert: '🚨 <strong>فخ الامتحان:</strong> قبل التجاوز يجب التأكد من أن السائق الذي أمامك لم يشر برغبته في التجاوز أو الانعطاف لليسار (VERO)!'
+      },
+      {
+        id: "durante",
+        label: "⚡ المرحلة 2: أثناء التجاوز (Durante)",
+        img: "../assets/images/overtaking_parts/fasi_sorpasso_corsia_sinistra.jpg",
+        title: "المرحلة الثانية: تنفيذ التجاوز (Durante la Manovra)",
+        sub: "Art. 148 comma 3 Codice della Strada",
+        actionTitle: "الاشتراطات الصارمة أثناء اجتياز المركبة:",
+        list: [
+          '<span class="bullet-icon">📐</span> <strong>مسافة الأمان الجانبية:</strong> ترك مسافة جانبية كافية (Distanza laterale) خصوصاً عند تجاوز الدراجات والمشاة.',
+          '<span class="bullet-icon">⏱️</span> <strong>سرعة المناورة:</strong> إتمام التجاوز في أقصر وقت ممكن دون تجاوز السرعة القصوى المقررة للطريق.',
+          '<span class="bullet-icon">🚫</span> <strong>حظر المضايقة:</strong> يحظر على سائق السيارة المتجاوَزة (Sorpassato) زيادة سرعته، وعليه التزام أقصى اليمين.'
+        ],
+        alert: '⚠️ <strong>قاعدة وزارية:</strong> يُمنع منعاً باتاً زيادة السرعة عند قيام مركبة أخرى بتجاوزك؛ والواجب هو تسهيل مناورته (VERO)!'
+      },
+      {
+        id: "dopo",
+        label: "🏁 المرحلة 3: العودة لليمين (Dopo)",
+        img: "../assets/images/overtaking_parts/fasi_sorpasso_rientro_destra.jpg",
+        title: "المرحلة الثالثة: العودة للمسار الأيمن (Dopo il Sorpasso)",
+        sub: "Art. 148 comma 3 Codice della Strada",
+        actionTitle: "إجراءات العودة الآمنة لحارة السير:",
+        list: [
+          '<span class="bullet-icon">🪞</span> <strong>شرط المرآة:</strong> العودة لليمين فقط بعد رؤية السيارة المتجاوزة بوضوح في المرآة العاكسة الداخلية.',
+          '<span class="bullet-icon">💡</span> <strong>مؤشر اليمين:</strong> تشغيل الغماز الأيمن (Freccia destra) لتنبيه الجميع بالعودة.',
+          '<span class="bullet-icon">↔️</span> <strong>الانسيابية:</strong> العودة تدريجياً وبسلاسة دون إغلاق المسار فجأة أمام المركبة المتجاوزة.'
+        ],
+        alert: '✅ <strong>سر الامتحان:</strong> لا تعد إلى اليمين فجأة بعد التجاوز؛ تأكد من ترك مسافة أمان طولية تمنع مضايقة السائق خلفك (VERO)!'
+      }
+    ]
+  },
+  2: {
+    name: "حالات التجاوز من اليمين الحصرية",
+    scenarios: [
+      {
+        id: "tram",
+        label: "🚊 تجاوز الترام (Tram con Salvagente)",
+        img: "../assets/images/overtaking_parts/sorpasso_destra_tram.jpg",
+        title: "تجاوز الترام من اليمين ورصيف الأمان (Salvagente)",
+        sub: "Art. 148 comma 8 Codice della Strada",
+        actionTitle: "الشروط الحصرية لتجاوز الترام من اليمين:",
+        list: [
+          '<span class="bullet-icon">🚊</span> <strong>الترام المتحرك:</strong> يجوز تجاوزه من اليمين إذا كانت المساحة على يمين القضبان كافية للمرور.',
+          '<span class="bullet-icon">🛑</span> <strong>الترام المتوقف:</strong> يجوز تجاوزه من اليمين *فقط* في حال وجود رصيف أمان للمشاة (Salvagente).',
+          '<span class="bullet-icon">🚫</span> <strong>غياب Salvagente:</strong> إذا توقف الترام لنزول الركاب ولم يوجد رصيف أمان، يحظر تجاوزه من اليمين مطلقاً.'
+        ],
+        alert: '🚨 <strong>أشهر فخ في الباب 15:</strong> إذا توقف الترام في محطة لا تحتوي على رصيف أمان (Salvagente)، يمنع التجاوز من اليمين منعاً باتاً (VERO)!'
+      },
+      {
+        id: "svolta_sinistra",
+        label: "⬅️ مركبة تنعطف لليسار",
+        img: "../assets/images/overtaking_parts/sorpasso_destra_veicolo_svolta.jpg",
+        title: "تجاوز مركبة نوت الانعطاف لليسار من جهة اليمين",
+        sub: "Art. 148 comma 7 Codice della Strada",
+        actionTitle: "الاستثناء الخاص بالانعطاف الأيسر:",
+        list: [
+          '<span class="bullet-icon">💡</span> <strong>نية الانعطاف:</strong> المركبة أمامك شغلت مؤشر الاتجاه لليسار وتمركزت بالقرب من المحور الأوسط.',
+          '<span class="bullet-icon">🛣️</span> <strong>المسافة الكافية:</strong> توفر مساحة فارغة آمنة على الجانب الأيمن للمرور دون الخروج عن مسار الطريق.',
+          '<span class="bullet-icon">🔄</span> <strong>الدوران للخلف:</strong> ينطبق نفس الحكم إذا كانت المركبة تنوي الدوران للخلف (Inversione di marcia).'
+        ],
+        alert: '💡 <strong>قاعدة وزارية:</strong> التجاوز من اليمين مسموح به إذا أعطى السائق أمامك إشارة الانعطاف لليسار وبدأ بالمناورة (VERO)!'
+      }
+    ]
+  },
+  3: {
+    name: "المنعطفات وفخ الشاحنات",
+    scenarios: [
+      {
+        id: "dossi_curve",
+        label: "⛰️ المنعطفات والتلال (Dossi e Curve)",
+        img: "../assets/images/overtaking_parts/divieto_sorpasso_dossi_curve.jpg",
+        title: "قواعد التجاوز في التلال والمنعطفات الخطرة",
+        sub: "Art. 148 comma 10 Codice della Strada",
+        actionTitle: "التفرقة الجوهرية بحسب نوع نهر الطريق (Carreggiata):",
+        list: [
+          '<span class="bullet-icon">⛔</span> <strong>طريق باتجاهين وحارتين:</strong> يمنع التجاوز منعاً باتاً في المنعطفات ومطبات الرؤية (Dossi) لاحتمال قدوم سيارة معاكسة.',
+          '<span class="bullet-icon">✅</span> <strong>حارتان أو أكثر لنفس الاتجاه:</strong> يجوز التجاوز في المنعطف والتلة دون تخطي الخط المتصل لأنه لا يوجد خطر مواجهة.',
+          '<span class="bullet-icon">🛣️</span> <strong>طريق بنهرين منفصلين:</strong> يباح التجاوز في المنعطفات لأن حركة المرور في اتجاه واحد تماماً.'
+        ],
+        alert: '🚨 <strong>فخ كويز متكرر:</strong> التجاوز في المنعطف مسموح به إذا كان الطريق باتجاهين ولكن به حارتان على الأقل لاتجاه سيرك (VERO)!'
+      },
+      {
+        id: "autocarri_fig58",
+        label: "🚛 فخ الشاحنات (Fig. 58)",
+        img: "../assets/images/overtaking_parts/divieto_sorpasso_autocarri_fig58.jpg",
+        title: "حظر التجاوز للشاحنات الثقيلة (Fig. 58 - Autocarri > 3.5t)",
+        sub: "Art. 148 CdS - Segnale Fig. 58",
+        actionTitle: "النطاق الدقيق لتطبيق الإشارة Fig. 58:",
+        list: [
+          '<span class="bullet-icon">🚛</span> <strong>المركبات الممنوعة:</strong> شاحنات نقل البضائع التي تتجاوز كتلتها الإجمالية القصوى 3.5 طن فقط.',
+          '<span class="bullet-icon">🚌</span> <strong>الحافلات (Autobus):</strong> لا يمنع الحافلات من التجاوز حتى لو كان وزنها 18 طناً لأنها مخصصة لنقل الركاب.',
+          '<span class="bullet-icon">🚗</span> <strong>الكرفان والسيارات:</strong> يسمح للسيارات والكرفان وسيارات الركوب العادية بالتجاوز في وجود هذه اللوحة.'
+        ],
+        alert: '🚨 <strong>أخطر فخ امتحاني:</strong> الإشارة Fig. 58 تمنع الشاحنات فقط (Veicoli trasporto merci >3.5t) ولا تمنع الحافلات (Autobus/Autocaravan) إطلاقاً (VERO)!'
+      },
+      {
+        id: "autostrada_3corsie",
+        label: "🏎️ التجاوز في الأوتوستراد",
+        img: "../assets/images/overtaking_parts/sorpasso_autostrada_3corsie.jpg",
+        title: "التجاوز على الطرق السريعة والأوتوستراد (3 Corsie)",
+        sub: "Art. 176 Codice della Strada",
+        actionTitle: "استخدام الحارات الثلاث في الأوتوستراد:",
+        list: [
+          '<span class="bullet-icon">🛣️</span> <strong>الحارة اليمنى:</strong> مخصصة دائماً للسير العادي ويجب التزامها في حال خلوها.',
+          '<span class="bullet-icon">🏎️</span> <strong>الحارات الوسطى واليسرى:</strong> مخصصة فقط للتجاوز، ويجب العودة لليمين فور إتمام المناورة.',
+          '<span class="bullet-icon">⚠️</span> <strong>الشاحنات الكبيرة والمقطورات (> 7m):</strong> يمنع عليها استخدام الحارة الثالثة (أقصى اليسار) مطلقاً.'
+        ],
+        alert: '💡 <strong>قاعدة وزارية:</strong> في الأوتوستراد ذي الـ 3 حارات، يحظر على المركبات أو القوافل التي يزيد طولها عن 7 أمتار استخدام الحارة الثالثة اليسرى (VERO)!'
+      }
+    ]
+  }
+};
+
+let sorpassoCurrentTabId = 1;
+let sorpassoCurrentScenarioIdx = 0;
+
+function switchSorpassoSim(tabId, btn) {
+  if (window.soundEngine && typeof window.soundEngine.click === 'function') {
+    window.soundEngine.click();
+  }
+  document.querySelectorAll('#sorpasso-sim .sim-tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  sorpassoCurrentTabId = tabId;
+  sorpassoCurrentScenarioIdx = 0;
+
+  renderSorpassoSubNav();
+  renderSorpassoScenario();
+}
+
+function renderSorpassoSubNav() {
+  const container = document.getElementById('sorpassoSubNav');
+  if (!container) return;
+  container.innerHTML = '';
+  const tab = sorpassoSimData[sorpassoCurrentTabId];
+  if (!tab) return;
+
+  tab.scenarios.forEach((sc, idx) => {
+    const b = document.createElement('button');
+    b.className = `sorpasso-sub-btn ${idx === sorpassoCurrentScenarioIdx ? 'active' : ''}`;
+    b.style.cssText = 'padding:6px 12px; background:rgba(255,255,255,0.06); border:1px solid var(--border-subtle); border-radius:8px; color:#cbd5e1; font-size:0.8rem; font-weight:700; cursor:pointer; transition:all 0.15s ease; font-family:inherit;';
+    b.innerHTML = sc.label;
+    b.onclick = function() {
+      if (window.soundEngine && typeof window.soundEngine.click === 'function') {
+        window.soundEngine.click();
+      }
+      sorpassoCurrentScenarioIdx = idx;
+      document.querySelectorAll('.sorpasso-sub-btn').forEach(x => {
+        x.style.background = 'rgba(255,255,255,0.06)';
+        x.style.borderColor = 'var(--border-subtle)';
+        x.style.color = '#cbd5e1';
+      });
+      b.style.background = 'rgba(56, 189, 248, 0.25)';
+      b.style.borderColor = 'var(--sky-primary)';
+      b.style.color = '#fff';
+      renderSorpassoScenario();
+    };
+    if (idx === sorpassoCurrentScenarioIdx) {
+      b.style.background = 'rgba(56, 189, 248, 0.25)';
+      b.style.borderColor = 'var(--sky-primary)';
+      b.style.color = '#fff';
+    }
+    container.appendChild(b);
+  });
+}
+
+function renderSorpassoScenario() {
+  const tab = sorpassoSimData[sorpassoCurrentTabId];
+  if (!tab) return;
+  const sc = tab.scenarios[sorpassoCurrentScenarioIdx];
+  if (!sc) return;
+
+  const imgEl = document.getElementById('sorpassoSimImg');
+  if (imgEl) {
+    imgEl.src = sc.img;
+    imgEl.alt = sc.title;
+  }
+
+  const titleEl = document.getElementById('sorpassoSimTitle');
+  if (titleEl) titleEl.textContent = sc.title;
+
+  const subEl = document.getElementById('sorpassoSimSub');
+  if (subEl) subEl.textContent = sc.sub;
+
+  const actTitleEl = document.getElementById('sorpassoActionTitle');
+  if (actTitleEl) actTitleEl.textContent = sc.actionTitle;
+
+  const ul = document.getElementById('sorpassoSimList');
+  if (ul) {
+    ul.innerHTML = '';
+    sc.list.forEach(item => {
+      const li = document.createElement('li');
+      li.innerHTML = item;
+      ul.appendChild(li);
+    });
+  }
+
+  const alertEl = document.getElementById('sorpassoSimAlert');
+  if (alertEl) alertEl.innerHTML = sc.alert;
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+  renderSorpassoSubNav();
+  renderSorpassoScenario();
+});
+</script>
 
 </body>
 </html>
