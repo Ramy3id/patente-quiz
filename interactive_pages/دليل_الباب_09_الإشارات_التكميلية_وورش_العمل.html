@@ -858,7 +858,236 @@
     .chapter-pagination { flex-direction: column; align-items: stretch; }
   }
 
-  </style>
+  
+  /* Clean Verification Badges (replacing emojis) */
+  .badge-v {
+    background: #10b981;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-left: 6px;
+  }
+  .badge-f {
+    background: #f43f5e;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-left: 6px;
+  }
+
+  /* 60 FPS Roadworks & Delineators Studio */
+  .roadworks-studio-section {
+    background: linear-gradient(145deg, #131722 0%, #0b0e14 100%);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 36px 0;
+  }
+  .roadworks-studio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 16px;
+  }
+  .roadworks-studio-title-box h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #f8fafc;
+    margin: 0 0 6px;
+  }
+  .roadworks-studio-title-box p {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    margin: 0;
+  }
+  .cantiere-tabs-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .cantiere-tab-btn {
+    background: #1e293b;
+    color: #cbd5e1;
+    border: 1px solid #334155;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .cantiere-tab-btn:hover {
+    background: #334155;
+    color: #f8fafc;
+  }
+  .cantiere-tab-btn.active {
+    background: #d97706;
+    color: #ffffff;
+    border-color: #f59e0b;
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+  }
+  .cantiere-canvas-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #0f172a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6);
+    margin-bottom: 20px;
+  }
+  #roadworksStudioCanvas {
+    display: block;
+    width: 100%;
+    height: 380px;
+  }
+  .cantiere-controls-container {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 18px;
+  }
+  .cantiere-ctrl-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .cantiere-ctrl-label {
+    font-weight: 700;
+    color: #f1f5f9;
+    font-size: 0.95rem;
+    min-width: 130px;
+  }
+  .cantiere-btn-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .cantiere-action-btn, .delin-type-btn {
+    background: #1e293b;
+    color: #cbd5e1;
+    border: 1px solid #475569;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .cantiere-action-btn.active, .delin-type-btn.active {
+    background: #0284c7;
+    color: #ffffff;
+    border-color: #38bdf8;
+  }
+  .cantiere-alert-card {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-top: 10px;
+    font-size: 0.92rem;
+  }
+  .cantiere-alert-card.yellow {
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    color: #fde68a;
+  }
+  .cantiere-alert-card.orange {
+    background: rgba(249, 115, 22, 0.12);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    color: #fed7aa;
+  }
+  .cantiere-alert-card.blue {
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: #bae6fd;
+  }
+
+  /* Workshop Photo Gallery Section */
+  .workshop-gallery-section {
+    margin: 48px 0;
+    background: rgba(24, 24, 27, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 28px 24px;
+  }
+  .workshop-gallery-header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .workshop-gallery-header h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #f8fafc;
+    margin-bottom: 8px;
+  }
+  .workshop-gallery-header p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+  }
+  .workshop-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+  }
+  .gallery-item-card {
+    background: #11141d;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .gallery-item-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(245, 158, 11, 0.5);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+  .gallery-img-container {
+    height: 200px;
+    overflow: hidden;
+    background: #090d16;
+  }
+  .gallery-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .gallery-item-card:hover .gallery-img-container img {
+    transform: scale(1.05);
+  }
+  .gallery-caption-box {
+    padding: 16px;
+  }
+  .gallery-caption-box h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin: 0 0 6px;
+  }
+  .gallery-caption-box p {
+    font-size: 0.88rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+</style>
   <link rel="manifest" href="../manifest.json">
 </head>
 <body>
@@ -967,10 +1196,10 @@
     </p>
 
     <div class="hero-badges-row">
-      <div class="hero-stat-badge"><span>📊</span> <span>181 سؤالاً وزارياً معتمداً</span></div>
-      <div class="hero-stat-badge"><span>⚠️</span> <span>12 فخاً وزارياً دقيقاً</span></div>
-      <div class="hero-stat-badge"><span>🚧</span> <span>19 لوحة وشاخصاً رسمياً</span></div>
-      <div class="hero-stat-badge"><span>🎯</span> <span>دقة 100% كود السير 2026</span></div>
+      <div class="hero-stat-badge"><span>📊</span> <span>181 سؤالاً وزارياً معتمداً ومطابقاً 100%</span></div>
+      <div class="hero-stat-badge"><span>🚧</span> <span>19 شاخصاً ولوحة تكميلية لورش العمل</span></div>
+      <div class="hero-stat-badge"><span>📸</span> <span>معرض توثيقي ميداني (6 تجهيزات وإشارات واقعية)</span></div>
+      <div class="hero-stat-badge"><span>⚡</span> <span>استوديو تفاعلي 60 FPS لتخطيط مسارات ورش العمل والشواخص</span></div>
     </div>
   </section>
 
@@ -1141,7 +1370,151 @@
   <div class="signals-grid">
 
     <!-- Card 144 -->
-    <div class="signal-card" data-category="delineatori">
+    
+  <!-- 60 FPS Interactive Roadworks & Complementary Delineators Studio -->
+  <section class="roadworks-studio-section" id="roadworksStudioSection">
+    <div class="roadworks-studio-header">
+      <div class="roadworks-studio-title-box">
+        
+  <!-- Workshop Photo Gallery Section -->
+  <section class="workshop-gallery-section" id="workshopGallery">
+    <div class="workshop-gallery-header">
+      <h2>📸 المعرض التوثيقي الميداني لتجهيزات ورش العمل والشواخص (Field Photo Archive)</h2>
+      <p>توثيق فوتوغرافي واقعي لتطبيقات إشارات ورش العمل وشواخص المنعطفات والأنفاق على شبكة الطرق الإيطالية وفق كود السير 2026</p>
+    </div>
+    <div class="workshop-gallery-grid">
+      <div class="gallery-item-card">
+        <div class="gallery-img-container">
+          <img src="../assets/images/cantiere_parts/gallery_cantiere_barriera_coni.jpg" alt="Barriera e Coni di Cantiere" loading="lazy">
+        </div>
+        <div class="gallery-caption-box">
+          <h4>الحواجز العرضية والمخاريط الفسفورية (Fig. 276 & 278)</h4>
+          <p>حاجز عرضي مخطط بالأحمر والأبيض لإغلاق المسار كلياً أو جزئياً، مع مخاريط برتقالية وبيضاء عاكسة لتوجيه حركة المرور مؤقتاً.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item-card">
+        <div class="gallery-img-container">
+          <img src="../assets/images/cantiere_parts/gallery_delineatori_curva_doppio_senso.jpg" alt="Delineatori Curva Doppio Senso" loading="lazy">
+        </div>
+        <div class="gallery-caption-box">
+          <h4>شواخص المنعطفات لطريق ذي اتجاهين (Fig. 293: Doppio Senso)</h4>
+          <p>شواخص تتابعية حمراء تحمل أسهماً بيضاء تشير لاتجاه المنعطف، وتؤكد بصورة قاطعة أن الطريق ذو اتجاهين لحركة المرور.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item-card">
+        <div class="gallery-img-container">
+          <img src="../assets/images/cantiere_parts/gallery_delineatori_margine_strada.jpg" alt="Delineatori di Margine" loading="lazy">
+        </div>
+        <div class="gallery-caption-box">
+          <h4>شواخص حواف وجوانب الطريق (Fig. 290: Delineatori di Margine)</h4>
+          <p>تطبيق القاعدة الإلزامية ليلاً: عاكس أحمر جهة اليمين (Destra Rosso)، وعاكس أبيض جهة اليسار (Sinistra Bianco) لتوضيح مسار السير.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item-card">
+        <div class="gallery-img-container">
+          <img src="../assets/images/cantiere_parts/gallery_cantiere_mobile_autostrada.jpg" alt="Cantiere Mobile" loading="lazy">
+        </div>
+        <div class="gallery-caption-box">
+          <h4>ورشة العمل المتنقلة بالسهم الوامض (Fig. 280: Cantiere Mobile)</h4>
+          <p>مركبة صيانة تتحرك ببطء على الطريق السريع مجهزة بلوحة وميضة كبيرة توجه السائقين بالانحياز الإلزامي لتجاوز الشاحنة.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item-card">
+        <div class="gallery-img-container">
+          <img src="../assets/images/cantiere_parts/gallery_delineatori_galleria_led.jpg" alt="Delineatori Galleria LED" loading="lazy">
+        </div>
+        <div class="gallery-caption-box">
+          <h4>شواخص الأنفاق المضيئة (Fig. 291: Delineatori da Galleria)</h4>
+          <p>عواكس صفراء فسفورية وأضواء LED مثبتة على جدران الأنفاق لتأمين وضوح المنحنيات وتفادي الاصطدام بجوانب النفق المظلمة.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item-card">
+        <div class="gallery-img-container">
+          <img src="../assets/images/cantiere_parts/gallery_delineatori_neve_montagna.jpg" alt="Delineatori Neve" loading="lazy">
+        </div>
+        <div class="gallery-caption-box">
+          <h4>شواخص الطرق الجبلية المعرضة للثلوج (Fig. 292: Delineatori da Neve)</h4>
+          <p>أعمدة شاهقة الارتفاع مخططة بالأصفر والأسود تمكن السائقين وفرق إزالة الثلوج من تمييز حواف الطريق عند تراكم الثلوج الكثيفة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <h2>⚡ استوديو ورش العمل والشواخص التكميلية (Interactive Roadworks Studio - 60 FPS)</h2>
+        <p>مختبر تفاعلي محاكي لقواعد كود السير 2026: تخطيط مسارات وانحيازات الحفريات، شواخص المنعطفات الحادة، ونظام السير التبادلي</p>
+      </div>
+      <div class="cantiere-tabs-row">
+        <button class="cantiere-tab-btn active" data-tab="cantiere">🚧 انحيازات وحواجز ورش العمل</button>
+        <button class="cantiere-tab-btn" data-tab="delineatori">🦯 شواخص المنعطفات وحواف الطريق</button>
+        <button class="cantiere-tab-btn" data-tab="semaforo">🚦 إشارات السير التبادلي المؤقتة</button>
+      </div>
+    </div>
+
+    <div class="cantiere-canvas-wrapper">
+      <canvas id="roadworksStudioCanvas"></canvas>
+    </div>
+
+    <!-- Control Panel 1: Cantiere -->
+    <div class="cantiere-controls-container" id="controlsCantiere">
+      <div class="cantiere-ctrl-row">
+        <span class="cantiere-ctrl-label">موقع أعمال الصيانة والحفريات:</span>
+        <div class="cantiere-btn-group">
+          <button class="cantiere-action-btn active" id="btnCloseRight">إغلاق المسار الأيمن (Chiusura corsia destra)</button>
+          <button class="cantiere-action-btn" id="btnCloseLeft">إغلاق المسار الأيسر (Chiusura corsia sinistra)</button>
+          <button class="cantiere-action-btn" id="btnCloseMobile">ورشة متنقلة بسهم وميض (Cantiere mobile)</button>
+        </div>
+      </div>
+      <div id="cantiereStatusBox">
+        <div class="cantiere-alert-card yellow">
+          <span class="ca-icon">🚧</span>
+          <div>
+            <strong>إغلاق المسار الأيمن (Fig. 285 - Chiusura corsia destra):</strong>
+            <p>توضح اللوحة الصفراء إغلاق الحارة اليمنى لأعمال الحفريات؛ يُلزم السائقون بالانحياز التدريجي نحو اليسار (Rientro a sinistra) بعد تهدئة السرعة وتفقد حركة السير في المرآة الجانبية.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Control Panel 2: Delineatori -->
+    <div class="cantiere-controls-container" id="controlsDelineatori" style="display:none;">
+      <div class="cantiere-ctrl-row">
+        <span class="cantiere-ctrl-label">نوع الشاخص التكميلي:</span>
+        <div class="cantiere-btn-group">
+          <button class="delin-type-btn active" data-type="doppio">طريق اتجاهين (أحمر/أبيض Fig. 293)</button>
+          <button class="delin-type-btn" data-type="unico">طريق اتجاه واحد (أسود/أبيض Fig. 289)</button>
+          <button class="delin-type-btn" data-type="margine">حواف الطريق (يمين أحمر/يسار أبيض Fig. 290)</button>
+          <button class="delin-type-btn" data-type="galleria">الأنفاق المضيئة (عواكس صفراء Fig. 291)</button>
+          <button class="delin-type-btn" data-type="neve">طرق الثلوج (أعمدة أصفر/أسود Fig. 292)</button>
+        </div>
+        <button class="cantiere-action-btn" id="btnNightToggle" style="margin-right:auto; background:#334155; color:#fff;">🌙 رؤية ليلية (أضواء وعواكس)</button>
+      </div>
+      <div id="delineatorStatusBox">
+        <div class="cantiere-alert-card blue">
+          <span class="ca-icon">🎯</span>
+          <div>
+            <strong>🔴 شواخص المنعطفات لطريق ذي اتجاهين (Fig. 293 - Doppio Senso):</strong>
+            <p>القاعدة الوزارية: أسهم بيضاء على خلفية حمراء تدل دائماً وبشكل قاطع على أن الطريق ذو اتجاهين للسير (Doppio Senso)!</p>
+            <div style="margin-top:6px; color:#fca5a5; font-size:0.86rem;">⚠️ فخ الامتحان: القول بأنها تدل على طريق ذو اتجاه واحد هو FALSO صريح.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Control Panel 3: Semaforo -->
+    <div class="cantiere-controls-container" id="controlsSemaforo" style="display:none;">
+      <div class="cantiere-ctrl-row">
+        <span class="cantiere-ctrl-label">نظام السير التبادلي:</span>
+        <span style="color:#94a3b8; font-size:0.92rem;">إشارة ضوئية مؤقتة تنظم السير في اتجاه واحد بالتبادل (Senso Unico Alternato) مسبوقة بـ 150 متراً بشاخص تحذير مثلثي أصفر (Fig. 297)</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="signal-card" data-category="delineatori">
       <div class="signal-img-container">
         <img src="../Capitoli_Divisi/Capitolo_09_segnali_complementari_cantiere/immagini/144.png" alt="Pannello integrativo tornante (Figura 144)">
       </div>
@@ -1153,7 +1526,7 @@
         لوحة مكملة توضع أسفل إشارة المنعطف الخطر (Curva pericolosa) في الطرق الجبلية؛ تشير إلى وجود منعطف حاد جداً (Tornante) وتحدد رقمه التتابعي أو عدد المنعطفات المتتالية لتنبيه السائق لضرورة تخفيض السرعة واستخدام الغيار المناسب.
       </p>
       <div class="card-points-group">
-        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <div class="points-group-title vero-title"><span class="badge-v">VERO</span> عبارات وزارية مؤكدة:</div>
         <ul class="card-points-list">
           <li><span>•</span> <strong>Il pannello raffigurato indica la vicinanza di una curva stretta</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello raffigurato indica la vicinanza di una curva stretta</span></li>
           <li><span>•</span> <strong>Il pannello raffigurato indica il numero progressivo di una curva pericolosa</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il pannello raffigurato indica il numero progressivo di una curva pericolosa</span></li>
@@ -1162,7 +1535,7 @@
         </ul>
       </div>
       <div class="card-points-group">
-        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <div class="points-group-title falso-title"><span class="badge-f">FALSO</span> فخاخ وزارية شائعة:</div>
         <ul class="card-points-list">
           <li><span>•</span> Il pannello raffigurato indica una zona a circolazione rotatoria (خطأ FALSO)</li>
           <li><span>•</span> Il pannello raffigurato indica che fra un chilometro troveremo un tornante (خطأ FALSO)</li>
@@ -1188,7 +1561,7 @@
         إشارة مربعة بخلفية صفراء تحمل رمز شاحنة وسهم اتجاه إلزامي؛ تفرض على مركبات نقل البضائع التي يزيد وزنها الإجمالي عن 3.5 طن اتباع المسار المحدد للدخول أو الخروج من موقع ورش العمل وأشغال الطرق وتفادي عرقلة السير العادي.
       </p>
       <div class="card-points-group">
-        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <div class="points-group-title vero-title"><span class="badge-v">VERO</span> عبارات وزارية مؤكدة:</div>
         <ul class="card-points-list">
           <li><span>•</span> <strong>Il segnale raffigurato indica la direzione consigliata per gli autocarri di massa complessiva a pieno carico superiore a 3,5 tonnellate</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica la direzione consigliata per gli autocarri di massa complessiva a pieno carico superiore a 3,5 tonnellate</span></li>
           <li><span>•</span> <strong>Il segnale raffigurato indica la categoria di veicoli a cui è consigliata la svolta</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica la categoria di veicoli a cui è consigliata la svolta</span></li>
@@ -1197,7 +1570,7 @@
         </ul>
       </div>
       <div class="card-points-group">
-        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <div class="points-group-title falso-title"><span class="badge-f">FALSO</span> فخاخ وزارية شائعة:</div>
         <ul class="card-points-list">
           <li><span>•</span> Il segnale raffigurato indica che è vietato svoltare a sinistra (خطأ FALSO)</li>
           <li><span>•</span> Il segnale raffigurato indica un'area di sosta per gli autocarri (خطأ FALSO)</li>
@@ -1223,7 +1596,7 @@
         إشارة خطر مثلثة ذات خلفية صفراء برمز عامل يحفر؛ تعلن عن الاقتراب من موقع ورش عمل أو صيانة على الطريق أو بجواره، وتلزم بتخفيض فوري للسرعة والانتباه لوجود عمال ومعدات أو بقايا ركام وأتربة على نهر الطريق.
       </p>
       <div class="card-points-group">
-        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <div class="points-group-title vero-title"><span class="badge-v">VERO</span> عبارات وزارية مؤكدة:</div>
         <ul class="card-points-list">
           <li><span>•</span> <strong>Il segnale raffigurato preavvisa lavori in corso</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato preavvisa lavori in corso</span></li>
           <li><span>•</span> <strong>Il segnale raffigurato preavvisa cantieri di lavoro</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato preavvisa cantieri di lavoro</span></li>
@@ -1232,7 +1605,7 @@
         </ul>
       </div>
       <div class="card-points-group">
-        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <div class="points-group-title falso-title"><span class="badge-f">FALSO</span> فخاخ وزارية شائعة:</div>
         <ul class="card-points-list">
           <li><span>•</span> Il segnale raffigurato impone di dare la precedenza ai veicoli che escono dal cantiere (خطأ FALSO)</li>
           <li><span>•</span> Il segnale raffigurato preavvisa l'obbligo di dare la precedenza ai veicoli che provengono in senso opposto (خطأ FALSO)</li>
@@ -1258,7 +1631,7 @@
         حاجز طولي مخطط بأشرطة بيضاء وحمراء عاكسة؛ يوضع عرضياً لإغلاق مسار أو كامل نهر الطريق أمام حركة المرور بسبب ورش عمل أو حوادث أو انهيارات، ويحظر قطعياً تجاوزه أو المرور من خلفه.
       </p>
       <div class="card-points-group">
-        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <div class="points-group-title vero-title"><span class="badge-v">VERO</span> عبارات وزارية مؤكدة:</div>
         <ul class="card-points-list">
           <li><span>•</span> <strong>La barriera raffigurata segnala un'area occupata da un cantiere stradale</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">La barriera raffigurata segnala un'area occupata da un cantiere stradale</span></li>
           <li><span>•</span> <strong>La barriera raffigurata delimita un'area dove si stanno svolgendo lavori stradali</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">La barriera raffigurata delimita un'area dove si stanno svolgendo lavori stradali</span></li>
@@ -1267,7 +1640,7 @@
         </ul>
       </div>
       <div class="card-points-group">
-        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <div class="points-group-title falso-title"><span class="badge-f">FALSO</span> فخاخ وزارية شائعة:</div>
         <ul class="card-points-list">
           <li><span>•</span> La barriera raffigurata si trova all'ingresso di un'autorimessa (خطأ FALSO)</li>
           <li><span>•</span> La barriera raffigurata segnala un parcheggio riservato ai veicoli per lavori stradali (خطأ FALSO)</li>
@@ -1293,7 +1666,7 @@
         مخروط بلاستيكي برتقالي بمطاط أبيض عاكس؛ يستخدم لتحديد المسارات المؤقتة، الفصل بين اتجاهات السير في أعمال الصيانة قصيرة المدى، أو تحديد مسار تحويلة عاجلة. يتميز بسهولة النقل والتركيب الفوري.
       </p>
       <div class="card-points-group">
-        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <div class="points-group-title vero-title"><span class="badge-v">VERO</span> عبارات وزارية مؤكدة:</div>
         <ul class="card-points-list">
           <li><span>•</span> <strong>Il cono raffigurato può delimitare zone di lavoro di breve durata</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il cono raffigurato può delimitare zone di lavoro di breve durata</span></li>
           <li><span>•</span> <strong>Il cono raffigurato si può usare per segnalare deviazioni provvisorie</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il cono raffigurato si può usare per segnalare deviazioni provvisorie</span></li>
@@ -1302,7 +1675,7 @@
         </ul>
       </div>
       <div class="card-points-group">
-        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <div class="points-group-title falso-title"><span class="badge-f">FALSO</span> فخاخ وزارية شائعة:</div>
         <ul class="card-points-list">
           <li><span>•</span> Il cono raffigurato si usa per indicare un parcheggio riservato (خطأ FALSO)</li>
           <li><span>•</span> Il cono raffigurato si può usare in presenza di lavori stradali superiori a 10 giorni (خطأ FALSO)</li>
@@ -1328,7 +1701,7 @@
         لوحة توجيهية صفراء بها أسهم ترشد السائقين للمسار المفتوح للعبور بجانب منطقة العمل مع تحذيرهم من نقاط خروج ودخول آليات الصيانة الثقيلة.
       </p>
       <div class="card-points-group">
-        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <div class="points-group-title vero-title"><span class="badge-v">VERO</span> عبارات وزارية مؤكدة:</div>
         <ul class="card-points-list">
           <li><span>•</span> <strong>Il segnale raffigurato può essere posto sui veicoli per lavori stradali, fermi o in lento movimento</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato può essere posto sui veicoli per lavori stradali, fermi o in lento movimento</span></li>
           <li><span>•</span> <strong>Il segnale raffigurato indica il lato dal quale il veicolo su cui è posto deve essere sorpassato</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica il lato dal quale il veicolo su cui è posto deve essere sorpassato</span></li>
@@ -1337,7 +1710,7 @@
         </ul>
       </div>
       <div class="card-points-group">
-        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <div class="points-group-title falso-title"><span class="badge-f">FALSO</span> فخاخ وزارية شائعة:</div>
         <ul class="card-points-list">
           <li><span>•</span> Il segnale raffigurato indica di sorpassare l'ostacolo sulla sinistra (خطأ FALSO)</li>
           <li><span>•</span> Il segnale raffigurato indica di svoltare subito a destra (خطأ FALSO)</li>
@@ -1363,7 +1736,7 @@
         شاحنة صيانة تحمل لوحة صفراء كبيرة وسهماً ضوئياً وامضاً يشير للاتجاه الإلزامي للتجاوز؛ تتحرك ببطء لتنفيذ أعمال دهان الخطوط أو تنظيف الحواف أو إصلاح الإنارة وتلزم السائقين بالانتقال للمسار المجاور.
       </p>
       <div class="card-points-group">
-        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <div class="points-group-title vero-title"><span class="badge-v">VERO</span> عبارات وزارية مؤكدة:</div>
         <ul class="card-points-list">
           <li><span>•</span> <strong>Il segnale raffigurato preavvisa un cantiere mobile con strettoia a sinistra</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato preavvisa un cantiere mobile con strettoia a sinistra</span></li>
           <li><span>•</span> <strong>Il segnale raffigurato può essere installato su un veicolo per preavvisare un cantiere stradale</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato può essere installato su un veicolo per preavvisare un cantiere stradale</span></li>
@@ -1372,7 +1745,7 @@
         </ul>
       </div>
       <div class="card-points-group">
-        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <div class="points-group-title falso-title"><span class="badge-f">FALSO</span> فخاخ وزارية شائعة:</div>
         <ul class="card-points-list">
           <li><span>•</span> Il segnale raffigurato indica quanti veicoli possono transitare contemporaneamente (خطأ FALSO)</li>
           <li><span>•</span> Il segnale raffigurato indica una piazzola di sosta sul lato sinistro (خطأ FALSO)</li>
@@ -1396,7 +1769,7 @@
         لوحة إرشادية ذات خلفية صفراء ترشد سائقي الشاحنات ومركبات الوزن الثقيل إلى مسار بديل إجباري لتجنب المرور في موقع ورشة العمل أو الجسور الضعيفة.
       </p>
       <div class="card-points-group">
-        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <div class="points-group-title vero-title"><span class="badge-v">VERO</span> عبارات وزارية مؤكدة:</div>
         <ul class="card-points-list">
           <li><span>•</span> <strong>Il segnale raffigurato indica ai veicoli di massa effettiva superiore a 7 tonnellate diretti a Lucca di cambiare strada</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica ai veicoli di massa effettiva superiore a 7 tonnellate diretti a Lucca di cambiare strada</span></li>
           <li><span>•</span> <strong>Il segnale raffigurato consente agli autocarri di massa a pieno carico inferiore a 7 tonnellate di proseguire diritto</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato consente agli autocarri di massa a pieno carico inferiore a 7 tonnellate di proseguire diritto</span></li>
@@ -1405,7 +1778,7 @@
         </ul>
       </div>
       <div class="card-points-group">
-        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <div class="points-group-title falso-title"><span class="badge-f">FALSO</span> فخاخ وزارية شائعة:</div>
         <ul class="card-points-list">
           <li><span>•</span> Il segnale raffigurato indica, a tutti i veicoli, che non è possibile proseguire diritto per Lucca (خطأ FALSO)</li>
           <li><span>•</span> Il segnale raffigurato obbliga tutti i veicoli a svoltare a destra al bivio seguente (خطأ FALSO)</li>
@@ -1431,7 +1804,7 @@
         لوحة صفراء توضح انخفاض عدد مسارات الطريق من مسارين إلى مسار واحد أو من 3 إلى 2 بسبب ورش العمل؛ تلزم السائقين بالاندماج المبكر في المسار المفتوح بنظام التناوب (Cerniera).
       </p>
       <div class="card-points-group">
-        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <div class="points-group-title vero-title"><span class="badge-v">VERO</span> عبارات وزارية مؤكدة:</div>
         <ul class="card-points-list">
           <li><span>•</span> <strong>Il segnale raffigurato indica la chiusura della corsia di destra per lavori in corso</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica la chiusura della corsia di destra per lavori in corso</span></li>
           <li><span>•</span> <strong>Il segnale raffigurato indica una diminuzione da due a una corsia di marcia</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato indica una diminuzione da due a una corsia di marcia</span></li>
@@ -1440,7 +1813,7 @@
         </ul>
       </div>
       <div class="card-points-group">
-        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <div class="points-group-title falso-title"><span class="badge-f">FALSO</span> فخاخ وزارية شائعة:</div>
         <ul class="card-points-list">
           <li><span>•</span> Il segnale raffigurato indica la possibilità di sorpassare a destra (خطأ FALSO)</li>
           <li><span>•</span> Il segnale raffigurato preannuncia uno svincolo che consente l'inversione di marcia (خطأ FALSO)</li>
@@ -1466,7 +1839,7 @@
         لوحة صفراء تحدد بدقة توزيع المسارات المؤقتة وكيفية استخدامها وتفرض على فئات معينة من المركبات التزام مسارات محددة طبقاً لعرض المسار أو حمولة الطريق.
       </p>
       <div class="card-points-group">
-        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <div class="points-group-title vero-title"><span class="badge-v">VERO</span> عبارات وزارية مؤكدة:</div>
         <ul class="card-points-list">
           <li><span>•</span> <strong>Il segnale raffigurato, posto in presenza di lavori stradali, indica alle categorie di veicoli quali corsie possono occupare</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato, posto in presenza di lavori stradali, indica alle categorie di veicoli quali corsie possono occupare</span></li>
           <li><span>•</span> <strong>Il segnale raffigurato viene utilizzato per indicare l'uso delle corsie</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato viene utilizzato per indicare l'uso delle corsie</span></li>
@@ -1475,7 +1848,7 @@
         </ul>
       </div>
       <div class="card-points-group">
-        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <div class="points-group-title falso-title"><span class="badge-f">FALSO</span> فخاخ وزارية شائعة:</div>
         <ul class="card-points-list">
           <li><span>•</span> Il segnale raffigurato indica l'avvicinarsi di un casello autostradale (خطأ FALSO)</li>
           <li><span>•</span> Il segnale raffigurato obbliga gli autocarri a circolare per file parallele (خطأ FALSO)</li>
@@ -1501,7 +1874,7 @@
         سلسلة شواخص متتالية تحمل رؤوس أسهم بيضاء على خلفية سوداء عاكسة؛ تستخدم حصراً في الطرق ذات الاتجاه الواحد (Senso Unico) أو منحنيات وصلات الأوتوستراد لتوضيح اتجاه وانحناء المنعطف ليلاً وفي الضباب.
       </p>
       <div class="card-points-group">
-        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <div class="points-group-title vero-title"><span class="badge-v">VERO</span> عبارات وزارية مؤكدة:</div>
         <ul class="card-points-list">
           <li><span>•</span> <strong>I delineatori raffigurati sono usati ai lati della carreggiata di strade a senso unico</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">I delineatori raffigurati sono usati ai lati della carreggiata di strade a senso unico</span></li>
           <li><span>•</span> <strong>I delineatori raffigurati sono dei segnali complementari</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">I delineatori raffigurati sono dei segnali complementari</span></li>
@@ -1510,7 +1883,7 @@
         </ul>
       </div>
       <div class="card-points-group">
-        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <div class="points-group-title falso-title"><span class="badge-f">FALSO</span> فخاخ وزارية شائعة:</div>
         <ul class="card-points-list">
           <li><span>•</span> I delineatori raffigurati sono posti su strada a doppio senso (خطأ FALSO)</li>
           <li><span>•</span> I delineatori raffigurati si trovano prima di un attraversamento pedonale (خطأ FALSO)</li>
@@ -1536,7 +1909,7 @@
         أعمدة بيضاء مثبتة على جانبي الطريق؛ تحمل عاكساً أحمر (Rosso) على الجانب الأيمن وعاكساً أبيض (Bianco) على الجانب الأيسر في الطرق ذات الاتجاهين؛ لتحديد حدود نهر الطريق بدقة ليلاً.
       </p>
       <div class="card-points-group">
-        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <div class="points-group-title vero-title"><span class="badge-v">VERO</span> عبارات وزارية مؤكدة:</div>
         <ul class="card-points-list">
           <li><span>•</span> <strong>I delineatori raffigurati sono utili soprattutto nei casi di scarsa visibilità</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">I delineatori raffigurati sono utili soprattutto nei casi di scarsa visibilità</span></li>
           <li><span>•</span> <strong>I delineatori raffigurati sono dei segnali complementari</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">I delineatori raffigurati sono dei segnali complementari</span></li>
@@ -1545,7 +1918,7 @@
         </ul>
       </div>
       <div class="card-points-group">
-        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <div class="points-group-title falso-title"><span class="badge-f">FALSO</span> فخاخ وزارية شائعة:</div>
         <ul class="card-points-list">
           <li><span>•</span> I delineatori raffigurati sono utili solo nelle ore notturne (خطأ FALSO)</li>
           <li><span>•</span> I delineatori raffigurati vengono posti a distanza di almeno 100 metri l’uno dall’altro (خطأ FALSO)</li>
@@ -1571,7 +1944,7 @@
         عناصر عاكسة مثبتة على جدران الأنفاق والممرات المغطاة؛ تكون عاكسة باللون الأصفر في الأنفاق ذات الاتجاه الواحد، أو بلوني الأحمر والأبيض في الأنفاق ذات الاتجاهين لتوضيح حيز السير الآمن وتفادي الاصطدام بالجدران.
       </p>
       <div class="card-points-group">
-        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <div class="points-group-title vero-title"><span class="badge-v">VERO</span> عبارات وزارية مؤكدة:</div>
         <ul class="card-points-list">
           <li><span>•</span> <strong>Il delineatore raffigurato è posto ai lati delle gallerie a senso unico</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato è posto ai lati delle gallerie a senso unico</span></li>
           <li><span>•</span> <strong>Il delineatore raffigurato è un segnale complementare posto nelle gallerie a senso unico</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato è un segnale complementare posto nelle gallerie a senso unico</span></li>
@@ -1580,7 +1953,7 @@
         </ul>
       </div>
       <div class="card-points-group">
-        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <div class="points-group-title falso-title"><span class="badge-f">FALSO</span> فخاخ وزارية شائعة:</div>
         <ul class="card-points-list">
           <li><span>•</span> Il delineatore raffigurato è usato per indicare un incrocio a senso unico (خطأ FALSO)</li>
           <li><span>•</span> Il delineatore raffigurato indica una strada chiusa (خطأ FALSO)</li>
@@ -1606,7 +1979,7 @@
         أعمدة طويلة جداً ومخططة بالأصفر والأسود أو الأحمر والأبيض؛ تثبت على أطراف الطرق الجبلية لتظل مرئية بوضوح حتى عند تراكم الثلوج الكثيفة، وترشد كاسحات الثلوج والسائقين لمسار الطريق وتمنع السقوط في المنحدرات.
       </p>
       <div class="card-points-group">
-        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <div class="points-group-title vero-title"><span class="badge-v">VERO</span> عبارات وزارية مؤكدة:</div>
         <ul class="card-points-list">
           <li><span>•</span> <strong>Il delineatore raffigurato è posto ai lati della carreggiata nelle strade di montagna soggette ad innevamento</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato è posto ai lati della carreggiata nelle strade di montagna soggette ad innevamento</span></li>
           <li><span>•</span> <strong>Il delineatore raffigurato è un segnale complementare</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato è un segnale complementare</span></li>
@@ -1615,7 +1988,7 @@
         </ul>
       </div>
       <div class="card-points-group">
-        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <div class="points-group-title falso-title"><span class="badge-f">FALSO</span> فخاخ وزارية شائعة:</div>
         <ul class="card-points-list">
           <li><span>•</span> Il delineatore raffigurato è posto alla fermata degli autobus (خطأ FALSO)</li>
           <li><span>•</span> Il delineatore raffigurato è posto al centro della carreggiata (خطأ FALSO)</li>
@@ -1641,7 +2014,7 @@
         شواخص تحمل أسهم chevron حمراء على خلفية بيضاء؛ تثبت متتابعة على القوس الخارجي للمنعطفات الحادة الخطيرة في الطرق ذات الاتجاهين (Doppio Senso) لتوجيه نظر السائق ومساعدته في تقدير زاوية الانحناء.
       </p>
       <div class="card-points-group">
-        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <div class="points-group-title vero-title"><span class="badge-v">VERO</span> عبارات وزارية مؤكدة:</div>
         <ul class="card-points-list">
           <li><span>•</span> <strong>Il delineatore raffigurato è posto nelle curve strette e con mancanza di visibilità</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato è posto nelle curve strette e con mancanza di visibilità</span></li>
           <li><span>•</span> <strong>Il delineatore raffigurato si trova, di norma, dopo il segnale CURVA PERICOLOSA A SINISTRA</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato si trova, di norma, dopo il segnale CURVA PERICOLOSA A SINISTRA</span></li>
@@ -1650,7 +2023,7 @@
         </ul>
       </div>
       <div class="card-points-group">
-        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <div class="points-group-title falso-title"><span class="badge-f">FALSO</span> فخاخ وزارية شائعة:</div>
         <ul class="card-points-list">
           <li><span>•</span> Il delineatore raffigurato indica un cantiere stradale (خطأ FALSO)</li>
           <li><span>•</span> Il delineatore raffigurato segnala una strada dove si trovano salite e discese (خطأ FALSO)</li>
@@ -1676,7 +2049,7 @@
         لوحة عريضة مخططة بأسهم بيضاء وحمراء تشير في كلا الاتجاهين الأيمن والأيسر؛ توضع مباشرة أمام السائق القادم في نهاية طريق مغلق يفرض الانعطاف إما يميناً أو يساراً ويحظر التقدم للأمام مباشرة.
       </p>
       <div class="card-points-group">
-        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <div class="points-group-title vero-title"><span class="badge-v">VERO</span> عبارات وزارية مؤكدة:</div>
         <ul class="card-points-list">
           <li><span>•</span> <strong>Il delineatore raffigurato indica di svoltare a destra o a sinistra</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato indica di svoltare a destra o a sinistra</span></li>
           <li><span>•</span> <strong>Il delineatore raffigurato ha le punte delle frecce che segnalano le direzioni possibili</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato ha le punte delle frecce che segnalano le direzioni possibili</span></li>
@@ -1685,7 +2058,7 @@
         </ul>
       </div>
       <div class="card-points-group">
-        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <div class="points-group-title falso-title"><span class="badge-f">FALSO</span> فخاخ وزارية شائعة:</div>
         <ul class="card-points-list">
           <li><span>•</span> Il delineatore raffigurato indica un passaggio a livello (خطأ FALSO)</li>
           <li><span>•</span> Il delineatore raffigurato indica un ponte mobile (خطأ FALSO)</li>
@@ -1711,7 +2084,7 @@
         لوحات إرشادية بألوان أصفر وأسود أو أصفر وأحمر؛ تثبت في مسارات التحويلات المؤقتة وحول ورش العمل لتحذير السائق من انحناء مسار التحويلة بصورة حادة ومفاجئة.
       </p>
       <div class="card-points-group">
-        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <div class="points-group-title vero-title"><span class="badge-v">VERO</span> عبارات وزارية مؤكدة:</div>
         <ul class="card-points-list">
           <li><span>•</span> <strong>Il delineatore raffigurato si trova in serie di più elementi per evidenziare una curva pericolosa</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato si trova in serie di più elementi per evidenziare una curva pericolosa</span></li>
           <li><span>•</span> <strong>Il delineatore raffigurato è un segnale complementare</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato è un segnale complementare</span></li>
@@ -1720,7 +2093,7 @@
         </ul>
       </div>
       <div class="card-points-group">
-        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <div class="points-group-title falso-title"><span class="badge-f">FALSO</span> فخاخ وزارية شائعة:</div>
         <ul class="card-points-list">
           <li><span>•</span> Il delineatore raffigurato indica una curva pericolosa a sinistra (خطأ FALSO)</li>
           <li><span>•</span> Il delineatore raffigurato si trova 150 metri prima di una curva (خطأ FALSO)</li>
@@ -1746,7 +2119,7 @@
         إشارة خطر مثلثة صفراء بداخلها رمز إشارة مرور ثلاثية وقرص أصفر وامض في المنتصف؛ تعلن عن الاقتراب من إشارة مرور ضوئية مؤقتة تنظم السير بنظام الاتجاه المتناوب (Senso unico alternato) في موقع عمل ضيق.
       </p>
       <div class="card-points-group">
-        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <div class="points-group-title vero-title"><span class="badge-v">VERO</span> عبارات وزارية مؤكدة:</div>
         <ul class="card-points-list">
           <li><span>•</span> <strong>Il segnale raffigurato preavvisa un impianto semaforico in presenza di un cantiere stradale</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato preavvisa un impianto semaforico in presenza di un cantiere stradale</span></li>
           <li><span>•</span> <strong>Il segnale raffigurato si può trovare sia su strade urbane che extraurbane</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il segnale raffigurato si può trovare sia su strade urbane che extraurbane</span></li>
@@ -1755,7 +2128,7 @@
         </ul>
       </div>
       <div class="card-points-group">
-        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <div class="points-group-title falso-title"><span class="badge-f">FALSO</span> فخاخ وزارية شائعة:</div>
         <ul class="card-points-list">
           <li><span>•</span> Il segnale raffigurato preavvisa un semaforo che regola il traffico in transito su ponti mobili o girevoli (خطأ FALSO)</li>
           <li><span>•</span> Il segnale raffigurato preavvisa la presenza di un segnale di STOP (خطأ FALSO)</li>
@@ -1781,7 +2154,7 @@
         لوحة مستطيلة مخططة بأشرطة مائلة بيضاء وسوداء أو صفراء وسوداء؛ تثبت مباشرة على العوائق الرأسية كأعمدة الجسور، مداخل الأنفاق، أو حواف الجزر المرورية لتنبيه السائق لوجود عائق في نهر الطريق.
       </p>
       <div class="card-points-group">
-        <div class="points-group-title vero-title"><span>✅</span> عبارات وزارية مؤكدة (VERO):</div>
+        <div class="points-group-title vero-title"><span class="badge-v">VERO</span> عبارات وزارية مؤكدة:</div>
         <ul class="card-points-list">
           <li><span>•</span> <strong>Il delineatore raffigurato viene utilizzato per segnalare un ostacolo</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato viene utilizzato per segnalare un ostacolo</span></li>
           <li><span>•</span> <strong>Il delineatore raffigurato viene posto all'interno della carreggiata, in presenza di un ostacolo</strong><br><span style="color:#a1a1aa; font-size:0.82rem;">Il delineatore raffigurato viene posto all'interno della carreggiata, in presenza di un ostacolo</span></li>
@@ -1790,7 +2163,7 @@
         </ul>
       </div>
       <div class="card-points-group">
-        <div class="points-group-title falso-title"><span>❌</span> فخاخ وزارية شائعة (FALSO):</div>
+        <div class="points-group-title falso-title"><span class="badge-f">FALSO</span> فخاخ وزارية شائعة:</div>
         <ul class="card-points-list">
           <li><span>•</span> Il delineatore raffigurato è dotato di luce propria (خطأ FALSO)</li>
           <li><span>•</span> Il delineatore raffigurato è posto ai lati della strada (خطأ FALSO)</li>
@@ -2286,5 +2659,6 @@
     }
   </script>
 
+<script src="../assets/js/roadworks-delineators-studio.js"></script>
 </body>
 </html>
