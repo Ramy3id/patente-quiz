@@ -887,6 +887,389 @@
   border-radius: 6px;
   border: 1px solid rgba(245, 158, 11, 0.3);
 }
+
+  /* =========================================================
+     LICENSE & PENALTIES STUDIO & WORKSHOP GALLERY CSS (CH20)
+     ========================================================= */
+  .lp-studio-card {
+    background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 20px;
+    padding: 24px;
+    margin: 32px 0 40px;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+  }
+  .lp-studio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+  }
+  .lp-studio-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #38bdf8;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .lp-pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #38bdf8;
+    box-shadow: 0 0 10px #38bdf8;
+    animation: lpPulse 1.5s infinite;
+  }
+  @keyframes lpPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+  }
+  .lp-studio-main-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #f8fafc;
+    margin: 0 0 6px;
+  }
+  .lp-studio-sub-title {
+    font-size: 0.92rem;
+    color: #94a3b8;
+    margin: 0;
+    line-height: 1.6;
+  }
+  .lp-tab-group {
+    display: flex;
+    gap: 8px;
+    background: rgba(15, 23, 42, 0.6);
+    padding: 6px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .lp-tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .lp-tab-btn.active {
+    background: #0284c7;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+  }
+  .lp-stage-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media (min-width: 992px) {
+    .lp-stage-layout {
+      grid-template-columns: 1.25fr 1fr;
+    }
+  }
+  .lp-canvas-wrapper {
+    position: relative;
+    background: #090d16;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.8);
+    min-height: 380px;
+  }
+  .lp-canvas-wrapper canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .lp-controls-panel {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .lp-control-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 8px;
+  }
+  .lp-btn-toggle-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .lp-toggle-btn {
+    flex: 1;
+    min-width: 120px;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #cbd5e1;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 9px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .lp-toggle-btn.active {
+    background: #0284c7;
+    color: #ffffff;
+    border-color: #38bdf8;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+  }
+  .lp-infraction-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 180px;
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+  .lp-inf-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: #cbd5e1;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: right;
+  }
+  .lp-inf-btn.selected {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: #ef4444;
+    color: #fee2e2;
+  }
+  .lp-inf-badge {
+    background: rgba(239, 68, 68, 0.2);
+    color: #f87171;
+    font-weight: 800;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  .lp-slider-box {
+    margin-bottom: 12px;
+  }
+  .lp-slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.84rem;
+    color: #cbd5e1;
+    margin-bottom: 6px;
+  }
+  .lp-slider-val {
+    font-weight: 800;
+    color: #38bdf8;
+  }
+  .lp-slider {
+    width: 100%;
+    accent-color: #38bdf8;
+    height: 6px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .lp-slider-ticks {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    color: #64748b;
+    margin-top: 4px;
+  }
+  .lp-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .lp-metric-card {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 10px 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .lp-metric-label {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    font-weight: 600;
+  }
+  .lp-metric-val {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #38bdf8;
+  }
+  .lp-metric-val.danger-val {
+    color: #f43f5e;
+  }
+  .lp-metric-val.safe-val {
+    color: #10b981;
+  }
+  .lp-metric-sub {
+    font-size: 0.68rem;
+    color: #64748b;
+  }
+  .lp-summary-box {
+    background: rgba(15, 23, 42, 0.7);
+    border-radius: 12px;
+    padding: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .lp-legal-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .lp-trap-box-interactive {
+    background: rgba(244, 63, 94, 0.08);
+    border-right: 3px solid #f43f5e;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    color: #fecdd3;
+    line-height: 1.6;
+    margin-top: 8px;
+  }
+  .lp-trap-box-interactive .lp-trap-header {
+    font-weight: 800;
+    color: #f43f5e;
+    margin-bottom: 4px;
+  }
+
+  /* Photographic Cards Container */
+  .vehicle-part-img-container {
+    width: 100%;
+    height: 190px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    background: #0f172a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .part-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    display: block;
+  }
+  .signal-card:hover .part-card-img {
+    transform: scale(1.05);
+  }
+  .part-card-tag {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #f8fafc;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    letter-spacing: 0.3px;
+  }
+
+  /* Workshop Photo Gallery Section */
+  .workshop-gallery-section {
+    margin: 40px 0 32px;
+  }
+  .workshop-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .workshop-gallery-card {
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  .workshop-gallery-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(56, 189, 248, 0.4);
+  }
+  .workshop-gallery-media {
+    position: relative;
+    height: 170px;
+    overflow: hidden;
+  }
+  .workshop-gallery-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+  .workshop-gallery-card:hover .workshop-gallery-media img {
+    transform: scale(1.06);
+  }
+  .workshop-gallery-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(2, 132, 199, 0.85);
+    backdrop-filter: blur(6px);
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  .workshop-gallery-content {
+    padding: 14px;
+  }
+  .workshop-gallery-title {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: #f1f5f9;
+    margin: 0 0 6px;
+  }
+  .workshop-gallery-sub {
+    font-size: 0.78rem;
+    color: #38bdf8;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  .workshop-gallery-desc {
+    font-size: 0.82rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin: 0;
+  }
+
 </style>
   <link rel="manifest" href="../manifest.json">
 </head>
@@ -1033,108 +1416,97 @@
   </section>
 
   <!-- SIMULATOR 1: License Categories Explorer -->
-  <section class="simulator-box" id="sim-patenti">
-    <div class="sim-title">
-      <span>🪪</span>
-      <span>المحاكي التفاعلي 1: مستكشف فئات الرخص والمركبات المسموحة (Categorie di Patente)</span>
+  
+  <!-- 60 FPS LICENSE & PENALTIES STUDIO CONTAINER -->
+  <div id="licensePenaltiesStudioContainer"></div>
+
+  <!-- AUTHENTIC DRIVING LICENSES & LEGAL DOCUMENTS PHOTO GALLERY -->
+  <section class="workshop-gallery-section" id="workshop-gallery">
+    <div class="section-heading">
+      <div class="section-badge">المعرض التوثيقي الميداني للباب 20</div>
+      <h2 class="section-title">رخص القيادة، الوثائق الرسمية والمخالفات المعتمدة في إيطاليا</h2>
     </div>
-    <div class="sim-subtitle">اختر فئة الرخصة لاستكشاف السن الأدنى، المركبات المسموح بقيادتها، القيود القانونية، وفخاخ الامتحان:</div>
-    <div class="sim-controls">
-      <button class="sim-btn active" id="btnPatAM" onclick="simPatente('AM')">AM (14 سنة)</button>
-      <button class="sim-btn" id="btnPatA1" onclick="simPatente('A1')">A1 (16 سنة)</button>
-      <button class="sim-btn" id="btnPatA2" onclick="simPatente('A2')">A2 (18 سنة)</button>
-      <button class="sim-btn" id="btnPatA" onclick="simPatente('A')">A غير مقيدة (24/20 سنة)</button>
-      <button class="sim-btn" id="btnPatB1" onclick="simPatente('B1')">B1 (16 سنة)</button>
-      <button class="sim-btn" id="btnPatB" onclick="simPatente('B')">B القياسية (18 سنة)</button>
-      <button class="sim-btn" id="btnPatB96" onclick="simPatente('B96')">B96 (4.250 kg)</button>
-      <button class="sim-btn" id="btnPatBE" onclick="simPatente('BE')">BE (7.000 kg)</button>
-    </div>
-    <div class="sim-output-card" id="patenteOutput">
-      <div class="sim-badge" id="patenteBadge" style="background:rgba(56, 189, 248, 0.15); color:var(--sky-primary); border:1px solid rgba(56, 189, 248, 0.35);">
-        🛵 فئة AM
+    <div class="workshop-gallery-grid">
+      <!-- 1: Patente Fronte Retro -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/patente_parts/gallery_patente_fronte_retro.jpg" alt="Patente di Guida" loading="lazy">
+          <span class="workshop-gallery-badge">الرخصة الرسمية</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">بطاقة رخصة القيادة الإيطالية (Patente di Guida)</h4>
+          <div class="workshop-gallery-sub">Modello Europeo Card MC 720</div>
+          <p class="workshop-gallery-desc">البطاقة البلاستيكية الرسمية المعتمدة تضم خانات الاسم وتاريخ الميلاد ورقم الرخصة والفئات المصرح بقيادتها وفترات الصلاحية.</p>
+        </div>
       </div>
-      <div class="sim-details">
-        <h4 id="patenteTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">رخصة AM - سيكلوموتوري وميكروكار (Ciclomotori e Quadricicli leggeri)</h4>
-        <p id="patenteDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
-          <strong>السن الأدنى:</strong> 14 سنة.<br>
-          <strong>المركبات المسموحة:</strong> دراجات بخارية 2 و 3 عجلات سعة محركها لا تتجاوز 50 سم مكعب، سرعتها القصوى 45 كم/ساعة، والمركبات الرباعية الخفيفة (Quadricicli leggeri / Minicar) بقدرة قصوى 6 كيلووات ووزن فارغ لا يتجاوز 425 كجم.<br>
-          <strong>نقل الركاب:</strong> يُسمح بنقل راكب إضافي فقط إذا كان سن السائق 16 سنة على الأقل والمركبة معتمدة لنقل راكبين.<br>
-          <strong>فخ الامتحان:</strong> رخصة AM لا تتيح قيادة دراجات نارية 125 cc ولا كوادريكلي ثقيلة!
-        </p>
-        <div class="sim-warning-box" id="patenteWarning" style="margin-top:10px; padding:10px 14px; background:rgba(244,63,94,0.1); border-right:3px solid var(--rose-primary); border-radius:8px; font-size:0.86rem; color:#fecdd3;">
-          ⚠️ <strong>تنبيه الامتحان الوزاري:</strong> لا يُشترط الحصول على رخصة AM قبل التقديم على رخصة B؛ فرخصة B تشمل تلقائياً صلاحية قيادة مركبات AM في كافة دول الاتحاد الأوروبي.
+
+      <!-- 2: Documento Unico -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/patente_parts/gallery_documento_unico.jpg" alt="Documento Unico" loading="lazy">
+          <span class="workshop-gallery-badge">وثيقة السير والملكية</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">وثيقة الملكية والسير الموحدة (Documento Unico)</h4>
+          <div class="workshop-gallery-sub">Carta di Circolazione e Certificato di Proprietà</div>
+          <p class="workshop-gallery-desc">الوثيقة الجامعة لبيانات السيارة الفنية (قوة المحرك، الأوزان، الحجم) وهوية المالك وملصقات الفحص الفني الدوري المعتمدة.</p>
+        </div>
+      </div>
+
+      <!-- 3: Contrassegno P -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/patente_parts/gallery_contrassegno_p.jpg" alt="Contrassegno P" loading="lazy">
+          <span class="workshop-gallery-badge">لوحة التدريب P</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">لوحة المبتدئ الإلزامية (Contrassegno P)</h4>
+          <div class="workshop-gallery-sub">Lettera P Nera su Fondo Bianco Riflettente</div>
+          <p class="workshop-gallery-desc">إلزامية على المركبة أثناء التدريب العملي بتصريح Foglio Rosa؛ تثبت في الأمام (12x15 سم) وفي الخلف (30x30 سم).</p>
+        </div>
+      </div>
+
+      <!-- 4: Foglio Rosa -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/patente_parts/gallery_foglio_rosa.jpg" alt="Foglio Rosa" loading="lazy">
+          <span class="workshop-gallery-badge">تصريح التدريب</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">تصريح التدريب المؤقت (Il Foglio Rosa)</h4>
+          <div class="workshop-gallery-sub">Autorizzazione per Esercitarsi alla Guida</div>
+          <p class="workshop-gallery-desc">صالح لمدة 12 شهراً بعد اجتياز الامتحان النظري؛ يتيح التدريب بوجود مرافق لا يزيد عمره عن 65 عاماً ويحمل رخصة B منذ 10 سنوات.</p>
+        </div>
+      </div>
+
+      <!-- 5: Tagliando Revisione -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/patente_parts/gallery_tagliando_revisione.jpg" alt="Tagliando Revisione" loading="lazy">
+          <span class="workshop-gallery-badge">الفحص الدوري</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">ملصق الفحص الدوري (Tagliando di Revisione)</h4>
+          <div class="workshop-gallery-sub">Adesivo di Revisione Periodica Ministeriale</div>
+          <p class="workshop-gallery-desc">يلصق على وثيقة السير بعد فحص السيارة؛ أول مرة بعد 4 سنوات من تاريخ أول ترخيص، ثم كل سنتين بانتظام.</p>
+        </div>
+      </div>
+
+      <!-- 6: Polizia e Verbale -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/patente_parts/gallery_polizia_stradale.jpg" alt="Polizia Stradale" loading="lazy">
+          <span class="workshop-gallery-badge">سلطة الضبط</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">دورية شرطة المرور والضبط (Polizia Stradale)</h4>
+          <div class="workshop-gallery-sub">Accertamento Violazioni e Ritiro Patente</div>
+          <p class="workshop-gallery-desc">الجهة المخولة بسحب الرخصة الميداني في حالات المخالفات الجسيمة وتوثيق خصم النقاط والمصادرة الإدارية للمركبات.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SIMULATOR 2: Points Deduction & Neopatentati Multiplier -->
-  <section class="simulator-box" id="sim-punti">
-    <div class="sim-title">
-      <span>🔢</span>
-      <span>المحاكي التفاعلي 2: حاسبة خصم النقاط ومضاعفة السائق الجديد (Calcolatore Punti Patente)</span>
-    </div>
-    <div class="sim-subtitle">حدد نوع السائق ونوع المخالفة المرتكبة لحساب رصيد النقاط المحسوم والعقوبة الإضافية فورياً:</div>
-    <div class="sim-controls" style="margin-bottom:12px;">
-      <span style="font-size:0.88rem; color:var(--text-muted); margin-left:8px; align-self:center;">صفة السائق:</span>
-      <button class="sim-btn active" id="btnDriverOrd" onclick="setDriverType('ord')">سائق معتاد (أكثر من 3 سنوات)</button>
-      <button class="sim-btn" id="btnDriverNeo" onclick="setDriverType('neo')">سائق جديد (Neopatentato - أول 3 سنوات)</button>
-    </div>
-    <div class="sim-controls">
-      <button class="sim-btn active" id="btnInfPrecedenza" onclick="simInfraction('precedenza')">عدم إعطاء الأسبقية (-5)</button>
-      <button class="sim-btn" id="btnInfCinture" onclick="simInfraction('cinture')">عدم ربط حزام الأمان (-5)</button>
-      <button class="sim-btn" id="btnInfCellulare" onclick="simInfraction('cellulare')">استخدام الهاتف أثناء القيادة (-5)</button>
-      <button class="sim-btn" id="btnInfVelocita" onclick="simInfraction('velocita')">تجاوز السرعة بأكثر من 40 كم/س (-6)</button>
-      <button class="sim-btn" id="btnInfContromano" onclick="simInfraction('contromano')">السير عكس الاتجاه في المنحنيات (-10)</button>
-    </div>
-    <div class="sim-output-card" id="puntiOutput">
-      <div class="sim-badge" id="puntiBadge" style="background:rgba(244, 63, 94, 0.15); color:var(--rose-primary); border:1px solid rgba(244, 63, 94, 0.35);">
-        خصم -5 نقاط
-      </div>
-      <div class="sim-details">
-        <h4 id="puntiTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">مخالفة: عدم إعطاء أسبقية المرور (Mancata precedenza)</h4>
-        <p id="puntiDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
-          <strong>الخصم القانوني للسائق المعتاد:</strong> يتم خصم <strong>5 نقاط</strong> من رصيد الرخصة.<br>
-          <strong>الرصيد المتبقي (افتراض رصيد 20):</strong> يتبقى 15 نقطة.<br>
-          <strong>استعادة النقاط:</strong> يمكن استعادة 6 نقاط عبر حضور دورات تدريبية خاصة في مدارس تعليم القيادة المعتمدة، أو استعادة الرصيد إلى 20 نقطة تلقائياً بعد مرور سنتين كاملتين دون ارتكاب أي مخالفة تتضمن خصم نقاط.
-        </p>
-        <div class="sim-warning-box" id="puntiWarning" style="margin-top:10px; padding:10px 14px; background:rgba(245, 158, 11, 0.1); border-right:3px solid var(--amber-primary); border-radius:8px; font-size:0.86rem; color:#fde68a;">
-          💡 <strong>معلومة ذهبية:</strong> الحد الأقصى للنقاط التي يمكن جمعها بالمكافأة هو 30 نقطة (+2 نقطة كل سنتين التزام).
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SIMULATOR 3: Sanctions Decision Tree -->
-  <section class="simulator-box" id="sim-sanzioni">
-    <div class="sim-title">
-      <span>⚖️</span>
-      <span>المحاكي التفاعلي 3: شجرة التمييز بين العقوبات الأربع (Ritiro, Sospensione, Revoca, Revisione)</span>
-    </div>
-    <div class="sim-subtitle">اضغط لمعرفة الفارق الجوهري بين العقوبات الأربع ومن يصدرها وحالات تطبيقها في الامتحان:</div>
-    <div class="sim-controls">
-      <button class="sim-btn active" id="btnSanzRitiro" onclick="simSanzione('ritiro')">1. السحب الفوري (Ritiro)</button>
-      <button class="sim-btn" id="btnSanzSospensione" onclick="simSanzione('sospensione')">2. التعليق المؤقت (Sospensione)</button>
-      <button class="sim-btn" id="btnSanzRevoca" onclick="simSanzione('revoca')">3. الإلغاء الدائم (Revoca)</button>
-      <button class="sim-btn" id="btnSanzRevisione" onclick="simSanzione('revisione')">4. إعادة الفحص (Revisione)</button>
-    </div>
-    <div class="sim-output-card" id="sanzioniOutput">
-      <div class="sim-badge" id="sanzioniBadge" style="background:rgba(245, 158, 11, 0.15); color:var(--amber-primary); border:1px solid rgba(245, 158, 11, 0.35);">
-        سحب فوري (Ritiro)
-      </div>
-      <div class="sim-details">
-        <h4 id="sanzioniTitle" style="color:#fff; font-size:1.15rem; margin-bottom:8px;">سحب الرخصة الميداني (Il Ritiro della patente)</h4>
-        <p id="sanzioniDesc" class="sim-desc" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
-          <strong>طبيعة الإجراء:</strong> تدبير إداري تحفظي يقوم به ضابط الشرطة مباشرة على الطريق لمنع السائق من مواصلة القيادة.<br>
-          <strong>أشهر الحالات الوزارية:</strong> 1) القيادة برخصة منتهية الصلاحية (Scaduta di validità)، 2) القيادة بدون ارتداء النظارات الطبية المسجلة بكود خاص في الرخصة، 3) الامتناع عن ترتيب الحمولة غير الآمنة بعد إنذار الشرطة، 4) وقوع حادث سير نتجت عنه إصابات بدنية لأشخاص.<br>
-          <strong>استرجاع الرخصة:</strong> تُسترد بمجرد زوال سبب السحب (مثل تجديد الفحص الطبي للرخصة المنتهية أو تقديم ما يفيد تصحيح الوضع).
-        </p>
-        <div class="sim-warning-box" id="sanzioniWarning" style="margin-top:10px; padding:10px 14px; background:rgba(244,63,94,0.1); border-right:3px solid var(--rose-primary); border-radius:8px; font-size:0.86rem; color:#fecdd3;">
-          ❌ <strong>فخ امتحاني:</strong> القيادة برخصة منتهية الصلاحية تؤدي إلى سحبها (Ritiro) وليس إلغائها (Revoca) ولا تعليقها (Sospensione)!
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- COMPARISON SECTION -->
   <section class="comp-section" id="comp-categories">
@@ -1194,9 +1566,12 @@
 
     <!-- CARD: AM - 14 Anni -->
     <div class="signal-card" data-category="patenti-moto">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🛵</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/patente_parts/patente_am_scooter.jpg" alt="Patente AM (Ciclomotori e Minicar)" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Patente AM (Ciclomotori e Minicar)</span>
+        </div>
+      </div>
           <div class="badge-visual-code">AM - 14 Anni</div>
         </div>
       </div>
@@ -1239,9 +1614,12 @@
 
     <!-- CARD: A1 - 16 Anni -->
     <div class="signal-card" data-category="patenti-moto">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🏍️</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/patente_parts/patente_a1_moto125.jpg" alt="Patente A1 (Motocicli 125 cc 11 kW)" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Patente A1 (Motocicli 125 cc 11 kW)</span>
+        </div>
+      </div>
           <div class="badge-visual-code">A1 - 16 Anni</div>
         </div>
       </div>
@@ -1284,9 +1662,12 @@
 
     <!-- CARD: A2 - 18 Anni -->
     <div class="signal-card" data-category="patenti-moto">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🏍️</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/patente_parts/patente_a2_moto35kw.jpg" alt="Patente A2 (Motocicli fino a 35 kW)" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Patente A2 (Motocicli fino a 35 kW)</span>
+        </div>
+      </div>
           <div class="badge-visual-code">A2 - 18 Anni</div>
         </div>
       </div>
@@ -1329,9 +1710,12 @@
 
     <!-- CARD: A - Senza Limiti -->
     <div class="signal-card" data-category="patenti-moto">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🏍️</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/patente_parts/patente_a_motociclo.jpg" alt="Patente A Libera (Senza Limiti)" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Patente A Libera (Senza Limiti)</span>
+        </div>
+      </div>
           <div class="badge-visual-code">A - Senza Limiti</div>
         </div>
       </div>
@@ -1374,9 +1758,12 @@
 
     <!-- CARD: B1 - 16 Anni -->
     <div class="signal-card" data-category="patenti-auto">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🚙</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/patente_parts/patente_b1_quadriciclo.jpg" alt="Patente B1 (Quadricicli Non Leggeri 15 kW)" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Patente B1 (Quadricicli Non Leggeri 15 kW)</span>
+        </div>
+      </div>
           <div class="badge-visual-code">B1 - 16 Anni</div>
         </div>
       </div>
@@ -1419,9 +1806,12 @@
 
     <!-- CARD: Patente B -->
     <div class="signal-card" data-category="patenti-auto">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🚗</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/patente_parts/patente_b_autovettura.jpg" alt="Patente B (Autovetture fino a 3.5t e 9 Posti)" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Patente B (Autovetture fino a 3.5t e 9 Posti)</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Patente B</div>
         </div>
       </div>
@@ -1466,9 +1856,12 @@
 
     <!-- CARD: Codice 96 -->
     <div class="signal-card" data-category="patenti-auto">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🚙 🚛</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/patente_parts/patente_b96_rimorchio.jpg" alt="Patente B con Codice 96 (Complessi fino a 4.250 kg)" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Patente B con Codice 96 (Complessi fino a 4.250 kg)</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Codice 96</div>
         </div>
       </div>
@@ -1511,9 +1904,12 @@
 
     <!-- CARD: Patente BE -->
     <div class="signal-card" data-category="patenti-auto">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🚛 🚜</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/patente_parts/patente_be_rimorchio_pesante.jpg" alt="Patente BE (Rimorchi Pesanti fino a 3.500 kg)" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Patente BE (Rimorchi Pesanti fino a 3.500 kg)</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Patente BE</div>
         </div>
       </div>
@@ -1556,9 +1952,12 @@
 
     <!-- CARD: Foglio Rosa -->
     <div class="signal-card" data-category="foglio-rosa">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">📄 🚗</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/patente_parts/foglio_rosa_guida.jpg" alt="Foglio Rosa e Contrassegno P" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Foglio Rosa e Contrassegno P</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Foglio Rosa</div>
         </div>
       </div>
@@ -1601,9 +2000,12 @@
 
     <!-- CARD: Neopatentati 3 Anni -->
     <div class="signal-card" data-category="foglio-rosa">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">⚡ 🛑</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/patente_parts/neopatentati_limiti.jpg" alt="Limiti per Neopatentati (100/90 km/h e Potenza)" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Limiti per Neopatentati (100/90 km/h e Potenza)</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Neopatentati 3 Anni</div>
         </div>
       </div>
@@ -1647,9 +2049,12 @@
 
     <!-- CARD: Patente a Punti -->
     <div class="signal-card" data-category="punti">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">💯 🔢</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/patente_parts/patente_punti_saldo.jpg" alt="Patente a Punti (Saldo e Decurtazione)" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Patente a Punti (Saldo e Decurtazione)</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Patente a Punti</div>
         </div>
       </div>
@@ -1693,9 +2098,12 @@
 
     <!-- CARD: Recupero Punti -->
     <div class="signal-card" data-category="punti">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🔄 📚</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/patente_parts/recupero_punti_corso.jpg" alt="Corsi di Recupero Punti Autoscuola" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Corsi di Recupero Punti Autoscuola</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Recupero Punti</div>
         </div>
       </div>
@@ -1738,9 +2146,12 @@
 
     <!-- CARD: Ritiro della Patente -->
     <div class="signal-card" data-category="sanzioni">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🛑 👮</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/patente_parts/ritiro_patente_polizia.jpg" alt="Il Ritiro della Patente di Guida" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Il Ritiro della Patente di Guida</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Ritiro della Patente</div>
         </div>
       </div>
@@ -1784,9 +2195,12 @@
 
     <!-- CARD: Sospensione Patente -->
     <div class="signal-card" data-category="sanzioni">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">⛔ ⏳</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/patente_parts/sospensione_patente.jpg" alt="La Sospensione della Patente (Prefetto/Giudice)" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">La Sospensione della Patente (Prefetto/Giudice)</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Sospensione Patente</div>
         </div>
       </div>
@@ -1830,9 +2244,12 @@
 
     <!-- CARD: Revoca della Patente -->
     <div class="signal-card" data-category="sanzioni">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">❌ 🚫</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/patente_parts/revoca_patente.jpg" alt="La Revoca della Patente (Annullamento Permanente)" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">La Revoca della Patente (Annullamento Permanente)</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Revoca della Patente</div>
         </div>
       </div>
@@ -1876,9 +2293,12 @@
 
     <!-- CARD: Revisione Patente -->
     <div class="signal-card" data-category="sanzioni">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">🔍 📋</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/patente_parts/revisione_patente_esame.jpg" alt="La Revisione della Patente (Esame di Idoneità)" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">La Revisione della Patente (Esame di Idoneità)</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Revisione Patente</div>
         </div>
       </div>
@@ -1922,9 +2342,12 @@
 
     <!-- CARD: Documenti a Bordo -->
     <div class="signal-card" data-category="documenti">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">📑 📱</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/patente_parts/documenti_circolazione_auto.jpg" alt="Documenti Obbligatori a Bordo" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Documenti Obbligatori a Bordo</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Documenti a Bordo</div>
         </div>
       </div>
@@ -1967,9 +2390,12 @@
 
     <!-- CARD: Validità e Rinnovo -->
     <div class="signal-card" data-category="documenti">
-      <div class="signal-img-container">
-        <div class="badge-visual-container">
-          <div class="badge-visual-icon">📅 🎂</div>
+      <div class="signal-img-container" style="height:190px; padding:0; overflow:hidden; position:relative;">
+        <div class="vehicle-part-img-container">
+          <img src="../assets/images/patente_parts/rinnovo_validita_patente.jpg" alt="Validità e Rinnovo Patente per Età" class="part-card-img" loading="lazy">
+          <span class="part-card-tag">Validità e Rinnovo Patente per Età</span>
+        </div>
+      </div>
           <div class="badge-visual-code">Validità e Rinnovo</div>
         </div>
       </div>
@@ -2627,5 +3053,6 @@
     }
   </script>
 
+  <script src="../assets/js/license-penalties-studio.js"></script>
 </body>
 </html>
