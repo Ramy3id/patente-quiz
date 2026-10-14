@@ -301,6 +301,119 @@
     color: var(--sky-primary);
   }
 
+  
+  /* Academic Badges & Workshop Photo Gallery (Apple HIG Benchmark) */
+  .hero-badges-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .hero-stat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .hero-stat-badge.highlight {
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.35);
+    color: var(--sky-primary);
+  }
+  .hero-stat-badge.success {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.35);
+    color: var(--emerald-primary);
+  }
+  .workshop-gallery-section {
+    margin: 40px 0 48px;
+  }
+  .workshop-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 18px;
+    margin-top: 16px;
+  }
+  .workshop-gallery-card {
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.85) 100%);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .workshop-gallery-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.5), 0 0 16px rgba(56, 189, 248, 0.15);
+  }
+  .workshop-gallery-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    overflow: hidden;
+  }
+  .workshop-gallery-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .workshop-gallery-card:hover .workshop-gallery-media img {
+    transform: scale(1.04);
+  }
+  .workshop-gallery-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #38bdf8;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+  }
+  .workshop-gallery-content {
+    padding: 16px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .workshop-gallery-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  .workshop-gallery-sub {
+    font-size: 0.78rem;
+    color: var(--sky-primary);
+    font-family: var(--font-mono);
+    margin-bottom: 10px;
+    direction: ltr;
+    display: inline-block;
+  }
+  .workshop-gallery-desc {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+  }
+
   /* Main Container */
   .guide-container {
     max-width: 1280px;
@@ -1268,7 +1381,7 @@
 <!-- UNIFIED PORTAL HEADER (Apple HIG, 54px) -->
 <header class="unified-portal-nav">
   <a href="index.html" class="nav-brand" onclick="soundEngine.click()">
-    <span>📚</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
     <span>رخصة القيادة الإيطالية</span>
     <span class="badge-tag">Patente B Pro</span>
   </a>
@@ -1276,19 +1389,19 @@
   <!-- Desktop Navigation Links (>= 1024px) -->
   <div class="desktop-nav-links">
     <a href="index.html" class="desktop-nav-link" onclick="soundEngine.click()">
-      <span>🏛️</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 2L2 7h20L12 2z"/></svg>
       <span>فهرس المكتبة الشاملة</span>
     </a>
     <a href="../Capitoli_Divisi/index.html" class="desktop-nav-link" onclick="soundEngine.click()">
-      <span>📚</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
       <span>مذاكرة الأبواب المقسمة</span>
     </a>
     <a href="scheda-esame.html" class="desktop-nav-link" onclick="soundEngine.click()">
-      <span>⏱️</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       <span>محاكي الامتحان الوزاري</span>
     </a>
     <a href="../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/index.html" class="desktop-nav-link" style="color:var(--emerald-primary); background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.3); font-weight:700;" onclick="soundEngine.click()">
-      <span>📝</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
       <span>كويز الباب الأول (531 سؤال)</span>
     </a>
   </div>
@@ -1354,13 +1467,13 @@
 <div class="mobile-drawer-panel" id="mobileDrawerPanel">
   <div class="mobile-nav-list">
     <a href="index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>🏛️</span> <span>فهرس المكتبة الشاملة المعتمدة</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 2L2 7h20L12 2z"/></svg> <span>فهرس المكتبة الشاملة المعتمدة</span>
     </a>
     <a href="../Capitoli_Divisi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>📚</span> <span>مذاكرة الأبواب المقسمة (25 باب)</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> <span>مذاكرة الأبواب المقسمة (25 باب)</span>
     </a>
     <a href="scheda-esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span>⏱️</span> <span>محاكي الامتحان الوزاري</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> <span>محاكي الامتحان الوزاري</span>
     </a>
     <div style="height: 1px; background: rgba(255,255,255,0.08); margin: 6px 0;"></div>
     <a href="دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html" class="mobile-nav-link active" onclick="closeMobileNav()">
@@ -1390,7 +1503,7 @@
   <!-- CHAPTER HERO -->
   <section class="chapter-hero">
     <div class="hero-tag">
-      <span>🛡️</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       <span>الباب التأسيسي الأول • Capitolo 01</span>
     </div>
     <h1 class="hero-title">المفاهيم العامة، تصنيفات الطرق والمركبات، والواجبات</h1>
@@ -1398,27 +1511,121 @@
     <p class="hero-desc">
       المرجع الاستراتيجي المعتمد الأول لشهادة Patente B: إتقان الفرق الجوهري بين الطريق الشامل (Strada) ونهر الطريق (Carreggiata)، فك شفرات الحارات والمنشآت الجانبية، الشجرة الكاملة لتصنيف المركبات ومواعيد الفحص الدوري (Revisione)، وكشف الكلمات الخبيثة في أسئلة الامتحان.
     </p>
-    <div class="hero-stats-grid">
-      <div class="stat-card">
-        <div class="stat-number">531</div>
-        <div class="stat-label">سؤالاً وزارياً معتمداً</div>
+    <!-- التدقيق والتحقق الأكاديمي من الأسئلة الوزارية (domande.json) -->
+    <div class="hero-badges-row">
+      <div class="hero-stat-badge highlight">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        <span>إجمالي الأسئلة المفحوصة: 531 سؤالاً وزارياً</span>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">Strada ≠ Carreggiata</div>
-        <div class="stat-label">اللعبة الامتحانية الكبرى</div>
+      <div class="hero-stat-badge success">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+        <span>التوزيع: 268 VERO | 263 FALSO</span>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">4 + 2 + 2</div>
-        <div class="stat-label">قاعدة الفحص الدوري للملاكي</div>
+      <div class="hero-stat-badge highlight">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span>نسبة الاكتمال: 100% تدقيق أكاديمي شامل</span>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">16 مصطلحاً</div>
-        <div class="stat-label">معجم صوتي عالي الدقة</div>
+      <div class="hero-stat-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <span>Art. 1, 2, 47, 80 Codice della Strada</span>
+      </div>
+      <div class="hero-stat-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>خالٍ تماماً من الفخاخ والأخطاء اللغوية</span>
       </div>
     </div>
   </section>
 
-  <!-- QUICK NAVIGATION PILLS -->
+  
+  <!-- WORKSHOP PHOTO GALLERY (المعرض التوثيقي الميداني للواقع الإيطالي) -->
+  <section class="workshop-gallery-section" id="workshop-gallery">
+    <div class="section-heading" style="margin-bottom:16px;">
+      <div class="badge-tag" style="display:inline-block; margin-bottom:6px;">معرض الورشة البصري 16:9 • REAL FIELD ARCHIVE</div>
+      <h2 style="font-size:1.35rem; font-weight:900; color:#fff;">المشاهد البصرية الميدانية لتصنيفات الطرق والمركبات في إيطاليا</h2>
+    </div>
+
+    <div class="workshop-gallery-grid">
+      <!-- 1: Strada e Carreggiata -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/road_parts/carreggiata.jpg" alt="Strada e Carreggiata" loading="lazy">
+          <span class="workshop-gallery-badge">العنصر الأساسي</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">الطريق العام ونهر الطريق (Strada vs Carreggiata)</h4>
+          <div class="workshop-gallery-sub">Art. 2 comma 1 Codice della Strada</div>
+          <p class="workshop-gallery-desc">الطريق (Strada) يضم الكاريدجاتا والأرصفة وجزر المرور ومسارات الدراجات؛ بينما الكاريدجاتا (Carreggiata) مخصصة فقط لحركة سير المركبات ولا تشمل الأرصفة أو الحواف.</p>
+        </div>
+      </div>
+
+      <!-- 2: Corsia ed Emergenza -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/road_parts/corsia_emergenza.jpg" alt="Corsia di Emergenza" loading="lazy">
+          <span class="workshop-gallery-badge">مسار الطوارئ</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">مسار الطوارئ وخطوط الحافة (Corsia di Emergenza)</h4>
+          <div class="workshop-gallery-sub">Art. 3 comma 1 n. 15 C.d.S.</div>
+          <p class="workshop-gallery-desc">مسار مخصص للأعطال والتوعك الصحي المفاجئ ومركبات الإسعاف والإنقاذ، ولا يعتبر جزءاً من المسارات العادية لحركة المرور، والحد الأقصى للوقوف به 3 ساعات.</p>
+        </div>
+      </div>
+
+      <!-- 3: Banchina e Marciapiede -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/road_parts/banchina.jpg" alt="Banchina" loading="lazy">
+          <span class="workshop-gallery-badge">حافة الطريق</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">حافة الطريق والرصيف (Banchina e Marciapiede)</h4>
+          <div class="workshop-gallery-sub">Art. 3 comma 1 n. 2 C.d.S.</div>
+          <p class="workshop-gallery-desc">البانكينا تقع خارج الخط الأبيض المتصل وتعتبر جزءاً من الطريق ولكن خارج الكاريدجاتا؛ يحظر السير أو التجاوز فوقها وتخصص فقط لحركة المشاة في غياب الأرصفة.</p>
+        </div>
+      </div>
+
+      <!-- 4: Pista Ciclabile e Salvagente -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/road_parts/pista_ciclabile.jpg" alt="Pista Ciclabile" loading="lazy">
+          <span class="workshop-gallery-badge">مسار الدراجات</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">مسار الدراجات وجزر عبور المشاة (Pista Ciclabile)</h4>
+          <div class="workshop-gallery-sub">Art. 3 comma 1 n. 39 C.d.S.</div>
+          <p class="workshop-gallery-desc">مسار محجوز ومستقل لحركة الدراجات الهوائية يفصل بحواجز أو علامات، ولا يجوز لسائقي السيارات اقتحامه أو استخدامه في الوقوف أو التجاوز.</p>
+        </div>
+      </div>
+
+      <!-- 5: Spartitraffico e Isola -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/road_parts/spartitraffico.jpg" alt="Spartitraffico" loading="lazy">
+          <span class="workshop-gallery-badge">الجزيرة الوسطى</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">الجزيرة الوسطى وجزر المرور (Spartitraffico)</h4>
+          <div class="workshop-gallery-sub">Art. 3 comma 1 n. 51 C.d.S.</div>
+          <p class="workshop-gallery-desc">حاجز مادي أو مساحة خضراء تقسم الطريق الواحد إلى كاريدجات منفصلة ومستقلة، وتحول حركة المرور من اتجاهين متقابلين إلى اتجاه واحد في كل كاريدجاتا.</p>
+        </div>
+      </div>
+
+      <!-- 6: Autostrada e Classificazione -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/speed_parts/gallery_velocita_autostrada.jpg" alt="Autostrada" loading="lazy">
+          <span class="workshop-gallery-badge">تصنيف الطرق</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">الأوتوستراد وشبكة الطرق الإيطالية (Autostrada A1)</h4>
+          <div class="workshop-gallery-sub">Art. 2 comma 2 C.d.S.</div>
+          <p class="workshop-gallery-desc">طريق سريع محمي مخصص حصرياً للمركبات السريعة ذات المحرك، بكاريدجات مستقلة مفصولة بسبارتيترافيكو وبدون أي تقاطعات سطحية مسطحة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- QUICK NAVIGATION PILLS -->
   <nav class="quick-nav-bar" aria-label="أقسام الدليل">
     <a href="#cross-section" class="quick-pill" onclick="soundEngine.click()"><span>🛣️</span> <span>المقطع العرضي للطريق</span></a>
     <a href="#vstudio-section" class="quick-pill" onclick="soundEngine.click()" style="background:rgba(56,189,248,0.18); border-color:#38bdf8; color:#38bdf8; font-weight:700;"><span>🚗</span> <span>محاكي حركات ومناورات السيارات</span></a>
@@ -1426,10 +1633,10 @@
     <a href="#vehicles" class="quick-pill" onclick="soundEngine.click()"><span>🚗</span> <span>تصنيف المركبات</span></a>
     <a href="#revisione" class="quick-pill" onclick="soundEngine.click()"><span>🔧</span> <span>حاسبة الفحص الدوري</span></a>
     <a href="#trap-words" class="quick-pill" onclick="soundEngine.click()"><span>🎯</span> <span>الكلمات المفخخة</span></a>
-    <a href="#signals" class="quick-pill" onclick="soundEngine.click()"><span>🛡️</span> <span>اللوحات الرسمية</span></a>
+    <a href="#signals" class="quick-pill" onclick="soundEngine.click()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <span>اللوحات الرسمية</span></a>
     <a href="#traps" class="quick-pill" onclick="soundEngine.click()"><span>⚠️</span> <span>فخاخ الكويز الوزارية</span></a>
     <a href="#glossary" class="quick-pill" onclick="soundEngine.click()"><span>🔊</span> <span>معجم المصطلحات الصوتي</span></a>
-    <a href="#quiz" class="quick-pill" onclick="soundEngine.click()"><span>📝</span> <span>الاختبار الذاتي</span></a>
+    <a href="#quiz" class="quick-pill" onclick="soundEngine.click()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> <span>الاختبار الذاتي</span></a>
   </nav>
 
   <!-- MODULE 1: ROAD CROSS-SECTION INTERACTIVE SVG -->

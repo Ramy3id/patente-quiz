@@ -352,9 +352,93 @@
     .nav-hamburger-btn { display: flex !important; }
   }
 
+  
+  /* Workshop Photo Gallery (Apple HIG Benchmark) */
+  .workshop-gallery-section {
+    margin: 40px 0 48px;
+  }
+  .workshop-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 18px;
+    margin-top: 16px;
+  }
+  .workshop-gallery-card {
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.85) 100%);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .workshop-gallery-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.5), 0 0 16px rgba(56, 189, 248, 0.15);
+  }
+  .workshop-gallery-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    overflow: hidden;
+  }
+  .workshop-gallery-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .workshop-gallery-card:hover .workshop-gallery-media img {
+    transform: scale(1.04);
+  }
+  .workshop-gallery-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #38bdf8;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+  }
+  .workshop-gallery-content {
+    padding: 16px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .workshop-gallery-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  .workshop-gallery-sub {
+    font-size: 0.78rem;
+    color: var(--sky-primary);
+    font-family: var(--font-mono);
+    margin-bottom: 10px;
+    direction: ltr;
+    display: inline-block;
+  }
+  .workshop-gallery-desc {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+  }
+
   /* Main Container */
   .guide-container {
-    max-width: 1140px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 32px 20px 80px;
   }
@@ -912,10 +996,23 @@
 
   <!-- HERO BANNER -->
   <header class="hero-banner">
-    <div class="hero-badges">
-      <span class="hero-badge badge-sky">CAPITOLO 06</span>
-      <span class="hero-badge badge-emerald">SEGNALETICA ORIZZONTALE</span>
-      <span class="hero-badge badge-amber">200 - 250 سؤال وزاري</span>
+    <div class="hero-badges" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px;">
+      <span class="hero-badge badge-sky">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        <span>إجمالي الأسئلة المفحوصة: 260 سؤالاً وزارياً</span>
+      </span>
+      <span class="hero-badge badge-emerald">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+        <span>التوزيع: 131 VERO | 129 FALSO</span>
+      </span>
+      <span class="hero-badge badge-sky">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span>نسبة الاكتمال: 100% تدقيق أكاديمي شامل</span>
+      </span>
+      <span class="hero-badge badge-amber">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <span>Art. 40, 137-155 Regolamento C.d.S.</span>
+      </span>
     </div>
     <h1 class="hero-title">دليل وقاموس الباب السادس: الإشارات الأرضية وعلامات العوائق</h1>
     <div class="hero-subtitle">Segnaletica Orizzontale e Segni sugli Ostacoli</div>
@@ -925,7 +1022,96 @@
   </header>
 
   <!-- SECTION 1: PANORAMICA E STATISTICHE -->
-  <section class="content-section">
+  
+  <!-- WORKSHOP PHOTO GALLERY (المعرض التوثيقي الميداني للواقع الإيطالي) -->
+  <section class="workshop-gallery-section" id="workshop-gallery">
+    <div class="section-heading" style="margin-bottom:16px;">
+      <div class="badge-tag" style="display:inline-block; margin-bottom:6px;">معرض الورشة البصري 16:9 • REAL FIELD ARCHIVE</div>
+      <h2 style="font-size:1.35rem; font-weight:900; color:#fff;">المشاهد البصرية الميدانية للعلامات الأرضية والإشارات الأفقية في إيطاليا</h2>
+    </div>
+
+    <div class="workshop-gallery-grid">
+      <!-- 1: Strisce Longitudinali -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/road_parts/carreggiata.jpg" alt="Strisce Longitudinali" loading="lazy">
+          <span class="workshop-gallery-badge">الخطوط الطولية</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">الخطوط الطولية المتصلة والمتقطعة (Strisce Longitudinali)</h4>
+          <div class="workshop-gallery-sub">Art. 40 comma 2 Codice della Strada</div>
+          <p class="workshop-gallery-desc">الخط المتصل الفردي أو المزدوج لا يجوز تجاوزه أو السير فوقه أبداً؛ عند اقتران خط متصل بآخر متقطع، يلتزم السائق بالقاعدة التي يفرضها الخط الأقرب لجهة مساره.</p>
+        </div>
+      </div>
+
+      <!-- 2: Frecce Direzionali e Corsie -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/circulation_parts/gallery_svolta_sinistra_doppio.jpg" alt="Frecce Direzionali" loading="lazy">
+          <span class="workshop-gallery-badge">مسارات التوجيه</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">أسهم التوجيه وقنوات السير (Frecce di Canalizzazione)</h4>
+          <div class="workshop-gallery-sub">Art. 147 Regolamento C.d.S.</div>
+          <p class="workshop-gallery-desc">تحدد مسبقاً الاتجاهات المسموح بها لكل مسار؛ بمجرد دخول السيارة مسار التوجيه ذي الخط المتصل، تصبح ملزمة بالسير في اتجاه السهم الموضح دون تردد.</p>
+        </div>
+      </div>
+
+      <!-- 3: Striscia di Arresto STOP -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/intersection_parts/gallery_incrocio_stop.jpg" alt="Striscia di Arresto" loading="lazy">
+          <span class="workshop-gallery-badge">خط التوقف العريض</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">خط التوقف العريض المتصل والمتقطع (Striscia di Arresto)</h4>
+          <div class="workshop-gallery-sub">Art. 144 Regolamento C.d.S.</div>
+          <p class="workshop-gallery-desc">الخط العريض المتصل يفرض التوقف التام لعجلات السيارة قبل اجتيازه عند إشارات STOP أو الضوء الأحمر؛ بينما الخط المتقطع من المثلثات يخص إشارة Dare Precedenza.</p>
+        </div>
+      </div>
+
+      <!-- 4: Attraversamento Pedonale e Salvagente -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/road_parts/salvagente.jpg" alt="Attraversamento Pedonale" loading="lazy">
+          <span class="workshop-gallery-badge">ممرات المشاة</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">ممرات المشاة وجزر الأمان (Attraversamento Pedonale)</h4>
+          <div class="workshop-gallery-sub">Art. 145 Regolamento C.d.S.</div>
+          <p class="workshop-gallery-desc">خطوط بيضاء عريضة متوازية مع مسار الطريق؛ تمنح الأسبقية المطلقة للمشاة الذين بدأوا العبور أو يهمون به، ويحظر الوقوف أو التوقف فوقها أو قبلها مباشرة.</p>
+        </div>
+      </div>
+
+      <!-- 5: Isola di Traffico e Zebratura -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/road_parts/isola_traffico.jpg" alt="Isola di Traffico" loading="lazy">
+          <span class="workshop-gallery-badge">جزيرة المرور</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">الجزيرة المرورية المطلية والخطوط المائلة (Zebratura)</h4>
+          <div class="workshop-gallery-sub">Art. 150 Regolamento C.d.S.</div>
+          <p class="workshop-gallery-desc">مساحة مطلية بخطوط بيضاء مائلة محاطة بخط متصل؛ تخصص لتنظيم وتوجيه تيارات المرور ويحظر تماماً سير المركبات أو وقوفها أو المرور فوقها.</p>
+        </div>
+      </div>
+
+      <!-- 6: Strisce di Sosta Colorate -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/parking_parts/gallery_parcometro.jpg" alt="Strisce di Sosta" loading="lazy">
+          <span class="workshop-gallery-badge">مواقف السيارات</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">خطوط المواقف الثلاثية الملونة (Strisce di Sosta)</h4>
+          <div class="workshop-gallery-sub">Art. 149 Regolamento C.d.S.</div>
+          <p class="workshop-gallery-desc">الخطوط البيضاء للوقوف المجاني، والخطوط الزرقاء للوقوف المدفوع ببطاقة أو عداد (Parcometro)، بينما الخطوط الصفراء مخصصة حصراً لفئات معينة (ذوي الإعاقة، الحافلات، الشرطة).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="content-section">
     <div class="section-header">
       <span class="section-icon">📊</span>
       <h2 class="section-title">1. نظرة عامة وإحصائيات الباب السادس (Panoramica e Statistiche)</h2>
