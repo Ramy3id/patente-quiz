@@ -311,6 +311,7 @@
   }
 
   /* Hero Section */
+    /* Chapter Hero (Apple HIG Centered Benchmark - Same as Ch 15 & 20) */
   .chapter-hero {
     background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12), transparent 70%),
                 linear-gradient(180deg, rgba(24, 24, 27, 0.7) 0%, rgba(18, 18, 20, 0.9) 100%);
@@ -322,51 +323,51 @@
     position: relative;
     overflow: hidden;
   }
-  .chapter-hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), transparent);
-  }
   .hero-tag {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 4px 12px;
+    gap: 8px;
     background: rgba(56, 189, 248, 0.12);
     border: 1px solid rgba(56, 189, 248, 0.28);
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 700;
     color: var(--sky-primary);
-    margin-bottom: 16px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin: 0 auto 16px auto;
   }
   .hero-title {
     font-size: 2.2rem;
     font-weight: 900;
     color: #fff;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     letter-spacing: -0.02em;
+    text-align: center;
   }
   .hero-subtitle {
     font-family: var(--font-mono);
     color: var(--sky-primary);
-    font-size: 1.05rem;
+    font-size: 1.1rem;
+    font-weight: 600;
     margin-bottom: 18px;
     direction: ltr;
+    display: inline-block;
+    text-align: center;
   }
   .hero-desc {
-    max-width: 860px;
-    margin: 0 auto 24px auto;
+    max-width: 820px;
+    margin: 0 auto 28px auto;
     color: var(--text-secondary);
-    font-size: 0.98rem;
-    line-height: 1.8;
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: center;
   }
   .hero-badges-row {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 12px;
+    margin-top: 10px;
   }
   .hero-stat-badge {
     display: inline-flex;
@@ -376,11 +377,11 @@
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--border-subtle);
     border-radius: 10px;
-    font-size: 0.85rem;
     color: #d4d4d8;
+    font-size: 0.82rem;
+    font-weight: 600;
   }
 
-  /* Golden Rules Banner */
   .golden-rules-banner {
     background: rgba(56, 189, 248, 0.06);
     border: 1px solid rgba(56, 189, 248, 0.22);
@@ -858,7 +859,41 @@
     .chapter-pagination { flex-direction: column; align-items: stretch; }
   }
 
-  </style>
+  
+  /* Intersection Card Image Wrapper (Centered, Proportionate, Restrained - Ch14) */
+  .card-img-wrapper, .signal-img-container, .signal-img-wrapper {
+    background: #0e0e11;
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-img-wrapper img, .signal-img-container img, .signal-img-wrapper img {
+    max-height: 155px;
+    max-width: 85%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
+    transition: transform 0.2s ease;
+  }
+  .signal-card:hover .card-img-wrapper img {
+    transform: scale(1.04);
+  }
+  html:not(.dark) .card-img-wrapper {
+    background: #f1f5f9;
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+
+</style>
   <link rel="manifest" href="../manifest.json">
 </head>
 <body>
@@ -963,19 +998,22 @@
 
   <!-- CHAPTER HERO -->
   <header class="chapter-hero">
-    <div class="hero-badge">الباب 14 • الدليل الذهبي الشامل المعتمد</div>
-    <h1 class="hero-title-ar">أسبقية المرور وفك التقاطعات الرسمية الـ 43</h1>
-    <div class="hero-title-it">Capitolo 14: Precedenza agli incroci e rappresentazioni grafiche</div>
+    <div class="hero-tag">
+      <span>🔄</span>
+      <span>الباب الرابع عشر • Capitolo 14</span>
+    </div>
+    <h1 class="hero-title">أسبقية المرور وفك التقاطعات الرسمية الـ 43</h1>
+    <div class="hero-subtitle">Capitolo 14: Precedenza agli incroci e rappresentazioni grafiche</div>
     <p class="hero-desc">
       الدليل المعتمد المتكامل لحل وتفكيك كافة مخططات التقاطعات الرسمية المعتمدة في بنك أسئلة الوزارة الإيطالية (Figure Ministeriali 604 - 669). يتضمن الخوارزمية الرباعية لحل أي تقاطع، محاكيات تفاعلية، وقواعد الأسبقية المطلقة للترام ومركبات الطوارئ وإشغال الوسط.
     </p>
 
     <!-- Hero Badges Row (Strict Gold Standard Pill Layout) -->
     <div class="hero-badges-row">
-      <div class="hero-stat-badge"><span>الأسئلة الوزارية:</span> <span>415 سؤالاً</span></div>
-      <div class="hero-stat-badge"><span>المخططات الفنية:</span> <span>43 تقاطعاً</span></div>
-      <div class="hero-stat-badge"><span>فخاخ الوزارة:</span> <span>25 فخاً حاسماً</span></div>
-      <div class="hero-stat-badge"><span>نسبة الإتقان:</span> <span>100% نجاح مؤكد</span></div>
+      <div class="hero-stat-badge"><span>📊</span> <span>415 سؤالاً وزارياً معتمداً ومطابقاً 100%</span></div>
+      <div class="hero-stat-badge"><span>🔄</span> <span>43 مخططاً فوتوغرافياً للتقاطعات</span></div>
+      <div class="hero-stat-badge"><span>⚠️</span> <span>25 فخاً وزارياً دقيقاً</span></div>
+      <div class="hero-stat-badge"><span>🎯</span> <span>دقة 100% كود السير 2026</span></div>
     </div>
   </header>
 
