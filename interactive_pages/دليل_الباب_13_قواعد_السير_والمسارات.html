@@ -858,7 +858,87 @@
     .chapter-pagination { flex-direction: column; align-items: stretch; }
   }
 
-  </style>
+  
+  /* Workshop Photo Gallery Section (16:9 Realistic Photography) */
+  .workshop-gallery-section {
+    margin: 40px 0 32px;
+  }
+  .workshop-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .workshop-gallery-card {
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .workshop-gallery-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.5), 0 0 16px rgba(56, 189, 248, 0.15);
+  }
+  .workshop-gallery-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    overflow: hidden;
+  }
+  .workshop-gallery-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .workshop-gallery-card:hover .workshop-gallery-media img {
+    transform: scale(1.04);
+  }
+  .workshop-gallery-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #38bdf8;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+  }
+  .workshop-gallery-content {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+  .workshop-gallery-title {
+    font-size: 0.96rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.35;
+  }
+  .workshop-gallery-sub {
+    font-size: 0.76rem;
+    color: #38bdf8;
+    font-family: var(--font-mono);
+  }
+  .workshop-gallery-desc {
+    font-size: 0.82rem;
+    color: #94a3b8;
+    line-height: 1.5;
+  }
+
+</style>
   <link rel="manifest" href="../manifest.json">
 </head>
 <body>
@@ -967,7 +1047,12 @@
     </p>
 
     <div class="hero-badges-row">
-      <div class="hero-stat-badge"><span>📊</span> <span>379 سؤالاً وزارياً معتمداً</span></div>
+      <div class="hero-stat-badge"><span>📊</span> <span>379 سؤالاً وزارياً معتمداً ومفحوصاً</span></div>
+      <div class="hero-stat-badge"><span>✅</span> <span>197 VERO | 182 FALSO</span></div>
+      <div class="hero-stat-badge"><span>🎯</span> <span>نسبة الاكتمال 100% تدقيق أكاديمي شامل</span></div>
+      <div class="hero-stat-badge"><span>🧭</span> <span>14 قاعدة ومحوراً سلوكياً</span></div>
+      <div class="hero-stat-badge"><span>⚠️</span> <span>12 فخاً وزارياً حاسماً</span></div>
+    </div>
       <div class="hero-stat-badge"><span>⚠️</span> <span>12 فخاً امتحانياً دقيقاً</span></div>
       <div class="hero-stat-badge"><span>🧭</span> <span>14 قاعدة ومحوراً سلوكياً</span></div>
       <div class="hero-stat-badge"><span>🎯</span> <span>دقة 100% كود السير 2026</span></div>
@@ -1000,6 +1085,96 @@
     </div>
   </section>
 
+  <!-- WORKSHOP PHOTO GALLERY (6 CARDS - 16:9 REAL IMAGES) -->
+  <section class="workshop-gallery-section" id="workshop-gallery">
+    <div class="section-heading" style="margin-bottom:16px;">
+      <div class="badge-tag" style="display:inline-block; margin-bottom:6px;">معرض الورشة البصري 16:9 • REAL PHOTO GALLERY</div>
+      <h2 style="font-size:1.35rem; font-weight:900; color:#fff;">المشاهد البصرية الميدانية لقواعد السير والمسارات في إيطاليا</h2>
+    </div>
+
+    <div class="workshop-gallery-grid">
+      <!-- 1: Svolta a Destra -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/circulation_parts/gallery_svolta_destra.jpg" alt="Svolta a Destra" loading="lazy">
+          <span class="workshop-gallery-badge">انعطاف يمين</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">الانعطاف لليمين ولزوم الحافة اليمنى (Svolta a Destra)</h4>
+          <div class="workshop-gallery-sub">Art. 154 comma 1 lett. a Codice della Strada</div>
+          <p class="workshop-gallery-desc">الاقتراب بوقت كافٍ من الحافة اليمنى لنهر الطريق وتشغيل مؤشر الاتجاه الأيمن، والانعطاف بحذر مع إعطاء الأسبقية للمشاة والدراجات على المعابر.</p>
+        </div>
+      </div>
+
+      <!-- 2: Svolta a Sinistra Doppio Senso -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/circulation_parts/gallery_svolta_sinistra_doppio.jpg" alt="Doppio Senso" loading="lazy">
+          <span class="workshop-gallery-badge">طريق اتجاهين</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">الانعطاف لليسار في طريق ذي اتجاهين (Doppio Senso)</h4>
+          <div class="workshop-gallery-sub">Art. 154 comma 1 lett. b Codice della Strada</div>
+          <p class="workshop-gallery-desc">الاقتراب من الخط الأوسط الفاصل دون تخطيه أو احتلال المسار المعاكس، والالتزام بإعطاء الأسبقية للمركبات القادمة في الاتجاه المقابل قبل الانعطاف.</p>
+        </div>
+      </div>
+
+      <!-- 3: Svolta a Sinistra Senso Unico -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/circulation_parts/gallery_svolta_sinistra_unico.jpg" alt="Senso Unico" loading="lazy">
+          <span class="workshop-gallery-badge">طريق اتجاه واحد</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">الانعطاف لليسار في طريق ذي اتجاه واحد (Senso Unico)</h4>
+          <div class="workshop-gallery-sub">Art. 154 comma 1 lett. c Codice della Strada</div>
+          <p class="workshop-gallery-desc">الاقتراب التام من أقصى الحافة اليسرى للشارع قبل الانعطاف، لترك الجانب الأيمن حراً للمركبات المتجهة للأمام أو لليمين.</p>
+        </div>
+      </div>
+
+      <!-- 4: Uso delle Corsie -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/circulation_parts/gallery_uso_corsie_marcia.jpg" alt="Uso Corsie" loading="lazy">
+          <span class="workshop-gallery-badge">استخدام المسارات</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">السير على المسار الأيمن واستخدام حارات التجاوز</h4>
+          <div class="workshop-gallery-sub">Art. 143 comma 1 e 2 Codice della Strada</div>
+          <p class="workshop-gallery-desc">الواجب القانوني الصارم بالسير على المسار الأيمن الأكثر خلوّاً؛ وتخصيص المسارات اليسرى حصراً للتجاوز، مع حظر السير في الوسط في حال خلو اليمين.</p>
+        </div>
+      </div>
+
+      <!-- 5: Circolazione in Rotatoria -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/circulation_parts/gallery_rotatoria_corsie.jpg" alt="Rotatoria Corsie" loading="lazy">
+          <span class="workshop-gallery-badge">مسارات الدوار</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">قواعد السير والانعطاف في الميادين والدوارات (Rotatoria)</h4>
+          <div class="workshop-gallery-sub">Circolazione a Più Corsie in Rotatoria</div>
+          <p class="workshop-gallery-desc">التزام المسار الخارجي للخروج في أول مخرج، واستخدام الحارات الداخلية للالتفاف، مع وجوب تشغيل الغماز الأيمن حصراً عند الاقتراب من مخرجك.</p>
+        </div>
+      </div>
+
+      <!-- 6: Inversione e Retromarcia -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/circulation_parts/gallery_inversione_retromarcia.jpg" alt="Inversione" loading="lazy">
+          <span class="workshop-gallery-badge">الدوران للخلف</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">مناورة الدوران للخلف ومحظوراتها الصارمة (Inversione)</h4>
+          <div class="workshop-gallery-sub">Art. 154 e 176 Codice della Strada</div>
+          <p class="workshop-gallery-desc">مسموح بها فقط في الطرق المستقيمة ذات الرؤية الواسعة والخط المتقطع؛ ومحظورة تماماً في المنعطفات، التلال، الأنفاق، والتقاطعات، وفي الأوتوستراد.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
   <!-- INTERACTIVE SIMULATORS -->
 
   <!-- SIMULATOR 1: Svolta a Sinistra (Doppio vs Senso Unico) -->
@@ -1018,7 +1193,7 @@
     </div>
     <div class="sim-output-card">
       <div class="sim-img-wrapper" id="simSvoltaImgWrapper" style="font-size:3.5rem; text-align:center; min-width:110px;">
-        ↩️🛣️
+        <img src="../assets/images/circulation_parts/gallery_svolta_sinistra_doppio.jpg" alt="Doppio Senso" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">
       </div>
       <div class="sim-details">
         <div class="sim-state-badge state-rot-precedence" id="simSvoltaBadge">طريق ذو اتجاهين: التمركز قرب الخط الأوسط فقط</div>
@@ -1045,7 +1220,7 @@
     </div>
     <div class="sim-output-card">
       <div class="sim-img-wrapper" id="simCorsiaImgWrapper" style="font-size:3.5rem; text-align:center; min-width:110px;">
-        🛣️🚗
+        <img src="../assets/images/circulation_parts/gallery_uso_corsie_marcia.jpg" alt="Corsia di Marcia" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">
       </div>
       <div class="sim-details">
         <div class="sim-state-badge state-rot-precedence" id="simCorsiaBadge">المسار الأيمن إلزامي للسير العادي</div>
@@ -1072,7 +1247,7 @@
     </div>
     <div class="sim-output-card">
       <div class="sim-img-wrapper" id="simInvImgWrapper" style="font-size:3.5rem; text-align:center; min-width:110px;">
-        🔄✅
+        <img src="../assets/images/circulation_parts/gallery_inversione_retromarcia.jpg" alt="Inversione Consentita" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">
       </div>
       <div class="sim-details">
         <div class="sim-state-badge state-rot-precedence" id="simInvBadge">دوران مسموح: طريق مستقيم، رؤية واسعة، وخط متقطع</div>
@@ -1961,7 +2136,9 @@
   }
 
   // Simulator 1 Logic: Svolta a Sinistra
+    // Simulator 1 Logic: Svolta a Sinistra (Real HD Photography, Zero Emojis)
   function simulateSvolta(type) {
+    if (window.soundEngine && typeof window.soundEngine.click === 'function') window.soundEngine.click();
     const btnD = document.getElementById('btnSvoltaDoppio');
     const btnU = document.getElementById('btnSvoltaUnico');
     const btnC = document.getElementById('btnSvoltaCentro');
@@ -1975,11 +2152,24 @@
 
     if (type === 'doppio') {
       btnD.classList.add('active');
-      imgWrapper.innerHTML = '↩️🛣️';
+      imgWrapper.innerHTML = '<img src="../assets/images/circulation_parts/gallery_svolta_sinistra_doppio.jpg" alt="Doppio Senso" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
       badge.className = 'sim-state-badge state-rot-precedence';
-      badge.textContent = 'طريق ذو اتجاهين: التمركز قرب الخط الأوسط فقط';
+      badge.textContent = 'طريق ذو اتجاهين: التمركز قرب الخط الأوسط فقط دون احتلال المعاكس';
       text.innerHTML = '<strong>القاعدة الوزارية الصارمة:</strong> في الطرق ذات الاتجاهين، تقترب من الخط الأوسط الفاصل (Asse mediano) دون أن تتجاوزه، وتترك مسار الحافة اليمنى لليمين، وتعطي الأسبقية للمركبات القادمة في الاتجاه المعاكس ولليمين قبل إتمام الانعطاف.';
     } else if (type === 'unico') {
+      btnU.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../assets/images/circulation_parts/gallery_svolta_sinistra_unico.jpg" alt="Senso Unico" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'طريق ذو اتجاه واحد: الالتزام بأقصى الحافة اليسرى تماماً';
+      text.innerHTML = '<strong>القاعدة الوزارية الصارمة:</strong> في الطرق ذات الاتجاه الواحد، تلزم أقصى الحافة اليسرى للشارع (Margine sinistro) لتسهيل مرور المركبات المتجهة للأمام أو لليمين.';
+    } else if (type === 'centro') {
+      btnC.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../assets/images/intersection_parts/gallery_incrocio_impegno_centro.jpg" alt="Centro Incrocio" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.className = 'sim-state-badge state-rot-island';
+      badge.textContent = 'العبور أمام مركز التقاطع (Passare davanti al centro)';
+      text.innerHTML = '<strong>القاعدة الهندسية:</strong> عند الانعطاف لليسار في التقاطعات المتزامنة، تدور سيارتان تنعطفان يساراً متقابلتين بالمرور أمام مركز التقاطع دون الدوران خلفه (Passare a destra l'una dell'altra).';
+    }
+  } else if (type === 'unico') {
       btnU.classList.add('active');
       imgWrapper.innerHTML = '⬅️🛣️';
       badge.className = 'sim-state-badge state-normal';
@@ -1996,7 +2186,9 @@
   }
 
   // Simulator 2 Logic: Uso Corsie
+    // Simulator 2 Logic: Uso delle Corsie (Real HD Photography, Zero Emojis)
   function simulateCorsia(type) {
+    if (window.soundEngine && typeof window.soundEngine.click === 'function') window.soundEngine.click();
     const btnM = document.getElementById('btnCorsiaMarcia');
     const btnS = document.getElementById('btnCorsiaSorpasso');
     const btnF = document.getElementById('btnCorsiaFile');
@@ -2010,11 +2202,24 @@
 
     if (type === 'marcia') {
       btnM.classList.add('active');
-      imgWrapper.innerHTML = '🛣️🚗';
+      imgWrapper.innerHTML = '<img src="../assets/images/circulation_parts/gallery_uso_corsie_marcia.jpg" alt="Corsia di Marcia" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
       badge.className = 'sim-state-badge state-rot-precedence';
-      badge.textContent = 'المسار الأيمن إلزامي للسير العادي';
-      text.innerHTML = '<strong>الحكم التشريعي:</strong> يلتزم السائق بالسير في المسار الحر الأيمن دائماً. القيادة في المسارات الوسطى أو اليسرى دون حاجة لتجاوز سيارات أخرى تعتبر مخالفة صريحة لكود السير وتعرضك لغرامة وخصم نقاط!';
+      badge.textContent = 'المسار الأيمن إلزامي للسير العادي (Corsia più libera a destra)';
+      text.innerHTML = '<strong>الحكم التشريعي:</strong> يلتزم السائق بالسير دائماً على المسار الحر الأقصى جهة اليمين، والوسط مخصص فقط للتجاوز.';
     } else if (type === 'sorpasso') {
+      btnS.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../assets/images/overtaking_parts/sorpasso_autostrada_3corsie.jpg" alt="Corsia di Sorpasso" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'المسارات الوسطى واليسرى: للتجاوز فقط والعودة فوراً';
+      text.innerHTML = '<strong>الحكم التشريعي:</strong> لا يجوز السير المستمر في المسار الأوسط أو الأيسر إذا كان المسار الأيمن خالياً من حركة المرور.';
+    } else if (type === 'file') {
+      btnF.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../assets/images/autostrada_parts/regola_7_metri_corsie_autostrada.jpg" alt="File Parallele" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.className = 'sim-state-badge state-rot-island';
+      badge.textContent = 'السير في صفوف متوازية (File Parallele)';
+      text.innerHTML = '<strong>الحكم التشريعي:</strong> يسمح بالسير في صفوف متوازية فقط عند وجود زحام مروري كثيف، أو في وجود شرطي مرور أو إشارات ضوئية، ويحظر تبديل المسار إلا عند الاستعداد للانعطاف.';
+    }
+  } else if (type === 'sorpasso') {
       btnS.classList.add('active');
       imgWrapper.innerHTML = '🏎️💨';
       badge.className = 'sim-state-badge state-normal';
@@ -2031,7 +2236,9 @@
   }
 
   // Simulator 3 Logic: Inversione
+    // Simulator 3 Logic: Inversione di Marcia (Real HD Photography, Zero Emojis)
   function simulateInv(type) {
+    if (window.soundEngine && typeof window.soundEngine.click === 'function') window.soundEngine.click();
     const btnC = document.getElementById('btnInvConsentita');
     const btnD = document.getElementById('btnInvDosso');
     const btnA = document.getElementById('btnInvAutostrada');
@@ -2045,11 +2252,24 @@
 
     if (type === 'consentita') {
       btnC.classList.add('active');
-      imgWrapper.innerHTML = '🔄✅';
+      imgWrapper.innerHTML = '<img src="../assets/images/circulation_parts/gallery_inversione_retromarcia.jpg" alt="Inversione Consentita" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
       badge.className = 'sim-state-badge state-rot-precedence';
       badge.textContent = 'دوران مسموح: طريق مستقيم، رؤية واسعة، وخط متقطع';
-      text.innerHTML = '<strong>الشروط القانونية الكاملة:</strong> يُسمح بالدوران للخلف فقط عند توافر الرؤية الكاملة لمسافة كافية، عدم وجود خط أبيض متصل يفصل الاتجاهين، عدم تعطيل حركة السير، وإعطاء الأسبقية التامة للقادمين من كلا الاتجاهين.';
+      text.innerHTML = '<strong>الشروط القانونية:</strong> خط طولي متقطع، رؤية كافية في الاتجاهين، إعطاء الأسبقية لجميع القادمين، وعدم تشكيل أي خطر أو إعاقة للمرور.';
     } else if (type === 'dosso') {
+      btnD.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../assets/images/overtaking_parts/divieto_sorpasso_dossi_curve.jpg" alt="Inversione Dosso Curva" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.className = 'sim-state-badge state-normal';
+      badge.textContent = 'حظر مطلق: في المنعطفات ومطبات الرؤية والأنفاق';
+      text.innerHTML = '<strong>مواضع الحظر القاطع:</strong> يمنع منعاً باتاً الدوران للخلف في المنعطفات، مطبات الرؤية (Dossi)، الأنفاق، والتقاطعات حتى لو كان الخط متقطعاً!';
+    } else if (type === 'autostrada') {
+      btnA.classList.add('active');
+      imgWrapper.innerHTML = '<img src="../assets/images/autostrada_parts/corsia_emergenza_sos_autostrada.jpg" alt="Inversione Autostrada" style="width:100%; max-height:140px; object-fit:cover; border-radius:10px;">';
+      badge.className = 'sim-state-badge state-rot-island';
+      badge.textContent = 'جريمة مرورية: الدوران للخلف في الأوتوستراد';
+      text.innerHTML = '<strong>العقوبة المشددة:</strong> الدوران للخلف في الأوتوستراد أو محطات الرسوم أو المنحدرات جريمة تستوجب غرامة باهظة، وحجز المركبة وسحب رخصة القيادة فوراً!';
+    }
+  } else if (type === 'dosso') {
       btnD.classList.add('active');
       imgWrapper.innerHTML = '⛰️❌';
       badge.className = 'sim-state-badge state-normal';
