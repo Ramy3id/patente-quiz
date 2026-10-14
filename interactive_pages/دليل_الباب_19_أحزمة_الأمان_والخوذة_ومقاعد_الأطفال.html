@@ -1023,6 +1023,305 @@
     .chapter-pagination { flex-direction: column; gap: 12px; }
     .pagination-btn { width: 100%; justify-content: center; }
   }
+
+  /* Real Photographic Visuals on Technical Cards */
+  .card-img-container {
+    height: 190px !important;
+    background: #0d111a !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+  .card-img-real {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    transition: transform 0.35s ease !important;
+  }
+  .technical-card:hover .card-img-real {
+    transform: scale(1.04) !important;
+  }
+
+  /* 60 FPS Safety Studio Section */
+  .safety-studio-section {
+    background: linear-gradient(145deg, #131722 0%, #0b0e14 100%);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 36px 0;
+  }
+  .safety-studio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 16px;
+  }
+  .safety-studio-title-box h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #f8fafc;
+    margin: 0 0 6px;
+  }
+  .safety-studio-title-box p {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    margin: 0;
+  }
+  .safety-tabs-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .safety-tab-btn {
+    background: #1e293b;
+    color: #cbd5e1;
+    border: 1px solid #334155;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .safety-tab-btn:hover {
+    background: #334155;
+    color: #f8fafc;
+  }
+  .safety-tab-btn.active {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #60a5fa;
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+  }
+  .safety-canvas-wrapper {
+    background: #020617;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  #safetyCanvas {
+    width: 100%;
+    height: 380px;
+    display: block;
+  }
+  .safety-controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 18px;
+  }
+  .safety-ctrl-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .safety-ctrl-group label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #e2e8f0;
+  }
+  .safety-range-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .safety-range-row input[type="range"] {
+    flex: 1;
+    accent-color: #2563eb;
+  }
+  .safety-range-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    color: #38bdf8;
+    background: #0f172a;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    border: 1px solid #334155;
+  }
+  .safety-select, .safety-input {
+    background: #0f172a;
+    border: 1px solid #334155;
+    color: #f1f5f9;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .safety-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #cbd5e1;
+  }
+  .safety-checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #2563eb;
+  }
+  .safety-btn-primary {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    transition: transform 0.15s ease, background 0.2s ease;
+  }
+  .safety-btn-primary:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: translateY(-2px);
+  }
+  .safety-report-box {
+    margin-top: 16px;
+    padding: 16px;
+    border-radius: 10px;
+    background: #0f172a;
+    border-right: 4px solid #38bdf8;
+  }
+  .safety-report-text-ar {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 6px;
+    line-height: 1.6;
+  }
+  .safety-report-text-it {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    font-style: italic;
+  }
+  .safety-alert-box {
+    padding: 16px;
+    border-radius: 10px;
+    margin-top: 16px;
+  }
+  .safety-alert-box.alert-danger {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid #ef4444;
+    border-right: 4px solid #ef4444;
+  }
+  .safety-alert-box.alert-safe {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid #10b981;
+    border-right: 4px solid #10b981;
+  }
+
+  /* Progress bar in gear inspector */
+  .gear-score-container {
+    margin-top: 14px;
+    background: #0f172a;
+    border-radius: 8px;
+    padding: 10px 14px;
+    border: 1px solid #334155;
+  }
+  .gear-score-bar-bg {
+    width: 100%;
+    height: 12px;
+    background: #1e293b;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 6px;
+  }
+  .gear-score-bar-fill {
+    height: 100%;
+    width: 100%;
+    background: #10b981;
+    transition: width 0.3s ease, background-color 0.3s ease;
+  }
+
+  /* Workshop Photo Gallery Section */
+  .workshop-gallery-section {
+    margin: 40px 0 32px;
+  }
+  .workshop-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .workshop-gallery-card {
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  .workshop-gallery-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(59, 130, 246, 0.4);
+  }
+  .workshop-gallery-media {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+    background: #0b0f17;
+  }
+  .workshop-gallery-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+  }
+  .workshop-gallery-card:hover .workshop-gallery-media img {
+    transform: scale(1.05);
+  }
+  .workshop-gallery-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(15, 23, 42, 0.85);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    letter-spacing: 0.3px;
+  }
+  .workshop-gallery-content {
+    padding: 14px 16px;
+  }
+  .workshop-gallery-title {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: #f1f5f9;
+    margin: 0 0 4px;
+  }
+  .workshop-gallery-sub {
+    font-size: 0.8rem;
+    color: #38bdf8;
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .workshop-gallery-desc {
+    font-size: 0.84rem;
+    color: #94a3b8;
+    margin: 0;
+    line-height: 1.5;
+  }
+
 </style>
   <link rel="manifest" href="../manifest.json">
 </head>
@@ -1148,10 +1447,10 @@
 
     <!-- Hero Badges Row (Explicit User Specification) -->
     <div class="hero-badges-row">
-      <div class="hero-stat-badge"><span>📊</span> <span>135 سؤالاً وزارياً معتمداً</span></div>
-      <div class="hero-stat-badge"><span>⚠️</span> <span>12 فخاً وزارياً دقيقاً</span></div>
-      <div class="hero-stat-badge"><span>🛡️</span> <span>16 بطاقة فنية شاملة</span></div>
-      <div class="hero-stat-badge"><span>🎯</span> <span>دقة 100% كود السير 2026</span></div>
+      <div class="hero-stat-badge"><span>📊</span> <span>135 سؤالاً وزارياً معتمداً ومطابقاً 100%</span></div>
+      <div class="hero-stat-badge"><span>🛡️</span> <span>12 بطاقة شاملة لمنظومة الأمان والملابس</span></div>
+      <div class="hero-stat-badge"><span>📸</span> <span>معرض توثيقي ميداني (6 تجهيزات أصلية)</span></div>
+      <div class="hero-stat-badge"><span>⚡</span> <span>استوديو تفاعلي 60 FPS لمحاكاة الاصطدام</span></div>
     </div>
   </section>
 
@@ -1303,11 +1602,148 @@
   </section>
 
   <!-- FILTER PILLS QUICK NAV -->
+  
+  <!-- ========================================== -->
+  <!-- 60 FPS HTML5 SAFETY SIMULATION STUDIO      -->
+  <!-- ========================================== -->
+  <section class="safety-studio-section" id="safety-studio">
+    <div class="safety-studio-header">
+      <div class="safety-studio-title-box">
+        <h2>⚡ استوديو الأمان والسلامة التفاعلي (Safety Simulation Studio)</h2>
+        <p>محاكاة فيزيائية في الوقت الفعلي (60 FPS) لديناميكا الاصطدام بالمللي ثانية، حساب وتثبيت مقاعد الأطفال ISOFIX، وفحص معايير الخوذة وملابس الدراجات</p>
+      </div>
+      <div class="safety-tabs-row">
+        <button class="safety-tab-btn active" data-mode="crash">💥 محاكي الاصطدام بالمللي ثانية</button>
+        <button class="safety-tab-btn" data-mode="isofix">👶 حاسبة مقاعد الأطفال وإلغاء الإيرباج</button>
+        <button class="safety-tab-btn" data-mode="gear">🛡️ فاحص الخوذة وتجهيزات الموتوسيكل</button>
+      </div>
+    </div>
+
+    <!-- Canvas Simulation Stage -->
+    <div class="safety-canvas-wrapper">
+      <canvas id="safetyCanvas" width="900" height="380"></canvas>
+    </div>
+
+    <!-- Controls Panel: Mode 1 - Crash -->
+    <div class="safety-panel-ctrl" data-panel="crash">
+      <div class="safety-controls-grid">
+        <div class="safety-ctrl-group">
+          <label>سرعة المركبة لحظة الاصطدام (Velocità di Impatto):</label>
+          <div class="safety-range-row">
+            <input type="range" id="crashSpeedSlider" min="30" max="130" step="10" value="50">
+            <span class="safety-range-val" id="crashSpeedVal">50 km/h</span>
+          </div>
+        </div>
+        <div class="safety-ctrl-group" style="justify-content: center;">
+          <label class="safety-checkbox-label">
+            <input type="checkbox" id="crashBeltCheck" checked>
+            <span>ربط حزام الأمان ثلاثي النقاط (Cintura Allacciata)</span>
+          </label>
+        </div>
+        <div class="safety-ctrl-group" style="justify-content: center;">
+          <button class="safety-btn-primary" id="crashStartBtn">🚀 ابدأ محاكاة الاصطدام (Avvia Impatto)</button>
+        </div>
+      </div>
+      <div class="safety-report-box">
+        <div class="safety-report-text-ar" id="crashReportAr">اضغط على زر (ابدأ محاكاة الاصطدام) لمشاهدة استجابة جهاز الشد المسبق (Pretensionatore) في أول 15 ms، وانفتاح الإيرباج في 30 ms وتفريغه في 80 ms.</div>
+        <div class="safety-report-text-it" id="crashReportIt">Premi "Avvia Impatto" per osservare il comportamento dinamico della cintura e dell'airbag.</div>
+      </div>
+    </div>
+
+    <!-- Controls Panel: Mode 2 - ISOFIX & Child Seat -->
+    <div class="safety-panel-ctrl" data-panel="isofix" style="display: none;">
+      <div class="safety-controls-grid">
+        <div class="safety-ctrl-group">
+          <label>طول قامة الطفل (Statura del Bambino):</label>
+          <div class="safety-range-row">
+            <input type="range" id="childHeightSlider" min="50" max="165" step="5" value="110">
+            <span class="safety-range-val" id="childHeightVal">110 cm</span>
+          </div>
+        </div>
+        <div class="safety-ctrl-group">
+          <label>موضع المقعد داخل السيارة (Posizione):</label>
+          <select id="childSeatPos" class="safety-select">
+            <option value="rear">المقاعد الخلفية (Sedili Posteriori) - الأكثر أماناً</option>
+            <option value="front">المقعد الأمامي للراكب (Sedile Anteriore Passeggero)</option>
+          </select>
+        </div>
+        <div class="safety-ctrl-group">
+          <label>اتجاه تركيب المقعد (Orientamento):</label>
+          <select id="childFacing" class="safety-select">
+            <option value="forward">في نفس اتجاه السير (Senso di Marcia)</option>
+            <option value="rearward">عكس اتجاه السير (Contrario al Senso di Marcia)</option>
+          </select>
+        </div>
+        <div class="safety-ctrl-group" style="justify-content: center;">
+          <label class="safety-checkbox-label">
+            <input type="checkbox" id="childAirbagToggle" checked>
+            <span>الوسادة الهوائية الأمامية للراكب مفعلة (Airbag Passeggero ON)</span>
+          </label>
+        </div>
+      </div>
+      <div class="safety-alert-box alert-safe" id="childAlertBox">
+        <div class="safety-report-text-ar" id="childStatusAr">جاري تحليل وضع المقعد ومطابقته لكود السير...</div>
+        <div class="safety-report-text-it" id="childStatusIt">Analisi conformità sistema di ritenuta in corso...</div>
+      </div>
+    </div>
+
+    <!-- Controls Panel: Mode 3 - Helmet & Gear -->
+    <div class="safety-panel-ctrl" data-panel="gear" style="display: none;">
+      <div class="safety-controls-grid">
+        <div class="safety-ctrl-group">
+          <label>نوع وحالة الخوذة (Tipologia e Stato Casco):</label>
+          <select id="gearHelmetType" class="safety-select">
+            <option value="integrale">خوذة كاملة معتمدة ECE 22.06 (Casco Integrale P) - حماية قصوى</option>
+            <option value="jet">خوذة مفتوحة بدون واقي فك (Casco Demi-Jet J)</option>
+            <option value="danneggiato">خوذة تعرضت لصدمة أو سقوط سابق (Casco Danneggiato da Urto)</option>
+          </select>
+        </div>
+        <div class="safety-ctrl-group">
+          <label class="safety-checkbox-label">
+            <input type="checkbox" id="gearStrapCheck" checked>
+            <span>حزام الذقن مربوط ومحكم تماماً (Cinturino Allacciato)</span>
+          </label>
+          <label class="safety-checkbox-label">
+            <input type="checkbox" id="gearVisorCheck" checked>
+            <span>الواقية شفافة ونظيفة وخالية من الخدوش (Visiera Integra)</span>
+          </label>
+        </div>
+        <div class="safety-ctrl-group">
+          <label class="safety-checkbox-label">
+            <input type="checkbox" id="gearGlovesCheck" checked>
+            <span>قفازات موتوسيكل معتمدة EN 13594 (Guanti Moto)</span>
+          </label>
+          <label class="safety-checkbox-label">
+            <input type="checkbox" id="gearBootsCheck" checked>
+            <span>أحذية مقواة لحماية الكاحل EN 13634 (Stivali Moto)</span>
+          </label>
+          <label class="safety-checkbox-label">
+            <input type="checkbox" id="gearJacketCheck" checked>
+            <span>جاكيت بحامي ظهر معتمد EN 1621 (Paraschiena)</span>
+          </label>
+        </div>
+      </div>
+      <div class="gear-score-container">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.95rem; font-weight: 800; color: #f8fafc;">🛡️ مؤشر الامتثال والأمان الشامل:</span>
+          <span id="gearScoreVal" style="font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; font-weight: 900; color: #10b981;">100%</span>
+        </div>
+        <div class="gear-score-bar-bg">
+          <div class="gear-score-bar-fill" id="gearScoreBar" style="width: 100%;"></div>
+        </div>
+      </div>
+      <div class="safety-report-box" style="margin-top: 12px;">
+        <div class="safety-report-text-ar" id="gearNotesAr">تجهيزات الأمان مطابقة للمواصفات الوزارية.</div>
+        <div class="safety-report-text-it" id="gearNotesIt">Dotazione conforme alle prescrizioni del Codice della Strada.</div>
+      </div>
+    </div>
+  </section>
+
   <div class="quick-nav-bar">
-    <button class="filter-pill active" onclick="filterCards('all')">جميع البطاقات (16)</button>
-    <button class="filter-pill" onclick="filterCards('belts')">أحزمة الأمان والإيرباج (6)</button>
-    <button class="filter-pill" onclick="filterCards('kids')">مقاعد وحماية الأطفال (5)</button>
-    <button class="filter-pill" onclick="filterCards('moto')">الخوذة ومعدات الدراجات (5)</button>
+    <button class="filter-pill active" onclick="filterCards('all')">جميع البطاقات (12)</button>
+    <button class="filter-pill" onclick="filterCards('belts')">أحزمة الأمان والإيرباج والإعفاءات (5)</button>
+    <button class="filter-pill" onclick="filterCards('kids')">مقاعد وحماية الأطفال (2)</button>
+    <button class="filter-pill" onclick="filterCards('moto')">الخوذة ومعدات الدراجات النارية (5)</button>
   </div>
 
   <!-- TECHNICAL CARDS GRID -->
@@ -1316,7 +1752,7 @@
     <!-- Card 1: Cinture di Sicurezza -->
     <div class="technical-card" data-category="belts">
       <div class="card-img-container">
-        <div class="card-img-placeholder">🔒</div>
+        <img src="../assets/images/safety_parts/cintura_sicurezza_tre_punti.jpg" alt="Le cinture di sicurezza a 3 punti" class="card-img-real" loading="lazy">
       </div>
       <div class="card-content">
         <div class="card-header-info">
@@ -1348,7 +1784,7 @@
     <!-- Card 2: Il Pretensionatore -->
     <div class="technical-card" data-category="belts">
       <div class="card-img-container">
-        <div class="card-img-placeholder">⚡</div>
+        <img src="../assets/images/safety_parts/pretensionatore_pirotecnico.jpg" alt="Il pretensionatore delle cinture" class="card-img-real" loading="lazy">
       </div>
       <div class="card-content">
         <div class="card-header-info">
@@ -1380,7 +1816,7 @@
     <!-- Card 3: Airbag Frontale e Laterale -->
     <div class="technical-card" data-category="belts">
       <div class="card-img-container">
-        <div class="card-img-placeholder">🎈</div>
+        <img src="../assets/images/safety_parts/airbag_frontale_laterale.jpg" alt="L'airbag frontale e laterale" class="card-img-real" loading="lazy">
       </div>
       <div class="card-content">
         <div class="card-header-info">
@@ -1412,7 +1848,7 @@
     <!-- Card 4: Statura 1.50m e Seggiolini -->
     <div class="technical-card" data-category="kids">
       <div class="card-img-container">
-        <div class="card-img-placeholder">👶</div>
+        <img src="../assets/images/safety_parts/seggiolino_bambini_isofix.jpg" alt="Sistemi di ritenuta per bambini ISOFIX" class="card-img-real" loading="lazy">
       </div>
       <div class="card-content">
         <div class="card-header-info">
@@ -1444,7 +1880,7 @@
     <!-- Card 5: Seggiolino Contrario al Senso di Marcia -->
     <div class="technical-card" data-category="kids">
       <div class="card-img-container">
-        <div class="card-img-placeholder">🚼</div>
+        <img src="../assets/images/safety_parts/seggiolino_contrario_marcia_airbag.jpg" alt="Seggiolino contrario al senso di marcia" class="card-img-real" loading="lazy">
       </div>
       <div class="card-content">
         <div class="card-header-info">
@@ -1476,7 +1912,7 @@
     <!-- Card 6: Il Poggiatesta -->
     <div class="technical-card" data-category="belts">
       <div class="card-img-container">
-        <div class="card-img-placeholder">💺</div>
+        <img src="../assets/images/safety_parts/poggiatesta_colpo_frusta.jpg" alt="Il poggiatesta e colpo di frusta" class="card-img-real" loading="lazy">
       </div>
       <div class="card-content">
         <div class="card-header-info">
@@ -1508,7 +1944,7 @@
     <!-- Card 7: Il Casco Protettivo -->
     <div class="technical-card" data-category="moto">
       <div class="card-img-container">
-        <div class="card-img-placeholder">🪖</div>
+        <img src="../assets/images/safety_parts/casco_integrale_omologato.jpg" alt="Il casco protettivo omologato ECE 22.06" class="card-img-real" loading="lazy">
       </div>
       <div class="card-content">
         <div class="card-header-info">
@@ -1540,7 +1976,7 @@
     <!-- Card 8: Sostituzione del Casco dopo un Urto -->
     <div class="technical-card" data-category="moto">
       <div class="card-img-container">
-        <div class="card-img-placeholder">💥</div>
+        <img src="../assets/images/safety_parts/casco_danneggiato_sostituzione.jpg" alt="Sostituzione del casco dopo un urto" class="card-img-real" loading="lazy">
       </div>
       <div class="card-content">
         <div class="card-header-info">
@@ -1569,7 +2005,230 @@
       </div>
     </div>
 
+    <!-- Card 9: Guanti Moto Omologati EN 13594 -->
+    <div class="technical-card" data-category="moto">
+      <div class="card-img-container">
+        <img src="../assets/images/safety_parts/guanti_moto_omologati.jpg" alt="Guanti ad uso motociclistico omologati" class="card-img-real" loading="lazy">
+      </div>
+      <div class="card-content">
+        <div class="card-header-info">
+          <div class="card-title-it">Guanti ad uso motociclistico (Norma EN 13594)</div>
+          <h3 class="card-title-ar">قفازات قيادة الدراجات النارية المعتمدة</h3>
+        </div>
+        <div class="card-box-vero">
+          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">✅</span> مصممة خصيصاً لحماية اليدين والمعصم من التسلخ والاحتكاك العنيف بالإسفلت عند الانزلاق.</li>
+            <li><span class="bullet-icon">✅</span> تحتوي على تصفيح صلب لحماية مفاصل الأصابع (Nocche) وعظمة الزورق (Scafoide) من الكسور.</li>
+            <li><span class="bullet-icon">✅</span> تضمن إحكام القبضة على مقود الدراجة وتحافظ على الحساسية الدقيقة لأذرع الفرامل والدبرياج.</li>
+            <li><span class="bullet-icon">✅</span> تحمي من برودة الطقس والعوامل الجوية التي قد تفقد الأصابع حركتها وسرعة رد فعلها.</li>
+          </ul>
+        </div>
+        <div class="card-box-falso">
+          <div class="card-box-falso-title"><span>❌</span> أخطاء شائعة في الاختبار (FALSO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">🚫</span> [FALSO] يمكن استبدال قفازات الموتوسيكل بقفازات الصوف العادية أو قفازات العمل المنزلي.</li>
+            <li><span class="bullet-icon">🚫</span> [FALSO] قفازات الدراجات تمنع حركة الأصابع وتلغي القدرة على الضغط على الفرامل.</li>
+          </ul>
+        </div>
+        <div class="card-trap-box">
+          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الحاسم (Trabocchetto)</div>
+          <p>احذر: قفازات الموتوسيكل المعتمدة يجب أن تحتوي على شريط إحكام على المعصم لمنع انخلاعها (Antiscalzamento) أثناء الانزلاق، ووجود هذا الشريط يعتبر من مؤشرات الاعتماد الأوروبي EN 13594.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 10: Stivali da Moto EN 13634 -->
+    <div class="technical-card" data-category="moto">
+      <div class="card-img-container">
+        <img src="../assets/images/safety_parts/stivali_moto_protettivi.jpg" alt="Stivali ad uso motociclistico protettivi" class="card-img-real" loading="lazy">
+      </div>
+      <div class="card-content">
+        <div class="card-header-info">
+          <div class="card-title-it">Stivali ad uso motociclistico (Norma EN 13634)</div>
+          <h3 class="card-title-ar">أحذية الدراجات النارية المقواة والمحمية</h3>
+        </div>
+        <div class="card-box-vero">
+          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">✅</span> مصممة بنعل صلب مانع للالتواء ومقاوم للدهون والزيوت والانزلاق على الطرق المبتلة.</li>
+            <li><span class="bullet-icon">✅</span> تحمي عظام الكاحل الناتئة (Malleoli) وقصبة الساق (Tibia) من الصدمات والدهس والسحق.</li>
+            <li><span class="bullet-icon">✅</span> مصممة بدون أربطة حرة متدلية قد تعلق بدواسات التروس أو الفرامل أو السلسلة.</li>
+            <li><span class="bullet-icon">✅</span> توفر عزلاً حرارياً فعالاً يمنع الحروق الناتجة عن ملامسة أنبوب العادم أو أجزاء المحرك الساخنة.</li>
+          </ul>
+        </div>
+        <div class="card-box-falso">
+          <div class="card-box-falso-title"><span>❌</span> أخطاء شائعة في الاختبار (FALSO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">🚫</span> [FALSO] الأحذية الخفيفة ذات النعل المرن كأحذية الجري أفضل لقيادة الدراجة لسهولة تحريك القدم.</li>
+            <li><span class="bullet-icon">🚫</span> [FALSO] أحذية الدراجات النارية إلزامية فقط على الأوتوستراد واختيارية داخل المدن.</li>
+          </ul>
+        </div>
+        <div class="card-trap-box">
+          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الحاسم (Trabocchetto)</div>
+          <p>يؤكد كود السير أن الحذاء التقني للموتوسيكل يحمي من التواء المفصل (Torsione) ومن السحق الجانبي بين الدراجة والإسفلت، وهو ما تعجز عنه الأحذية العادية تماماً.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 11: Giacca Tecnica, Paraschiena e Airbag Moto -->
+    <div class="technical-card" data-category="moto">
+      <div class="card-img-container">
+        <img src="../assets/images/safety_parts/giacca_moto_paraschiena.jpg" alt="Giacca moto con paraschiena e airbag" class="card-img-real" loading="lazy">
+      </div>
+      <div class="card-content">
+        <div class="card-header-info">
+          <div class="card-title-it">Giacca tecnica, paraschiena e airbag moto (EN 1621)</div>
+          <h3 class="card-title-ar">السترة الواقية وحامي الظهر والوسائد الهوائية للدراجات</h3>
+        </div>
+        <div class="card-box-vero">
+          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">✅</span> الجاكيت التقني المعتمد مصنوع من مواد مقاومة للتآكل والتمزق الشديد (Cordura أو جلد طبيعي).</li>
+            <li><span class="bullet-icon">✅</span> يشتمل على دعامات امتصاص صدمات معتمدة على الكتفين والمرفقين والعمود الفقري.</li>
+            <li><span class="bullet-icon">✅</span> حامي الظهر (Paraschiena) يمتص طاقة الصدمة ويقلل من أخطار كسور وإصابات النخاع الشوكي.</li>
+            <li><span class="bullet-icon">✅</span> السترات المزودة بوسادة هوائية للدراجات (Airbag Moto) تنتفخ فوراً لحماية الرقبة والقفص الصدري.</li>
+          </ul>
+        </div>
+        <div class="card-box-falso">
+          <div class="card-box-falso-title"><span>❌</span> أخطاء شائعة في الاختبار (FALSO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">🚫</span> [FALSO] حامي الظهر مخصص فقط لحلبات السباق وممنوع ارتداؤه في الطرق العادية.</li>
+            <li><span class="bullet-icon">🚫</span> [FALSO] السترات الواقية تزيد من خطر الاختناق وتمنع الرؤية الجانبية للسائق.</li>
+          </ul>
+        </div>
+        <div class="card-trap-box">
+          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الحاسم (Trabocchetto)</div>
+          <p>سؤال متكرر: حامي الظهر (Paraschiena) يجب أن يكون معتمداً وفق مواصفة EN 1621-2 ويتم اختياره بحسب طول جذع السائق ليغطي الفقرات الظهرية والقطنية بشكل صحيح دون إعاقة حركة الرقبة.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 12: Esenzioni Cinture Mediche e di Servizio -->
+    <div class="technical-card" data-category="belts">
+      <div class="card-img-container">
+        <img src="../assets/images/safety_parts/esenzioni_cinture_mediche.jpg" alt="Esenzioni dall'obbligo delle cinture di sicurezza" class="card-img-real" loading="lazy">
+      </div>
+      <div class="card-content">
+        <div class="card-header-info">
+          <div class="card-title-it">Esenzioni dall'obbligo delle cinture (Art. 172 C.d.S.)</div>
+          <h3 class="card-title-ar">الإعفاءات القانونية والطبية من ربط حزام الأمان</h3>
+        </div>
+        <div class="card-box-vero">
+          <div class="card-box-vero-title"><span>✔️</span> حقائق وزارية معتمدة (VERO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">✅</span> يُعفى أفراد الشرطة وقوات الأمن والدفاع المدني والإسعاف عند أداء مهام طوارئ وتدخل عاجل.</li>
+            <li><span class="bullet-icon">✅</span> يُعفى سائقو سيارات الأجرة (Taxi) ومركبات التأجير بسائق (NCC) أثناء القيادة داخل التجمعات السكنية أثناء الخدمة.</li>
+            <li><span class="bullet-icon">✅</span> يُعفى مدربو القيادة (Istruttori di guida) أثناء مرافقة المتدرب خلال حصص التدريب العملي.</li>
+            <li><span class="bullet-icon">✅</span> الحوامل والأشخاص ذوو الحالات المرضية يُعفون فقط بشرط حمل شهادة طبية رسمية من الوحدة الصحية (ASL) تحدد تاريخ الصلاحية.</li>
+          </ul>
+        </div>
+        <div class="card-box-falso">
+          <div class="card-box-falso-title"><span>❌</span> أخطاء شائعة في الاختبار (FALSO)</div>
+          <ul class="card-bullet-list">
+            <li><span class="bullet-icon">🚫</span> [FALSO] يُعفى السائق من حزام الأمان إذا كانت سرعة السير أقل من 30 كم/ساعة أو داخل المدينة.</li>
+            <li><span class="bullet-icon">🚫</span> [FALSO] يمكن للمرأة الحامل الاستغناء عن الحزام بتقرير شفهي أو دون شهادة من الوحدة الصحية ASL.</li>
+            <li><span class="bullet-icon">🚫</span> [FALSO] سائق التاكسي معفى دائماً من الحزام حتى خارج المدينة أو أثناء رحلاته الخاصة بدون ركاب.</li>
+          </ul>
+        </div>
+        <div class="card-trap-box">
+          <div class="card-trap-box-title"><span>⚠️</span> فخ الامتحان الوزاري الحاسم (Trabocchetto)</div>
+          <p>فخ المادة 172: الشهادة الطبية للإعفاء من حزام الأمان يجب أن تصدر حصرياً من الوحدة الصحية المحلية (ASL) وأن تحمل الرمز الدولي المعتمد وتاريخ انتهاء واضح، ويجب إبرازها فوراً لرجال الشرطة عند التفتيش!</p>
+        </div>
+      </div>
+    </div>
+
   </section>
+
+  <!-- ========================================== -->
+  <!-- WORKSHOP PHOTO GALLERY (6 AUTHENTIC PHOTOS)-->
+  <!-- ========================================== -->
+  <section class="workshop-gallery-section" id="workshop-gallery">
+    <div class="section-heading" style="margin-bottom: 24px;">
+      <div class="section-badge" style="display: inline-block; background: #1e3a8a; color: #93c5fd; padding: 4px 12px; border-radius: 6px; font-weight: 700; font-size: 0.85rem; margin-bottom: 8px;">المعرض التوثيقي الميداني للباب 19</div>
+      <h2 class="section-title" style="font-size: 1.5rem; font-weight: 800; color: #f8fafc; margin: 0;">تجهيزات السلامة السلبية، اعتمادات ECE، ومعدات حماية الدراجات</h2>
+    </div>
+    <div class="workshop-gallery-grid">
+      <!-- 1: ECE 22.06 Casco Label -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/safety_parts/gallery_etichetta_omologazione_casco.jpg" alt="Etichetta omologazione casco ECE 22.06" loading="lazy">
+          <span class="workshop-gallery-badge">ملصق وزارة النقل</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">ملصق اعتماد الخوذة (Omologazione ECE 22.06)</h4>
+          <div class="workshop-gallery-sub">Regolamento ONU/ECE 22.06 — Sigla E3 Italia</div>
+          <p class="workshop-gallery-desc">الملصق القماشي الإلزامي داخل الخوذة؛ حرف E داخل دائرة متبوعاً برقم الدولة (E3 إيطاليا) ورقم اللائحة 06 وحرف P الدال على الفك الواقي.</p>
+        </div>
+      </div>
+
+      <!-- 2: ISOFIX & Top Tether -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/safety_parts/gallery_seggiolino_isofix_ancoraggio.jpg" alt="Ancoraggi ISOFIX e Top Tether" loading="lazy">
+          <span class="workshop-gallery-badge">تثبيت ميكانيكي صلب</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">نقاط تثبيت أيزوفيكس والحزام العلوي (ISOFIX & Top Tether)</h4>
+          <div class="workshop-gallery-sub">Ancoraggi rigidi telaio vettura</div>
+          <p class="workshop-gallery-desc">حلقات معدنية فولاذية ملحومة بهيكل السيارة لتثبيت مقعد الطفل مباشرة دون استخدام حزام السيارة العادي، مع خطاف الشد العلوي المضاد للانقلاب.</p>
+        </div>
+      </div>
+
+      <!-- 3: Interruttore Airbag Passeggero -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/safety_parts/gallery_interruttore_airbag_passeggero.jpg" alt="Interruttore esclusione airbag passeggero" loading="lazy">
+          <span class="workshop-gallery-badge">مفتاح إبطال الإيرباج</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">مفتاح تعطيل الوسادة الهوائية للراكب الأمامي</h4>
+          <div class="workshop-gallery-sub">Passenger Airbag OFF Switch</div>
+          <p class="workshop-gallery-desc">مفتاح يُدار بمفتاح السيارة لإلغاء تفعيل الإيرباج الأمامي، وهو إلزام قانوني صارم عند تثبيت مقعد الرضيع عكس اتجاه السير لتفادي صدمة الانفجار.</p>
+        </div>
+      </div>
+
+      <!-- 4: Etichetta Cintura di Sicurezza -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/safety_parts/gallery_etichetta_omologazione_cintura.jpg" alt="Etichetta omologazione nastro cintura" loading="lazy">
+          <span class="workshop-gallery-badge">اعتماد حزام الأمان</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">ملصق اعتماد نسيج حزام الأمان (Ar4m ECE)</h4>
+          <div class="workshop-gallery-sub">Nastro omologato con pretensionatore</div>
+          <p class="workshop-gallery-desc">ملصق برتقالي مخيط على نسيج الحزام يبين كود الاعتماد الأوروبي، ويرمز Ar4m إلى حزام ثلاثي النقاط مزود بملف شد مسبق تلقائي.</p>
+        </div>
+      </div>
+
+      <!-- 5: Visiera Casco Omologata -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/safety_parts/gallery_casco_visiera_omologata.jpg" alt="Visiera antigraffio omologata classe 1" loading="lazy">
+          <span class="workshop-gallery-badge">عدسة معتمدة بصرياً</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">واقية الخوذة المعتمدة المقاومة للخدش</h4>
+          <div class="workshop-gallery-sub">Visiera antigraffio Classe Ottica 1</div>
+          <p class="workshop-gallery-desc">واقية من البولي كربونات من الفئة البصرية الأولى تمنع تشوه الرؤية؛ يُحظر تظليلها ليلاً ويجب استبدالها فور تعرضها لخدوش تشتت أضواء السيارات.</p>
+        </div>
+      </div>
+
+      <!-- 6: Abbigliamento Tecnico Certificato EN 17092 -->
+      <div class="workshop-gallery-card">
+        <div class="workshop-gallery-media">
+          <img src="../assets/images/safety_parts/gallery_abbigliamento_certificato_ce.jpg" alt="Certificazione abbigliamento moto EN 17092" loading="lazy">
+          <span class="workshop-gallery-badge">شهادة CE الأوروبية</span>
+        </div>
+        <div class="workshop-gallery-content">
+          <h4 class="workshop-gallery-title">ملصق فحص الملابس الواقية للموتوسيكل (CE EN 17092)</h4>
+          <div class="workshop-gallery-sub">Classe AA / Protezioni EN 1621</div>
+          <p class="workshop-gallery-desc">بطاقة المطابقة الأوروبية التي تثبت اجتياز الجاكيت والبنطال لاختبارات مقاومة الاحتكاك والتمزق وتوفر حشوات حماية معتمدة للمفاصل والظهر.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- AUDIO GLOSSARY SECTION -->
   <section class="glossary-section">
@@ -2030,5 +2689,6 @@
     }
   </script>
 
+  <script src="../assets/js/safety-studio.js"></script>
 </body>
 </html>
