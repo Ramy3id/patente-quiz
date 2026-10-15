@@ -2949,27 +2949,49 @@
       const qArEl = document.getElementById("quizQuestionAr");
       const chipsEl = document.getElementById("quizPairsChips");
 
-      let itText = q.q;
-      let arText = q.tr || "";
+      let itText = (q.q || q.domanda || "").trim();
+      let arText = (q.tr || q.traduzione || "").trim();
+
+      if (!itText && q.id && typeof ALL_QUESTIONS_DATA !== "undefined") {
+        const fullQ = ALL_QUESTIONS_DATA.find(x => x.id === q.id);
+        if (fullQ) {
+          itText = (fullQ.q || "").trim();
+          arText = (fullQ.tr || "").trim();
+          if (q.a === undefined && fullQ.a !== undefined) q.a = fullQ.a;
+          if (!q.sp && fullQ.sp) q.sp = fullQ.sp;
+          if (!q.tb && fullQ.tb) q.tb = fullQ.tb;
+          if (!q.img && fullQ.img) q.img = fullQ.img;
+        }
+      }
 
       if (bilingualEngine && bilingualEngine.isEnabled()) {
-        const hl = bilingualEngine.highlightQuestion(q);
-        itText = hl.itHtml;
-        arText = hl.arHtml;
-        if (chipsEl) chipsEl.innerHTML = bilingualEngine.renderPairChips(hl.matchedPairs);
+        try {
+          const hl = bilingualEngine.highlightQuestion(q);
+          if (hl && hl.itHtml) itText = hl.itHtml;
+          if (hl && hl.arHtml) arText = hl.arHtml;
+          if (chipsEl) chipsEl.innerHTML = bilingualEngine.renderPairChips(hl.matchedPairs);
+        } catch (e) {
+          console.warn("Bilingual highlight error in quiz:", e);
+        }
       } else {
         if (chipsEl) chipsEl.innerHTML = "";
       }
 
       if (trapEngine && trapEngine.isHighlightEnabled()) {
-        itText = trapEngine.highlightTrapWords(itText);
+        try {
+          itText = trapEngine.highlightTrapWords(itText);
+        } catch (e) {
+          console.warn("Trap highlight error in quiz:", e);
+        }
       }
 
-      if (qItEl) qItEl.innerHTML = itText;
-      if (qArEl) qArEl.innerHTML = arText;
+      if (qItEl) qItEl.innerHTML = itText || "Domanda ministeriale in caricamento...";
+      if (qArEl) qArEl.innerHTML = arText || "الترجمة جاهزة في الدليل...";
 
       if (bilingualEngine) {
-        bilingualEngine.bindEvents(document.getElementById("rapidQuizSection"));
+        try {
+          bilingualEngine.bindEvents(document.getElementById("rapidQuizSection"));
+        } catch (e) {}
       }
 
       const imgWrap = document.getElementById("quizImgWrap");
@@ -3049,6 +3071,8 @@
       if (rapidQuizState.currentIndex > 0) {
         rapidQuizState.currentIndex--;
         loadRapidQuizQuestion();
+        const quizCard = document.getElementById("rapidQuizSection");
+        if (quizCard) quizCard.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }
 
@@ -3056,6 +3080,8 @@
       if (rapidQuizState.currentIndex < rapidQuizState.questions.length - 1) {
         rapidQuizState.currentIndex++;
         loadRapidQuizQuestion();
+        const quizCard = document.getElementById("rapidQuizSection");
+        if (quizCard) quizCard.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }
 

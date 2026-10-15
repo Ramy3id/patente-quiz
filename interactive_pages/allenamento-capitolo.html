@@ -243,6 +243,19 @@
       box-shadow: 0 0 14px rgba(99, 102, 241, 0.45);
     }
 
+    .tr-count-btn.highlight-next {
+      background: linear-gradient(135deg, #059669, #10B981) !important;
+      color: #FFFFFF !important;
+      border-color: #34D399 !important;
+      font-weight: 800 !important;
+      box-shadow: 0 0 18px rgba(16, 185, 129, 0.45);
+      animation: pulse-next-glow 2s infinite ease-in-out;
+    }
+    @keyframes pulse-next-glow {
+      0%, 100% { box-shadow: 0 0 14px rgba(16, 185, 129, 0.4); transform: scale(1); }
+      50% { box-shadow: 0 0 24px rgba(16, 185, 129, 0.85); transform: scale(1.03); }
+    }
+
     /* تمييز وتظليل كلمات الفخاخ */
     .trap-keyword-highlight {
       background: rgba(244, 63, 94, 0.22);
@@ -731,11 +744,6 @@
         </div>
         <!-- تفكيك السؤال بالكتل الـ 3 والمعادلة الرياضية المنطقية -->
         <div id="decoderDrawerBox" style="margin-top: 12px;"></div>
-        <div style="text-align: left; margin-top: 14px;">
-          <button class="action-btn" style="padding: 10px 20px; font-weight: 800; cursor: pointer;" onclick="goToNextQuestion()">
-            <span>السؤال التالي ⬅</span>
-          </button>
-        </div>
       </div>
 
       <!-- أسفل البطاقة -->
@@ -1054,14 +1062,33 @@
         
         sessionQuestions = errors.map(err => ({
           id: err.id,
-          ch: err.capitolo || 1,
-          q: err.domanda,
-          a: err.risposta,
-          img: err.img || err.immagine,
-          tr: err.traduzione,
-          sp: err.spiegazione,
-          tb: err.trabocchetto
+          ch: err.capitolo || err.ch || 1,
+          q: err.domanda || err.q || "",
+          a: (err.risposta !== undefined ? err.risposta : err.a),
+          img: err.img || err.immagine || "",
+          tr: err.traduzione || err.tr || "",
+          sp: err.spiegazione || err.sp || "",
+          tb: err.trabocchetto || err.tb || ""
         })).sort(() => 0.5 - Math.random()).slice(0, targetCount);
+
+      } else if (sessionMode === "decoder") {
+        // وضع مفكك الـ 3 كتل المنطقية والمعادلة الرياضية
+        document.getElementById("lblChapterName").innerText = "🧩 مفكك الـ 3 كتل (Il Metodo dei 3 Blocchi)";
+        document.getElementById("lblSessionTitle").innerText = `جلسة التفكيك المنطقي والمعادلة القانونية (${targetCount} سؤالاً)`;
+        const descEl = document.getElementById("lblSessionDesc");
+        if (descEl) descEl.innerText = "تدريب تفاعلي على تفكيك الأسئلة الوزارية إلى [المسرح + الموضوع ➔ الحكم القانوني] مع كشف المعادلة المنطقية.";
+
+        if (window.questionDecoder) {
+          window.questionDecoder.setEnabled(true);
+          updateDecoderBtnUI();
+        }
+
+        let pool = ALL_QUESTIONS_DATA;
+        if (targetChapter && targetChapter >= 1 && targetChapter <= 25) {
+          const chPool = ALL_QUESTIONS_DATA.filter(q => q.ch === targetChapter);
+          if (chPool.length) pool = chPool;
+        }
+        sessionQuestions = selectDiverseQuestions(pool, targetCount);
 
       } else if (sessionMode === "commute") {
         // وضع كبسولة المواصلات (10 أسئلة سريعة)
@@ -1072,7 +1099,14 @@
         let errorSample = [];
         if (dueErrors.length > 0) {
           errorSample = dueErrors.slice(0, 3).map(err => ({
-            id: err.id, ch: err.capitolo || 1, q: err.domanda, a: err.risposta, img: err.img || err.immagine, tr: err.traduzione, sp: err.spiegazione, tb: err.trabocchetto
+            id: err.id,
+            ch: err.capitolo || err.ch || 1,
+            q: err.domanda || err.q || "",
+            a: (err.risposta !== undefined ? err.risposta : err.a),
+            img: err.img || err.immagine || "",
+            tr: err.traduzione || err.tr || "",
+            sp: err.spiegazione || err.sp || "",
+            tb: err.trabocchetto || err.tb || ""
           }));
         }
 
@@ -1205,21 +1239,45 @@
       const arEl = document.getElementById("lblQuestionAr");
       const chipsEl = document.getElementById("qPairsChips");
 
-      let itText = q.q;
-      let arText = q.tr || "ترجمة السؤال جاهزة في الدليل...";
+      let itText = (q.q || q.domanda || q.testo || "").trim();
+      let arText = (q.tr || q.traduzione || q.ar || "").trim();
+
+      // استرجاع ذكي للبيانات من بنك الأسئلة الموحد إذا كانت ناقصة لأي سبب
+      if (!itText && q.id && typeof ALL_QUESTIONS_DATA !== "undefined") {
+        const fullQ = ALL_QUESTIONS_DATA.find(x => x.id === q.id);
+        if (fullQ) {
+          itText = (fullQ.q || "").trim();
+          arText = (fullQ.tr || "").trim();
+          if (q.a === undefined && fullQ.a !== undefined) q.a = fullQ.a;
+          if (!q.sp && fullQ.sp) q.sp = fullQ.sp;
+          if (!q.tb && fullQ.tb) q.tb = fullQ.tb;
+          if (!q.img && fullQ.img) q.img = fullQ.img;
+        }
+      }
+
+      if (!itText) itText = "Domanda ministeriale in caricamento...";
+      if (!arText) arText = "ترجمة السؤال القانونية جاهزة في الدليل...";
 
       if (bilingualEngine && bilingualEngine.isEnabled()) {
-        const hl = bilingualEngine.highlightQuestion(q);
-        itText = hl.itHtml;
-        arText = hl.arHtml;
-        if (chipsEl) chipsEl.innerHTML = bilingualEngine.renderPairChips(hl.matchedPairs);
+        try {
+          const hl = bilingualEngine.highlightQuestion(q);
+          if (hl && hl.itHtml) itText = hl.itHtml;
+          if (hl && hl.arHtml) arText = hl.arHtml;
+          if (chipsEl) chipsEl.innerHTML = bilingualEngine.renderPairChips(hl.matchedPairs);
+        } catch (e) {
+          console.warn("Bilingual highlight error:", e);
+        }
       } else {
         if (chipsEl) chipsEl.innerHTML = "";
       }
 
       const isHl = trapEngine ? trapEngine.isHighlightEnabled() : true;
       if (isHl && trapEngine) {
-        itText = trapEngine.highlightTrapWords(itText);
+        try {
+          itText = trapEngine.highlightTrapWords(itText);
+        } catch (e) {
+          console.warn("Trap highlight error:", e);
+        }
       }
 
       questionEl.innerHTML = itText;
@@ -1228,7 +1286,9 @@
       updateBilingualBtnUI();
 
       if (bilingualEngine) {
-        bilingualEngine.bindEvents(document.getElementById("qCardSection"));
+        try {
+          bilingualEngine.bindEvents(document.getElementById("qCardSection"));
+        } catch (e) {}
       }
 
       // إعادة ضبط الأزرار
@@ -1240,6 +1300,10 @@
       btnFalso.disabled = false;
 
       const feedbackDrawer = document.getElementById("feedbackDrawer");
+      const btnNextQ = document.getElementById("btnNextQ");
+      if (btnNextQ) {
+        btnNextQ.classList.remove("highlight-next");
+      }
 
       if (userAnswers[currentIndex]) {
         // السؤال تمت الإجابة عليه مسبقاً
@@ -1251,7 +1315,9 @@
 
       // حالة أزرار التالي والسابق
       document.getElementById("btnPrevQ").disabled = (currentIndex === 0);
-      document.getElementById("btnNextQ").innerText = (currentIndex === sessionQuestions.length - 1) ? "إنهاء التدريب 🏁" : "السؤال التالي ⬅";
+      if (btnNextQ) {
+        btnNextQ.innerText = (currentIndex === sessionQuestions.length - 1) ? "إنهاء التدريب 🏁" : "السؤال التالي ⬅";
+      }
 
       renderNavStrip();
     }
@@ -1515,12 +1581,23 @@
       }
 
       feedbackDrawer.style.display = "block";
+      const btnNextQ = document.getElementById("btnNextQ");
+      if (btnNextQ) {
+        btnNextQ.classList.add("highlight-next");
+      }
     }
 
     function goToNextQuestion() {
       if (currentIndex < sessionQuestions.length - 1) {
         currentIndex++;
         loadCurrentQuestion();
+        // التمرير السلس التلقائي إلى أعلى بطاقة السؤال لظهور السؤال الجديد بوضوح كامل
+        const qCard = document.getElementById("qCardSection");
+        if (qCard) {
+          qCard.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
       } else {
         showFinalSummary();
       }
@@ -1530,6 +1607,12 @@
       if (currentIndex > 0) {
         currentIndex--;
         loadCurrentQuestion();
+        const qCard = document.getElementById("qCardSection");
+        if (qCard) {
+          qCard.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
       }
     }
 
