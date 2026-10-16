@@ -413,6 +413,30 @@
     .search-input:focus {
       border-color: var(--ln-cyan);
     }
+    .chip-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--ln-card-border);
+      color: var(--ln-text-sub);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+    .chip-btn:hover {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--ln-cyan);
+      border-color: var(--ln-cyan);
+    }
+    html.light .chip-btn {
+      background: #E2E8F0;
+      color: #334155;
+    }
+    html.light .chip-btn:hover {
+      background: rgba(56, 189, 248, 0.2);
+      color: #0284C7;
+    }
 
     /* قائمة الأسئلة */
     .questions-list {
@@ -961,9 +985,31 @@
       </div>
     </section>
 
-    <!-- شريط البحث والفلترة -->
+    <!-- شريط البحث والفلترة الذكي -->
     <div class="controls-panel">
-      <input type="text" id="searchInput" class="search-input" placeholder="🔍 ابحث بالرقم أو الكلمة (مثل: 1.6, 5 metri, 130 km/h, 3.5 t, 1 secondo)..." oninput="filterQuestions()">
+      <div style="display:flex; gap:10px; align-items:center;">
+        <input type="text" id="searchInput" class="search-input" placeholder="🔍 ابحث بالرقم أو الكلمة (مثل: caravan, rimorchio, 1.6 mm, 5 metri, 130 km/h, 3.5 t)..." oninput="filterQuestions()">
+        <button id="btnClearSearch" onclick="clearSearch()" style="display:none; padding:12px 16px; border-radius:12px; background:rgba(244,63,94,0.15); color:var(--ln-rose); border:1px solid rgba(244,63,94,0.3); cursor:pointer; font-weight:800; font-family:inherit; white-space:nowrap;">✕ مسح</button>
+      </div>
+
+      <div id="filterStatusBar" style="display:flex; justify-content:space-between; align-items:center; margin-top:12px; font-size:0.86rem; color:var(--ln-text-sub); flex-wrap:wrap; gap:8px;">
+        <span id="filterStatusText">عرض بنك الأرقام بالكامل (298 سؤالاً)</span>
+        <button id="btnResetFilter" onclick="resetCategoryFilter()" style="display:none; background:rgba(56,189,248,0.1); border:1px solid var(--ln-cyan); color:var(--ln-cyan); border-radius:8px; padding:4px 12px; cursor:pointer; font-weight:800; font-family:inherit;">🔄 إلغاء تصفية الكارت وعرض الكل</button>
+      </div>
+
+      <!-- رقائق البحث السريع للكلمات الشائعة -->
+      <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:12px; align-items:center;">
+        <span style="font-size:0.75rem; color:var(--ln-text-sub);">كلمات بحث شائعة:</span>
+        <button class="chip-btn" onclick="quickSearch('caravan')">caravan 🏕️</button>
+        <button class="chip-btn" onclick="quickSearch('rimorchio')">rimorchio 🚙</button>
+        <button class="chip-btn" onclick="quickSearch('autocarri')">autocarri 🚚</button>
+        <button class="chip-btn" onclick="quickSearch('quadricicli')">quadricicli 🛺</button>
+        <button class="chip-btn" onclick="quickSearch('ciclomotori')">ciclomotori 🛵</button>
+        <button class="chip-btn" onclick="quickSearch('1.6')">1.6 mm 🛞</button>
+        <button class="chip-btn" onclick="quickSearch('5 metri')">5 metri 🅿️</button>
+        <button class="chip-btn" onclick="quickSearch('130')">130 km/h 🚀</button>
+        <button class="chip-btn" onclick="quickSearch('3.5')">3.5 t ⚖️</button>
+      </div>
     </div>
 
     <!-- شبكة الأسئلة المشروحة مع مفكك الكتل الثلاث -->
@@ -1129,7 +1175,52 @@
         document.querySelectorAll('.c-card').forEach(c => c.classList.remove('active'));
         if (cardEl) cardEl.classList.add('active');
       }
+      updateFilterStatusBar();
       renderQuestionsList();
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('searchInput');
+      if (input) input.value = '';
+      renderQuestionsList();
+    }
+
+    function quickSearch(term) {
+      // البحث السريع يلغي التصفية المقيدة ويبحث في البنك كاملاً
+      selectedCat = 'all';
+      document.querySelectorAll('.c-card').forEach(c => c.classList.remove('active'));
+      updateFilterStatusBar();
+      const input = document.getElementById('searchInput');
+      if (input) {
+        input.value = term;
+        input.focus();
+      }
+      renderQuestionsList();
+    }
+
+    function resetCategoryFilter() {
+      selectedCat = 'all';
+      document.querySelectorAll('.c-card').forEach(c => c.classList.remove('active'));
+      updateFilterStatusBar();
+      renderQuestionsList();
+    }
+
+    function updateFilterStatusBar() {
+      const statusText = document.getElementById('filterStatusText');
+      const resetBtn = document.getElementById('btnResetFilter');
+      if (!statusText || !resetBtn) return;
+
+      if (selectedCat === 'all') {
+        const total = ALL_NUMERICAL_QUESTIONS.length || 298;
+        statusText.innerHTML = `عرض بنك الأرقام بالكامل (<strong>${total}</strong> سؤالاً)`;
+        resetBtn.style.display = 'none';
+      } else {
+        const catObj = NUM_CATEGORIES.find(c => c.id === selectedCat);
+        const name = catObj ? catObj.name : selectedCat;
+        const count = ALL_NUMERICAL_QUESTIONS.filter(q => q.numCats.includes(selectedCat)).length;
+        statusText.innerHTML = `تصفية نشطة: <strong style="color:var(--ln-cyan);">${name}</strong> (${count} سؤالاً)`;
+        resetBtn.style.display = 'inline-block';
+      }
     }
 
     function filterQuestions() {
@@ -1138,7 +1229,10 @@
 
     function renderQuestionsList() {
       const container = document.getElementById('questionsContainer');
-      const search = document.getElementById('searchInput').value.trim().toLowerCase();
+      const searchInput = document.getElementById('searchInput');
+      const search = (searchInput ? searchInput.value : '').trim().toLowerCase();
+      const clearBtn = document.getElementById('btnClearSearch');
+      if (clearBtn) clearBtn.style.display = search ? 'block' : 'none';
 
       const filtered = ALL_NUMERICAL_QUESTIONS.filter(q => {
         if (selectedCat !== 'all' && !q.numCats.includes(selectedCat)) return false;
@@ -1152,6 +1246,35 @@
       });
 
       if (filtered.length === 0) {
+        // فحص ذكي: هل توجد نتائج للكلمة في فئات أخرى؟
+        const matchesInOtherCats = search ? ALL_NUMERICAL_QUESTIONS.filter(q => {
+          const matchIt = (q.q || '').toLowerCase().includes(search);
+          const matchAr = (q.tr || '').toLowerCase().includes(search);
+          const matchSp = (q.sp || '').toLowerCase().includes(search);
+          return matchIt || matchAr || matchSp;
+        }) : [];
+
+        if (matchesInOtherCats.length > 0 && selectedCat !== 'all') {
+          const catObj = NUM_CATEGORIES.find(c => c.id === selectedCat);
+          const catName = catObj ? catObj.name : 'الفئة المختارة';
+          container.innerHTML = `
+            <div style="text-align:center; padding:40px 20px; background:rgba(56, 189, 248, 0.08); border:1px solid rgba(56, 189, 248, 0.3); border-radius:18px;">
+              <div style="font-size:2.4rem; margin-bottom:10px;">💡</div>
+              <div style="font-size:1.15rem; font-weight:800; color:var(--ln-cyan); margin-bottom:8px;">
+                توجد ${matchesInOtherCats.length} أسئلة لكلمة "${escapeHtml(search)}" في بنك الأرقام!
+              </div>
+              <div style="font-size:0.92rem; color:var(--ln-text-sub); margin-bottom:16px;">
+                السبب في عدم ظهورها الآن هو أنك قمت بتحديد كارت فئة <strong>[${escapeHtml(catName)}]</strong> كفلتر نشط.
+              </div>
+              <button class="btn-marathon-start" style="display:inline-flex; width:auto; padding:10px 24px; margin:0 auto;" onclick="resetCategoryFilter()">
+                <span>🔍 عرض الـ ${matchesInOtherCats.length} أسئلة الآن (إلغاء تصفية الكارت)</span>
+                <span>⬅</span>
+              </button>
+            </div>
+          `;
+          return;
+        }
+
         container.innerHTML = `
           <div style="text-align:center; padding:50px 20px; color:var(--ln-text-sub); background:var(--ln-card-bg); border-radius:18px;">
             <div style="font-size:2.5rem; margin-bottom:10px;">🔍</div>
