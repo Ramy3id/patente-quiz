@@ -38,13 +38,95 @@ class PatenteExamEngine {
       throw new Error("بنك الأسئلة فارغ أو غير صالح.");
     }
     
-    // خلط واختيار 30 سؤالاً عشوائياً
-    const shuffled = [...questionsPool].sort(() => 0.5 - Math.random());
-    this.questions = shuffled.slice(0, this.totalQuestions);
+    // تطبيق الخوارزمية الوزارية الرسمية المتوازنة (25 باباً + توازن 15 VERO و 15 FALSO)
+    this.questions = this.generateMinisterialQuestions(questionsPool);
     this.answers = {};
     this.currentIndex = 0;
     this.isSubmitted = false;
     this.remainingSeconds = this.durationMinutes * 60;
+  }
+
+  /**
+   * خوارزمية السحب الوزاري الرسمي (تغطية 25 باباً وتوازن 15 VERO و 15 FALSO)
+   */
+  generateMinisterialQuestions(questionsPool) {
+    const byCh = {};
+    for (let i = 1; i <= 25; i++) {
+      byCh[i] = { vero: [], falso: [] };
+    }
+
+    questionsPool.forEach(q => {
+      const ch = q.ch || q.capitolo || 1;
+      const isVero = (q.a !== undefined ? q.a : q.risposta) === true;
+      if (byCh[ch]) {
+        if (isVero) byCh[ch].vero.push(q);
+        else byCh[ch].falso.push(q);
+      }
+    });
+
+    const availableChapters = Object.keys(byCh).filter(ch => byCh[ch].vero.length > 0 && byCh[ch].falso.length > 0);
+    
+    // إذا كان بنك الأسئلة لا يغطي كافة الأبواب الـ 25، نطبق التوازن المباشر للصح والخطأ
+    if (availableChapters.length < 25) {
+      const veros = questionsPool.filter(q => (q.a !== undefined ? q.a : q.risposta) === true).sort(() => 0.5 - Math.random());
+      const falsos = questionsPool.filter(q => (q.a !== undefined ? q.a : q.risposta) === false).sort(() => 0.5 - Math.random());
+      const half = Math.floor(this.totalQuestions / 2);
+      const targetV = Math.min(half, veros.length);
+      const targetF = Math.min(this.totalQuestions - targetV, falsos.length);
+      const selected = [...veros.slice(0, targetV), ...falsos.slice(0, targetF)];
+      return selected.sort(() => 0.5 - Math.random());
+    }
+
+    // الخوارزمية الوزارية الرسمية المعتمدة:
+    // الهدف: بالضبط 15 VERO و 15 FALSO
+    // 1. سحب سؤال واحد من كل باب من الأبواب الـ 25 (12 صح و 13 خطأ، أو 13 صح و 12 خطأ بالتناوب)
+    const is13Vero = Math.random() < 0.5;
+    const targetBaseVero = is13Vero ? 13 : 12;
+    const chList = Array.from({ length: 25 }, (_, i) => i + 1).sort(() => 0.5 - Math.random());
+    const veroChapters = new Set(chList.slice(0, targetBaseVero));
+
+    const selected = [];
+    const usedIds = new Set();
+
+    for (let ch = 1; ch <= 25; ch++) {
+      const wantVero = veroChapters.has(ch);
+      const list = (wantVero ? byCh[ch].vero : byCh[ch].falso).sort(() => 0.5 - Math.random());
+      const q = list[0];
+      if (q) {
+        selected.push(q);
+        usedIds.add(q.id);
+      }
+    }
+
+    // 2. سحب الـ 5 أسئلة التكميلية من الأبواب المحورية الأساسية لتكملة الـ 15/15 تماماً
+    const neededVero = 15 - targetBaseVero;
+    const neededFalso = 15 - (25 - targetBaseVero);
+
+    // الأبواب الوزارية المحورية: إشارات الخطر (2)، المنع (3)، الإلزام (4)، الأسبقية (5)، السرعة (11)، مسافة الأمان (12)، السير (13)، التقاطعات (14)، التجاوز (15)
+    const primaryChapters = [2, 3, 4, 5, 11, 12, 13, 14, 15].sort(() => 0.5 - Math.random());
+    const extraVeroChs = primaryChapters.slice(0, neededVero);
+    const extraFalsoChs = primaryChapters.slice(neededVero, neededVero + neededFalso);
+
+    extraVeroChs.forEach(ch => {
+      const list = byCh[ch].vero.filter(q => !usedIds.has(q.id)).sort(() => 0.5 - Math.random());
+      const q = list[0] || byCh[ch].vero[0];
+      if (q) {
+        selected.push(q);
+        usedIds.add(q.id);
+      }
+    });
+
+    extraFalsoChs.forEach(ch => {
+      const list = byCh[ch].falso.filter(q => !usedIds.has(q.id)).sort(() => 0.5 - Math.random());
+      const q = list[0] || byCh[ch].falso[0];
+      if (q) {
+        selected.push(q);
+        usedIds.add(q.id);
+      }
+    });
+
+    // 3. خلط ترتيب الأسئلة في النموذج عشوائياً لتماثل شاشة الاختبار الواقعية
+    return selected.sort(() => 0.5 - Math.random());
   }
 
   /**

@@ -2549,6 +2549,91 @@
     updateErrorBankUI();
   }
 
+  // الخوارزمية الوزارية الرسمية المتطابقة 100% مع الموتوريزاسيوني (25 باباً + 15 صح / 15 خطأ)
+  function generateMinisterialExam(sourcePool, seenSet = null) {
+    const byCh = {};
+    for (let i = 1; i <= 25; i++) {
+      byCh[i] = { vero: [], falso: [] };
+    }
+
+    sourcePool.forEach(q => {
+      const ch = q.ch || 1;
+      const isVero = q.a === true;
+      if (byCh[ch]) {
+        if (isVero) byCh[ch].vero.push(q);
+        else byCh[ch].falso.push(q);
+      }
+    });
+
+    const is13Vero = Math.random() < 0.5;
+    const targetBaseVero = is13Vero ? 13 : 12;
+    const chList = Array.from({ length: 25 }, (_, i) => i + 1).sort(() => 0.5 - Math.random());
+    const veroChapters = new Set(chList.slice(0, targetBaseVero));
+
+    const selected = [];
+    const usedIds = new Set();
+
+    function pickFromList(list) {
+      if (!list || !list.length) return null;
+      if (seenSet && seenSet.size > 0) {
+        const unseens = list.filter(q => !seenSet.has(q.id) && !usedIds.has(q.id));
+        if (unseens.length > 0) return unseens[Math.floor(Math.random() * unseens.length)];
+      }
+      const unused = list.filter(q => !usedIds.has(q.id));
+      if (unused.length > 0) return unused[Math.floor(Math.random() * unused.length)];
+      return list[Math.floor(Math.random() * list.length)];
+    }
+
+    // 1. سحب سؤال مؤكد من كل باب من الأبواب الـ 25
+    for (let ch = 1; ch <= 25; ch++) {
+      const wantVero = veroChapters.has(ch);
+      const primaryList = wantVero ? byCh[ch].vero : byCh[ch].falso;
+      const secondaryList = wantVero ? byCh[ch].falso : byCh[ch].vero;
+      let q = pickFromList(primaryList) || pickFromList(secondaryList);
+      if (q) {
+        selected.push(q);
+        usedIds.add(q.id);
+      }
+    }
+
+    // 2. الـ 5 أسئلة التكميلية لضبط التوازن بدقة إلى 15 VERO و 15 FALSO بالتمام
+    const curVero = selected.filter(q => q.a === true).length;
+    const neededVero = Math.max(0, 15 - curVero);
+    const neededFalso = Math.max(0, 15 - (selected.length - curVero));
+
+    const primaryChapters = [2, 3, 4, 5, 11, 12, 13, 14, 15].sort(() => 0.5 - Math.random());
+    const extraVeroChs = primaryChapters.slice(0, neededVero);
+    const extraFalsoChs = primaryChapters.slice(neededVero, neededVero + neededFalso);
+
+    extraVeroChs.forEach(ch => {
+      const q = pickFromList(byCh[ch].vero);
+      if (q) {
+        selected.push(q);
+        usedIds.add(q.id);
+      }
+    });
+
+    extraFalsoChs.forEach(ch => {
+      const q = pickFromList(byCh[ch].falso);
+      if (q) {
+        selected.push(q);
+        usedIds.add(q.id);
+      }
+    });
+
+    // سياج أمان لضمان إكمال 30 سؤالاً في أي حالة استثنائية
+    while (selected.length < 30) {
+      const remaining = sourcePool.filter(q => !usedIds.has(q.id));
+      if (!remaining.length) break;
+      const randQ = remaining[Math.floor(Math.random() * remaining.length)];
+      selected.push(randQ);
+      usedIds.add(randQ.id);
+    }
+
+    // خلط ترتيب ورقة الامتحان عشوائياً
+    return selected.sort(() => 0.5 - Math.random());
+  }
+
   // Start Exam
   window.startExam = function() {
     soundEngine.click();
@@ -2581,14 +2666,16 @@
       document.getElementById('exam-badge').innerText = `🔁 بنك الأخطاء (${pool.length} سؤال)`;
     }
 
-    if (avoidSeen && pool.length > 40) {
-      const unseen = pool.filter(q => !seenSet.has(q.id));
-      if (unseen.length >= 30) pool = unseen;
+    if (selectedMode === 'full') {
+      examQuestions = generateMinisterialExam(pool, avoidSeen ? seenSet : null);
+    } else {
+      if (avoidSeen && pool.length > 40) {
+        const unseen = pool.filter(q => !seenSet.has(q.id));
+        if (unseen.length >= 30) pool = unseen;
+      }
+      const shuffled = pool.sort(() => 0.5 - Math.random());
+      examQuestions = shuffled.slice(0, Math.min(30, shuffled.length));
     }
-
-    // Shuffle & Pick 30
-    const shuffled = pool.sort(() => 0.5 - Math.random());
-    examQuestions = shuffled.slice(0, Math.min(30, shuffled.length));
 
     recordSeenQuestions(examQuestions.map(q => q.id));
 
