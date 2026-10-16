@@ -333,6 +333,59 @@
       border-color: var(--ln-text-sub);
     }
 
+    /* جدول سرعات المركبات الشامل */
+    .speed-table-wrap {
+      background: var(--ln-card-bg);
+      border: 1px solid var(--ln-card-border);
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 28px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+    .speed-table-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--ln-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 16px;
+      user-select: none;
+    }
+    .speed-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+    }
+    .speed-table th, .speed-table td {
+      padding: 12px 14px;
+      text-align: right;
+      border-bottom: 1px solid var(--ln-card-border);
+      font-size: 0.88rem;
+    }
+    .speed-table th {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--ln-text);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .speed-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      min-width: 32px;
+      text-align: center;
+    }
+    .sb-highway { background: rgba(16, 185, 129, 0.15); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .sb-main { background: rgba(56, 189, 248, 0.15); color: #38BDF8; border: 1px solid rgba(56, 189, 248, 0.3); }
+    .sb-sec { background: rgba(245, 158, 11, 0.15); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .sb-city { background: rgba(168, 85, 247, 0.15); color: #C084FC; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .sb-prohibited { background: rgba(244, 63, 94, 0.15); color: #FB7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+
     /* لوحة التحكم والبحث */
     .controls-panel {
       background: var(--ln-card-bg);
@@ -633,11 +686,11 @@
       </div>
       <h1 class="hero-title">معمل الأرقام والمقاييس الصامتة</h1>
       <p class="hero-subtitle">
-        الوزارة في الامتحان تختبر حفظك لأرقام دقيقة وثابتة لا تتغير. احفظ الثوابت الذهبية السبعة التالية، وأي رقم آخر تجده في السؤال احكم عليه بأنه <strong>FALSO فوراً</strong> دون تردد!
+        الوزارة في الامتحان تختبر حفظك لأرقام دقيقة وثابتة لا تتغير. احفظ الثوابت الذهبية الثمانية التالية، وأي رقم آخر تجده في السؤال احكم عليه بأنه <strong>FALSO فوراً</strong> دون تردد!
       </p>
     </header>
 
-    <!-- شبكة الثوابت الذهبية السبعة (Cheat Sheet) -->
+    <!-- شبكة الثوابت الذهبية الثمانية (Cheat Sheet) -->
     <h2 class="constants-section-title">
       <span>📐 لوحة الثوابت الذهبية الرسمية (اضغط للتصفية السريعة)</span>
     </h2>
@@ -720,7 +773,141 @@
         <span class="c-value-pill">1 ثانية رد الفعل</span>
       </div>
 
+      <!-- 8. سرعات المقطورات والكارافان والآلات -->
+      <div class="c-card" data-cat="velocita_speciali" onclick="selectConstantCategory('velocita_speciali', this)">
+        <div class="c-top">
+          <span class="c-icon">🚛</span>
+          <span class="c-q-count">37 سؤالاً</span>
+        </div>
+        <h3 class="c-title">سرعات المقطورات والكارافان والآلات</h3>
+        <p class="c-rule">سيارة + مقطورة/كارافان: <strong>80</strong> أوتوستراد | <strong>70</strong> خارج المدينة. كوادريسيكلي: <strong>80</strong>. سكوتر: <strong>45</strong>. زراعية بإطارات: <strong>40</strong> (بجنازير: <strong>15</strong>).</p>
+        <span class="c-value-pill">80 / 70 (المقطورات) | 45 / 40 / 15</span>
+      </div>
+
     </section>
+
+    <!-- جدول سرعات كافة فئات المركبات (دستور السرعات الشامل) -->
+    <details class="speed-table-wrap" open>
+      <summary class="speed-table-title" style="cursor:pointer; outline:none;">
+        <span style="display:flex; align-items:center; gap:8px;">
+          <span>🏎️</span>
+          <span>جدول السرعات الشامل لكافة فئات المركبات (دستور كود السير Art. 142)</span>
+        </span>
+        <span style="font-size:0.82rem; font-weight:700; color:var(--ln-cyan); background:rgba(56,189,248,0.1); padding:4px 10px; border-radius:8px;">(اضغط للإخفاء / الإظهار) 🔽</span>
+      </summary>
+      <div style="overflow-x:auto; margin-top:12px;">
+        <table class="speed-table">
+          <thead>
+            <tr>
+              <th>فئة المركبة (Categoria Veicolo)</th>
+              <th>المدينة (Urbane)</th>
+              <th>خارجية ثانوية (Secondarie)</th>
+              <th>خارجية رئيسية (Principali)</th>
+              <th>أوتوستراد (Autostrada)</th>
+              <th>الفخ الوزاري الذهبي (Trabocchetto)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>🚗 سيارات ودراجات عادية (Autovetture / Motoveicoli)</strong></td>
+              <td><span class="speed-badge sb-city">50</span></td>
+              <td><span class="speed-badge sb-sec">90</span></td>
+              <td><span class="speed-badge sb-main">110</span></td>
+              <td><span class="speed-badge sb-highway">130</span></td>
+              <td>تنخفض في المطر إلى <strong>110</strong> (أوتوستراد) و <strong>90</strong> (رئيسية)</td>
+            </tr>
+            <tr>
+              <td><strong>🔰 السائقون الجدد (Neopatentati - أول 3 سنوات)</strong></td>
+              <td><span class="speed-badge sb-city">50</span></td>
+              <td><span class="speed-badge sb-sec">90</span></td>
+              <td><span class="speed-badge sb-main">90</span></td>
+              <td><span class="speed-badge sb-highway">100</span></td>
+              <td>أقصى حد للأوتوستراد 100 والرئيسية 90 مهما كانت السرعة المعلنة على الطريق</td>
+            </tr>
+            <tr style="background: rgba(245, 158, 11, 0.08); border-right: 4px solid #F59E0B;">
+              <td><strong>🚙+🏕️ سيارة تجر مقطورة أو كارافان (Auto con rimorchio / Caravan)</strong></td>
+              <td><span class="speed-badge sb-city">50</span></td>
+              <td><span class="speed-badge sb-sec">70</span></td>
+              <td><span class="speed-badge sb-main">70</span></td>
+              <td><span class="speed-badge sb-highway">80</span></td>
+              <td><strong style="color:#FBBF24;">الفخ الأكبر:</strong> نوع المقطورة أو وزنها (قوارب، خيل، خفيفة، ثقيلة) لا يغير السرعة أبداً! (80 أوتوستراد / 70 خارجها)</td>
+            </tr>
+            <tr>
+              <td><strong>🚐 كامبر / كارافان سكني حتى 3.5t (Autocaravan fino a 3,5 t)</strong></td>
+              <td><span class="speed-badge sb-city">50</span></td>
+              <td><span class="speed-badge sb-sec">90</span></td>
+              <td><span class="speed-badge sb-main">110</span></td>
+              <td><span class="speed-badge sb-highway">130</span></td>
+              <td>يعامل معاملة السيارة العادية تماماً طالما وزنه لم يتجاوز 3.5 طن</td>
+            </tr>
+            <tr>
+              <td><strong>🚌 كامبر ثقيل فوق 3.5t (Autocaravan oltre 3,5 t)</strong></td>
+              <td><span class="speed-badge sb-city">50</span></td>
+              <td><span class="speed-badge sb-sec">80</span></td>
+              <td><span class="speed-badge sb-main">80</span></td>
+              <td><span class="speed-badge sb-highway">100</span></td>
+              <td>تخضع لحدود الشاحنات المتوسطة (100 أوتوستراد / 80 خارج المدينة)</td>
+            </tr>
+            <tr>
+              <td><strong>🚚 شاحنات نقل بضائع حتى 3.5t (Autocarri fino a 3,5 t)</strong></td>
+              <td><span class="speed-badge sb-city">50</span></td>
+              <td><span class="speed-badge sb-sec">90</span></td>
+              <td><span class="speed-badge sb-main">110</span></td>
+              <td><span class="speed-badge sb-highway">130</span></td>
+              <td>تتبع سرعات السيارات العادية لأن رخصة B تقودها</td>
+            </tr>
+            <tr>
+              <td><strong>🚛 شاحنات نقل بضائع متوسطة (3.5t إلى 12t)</strong></td>
+              <td><span class="speed-badge sb-city">50</span></td>
+              <td><span class="speed-badge sb-sec">80</span></td>
+              <td><span class="speed-badge sb-main">80</span></td>
+              <td><span class="speed-badge sb-highway">100</span></td>
+              <td>100 في الأوتوستراد و 80 على كافة الطرق الخارجية</td>
+            </tr>
+            <tr>
+              <td><strong>🚛 شاحنات ثقيلة وتريلات (Autocarri oltre 12t / Autoarticolati)</strong></td>
+              <td><span class="speed-badge sb-city">50</span></td>
+              <td><span class="speed-badge sb-sec">70</span></td>
+              <td><span class="speed-badge sb-main">70</span></td>
+              <td><span class="speed-badge sb-highway">80</span></td>
+              <td>مثل سرعة المقطورات تماماً: 80 أوتوستراد و 70 خارج المدينة</td>
+            </tr>
+            <tr>
+              <td><strong>🛺 كوادريسيكلي غير خفيف (Quadricicli non leggeri)</strong></td>
+              <td><span class="speed-badge sb-city">50</span></td>
+              <td><span class="speed-badge sb-sec">80</span></td>
+              <td><span class="speed-badge sb-main">80</span></td>
+              <td><span class="speed-badge sb-prohibited">ممنوع</span></td>
+              <td>الحد الأقصى خارج المدن <strong>80</strong> (فخاخ الامتحان تدعي 70 أو 90!) وممنوعة من الأوتوستراد</td>
+            </tr>
+            <tr>
+              <td><strong>🛵 دراجة آلية صغيرة وسكوتر (Ciclomotori / Quadricicli leggeri)</strong></td>
+              <td><span class="speed-badge sb-city">45</span></td>
+              <td><span class="speed-badge sb-sec">45</span></td>
+              <td><span class="speed-badge sb-prohibited">ممنوع</span></td>
+              <td><span class="speed-badge sb-prohibited">ممنوع</span></td>
+              <td>الحد الأقصى المطلق هو <strong>45 كم/س</strong> وممنوعة تماماً من الطرق السريعة والرئيسية</td>
+            </tr>
+            <tr>
+              <td><strong>🚜 آلات زراعية وآلات عمل بإطارات (Macchine agricole con pneumatici)</strong></td>
+              <td><span class="speed-badge sb-city">40</span></td>
+              <td><span class="speed-badge sb-sec">40</span></td>
+              <td><span class="speed-badge sb-prohibited">ممنوع</span></td>
+              <td><span class="speed-badge sb-prohibited">ممنوع</span></td>
+              <td>إذا كانت بإطارات هوائية سرعتها القصوى <strong>40 كم/س</strong></td>
+            </tr>
+            <tr>
+              <td><strong>🚜 آلات زراعية بجنازير (Macchine agricole con cingoli)</strong></td>
+              <td><span class="speed-badge sb-city">15</span></td>
+              <td><span class="speed-badge sb-sec">15</span></td>
+              <td><span class="speed-badge sb-prohibited">ممنوع</span></td>
+              <td><span class="speed-badge sb-prohibited">ممنوع</span></td>
+              <td>إذا كانت بجنزير حديدي سرعتها القصوى <strong>15 كم/س</strong> فقط</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
 
     <!-- كارت ماراثون تحدي الأرقام -->
     <section class="marathon-box" id="marathonBox">
@@ -729,7 +916,7 @@
           <span>⚡ ماراثون الأرقام (تكرار الأخطاء حتى الإتقان)</span>
         </div>
       </div>
-      <h2 class="m-title">🏆 ماراثون حسم أسئلة الأرقام والمقاييس (296 سؤالاً)</h2>
+      <h2 class="m-title">🏆 ماراثون حسم أسئلة الأرقام والمقاييس (298 سؤالاً)</h2>
       <p class="m-desc">
         كويز تفاعلي يسحب <strong>25 سؤالاً رقمياً</strong> في كل جولة. كل سؤال تجاوبه بنجاح <strong>يُستبعد نهائياً</strong>، والأسئلة التي تخطئ فيها <strong>تُعاد لك حتماً</strong> حتى تصل إلى نسبة إتقان 100%!
       </p>
@@ -737,7 +924,7 @@
       <div class="m-progress-container">
         <div style="display:flex; justify-content:space-between; font-size:0.88rem; font-weight:800; margin-bottom:6px;">
           <span>التقدم في إتقان بنك الأرقام:</span>
-          <span id="mProgressPctText" style="color:var(--ln-cyan);">0% (0 / 296)</span>
+          <span id="mProgressPctText" style="color:var(--ln-cyan);">0% (0 / 298)</span>
         </div>
         <div class="m-bar-wrap">
           <div class="m-bar-mastered" id="mBarMastered" style="width:0%;"></div>
@@ -754,11 +941,11 @@
           </div>
           <div class="m-stat-card">
             <span class="m-stat-label">⏳ متبقية للاختبار</span>
-            <span class="m-stat-val" id="mStatRemaining" style="color:var(--ln-cyan);">296</span>
+            <span class="m-stat-val" id="mStatRemaining" style="color:var(--ln-cyan);">298</span>
           </div>
           <div class="m-stat-card">
             <span class="m-stat-label">🎯 إجمالي بنك الأرقام</span>
-            <span class="m-stat-val">296</span>
+            <span class="m-stat-val" id="mStatTotal">298</span>
           </div>
         </div>
       </div>
@@ -818,7 +1005,8 @@
       { id: 'massa_posti', name: 'الأوزان والركاب', re: /\b(3[,.]5\s*t|3500\s*kg|otto\s+posti|8\s+posti|9\s+posti|nove\s+posti|750\s*kg|4[,.]25|4250\s*kg)\b/i },
       { id: 'alcool', name: 'نسبة الكحول', re: /\b(tasso alcolemico|0[,.]0|0[,.]5|0[,.]8|1[,.]5|grammi\/litro|g\/l)\b/i },
       { id: 'velocita', name: 'حدود السرعة', re: /\b(130\s*km\/h|110\s*km\/h|100\s*km\/h|90\s*km\/h|80\s*km\/h|70\s*km\/h|50\s*km\/h|45\s*km\/h|40\s*km\/h|15\s*km\/h)\b/i },
-      { id: 'distanza', name: 'مسافة الأمان ورد الفعل', re: /\b(tempo di reazione|spazio di reazione|spazio di frenatura|spazio totale di arresto|1\s*secondo|un\s+secondo)\b/i }
+      { id: 'distanza', name: 'مسافة الأمان ورد الفعل', re: /\b(tempo di reazione|spazio di reazione|spazio di frenatura|spazio totale di arresto|1\s*secondo|un\s+secondo)\b/i },
+      { id: 'velocita_speciali', name: 'سرعات المقطورات والكارافان والآلات', re: /((rimorchio|caravan|autocaravan|autocarri|quadricicli|ciclomotor|macchine agricole|macchine operatrici).*(km\/h|\d+\s*km)|(km\/h|\d+\s*km).*(rimorchio|caravan|autocaravan|autocarri|quadricicli|ciclomotor|macchine agricole|macchine operatrici))/i }
     ];
 
     let ALL_NUMERICAL_QUESTIONS = [];
@@ -866,6 +1054,22 @@
         }
       });
 
+      // تحديث أعداد الأسئلة لكل كارت ديناميكياً
+      const catCounts = {};
+      NUM_CATEGORIES.forEach(c => catCounts[c.id] = 0);
+      ALL_NUMERICAL_QUESTIONS.forEach(q => {
+        q.numCats.forEach(cid => {
+          if (catCounts[cid] !== undefined) catCounts[cid]++;
+        });
+      });
+      document.querySelectorAll('.c-card[data-cat]').forEach(card => {
+        const catId = card.getAttribute('data-cat');
+        if (catCounts[catId] !== undefined) {
+          const badge = card.querySelector('.c-q-count');
+          if (badge) badge.textContent = `${catCounts[catId]} سؤالاً`;
+        }
+      });
+
       loadMasteryState();
       updateMarathonStatsUI();
       renderQuestionsList();
@@ -897,7 +1101,7 @@
     }
 
     function updateMarathonStatsUI() {
-      const total = ALL_NUMERICAL_QUESTIONS.length || 296;
+      const total = ALL_NUMERICAL_QUESTIONS.length || 298;
       const masteredCount = masteryState.mastered.length;
       const mistakesCount = masteryState.mistakes.length;
       const remainingCount = Math.max(0, total - masteredCount);
@@ -912,6 +1116,8 @@
       document.getElementById('mStatMastered').innerText = masteredCount;
       document.getElementById('mStatMistakes').innerText = mistakesCount;
       document.getElementById('mStatRemaining').innerText = remainingCount;
+      const totalEl = document.getElementById('mStatTotal');
+      if (totalEl) totalEl.innerText = total;
     }
 
     function selectConstantCategory(catId, cardEl) {
