@@ -307,6 +307,26 @@
       color: var(--ps-amber);
       border: 1px solid rgba(245, 158, 11, 0.3);
     }
+    .rate-badge-pair {
+      background: rgba(168, 85, 247, 0.15);
+      color: #C084FC;
+      border: 1px solid rgba(168, 85, 247, 0.35);
+    }
+    .rate-badge-repeated {
+      background: rgba(59, 130, 246, 0.15);
+      color: #60A5FA;
+      border: 1px solid rgba(59, 130, 246, 0.35);
+    }
+    .ps-filter-btn.filter-pair.active {
+      background: var(--ps-purple);
+      color: #FFFFFF;
+      border-color: var(--ps-purple);
+    }
+    .ps-filter-btn.filter-repeated.active {
+      background: #2563EB;
+      color: #FFFFFF;
+      border-color: #2563EB;
+    }
 
     .ps-word-ar {
       font-size: 1rem;
@@ -1065,11 +1085,13 @@
     <div class="ps-controls">
       <input type="text" id="searchInput" class="ps-search-input" placeholder="🔍 ابحث عن كلمة إيطالية (مثل frizione) أو معناها بالعربية (مثل الدبرياج)..." oninput="filterCards()">
       <div class="ps-filters-row">
-        <button class="ps-filter-btn active" id="btnFilterAll" onclick="setFilter('all')">🌟 جميع الكلمات (<span id="cntAll">0</span>)</button>
-        <button class="ps-filter-btn filter-falso" id="btnFilterFalso" onclick="setFilter('falso')">🔴 كلمات الـ FALSO (<span id="cntFalso">0</span>)</button>
-        <button class="ps-filter-btn filter-vero" id="btnFilterVero" onclick="setFilter('vero')">🟢 كلمات الـ VERO (<span id="cntVero">0</span>)</button>
+        <button class="ps-filter-btn active" id="btnFilterAll" onclick="setFilter('all')">🌟 الكل (<span id="cntAll">0</span>)</button>
+        <button class="ps-filter-btn filter-falso" id="btnFilterFalso" onclick="setFilter('falso')">🔴 كلمات FALSO (<span id="cntFalso">0</span>)</button>
+        <button class="ps-filter-btn filter-vero" id="btnFilterVero" onclick="setFilter('vero')">🟢 كلمات VERO (<span id="cntVero">0</span>)</button>
         <button class="ps-filter-btn filter-exception" id="btnFilterExc" onclick="setFilter('exception')">⚠️ كلمات بها استثناء (<span id="cntExc">0</span>)</button>
-        <button class="ps-filter-btn filter-phrase" id="btnFilterPhrases" onclick="setFilter('phrase')">⚡ العبارات والتراكيب القاتلة (<span id="cntPhrases">0</span>)</button>
+        <button class="ps-filter-btn filter-phrase" id="btnFilterPhrases" onclick="setFilter('phrase')">⚡ العبارات المركبة (<span id="cntPhrases">0</span>)</button>
+        <button class="ps-filter-btn filter-pair" id="btnFilterPairs" onclick="setFilter('pair')">🔗 الأزواج اللغوية (<span id="cntPairs">0</span>)</button>
+        <button class="ps-filter-btn filter-repeated" id="btnFilterRepeated" onclick="setFilter('repeated')">🔁 الأسئلة المكررة القطعية (<span id="cntRepeated">0</span>)</button>
       </div>
     </div>
 
@@ -1400,6 +1422,46 @@
         exceptionNote: "⚠️ الاستثناء الوحيد (VERO): سيارات الإسعاف والطوارئ الرسمية أثناء الخدمة فقط.",
         regex: "\\btrombe\\b"
       },
+      {
+        it: "smontare",
+        ar: "فك / تفكيك أجزاء السيارة",
+        type: "falso",
+        rate: "100% FALSO",
+        pure: true,
+        rule: "السائق ليس ميكانيكياً؛ أي سؤال يطلب فك أجزاء المحرك أو الفرامل أو كيس الهواء (Airbag) فخ كاذب.",
+        hasException: false,
+        regex: "\\bsmontare\\b"
+      },
+      {
+        it: "allontanare",
+        ar: "إبعاد / تحريك المصاب",
+        type: "falso",
+        rate: "100% FALSO",
+        pure: true,
+        rule: "في الإسعافات الأولية، يُحظر تحريك أو سحب المصاب من مكانه تفادياً لكسر العمود الفقري (إلا في خطر حريق أو غرق).",
+        hasException: false,
+        regex: "\\ballontanare\\b"
+      },
+      {
+        it: "spazzatura",
+        ar: "قمامة / نفايات",
+        type: "falso",
+        rate: "100% FALSO",
+        pure: true,
+        rule: "ادعاء جواز إلقاء القمامة أو وجود تصاريح عشوائية لها على الطرق.",
+        hasException: false,
+        regex: "\\bspazzatura\\b"
+      },
+      {
+        it: "bere",
+        ar: "شرب (الكحول / أثناء القيادة)",
+        type: "falso",
+        rate: "100% FALSO",
+        pure: true,
+        rule: "تناول الكحوليات قبل القيادة أو محاولة التغلب على النعاس أو قيادة تحت التأثير خطأ دائم.",
+        hasException: false,
+        regex: "\\bbere\\b"
+      },
 
       // ==================== كلمات الـ VERO ====================
       {
@@ -1601,6 +1663,46 @@
         rule: "التحذير القانوني من مغبة ارتكاب المخالفات الجسيمة والتعرض لسحب الرخصة أو الغرامات.",
         hasException: false,
         regex: "\\bincorrere\\b"
+      },
+      {
+        it: "inefficienti",
+        ar: "معطلة / غير فعالة",
+        type: "vero",
+        rate: "100% VERO",
+        pure: true,
+        rule: "التحذير الحتمي من خطورة القيادة بمساعدين (ammortizzatori) أو مكابح أو إطارات معطلة تؤدي لزيادة مسافة الفرملة وفقدان التماسك.",
+        hasException: false,
+        regex: "\\binefficienti\\b"
+      },
+      {
+        it: "raffiche",
+        ar: "هبات رياح عاتية",
+        type: "vero",
+        rate: "100% VERO",
+        pure: true,
+        rule: "وجوب الحذر الشديد وإحكام قبضة المقود عند التعرض لهبات الرياح الجانبية المفاجئة (raffiche di vento) على الجسور أو عند الخروج من الأنفاق.",
+        hasException: false,
+        regex: "\\braffiche\\b"
+      },
+      {
+        it: "finestrini",
+        ar: "نوافذ السيارة",
+        type: "vero",
+        rate: "100% VERO",
+        pure: true,
+        rule: "حظر إلقاء أعقاب السجائر أو أي أجسام من نوافذ المركبة لتفادي الحرائق والحوادث لمستخدمي الطريق.",
+        hasException: false,
+        regex: "\\bfinestrini\\b"
+      },
+      {
+        it: "proteggono",
+        ar: "تحمي (الركاب والسائق)",
+        type: "vero",
+        rate: "100% VERO",
+        pure: true,
+        rule: "أحزمة الأمان ومساند الرأس (poggiatesta) تحمي الركاب من الإصابات الخطيرة وصدمات الارتداد العنقي عند الحوادث.",
+        hasException: false,
+        regex: "\\bproteggono\\b"
       },
       {
         it: "moderare",
@@ -1877,6 +1979,208 @@
         hasException: true,
         exceptionNote: "🎯 البصمة الذكية للاستثناء الخاطئ (FALSO): استثناء وحيد عند ادعاء التحقق من تفاصيل ميكانيكية دقيقة معقدة غير مطلوبة من السائق.",
         regex: "\\bverificare\\b"
+      },
+
+      // ==================== الأزواج اللغوية القاتلة والذهبية (Coppie di Parole) ====================
+      {
+        it: "solo + trova",
+        ar: "فقط + توجد (حصر مكان الإشارة)",
+        type: "falso",
+        rate: "100% FALSO (13 سؤالاً)",
+        pure: true,
+        isPair: true,
+        rule: "اقتران حصر مكان وجود الشاخصة (si trova solo...): كود السير لا يحصر وجود الإشارات في نوع طريق واحد حصراً.",
+        hasException: false,
+        regex: "(?=.*\\bsolo\\b)(?=.*\\btrova\\b)"
+      },
+      {
+        it: "indica + sorpassare",
+        ar: "تشير إلى + التجاوز",
+        type: "falso",
+        rate: "100% FALSO (10 أسئلة)",
+        pure: true,
+        isPair: true,
+        rule: "أي سؤال يزعم أن الإشارة بمفردها تشير إلى إمكانية التجاوز خطأ قطعي؛ فالتجاوز تحكمه ظروف الرؤية وخلو الطريق المقابل.",
+        hasException: false,
+        regex: "(?=.*\\bindica\\b)(?=.*\\bsorpassare\\b)"
+      },
+      {
+        it: "solo + obbligatorio",
+        ar: "فقط + إجباري (حصر الإلزام)",
+        type: "falso",
+        rate: "100% FALSO (9 أسئلة)",
+        pure: true,
+        isPair: true,
+        rule: "تقييد الإلزام بحالة واحدة شاذة (è obbligatorio solo se...): تدابير الحيطة والسلامة واجبة في كل الظروف ولا تنحصر في حالة واحدة.",
+        hasException: false,
+        regex: "(?=.*\\bsolo\\b)(?=.*\\bobbligatorio\\b)"
+      },
+      {
+        it: "preannuncia + transito",
+        ar: "تعلن مسبقاً + مرور المركبات",
+        type: "falso",
+        rate: "100% FALSO (6 أسئلة)",
+        pure: true,
+        isPair: true,
+        rule: "إشارات الخطر التحذيرية تبدأ بـ preannuncia ولكنها لا تحظر أو تمنع المرور؛ المنع يختص بالشواخص الدائرية الحمراء فقط.",
+        hasException: false,
+        regex: "(?=.*\\bpreannuncia\\b)(?=.*\\btransito\\b)"
+      },
+      {
+        it: "corsia + motocicli",
+        ar: "مسار + دراجات نارية",
+        type: "falso",
+        rate: "100% FALSO (6 أسئلة)",
+        pure: true,
+        isPair: true,
+        rule: "ادعاء وجود مسار مخصص للدراجات النارية؛ لا يوجد في قانون السير الإيطالي حارة سير مخصصة للموتوسيكلات إطلاقاً.",
+        hasException: false,
+        regex: "(?=.*\\bcorsia\\b)(?=.*\\bmotocicli\\b)"
+      },
+      {
+        it: "presenza + evitare",
+        ar: "في وجود + تجنب (المناورات/الفرملة)",
+        type: "vero",
+        rate: "100% VERO (15 سؤالاً)",
+        pure: true,
+        isPair: true,
+        rule: "اقتران الحيطة بوجود الإشارة (in presenza del segnale... è necessario evitare): تجنب المناورات العنيفة أو الفرملة المفاجئة قاعدة سلامة صحيحة دائماً.",
+        hasException: false,
+        regex: "(?=.*\\bpresenza\\b)(?=.*\\bevitare\\b)"
+      },
+      {
+        it: "sorpasso + doppio",
+        ar: "تجاوز + اتجاهان للسير",
+        type: "vero",
+        rate: "100% VERO (14 سؤالاً)",
+        pure: true,
+        isPair: true,
+        rule: "قواعد التجاوز في الطرق ذات الاتجاهين؛ صحيحة دائماً عند توفر مسارين لكل اتجاه أو وضوح الرؤية دون غزو المسار المقابل.",
+        hasException: false,
+        regex: "(?=.*\\bsorpasso\\b)(?=.*\\bdoppio\\b)"
+      },
+      {
+        it: "quando + fermarsi",
+        ar: "متى + التوقف الحتمي",
+        type: "vero",
+        rate: "100% VERO (13 سؤالاً)",
+        pure: true,
+        isPair: true,
+        rule: "وجوب التوقف الحتمي عند ظهور إشارة قف أو الضوء الأحمر أو إعطاء الأولوية للقطار أو المشاة.",
+        hasException: false,
+        regex: "(?=.*\\bquando\\b)(?=.*\\bfermarsi\\b)"
+      },
+      {
+        it: "consentito + diritto",
+        ar: "مسموح + السير للأمام مباشرة",
+        type: "vero",
+        rate: "100% VERO (11 سؤالاً)",
+        pure: true,
+        isPair: true,
+        rule: "الشواخص التي تسمح بمواصلة السير على استقامة الطريق دون إجبار على الانعطاف.",
+        hasException: false,
+        regex: "(?=.*\\bconsentito\\b)(?=.*\\bdiritto\\b)"
+      },
+      {
+        it: "corsie + possibile",
+        ar: "المسارات + إمكانية المناورة",
+        type: "vero",
+        rate: "100% VERO (8 أسئلة)",
+        pure: true,
+        isPair: true,
+        rule: "توزيع المسارات وإمكانية السير أو التجاوز بحسب المسارات المتاحة لكل اتجاه.",
+        hasException: false,
+        regex: "(?=.*\\bcorsie\\b)(?=.*\\bpossibile\\b)"
+      },
+
+      // ==================== الأسئلة الوزارية المكررة قطعية النتيجة (Domande Ripetute) ====================
+      {
+        it: "è un segnale di indicazione",
+        ar: "هي إشارة إرشاد (تكرر 15 مرة بالنص كفخ)",
+        type: "falso",
+        rate: "100% FALSO (15 تكراراً)",
+        pure: true,
+        isRepeated: true,
+        rule: "السؤال الأكثر تكراراً في تاريخ الامتحان؛ يُعرض مع إشارات الخطر أو المنع أو الإلزام ويزعم كذباً أنها إشارة إرشاد!",
+        hasException: false,
+        regex: "[èe]\\s+un\\s+segnale\\s+di\\s+indicazione"
+      },
+      {
+        it: "si trova su strade extraurbane",
+        ar: "توجد على الطرق خارج المدن (تكرر 4 مرات)",
+        type: "falso",
+        rate: "100% FALSO (4 تكرارات)",
+        pure: true,
+        isRepeated: true,
+        rule: "يُعرض مع لوحات إرشادية حضرية (بيضاء خاصة بالمدن) ويزعم في السؤال أنها توجد على الطرق الخارجية.",
+        hasException: false,
+        regex: "si\\s+trova\\s+su\\s+strade\\s+extraurbane"
+      },
+      {
+        it: "non più di 25 metri",
+        ar: "على مسافة لا تزيد عن 25 متراً (تكرر 3 مرات)",
+        type: "falso",
+        rate: "100% FALSO (3 تكرارات)",
+        pure: true,
+        isRepeated: true,
+        rule: "ادعاء مسافة 25 متراً لوضع إشارات الأسبقية؛ المسافة النظامية هي 150 متراً للشواخص المسبقة أو عند التقاطع مباشرة.",
+        hasException: false,
+        regex: "non\\s+pi[ùu]\\s+di\\s+25\\s+metri"
+      },
+      {
+        it: "la figura rappresenta un segnale di pericolo",
+        ar: "الرسم يمثل إشارة خطر (تكرر 6 مرات كصح مؤكد)",
+        type: "vero",
+        rate: "100% VERO (6 تكرارات)",
+        pure: true,
+        isRepeated: true,
+        rule: "سؤال تعريفي صريح يتكرر في الباب الثاني مع الشواخص المثلثة ذات الإطار الأحمر والخلفية البيضاء.",
+        hasException: false,
+        regex: "la\\s+figura\\s+rappresenta\\s+un\\s+segnale\\s+di\\s+pericolo"
+      },
+      {
+        it: "preannuncia un tratto di strada non rettilineo",
+        ar: "تنذر بمقطع طريق غير مستقيم يحد الرؤية (تكرر 3 مرات)",
+        type: "vero",
+        rate: "100% VERO (3 تكرارات)",
+        pure: true,
+        isRepeated: true,
+        rule: "التعريف الرسمي الشامل لإشارات المنعطفات الخطيرة الفردية والمزدوجة في كود السير.",
+        hasException: false,
+        regex: "preannuncia\\s+un\\s+tratto\\s+di\\s+strada\\s+non\\s+rettilineo"
+      },
+      {
+        it: "vale anche per i motocicli",
+        ar: "تسري أيضاً على الدراجات النارية (تكرر 3 مرات)",
+        type: "vero",
+        rate: "100% VERO (3 تكرارات)",
+        pure: true,
+        isRepeated: true,
+        rule: "شمولية إشارات المنع والإرشاد لكافة المركبات ذات المحرك بما فيها الدراجات النارية.",
+        hasException: false,
+        regex: "vale\\s+anche\\s+per\\s+i\\s+motocicli"
+      },
+      {
+        it: "è un segnale di fine prescrizione",
+        ar: "إشارة نهاية أمر تنظيمي (تكرر 3 مرات)",
+        type: "vero",
+        rate: "100% VERO (3 تكرارات)",
+        pure: true,
+        isRepeated: true,
+        rule: "الشواخص الدائرية البيضاء ذات الخط المائل الرمادي أو الأسود التي تعلن انتهاء أوامر المنع السابقة.",
+        hasException: false,
+        regex: "[èe]\\s+un\\s+segnale\\s+di\\s+fine\\s+prescrizione"
+      },
+      {
+        it: "il delineatore raffigurato è un segnale complementare",
+        ar: "المحدد الموضح إشارة تكميلية (تكرر 3 مرات)",
+        type: "vero",
+        rate: "100% VERO (3 تكرارات)",
+        pure: true,
+        isRepeated: true,
+        rule: "شواخص تحديد المنعطفات وحواف الطرق (Delineatori) تتبع هندسياً فئة الإشارات التكميلية.",
+        hasException: false,
+        regex: "delineatore\\s+raffigurato\\s+[èe]\\s+un\\s+segnale\\s+complementare"
       }
     ];
 
@@ -1904,7 +2208,7 @@
      */
     function calculateCounts() {
       let totalQuestionsSet = new Set();
-      let cntF = 0, cntV = 0, cntE = 0, cntP = 0;
+      let cntF = 0, cntV = 0, cntE = 0, cntP = 0, cntPairs = 0, cntRep = 0;
 
       MAGIC_WORDS_DB.forEach(w => {
         const re = new RegExp(w.regex, "i");
@@ -1912,10 +2216,13 @@
         w.questionCount = matched.length;
         matched.forEach(q => totalQuestionsSet.add((q.ch || 1) + "_" + (q.id || 0)));
 
-        if (w.type === 'falso' && !w.isPhrase) cntF++;
-        if (w.type === 'vero' && !w.isPhrase) cntV++;
+        if (w.isPair) cntPairs++;
+        else if (w.isRepeated) cntRep++;
+        else if (w.isPhrase) cntP++;
+        else if (w.type === 'falso') cntF++;
+        else if (w.type === 'vero') cntV++;
+
         if (w.hasException) cntE++;
-        if (w.isPhrase) cntP++;
       });
 
       document.getElementById("cntAll").innerText = MAGIC_WORDS_DB.length;
@@ -1923,6 +2230,8 @@
       document.getElementById("cntVero").innerText = cntV;
       document.getElementById("cntExc").innerText = cntE;
       if (document.getElementById("cntPhrases")) document.getElementById("cntPhrases").innerText = cntP;
+      if (document.getElementById("cntPairs")) document.getElementById("cntPairs").innerText = cntPairs;
+      if (document.getElementById("cntRepeated")) document.getElementById("cntRepeated").innerText = cntRep;
       document.getElementById("statWordsCount").innerText = MAGIC_WORDS_DB.length;
       document.getElementById("statQuestionsCovered").innerText = totalQuestionsSet.size + " سؤالاً";
     }
@@ -1936,9 +2245,11 @@
 
       const filtered = MAGIC_WORDS_DB.filter(item => {
         // فلتر النوع
+        if (currentFilter === 'pair' && !item.isPair) return false;
+        if (currentFilter === 'repeated' && !item.isRepeated) return false;
         if (currentFilter === 'phrase' && !item.isPhrase) return false;
-        if (currentFilter === 'falso' && (item.type !== 'falso' || item.isPhrase)) return false;
-        if (currentFilter === 'vero' && (item.type !== 'vero' || item.isPhrase)) return false;
+        if (currentFilter === 'falso' && (item.type !== 'falso' || item.isPhrase || item.isPair || item.isRepeated)) return false;
+        if (currentFilter === 'vero' && (item.type !== 'vero' || item.isPhrase || item.isPair || item.isRepeated)) return false;
         if (currentFilter === 'exception' && !item.hasException) return false;
 
         // فلتر البحث
@@ -1973,8 +2284,15 @@
 
       grid.innerHTML = filtered.map(item => {
         const isFalso = item.type === 'falso';
-        const rateBadgeClass = item.hasException ? 'rate-badge-mixed' : (isFalso ? 'rate-badge-falso' : 'rate-badge-vero');
-        const rateIcon = isFalso ? '❌' : '✅';
+        let rateBadgeClass = 'rate-badge-vero';
+        if (item.isPair) rateBadgeClass = 'rate-badge-pair';
+        else if (item.isRepeated) rateBadgeClass = 'rate-badge-repeated';
+        else if (item.hasException) rateBadgeClass = 'rate-badge-mixed';
+        else if (isFalso) rateBadgeClass = 'rate-badge-falso';
+
+        let rateIcon = isFalso ? '❌' : '✅';
+        if (item.isPair) rateIcon = '🔗';
+        if (item.isRepeated) rateIcon = '🔁';
 
         return `
           <div class="ps-card">
@@ -1982,7 +2300,7 @@
               <div class="ps-card-top">
                 <div class="ps-word-wrap">
                   <span class="ps-word-it">${item.it}</span>
-                  <button class="ps-audio-mini" onclick="playAudio('${item.it}')" title="استمع لنطق الكلمة بالإيطالية">🔊</button>
+                  <button class="ps-audio-mini" onclick="playAudio('${item.it.replace(/[+']/g, ' ')}')" title="استمع لنطق الكلمة بالإيطالية">🔊</button>
                 </div>
                 <span class="ps-rate-badge ${rateBadgeClass}">
                   ${rateIcon} ${item.rate}
@@ -2019,6 +2337,8 @@
       if (filter === 'vero') document.getElementById("btnFilterVero").classList.add("active");
       if (filter === 'exception') document.getElementById("btnFilterExc").classList.add("active");
       if (filter === 'phrase' && document.getElementById("btnFilterPhrases")) document.getElementById("btnFilterPhrases").classList.add("active");
+      if (filter === 'pair' && document.getElementById("btnFilterPairs")) document.getElementById("btnFilterPairs").classList.add("active");
+      if (filter === 'repeated' && document.getElementById("btnFilterRepeated")) document.getElementById("btnFilterRepeated").classList.add("active");
       renderCards();
     }
 
