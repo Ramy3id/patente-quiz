@@ -29,6 +29,9 @@ class PatenteTrapEngine {
       { it: "\\bgeneralmente\\b", label: "عادةً (انتبه: ليس دائماً!)", severity: "med" },
       { it: "\\bnon è mai\\b", label: "ليس أبداً (نفي قاطع)", severity: "high" },
       { it: "\\bvietato in ogni\\b", label: "ممنوع في كل الحالات", severity: "high" },
+      { it: "\\btransitano contemporaneamente\\b", label: "يعبران معاً في نفس الوقت (فخ تقاطعات قاتل)", severity: "high" },
+      { it: "\\bdiminuire la distanza\\b", label: "تقليل مسافة الأمان (مستحيل في كود السير)", severity: "high" },
+      { it: "\\bnon [èe] obbligatorio\\b", label: "ليس إجبارياً (فخ تهاون غير قانوني)", severity: "high" },
       { it: "\\bpurché\\b", label: "شريطة أن (قيد شرطي)", severity: "med" }
     ];
   }

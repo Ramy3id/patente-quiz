@@ -328,16 +328,20 @@
 
     .ps-exception-pill {
       background: rgba(245, 158, 11, 0.12);
-      border: 1px solid rgba(245, 158, 11, 0.3);
-      color: var(--ps-amber);
-      padding: 6px 10px;
-      border-radius: 8px;
-      font-size: 0.8rem;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: #FBBF24;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 0.83rem;
       font-weight: 700;
+      line-height: 1.5;
       margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      display: block;
+    }
+    html.light .ps-exception-pill {
+      background: rgba(217, 119, 6, 0.1);
+      border-color: rgba(217, 119, 6, 0.3);
+      color: #B45309;
     }
 
     .ps-card-actions {
@@ -1276,7 +1280,7 @@
         pure: false,
         rule: "فخ حصر قاطع واستبعاد (13 سؤالاً خطأ).",
         hasException: true,
-        exceptionNote: "⚠️ الاستثناء الوحيد الصحيح (VERO): تركيب إطارات بأبعاد مطابقة حصرياً لما هو منصوص عليه في شهادة اعتماد المركبة.",
+        exceptionNote: "🎯 البصمة الذكية للاستثناء (VERO): ابحث عن pneumatici + omologazione (مقاس الإطارات المطابق للكتالوج فقط - سؤال واحد صحيح، عدا ذلك FALSO فوراً).",
         regex: "\\besclusivamente\\b"
       },
       {
@@ -1287,7 +1291,7 @@
         pure: false,
         rule: "صيغة نفي قاطعة تتجاهل استثناءات قانون المرور (11 سؤالاً خطأ).",
         hasException: true,
-        exceptionNote: "⚠️ الاستثناء الوحيد الصحيح (VERO): يجب على السائق ألا يبالغ مطلقاً (non deve mai) في تقدير مهاراته وقدراته في القيادة.",
+        exceptionNote: "🎯 البصمة الذكية للاستثناء (VERO): ابحث عن sopravvalutare (ألا يبالغ السائق في تقدير مهارته - سؤال واحد صحيح، عدا ذلك FALSO فوراً).",
         regex: "\\bmai\\b"
       },
       {
@@ -1298,7 +1302,7 @@
         pure: false,
         rule: "فخ تعميم شهير (17 سؤالاً خطأ).",
         hasException: true,
-        exceptionNote: "⚠️ استثناءان صحيحان (VERO): حظر الوقوف التام في مسارات الدراجات ومخارجها، ووجوب وضع اللوحة المربعة عند أي بروز خلفي للحمولة.",
+        exceptionNote: "🎯 البصمة الذكية للاستثناء (VERO): حالتان فقط (piste ciclabili - حظر الوقوف على مسارات الدراجات) أو (carico sporge - بروز الحمولة للخلف حتى لو ضئيلاً anche se di poco). عدا ذلك FALSO فوراً.",
         regex: "\\bin ogni caso\\b"
       },
       {
@@ -1309,7 +1313,7 @@
         pure: false,
         rule: "صيغة حصر مضللة في 22 سؤالاً خطأ؛ تقيد التصرف بحالة واحدة بينما توجد شروط أخرى.",
         hasException: true,
-        exceptionNote: "⚠️ انتبه: توجد أسئلة صحيحة عندما يكون المنع أو التخصيص حقيقياً في القانون.",
+        exceptionNote: "🎯 البصمة الذكية للأسئلة الصحيحة (VERO): 3 حالات حتمية فقط: ترشيد التكييف (serve effettivamente)، خلل فرامل أحادي (ruote di un lato)، أو سهم مسار إجباري بالرسم (soltanto a destra). عدا ذلك FALSO.",
         regex: "\\bsoltanto\\b"
       },
       {
@@ -1320,8 +1324,19 @@
         pure: false,
         rule: "تعميم ظروف السرعة أو الأوزان دون مراعاة حدود الطريق (19 سؤالاً خطأ).",
         hasException: true,
-        exceptionNote: "⚠️ انتبه: 8 أسئلة صحيحة ترتبط بضرورة الانتباه لأي حركة أو أي اتجاه.",
+        exceptionNote: "🎯 البصمة الذكية للأسئلة الصحيحة (VERO): شروط السلامة القصوى: حزام الأمان في أي حالة سير (qualsiasi situazione di marcia)، أو إزالة ما يسقط على الطريق (qualsiasi altra causa)، أو حظر التوقف التام (qualsiasi volontaria fermata). عدا ذلك FALSO.",
         regex: "\\bqualsiasi\\b"
+      },
+      {
+        it: "qualunque",
+        ar: "أيّاً كان / أية كانت",
+        type: "falso",
+        rate: "78.9% FALSO",
+        pure: false,
+        rule: "تعميم مضلل على تعريف المركبات أو الإشارات (15 سؤالاً خطأ).",
+        hasException: true,
+        exceptionNote: "🎯 البصمة الذكية للأسئلة الصحيحة (VERO): وضوح رؤية الخوذة (qualunque condizione di luce)، أو مغادرة مزلقان القطار بأي طريقة (sgomberare in qualunque modo حتى بكسر البوابات). عدا ذلك FALSO.",
+        regex: "\\bqualunque\\b"
       },
 
       {
@@ -1595,7 +1610,7 @@
         pure: false,
         rule: "القاعدة الذهبية لسلامة المرور في إيطاليا (38 سؤالاً صحيحاً).",
         hasException: true,
-        exceptionNote: "⚠️ الاستثناء الوحيد الخطأ (FALSO): سؤال التقاطع الذي ادعى أن 'لا أحد من المركبات ملزم بتخفيف السرعة' (nessuno deve moderare).",
+        exceptionNote: "🎯 البصمة الذكية للاستثناء الخاطئ (FALSO): ابحث عن كلمة nessuno ('nessuno dei veicoli deve moderare' ادعى أن لا أحد ملزم بتهدئة السرعة في التقاطع - عدا ذلك VERO دائماً).",
         regex: "\\bmoderare\\b"
       },
       {
@@ -1606,7 +1621,7 @@
         pure: false,
         rule: "صيغة الاحتمال للجمع؛ مراعاة تصرفات المشاة أو الأطفال (16 سؤالاً صحيحاً).",
         hasException: true,
-        exceptionNote: "⚠️ الاستثناء الوحيد الخطأ (FALSO): لوحة إضافية للجليد ادعى السؤال أنها تمنع شاحنات المواد الملوثة للماء.",
+        exceptionNote: "🎯 البصمة الذكية للاستثناء الخاطئ (FALSO): ادعاء أن اللوحة التكميلية 'تمنع المرور' (vieta il transito) - عدا ذلك صيغة الاحتمال VERO دائماً.",
         regex: "\\bpotrebbero\\b"
       },
       {
@@ -1617,7 +1632,7 @@
         pure: false,
         rule: "التأكد من خلو الطريق وسلامة الرؤية قبل بدء أي مناورة (11 سؤالاً صحيحاً).",
         hasException: true,
-        exceptionNote: "⚠️ الاستثناء الوحيد الخطأ (FALSO): التأكد 'فقط وحصراً' من عدم وجود إشارة منع التجاوز (unicamente accertarsi).",
+        exceptionNote: "🎯 البصمة الذكية للاستثناء الخاطئ (FALSO): وجود كلمة unicamente ('unicamente accertarsi' التأكد فقط وحصراً من عدم وجود إشارة منع - عدا ذلك VERO دائماً).",
         regex: "\\baccertarsi che\\b"
       },
       {
@@ -1628,7 +1643,7 @@
         pure: false,
         rule: "الإشارات التحذيرية تدعو السائق للحذر ومراعاة ظروف الطريق (29 سؤالاً صحيحاً).",
         hasException: true,
-        exceptionNote: "⚠️ أشهر استثناء خطأ (FALSO): الإشارة تدعو لتقليل مسافة الأمان (diminuire la distanza) - وهذا خطأ فادح الواجب زيادتها.",
+        exceptionNote: "🎯 البصمة الذكية للاستثناء الخاطئ (FALSO): تدعو لتقليل مسافة الأمان (diminuire la distanza)، أو تدعو لوظائف لا تخص اللوحة (أضواء الطوارئ مع لوحة الجليد). عدا ذلك VERO دائماً.",
         regex: "\\binvita\\b"
       },
       {
@@ -1639,7 +1654,7 @@
         pure: false,
         rule: "الصيغة القانونية المعتمدة لحدود السرعات وتخصيص المسارات العامة (22 سؤالاً صحيحاً).",
         hasException: true,
-        exceptionNote: "⚠️ 5 أسئلة خطأ (FALSO) فقط لأنها وضعت أرقام سرعات مغلوطة (مثل 80 داخل المدينة بدل 50، أو 100 على الطرق السريعة بدل 110).",
+        exceptionNote: "🎯 البصمة الذكية للاستثناء الخاطئ (FALSO): أرقام سرعات مفبركة (80 داخل المدينة، 60 بالتجمعات، 70 للرباعية، 100 بالرئيسية) أو أسبقية مقلوبة da sinistra. إذا كانت السرعات نظامية فالعبارة VERO.",
         regex: "\\bsalvo\\s+diversa\\s+segnalazione\\b"
       },
       // ==================== العبارات والتراكيب المركبة (Frasi Spia) ====================
@@ -1796,6 +1811,72 @@
         rule: "شرط عدم تشكيل خطر أو إعاقة لحركة السير صحيح دائماً ومطلوب من كل سائق.",
         hasException: false,
         regex: "da\\s+non\\s+costituire"
+      },
+      {
+        it: "transitano contemporaneamente",
+        ar: "يعبران في نفس الوقت معاً",
+        type: "falso",
+        rate: "100% FALSO",
+        pure: true,
+        isPhrase: true,
+        rule: "في مسائل التقاطعات وتوزيع الأسبقية، أي سؤال يزعم أن سيارتين تعبران في نفس الوقت معاً فخ وزاري ثابت 100% FALSO؛ لأن مساراتهما تتقاطع دائماً ولا بد من أسبقية لأحدهما.",
+        hasException: false,
+        regex: "transitano\\s+contemporaneamente"
+      },
+      {
+        it: "è consentito proseguire diritto",
+        ar: "يُسمح بمواصلة السير للأمام",
+        type: "vero",
+        rate: "100% VERO",
+        pure: true,
+        isPhrase: true,
+        rule: "تأتي مع الإشارات التي تبيح الاستمرار على استقامة الطريق أو تؤكد عدم حظر السير للأمام (11 سؤالاً صحيحاً).",
+        hasException: false,
+        regex: "[èe]\\s+consentito\\s+proseguire\\s+diritto"
+      },
+      {
+        it: "alle condizioni",
+        ar: "وفقاً لظروف (الطريق/الطقس)",
+        type: "vero",
+        rate: "100% VERO",
+        pure: true,
+        isPhrase: true,
+        rule: "ملاءمة القيادة والسرعة لظروف الطريق والطقس وحركة المرور (adeguare la velocità alle condizioni) ركن أساسي في القيادة الآمنة (11 سؤالاً صحيحاً).",
+        hasException: false,
+        regex: "alle\\s+condizioni"
+      },
+      {
+        it: "rapidamente",
+        ar: "بسرعة فائقة / بتسارع مفاجئ",
+        type: "falso",
+        rate: "85% FALSO",
+        pure: false,
+        rule: "الاندفاع أو الفرملة السريعة أو التسارع العنيف يتنافى مع مبدأ السلامة والتدريج (17 سؤالاً خطأ).",
+        hasException: true,
+        exceptionNote: "🎯 البصمة الذكية للاستثناء (VERO): 3 أسئلة صحيحة فقط ترتبط بضرورة إخلاء التقاطع أو مسار القطار بسرعة عند الخطر المحدق.",
+        regex: "\\brapidamente\\b"
+      },
+      {
+        it: "assicurarsi",
+        ar: "التأكد والاطمئنان",
+        type: "vero",
+        rate: "92.3% VERO",
+        pure: false,
+        rule: "واجب التأكد من خلو المسار وسلامة المناورة والمرايا قبل الانعطاف أو التجاوز أو فتح الأبواب (12 سؤالاً صحيحاً).",
+        hasException: true,
+        exceptionNote: "🎯 البصمة الذكية للاستثناء الخاطئ (FALSO): استثناء وحيد عند ادعاء التأكد فقط من عدم وجود إشارة منع مع إهمال فحص الطريق.",
+        regex: "\\bassicurarsi\\b"
+      },
+      {
+        it: "verificare",
+        ar: "فحص / التحقق الدوري",
+        type: "vero",
+        rate: "91.7% VERO",
+        pure: false,
+        rule: "التحقق الدوري من ضغط الإطارات، مستوى الزيت، سلامة المكابح، وإشارات الانعطاف (11 سؤالاً صحيحاً).",
+        hasException: true,
+        exceptionNote: "🎯 البصمة الذكية للاستثناء الخاطئ (FALSO): استثناء وحيد عند ادعاء التحقق من تفاصيل ميكانيكية دقيقة معقدة غير مطلوبة من السائق.",
+        regex: "\\bverificare\\b"
       }
     ];
 
