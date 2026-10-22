@@ -33,6 +33,19 @@
   let userProfile = null;
   let isSyncing = false;
   let lastSyncTime = null;
+  let isRegistrationInProgress = false;
+
+  // دالة مساعدة لحماية النصوص من ثغرات الحقن (XSS Sanitizer)
+  function escapeHtml(str) {
+    if (str === null || str === undefined) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+  window.escapeHtml = window.escapeHtml || escapeHtml;
 
   // 2. تحميل مكتبات Firebase SDK ديناميكياً بشكل متسلسل آمن
   function loadSingleScript(src) {
@@ -97,6 +110,11 @@
 
   // 4. معالجة تغير حالة المصادقة (Auth State Change)
   async function handleAuthStateChange(user) {
+    if (isRegistrationInProgress) {
+      // أثناء التسجيل، تتولى دالة registerAccount حفظ البيانات وتحديث الواجهة مباشرة
+      return;
+    }
+
     currentUser = user;
     if (user) {
       try {
@@ -105,32 +123,67 @@
         const docSnap = await docRef.get();
         if (docSnap.exists) {
           userProfile = docSnap.data();
+          try {
+            localStorage.setItem('patente_user_profile', JSON.stringify(userProfile));
+          } catch (_) {}
         } else {
-          // ملف مبدئي لحسابات Google الجديدة
-          const nameParts = (user.displayName || 'طالب جديد').split(' ');
-          userProfile = {
-            uid: user.uid,
-            firstName: nameParts[0] || 'طالب',
-            lastName: nameParts.slice(1).join(' ') || '',
-            email: user.email || '',
-            phone: user.phoneNumber || '',
-            birthDate: '',
-            gender: 'unspecified',
-            createdAt: window.firebase.firestore.FieldValue.serverTimestamp()
-          };
-          await docRef.set(userProfile, { merge: true });
+          // محاولة استرجاع البيانات المخزنة محلياً إذا كانت متوفرة
+          let cachedProfile = null;
+          try {
+            const raw = localStorage.getItem('patente_user_profile');
+            if (raw) cachedProfile = JSON.parse(raw);
+          } catch (_) {}
+
+          if (cachedProfile && cachedProfile.uid === user.uid) {
+            userProfile = cachedProfile;
+            await docRef.set(userProfile, { merge: true });
+          } else {
+            // ملف مبدئي لحسابات Google الجديدة
+            const nameParts = (user.displayName || 'طالب جديد').split(' ');
+            userProfile = {
+              uid: user.uid,
+              firstName: nameParts[0] || 'طالب',
+              lastName: nameParts.slice(1).join(' ') || '',
+              fullName: user.displayName || 'طالب جديد',
+              email: user.email || '',
+              phone: user.phoneNumber || '',
+              birthDate: '',
+              gender: 'unspecified',
+              createdAt: window.firebase.firestore.FieldValue.serverTimestamp(),
+              platform: 'Patente B Pro 2026'
+            };
+            await docRef.set(userProfile, { merge: true });
+          }
+          try {
+            localStorage.setItem('patente_user_profile', JSON.stringify(userProfile));
+          } catch (_) {}
         }
 
-        updateAuthUiLoggedIn(userProfile || { displayName: user.displayName, email: user.email });
+        updateAuthUiLoggedIn(userProfile);
 
         // مزامنة تلقائية هادئة مع السحابة عند الدخول
         syncBidirectional(user.uid);
       } catch (err) {
         console.error('Error fetching user profile:', err);
-        updateAuthUiLoggedIn({ displayName: user.displayName || user.email, email: user.email });
+        let cachedProfile = null;
+        try {
+          const raw = localStorage.getItem('patente_user_profile');
+          if (raw) cachedProfile = JSON.parse(raw);
+        } catch (_) {}
+
+        userProfile = cachedProfile || {
+          uid: user.uid,
+          firstName: user.displayName ? user.displayName.split(' ')[0] : 'طالب',
+          fullName: user.displayName || 'طالب',
+          email: user.email || ''
+        };
+        updateAuthUiLoggedIn(userProfile);
       }
     } else {
       userProfile = null;
+      try {
+        localStorage.removeItem('patente_user_profile');
+      } catch (_) {}
       updateAuthUiLoggedOut();
     }
   }
@@ -145,36 +198,49 @@
       throw new Error('كلمة المرور يجب أن تتكون من 6 خانات على الأقل وتتضمن رمزاً خاصاً واحداً على الأقل (مثل: @, #, $, %, !, -, *, +, §)');
     }
 
-    // إنشاء الحساب في Firebase Auth
-    const cred = await authInstance.createUserWithEmailAndPassword(email, password);
-    const user = cred.user;
+    isRegistrationInProgress = true;
+    try {
+      // إنشاء الحساب في Firebase Auth
+      const cred = await authInstance.createUserWithEmailAndPassword(email, password);
+      const user = cred.user;
 
-    // تحديث الاسم المعروض في Firebase Auth
-    const fullName = `${firstName.trim()} ${lastName.trim()}`.trim();
-    await user.updateProfile({ displayName: fullName });
+      // تحديث الاسم المعروض في Firebase Auth
+      const fullName = `${firstName.trim()} ${lastName.trim()}`.trim();
+      await user.updateProfile({ displayName: fullName });
 
-    // حفظ تفاصيل الملف الشخصي الكاملة في Firestore
-    const profileData = {
-      uid: user.uid,
-      firstName: firstName.trim(),
-      lastName: lastName.trim(),
-      fullName: fullName,
-      email: email.trim().toLowerCase(),
-      phone: (phone || '').trim(),
-      birthDate: birthDate || '',
-      gender: gender || 'unspecified',
-      createdAt: window.firebase.firestore.FieldValue.serverTimestamp(),
-      lastLoginAt: window.firebase.firestore.FieldValue.serverTimestamp(),
-      platform: 'Patente B Pro 2026'
-    };
+      // حفظ تفاصيل الملف الشخصي الكاملة في Firestore
+      const profileData = {
+        uid: user.uid,
+        firstName: firstName.trim(),
+        lastName: lastName.trim(),
+        fullName: fullName,
+        email: email.trim().toLowerCase(),
+        phone: (phone || '').trim(),
+        birthDate: birthDate || '',
+        gender: gender || 'unspecified',
+        createdAt: window.firebase.firestore.FieldValue.serverTimestamp(),
+        lastLoginAt: window.firebase.firestore.FieldValue.serverTimestamp(),
+        platform: 'Patente B Pro 2026'
+      };
 
-    await firestoreInstance.collection('users').doc(user.uid).set(profileData);
-    userProfile = profileData;
+      await firestoreInstance.collection('users').doc(user.uid).set(profileData);
+      userProfile = profileData;
+      currentUser = user;
 
-    // رفع التقدم المحلي الحالي تلقائياً إلى الحساب الجديد لمنع ضياع أي إنجاز سابق
-    await uploadLocalProgressToCloud(user.uid);
+      try {
+        localStorage.setItem('patente_user_profile', JSON.stringify(profileData));
+      } catch (_) {}
 
-    return user;
+      // تحديث شريط الهيدر والقائمة فوراً ببيانات المستخدم الحقيقية
+      updateAuthUiLoggedIn(profileData);
+
+      // رفع التقدم المحلي الحالي تلقائياً إلى الحساب الجديد لمنع ضياع أي إنجاز سابق
+      await uploadLocalProgressToCloud(user.uid);
+
+      return user;
+    } finally {
+      isRegistrationInProgress = false;
+    }
   }
 
   // 6. تسجيل الدخول (Email & Password)
@@ -776,6 +842,14 @@
           grid-template-columns: 1fr;
           gap: 8px;
         }
+        .auth-profile-dropdown {
+          position: fixed !important;
+          top: 60px !important;
+          right: 12px !important;
+          left: 12px !important;
+          width: auto !important;
+          max-width: calc(100vw - 24px) !important;
+        }
       }
     `;
     document.head.appendChild(style);
@@ -1132,41 +1206,63 @@
       };
     }
 
+    const mobBtn = document.getElementById('btnOpenMobileAuth');
+    if (mobBtn) {
+      mobBtn.classList.remove('logged-in');
+      mobBtn.title = 'دخول / تسجيل';
+      mobBtn.onclick = () => {
+        document.getElementById('patenteAuthModal').classList.add('open');
+      };
+    }
+
     const drop = document.getElementById('authProfileDropdown');
     if (drop) drop.classList.remove('open');
   }
 
   // 19. تحديث واجهة المستخدم عند تسجيل الدخول (Logged In)
   function updateAuthUiLoggedIn(profile) {
+    const active = userProfile || profile || {};
     const pill = document.getElementById('globalAuthPill');
-    const name = profile.firstName || profile.displayName || profile.email.split('@')[0];
+    const name = active.firstName || active.displayName || (active.email ? active.email.split('@')[0] : 'طالب');
 
     if (pill) {
       pill.className = 'nav-auth-pill logged-in';
       pill.innerHTML = `
         <span class="auth-online-dot" id="authSyncDot"></span>
-        <span>👤 ${window.escapeHtml ? window.escapeHtml(name) : name}</span>
+        <span>👤 ${escapeHtml(name)}</span>
         <span style="font-size:0.7rem;">▾</span>
       `;
-      pill.title = `مسجل كـ: ${profile.email} (انقر لعرض الملف الشخصي والمزامنة)`;
+      pill.title = `مسجل كـ: ${active.email || ''} (انقر لعرض الملف الشخصي والمزامنة)`;
       pill.onclick = (e) => {
         e.stopPropagation();
-        toggleProfileDropdown(profile);
+        toggleProfileDropdown(userProfile || profile);
+      };
+    }
+
+    const mobBtn = document.getElementById('btnOpenMobileAuth');
+    if (mobBtn) {
+      mobBtn.classList.add('logged-in');
+      mobBtn.title = `مسجل كـ: ${active.email || ''}`;
+      mobBtn.onclick = (e) => {
+        e.stopPropagation();
+        toggleProfileDropdown(userProfile || profile);
       };
     }
   }
 
   // 20. إدارة القائمة المنسدلة للملف الشخصي (Profile Dropdown)
   function toggleProfileDropdown(profile) {
+    const active = userProfile || profile || {};
     let drop = document.getElementById('authProfileDropdown');
     const pill = document.getElementById('globalAuthPill');
-    if (!pill) return;
+    const mobBtn = document.getElementById('btnOpenMobileAuth');
+    const parentContainer = (pill && pill.parentElement) || (mobBtn && mobBtn.parentElement) || document.body;
 
     if (!drop) {
       drop = document.createElement('div');
       drop.className = 'auth-profile-dropdown';
       drop.id = 'authProfileDropdown';
-      pill.parentElement.appendChild(drop);
+      parentContainer.appendChild(drop);
     }
 
     const isCurrentlyOpen = drop.classList.contains('open');
@@ -1175,26 +1271,27 @@
       return;
     }
 
-    const fullName = profile.fullName || `${profile.firstName || ''} ${profile.lastName || ''}`.trim() || profile.displayName || 'طالب رخصة القيادة';
-    const email = profile.email || '';
-    const phone = profile.phone || 'غير مسجل';
-    const bdate = profile.birthDate || 'غير مسجل';
-    const genderStr = profile.gender === 'male' ? 'ذكر 👨' : profile.gender === 'female' ? 'أنثى 👩' : 'غير محدد / آخر 👤';
+    const fullName = active.fullName || `${active.firstName || ''} ${active.lastName || ''}`.trim() || active.displayName || 'طالب رخصة القيادة';
+    const email = active.email || (currentUser ? currentUser.email : '');
+    const phone = active.phone || 'غير مسجل';
+    const bdate = active.birthDate || 'غير مسجل';
+    const genderStr = active.gender === 'male' ? 'ذكر 👨' : active.gender === 'female' ? 'أنثى 👩' : 'غير محدد / آخر 👤';
+    const firstLetter = (active.firstName || active.fullName || 'ط').trim().charAt(0).toUpperCase();
 
     drop.innerHTML = `
       <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.08);">
-        <div style="width:42px; height:42px; border-radius:50%; background:#10B981; color:#FFF; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.1rem;">
-          ${(profile.firstName || 'ط').charAt(0)}
+        <div style="width:42px; height:42px; border-radius:50%; background:#10B981; color:#FFF; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.1rem; flex-shrink:0;">
+          ${escapeHtml(firstLetter)}
         </div>
-        <div>
-          <div style="font-weight:800; font-size:0.95rem;">${window.escapeHtml(fullName)}</div>
-          <div style="font-size:0.75rem; color:#94A3B8; direction:ltr; text-align:right;">${window.escapeHtml(email)}</div>
+        <div style="overflow:hidden; flex:1;">
+          <div style="font-weight:800; font-size:0.95rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(fullName)}</div>
+          <div style="font-size:0.75rem; color:#94A3B8; direction:ltr; text-align:right; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(email)}</div>
         </div>
       </div>
 
       <div style="font-size:0.78rem; color:#94A3B8; margin-bottom:12px; line-height:1.7;">
-        <div>📱 <strong>الهاتف:</strong> <span dir="ltr">${window.escapeHtml(phone)}</span></div>
-        <div>🎂 <strong>الميلاد:</strong> ${window.escapeHtml(bdate)}</div>
+        <div>📱 <strong>الهاتف:</strong> <span dir="ltr">${escapeHtml(phone)}</span></div>
+        <div>🎂 <strong>الميلاد:</strong> ${escapeHtml(bdate)}</div>
         <div>👤 <strong>النوع:</strong> ${genderStr}</div>
       </div>
 
@@ -1219,7 +1316,9 @@
       const btn = document.getElementById('btnManualSyncNow');
       btn.innerHTML = 'جاري المزامنة... ⏳';
       btn.disabled = true;
-      await uploadLocalProgressToCloud(currentUser.uid);
+      if (currentUser && currentUser.uid) {
+        await uploadLocalProgressToCloud(currentUser.uid);
+      }
       btn.innerHTML = '✅ تمت المزامنة بنجاح!';
       setTimeout(() => {
         btn.innerHTML = '<span>🔄 مزامنة سحابية فورية الآن</span>';
@@ -1237,7 +1336,7 @@
 
     // إغلاق عند النقر بالخارج
     const closeListener = (evt) => {
-      if (!drop.contains(evt.target) && evt.target !== pill) {
+      if (!drop.contains(evt.target) && evt.target !== pill && (!mobBtn || !mobBtn.contains(evt.target))) {
         drop.classList.remove('open');
         document.removeEventListener('click', closeListener);
       }
