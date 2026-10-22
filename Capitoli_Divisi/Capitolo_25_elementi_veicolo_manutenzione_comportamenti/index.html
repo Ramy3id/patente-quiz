@@ -1209,13 +1209,15 @@
   }
 
   .subtopic-chevron {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
     transition: transform 0.2s var(--ease-spring);
     padding: 4px;
+    display: inline-block;
+    transform: rotate(0deg);
   }
   .subtopic-section-box.is-collapsed .subtopic-chevron {
-    transform: rotate(180deg);
+    transform: rotate(90deg);
   }
 
   .subtopic-section-body {
@@ -1981,7 +1983,7 @@
   let currentFilter = 'all';
   let activeGroupFilter = 'all';
   let currentViewMode = 'grouped'; // 'grouped' | 'flat'
-  let collapsedSections = new Set();
+  let expandedSections = new Set();
   let isStudyMode = false;
 
   function escapeJsString(str) {
@@ -2023,6 +2025,9 @@
   window.selectSubtopicFilter = function(key) {
     soundEngine.click();
     activeGroupFilter = key;
+    if (key !== 'all') {
+      expandedSections.add(key);
+    }
     renderSubtopicChips();
     renderQuestions();
 
@@ -2048,18 +2053,18 @@
     soundEngine.click();
     const secBox = document.getElementById(`subtopic-sec-${gKey}`);
     if (!secBox) return;
-    if (collapsedSections.has(gKey)) {
-      collapsedSections.delete(gKey);
-      secBox.classList.remove('is-collapsed');
-    } else {
-      collapsedSections.add(gKey);
+    if (expandedSections.has(gKey)) {
+      expandedSections.delete(gKey);
       secBox.classList.add('is-collapsed');
+    } else {
+      expandedSections.add(gKey);
+      secBox.classList.remove('is-collapsed');
     }
   };
 
   window.expandAllSections = function() {
     soundEngine.click();
-    collapsedSections.clear();
+    Object.keys(UNIFIED_GROUPS).forEach(k => expandedSections.add(k));
     document.querySelectorAll('.subtopic-section-box').forEach(box => {
       box.classList.remove('is-collapsed');
     });
@@ -2067,7 +2072,7 @@
 
   window.collapseAllSections = function() {
     soundEngine.click();
-    Object.keys(UNIFIED_GROUPS).forEach(k => collapsedSections.add(k));
+    expandedSections.clear();
     document.querySelectorAll('.subtopic-section-box').forEach(box => {
       box.classList.add('is-collapsed');
     });
@@ -2261,7 +2266,8 @@
           if (userAnswers[q.id]) answeredInSub++;
         });
 
-        const isCollapsed = collapsedSections.has(gKey);
+        const isExpanded = (query !== '') || (activeGroupFilter !== 'all') || expandedSections.has(gKey);
+        const isCollapsed = !isExpanded;
         const isDone = (answeredInSub === totalInSub && totalInSub > 0);
 
         const secBox = document.createElement('div');
