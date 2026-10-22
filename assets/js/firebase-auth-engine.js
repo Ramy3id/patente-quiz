@@ -427,52 +427,100 @@
         to { opacity: 1; transform: scale(1.2); }
       }
 
-      /* نافذة المصادقة المنبثقة الفاخرة */
+      /* نافذة المصادقة المنبثقة الفاخرة - Apple HIG Motion & Fluid Scrolling */
       .auth-modal-backdrop {
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.75);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
+        background: rgba(15, 23, 42, 0.78);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
         z-index: 100000;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
-        padding: 16px;
+        padding: 32px 16px;
         opacity: 0;
+        visibility: hidden;
         pointer-events: none;
-        transition: opacity 0.25s ease;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                    visibility 0.32s ease,
+                    backdrop-filter 0.32s ease;
       }
       .auth-modal-backdrop.open {
         opacity: 1;
+        visibility: visible;
         pointer-events: auto;
       }
       .auth-modal-card {
+        margin: auto;
         background: #0F172A;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 26px;
         width: 100%;
-        max-width: 480px;
-        max-height: 90vh;
+        max-width: 490px;
+        max-height: calc(100vh - 64px);
         overflow-y: auto;
-        padding: 28px 24px;
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
-        transform: scale(0.95) translateY(12px);
-        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-y: contain;
+        scroll-behavior: smooth;
+        padding: 30px 24px;
+        box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.06);
+        transform: scale(0.93) translateY(24px);
+        opacity: 0;
+        transition: transform 0.36s cubic-bezier(0.32, 0.72, 0, 1),
+                    opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                    box-shadow 0.3s ease;
         color: #F8FAFC;
         position: relative;
         direction: rtl;
         text-align: right;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(56, 189, 248, 0.45) rgba(255, 255, 255, 0.03);
       }
       html.light .auth-modal-card {
         background: #FFFFFF;
-        border-color: rgba(15, 23, 42, 0.1);
+        border-color: rgba(15, 23, 42, 0.12);
         color: #0F172A;
-        box-shadow: 0 25px 60px rgba(15, 23, 42, 0.15);
+        box-shadow: 0 25px 60px -12px rgba(15, 23, 42, 0.18), 0 0 0 1px rgba(15, 23, 42, 0.05);
+        scrollbar-color: rgba(2, 132, 199, 0.45) rgba(15, 23, 42, 0.03);
       }
       .auth-modal-backdrop.open .auth-modal-card {
         transform: scale(1) translateY(0);
+        opacity: 1;
       }
+
+      /* شريط التمرير الانسيابي الأنيق */
+      .auth-modal-card::-webkit-scrollbar {
+        width: 6px;
+      }
+      .auth-modal-card::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 999px;
+        margin: 10px 0;
+      }
+      .auth-modal-card::-webkit-scrollbar-thumb {
+        background: rgba(56, 189, 248, 0.45);
+        border-radius: 999px;
+        transition: background 0.2s ease;
+      }
+      .auth-modal-card::-webkit-scrollbar-thumb:hover {
+        background: rgba(56, 189, 248, 0.8);
+      }
+      html.light .auth-modal-card::-webkit-scrollbar-track {
+        background: rgba(15, 23, 42, 0.04);
+      }
+      html.light .auth-modal-card::-webkit-scrollbar-thumb {
+        background: rgba(2, 132, 199, 0.45);
+      }
+      html.light .auth-modal-card::-webkit-scrollbar-thumb:hover {
+        background: rgba(2, 132, 199, 0.8);
+      }
+
       .auth-close-btn {
         position: absolute;
         top: 20px;
@@ -480,18 +528,27 @@
         background: rgba(255, 255, 255, 0.08);
         border: none;
         color: #94A3B8;
-        width: 32px;
-        height: 32px;
+        width: 34px;
+        height: 34px;
         border-radius: 50%;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1rem;
-        transition: all 0.2s ease;
+        font-size: 1.05rem;
+        transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                    background-color 0.2s ease,
+                    color 0.2s ease;
       }
       html.light .auth-close-btn { background: #F1F5F9; color: #475569; }
-      .auth-close-btn:hover { background: #EF4444; color: #FFF; }
+      .auth-close-btn:hover {
+        background: rgba(239, 68, 68, 0.18);
+        color: #EF4444;
+        transform: scale(1.1) rotate(90deg);
+      }
+      .auth-close-btn:active {
+        transform: scale(0.92);
+      }
 
       /* تبويبات التبديل دخول / تسجيل */
       .auth-tabs-nav {
@@ -513,18 +570,38 @@
         font-weight: 700;
         cursor: pointer;
         border-radius: 10px;
-        transition: all 0.2s ease;
+        transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
         font-family: inherit;
+        position: relative;
       }
       html.light .auth-tab-btn { color: #64748B; }
+      .auth-tab-btn:active {
+        transform: scale(0.97);
+      }
       .auth-tab-btn.active {
         background: #38BDF8;
         color: #0F172A;
-        box-shadow: 0 2px 8px rgba(56, 189, 248, 0.35);
+        box-shadow: 0 2px 10px rgba(56, 189, 248, 0.4);
       }
       html.light .auth-tab-btn.active {
         background: #0284C7;
         color: #FFFFFF;
+      }
+
+      /* حركة النماذج الانسيابية */
+      .auth-form-animated {
+        animation: authFormSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+        will-change: transform, opacity;
+      }
+      @keyframes authFormSlideIn {
+        from {
+          opacity: 0;
+          transform: translateY(12px) scale(0.985);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
       }
 
       /* حقول الإدخال */
@@ -550,7 +627,10 @@
         font-family: inherit;
         font-size: 0.9rem;
         outline: none;
-        transition: all 0.2s ease;
+        transition: border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                    background-color 0.2s ease,
+                    box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.15s ease;
       }
       html.light .auth-input, html.light .auth-select {
         background: #F8FAFC;
@@ -561,6 +641,7 @@
         border-color: #38BDF8;
         background: rgba(56, 189, 248, 0.05);
         box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.18);
+        transform: translateY(-1px);
       }
       .auth-row-2 {
         display: grid;
@@ -579,7 +660,9 @@
         font-size: 0.95rem;
         font-weight: 800;
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+                    box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                    background-color 0.2s ease;
         font-family: inherit;
         display: flex;
         align-items: center;
@@ -587,14 +670,20 @@
         gap: 8px;
         margin-top: 18px;
         box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+        will-change: transform;
       }
       .auth-submit-btn:hover {
         background: #059669;
-        transform: translateY(-1px);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+      }
+      .auth-submit-btn:active {
+        transform: translateY(1px) scale(0.985);
       }
       .auth-submit-btn:disabled {
         opacity: 0.6;
         cursor: not-allowed;
+        transform: none;
       }
 
       /* زر الدخول بجوجل */
@@ -614,21 +703,27 @@
         gap: 10px;
         margin-top: 12px;
         font-family: inherit;
-        transition: all 0.2s ease;
+        transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+                    box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                    background-color 0.2s ease;
+        will-change: transform;
       }
       .auth-google-btn:hover {
         background: #F8FAFC;
-        transform: translateY(-1px);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+      }
+      .auth-google-btn:active {
+        transform: translateY(1px) scale(0.985);
       }
 
       /* تنبيهات الأخطاء والنجاح */
       .auth-alert-msg {
-        padding: 10px 14px;
-        border-radius: 10px;
-        font-size: 0.82rem;
+        padding: 11px 15px;
+        border-radius: 12px;
+        font-size: 0.83rem;
         font-weight: 600;
-        margin-bottom: 14px;
+        margin-bottom: 16px;
         display: none;
       }
       .auth-alert-msg.error {
@@ -636,12 +731,24 @@
         background: rgba(239, 68, 68, 0.15);
         color: #F87171;
         border: 1px solid rgba(239, 68, 68, 0.3);
+        animation: authAlertPop 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
       }
       .auth-alert-msg.success {
         display: block;
         background: rgba(16, 185, 129, 0.15);
         color: #34D399;
         border: 1px solid rgba(16, 185, 129, 0.3);
+        animation: authAlertPop 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      @keyframes authAlertPop {
+        from {
+          opacity: 0;
+          transform: translateY(-8px) scale(0.98);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
       }
 
       /* قائمة الملف الشخصي المنسدلة */
@@ -652,20 +759,52 @@
         width: 290px;
         background: #0F172A;
         border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 18px;
+        border-radius: 20px;
         padding: 18px;
         box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
-        display: none;
+        display: block !important;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(10px) scale(0.95);
+        transform-origin: top left;
+        transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.25s cubic-bezier(0.32, 0.72, 0, 1),
+                    visibility 0.22s;
         z-index: 99999;
         direction: rtl;
         text-align: right;
+        will-change: transform, opacity;
       }
       html.light .auth-profile-dropdown {
         background: #FFFFFF;
         border-color: rgba(15, 23, 42, 0.1);
         box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
       }
-      .auth-profile-dropdown.open { display: block; }
+      .auth-profile-dropdown.open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+      }
+
+      /* تحسين التجاوب على الهواتف والشاشات الصغيرة */
+      @media (max-width: 640px) {
+        .auth-modal-backdrop {
+          padding: 12px 10px;
+          align-items: flex-end;
+        }
+        .auth-modal-card {
+          max-height: 92vh;
+          border-radius: 24px 24px 18px 18px;
+          padding: 24px 18px 30px;
+          margin: 0 auto;
+        }
+        .auth-row-2 {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+      }
     `;
     document.head.appendChild(style);
   }
@@ -695,7 +834,7 @@
         <div class="auth-alert-msg" id="authAlertMsg"></div>
 
         <!-- فورم تسجيل الدخول -->
-        <form id="authLoginForm">
+        <form id="authLoginForm" class="auth-form-animated">
           <div class="auth-field-group">
             <label class="auth-label">البريد الإلكتروني</label>
             <input type="email" class="auth-input" id="loginEmail" placeholder="name@example.com" required dir="ltr">
@@ -714,7 +853,7 @@
         </form>
 
         <!-- فورم إنشاء حساب جديد -->
-        <form id="authRegisterForm" style="display:none;">
+        <form id="authRegisterForm" class="auth-form-animated" style="display:none;">
           <div class="auth-row-2">
             <div class="auth-field-group">
               <label class="auth-label">الاسم الأول</label>
@@ -821,25 +960,53 @@
     }
 
     closeBtn.onclick = () => modal.classList.remove('open');
-    modal.onclick = (e) => {
-      if (e.target === modal) modal.classList.remove('open');
-    };
 
-    tabLogin.onclick = () => {
-      tabLogin.classList.add('active');
-      tabReg.classList.remove('active');
-      formLogin.style.display = 'block';
-      formReg.style.display = 'none';
-      clearAlert();
-    };
+    // إغلاق آمن عند النقر على الخلفية بدون إغلاق بالخطأ أثناء سحب التمرير
+    let isMouseDownOnBackdrop = false;
+    modal.addEventListener('mousedown', (e) => {
+      isMouseDownOnBackdrop = (e.target === modal);
+    });
+    modal.addEventListener('mouseup', (e) => {
+      if (isMouseDownOnBackdrop && e.target === modal) {
+        modal.classList.remove('open');
+      }
+      isMouseDownOnBackdrop = false;
+    });
 
-    tabReg.onclick = () => {
-      tabReg.classList.add('active');
-      tabLogin.classList.remove('active');
-      formLogin.style.display = 'none';
-      formReg.style.display = 'block';
+    // التنقل الانسيابي الفاخر بين تبويبي الدخول والحساب الجديد
+    function switchTab(toRegister) {
       clearAlert();
-    };
+      const card = modal.querySelector('.auth-modal-card');
+      const titleEl = document.getElementById('authModalTitle');
+
+      if (toRegister) {
+        tabReg.classList.add('active');
+        tabLogin.classList.remove('active');
+        formLogin.style.display = 'none';
+        formReg.style.display = 'block';
+        formReg.classList.remove('auth-form-animated');
+        void formReg.offsetWidth; // إجبار المتصفح على إعادة تطبيق حركة الدخول
+        formReg.classList.add('auth-form-animated');
+        if (titleEl) titleEl.textContent = 'إنشاء حساب جديد في Patente B Pro';
+      } else {
+        tabLogin.classList.add('active');
+        tabReg.classList.remove('active');
+        formReg.style.display = 'none';
+        formLogin.style.display = 'block';
+        formLogin.classList.remove('auth-form-animated');
+        void formLogin.offsetWidth;
+        formLogin.classList.add('auth-form-animated');
+        if (titleEl) titleEl.textContent = 'تسجيل الدخول إلى Patente B Pro';
+      }
+
+      // تمرير ناعم لأعلى البطاقة عند التبديل
+      if (card) {
+        card.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    tabLogin.onclick = () => switchTab(false);
+    tabReg.onclick = () => switchTab(true);
 
     // إرسال تسجيل الدخول
     formLogin.onsubmit = async (e) => {

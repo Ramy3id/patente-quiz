@@ -2084,17 +2084,20 @@
       .mobile-drawer-backdrop {
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.68);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
+        background: rgba(15, 23, 42, 0.72);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
         z-index: 99999;
-        display: none;
         opacity: 0;
-        transition: opacity 0.25s ease;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                    visibility 0.3s ease;
       }
       .mobile-drawer-backdrop.open {
-        display: block;
         opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
       }
       .mobile-drawer-pane {
         position: fixed;
@@ -2108,15 +2111,15 @@
         display: flex;
         flex-direction: column;
         transform: translateX(100%);
-        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        box-shadow: -8px 0 30px rgba(0, 0, 0, 0.5);
+        transition: transform 0.34s cubic-bezier(0.32, 0.72, 0, 1);
+        box-shadow: -8px 0 35px rgba(0, 0, 0, 0.6);
         padding: 18px 16px;
         box-sizing: border-box;
       }
       html.light .mobile-drawer-pane {
         background: #FFFFFF;
         border-left-color: rgba(15, 23, 42, 0.12);
-        box-shadow: -8px 0 30px rgba(15, 23, 42, 0.15);
+        box-shadow: -8px 0 35px rgba(15, 23, 42, 0.18);
       }
       .mobile-drawer-backdrop.open .mobile-drawer-pane {
         transform: translateX(0);
@@ -2257,10 +2260,25 @@
       .mobile-drawer-links-wrap {
         flex: 1;
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        scroll-behavior: smooth;
         display: flex;
         flex-direction: column;
         gap: 4px;
         padding-left: 4px;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(56, 189, 248, 0.3) transparent;
+      }
+      .mobile-drawer-links-wrap::-webkit-scrollbar {
+        width: 5px;
+      }
+      .mobile-drawer-links-wrap::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 999px;
+      }
+      html.light .mobile-drawer-links-wrap::-webkit-scrollbar-thumb {
+        background: rgba(15, 23, 42, 0.15);
       }
       .mobile-drawer-section-label {
         font-size: 0.74rem;
