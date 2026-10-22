@@ -68,6 +68,19 @@
   // 2. ==================== تحديد مسارات الروابط تلقائياً ====================
   function getPathContext() {
     const rawPath = (window.location.pathname || '').replace(/\\/g, '/');
+    const isFile = window.location.protocol === 'file:';
+
+    // على الخوادم والاستضافة السحابية (Vercel / Localhost): نستخدم مسارات مطلقة آمنة 100% لمنع أي خطأ 404
+    if (!isFile) {
+      return {
+        root: '/',
+        interactive: '/interactive_pages/',
+        capitoli: '/Capitoli_Divisi/',
+        currentFile: rawPath.split('/').filter(Boolean).pop() || 'index.html',
+        fullPath: rawPath
+      };
+    }
+
     const parts = rawPath.split('/').filter(Boolean);
     const currentFile = parts.length > 0 ? parts[parts.length - 1] : 'index.html';
 
