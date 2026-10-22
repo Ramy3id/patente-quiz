@@ -249,23 +249,23 @@
     }
 
     isRegistrationInProgress = true;
+    let createdUser = null;
+    let emailSentSuccess = false;
+
     try {
       // 1. إنشاء الحساب في Firebase Auth
       const cred = await authInstance.createUserWithEmailAndPassword(email.trim(), password);
-      const user = cred.user;
+      createdUser = cred.user;
 
       // 2. تحديث الاسم المعروض في Firebase Auth
       const fullName = `${firstName.trim()} ${lastName.trim()}`.trim();
       try {
-        await user.updateProfile({ displayName: fullName });
+        await createdUser.updateProfile({ displayName: fullName });
       } catch (_) {}
 
-      // 3. إرسال رابط تأكيد وتفعيل الحساب إلى البريد الإلكتروني فوراً
-      await user.sendEmailVerification();
-
-      // 4. حفظ تفاصيل الملف الشخصي الكاملة في Firestore كحساب بانتظار التفعيل
+      // 3. حفظ تفاصيل الملف الشخصي الكاملة في Firestore كحساب بانتظار التفعيل
       const profileData = {
-        uid: user.uid,
+        uid: createdUser.uid,
         firstName: firstName.trim(),
         lastName: lastName.trim(),
         fullName: fullName,
@@ -280,28 +280,39 @@
       };
 
       try {
-        await firestoreInstance.collection('users').doc(user.uid).set(profileData);
+        await firestoreInstance.collection('users').doc(createdUser.uid).set(profileData);
       } catch (err) {
         console.warn('Firestore profile save notice:', err);
       }
 
-      // 5. تسجيل الخروج فوراً لمنع الدخول العشوائي قبل تفعيل البريد
-      await authInstance.signOut();
-      currentUser = null;
-      userProfile = null;
+      // 4. إرسال رابط تأكيد وتفعيل الحساب إلى البريد الإلكتروني
       try {
-        localStorage.removeItem('patente_user_profile');
-      } catch (_) {}
-      updateAuthUiLoggedOut();
+        await createdUser.sendEmailVerification();
+        emailSentSuccess = true;
+      } catch (sendErr) {
+        console.warn('sendEmailVerification notice:', sendErr);
+      }
 
       return {
         success: true,
         email: profileData.email,
         fullName: fullName,
-        password: password
+        password: password,
+        emailSent: emailSentSuccess
       };
     } finally {
+      // 5. طرد وتسجيل خروج المستخدم فوراً وبشكل قاطع، سواء نجح إرسال الإيميل أم حدث خطأ
       isRegistrationInProgress = false;
+      currentUser = null;
+      userProfile = null;
+      try {
+        localStorage.removeItem('patente_user_profile');
+      } catch (_) {}
+      try {
+        await authInstance.signOut();
+      } catch (_) {}
+      updateAuthUiLoggedOut();
+      window.dispatchEvent(new CustomEvent('patente:auth-changed', { detail: { loggedIn: false } }));
     }
   }
 

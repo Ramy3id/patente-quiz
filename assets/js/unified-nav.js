@@ -3087,7 +3087,7 @@
     // 5. تحميل محرك المصادقة والمزامنة السحابية (Firebase Auth Engine)
     if (!window.PatenteAuth && !document.querySelector('script[src*="firebase-auth-engine.js"]')) {
       const authScript = document.createElement('script');
-      authScript.src = ctx.root + 'assets/js/firebase-auth-engine.js';
+      authScript.src = ctx.root + 'assets/js/firebase-auth-engine.js?v=20261022_v7';
       authScript.defer = true;
       document.head.appendChild(authScript);
     }
