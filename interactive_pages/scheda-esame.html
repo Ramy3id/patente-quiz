@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>محاكي الامتحان الوزاري الرسمي | Patente B Pro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>محاكي الامتحان الوزاري الرسمي (30 سؤال / 20 دقيقة) | Patente B Pro</title>
   <link rel="manifest" href="../manifest.json">
   <meta name="theme-color" content="#0B0F19">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -12,44 +12,135 @@
   <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="interactive_style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cairo:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/theme-modes.css">
   <script src="../assets/js/theme-engine.js"></script>
   <script src="../assets/js/unified-nav.js" defer></script>
+  <script src="../assets/js/audio-engine.js"></script>
+  <script src="../assets/js/srs-engine.js"></script>
+  <script src="../Capitoli_Divisi/data_all_questions.js"></script>
+  <script src="../assets/js/quiz-engine.js"></script>
+  <script src="../assets/js/question-decoder.js"></script>
+
   <style>
+    :root {
+      --bg-base: #09090b;
+      --bg-surface: rgba(24, 24, 27, 0.75);
+      --bg-elevated: rgba(39, 39, 42, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(56, 189, 248, 0.28);
+      --text-primary: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --accent-cyan: #38BDF8;
+      --accent-emerald: #10B981;
+      --accent-rose: #EF4444;
+      --accent-amber: #F59E0B;
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
+      line-height: 1.5;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(ellipse at 50% -10%, rgba(99, 102, 241, 0.12), transparent 60%),
+        radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.05), transparent 45%);
+    }
+
     .exam-portal-container {
-      max-width: 960px;
-      margin: 16px auto 40px;
+      max-width: 980px;
+      margin: 20px auto 60px;
       padding: 0 16px;
     }
+
+    /* شريط التبديل بين الوضع العصري وشاشة المرور الرسمية */
+    .exam-skin-switcher {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 6px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(12px);
+    }
+    html.light .exam-skin-switcher {
+      background: #FFFFFF;
+      border-color: rgba(15, 23, 42, 0.1);
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+    .skin-btn {
+      flex: 1;
+      max-width: 380px;
+      padding: 9px 16px;
+      border-radius: 11px;
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s var(--ease-spring);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    html.light .skin-btn { color: #475569; }
+    .skin-btn.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.35);
+      color: var(--accent-cyan);
+    }
+    html.light .skin-btn.active {
+      background: rgba(2, 132, 199, 0.1);
+      border-color: rgba(2, 132, 199, 0.3);
+      color: #0284C7;
+    }
+
+    /* =========================================================
+       1. الوضع العصري (Modern Skin)
+       ========================================================= */
     .exam-top-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: rgba(15, 23, 42, 0.85);
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 12px 20px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 14px 20px;
       margin-bottom: 16px;
+    }
+    html.light .exam-top-bar {
+      background: #FFFFFF;
+      border-color: rgba(15, 23, 42, 0.08);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
     }
     .exam-timer-box {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 22px;
+      font-size: 1.4rem;
       font-weight: 800;
-      color: #38BDF8;
+      color: var(--accent-cyan);
       display: flex;
       align-items: center;
       gap: 8px;
     }
     .exam-timer-box.timer-warning {
-      color: #EF4444;
+      color: var(--accent-rose);
       animation: pulse 1s infinite alternate;
     }
     @keyframes pulse {
       from { opacity: 1; transform: scale(1); }
-      to { opacity: 0.75; transform: scale(1.05); }
+      to { opacity: 0.8; transform: scale(1.04); }
     }
     .exam-nav-pills {
       display: grid;
@@ -57,226 +148,666 @@
       gap: 6px;
       margin-bottom: 16px;
     }
-    @media (max-width: 640px) {
-      .exam-nav-pills {
-        grid-template-columns: repeat(10, 1fr);
-      }
+    @media (max-width: 768px) {
+      .exam-nav-pills { grid-template-columns: repeat(10, 1fr); }
     }
     .q-pill {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 8px;
-      padding: 6px 0;
+      padding: 8px 0;
       text-align: center;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
+      font-size: 0.82rem;
       font-weight: 700;
       color: #94A3B8;
       cursor: pointer;
+      position: relative;
       transition: all 0.15s ease;
     }
-    .q-pill:hover {
-      background: rgba(255, 255, 255, 0.1);
-      color: #FFFFFF;
+    html.light .q-pill {
+      background: #FFFFFF;
+      border-color: rgba(15, 23, 42, 0.1);
+      color: #475569;
     }
     .q-pill.active {
-      border-color: #38BDF8;
+      border-color: var(--accent-cyan);
       background: rgba(56, 189, 248, 0.2);
-      color: #38BDF8;
+      color: var(--accent-cyan);
     }
     .q-pill.answered {
       background: rgba(16, 185, 129, 0.15);
       border-color: rgba(16, 185, 129, 0.4);
       color: #10B981;
     }
+    .q-pill.flagged::after {
+      content: '📌';
+      position: absolute;
+      top: -6px;
+      right: -4px;
+      font-size: 0.65rem;
+    }
+
     .exam-question-card {
-      background: rgba(15, 23, 42, 0.88);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 20px;
-      padding: 24px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      padding: 28px;
       margin-bottom: 20px;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(16px);
+    }
+    html.light .exam-question-card {
+      background: #FFFFFF;
+      border-color: rgba(15, 23, 42, 0.1);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
     }
     .exam-q-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 14px;
-      padding-bottom: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
+    html.light .exam-q-header { border-bottom-color: rgba(15, 23, 42, 0.08); }
     .exam-q-badge {
       background: rgba(56, 189, 248, 0.15);
-      color: #38BDF8;
+      color: var(--accent-cyan);
       border: 1px solid rgba(56, 189, 248, 0.3);
-      padding: 4px 12px;
+      padding: 4px 14px;
       border-radius: 999px;
-      font-size: 13px;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+    .btn-flag-review {
+      background: transparent;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: #FBBF24;
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
       font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: inherit;
+      transition: all 0.15s ease;
+    }
+    .btn-flag-review.active {
+      background: rgba(245, 158, 11, 0.2);
+      border-color: #F59E0B;
+    }
+    .exam-img-frame {
+      text-align: center;
+      margin: 14px 0;
+    }
+    .exam-img-frame img {
+      max-height: 150px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #FFFFFF;
+      padding: 4px;
     }
     .exam-text-it {
-      font-family: 'JetBrains Mono', sans-serif;
-      font-size: 20px;
-      font-weight: 700;
+      font-size: 1.25rem;
+      font-weight: 800;
       color: #FFFFFF;
-      line-height: 1.6;
-      margin: 16px 0;
-      text-align: right;
+      line-height: 1.5;
+      margin: 18px 0 10px;
+      direction: ltr;
+      text-align: left;
     }
+    html.light .exam-text-it { color: #0F172A; }
+    .exam-text-tr {
+      font-size: 0.96rem;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    html.light .exam-text-tr { color: #334155; }
     .exam-choice-buttons {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
-      margin-top: 24px;
+      margin-top: 20px;
     }
     .choice-btn {
       padding: 16px 20px;
-      border-radius: 14px;
-      font-weight: 800;
-      font-size: 18px;
+      border-radius: 16px;
+      font-weight: 900;
+      font-size: 1.15rem;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.15s ease;
       border: 2px solid transparent;
       font-family: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
     .choice-btn-vero {
       background: rgba(16, 185, 129, 0.15);
       border-color: rgba(16, 185, 129, 0.4);
-      color: #10B981;
+      color: #34D399;
     }
     .choice-btn-vero:hover, .choice-btn-vero.selected {
       background: #10B981;
       color: #FFFFFF;
       box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+      transform: translateY(-2px);
     }
     .choice-btn-falso {
       background: rgba(239, 68, 68, 0.15);
       border-color: rgba(239, 68, 68, 0.4);
-      color: #EF4444;
+      color: #F87171;
     }
     .choice-btn-falso:hover, .choice-btn-falso.selected {
       background: #EF4444;
       color: #FFFFFF;
       box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
+      transform: translateY(-2px);
     }
+    .exam-nav-steps {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    html.light .exam-nav-steps { border-top-color: rgba(15, 23, 42, 0.08); }
+    .btn-nav-step {
+      padding: 10px 22px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s ease;
+    }
+    html.light .btn-nav-step {
+      background: #F1F5F9;
+      border-color: rgba(15, 23, 42, 0.12);
+      color: #0F172A;
+    }
+    .btn-nav-step:hover:not(:disabled) {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.35);
+      color: var(--accent-cyan);
+    }
+    .btn-nav-step:disabled { opacity: 0.35; cursor: not-allowed; }
     .btn-submit-exam {
       background: linear-gradient(135deg, #38BDF8, #2563EB);
       color: #FFFFFF;
       width: 100%;
-      padding: 16px;
+      height: 54px;
       border-radius: 16px;
-      font-weight: 800;
-      font-size: 17px;
+      font-weight: 900;
+      font-size: 1.05rem;
       border: none;
       cursor: pointer;
       box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
-      transition: all 0.2s;
+      transition: all 0.2s ease;
       font-family: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
     .btn-submit-exam:hover {
       transform: translateY(-2px);
       box-shadow: 0 12px 28px rgba(37, 99, 235, 0.45);
     }
-    .btn-nav-step {
-      padding: 10px 18px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: #fff;
-      font-weight: 700;
+
+    /* =========================================================
+       2. شاشة كمبيوتر المرور الإيطالي الرسمي (Motorizzazione Touch Screen Skin)
+       ========================================================= */
+    .motorizzazione-screen-wrap {
+      display: none;
+      background: #1C2430;
+      border: 4px solid #334155;
+      border-radius: 20px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+      direction: ltr;
+    }
+    .skin-moto .motorizzazione-screen-wrap { display: block; }
+    .skin-moto .modern-screen-wrap { display: none; }
+
+    .moto-top-header {
+      background: #0F172A;
+      border-bottom: 2px solid #38BDF8;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #FFFFFF;
+    }
+    .moto-flag-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .moto-flag-tricolore {
+      width: 32px;
+      height: 20px;
+      display: flex;
+      border-radius: 3px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .flag-green { width: 33.33%; background: #009246; }
+    .flag-white { width: 33.33%; background: #FFFFFF; }
+    .flag-red { width: 33.33%; background: #CE2B37; }
+    .moto-titles-text strong {
+      display: block;
+      font-size: 0.88rem;
+      letter-spacing: 0.02em;
+    }
+    .moto-titles-text span {
+      font-size: 0.72rem;
+      color: #94A3B8;
+    }
+    .moto-timer-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: #38BDF8;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 6px 14px;
+      border-radius: 8px;
+    }
+    .moto-timer-badge.warning {
+      color: #EF4444;
+      background: rgba(239, 68, 68, 0.15);
+      border-color: #EF4444;
+    }
+
+    .moto-main-terminal {
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 20px;
+      background: #18202C;
+      min-height: 340px;
+    }
+    @media (max-width: 768px) {
+      .moto-main-terminal { grid-template-columns: 1fr; }
+    }
+    .moto-sign-panel {
+      background: #FFFFFF;
+      border: 3px solid #64748B;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      min-height: 200px;
+    }
+    .moto-sign-img {
+      max-width: 100%;
+      max-height: 210px;
+      object-fit: contain;
+    }
+    .moto-question-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .moto-q-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .moto-q-num-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      font-weight: 900;
+      color: #F8FAFC;
+      background: #334155;
+      padding: 4px 12px;
+      border-radius: 6px;
+    }
+    .moto-text-italian {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.45;
+      margin-bottom: 16px;
+    }
+    .moto-arabic-helper {
+      font-size: 0.92rem;
+      color: #94A3B8;
+      direction: rtl;
+      text-align: right;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 16px;
+    }
+
+    /* زري اللمس الوزاريين العملاقين */
+    .moto-touch-buttons-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .btn-moto-touch {
+      height: 72px;
+      border-radius: 12px;
+      border: 3px solid transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-family: 'JetBrains Mono', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      transition: all 0.12s ease;
+      color: #FFFFFF;
+    }
+    .btn-moto-touch.v {
+      background: #0284C7;
+      border-color: #38BDF8;
+    }
+    .btn-moto-touch.v:hover, .btn-moto-touch.v.selected {
+      background: #0369A1;
+      border-color: #FFFFFF;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+      transform: scale(0.98);
+    }
+    .btn-moto-touch.f {
+      background: #DC2626;
+      border-color: #F87171;
+    }
+    .btn-moto-touch.f:hover, .btn-moto-touch.f.selected {
+      background: #B91C1C;
+      border-color: #FFFFFF;
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+      transform: scale(0.98);
+    }
+
+    /* لوحة التحكم السفلية وشبكة الـ 30 سؤالاً في الموتوريزاسيون */
+    .moto-bottom-controls {
+      background: #0F172A;
+      border-top: 2px solid #334155;
+      padding: 16px 20px;
+    }
+    .moto-nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .btn-moto-step {
+      padding: 10px 24px;
+      border-radius: 8px;
+      background: #334155;
+      border: 2px solid #475569;
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 0.95rem;
       cursor: pointer;
       font-family: inherit;
-      transition: all 0.15s;
+      transition: all 0.15s ease;
     }
-    .btn-nav-step:hover:not(:disabled) {
-      background: rgba(255,255,255,0.12);
+    .btn-moto-step:hover:not(:disabled) {
+      background: #475569;
+      border-color: #38BDF8;
     }
-    .btn-nav-step:disabled {
-      opacity: 0.35;
-      cursor: not-allowed;
+    .btn-moto-step:disabled { opacity: 0.3; cursor: not-allowed; }
+    .btn-moto-flag {
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: rgba(245, 158, 11, 0.15);
+      border: 2px solid #F59E0B;
+      color: #FBBF24;
+      font-weight: 800;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-moto-flag.active {
+      background: #F59E0B;
+      color: #0F172A;
+    }
+
+    /* مصفوفة الـ 30 الرسمية */
+    .moto-matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(15, 1fr);
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 768px) {
+      .moto-matrix-grid { grid-template-columns: repeat(10, 1fr); }
+    }
+    .moto-cell {
+      height: 42px;
+      border-radius: 6px;
+      background: #1E293B;
+      border: 2px solid #334155;
+      color: #94A3B8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      position: relative;
+    }
+    .moto-cell:hover { border-color: #38BDF8; }
+    .moto-cell.active {
+      border-color: #FFFFFF !important;
+      box-shadow: 0 0 10px #FFFFFF;
+    }
+    .moto-cell.v {
+      background: #0284C7;
+      color: #FFFFFF;
+      border-color: #38BDF8;
+    }
+    .moto-cell.f {
+      background: #DC2626;
+      color: #FFFFFF;
+      border-color: #F87171;
+    }
+    .moto-cell.flagged::after {
+      content: '▲';
+      position: absolute;
+      top: 1px;
+      right: 3px;
+      font-size: 0.6rem;
+      color: #FBBF24;
+    }
+    .btn-moto-conclude {
+      width: 100%;
+      height: 52px;
+      border-radius: 10px;
+      background: #DC2626;
+      border: none;
+      color: #FFFFFF;
+      font-family: 'JetBrains Mono', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 900;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      transition: all 0.2s ease;
+    }
+    .btn-moto-conclude:hover {
+      background: #B91C1C;
+      box-shadow: 0 0 24px rgba(220, 38, 38, 0.55);
     }
   </style>
 </head>
 <body>
 
-  <!-- شريط الملاحة الموحد والأدوات التفاعلية -->
-  <nav class="unified-portal-nav" id="portal-nav">
-    <a href="../index.html" class="nav-brand">
-      <span style="font-size:1.25rem;">🚦</span>
-      <span>Patente B Pro</span>
-      <span class="badge-tag">A2</span>
-    </a>
-    <nav class="nav-desktop-tabs">
-      <a href="piano-studio.html" class="nav-tab-desktop">📅 الخطة الدراسية</a>
-      <a href="scheda-esame.html" class="nav-tab-desktop active">📝 الامتحان</a>
-      <a href="flashcards.html" class="nav-tab-desktop">💡 بطاقات الفلاش</a>
-      <a href="dashboard.html" class="nav-tab-desktop">📊 لوحة البيانات</a>
-      <a href="traps_and_games.html" class="nav-tab-desktop">🎮 الفخاخ والألعاب</a>
-      <a href="index.html" class="nav-tab-desktop">🏛️ أدلة الشرح</a>
-      <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 بنك الأسئلة</a>
-    </nav>
-    <div class="nav-desktop-actions">
-      <button class="nav-theme-btn" id="themeToggleBtn" onclick="toggleTheme()" title="تبديل الوضع (نهاري / ليلي) [Alt + T]">
-        <span class="theme-icon-span">☀️</span>
-        <span class="theme-label-span">الوضع النهاري</span>
+  <div class="exam-portal-container">
+    <!-- شريط التبديل بين الوضع العصري ومحاكاة شاشة كمبيوتر المرور -->
+    <div class="exam-skin-switcher">
+      <button class="skin-btn active" id="btnSkinModern">
+        <span>🌟 الوضع العصري الفاخر</span>
+      </button>
+      <button class="skin-btn" id="btnSkinMoto">
+        <span>🖥️ شاشة كمبيوتر المرور الرسمية (Motorizzazione)</span>
       </button>
     </div>
-  </nav>
-  <a href="../index.html" class="action-btn home-btn">🏠 العودة للصفحة الرئيسة</a>
 
-  <div class="exam-portal-container">
-    <div class="exam-top-bar">
-      <div class="exam-timer-box" id="examTimerDisplay">⏱️ 20:00</div>
-      <div style="font-weight:800; color:#94A3B8;">
-        تمت الإجابة: <span id="answeredCounter" style="color:#38BDF8;">0</span> / 30
+    <!-- =========================================================
+         1. واجهة الوضع العصري (Modern Skin)
+         ========================================================= -->
+    <div class="modern-screen-wrap" id="modernScreenWrap">
+      <div class="exam-top-bar">
+        <div class="exam-timer-box" id="examTimerDisplay">⏱️ 20:00</div>
+        <div style="font-weight:800; color:var(--text-secondary);">
+          تمت الإجابة: <span id="answeredCounter" style="color:var(--accent-cyan);">0</span> / 30
+        </div>
+      </div>
+
+      <!-- شبكة أرقام الأسئلة -->
+      <div class="exam-nav-pills" id="examPillsGrid"></div>
+
+      <!-- بطاقة السؤال النشط -->
+      <div class="exam-question-card" id="questionCardStage">
+        <div style="text-align:center; padding:40px; color:#94A3B8;">جاري إعداد بطاقة الامتحان الوزاري المعتمد...</div>
+      </div>
+
+      <!-- زر تسليم الامتحان النهائي -->
+      <button type="button" class="btn-submit-exam" id="btnSubmitFinalExam">
+        <span>📋 تسليم الامتحان النهائي وتصحيح النتيجة</span>
+      </button>
+    </div>
+
+    <!-- =========================================================
+         2. واجهة شاشة كمبيوتر المرور الرسمية (Motorizzazione Skin)
+         ========================================================= -->
+    <div class="motorizzazione-screen-wrap" id="motoScreenWrap">
+      <div class="moto-top-header">
+        <div class="moto-flag-brand">
+          <div class="moto-flag-tricolore">
+            <div class="flag-green"></div>
+            <div class="flag-white"></div>
+            <div class="flag-red"></div>
+          </div>
+          <div class="moto-titles-text">
+            <strong>MINISTERO DELLE INFRASTRUTTURE E DEI TRASPORTI</strong>
+            <span>DIPARTIMENTO PER I TRASPORTI TERRESTRI • ESAME PATENTE B</span>
+          </div>
+        </div>
+        <div class="moto-timer-badge" id="motoTimerBadge">TEMPO: 20:00</div>
+      </div>
+
+      <div class="moto-main-terminal">
+        <!-- لوحة صورة الإشارة إن وجدت -->
+        <div class="moto-sign-panel" id="motoSignBox">
+          <img id="motoSignImg" class="moto-sign-img" src="" alt="Segnale Stradale">
+        </div>
+
+        <!-- لوحة نص السؤال الإيطالي وأزرار اللمس -->
+        <div class="moto-question-panel">
+          <div>
+            <div class="moto-q-meta-row">
+              <span class="moto-q-num-badge" id="motoQuestionBadge">DOMANDA N. 1 DI 30</span>
+              <button class="btn-moto-flag" id="btnMotoFlag">
+                <span>📌</span>
+                <span>DA RIVEDERE</span>
+              </button>
+            </div>
+            <div class="moto-text-italian" id="motoQuestionText">Caricamento testo ufficiale...</div>
+            <div class="moto-arabic-helper" id="motoQuestionTr">الترجمة السياقية لمساعدتك في الفهم...</div>
+          </div>
+
+          <div class="moto-touch-buttons-grid">
+            <button class="btn-moto-touch v" id="btnMotoVero">
+              <span>V</span>
+              <span>VERO</span>
+            </button>
+            <button class="btn-moto-touch f" id="btnMotoFalso">
+              <span>F</span>
+              <span>FALSO</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="moto-bottom-controls">
+        <div class="moto-nav-row">
+          <button class="btn-moto-step" id="btnMotoPrev">◀ PRECEDENTE</button>
+          <span style="color:#94A3B8; font-weight:700; font-size:0.85rem;" id="motoSummaryAnswered">RISPOSTE: 0 / 30</span>
+          <button class="btn-moto-step" id="btnMotoNext">SUCCESSIVO ▶</button>
+        </div>
+
+        <div class="moto-matrix-grid" id="motoMatrixGrid">
+          <!-- 30 official cells generated dynamically -->
+        </div>
+
+        <button class="btn-moto-conclude" id="btnMotoConclude">
+          CONFERMA E CONSEGNA SCHEDA D'ESAME ➡
+        </button>
       </div>
     </div>
-
-    <!-- شبكة أرقام الأسئلة للتنقل السريع -->
-    <div class="exam-nav-pills" id="examPillsGrid"></div>
-
-    <!-- بطاقة السؤال النشط -->
-    <div class="exam-question-card" id="questionCardStage">
-      <div style="text-align:center; padding:40px; color:#94A3B8;">جاري إعداد بطاقة الامتحان الوزاري...</div>
-    </div>
-
-    <!-- زر تسليم الامتحان -->
-    <button type="button" class="btn-submit-exam" id="btnSubmitFinalExam">
-      📋 تسليم الامتحان النهائي وتصحيح النتيجة
-    </button>
   </div>
-
-  <script src="../Capitoli_Divisi/data_all_questions.js"></script>
-  <script src="../assets/js/quiz-engine.js"></script>
-  <script src="../assets/js/srs-engine.js"></script>
-  <script src="../assets/js/audio-engine.js"></script>
-  <script src="../assets/js/question-decoder.js"></script>
 
   <script>
     function resolveImgPath(img) {
       if (!img || typeof img !== 'string' || !img.trim()) return null;
+      if (img.startsWith('http') || img.startsWith('../')) return img;
+      if (img.includes('Capitolo_')) return `../Capitoli_Divisi/${img}`;
       const filename = img.split('/').pop().trim();
       return filename ? `../img_sign/${filename}` : null;
     }
 
     document.addEventListener("DOMContentLoaded", async () => {
+      let currentSkin = localStorage.getItem('patente_exam_skin') || 'modern';
+      const flaggedQuestions = new Set(); // للأسئلة المعلمة بـ Da rivedere
+
       const exam = new PatenteExamEngine({
         totalQuestions: 30,
         durationMinutes: 20,
         onTick: (formattedTime, remainingSec) => {
           const tEl = document.getElementById("examTimerDisplay");
+          const motoTimer = document.getElementById("motoTimerBadge");
           if (tEl) {
             tEl.textContent = `⏱️ ${formattedTime}`;
-            if (remainingSec <= 300) tEl.classList.add("timer-warning");
+            tEl.classList.toggle("timer-warning", remainingSec <= 300);
+          }
+          if (motoTimer) {
+            motoTimer.textContent = `TEMPO: ${formattedTime}`;
+            motoTimer.classList.toggle("warning", remainingSec <= 300);
           }
         },
         onFinish: (result) => renderExamResults(result)
       });
 
-      const srs = new PatenteSRSEngine();
-      const audio = new PatenteAudioEngine();
+      const srs = typeof PatenteSRSEngine === 'function' ? new PatenteSRSEngine() : null;
+      const audio = typeof PatenteAudioEngine === 'function' ? new PatenteAudioEngine() : null;
 
+      // تبديل المظهر Skin
+      function setSkin(skin) {
+        currentSkin = skin;
+        localStorage.setItem('patente_exam_skin', skin);
+        document.body.classList.toggle('skin-moto', skin === 'motorizzazione');
+        document.getElementById('btnSkinModern').classList.toggle('active', skin === 'modern');
+        document.getElementById('btnSkinMoto').classList.toggle('active', skin === 'motorizzazione');
+        renderActiveQuestion();
+        renderPills();
+      }
+
+      document.getElementById('btnSkinModern').addEventListener('click', () => setSkin('modern'));
+      document.getElementById('btnSkinMoto').addEventListener('click', () => setSkin('motorizzazione'));
+
+      // تحميل الأسئلة
       try {
         let pool = [];
         if (window.ALL_QUESTIONS_DATA && Array.isArray(window.ALL_QUESTIONS_DATA) && window.ALL_QUESTIONS_DATA.length > 0) {
@@ -300,106 +831,204 @@
 
         exam.loadQuestions(pool);
         exam.startTimer();
-        renderActiveQuestion();
-        renderPills();
+        setSkin(currentSkin);
       } catch (e) {
         document.getElementById("questionCardStage").innerHTML = `
           <div style="text-align:center; padding:30px; color:#EF4444;">
-            ⚠️ تعذر تحميل ملف الأسئلة تلقائياً.
+            ⚠️ تعذر تحميل بنك الأسئلة تلقائياً.
           </div>
         `;
       }
 
+      // رسم شبكة الأسئلة
       function renderPills() {
         const grid = document.getElementById("examPillsGrid");
-        if (!grid) return;
-        grid.innerHTML = exam.questions.map((q, idx) => `
-          <div class="q-pill ${exam.currentIndex === idx ? 'active' : ''} ${exam.answers[q.id] !== undefined ? 'answered' : ''}" 
-               data-idx="${idx}">
-            ${idx + 1}
-          </div>
-        `).join("");
+        const motoGrid = document.getElementById("motoMatrixGrid");
 
-        grid.querySelectorAll(".q-pill").forEach(p => {
-          p.addEventListener("click", () => {
-            exam.goToQuestion(parseInt(p.dataset.idx));
-            renderActiveQuestion();
-            renderPills();
+        // 1. الشبكة العصرية
+        if (grid) {
+          grid.innerHTML = exam.questions.map((q, idx) => {
+            const isAns = (exam.answers[q.id] !== undefined);
+            const isFlag = flaggedQuestions.has(q.id);
+            const isCur = (exam.currentIndex === idx);
+            return `
+              <div class="q-pill ${isCur ? 'active' : ''} ${isAns ? 'answered' : ''} ${isFlag ? 'flagged' : ''}" data-idx="${idx}">
+                ${idx + 1}
+              </div>
+            `;
+          }).join("");
+
+          grid.querySelectorAll(".q-pill").forEach(p => {
+            p.addEventListener("click", () => {
+              exam.goToQuestion(parseInt(p.dataset.idx));
+              renderActiveQuestion();
+              renderPills();
+            });
           });
-        });
+        }
+
+        // 2. شبكة الموتوريزاسيون
+        if (motoGrid) {
+          motoGrid.innerHTML = exam.questions.map((q, idx) => {
+            const ans = exam.answers[q.id];
+            const isFlag = flaggedQuestions.has(q.id);
+            const isCur = (exam.currentIndex === idx);
+            let stateClass = '';
+            let label = idx + 1;
+            if (ans === true) { stateClass = 'v'; label = `${idx + 1} V`; }
+            else if (ans === false) { stateClass = 'f'; label = `${idx + 1} F`; }
+
+            return `
+              <div class="moto-cell ${isCur ? 'active' : ''} ${stateClass} ${isFlag ? 'flagged' : ''}" data-idx="${idx}">
+                ${label}
+              </div>
+            `;
+          }).join("");
+
+          motoGrid.querySelectorAll(".moto-cell").forEach(c => {
+            c.addEventListener("click", () => {
+              exam.goToQuestion(parseInt(c.dataset.idx));
+              renderActiveQuestion();
+              renderPills();
+            });
+          });
+        }
+
+        const count = exam.getAnsweredCount();
+        const ansCnt = document.getElementById("answeredCounter");
+        const motoAnsCnt = document.getElementById("motoSummaryAnswered");
+        if (ansCnt) ansCnt.textContent = count;
+        if (motoAnsCnt) motoAnsCnt.textContent = `RISPOSTE: ${count} / 30`;
       }
 
+      // رسم السؤال النشط
       function renderActiveQuestion() {
         const q = exam.getCurrentQuestion();
         if (!q) return;
 
         const currentAnswer = exam.answers[q.id];
-        const stage = document.getElementById("questionCardStage");
+        const isFlag = flaggedQuestions.has(q.id);
         const rawImg = (q.img || q.immagine || "").trim();
         const imgPath = resolveImgPath(rawImg);
 
-        stage.innerHTML = `
-          <div class="exam-q-header">
-            <span class="exam-q-badge">سؤال رقم ${exam.currentIndex + 1} من 30</span>
-            <span style="font-size:13px; color:#94A3B8; font-family:'JetBrains Mono',monospace;">ID: ${q.id}</span>
-          </div>
+        // 1. تحديث واجهة الوضع العصري
+        const stage = document.getElementById("questionCardStage");
+        if (stage) {
+          stage.innerHTML = `
+            <div class="exam-q-header">
+              <span class="exam-q-badge">سؤال رقم ${exam.currentIndex + 1} من 30</span>
+              <button class="btn-flag-review ${isFlag ? 'active' : ''}" id="btnModernFlag">
+                <span>${isFlag ? '📌 تم التعليم للمراجعة' : '📌 علّم للمراجعة'}</span>
+              </button>
+            </div>
 
-          ${imgPath ? `<div class="exam-img-frame"><img src="${imgPath}" alt="Segnale" onerror="if(!this.dataset.fallback && '${rawImg}'){this.dataset.fallback='1'; this.src='../Capitoli_Divisi/' + '${rawImg}';}else{this.parentElement.style.display='none';}"></div>` : ""}
+            ${imgPath ? `<div class="exam-img-frame"><img src="${imgPath}" alt="Segnale"></div>` : ""}
 
-          <div class="exam-text-it">${q.domanda}</div>
+            <div class="exam-text-it">${q.domanda}</div>
+            <div class="exam-text-tr">${q.traduzione || 'سؤال وزاري مباشر.'}</div>
 
-          <div class="exam-choice-buttons">
-            <button type="button" class="choice-btn choice-btn-vero ${currentAnswer === true ? 'selected' : ''}" id="btnVero">
-              VERO (صح)
-            </button>
-            <button type="button" class="choice-btn choice-btn-falso ${currentAnswer === false ? 'selected' : ''}" id="btnFalso">
-              FALSO (خطأ)
-            </button>
-          </div>
+            <div class="exam-choice-buttons">
+              <button type="button" class="choice-btn choice-btn-vero ${currentAnswer === true ? 'selected' : ''}" id="btnVero">
+                <span>VERO (صح) ✅</span>
+              </button>
+              <button type="button" class="choice-btn choice-btn-falso ${currentAnswer === false ? 'selected' : ''}" id="btnFalso">
+                <span>FALSO (خطأ) ❌</span>
+              </button>
+            </div>
 
-          <div style="display:flex; justify-content:space-between; margin-top:20px;">
-            <button type="button" class="btn-nav-step" id="btnPrev" ${exam.currentIndex === 0 ? 'disabled' : ''}>السابق</button>
-            <button type="button" class="btn-nav-step" id="btnNext" ${exam.currentIndex === exam.questions.length - 1 ? 'disabled' : ''}>التالي</button>
-          </div>
-        `;
+            <div class="exam-nav-steps">
+              <button type="button" class="btn-nav-step" id="btnPrev" ${exam.currentIndex === 0 ? 'disabled' : ''}>السابق ➡</button>
+              <span style="font-size:0.82rem; color:#94A3B8;">انقر على أرقام الأسئلة بالأعلى للتنقل المباشر</span>
+              <button type="button" class="btn-nav-step" id="btnNext" ${exam.currentIndex === exam.questions.length - 1 ? 'disabled' : ''}>التالي ⬅</button>
+            </div>
+          `;
 
-        document.getElementById("answeredCounter").textContent = exam.getAnsweredCount();
+          document.getElementById("btnVero").addEventListener("click", () => answerAndRefresh(q.id, true));
+          document.getElementById("btnFalso").addEventListener("click", () => answerAndRefresh(q.id, false));
+          document.getElementById("btnNext").addEventListener("click", () => { exam.nextQuestion(); renderActiveQuestion(); renderPills(); });
+          document.getElementById("btnPrev").addEventListener("click", () => { exam.prevQuestion(); renderActiveQuestion(); renderPills(); });
+          document.getElementById("btnModernFlag").addEventListener("click", () => toggleFlag(q.id));
+        }
 
-        document.getElementById("btnVero").addEventListener("click", () => {
-          exam.recordAnswer(q.id, true);
-          audio.playFeedbackTone("click");
-          renderActiveQuestion();
-          renderPills();
-        });
+        // 2. تحديث واجهة كمبيوتر الموتوريزاسيون
+        const motoBox = document.getElementById("motoSignBox");
+        const motoImg = document.getElementById("motoSignImg");
+        const motoText = document.getElementById("motoQuestionText");
+        const motoTr = document.getElementById("motoQuestionTr");
+        const motoBadge = document.getElementById("motoQuestionBadge");
+        const motoFlagBtn = document.getElementById("btnMotoFlag");
+        const motoV = document.getElementById("btnMotoVero");
+        const motoF = document.getElementById("btnMotoFalso");
 
-        document.getElementById("btnFalso").addEventListener("click", () => {
-          exam.recordAnswer(q.id, false);
-          audio.playFeedbackTone("click");
-          renderActiveQuestion();
-          renderPills();
-        });
+        if (motoBadge) motoBadge.textContent = `DOMANDA N. ${exam.currentIndex + 1} DI 30`;
+        if (motoText) motoText.textContent = q.domanda;
+        if (motoTr) motoTr.textContent = q.traduzione || '';
 
-        document.getElementById("btnNext").addEventListener("click", () => {
-          exam.nextQuestion();
-          renderActiveQuestion();
-          renderPills();
-        });
+        if (motoBox && motoImg) {
+          if (imgPath) {
+            motoImg.src = imgPath;
+            motoBox.style.display = 'flex';
+          } else {
+            motoBox.style.display = 'none';
+          }
+        }
 
-        document.getElementById("btnPrev").addEventListener("click", () => {
-          exam.prevQuestion();
-          renderActiveQuestion();
-          renderPills();
-        });
+        if (motoFlagBtn) {
+          motoFlagBtn.classList.toggle('active', isFlag);
+          motoFlagBtn.onclick = () => toggleFlag(q.id);
+        }
+
+        if (motoV && motoF) {
+          motoV.classList.toggle('selected', currentAnswer === true);
+          motoF.classList.toggle('selected', currentAnswer === false);
+          motoV.onclick = () => answerAndRefresh(q.id, true);
+          motoF.onclick = () => answerAndRefresh(q.id, false);
+        }
+
+        const motoNext = document.getElementById("btnMotoNext");
+        const motoPrev = document.getElementById("btnMotoPrev");
+        if (motoNext) {
+          motoNext.disabled = (exam.currentIndex === exam.questions.length - 1);
+          motoNext.onclick = () => { exam.nextQuestion(); renderActiveQuestion(); renderPills(); };
+        }
+        if (motoPrev) {
+          motoPrev.disabled = (exam.currentIndex === 0);
+          motoPrev.onclick = () => { exam.prevQuestion(); renderActiveQuestion(); renderPills(); };
+        }
       }
 
-      document.getElementById("btnSubmitFinalExam").addEventListener("click", () => {
-        const remaining = 30 - exam.getAnsweredCount();
-        if (remaining > 0 && !confirm(`لديك ${remaining} سؤالاً لم تجب عليه بعد. هل تريد تسليم الامتحان الآن؟`)) {
-          return;
-        }
-        exam.submitExam("USER_SUBMIT");
-      });
+      function answerAndRefresh(qid, choice) {
+        exam.recordAnswer(qid, choice);
+        if (audio) audio.playFeedbackTone("click");
+        renderActiveQuestion();
+        renderPills();
+      }
 
+      function toggleFlag(qid) {
+        if (flaggedQuestions.has(qid)) flaggedQuestions.delete(qid);
+        else flaggedQuestions.add(qid);
+        renderActiveQuestion();
+        renderPills();
+      }
+
+      // تسليم الامتحان
+      function confirmAndSubmit() {
+        const remaining = 30 - exam.getAnsweredCount();
+        const flaggedCount = flaggedQuestions.size;
+        let warning = '';
+        if (remaining > 0) warning += `⚠️ تنبيه: لديك ${remaining} سؤالاً لم تجب عليه بعد!\n`;
+        if (flaggedCount > 0) warning += `📌 لديك ${flaggedCount} سؤالاً تم تعليمه للمراجعة.\n`;
+        warning += '\nهل أنت متأكد من رغبتك في تسليم بطاقة الامتحان الوزاري الآن وتصحيح النتيجة؟';
+
+        if (confirm(warning)) {
+          exam.submitExam("USER_SUBMIT");
+        }
+      }
+
+      document.getElementById("btnSubmitFinalExam").addEventListener("click", confirmAndSubmit);
+      document.getElementById("btnMotoConclude").addEventListener("click", confirmAndSubmit);
+
+      // عرض النتيجة
       function renderExamResults(result) {
         // حفظ في سجل localStorage
         const history = JSON.parse(localStorage.getItem("patente_exam_history") || "[]");
@@ -412,11 +1041,16 @@
         localStorage.setItem("patente_exam_history", JSON.stringify(history));
 
         // تسجيل الأخطاء في SRS
-        result.details.forEach(item => {
-          if (!item.isCorrect) {
-            srs.logQuestionAttempt(item, false);
-          }
-        });
+        if (srs) {
+          result.details.forEach(item => {
+            if (!item.isCorrect) srs.logQuestionAttempt(item, false);
+          });
+        }
+
+        // تحديث شارات الهيدر واللوحة
+        if (typeof window.updatePortalProgress === 'function') {
+          window.updatePortalProgress();
+        }
 
         const container = document.querySelector(".exam-portal-container");
         container.innerHTML = `
@@ -428,6 +1062,15 @@
             <p style="color:#94A3B8; font-size:16px; margin-bottom:20px;">
               عدد الأخطاء: <strong style="color:${result.passed ? "#10B981" : "#EF4444"}; font-size:20px;">${result.errorsCount}</strong> من أصل 30 سؤالاً (الحد الأقصى المسموح 3 أخطاء)
             </p>
+
+            <div style="display:flex; justify-content:center; gap:12px; margin-bottom:30px;">
+              <a href="scheda-esame.html" class="choice-btn choice-btn-vero" style="text-decoration:none; padding:12px 24px; font-size:1rem;">
+                <span>🔄 امتحان جديد</span>
+              </a>
+              <a href="dashboard.html#mistakes" class="choice-btn choice-btn-falso" style="text-decoration:none; padding:12px 24px; font-size:1rem;">
+                <span>⚠️ مراجعة الأخطاء في بنك أخطائي</span>
+              </a>
+            </div>
 
             <h3 style="text-align:right; margin:30px 0 16px; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px; font-weight:800;">
               🔍 كشف الألغاز وتحليل الأسئلة:
@@ -445,7 +1088,7 @@
                       ${d.isCorrect ? "✅ إجابة صحيحة" : "❌ إجابة خاطئة"} (إجابتك: ${d.userAnswer === null ? 'متروك' : (d.userAnswer ? 'V' : 'F')} | الصحيح: ${d.correctAnswer ? 'V' : 'F'})
                     </span>
                   </div>
-                  ${imgPath ? `<div class="exam-img-frame" style="max-height:120px; margin:8px 0;"><img src="${imgPath}" alt="Segnale" style="max-height:100px;" onerror="if(!this.dataset.fallback && '${rawImg}'){this.dataset.fallback='1'; this.src='../Capitoli_Divisi/' + '${rawImg}';}else{this.parentElement.style.display='none';}"></div>` : ''}
+                  ${imgPath ? `<div class="exam-img-frame" style="max-height:120px; margin:8px 0;"><img src="${imgPath}" alt="Segnale" style="max-height:100px;"></div>` : ''}
                   <div style="font-weight:700; margin-bottom:8px; color:#FFFFFF; font-family:'JetBrains Mono',monospace;">${d.domanda}</div>
                   <div style="color:#38BDF8; font-size:14px; margin-bottom:6px;">📖 الترجمة: ${d.traduzione || 'غير متوفرة'}</div>
                   <div style="color:#94A3B8; font-size:13px; margin-bottom:6px;">💡 الشرح: ${d.spiegazione || 'راجع نصوص كود السير.'}</div>
@@ -454,20 +1097,10 @@
                 </div>
               `;}).join("")}
             </div>
-
-            <a href="scheda-esame.html" class="btn-submit-exam" style="display:inline-block; margin-top:20px; text-decoration:none;">
-              🔄 إجراء امتحان وزاري جديد
-            </a>
           </div>
         `;
       }
     });
-
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('../service-worker.js').catch(err => console.log('SW failed', err));
-      });
-    }
   </script>
 </body>
 </html>

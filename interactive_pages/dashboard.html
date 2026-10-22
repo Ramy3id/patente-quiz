@@ -938,6 +938,192 @@
     html.light .history-item { background: #F8FAFC; }
     .history-pass { color: #10B981; font-weight: 800; }
     .history-fail { color: #EF4444; font-weight: 800; }
+
+    /* =========================================================
+       التبويب 5: النسخ الاحتياطي ومزامنة الإنجاز (Backup & Sync)
+       ========================================================= */
+    .backup-hero {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    html.light .backup-hero {
+      background: #FFFFFF;
+      border-color: rgba(15, 23, 42, 0.08);
+    }
+    .backup-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .backup-card {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+    html.light .backup-card {
+      background: #FFFFFF;
+      border-color: rgba(15, 23, 42, 0.08);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+    }
+    .backup-card.export-card {
+      border-top: 4px solid #10B981;
+    }
+    .backup-card.import-card {
+      border-top: 4px solid #38BDF8;
+    }
+    .backup-card.danger-card {
+      border-top: 4px solid #EF4444;
+    }
+    .backup-stats-pill-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 16px 0;
+    }
+    .backup-stat-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 10px 14px;
+    }
+    html.light .backup-stat-pill {
+      background: #F8FAFC;
+      border-color: rgba(15, 23, 42, 0.08);
+    }
+    .backup-stat-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--accent-cyan);
+    }
+    .backup-stat-label {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+    .backup-action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-size: 0.92rem;
+      font-weight: 800;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s var(--ease-spring);
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+    .backup-btn-export {
+      background: #10B981;
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+    }
+    .backup-btn-export:hover {
+      background: #059669;
+      transform: translateY(-2px);
+    }
+    .backup-btn-code {
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.3);
+      color: #38BDF8;
+      margin-top: 10px;
+    }
+    .backup-btn-code:hover {
+      background: rgba(56, 189, 248, 0.22);
+      transform: translateY(-2px);
+    }
+    .backup-btn-import {
+      background: #0284C7;
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+    }
+    .backup-btn-import:hover {
+      background: #0369A1;
+      transform: translateY(-2px);
+    }
+    .backup-btn-danger {
+      background: rgba(239, 68, 68, 0.12);
+      border-color: rgba(239, 68, 68, 0.3);
+      color: #EF4444;
+    }
+    .backup-btn-danger:hover {
+      background: rgba(239, 68, 68, 0.25);
+    }
+    .backup-textarea {
+      width: 100%;
+      min-height: 80px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-primary);
+      padding: 10px 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      outline: none;
+      resize: vertical;
+      margin-top: 10px;
+      margin-bottom: 12px;
+      direction: ltr;
+      text-align: left;
+    }
+    html.light .backup-textarea {
+      background: #F8FAFC;
+      border-color: rgba(15, 23, 42, 0.12);
+      color: #0F172A;
+    }
+    .backup-file-dropzone {
+      border: 2px dashed rgba(56, 189, 248, 0.3);
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: rgba(56, 189, 248, 0.03);
+      margin-bottom: 12px;
+    }
+    .backup-file-dropzone:hover {
+      border-color: var(--accent-cyan);
+      background: rgba(56, 189, 248, 0.08);
+    }
+    .backup-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid var(--accent-cyan);
+      color: #FFFFFF;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      z-index: 99999;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+    .backup-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -961,6 +1147,10 @@
       <button class="dash-tab-btn" data-tab="tabHistory" role="tab" aria-selected="false">
         <span>📜</span>
         <span>سجل الامتحانات</span>
+      </button>
+      <button class="dash-tab-btn" data-tab="tabBackup" role="tab" aria-selected="false" id="btnTabBackup">
+        <span>💾</span>
+        <span>النسخ الاحتياطي والمزامنة</span>
       </button>
     </div>
 
@@ -1205,6 +1395,135 @@
         </div>
         <div id="historyListContainer">
           <div style="text-align:center; padding:36px; color:#64748B;">لم تقم بإجراء أي امتحان وزاري تجريبي بعد.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         التبويب 5: النسخ الاحتياطي ومزامنة الإنجاز
+         ========================================================= -->
+    <section class="tab-view" id="tabBackup">
+      <!-- بنر الترحيب والشرح -->
+      <div class="backup-hero">
+        <div style="display:flex; align-items:center; gap:14px; margin-bottom:12px;">
+          <div style="font-size:2rem; width:52px; height:52px; border-radius:14px; background:rgba(56,189,248,0.12); display:flex; align-items:center; justify-content:center;">💾</div>
+          <div>
+            <h2 style="font-size:1.25rem; font-weight:800; margin:0;">مركز النسخ الاحتياطي ومزامنة التقدم</h2>
+            <div style="font-size:0.82rem; color:var(--text-secondary); margin-top:3px;">Zero-Loss Local & Cross-Device Progress Synchronization</div>
+          </div>
+        </div>
+        <p style="color:var(--text-secondary); font-size:0.88rem; line-height:1.65; margin:0;">
+          تحفظ منصة <strong>Patente B Pro</strong> تقدمك الدراسي بالكامل محلياً وبشكل فوري لحماية خصوصيتك وللعمل بدون إنترنت (Offline). يمكنك عبر هذه اللوحة تصدير إنجازك الكامل عبر الـ 25 باباً، وبنك أخطائك، وسجل امتحاناتك لنقله بين هاتفك والكمبيوتر بنقرة واحدة، أو استعادته فوراً في أي وقت.
+        </p>
+      </div>
+
+      <!-- شبكة بطاقات التصدير والاستيراد -->
+      <div class="backup-grid">
+        <!-- بطاقة التصدير -->
+        <div class="backup-card export-card">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <h3 style="font-size:1.05rem; font-weight:800; display:flex; align-items:center; gap:8px;">
+                <span>📤</span>
+                <span>تصدير ونسخ الإنجاز الحالي</span>
+              </h3>
+              <span class="tab-badge" style="background:rgba(16,185,129,0.15); color:#10B981; border-color:rgba(16,185,129,0.3);">جاهز للتصدير</span>
+            </div>
+            <p style="font-size:0.8rem; color:var(--text-secondary); margin:8px 0 14px;">
+              تجميع كافة إجاباتك عبر الـ 25 باباً وسجل محاكي الامتحانات وبنك الأخطاء في ملف أو كود موحد.
+            </p>
+
+            <!-- ملخص محتوى النسخة -->
+            <div class="backup-stats-pill-grid">
+              <div class="backup-stat-pill">
+                <div class="backup-stat-num" id="backupStatCaps">0 / 25</div>
+                <div class="backup-stat-label">أبواب بدأ دراستها</div>
+              </div>
+              <div class="backup-stat-pill">
+                <div class="backup-stat-num" id="backupStatAnswered">0</div>
+                <div class="backup-stat-label">أسئلة تم الإجابة عليها</div>
+              </div>
+              <div class="backup-stat-pill">
+                <div class="backup-stat-num" id="backupStatMistakes">0</div>
+                <div class="backup-stat-label">أخطاء مسجلة بالبنك</div>
+              </div>
+              <div class="backup-stat-pill">
+                <div class="backup-stat-num" id="backupStatExams">0</div>
+                <div class="backup-stat-label">امتحانات مكتملة بالسجل</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;">
+            <button class="backup-action-btn backup-btn-export" id="btnExportJson">
+              <span>📥</span>
+              <span>تحميل ملف الإنجاز الكامل (.json)</span>
+            </button>
+            <button class="backup-action-btn backup-btn-code" id="btnCopySyncCode">
+              <span>📋</span>
+              <span>نسخ كود المزامنة السريع للحافظة (Sync Code)</span>
+            </button>
+            <div style="font-size:0.72rem; color:var(--text-secondary); text-align:center; margin-top:8px;">
+              💡 احتفظ بنسخة دورية لضمان الحفاظ على تقدمك الدراسي دائماً.
+            </div>
+          </div>
+        </div>
+
+        <!-- بطاقة الاستعادة -->
+        <div class="backup-card import-card">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <h3 style="font-size:1.05rem; font-weight:800; display:flex; align-items:center; gap:8px;">
+                <span>📥</span>
+                <span>استعادة التقدم من نسخة سابقة</span>
+              </h3>
+              <span class="tab-badge" style="background:rgba(56,189,248,0.15); color:#38BDF8; border-color:rgba(56,189,248,0.3);">فوري وبدون فقدان</span>
+            </div>
+            <p style="font-size:0.8rem; color:var(--text-secondary); margin:8px 0 14px;">
+              اختر ملف نسخة سابقة (.json) أو الصق كود المزامنة لنقل تقدمك الدراسي فوراً لهذا الجهاز.
+            </p>
+
+            <!-- خيار رفع ملف .json -->
+            <div class="backup-file-dropzone" id="backupDropzone" onclick="document.getElementById('backupFileInput').click()">
+              <input type="file" id="backupFileInput" accept=".json,application/json" style="display:none;" />
+              <div style="font-size:1.6rem; margin-bottom:4px;">📁</div>
+              <div style="font-weight:700; font-size:0.85rem;" id="backupDropzoneLabel">انقر هنا لاختيار ملف النسخة الاحتياطية (.json)</div>
+              <div style="font-size:0.72rem; color:var(--text-secondary); margin-top:3px;">أو اسحب وأفلت الملف مباشرة هنا</div>
+            </div>
+
+            <!-- خيار لصق كود المزامنة -->
+            <div style="font-size:0.8rem; font-weight:700; color:var(--text-secondary); margin-top:12px;">أو الصق كود المزامنة السريع:</div>
+            <textarea class="backup-textarea" id="backupCodeInput" placeholder="الصق كود المزامنة السريع هنا... (مثال: eyJ2ZXJzaW9uIjoiMy4w...)"></textarea>
+          </div>
+
+          <div>
+            <button class="backup-action-btn backup-btn-import" id="btnApplyRestore">
+              <span>🔄</span>
+              <span>استعادة وتطبيق الإنجاز الآن</span>
+            </button>
+            <div style="font-size:0.72rem; color:var(--text-secondary); text-align:center; margin-top:8px;">
+              ⚡ سيتم تطبيق الإنجاز وتحديث كافة العدادات وشارات المنهج فورياً.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- منطقة مسح وإعادة تعيين البيانات (Danger Zone) -->
+      <div class="backup-card danger-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+          <div>
+            <div style="font-weight:800; font-size:0.95rem; color:#EF4444; display:flex; align-items:center; gap:8px;">
+              <span>⚠️</span>
+              <span>منطقة إعادة الضبط الشاملة (Factory Reset)</span>
+            </div>
+            <div style="font-size:0.78rem; color:var(--text-secondary); margin-top:4px;">
+              تتيح لك بدء المنهج من الصفر ومسح كافة إجابات الأبواب، سجل بنك الأخطاء، ونتائج الامتحانات في هذا المتصفح.
+            </div>
+          </div>
+          <button class="backup-action-btn backup-btn-danger" id="btnFullFactoryReset" style="width:auto; padding:10px 18px;">
+            <span>🗑️</span>
+            <span>مسح جميع البيانات والبدء من جديد</span>
+          </button>
         </div>
       </div>
     </section>
@@ -1830,6 +2149,9 @@
         document.querySelectorAll('.tab-view').forEach(v => {
           v.classList.toggle('active', v.id === tabId);
         });
+        if (tabId === 'tabBackup') {
+          updateBackupStatsPreview();
+        }
       }
 
       document.querySelectorAll('.dash-tab-btn').forEach(btn => {
@@ -1861,6 +2183,7 @@
           allMistakes = [];
           renderMistakesUi();
           calculateAndRenderStats();
+          updateBackupStatsPreview();
         }
       });
 
@@ -1868,10 +2191,332 @@
         if (confirm('هل تريد مسح سجل الامتحانات التجريبية بالكامل؟')) {
           localStorage.removeItem('patente_exam_history');
           calculateAndRenderStats();
+          updateBackupStatsPreview();
         }
       });
 
-      // 8. فحص الـ Hash في الرابط للتوجيه التلقائي
+      // =========================================================
+      // 8. محرك النسخ الاحتياطي ومزامنة الإنجاز (Backup & Sync Suite)
+      // =========================================================
+      let toastTimeout = null;
+      function showBackupToast(msg, icon = '✅') {
+        const toast = document.getElementById('backupToast');
+        const msgEl = document.getElementById('backupToastMsg');
+        const iconEl = document.getElementById('backupToastIcon');
+        if (!toast) return;
+        msgEl.textContent = msg;
+        iconEl.textContent = icon;
+        toast.classList.add('show');
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          toast.classList.remove('show');
+        }, 3500);
+      }
+
+      function buildBackupPayload() {
+        const chaptersData = {};
+        let startedChaptersCount = 0;
+        let totalAnsweredCount = 0;
+
+        for (let ch = 1; ch <= 25; ch++) {
+          try {
+            const raw = localStorage.getItem('patente_progress_cap_' + ch);
+            if (raw) {
+              const parsed = JSON.parse(raw);
+              chaptersData[ch] = parsed;
+              if (parsed && parsed.userAnswers) {
+                const count = Object.keys(parsed.userAnswers).length;
+                if (count > 0) {
+                  startedChaptersCount++;
+                  totalAnsweredCount += count;
+                }
+              }
+            }
+          } catch (_) {}
+        }
+
+        let examHistory = [];
+        try {
+          const rawHist = localStorage.getItem('patente_exam_history');
+          if (rawHist) examHistory = JSON.parse(rawHist);
+        } catch (_) {}
+
+        let srsVault = {};
+        try {
+          const rawSrs = localStorage.getItem('patente_b_pro_srs_vault');
+          if (rawSrs) srsVault = JSON.parse(rawSrs);
+        } catch (_) {}
+
+        const theme = localStorage.getItem('patente_app_theme') || 'dark';
+
+        return {
+          platform: 'Patente B Pro',
+          version: '3.0',
+          exportedAt: new Date().toISOString(),
+          summary: {
+            startedChapters: startedChaptersCount,
+            totalAnswered: totalAnsweredCount,
+            totalMistakes: allMistakes.length,
+            totalExams: examHistory.length
+          },
+          data: {
+            chapters: chaptersData,
+            examHistory,
+            srsVault,
+            theme
+          }
+        };
+      }
+
+      function updateBackupStatsPreview() {
+        const payload = buildBackupPayload();
+        const s = payload.summary;
+        const elCaps = document.getElementById('backupStatCaps');
+        const elAns = document.getElementById('backupStatAnswered');
+        const elMis = document.getElementById('backupStatMistakes');
+        const elExm = document.getElementById('backupStatExams');
+
+        if (elCaps) elCaps.textContent = `${s.startedChapters} / 25`;
+        if (elAns) elAns.textContent = s.totalAnswered.toLocaleString('ar-EG');
+        if (elMis) elMis.textContent = s.totalMistakes.toLocaleString('ar-EG');
+        if (elExm) elExm.textContent = s.totalExams.toLocaleString('ar-EG');
+      }
+
+      function exportBackupAsFile() {
+        try {
+          const payload = buildBackupPayload();
+          const jsonStr = JSON.stringify(payload, null, 2);
+          const blob = new Blob([jsonStr], { type: 'application/json;charset=utf-8' });
+          const url = URL.createObjectURL(blob);
+          const dateStr = new Date().toISOString().slice(0, 10);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `Patente_B_Pro_Backup_${dateStr}.json`;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+          showBackupToast('تم تنزيل ملف النسخة الاحتياطية بنجاح 📥');
+        } catch (err) {
+          alert('حدث خطأ أثناء تصدير الملف: ' + err.message);
+        }
+      }
+
+      function fallbackCopyText(text) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.top = '-9999px';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        try {
+          document.execCommand('copy');
+          showBackupToast('تم نسخ كود المزامنة السريع إلى الحافظة! 📋');
+        } catch (_) {
+          prompt('يرجى نسخ كود المزامنة يدوياً:', text);
+        }
+        document.body.removeChild(ta);
+      }
+
+      function copySyncCodeToClipboard() {
+        try {
+          const payload = buildBackupPayload();
+          const jsonStr = JSON.stringify(payload);
+          // الترميز الآمن لليونيكود مع Base64
+          const b64 = btoa(encodeURIComponent(jsonStr).replace(/%([0-9A-F]{2})/g, (match, p1) => {
+            return String.fromCharCode('0x' + p1);
+          }));
+
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(b64).then(() => {
+              showBackupToast('تم نسخ كود المزامنة السريع إلى الحافظة! 📋');
+            }).catch(() => {
+              fallbackCopyText(b64);
+            });
+          } else {
+            fallbackCopyText(b64);
+          }
+        } catch (err) {
+          alert('حدث خطأ أثناء تجهيز كود المزامنة: ' + err.message);
+        }
+      }
+
+      function parsePayloadString(rawStr) {
+        rawStr = (rawStr || '').trim();
+        if (!rawStr) throw new Error('يرجى إدخال كود المزامنة أو اختيار ملف صالح');
+
+        // إذا كان يبدأ بـ { فهو JSON صريح
+        if (rawStr.startsWith('{')) {
+          return JSON.parse(rawStr);
+        }
+
+        // محاولة فك تشفير Base64 الآمن
+        try {
+          const decoded = decodeURIComponent(Array.prototype.map.call(atob(rawStr), (c) => {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+          }).join(''));
+          return JSON.parse(decoded);
+        } catch (e1) {
+          // محاولة atob مباشرة كخيار بديل
+          try {
+            return JSON.parse(atob(rawStr));
+          } catch (_) {
+            throw new Error('كود المزامنة غير صالح أو تالف');
+          }
+        }
+      }
+
+      function applyRestorePayload(parsed) {
+        if (!parsed || typeof parsed !== 'object') {
+          throw new Error('بيانات النسخة الاحتياطية غير صالحة');
+        }
+
+        const data = parsed.data || parsed;
+        let restoredCaps = 0;
+
+        // 1. استعادة إنجاز الأبواب الـ 25
+        if (data.chapters && typeof data.chapters === 'object') {
+          for (let ch = 1; ch <= 25; ch++) {
+            if (data.chapters[ch]) {
+              localStorage.setItem('patente_progress_cap_' + ch, JSON.stringify(data.chapters[ch]));
+              restoredCaps++;
+            }
+          }
+        }
+
+        // 2. استعادة سجل الامتحانات
+        if (Array.isArray(data.examHistory)) {
+          localStorage.setItem('patente_exam_history', JSON.stringify(data.examHistory));
+        }
+
+        // 3. استعادة بنك الـ SRS
+        if (data.srsVault && typeof data.srsVault === 'object') {
+          localStorage.setItem('patente_b_pro_srs_vault', JSON.stringify(data.srsVault));
+        }
+
+        // 4. استعادة الثيم المفضل
+        if (data.theme) {
+          localStorage.setItem('patente_app_theme', data.theme);
+        }
+
+        // تحديث حالة التطبيق محلياً
+        allMistakes = collectAllMistakes();
+        renderMistakesUi();
+        calculateAndRenderStats();
+        updateBackupStatsPreview();
+
+        if (typeof window.updatePortalProgress === 'function') {
+          window.updatePortalProgress();
+        }
+
+        showBackupToast(`🎉 تم استعادة إنجاز (${restoredCaps}) باباً وسجل الامتحانات بنجاح!`);
+      }
+
+      // ربط أحداث النسخ والاستعادة
+      const btnExport = document.getElementById('btnExportJson');
+      if (btnExport) btnExport.addEventListener('click', exportBackupAsFile);
+
+      const btnCode = document.getElementById('btnCopySyncCode');
+      if (btnCode) btnCode.addEventListener('click', copySyncCodeToClipboard);
+
+      const btnApply = document.getElementById('btnApplyRestore');
+      if (btnApply) {
+        btnApply.addEventListener('click', () => {
+          const codeInput = document.getElementById('backupCodeInput');
+          const val = codeInput ? codeInput.value : '';
+          try {
+            const parsed = parsePayloadString(val);
+            if (confirm('هل أنت متأكد من رغبتك في استعادة هذا التقدم وتطبيقه على المنصة؟')) {
+              applyRestorePayload(parsed);
+              if (codeInput) codeInput.value = '';
+            }
+          } catch (err) {
+            alert('تعذر استعادة التقدم: ' + err.message);
+          }
+        });
+      }
+
+      const fileInput = document.getElementById('backupFileInput');
+      const dropzone = document.getElementById('backupDropzone');
+      const dropLabel = document.getElementById('backupDropzoneLabel');
+
+      function handleSelectedFile(file) {
+        if (!file) return;
+        if (dropLabel) dropLabel.textContent = `الملف المختار: ${file.name}`;
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          try {
+            const content = e.target.result;
+            const parsed = parsePayloadString(content);
+            if (confirm(`تم قراءة الملف بنجاح (${file.name}). هل تريد استعادة وتطبيق هذا الإنجاز الآن؟`)) {
+              applyRestorePayload(parsed);
+            }
+          } catch (err) {
+            alert('الملف المختار لا يحتوي على بيانات نسخ احتياطي صالحة: ' + err.message);
+          }
+        };
+        reader.readAsText(file);
+      }
+
+      if (fileInput) {
+        fileInput.addEventListener('change', function() {
+          if (this.files && this.files[0]) {
+            handleSelectedFile(this.files[0]);
+          }
+        });
+      }
+
+      if (dropzone) {
+        dropzone.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          dropzone.style.borderColor = 'var(--accent-cyan)';
+          dropzone.style.background = 'rgba(56, 189, 248, 0.12)';
+        });
+        dropzone.addEventListener('dragleave', () => {
+          dropzone.style.borderColor = '';
+          dropzone.style.background = '';
+        });
+        dropzone.addEventListener('drop', (e) => {
+          e.preventDefault();
+          dropzone.style.borderColor = '';
+          dropzone.style.background = '';
+          if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+            handleSelectedFile(e.dataTransfer.files[0]);
+          }
+        });
+      }
+
+      // زر إعادة الضبط الشامل
+      const btnResetAll = document.getElementById('btnFullFactoryReset');
+      if (btnResetAll) {
+        btnResetAll.addEventListener('click', () => {
+          const firstConfirm = confirm('⚠️ تحذير شديد:\nهل أنت متأكد تماماً من رغبتك في حذف كافة تقدمك في الـ 25 باباً، وسجل بنك الأخطاء، ونتائج الامتحانات في هذا المتصفح؟');
+          if (!firstConfirm) return;
+
+          const secondConfirm = confirm('تأكيد أخير: لن يمكنك استرجاع هذه البيانات إلا إذا كنت قد حمّلت ملف نسخة احتياطية (.json) سابقاً.\n\nهل تريد المتابعة وإعادة ضبط المنصة؟');
+          if (!secondConfirm) return;
+
+          for (let ch = 1; ch <= 25; ch++) {
+            localStorage.removeItem('patente_progress_cap_' + ch);
+          }
+          localStorage.removeItem('patente_exam_history');
+          localStorage.removeItem('patente_b_pro_srs_vault');
+
+          allMistakes = [];
+          renderMistakesUi();
+          calculateAndRenderStats();
+          updateBackupStatsPreview();
+
+          if (typeof window.updatePortalProgress === 'function') {
+            window.updatePortalProgress();
+          }
+
+          showBackupToast('تم إعادة ضبط كافة البيانات بنجاح 🔄');
+        });
+      }
+
+      // 9. فحص الـ Hash في الرابط للتوجيه التلقائي
       function checkUrlHash() {
         const hash = window.location.hash.toLowerCase();
         if (hash.includes('mistake') || hash.includes('error')) {
@@ -1880,6 +2525,8 @@
           switchTab('tabMatrix');
         } else if (hash.includes('history')) {
           switchTab('tabHistory');
+        } else if (hash.includes('backup') || hash.includes('sync')) {
+          switchTab('tabBackup');
         }
       }
 
@@ -1888,6 +2535,7 @@
         allMistakes = collectAllMistakes();
         renderMistakesUi();
         calculateAndRenderStats();
+        updateBackupStatsPreview();
         checkUrlHash();
 
         window.addEventListener('hashchange', checkUrlHash);
@@ -1895,5 +2543,11 @@
 
     })();
   </script>
+
+  <!-- إشعار التوست الفوري -->
+  <div class="backup-toast" id="backupToast">
+    <span id="backupToastIcon">✅</span>
+    <span id="backupToastMsg">تمت العملية بنجاح!</span>
+  </div>
 </body>
 </html>
