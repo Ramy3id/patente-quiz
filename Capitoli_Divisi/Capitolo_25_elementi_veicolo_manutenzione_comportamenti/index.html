@@ -8,9 +8,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/theme-modes.css">
+<link rel="stylesheet" href="../../assets/css/modular-chapter.css">
 <script src="../../assets/js/theme-engine.js"></script>
 <script src="../../assets/js/unified-nav.js" defer></script>
 <script src="../../assets/js/question-decoder.js"></script>
+<script src="../../assets/js/modular-chapter-engine.js"></script>
 
 <style>
   :root {
@@ -878,537 +880,7 @@
   }
 
 
-  /* ==========================================================================
-     Chapter 25 Modular Unified Groups (18 Cohesive Modules) & Dual-Theme System
-     ========================================================================== */
-  .subtopics-hub-card {
-    background: var(--bg-surface);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--border-subtle);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04), 0 8px 24px -6px rgba(0,0,0,0.45);
-    border-radius: 16px;
-    padding: 16px 20px;
-    margin-bottom: 24px;
-    direction: rtl;
-    text-align: right;
-  }
-
-  .subtopics-hub-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 14px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  .subtopics-hub-title-wrap {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .subtopics-hub-badge {
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: #a5b4fc;
-    background: rgba(99, 102, 241, 0.15);
-    border: 1px solid rgba(99, 102, 241, 0.35);
-    padding: 3px 10px;
-    border-radius: 8px;
-  }
-
-  .subtopics-hub-title {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--text-primary, #f4f4f5);
-  }
-
-  .subtopics-hub-actions {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
-  .view-mode-toggle-group {
-    display: inline-flex;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 3px;
-    border-radius: 10px;
-    border: 1px solid var(--border-subtle);
-    gap: 2px;
-  }
-
-  .view-mode-btn {
-    background: transparent;
-    border: none;
-    color: var(--text-muted, #a1a1aa);
-    font-size: 0.8rem;
-    font-weight: 600;
-    padding: 5px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.15s ease;
-  }
-
-  .view-mode-btn:hover {
-    color: #fff;
-  }
-
-  .view-mode-btn.active {
-    background: rgba(99, 102, 241, 0.25);
-    color: #c7d2fe;
-    border: 1px solid rgba(99, 102, 241, 0.4);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  }
-
-  .subtopics-action-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-subtle);
-    color: var(--text-secondary, #e4e4e7);
-    font-size: 0.78rem;
-    font-weight: 600;
-    padding: 6px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.15s ease;
-  }
-
-  .subtopics-action-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.2);
-  }
-
-  .subtopics-chips-scroll {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    padding: 4px 2px 8px;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .subtopics-chips-scroll::-webkit-scrollbar {
-    height: 6px;
-  }
-  .subtopics-chips-scroll::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-  }
-  .subtopics-chips-scroll::-webkit-scrollbar-thumb {
-    background: rgba(99, 102, 241, 0.3);
-    border-radius: 4px;
-  }
-  .subtopics-chips-scroll::-webkit-scrollbar-thumb:hover {
-    background: rgba(99, 102, 241, 0.5);
-  }
-
-  .subtopic-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 14px;
-    border-radius: 9999px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    white-space: nowrap;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border-subtle);
-    color: #d4d4d8;
-    cursor: pointer;
-    transition: all 0.15s var(--ease-spring);
-    user-select: none;
-    flex-shrink: 0;
-  }
-
-  .subtopic-chip:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    transform: translateY(-1px);
-  }
-
-  .subtopic-chip.active {
-    background: rgba(99, 102, 241, 0.25);
-    border-color: #818cf8;
-    color: #ffffff;
-    box-shadow: 0 0 14px rgba(99, 102, 241, 0.35);
-  }
-
-  .subtopic-chip .chip-count {
-    background: rgba(0, 0, 0, 0.35);
-    color: #a5b4fc;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    padding: 1px 6px;
-    border-radius: 6px;
-  }
-  .subtopic-chip.active .chip-count {
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-  }
-
-  /* Subtopic Section Card Accordion */
-  .subtopic-section-box {
-    background: rgba(20, 20, 25, 0.65);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid var(--border-subtle);
-    border-radius: 18px;
-    margin-bottom: 24px;
-    overflow: hidden;
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04), 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-
-  .subtopic-section-box:hover {
-    border-color: rgba(255, 255, 255, 0.15);
-  }
-
-  .subtopic-section-header {
-    padding: 16px 22px;
-    background: linear-gradient(180deg, rgba(32, 34, 46, 0.85) 0%, rgba(22, 23, 30, 0.95) 100%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    flex-wrap: wrap;
-    direction: rtl;
-    text-align: right;
-    user-select: none;
-    transition: background 0.15s ease;
-  }
-
-  .subtopic-section-header:hover {
-    background: linear-gradient(180deg, rgba(38, 41, 56, 0.95) 0%, rgba(26, 28, 38, 0.98) 100%);
-  }
-
-  .subtopic-header-main {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    flex: 1;
-    min-width: 260px;
-  }
-
-  .subtopic-header-icon {
-    font-size: 1.6rem;
-    line-height: 1;
-    padding: 6px;
-    background: rgba(255, 255, 255, 0.04);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .subtopic-header-text {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .subtopic-meta-line {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
-  .subtopic-num-pill {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: #fbbf24;
-    background: rgba(251, 191, 36, 0.12);
-    border: 1px solid rgba(251, 191, 36, 0.25);
-    padding: 2px 7px;
-    border-radius: 6px;
-  }
-
-  .subtopic-group-pill {
-    font-size: 0.72rem;
-    color: #a5b4fc;
-    background: rgba(99, 102, 241, 0.12);
-    border: 1px solid rgba(99, 102, 241, 0.25);
-    padding: 2px 7px;
-    border-radius: 6px;
-  }
-
-  .subtopic-ar-heading {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #ffffff;
-    line-height: 1.4;
-  }
-
-  .subtopic-it-heading {
-    font-size: 0.84rem;
-    color: var(--text-muted);
-    font-style: italic;
-    font-family: 'JetBrains Mono', monospace;
-  }
-
-  .subtopic-header-stats {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .subtopic-stat-pill {
-    font-size: 0.78rem;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #d4d4d8;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
-
-  .subtopic-stat-pill.vf {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.76rem;
-  }
-
-  .subtopic-stat-pill.progress-pill {
-    background: rgba(16, 185, 129, 0.12);
-    border-color: rgba(16, 185, 129, 0.25);
-    color: #6ee7b7;
-  }
-  .subtopic-stat-pill.progress-pill.done {
-    background: rgba(16, 185, 129, 0.25);
-    border-color: #34d399;
-    color: #fff;
-    font-weight: 700;
-  }
-
-  .subtopic-focus-btn {
-    background: rgba(99, 102, 241, 0.15);
-    border: 1px solid rgba(99, 102, 241, 0.35);
-    color: #c7d2fe;
-    font-size: 0.78rem;
-    font-weight: 600;
-    padding: 5px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.15s ease;
-  }
-  .subtopic-focus-btn:hover {
-    background: rgba(99, 102, 241, 0.3);
-    color: #fff;
-  }
-
-  .subtopic-chevron {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    transition: transform 0.2s var(--ease-spring);
-    padding: 4px;
-    display: inline-block;
-    transform: rotate(0deg);
-  }
-  .subtopic-section-box.is-collapsed .subtopic-chevron {
-    transform: rotate(90deg);
-  }
-
-  .subtopic-section-body {
-    padding: 20px 22px 10px;
-    display: block;
-  }
-  .subtopic-section-box.is-collapsed .subtopic-section-body {
-    display: none;
-  }
-  .subtopic-section-box.is-collapsed {
-    margin-bottom: 12px;
-  }
-
-  .single-subtopic-banner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-    background: rgba(99, 102, 241, 0.12);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    padding: 12px 18px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    direction: rtl;
-    text-align: right;
-  }
-  .single-subtopic-banner-text {
-    font-size: 0.9rem;
-    color: #e0e7ff;
-    font-weight: 600;
-  }
-  .single-subtopic-reset-btn {
-    background: var(--indigo-primary, #6366f1);
-    color: #fff;
-    border: none;
-    padding: 6px 14px;
-    border-radius: 8px;
-    font-size: 0.82rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.15s ease;
-  }
-  .single-subtopic-reset-btn:hover {
-    opacity: 0.9;
-    transform: scale(0.98);
-  }
-
-  /* ==========================================================================
-     LIGHT MODE STRICT HIGH-CONTRAST OVERRIDES (Apple HIG & Zero Low-Contrast)
-     ========================================================================== */
-  html.light .subtopics-hub-card {
-    background: #ffffff !important;
-    border: 1px solid rgba(15, 23, 42, 0.12) !important;
-    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.03) !important;
-  }
-  html.light .subtopics-hub-header {
-    border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
-  }
-  html.light .subtopics-hub-title {
-    color: #0f172a !important;
-  }
-  html.light .subtopics-hub-badge {
-    background: rgba(79, 70, 229, 0.08) !important;
-    border: 1px solid rgba(79, 70, 229, 0.25) !important;
-    color: #4338ca !important;
-  }
-  html.light .view-mode-toggle-group {
-    background: #f1f5f9 !important;
-    border: 1px solid #cbd5e1 !important;
-  }
-  html.light .view-mode-btn {
-    color: #475569 !important;
-  }
-  html.light .view-mode-btn.active {
-    background: #ffffff !important;
-    color: #4338ca !important;
-    border: 1px solid rgba(79, 70, 229, 0.35) !important;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
-    font-weight: 700 !important;
-  }
-  html.light .subtopics-action-btn {
-    background: #f8fafc !important;
-    border: 1px solid #cbd5e1 !important;
-    color: #0f172a !important;
-    font-weight: 700 !important;
-  }
-  html.light .subtopics-action-btn:hover {
-    background: #e2e8f0 !important;
-    color: #020617 !important;
-  }
-  html.light .subtopic-chip {
-    background: #ffffff !important;
-    border: 1px solid #cbd5e1 !important;
-    color: #0f172a !important;
-    font-weight: 700 !important;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
-  }
-  html.light .subtopic-chip:hover {
-    background: #f1f5f9 !important;
-    border-color: #94a3b8 !important;
-    color: #020617 !important;
-  }
-  html.light .subtopic-chip.active {
-    background: #4f46e5 !important;
-    border-color: #4338ca !important;
-    color: #ffffff !important;
-    box-shadow: 0 3px 12px rgba(79, 70, 229, 0.35) !important;
-  }
-  html.light .subtopic-chip .chip-count {
-    background: #e2e8f0 !important;
-    color: #1e293b !important;
-    font-weight: 700 !important;
-  }
-  html.light .subtopic-chip.active .chip-count {
-    background: rgba(255, 255, 255, 0.25) !important;
-    color: #ffffff !important;
-  }
-  html.light .subtopic-section-box {
-    background: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
-    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05) !important;
-  }
-  html.light .subtopic-section-header {
-    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%) !important;
-    border-bottom: 1px solid #e2e8f0 !important;
-  }
-  html.light .subtopic-section-header:hover {
-    background: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%) !important;
-  }
-  html.light .subtopic-header-icon {
-    background: #ffffff !important;
-    border: 1px solid #cbd5e1 !important;
-  }
-  html.light .subtopic-ar-heading {
-    color: #0f172a !important;
-  }
-  html.light .subtopic-it-heading {
-    color: #475569 !important;
-  }
-  html.light .subtopic-num-pill {
-    background: #fef3c7 !important;
-    color: #92400e !important;
-    border: 1px solid #fde68a !important;
-  }
-  html.light .subtopic-group-pill {
-    background: #e0e7ff !important;
-    color: #3730a3 !important;
-    border: 1px solid #c7d2fe !important;
-  }
-  html.light .subtopic-stat-pill {
-    background: #ffffff !important;
-    border: 1px solid #cbd5e1 !important;
-    color: #1e293b !important;
-  }
-  html.light .subtopic-stat-pill.progress-pill {
-    background: rgba(5, 150, 105, 0.12) !important;
-    border-color: rgba(5, 150, 105, 0.25) !important;
-    color: #047857 !important;
-  }
-  html.light .subtopic-stat-pill.progress-pill.done {
-    background: #059669 !important;
-    color: #ffffff !important;
-  }
-  html.light .subtopic-focus-btn {
-    background: #e0e7ff !important;
-    color: #3730a3 !important;
-    border: 1px solid #c7d2fe !important;
-    font-weight: 700 !important;
-  }
-  html.light .subtopic-focus-btn:hover {
-    background: #4f46e5 !important;
-    color: #ffffff !important;
-  }
-  html.light .subtopic-chevron {
-    color: #64748b !important;
-  }
-  html.light .single-subtopic-banner {
-    background: #eef2ff !important;
-    border: 1px solid #c7d2fe !important;
-    color: #1e1b4b !important;
-  }
-  html.light .single-subtopic-banner-text {
-    color: #1e1b4b !important;
-  }
-  html.light .single-subtopic-reset-btn {
-    background: #4f46e5 !important;
-    color: #ffffff !important;
-  }
-
-</style>
+  </style>
 </head>
 <body>
 
@@ -1681,37 +1153,6 @@
 
   <!-- Questions Container -->
   
-  <!-- Subtopics Modular Navigation Hub -->
-  <div class="subtopics-hub-card">
-    <div class="subtopics-hub-header">
-      <div class="subtopics-hub-title-wrap">
-        <span class="subtopics-hub-badge">📑 تقسيم دراسي ذكي</span>
-        <span class="subtopics-hub-title">فهرس أجزاء الباب الـ 18 الموحدة (اختر قسماً للمذاكرة المركزة أو تصفح الكل)</span>
-      </div>
-      <div class="subtopics-hub-actions">
-        <div class="view-mode-toggle-group">
-          <button class="view-mode-btn active" id="btn-mode-grouped" onclick="setViewMode('grouped')" title="عرض مقسم لأقسام وبلوكات">
-            <span>🗂️ عرض مقسم (18 قسماً)</span>
-          </button>
-          <button class="view-mode-btn" id="btn-mode-flat" onclick="setViewMode('flat')" title="عرض تقليدي متتالي">
-            <span>📜 قائمة كاملة</span>
-          </button>
-        </div>
-        <button class="subtopics-action-btn" onclick="expandAllSections()" title="توسيع كافة الأقسام">
-          <span>➕ توسيع الكل</span>
-        </button>
-        <button class="subtopics-action-btn" onclick="collapseAllSections()" title="طي كافة الأقسام">
-          <span>➖ طي الكل</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Horizontal Quick-Select Chips Strip -->
-    <div class="subtopics-chips-scroll" id="subtopics-chips-bar">
-      <!-- Generated via renderSubtopicChips() -->
-    </div>
-  </div>
-
   <div id="questions-list"></div>
 
 </div>
@@ -1827,586 +1268,158 @@
   };
 
   const UNIFIED_GROUPS = {
-    "forza_aderente": {
-      num: 1,
-      short_ar: "قوة الالتصاق والجر والأسفلت",
-      ar: "قوة الالتصاق والجر وتأثير حالة الأسفلت والطقس (La forza aderente)",
-      it: "La forza aderente e condizioni dell'asfalto",
-      icon: "🧲",
-      group: "الفيزياء وحركة المركبة"
-    },
-    "coefficiente_aderenza": {
-      num: 2,
-      short_ar: "معامل الالتصاق ومسافة الفرملة",
-      ar: "معامل الالتصاق وعلاقته بالسرعة ومسافة الفرملة",
-      it: "Coefficiente di aderenza e spazio di frenatura",
-      icon: "📉",
-      group: "الفيزياء وحركة المركبة"
-    },
-    "aderenza_motociclo": {
-      num: 3,
-      short_ar: "التصاق الدراجات والأسطح الزلقة",
-      ar: "التصاق الدراجات النارية وقضبان الترام وعلامات الطريق",
-      it: "Aderenza del motociclo su rotaie e strisce",
-      icon: "🏍️",
-      group: "الفيزياء وحركة المركبة"
-    },
-    "curve_ribaltamento": {
-      num: 4,
-      short_ar: "المنعطفات وقوة الطرد والانقلاب",
-      ar: "السير في المنعطفات وقوة الطرد المركزي وخطر الانقلاب ومركز الثقل",
-      it: "Percorrenza della curva, forza centrifuga e ribaltamento",
-      icon: "🔄",
-      group: "المنعطفات والتوازن"
-    },
-    "sistema_abs": {
-      num: 5,
-      short_ar: "نظام ABS وفرملة الطوارئ",
-      ar: "نظام مانع انغلاق العجلات (ABS) ووظائفه والفرملة في الطوارئ",
-      it: "Sistema antibloccaggio A.B.S. e frenate d'emergenza",
-      icon: "🛑",
-      group: "منظومة الفرامل"
-    },
-    "pressione_pneumatici": {
-      num: 6,
-      short_ar: "ضغط نفخ الإطارات وتآكل المداس",
-      ar: "ضغط نفخ الإطارات ومخاطر الضغط غير المناسب وتآكل المداس والحرارة",
-      it: "Pressione di gonfiaggio e usura degli pneumatici",
-      icon: "💨",
-      group: "الإطارات والعجلات"
-    },
-    "condizioni_pneumatici": {
-      num: 7,
-      short_ar: "أنواع الإطارات: تيوبلس والثلج M+S",
-      ar: "أنواع الإطارات (Tubeless، إطارات الثلج M+S) وحالة وعمق النقوش",
-      it: "Pneumatici tubeless, invernali (M+S) e battistrada",
-      icon: "🛞",
-      group: "الإطارات والعجلات"
-    },
-    "sostituzione_ruota": {
-      num: 8,
-      short_ar: "استبدال العجلة والكوريك",
-      ar: "خطوات استبدال العجلة الاحتياطية واستخدام الكوريك وشد المسامير",
-      it: "Sostituzione della ruota e uso del martinetto (cric)",
-      icon: "🔧",
-      group: "الإطارات والعجلات"
-    },
-    "sicurezza_manutenzione": {
-      num: 9,
-      short_ar: "الحرائق والبطارية والمساحات",
-      ar: "مخاطر الحرائق وطرق الإطفاء، صيانة البطارية والفيوزات، ونظافة الزجاج",
-      it: "Rischio d'incendio, batteria, fusibili e visibilità",
-      icon: "🧯",
-      group: "السلامة والصيانة العامة"
-    },
-    "freno_stazionamento": {
-      num: 10,
-      short_ar: "فرامل اليد (الانتظار)",
-      ar: "فرامل اليد (الانتظار) وطريقة عملها واستخداماتها الصحيحة",
-      it: "Freno di stazionamento (freno a mano)",
-      icon: "🅿️",
-      group: "منظومة الفرامل"
-    },
-    "frenatura_inefficiente": {
-      num: 11,
-      short_ar: "ضعف كفاءة الفرامل وسحب السيارة",
-      ar: "علامات وأسباب ضعف كفاءة الفرامل والفرملة غير المتوازنة",
-      it: "Frenatura poco efficiente o squilibrata",
-      icon: "⚠️",
-      group: "منظومة الفرامل"
-    },
-    "sospensioni": {
-      num: 12,
-      short_ar: "نظام التعليق وتلف المساعدين",
-      ar: "وظائف نظام التعليق وأسباب ومخاطر تلف ممتصات الصدمات",
-      it: "Sospensioni del veicolo e cause di inefficienza",
-      icon: "🚙",
-      group: "نظام التعليق والمساعدين"
-    },
-    "ammortizzatori": {
-      num: 13,
-      short_ar: "ممتصات الصدمات والحمولة الزائدة",
-      ar: "وظيفة ممتصات الصدمات وتأثير الحمولة الزائدة والمطبات",
-      it: "Ammortizzatori e comportamento con veicolo sovraccarico",
-      icon: "🔩",
-      group: "نظام التعليق والمساعدين"
-    },
-    "sterzo_servosterzo": {
-      num: 14,
-      short_ar: "عجلة القيادة والسيرفوستيرزو",
-      ar: "عجلة القيادة ومساعد التوجيه (السيرفو) والاهتزازات وضبط الزوايا",
-      it: "Sterzo, servosterzo, convergenza e bilanciatura",
-      icon: "🎯",
-      group: "عجلة القيادة والتوجيه"
-    },
-    "impianto_scarico": {
-      num: 15,
-      short_ar: "نظام العادم والشكمان وكاتم الصوت",
-      ar: "نظام العادم وكاتم الصوت ومخاطر التلوث وأول أكسيد الكربون",
-      it: "Impianto di scarico, marmitta e rumorosità",
-      icon: "💨",
-      group: "المحرك والعادم"
-    },
-    "moto_interruttore": {
-      num: 16,
-      short_ar: "مفتاح طوارئ الدراجات النارية",
-      ar: "مفتاح إيقاف المحرك في الطوارئ بالدراجات النارية",
-      it: "Interruttore di emergenza per motocicli",
-      icon: "🔴",
-      group: "ميكانيكا الدراجات النارية"
-    },
-    "moto_catena": {
-      num: 17,
-      short_ar: "جنزير نقل الحركة بالموتوسيكل",
-      ar: "جنزير نقل الحركة بالدراجات النارية وضبط الشد والتشحيم والتآكل",
-      it: "Catena di trasmissione dei motocicli",
-      icon: "⛓️",
-      group: "ميكانيكا الدراجات النارية"
-    },
-    "moto_liquidi": {
-      num: 18,
-      short_ar: "فحص الزيوت وسوائل الموتوسيكل",
-      ar: "فحص مستويات زيت المحرك وسوائل الفرامل والتبريد بالموتوسيكل",
-      it: "Livello di olio e liquidi nei motocicli",
-      icon: "💧",
-      group: "ميكانيكا الدراجات النارية"
-    }
-  };
+  "forza_aderente": {
+    "num": 1,
+    "short_ar": "قوة الالتصاق والجر والأسفلت",
+    "ar": "قوة الالتصاق والجر وتأثير حالة الأسفلت والطقس (La forza aderente)",
+    "it": "La forza aderente e condizioni dell'asfalto",
+    "icon": "🧲",
+    "group": "الفيزياء وحركة المركبة"
+  },
+  "coefficiente_aderenza": {
+    "num": 2,
+    "short_ar": "معامل الالتصاق ومسافة الفرملة",
+    "ar": "معامل الالتصاق وعلاقته بالسرعة ومسافة الفرملة",
+    "it": "Coefficiente di aderenza e spazio di frenatura",
+    "icon": "📉",
+    "group": "الفيزياء وحركة المركبة"
+  },
+  "aderenza_motociclo": {
+    "num": 3,
+    "short_ar": "التصاق الدراجات والأسطح الزلقة",
+    "ar": "التصاق الدراجات النارية وقضبان الترام وعلامات الطريق",
+    "it": "Aderenza del motociclo su rotaie e strisce",
+    "icon": "🏍️",
+    "group": "الفيزياء وحركة المركبة"
+  },
+  "curve_ribaltamento": {
+    "num": 4,
+    "short_ar": "المنعطفات وقوة الطرد والانقلاب",
+    "ar": "السير في المنعطفات وقوة الطرد المركزي وخطر الانقلاب ومركز الثقل",
+    "it": "Percorrenza della curva, forza centrifuga e ribaltamento",
+    "icon": "🔄",
+    "group": "المنعطفات والتوازن"
+  },
+  "sistema_abs": {
+    "num": 5,
+    "short_ar": "نظام ABS وفرملة الطوارئ",
+    "ar": "نظام مانع انغلاق العجلات (ABS) ووظائفه والفرملة في الطوارئ",
+    "it": "Sistema antibloccaggio A.B.S. e frenate d'emergenza",
+    "icon": "🛑",
+    "group": "منظومة الفرامل"
+  },
+  "pressione_pneumatici": {
+    "num": 6,
+    "short_ar": "ضغط نفخ الإطارات وتآكل المداس",
+    "ar": "ضغط نفخ الإطارات ومخاطر الضغط غير المناسب وتآكل المداس والحرارة",
+    "it": "Pressione di gonfiaggio e usura degli pneumatici",
+    "icon": "💨",
+    "group": "الإطارات والعجلات"
+  },
+  "condizioni_pneumatici": {
+    "num": 7,
+    "short_ar": "أنواع الإطارات: تيوبلس والثلج M+S",
+    "ar": "أنواع الإطارات (Tubeless، إطارات الثلج M+S) وحالة وعمق النقوش",
+    "it": "Pneumatici tubeless, invernali (M+S) e battistrada",
+    "icon": "🛞",
+    "group": "الإطارات والعجلات"
+  },
+  "sostituzione_ruota": {
+    "num": 8,
+    "short_ar": "استبدال العجلة والكوريك",
+    "ar": "خطوات استبدال العجلة واستخدام الكوريك وشد المسامير",
+    "it": "Sostituzione della ruota e uso del martinetto (cric)",
+    "icon": "🔧",
+    "group": "الإطارات والعجلات"
+  },
+  "sicurezza_manutenzione": {
+    "num": 9,
+    "short_ar": "الحرائق والبطارية والمساحات",
+    "ar": "مخاطر الحرائق وطرق الإطفاء، صيانة البطارية والفيوزات، ونظافة الزجاج",
+    "it": "Rischio d'incendio, batteria, fusibili e visibilità",
+    "icon": "🧯",
+    "group": "السلامة والصيانة العامة"
+  },
+  "freno_stazionamento": {
+    "num": 10,
+    "short_ar": "فرامل اليد (الانتظار)",
+    "ar": "فرامل اليد (الانتظار) وطريقة عملها واستخداماتها الصحيحة",
+    "it": "Freno di stazionamento (freno a mano)",
+    "icon": "🅿️",
+    "group": "منظومة الفرامل"
+  },
+  "frenatura_inefficiente": {
+    "num": 11,
+    "short_ar": "ضعف كفاءة الفرامل وسحب السيارة",
+    "ar": "علامات وأسباب ضعف كفاءة الفرامل والفرملة غير المتوازنة",
+    "it": "Frenatura poco efficiente o squilibrata",
+    "icon": "⚠️",
+    "group": "منظومة الفرامل"
+  },
+  "sospensioni": {
+    "num": 12,
+    "short_ar": "نظام التعليق وتلف المساعدين",
+    "ar": "وظائف نظام التعليق وأسباب ومخاطر تلف ممتصات الصدمات",
+    "it": "Sospensioni del veicolo e cause di inefficienza",
+    "icon": "🚙",
+    "group": "نظام التعليق والمساعدين"
+  },
+  "ammortizzatori": {
+    "num": 13,
+    "short_ar": "ممتصات الصدمات والحمولة الزائدة",
+    "ar": "وظيفة ممتصات الصدمات وتأثير الحمولة الزائدة والمطبات",
+    "it": "Ammortizzatori e comportamento con veicolo sovraccarico",
+    "icon": "🔩",
+    "group": "نظام التعليق والمساعدين"
+  },
+  "sterzo_servosterzo": {
+    "num": 14,
+    "short_ar": "عجلة القيادة والسيرفوستيرزو",
+    "ar": "عجلة القيادة ومساعد التوجيه (السيرفو) والاهتزازات وضبط الزوايا",
+    "it": "Sterzo, servosterzo, convergenza e bilanciatura",
+    "icon": "🎯",
+    "group": "عجلة القيادة والتوجيه"
+  },
+  "impianto_scarico": {
+    "num": 15,
+    "short_ar": "نظام العادم والشكمان وكاتم الصوت",
+    "ar": "نظام العادم وكاتم الصوت ومخاطر التلوث وأول أكسيد الكربون",
+    "it": "Impianto di scarico, marmitta e rumorosità",
+    "icon": "💨",
+    "group": "المحرك والعادم"
+  },
+  "moto_interruttore": {
+    "num": 16,
+    "short_ar": "مفتاح طوارئ الدراجات النارية",
+    "ar": "مفتاح إيقاف المحرك في الطوارئ بالدراجات النارية",
+    "it": "Interruttore di emergenza per motocicli",
+    "icon": "🔴",
+    "group": "ميكانيكا الدراجات النارية"
+  },
+  "moto_catena": {
+    "num": 17,
+    "short_ar": "جنزير نقل الحركة بالموتوسيكل",
+    "ar": "جنزير نقل الحركة بالدراجات النارية وضبط الشد والتشحيم والتآكل",
+    "it": "Catena di trasmissione dei motocicli",
+    "icon": "⛓️",
+    "group": "ميكانيكا الدراجات النارية"
+  },
+  "moto_liquidi": {
+    "num": 18,
+    "short_ar": "فحص الزيوت وسوائل الموتوسيكل",
+    "ar": "فحص مستويات زيت المحرك وسوائل الفرامل والتبريد بالموتوسيكل",
+    "it": "Livello di olio e liquidi nei motocicli",
+    "icon": "💧",
+    "group": "ميكانيكا الدراجات النارية"
+  }
+};
 
-  // Attach unified group key to each question
-  DATA.domande.forEach(q => {
-    q.gruppo_unificato = SUBTOPIC_MAP[q.sotto_argomento] || 'altro';
+  // Initialize Modular Chapter Engine
+  ModularChapterEngine.init({
+    data: DATA,
+    groups: UNIFIED_GROUPS,
+    subtopicMap: SUBTOPIC_MAP
   });
-
-  let userStats = { correct: 0, wrong: 0 };
-  let userAnswers = {}; // id -> { userChoice, isCorrect }
-  let currentFilter = 'all';
-  let activeGroupFilter = 'all';
-  let currentViewMode = 'grouped'; // 'grouped' | 'flat'
-  let expandedSections = new Set();
-  let isStudyMode = false;
-
-  function escapeJsString(str) {
-    return (str || '').replace(/'/g, "\\'");
-  }
-
-  function renderSubtopicChips() {
-    const bar = document.getElementById('subtopics-chips-bar');
-    if (!bar) return;
-
-    const counts = {};
-    DATA.domande.forEach(q => {
-      const g = q.gruppo_unificato;
-      counts[g] = (counts[g] || 0) + 1;
-    });
-
-    let html = `
-      <button class="subtopic-chip ${activeGroupFilter === 'all' ? 'active' : ''}" onclick="selectSubtopicFilter('all')" title="عرض كل الأجزاء (285 سؤالاً)">
-        <span>🌐 كل الأجزاء (18)</span>
-        <span class="chip-count">285</span>
-      </button>
-    `;
-
-    Object.keys(UNIFIED_GROUPS).forEach(gKey => {
-      const info = UNIFIED_GROUPS[gKey];
-      const count = counts[gKey] || 0;
-      const isActive = (activeGroupFilter === gKey);
-      html += `
-        <button class="subtopic-chip ${isActive ? 'active' : ''}" onclick="selectSubtopicFilter('${gKey}')" title="${info.ar} (${info.it})">
-          <span>${info.icon} ${info.num}. ${info.short_ar}</span>
-          <span class="chip-count">${count}</span>
-        </button>
-      `;
-    });
-
-    bar.innerHTML = html;
-  }
-
-  window.selectSubtopicFilter = function(key) {
-    soundEngine.click();
-    activeGroupFilter = key;
-    if (key !== 'all') {
-      expandedSections.add(key);
-    }
-    renderSubtopicChips();
-    renderQuestions();
-
-    if (key !== 'all') {
-      const el = document.getElementById('questions-list');
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-  };
-
-  window.setViewMode = function(mode) {
-    soundEngine.click();
-    currentViewMode = mode;
-    const btnGrouped = document.getElementById('btn-mode-grouped');
-    const btnFlat = document.getElementById('btn-mode-flat');
-    if (btnGrouped) btnGrouped.classList.toggle('active', mode === 'grouped');
-    if (btnFlat) btnFlat.classList.toggle('active', mode === 'flat');
-    renderQuestions();
-  };
-
-  window.toggleSubtopicSection = function(gKey) {
-    soundEngine.click();
-    const secBox = document.getElementById(`subtopic-sec-${gKey}`);
-    if (!secBox) return;
-    if (expandedSections.has(gKey)) {
-      expandedSections.delete(gKey);
-      secBox.classList.add('is-collapsed');
-    } else {
-      expandedSections.add(gKey);
-      secBox.classList.remove('is-collapsed');
-    }
-  };
-
-  window.expandAllSections = function() {
-    soundEngine.click();
-    Object.keys(UNIFIED_GROUPS).forEach(k => expandedSections.add(k));
-    document.querySelectorAll('.subtopic-section-box').forEach(box => {
-      box.classList.remove('is-collapsed');
-    });
-  };
-
-  window.collapseAllSections = function() {
-    soundEngine.click();
-    expandedSections.clear();
-    document.querySelectorAll('.subtopic-section-box').forEach(box => {
-      box.classList.add('is-collapsed');
-    });
-  };
-
-  function updateSubtopicProgress(gKey) {
-    if (!gKey) return;
-    const badge = document.getElementById(`sec-progress-${gKey}`);
-    if (!badge) return;
-
-    const groupQuestions = DATA.domande.filter(q => q.gruppo_unificato === gKey);
-    const total = groupQuestions.length;
-    let answered = 0;
-    groupQuestions.forEach(q => {
-      if (userAnswers[q.id]) answered++;
-    });
-
-    const isDone = (answered === total && total > 0);
-    badge.className = `subtopic-stat-pill progress-pill ${isDone ? 'done' : ''}`;
-    badge.innerText = `${isDone ? '🎉 مكتمل ' : '🎯 إنجاز '}${answered}/${total}`;
-  }
-
-  function buildQuestionCardHtml(q) {
-    let imgHtml = '';
-    if (q.immagine && q.immagine.trim() !== '') {
-      imgHtml = `
-        <div class="q-img-wrap">
-          <img src="${q.immagine}" alt="Segnale" onclick="window.open(this.src, '_blank')" onerror="this.onerror=null; this.src='../../img_sign/' + this.src.split('/').pop()">
-        </div>
-      `;
-    }
-
-    const ans = userAnswers[q.id];
-    let cardClass = 'q-card';
-    let statusClass = 'status-tag';
-    let statusText = '';
-    if (ans) {
-      if (ans.isCorrect) {
-        cardClass += ' answered-correct';
-        statusClass += ' ok';
-        statusText = '✅ إجابة صحيحة';
-      } else {
-        cardClass += ' answered-wrong';
-        statusClass += ' err';
-        statusText = `❌ خطأ (الصحيح: ${q.risposta ? 'VERO' : 'FALSO'})`;
-      }
-    }
-
-    const gInfo = UNIFIED_GROUPS[q.gruppo_unificato];
-    const subLabel = gInfo ? `${gInfo.icon} ${gInfo.num}. ${gInfo.short_ar}` : (q.sotto_argomento || '');
-
-    return `
-      <div class="${cardClass}" id="q-card-${q.id}">
-        ${imgHtml}
-        <div class="q-body">
-          <div class="q-card-top">
-            <span class="q-id-pill">#${q.id}</span>
-            <span class="q-sub-badge">${subLabel}</span>
-          </div>
-
-          <div class="q-text-content">${q.domanda}</div>
-
-          <div class="q-actions-row">
-            <button class="btn-ans btn-ans-v" onclick="answerQuestion(${q.id}, true)">
-              <span>VERO</span>
-            </button>
-            <button class="btn-ans btn-ans-f" onclick="answerQuestion(${q.id}, false)">
-              <span>FALSO</span>
-            </button>
-
-            <span class="${statusClass}" id="status-${q.id}">${statusText}</span>
-            <span class="study-badge-direct ${isStudyMode ? 'show' : ''} ${q.risposta ? 'is-v' : 'is-f'}" id="study-badge-${q.id}">
-              ${q.risposta ? 'VERO ✅' : 'FALSO ❌'}
-            </span>
-
-            <button class="btn-explain-toggle" onclick="toggleDrawer(${q.id})">
-              <span>💡 الترجمة والشرح وكشف الفخ</span>
-            </button>
-          </div>
-
-          <div class="explain-drawer ${ans && !ans.isCorrect ? 'open' : ''}" id="drawer-${q.id}">
-            <div class="ex-item"><strong>📖 الترجمة السياقية:</strong> ${q.traduzione || 'سؤال وزاري مباشر.'}</div>
-            <div class="ex-item"><strong>💡 الشرح والقاعدة المرورية:</strong> ${q.spiegazione || 'مطابق لنصوص كود السير.'}</div>
-            ${q.trabocchetto ? `<div class="trap-banner">${q.trabocchetto}</div>` : ''}
-            ${window.questionDecoder ? window.questionDecoder.renderDecoderCard({ q: q.domanda, tr: q.traduzione, a: q.risposta, sp: q.spiegazione, tb: q.trabocchetto }, { collapsed: false }) : ''}
-            ${q.parole_chiave && q.parole_chiave.length > 0 ? `
-              <div class="kw-strip">
-                ${q.parole_chiave.map(k => {
-                  if (typeof k === 'object' && k !== null) {
-                    return `<span class="kw-pill"><strong>${k.it || ''}</strong>: ${k.ar || ''}</span>`;
-                  }
-                  if (typeof k === 'string') {
-                    const m = k.match(/^([^(]+)\s*\(([^)]+)\)$/);
-                    if (m) {
-                      return `<span class="kw-pill"><strong>${m[1].trim()}</strong>: ${m[2].trim()}</span>`;
-                    }
-                    return `<span class="kw-pill">${k}</span>`;
-                  }
-                  return `<span class="kw-pill">${k}</span>`;
-                }).join('')}
-              </div>
-            ` : ''}
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
-  function renderQuestions() {
-    const container = document.getElementById('questions-list');
-    if (!container) return;
-    container.innerHTML = '';
-    const queryInput = document.getElementById('q-search');
-    const query = (queryInput && queryInput.value) ? queryInput.value.toLowerCase().trim() : '';
-
-    const filtered = DATA.domande.filter(q => {
-      if (currentFilter === 'true' && !q.risposta) return false;
-      if (currentFilter === 'false' && q.risposta) return false;
-      if (activeGroupFilter !== 'all' && q.gruppo_unificato !== activeGroupFilter) return false;
-
-      if (query !== '') {
-        const qTextLower = (q.domanda || '').toLowerCase();
-        const subLower = (q.sotto_argomento || '').toLowerCase();
-        const trLower = (q.traduzione || '').toLowerCase();
-        const gInfo = UNIFIED_GROUPS[q.gruppo_unificato];
-        const gArLower = gInfo ? gInfo.ar.toLowerCase() : '';
-        if (!qTextLower.includes(query) && !subLower.includes(query) && !trLower.includes(query) && !gArLower.includes(query)) {
-          return false;
-        }
-      }
-      return true;
-    });
-
-    if (activeGroupFilter !== 'all') {
-      const info = UNIFIED_GROUPS[activeGroupFilter] || {};
-      const banner = document.createElement('div');
-      banner.className = 'single-subtopic-banner';
-      banner.innerHTML = `
-        <div class="single-subtopic-banner-text">
-          <span>🎯 أنت الآن في وضع المذاكرة المركزة على: <strong>${info.icon || '📌'} ${info.num ? info.num + '. ' : ''}${info.ar || activeGroupFilter}</strong> (${filtered.length} سؤال)</span>
-        </div>
-        <button class="single-subtopic-reset-btn" onclick="selectSubtopicFilter('all')">
-          <span>عرض كافة الأقسام (18 قسماً) ↺</span>
-        </button>
-      `;
-      container.appendChild(banner);
-    }
-
-    if (filtered.length === 0) {
-      container.innerHTML += `
-        <div style="text-align:center; padding: 40px 20px; color: var(--text-muted); background: var(--bg-surface); border-radius: 16px; border: 1px solid var(--border-subtle); margin-top: 10px;">
-          <div style="font-size:2rem; margin-bottom:8px;">🔍</div>
-          <div style="font-size:1.05rem; font-weight:700; color:#fff;">لا توجد أسئلة مطابقة للبحث أو الفلتر المحدد</div>
-          <div style="font-size:0.85rem; margin-top:6px;">جرّب تعديل كلمات البحث أو اختيار فلتر "الكل".</div>
-        </div>
-      `;
-      updateScoreDisplay();
-      return;
-    }
-
-    if (currentViewMode === 'flat') {
-      const wrapper = document.createElement('div');
-      wrapper.className = 'flat-questions-wrap';
-      wrapper.innerHTML = filtered.map(q => buildQuestionCardHtml(q)).join('');
-      container.appendChild(wrapper);
-    } else {
-      // Group questions by gruppo_unificato preserving natural sequential order
-      const groupsMap = new Map();
-      filtered.forEach(q => {
-        const gKey = q.gruppo_unificato || 'altro';
-        if (!groupsMap.has(gKey)) groupsMap.set(gKey, []);
-        groupsMap.get(gKey).push(q);
-      });
-
-      groupsMap.forEach((questions, gKey) => {
-        const info = UNIFIED_GROUPS[gKey] || {
-          num: '•',
-          short_ar: gKey,
-          ar: gKey,
-          it: gKey,
-          icon: '📌',
-          group: 'أجزاء المركبة'
-        };
-
-        const totalInSub = questions.length;
-        const vCount = questions.filter(q => q.risposta).length;
-        const fCount = totalInSub - vCount;
-
-        let answeredInSub = 0;
-        questions.forEach(q => {
-          if (userAnswers[q.id]) answeredInSub++;
-        });
-
-        const isExpanded = (query !== '') || (activeGroupFilter !== 'all') || expandedSections.has(gKey);
-        const isCollapsed = !isExpanded;
-        const isDone = (answeredInSub === totalInSub && totalInSub > 0);
-
-        const secBox = document.createElement('div');
-        secBox.className = `subtopic-section-box ${isCollapsed ? 'is-collapsed' : ''}`;
-        secBox.id = `subtopic-sec-${gKey}`;
-
-        secBox.innerHTML = `
-          <div class="subtopic-section-header" onclick="toggleSubtopicSection('${gKey}')">
-            <div class="subtopic-header-main">
-              <div class="subtopic-header-icon">${info.icon}</div>
-              <div class="subtopic-header-text">
-                <div class="subtopic-meta-line">
-                  <span class="subtopic-num-pill">الجزء ${info.num} من 18</span>
-                  <span class="subtopic-group-pill">${info.group}</span>
-                </div>
-                <div class="subtopic-ar-heading">${info.ar}</div>
-                <div class="subtopic-it-heading">${info.it}</div>
-              </div>
-            </div>
-
-            <div class="subtopic-header-stats">
-              <span class="subtopic-stat-pill">
-                <strong>${totalInSub}</strong> أسئلة
-              </span>
-              <span class="subtopic-stat-pill vf">
-                <span style="color:#10b981;">${vCount} V</span> • <span style="color:#ef4444;">${fCount} F</span>
-              </span>
-              <span class="subtopic-stat-pill progress-pill ${isDone ? 'done' : ''}" id="sec-progress-${gKey}">
-                ${isDone ? '🎉 مكتمل ' : '🎯 إنجاز '}${answeredInSub}/${totalInSub}
-              </span>
-              ${activeGroupFilter === 'all' ? `
-                <button class="subtopic-focus-btn" onclick="event.stopPropagation(); selectSubtopicFilter('${gKey}')">
-                  🎯 مذاكرة هذا الجزء فقط
-                </button>
-              ` : ''}
-              <span class="subtopic-chevron">▼</span>
-            </div>
-          </div>
-
-          <div class="subtopic-section-body">
-            ${questions.map(q => buildQuestionCardHtml(q)).join('')}
-          </div>
-        `;
-
-        container.appendChild(secBox);
-      });
-    }
-
-    updateScoreDisplay();
-  }
-
-  window.answerQuestion = function(id, userChoice) {
-    const q = DATA.domande.find(item => item.id === id);
-    if (!q) return;
-
-    const isCorrect = (userChoice === q.risposta);
-    const wasAnswered = !!userAnswers[id];
-    const prevCorrect = wasAnswered ? userAnswers[id].isCorrect : null;
-
-    if (!wasAnswered) {
-      if (isCorrect) userStats.correct++;
-      else userStats.wrong++;
-    } else {
-      if (prevCorrect !== isCorrect) {
-        if (isCorrect) { userStats.correct++; userStats.wrong--; }
-        else { userStats.wrong++; userStats.correct--; }
-      }
-    }
-
-    userAnswers[id] = { userChoice, isCorrect };
-
-    const card = document.getElementById(`q-card-${id}`);
-    const tag = document.getElementById(`status-${id}`);
-
-    if (isCorrect) {
-      soundEngine.correct();
-      if (tag) {
-        tag.className = 'status-tag ok';
-        tag.innerText = '✅ إجابة صحيحة';
-      }
-      if (card) {
-        card.classList.remove('answered-wrong');
-        card.classList.add('answered-correct');
-      }
-    } else {
-      soundEngine.wrong();
-      if (tag) {
-        tag.className = 'status-tag err';
-        tag.innerText = `❌ خطأ (الصحيح: ${q.risposta ? 'VERO' : 'FALSO'})`;
-      }
-      if (card) {
-        card.classList.remove('answered-correct');
-        card.classList.add('answered-wrong');
-      }
-      const drawer = document.getElementById(`drawer-${id}`);
-      if (drawer) drawer.classList.add('open');
-    }
-
-    updateSubtopicProgress(q.gruppo_unificato);
-    updateScoreDisplay();
-  };
-
-  window.toggleDrawer = function(id) {
-    soundEngine.click();
-    const drawer = document.getElementById(`drawer-${id}`);
-    if (drawer) drawer.classList.toggle('open');
-  };
-
-  window.setFilter = function(f) {
-    soundEngine.click();
-    currentFilter = f;
-    document.querySelectorAll('.f-btn').forEach(b => {
-      b.classList.toggle('active', b.dataset.f === f);
-    });
-    renderQuestions();
-  };
-
-  window.filterQuestions = function() {
-    renderQuestions();
-  };
-
-  window.toggleStudyMode = function() {
-    soundEngine.click();
-    const toggle = document.getElementById('study-mode-toggle');
-    isStudyMode = toggle ? toggle.checked : false;
-    document.querySelectorAll('.study-badge-direct').forEach(b => {
-      b.classList.toggle('show', isStudyMode);
-    });
-  };
-
-  function updateScoreDisplay() {
-    const cEl = document.getElementById('stat-correct');
-    const wEl = document.getElementById('stat-wrong');
-    const rEl = document.getElementById('stat-remaining');
-    if (cEl) cEl.innerText = userStats.correct;
-    if (wEl) wEl.innerText = userStats.wrong;
-    const remaining = Math.max(0, DATA.domande.length - (userStats.correct + userStats.wrong));
-    if (rEl) rEl.innerText = remaining;
-  }
 
   window.toggleAudio = function() {
     soundEngine.enabled = !soundEngine.enabled;
@@ -2451,9 +1464,7 @@
     if (e.key === 'Escape') closeMobileNav();
   });
 
-  // Initial render
-  renderSubtopicChips();
-  renderQuestions();
+  // Initial render handled by ModularChapterEngine.init()
 
   // Desktop Chapters Dropdown Toggle & Outside Click
   function toggleNavDropdown(e) {
