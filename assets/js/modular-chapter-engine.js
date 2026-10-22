@@ -82,6 +82,9 @@
           updatedAt: Date.now()
         };
         window.localStorage.setItem(this.getStorageKey(), JSON.stringify(payload));
+        if (typeof window.updatePortalProgress === 'function') {
+          try { window.updatePortalProgress(); } catch (_) {}
+        }
       } catch (e) {
         console.warn('ModularChapterEngine: could not save progress to localStorage', e);
       }
@@ -106,6 +109,9 @@
       this.renderQuestions();
       this.updateScoreDisplay();
       this.updateChapterProgress();
+      if (typeof window.updatePortalProgress === 'function') {
+        try { window.updatePortalProgress(); } catch (_) {}
+      }
     },
 
     getOverallProgress() {
@@ -640,6 +646,9 @@
       this.updateSubtopicProgress(q.gruppo_unificato);
       this.updateScoreDisplay();
       this.updateChapterProgress();
+      if (typeof window.updatePortalProgress === 'function') {
+        try { window.updatePortalProgress(); } catch (_) {}
+      }
       this.renderChips();
     },
 
