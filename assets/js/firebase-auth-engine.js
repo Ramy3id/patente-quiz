@@ -816,7 +816,7 @@
               <label class="auth-label">كلمة المرور</label>
               <a href="#" id="btnForgotPassword" style="font-size:0.75rem; color:#38BDF8; text-decoration:none;">نسيت كلمة المرور؟</a>
             </div>
-            <input type="password" class="auth-input" id="loginPassword" placeholder="••••••••" required dir="ltr">
+            <input type="password" class="auth-input" id="loginPassword" placeholder="كلمة المرور" required dir="ltr">
           </div>
           <button type="submit" class="auth-submit-btn" id="btnSubmitLogin">
             <span>تسجيل الدخول</span>
@@ -846,7 +846,7 @@
             </div>
             <div class="auth-field-group">
               <label class="auth-label">كلمة المرور</label>
-              <input type="password" class="auth-input" id="regPassword" placeholder="6+ خانات مع رمز خاص" required minlength="6" dir="ltr" title="6 خانات على الأقل مع رمز خاص">
+              <input type="password" class="auth-input" id="regPassword" placeholder="كلمة المرور" required minlength="6" dir="ltr" title="6 خانات على الأقل مع رمز خاص">
               <span style="font-size:0.68rem; color:#94A3B8; display:block; margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">💡 6+ خانات مع رمز خاص (@, #, $, %...)</span>
             </div>
           </div>
