@@ -515,7 +515,8 @@
     .btn-q-f:hover { background: var(--inc-rose); color: #FFF; }
   
     /* ========================================================
-       🎬 محاكي حركة السيارات التفاعلي في التقاطعات (Traffic Simulator)
+       🎬 محاكي حركة السيارات التفاعلي فائق الواقعية (Realistic Traffic Simulator)
+       منافس ومتفوق على SIDA AutoSoft و Quiz Patente
        ======================================================== */
     .traffic-sim-section {
       background: var(--inc-card-bg);
@@ -524,7 +525,7 @@
       padding: 24px;
       margin-bottom: 28px;
       backdrop-filter: blur(16px);
-      box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.35);
       position: relative;
       overflow: hidden;
     }
@@ -532,8 +533,8 @@
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #F59E0B, #10B981, #38BDF8);
+      height: 4px;
+      background: linear-gradient(90deg, #F59E0B, #10B981, #0EA5E9, #8B5CF6);
     }
     .sim-header {
       display: flex;
@@ -546,27 +547,31 @@
     .sim-title-wrap {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
     .sim-badge {
-      background: rgba(245, 158, 11, 0.15);
-      border: 1px solid rgba(245, 158, 11, 0.35);
-      color: var(--inc-amber);
-      font-size: 0.8rem;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: var(--inc-emerald);
+      font-size: 0.82rem;
       font-weight: 800;
-      padding: 4px 12px;
+      padding: 5px 14px;
       border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
     .sim-title {
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       font-weight: 900;
       margin: 0;
+      color: #FFFFFF;
     }
-    .sim-desc {
-      font-size: 0.88rem;
+    .sim-subdesc {
+      font-size: 0.86rem;
       color: var(--inc-text-sub);
-      line-height: 1.5;
-      margin-bottom: 16px;
+      margin-top: 3px;
+      line-height: 1.4;
     }
 
     /* أزرار اختيار التقاطع */
@@ -583,11 +588,11 @@
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--inc-card-border);
       border-radius: 12px;
-      padding: 8px 16px;
+      padding: 9px 16px;
       color: var(--inc-text-sub);
       font-family: inherit;
       font-size: 0.85rem;
-      font-weight: 700;
+      font-weight: 800;
       cursor: pointer;
       white-space: nowrap;
       transition: all 0.2s ease;
@@ -596,24 +601,25 @@
       gap: 6px;
     }
     .sim-tab-btn:hover {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.09);
       color: var(--inc-text);
+      transform: translateY(-1px);
     }
     .sim-tab-btn.active {
-      background: rgba(56, 189, 248, 0.15);
-      border-color: var(--inc-cyan);
-      color: var(--inc-cyan);
-      box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+      background: rgba(14, 165, 233, 0.18);
+      border-color: #0EA5E9;
+      color: #38BDF8;
+      box-shadow: 0 0 14px rgba(14, 165, 233, 0.28);
     }
 
-    /* تخطيط المحاكي: لوحة الرسم + لوحة التحكم والتفسير */
+    /* تخطيط المحاكي: لوحة الرسم SVG + لوحة التحكم والمقارنة الوزارية */
     .sim-body-grid {
       display: grid;
-      grid-template-columns: 420px 1fr;
+      grid-template-columns: 440px 1fr;
       gap: 22px;
-      align-items: center;
+      align-items: start;
     }
-    @media (max-width: 860px) {
+    @media (max-width: 960px) {
       .sim-body-grid {
         grid-template-columns: 1fr;
       }
@@ -621,47 +627,67 @@
 
     /* مسرح التقاطع الرسومي SVG */
     .sim-canvas-wrap {
-      background: #0F172A;
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
+      background: #090D16;
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      border-radius: 22px;
       padding: 12px;
       position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: inset 0 0 30px rgba(0,0,0,0.5), 0 8px 24px rgba(0,0,0,0.4);
+      box-shadow: inset 0 0 35px rgba(0,0,0,0.6), 0 10px 30px rgba(0,0,0,0.45);
     }
     .sim-svg-stage {
       width: 100%;
-      max-width: 380px;
+      max-width: 416px;
       height: auto;
       aspect-ratio: 1 / 1;
       overflow: visible;
+      user-select: none;
     }
 
-    /* مجسمات السيارات في SVG */
+    /* مجسمات السيارات - حركة انسيابية بلا ترانزيشن تصادمية */
     .sim-car-group {
       cursor: pointer;
-      transition: transform 1.1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
       will-change: transform;
     }
     .sim-car-group:hover {
-      filter: drop-shadow(0 0 8px #FBBF24);
-    }
-    .sim-car-group.car-active {
-      filter: drop-shadow(0 0 12px #38BDF8);
-    }
-    .sim-car-group.car-passed {
-      opacity: 0.25;
-      filter: none;
+      filter: drop-shadow(0 0 10px #F59E0B);
     }
 
     /* لوحة التحكم والتحليل */
     .sim-control-panel {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
     }
+
+    /* بطاقة المقارنة الفورية بالرسمة الوزارية الأصلية */
+    .sim-official-compare-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--inc-card-border);
+      border-radius: 16px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .sim-official-thumb {
+      width: 76px;
+      height: 76px;
+      object-fit: contain;
+      border-radius: 10px;
+      background: #FFFFFF;
+      padding: 3px;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: transform 0.2s;
+    }
+    .sim-official-thumb:hover {
+      transform: scale(1.06);
+    }
+
+    /* صندوق الحالة والتفسير */
     .sim-status-box {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--inc-card-border);
@@ -669,7 +695,7 @@
       padding: 16px 18px;
     }
     .sim-status-step {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 800;
       color: var(--inc-amber);
       margin-bottom: 6px;
@@ -678,23 +704,89 @@
       gap: 6px;
     }
     .sim-status-reason {
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 700;
       color: var(--inc-text);
-      line-height: 1.55;
-      margin-bottom: 10px;
+      line-height: 1.6;
+      margin-bottom: 12px;
     }
     .sim-status-order-strip {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.95rem;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 0.92rem;
       font-weight: 800;
-      color: var(--inc-emerald);
       background: rgba(16, 185, 129, 0.1);
       border: 1px solid rgba(16, 185, 129, 0.25);
       padding: 8px 14px;
       border-radius: 10px;
+    }
+
+    /* شريط خيارات المحاكاة: السرعة، الصوت، رادار اليمين */
+    .sim-options-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 8px 12px;
+    }
+    .sim-speed-wrap {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.78rem;
+      color: var(--inc-text-sub);
+      font-weight: 700;
+    }
+    .btn-speed-opt {
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: var(--inc-text-sub);
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s;
+    }
+    .btn-speed-opt:hover {
+      color: #FFF;
+      background: rgba(255,255,255,0.06);
+    }
+    .btn-speed-opt.active {
+      background: rgba(14, 165, 233, 0.2);
+      border-color: #0EA5E9;
+      color: #38BDF8;
+    }
+
+    .sim-toggle-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--inc-card-border);
+      border-radius: 8px;
+      padding: 4px 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--inc-text);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: inherit;
+      transition: all 0.15s;
+    }
+    .sim-toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .sim-toggle-btn.active {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: #10B981;
+      color: #10B981;
     }
 
     /* أزرار التشغيل والتفاعل */
@@ -704,12 +796,12 @@
       flex-wrap: wrap;
     }
     .btn-sim-play {
-      flex: 1;
+      flex: 1.4;
       background: linear-gradient(135deg, var(--inc-emerald), #059669);
       color: #FFFFFF;
       border: none;
       border-radius: 14px;
-      padding: 12px 20px;
+      padding: 13px 20px;
       font-family: inherit;
       font-size: 0.95rem;
       font-weight: 800;
@@ -726,17 +818,19 @@
       box-shadow: 0 6px 22px rgba(16, 185, 129, 0.45);
     }
     .btn-sim-step {
+      flex: 1;
       background: rgba(56, 189, 248, 0.15);
       border: 1px solid rgba(56, 189, 248, 0.4);
       color: var(--inc-cyan);
       border-radius: 14px;
-      padding: 12px 18px;
+      padding: 13px 18px;
       font-family: inherit;
       font-size: 0.95rem;
       font-weight: 800;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
       transition: all 0.2s ease;
     }
@@ -750,7 +844,7 @@
       border: 1px solid var(--inc-card-border);
       color: var(--inc-text);
       border-radius: 14px;
-      padding: 12px 16px;
+      padding: 13px 16px;
       font-family: inherit;
       font-size: 0.9rem;
       font-weight: 700;
@@ -760,7 +854,7 @@
     .btn-sim-reset:hover {
       background: rgba(255, 255, 255, 0.1);
     }
-
+  
   </style>
 </head>
 <body>
@@ -854,91 +948,166 @@
     </section>
 
 
-    <!-- 🎬 محاكي حركة السيارات التفاعلي في التقاطعات (Traffic Simulator SIDA) -->
+    <!-- 🎬 محاكي حركة السيارات التفاعلي فائق الواقعية (Realistic Traffic Simulator SIDA) -->
     <section class="traffic-sim-section" id="trafficSimSection">
       <div class="sim-header">
         <div class="sim-title-wrap">
-          <span style="font-size:1.6rem;">🎬</span>
+          <span style="font-size:1.8rem;">🎬</span>
           <div>
-            <div class="sim-title">محاكي حركة السيارات التفاعلي (Simulatore Dinamico Incroci)</div>
-            <div style="font-size:0.83rem; color:var(--inc-text-sub);">مستوحى من برمجيات SIDA AutoSoft - شاهد حركة السيارات خطوة بخطوة بالترتيب الزمني الصحيح</div>
+            <div class="sim-title">محاكي حركة السيارات الواقعي (Simulatore Dinamico Incroci)</div>
+            <div class="sim-subdesc">
+              محاكاة فيزيائية حقيقية لدوران السيارات وعجلاتها الأمامية (Steering Trajectory) وفقاً للمادة 145 من كود السير الإيطالي (Art. 145 CdS)
+            </div>
           </div>
         </div>
-        <span class="sim-badge">✨ محاكاة حية تفاعلية</span>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span class="sim-badge">✨ مسار انعطاف طبيعي 100%</span>
+        </div>
       </div>
 
-      <!-- تبويبات التقاطعات الأشهر بالامتحان -->
+      <!-- تبويبات التقاطعات الرسمية المعتمدة في الامتحان الوزاري -->
       <div class="sim-tabs-strip" id="simTabsStrip">
-        <button class="sim-tab-btn active" onclick="loadSimIncrocio('605', this)">
-          <span>🚗</span> <span>تقاطع 605 (C, A, L)</span>
-        </button>
-        <button class="sim-tab-btn" onclick="loadSimIncrocio('608', this)">
-          <span>🚙</span> <span>تقاطع 608 (R, D, T)</span>
-        </button>
-        <button class="sim-tab-btn" onclick="loadSimIncrocio('610', this)">
-          <span>🚋</span> <span>تقاطع 610 (T, B, S - ترام)</span>
-        </button>
-        <button class="sim-tab-btn" onclick="loadSimIncrocio('618', this)">
-          <span>🏎️</span> <span>تقاطع 618 (B, H, C)</span>
+        <button class="sim-tab-btn active" onclick="loadSimIncrocio('608', this)">
+          <span>🚗</span> <span>تقاطع 608 (B ➔ H ➔ C)</span>
         </button>
         <button class="sim-tab-btn" onclick="loadSimIncrocio('614', this)">
-          <span>🚘</span> <span>تقاطع 614 (R al centro, L, E, N)</span>
+          <span>🚙</span> <span>تقاطع 614 (R ➔ A ➔ T)</span>
+        </button>
+        <button class="sim-tab-btn" onclick="loadSimIncrocio('618', this)">
+          <span>🏎️</span> <span>تقاطع 618 (L ➔ C ➔ H)</span>
+        </button>
+        <button class="sim-tab-btn" onclick="loadSimIncrocio('617', this)">
+          <span>🚘</span> <span>تقاطع 617 (فخ المركز N al centro)</span>
+        </button>
+        <button class="sim-tab-btn" onclick="loadSimIncrocio('642', this)">
+          <span>🚋</span> <span>تقاطع 642 (أسبقية الترام T ➔ O ➔ M ➔ A)</span>
         </button>
       </div>
 
-      <!-- مسرح المحاكاة -->
+      <!-- شبكة المحاكي: مسرح الحركة التفاعلي SVG + لوحة التحكم والمقارنة -->
       <div class="sim-body-grid">
-        <!-- الرسم التفاعلي SVG -->
+        <!-- المسرح الرسومي التفاعلي SVG -->
         <div class="sim-canvas-wrap">
           <svg class="sim-svg-stage" id="simSvgStage" viewBox="0 0 400 400">
-            <!-- خلفية التقاطع (إسفلت ورصيف) -->
-            <rect x="0" y="0" width="400" height="400" fill="#0B0F19" />
-            <!-- الأرصفة الأربعة -->
-            <rect x="0" y="0" width="130" height="130" fill="#1E293B" rx="14" />
-            <rect x="270" y="0" width="130" height="130" fill="#1E293B" rx="14" />
-            <rect x="0" y="270" width="130" height="130" fill="#1E293B" rx="14" />
-            <rect x="270" y="270" width="130" height="130" fill="#1E293B" rx="14" />
-            
-            <!-- الإسفلت (طريق عمودي وأفقي) -->
-            <rect x="130" y="0" width="140" height="400" fill="#182032" />
-            <rect x="0" y="130" width="400" height="140" fill="#182032" />
-            
-            <!-- خطوط المنتصف المتقطعة -->
-            <line x1="200" y1="0" x2="200" y2="120" stroke="rgba(255,255,255,0.4)" stroke-width="3" stroke-dasharray="10 8" />
-            <line x1="200" y1="280" x2="200" y2="400" stroke="rgba(255,255,255,0.4)" stroke-width="3" stroke-dasharray="10 8" />
-            <line x1="0" y1="200" x2="120" y2="200" stroke="rgba(255,255,255,0.4)" stroke-width="3" stroke-dasharray="10 8" />
-            <line x1="280" y1="200" x2="400" y2="200" stroke="rgba(255,255,255,0.4)" stroke-width="3" stroke-dasharray="10 8" />
+            <!-- تعريف رؤوس الأسهم للمسارات (Marker Arrowheads) -->
+            <defs>
+              <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="#10B981" />
+              </marker>
+              <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="#F59E0B" />
+              </marker>
+              <marker id="arrow-cyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="#38BDF8" />
+              </marker>
+              <marker id="arrow-purple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="#A855F7" />
+              </marker>
+              <marker id="arrow-pink" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="#EC4899" />
+              </marker>
+            </defs>
 
-            <!-- خطوط قف / خطوط بيضاء عند المداخل -->
+            <!-- أرضية التقاطع (إسفلت أسود غامق) -->
+            <rect x="0" y="0" width="400" height="400" fill="#0B0F19" />
+
+            <!-- الأرصفة الجانبية بزوايا دائرية طبيعية (Curbs) -->
+            <rect x="0" y="0" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
+            <rect x="270" y="0" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
+            <rect x="0" y="270" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
+            <rect x="270" y="270" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
+            
+            <!-- نهر الطريق الإسفلتي (Carreggiata) -->
+            <rect x="130" y="0" width="140" height="400" fill="#141E33" />
+            <rect x="0" y="130" width="400" height="140" fill="#141E33" />
+            
+            <!-- خطوط حواف الطريق البيضاء -->
+            <line x1="130" y1="0" x2="130" y2="130" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+            <line x1="270" y1="0" x2="270" y2="130" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+            <line x1="130" y1="270" x2="130" y2="400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+            <line x1="270" y1="270" x2="270" y2="400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+            <line x1="0" y1="130" x2="130" y2="130" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+            <line x1="0" y1="270" x2="130" y2="270" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+            <line x1="270" y1="130" x2="400" y2="130" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+            <line x1="270" y1="270" x2="400" y2="270" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+
+            <!-- خطوط المنتصف المتقطعة (Strisce di mezzeria) -->
+            <line x1="200" y1="0" x2="200" y2="120" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+            <line x1="200" y1="280" x2="200" y2="400" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+            <line x1="0" y1="200" x2="120" y2="200" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+            <line x1="280" y1="200" x2="400" y2="200" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+
+            <!-- خطوط التوقف العريضة عند المداخل (Strisce trasversali di arresto) -->
             <line x1="130" y1="130" x2="200" y2="130" stroke="#FFFFFF" stroke-width="4" />
             <line x1="200" y1="270" x2="270" y2="270" stroke="#FFFFFF" stroke-width="4" />
             <line x1="130" y1="200" x2="130" y2="270" stroke="#FFFFFF" stroke-width="4" />
             <line x1="270" y1="130" x2="270" y2="200" stroke="#FFFFFF" stroke-width="4" />
 
-            <!-- خطوط مسار الترام (تظهر في تقاطع 610) -->
+            <!-- خطوط مسار الترام (تظهر عند وجود ترام) -->
             <g id="tramTracks" style="display:none;">
-              <line x1="195" y1="0" x2="195" y2="400" stroke="#94A3B8" stroke-width="2" stroke-dasharray="4 4" />
-              <line x1="205" y1="0" x2="205" y2="400" stroke="#94A3B8" stroke-width="2" stroke-dasharray="4 4" />
+              <!-- قضبان السكة الحديد -->
+              <line x1="194" y1="0" x2="194" y2="400" stroke="#94A3B8" stroke-width="3" />
+              <line x1="206" y1="0" x2="206" y2="400" stroke="#94A3B8" stroke-width="3" />
+              <!-- عوارض السكة الحديد (Traversine) -->
+              <line x1="188" y1="30" x2="212" y2="30" stroke="#475569" stroke-width="2.5" />
+              <line x1="188" y1="75" x2="212" y2="75" stroke="#475569" stroke-width="2.5" />
+              <line x1="188" y1="325" x2="212" y2="325" stroke="#475569" stroke-width="2.5" />
+              <line x1="188" y1="370" x2="212" y2="370" stroke="#475569" stroke-width="2.5" />
             </g>
 
-            <!-- طبقة سيارات التقاطع التفاعلية -->
+            <!-- طبقة مسارات الحركة المرئية المنقطة (Trajectory Paths) -->
+            <g id="trajectoriesLayer"></g>
+
+            <!-- طبقة سيارات التقاطع الواقعية (Cars Layer) -->
             <g id="carsLayer"></g>
           </svg>
         </div>
 
-        <!-- لوحة التحكم والتفسير -->
+        <!-- لوحة التحكم والتحليل والمقارنة بالرسمة الوزارية -->
         <div class="sim-control-panel">
-          <div class="sim-status-box">
-            <div class="sim-status-step" id="simStepBadge">🏁 جاهز للمحاكاة</div>
-            <div class="sim-status-reason" id="simReasonText">
-              اضغط على «▶️ تشغيل المحاكاة» لمشاهدة الترتيب الزمني لانطلاق السيارات بناءً على قاعدة اليمين الخالي.
-            </div>
-            <div class="sim-status-order-strip">
-              <span>🏆 الترتيب النهائي:</span>
-              <span id="simFinalOrderText" style="color:var(--inc-cyan); font-family:'JetBrains Mono',monospace;">C ➔ A ➔ L</span>
+          
+          <!-- بطاقة الرسمة الوزارية المصغرة للمقارنة الفورية -->
+          <div class="sim-official-compare-card">
+            <img id="simOfficialImg" src="../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/608.png" alt="رسمة الوزارة الرسمية" class="sim-official-thumb" onclick="openLightbox(this.src, 'رسمة الوزارة الرسمية رقم ' + activeSimKey)">
+            <div style="flex:1;">
+              <div style="font-size:0.85rem; font-weight:800; color:var(--inc-cyan); margin-bottom:2px;" id="simOfficialTitle">الشكل الرسمي رقم 608 (Figura 608)</div>
+              <div style="font-size:0.78rem; color:var(--inc-text-sub); line-height:1.45;">
+                قارن بين المحاكي الحركي ورسمة الامتحان الوزاري الأصلية. انقر على الصورة لتكبيرها.
+              </div>
             </div>
           </div>
 
+          <!-- بطاقة حالة الترتيب والتفسير القانوني الفوري -->
+          <div class="sim-status-box">
+            <div class="sim-status-step" id="simStepBadge">🏁 جاهز للمحاكاة</div>
+            <div class="sim-status-reason" id="simReasonText">
+              اضغط على «▶️ تشغيل المحاكاة» لمشاهدة دوران السيارات وانسيابها وفق قاعدة اليمين الخالي خطوة بخطوة.
+            </div>
+            <div class="sim-status-order-strip">
+              <span>🏆 الترتيب النهائي:</span>
+              <span id="simFinalOrderText" style="color:var(--inc-cyan); font-family:'JetBrains Mono',monospace;">B ➔ H ➔ C</span>
+            </div>
+          </div>
+
+          <!-- شريط الخيارات: سرعة الحركة + الصوت + رادار اليمين -->
+          <div class="sim-options-bar">
+            <div class="sim-speed-wrap">
+              <span>السرعة:</span>
+              <button class="btn-speed-opt" onclick="setSimSpeed(0.6, this)">0.6x بطيء</button>
+              <button class="btn-speed-opt active" onclick="setSimSpeed(1.0, this)">1.0x عادي</button>
+              <button class="btn-speed-opt" onclick="setSimSpeed(1.6, this)">1.6x سريع</button>
+            </div>
+            <div style="display:flex; gap:6px;">
+              <button class="sim-toggle-btn active" id="btnRadarToggle" onclick="toggleRadar()">
+                <span>🎯 رادار اليمين</span>
+              </button>
+              <button class="sim-toggle-btn active" id="btnAudioToggle" onclick="toggleAudio()">
+                <span>🔊 صوت الغماز</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- أزرار التشغيل -->
           <div class="sim-actions-row">
             <button class="btn-sim-play" id="btnSimPlay" onclick="playFullSimulation()">
               <span>▶️ تشغيل المحاكاة الحية</span>
@@ -946,7 +1115,7 @@
             <button class="btn-sim-step" id="btnSimStep" onclick="stepSimulation()">
               <span>⏭️ خطوة بخطوة</span>
             </button>
-            <button class="btn-sim-reset" onclick="resetSimulation()">
+            <button class="btn-sim-reset" onclick="resetSimulation()" title="إعادة المركبات لأماكنها الأولى">
               <span>↺ إعادة</span>
             </button>
           </div>
@@ -1189,93 +1358,243 @@
     }
   
     /* ========================================================
-       محرك محاكاة حركة سيارات التقاطعات (Traffic Simulator Engine)
+       🎬 محرك المحاكاة الانسيابي الواقعي (Realistic Automotive Physics Engine)
+       متوافق مع أحدث معايير كود السير والامتحان الوزاري الرسمي
        ======================================================== */
     const SIM_DATABASE = {
-      '605': {
-        name: 'Incrocio 605',
-        order: ['C', 'A', 'L'],
-        tram: false,
-        steps: [
-          { car: 'C', text: '🟢 السيارة C تبدأ وتمر أولاً؛ لأن مسار يمينها خالٍ تماماً (Destra Libera).' },
-          { car: 'A', text: '🟡 بعد عبور C، أصبح يمين السيارة A خالياً؛ الآن A تعبر التقاطع.' },
-          { car: 'L', text: '🔵 السيارة L تعبر أخيراً بعد إخلاء التقاطع من السيارة A.' }
-        ],
-        cars: {
-          'C': { color: '#10B981', label: 'C', init: { x: 50, y: 225, r: 0 }, move: { x: 350, y: 225, r: 0 } },
-          'A': { color: '#F59E0B', label: 'A', init: { x: 225, y: 340, r: -90 }, move: { x: 50, y: 165, r: 180 } },
-          'L': { color: '#38BDF8', label: 'L', init: { x: 165, y: 50, r: 90 }, move: { x: 165, y: 350, r: 90 } }
-        }
-      },
       '608': {
-        name: 'Incrocio 608',
-        order: ['R', 'D', 'T'],
-        tram: false,
-        steps: [
-          { car: 'R', text: '🟢 السيارة R تسير للأمام مباشرة ويمينها خالٍ؛ فتمر أولاً.' },
-          { car: 'D', text: '🟡 بعد مرور R، يخلو يمين السيارة D فتمر ثانياً.' },
-          { car: 'T', text: '🔵 السيارة T تمر أخيراً بعد خلو يمينها من السيارة D.' }
-        ],
-        cars: {
-          'R': { color: '#10B981', label: 'R', init: { x: 50, y: 225, r: 0 }, move: { x: 350, y: 225, r: 0 } },
-          'D': { color: '#F59E0B', label: 'D', init: { x: 225, y: 340, r: -90 }, move: { x: 225, y: 50, r: -90 } },
-          'T': { color: '#38BDF8', label: 'T', init: { x: 165, y: 50, r: 90 }, move: { x: 165, y: 350, r: 90 } }
-        }
-      },
-      '610': {
-        name: 'Incrocio 610 (Con Tram)',
-        order: ['T', 'B', 'S'],
-        tram: true,
-        steps: [
-          { car: 'T', text: '🚋 الترام T يمر أولاً فوق الجميع (Fuori Concorso)؛ لأن له الأولوية المطلقة على قضبانه.' },
-          { car: 'B', text: '🟢 بعد مرور الترام، السيارة B يمينها خالٍ؛ فتمر ثانياً.' },
-          { car: 'S', text: '🟡 السيارة S تمر أخيراً بعد إخلاء التقاطع من السيارة B.' }
-        ],
-        cars: {
-          'T': { color: '#EC4899', label: 'T', isTram: true, init: { x: 200, y: 40, r: 90 }, move: { x: 200, y: 350, r: 90 } },
-          'B': { color: '#10B981', label: 'B', init: { x: 350, y: 165, r: 180 }, move: { x: 50, y: 165, r: 180 } },
-          'S': { color: '#F59E0B', label: 'S', init: { x: 225, y: 340, r: -90 }, move: { x: 50, y: 165, r: 180 } }
-        }
-      },
-      '618': {
-        name: 'Incrocio 618',
+        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/608.png',
+        title: 'الشكل الرسمي رقم 608 (Figura 608)',
         order: ['B', 'H', 'C'],
         tram: false,
         steps: [
-          { car: 'B', text: '🟢 السيارة B تتجه للأمام ويمينها خالٍ؛ فتمر أولاً.' },
-          { car: 'H', text: '🟡 بعد عبور B، يخلو يمين السيارة H فتمر ثانياً.' },
-          { car: 'C', text: '🔵 السيارة C تمر أخيراً بعد إخلاء التقاطع من السيارة H.' }
+          { car: 'B', text: '🟢 1. السيارة B تسير للأمام مباشرة؛ جهة يمينها خالية تماماً (Destra Libera)، لذا تنطلق وتعبر التقاطع أولاً.' },
+          { car: 'H', text: '🟡 2. بعد عبور B، أصبح يمين السيارة H خالياً؛ الآن H تشغل غماز اليسار وتنعطف بنعومة ثانياً.' },
+          { car: 'C', text: '🔵 3. السيارة C تسير للأمام مباشرة وتعبر أخيراً بعد خلو يمينها من السيارة H.' }
         ],
         cars: {
-          'B': { color: '#10B981', label: 'B', init: { x: 165, y: 50, r: 90 }, move: { x: 165, y: 350, r: 90 } },
-          'H': { color: '#F59E0B', label: 'H', init: { x: 50, y: 225, r: 0 }, move: { x: 225, y: 50, r: -90 } },
-          'C': { color: '#38BDF8', label: 'C', init: { x: 350, y: 165, r: 180 }, move: { x: 50, y: 165, r: 180 } }
+          'B': {
+            label: 'B', color: '#10B981', arrowColor: '#10B981', marker: 'arrow-green',
+            d: 'M 235 365 L 235 35',
+            hasTurn: false, initRadarFree: true
+          },
+          'H': {
+            label: 'H', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
+            d: 'M 35 235 L 180 235 Q 235 235 235 180 L 235 35',
+            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'B'
+          },
+          'C': {
+            label: 'C', color: '#38BDF8', arrowColor: '#38BDF8', marker: 'arrow-cyan',
+            d: 'M 365 165 L 35 165',
+            hasTurn: false, initRadarFree: false, blockedBy: 'H'
+          }
         }
       },
       '614': {
-        name: 'Incrocio 614 (4 Veicoli)',
-        order: ['R (al centro)', 'L', 'E', 'N', 'R (completa)'],
+        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/614.png',
+        title: 'الشكل الرسمي رقم 614 (Figura 614)',
+        order: ['R', 'A', 'T'],
         tram: false,
         steps: [
-          { car: 'R_center', text: '🟡 السيارة R تبدأ أولاً وتتقدم لمنتصف التقاطع وتتوقف لأن مسارها يعترضه N.' },
-          { car: 'L', text: '🟢 بعد تقدم R للمركز، أصبح يمين السيارة L خالياً؛ فتمر L بالكامل أولاً.' },
-          { car: 'E', text: '🔵 تمر السيارة E ثانياً بعد خلو يمينها من L.' },
-          { car: 'N', text: '🟣 تمر السيارة N ثالثاً بعد خلو يمينها من E.' },
-          { car: 'R_exit', text: '🟢 السيارة R تكمل عبورها بعد خلو التقاطع من N.' }
+          { car: 'R', text: '🟢 1. السيارة R تسير للأمام مباشرة من الغرب للشرق ويمينها خالٍ تماماً؛ لذا تعبر أولاً دون انتظار.' },
+          { car: 'A', text: '🟡 2. بعد عبور R، يخلو يمين السيارة A القادمة من الجنوب؛ فتسير للأمام مباشرة وتعبر ثانياً.' },
+          { car: 'T', text: '🔵 3. السيارة T تشغل غماز اليسار وتنعطف لليسار إلى الجنوب بعد خلو يمينها من A.' }
         ],
         cars: {
-          'R': { color: '#F59E0B', label: 'R', init: { x: 50, y: 225, r: 0 }, moveCenter: { x: 190, y: 225, r: 0 }, moveExit: { x: 225, y: 50, r: -90 } },
-          'L': { color: '#10B981', label: 'L', init: { x: 165, y: 50, r: 90 }, move: { x: 165, y: 350, r: 90 } },
-          'E': { color: '#38BDF8', label: 'E', init: { x: 350, y: 165, r: 180 }, move: { x: 50, y: 165, r: 180 } },
-          'N': { color: '#A855F7', label: 'N', init: { x: 225, y: 340, r: -90 }, move: { x: 225, y: 50, r: -90 } }
+          'R': {
+            label: 'R', color: '#10B981', arrowColor: '#10B981', marker: 'arrow-green',
+            d: 'M 35 235 L 365 235',
+            hasTurn: false, initRadarFree: true
+          },
+          'A': {
+            label: 'A', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
+            d: 'M 235 365 L 235 35',
+            hasTurn: false, initRadarFree: false, blockedBy: 'R'
+          },
+          'T': {
+            label: 'T', color: '#38BDF8', arrowColor: '#38BDF8', marker: 'arrow-cyan',
+            d: 'M 365 165 L 220 165 Q 165 165 165 220 L 165 365',
+            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'A'
+          }
+        }
+      },
+      '618': {
+        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/618.png',
+        title: 'الشكل الرسمي رقم 618 (Figura 618)',
+        order: ['L', 'C', 'H'],
+        tram: false,
+        steps: [
+          { car: 'L', text: '🟢 1. السيارة L تتجه للأمام مباشرة من الشمال للجنوب ويمينها خالٍ تماماً؛ فتعبر أولاً.' },
+          { car: 'C', text: '🟡 2. بعد عبور L، يخلو يمين السيارة C فتنعطف لليسار إلى الغرب وتعبر ثانياً.' },
+          { car: 'H', text: '🔵 3. السيارة H تمر أخيراً للأمام مباشرة بعد خلو مسارها من السيارة C.' }
+        ],
+        cars: {
+          'L': {
+            label: 'L', color: '#10B981', arrowColor: '#10B981', marker: 'arrow-green',
+            d: 'M 165 35 L 165 365',
+            hasTurn: false, initRadarFree: true
+          },
+          'C': {
+            label: 'C', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
+            d: 'M 235 365 L 235 220 Q 235 165 180 165 L 35 165',
+            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'L'
+          },
+          'H': {
+            label: 'H', color: '#38BDF8', arrowColor: '#38BDF8', marker: 'arrow-cyan',
+            d: 'M 365 165 L 35 165',
+            hasTurn: false, initRadarFree: false, blockedBy: 'C'
+          }
+        }
+      },
+      '617': {
+        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/617.png',
+        title: 'الشكل الرسمي رقم 617 (فخ التقدم لمركز التقاطع والتوقف)',
+        order: ['N (للمركز)', 'R', 'A', 'N (يكمل)'],
+        tram: false,
+        steps: [
+          { car: 'N_center', text: '🟡 1. السيارة N تبدأ أولاً وتتقدم لمنتصف التقاطع وتتوقف (Si ferma al centro) لأن مسار دورانها يعترضه A من اليمين.' },
+          { car: 'R', text: '🟢 2. بتقدم N للمنتصف، أصبح يمين السيارة R خالياً؛ فتعبر R بالكامل أولاً (Conclude per primo).' },
+          { car: 'A', text: '🔵 3. بعد عبور R، يخلو يمين السيارة A فتعبر التقاطع ثانياً.' },
+          { car: 'N_exit', text: '🟢 4. السيارة N تكمل دورانها وخروجها أخيراً (Conclude per ultimo) بعد خلو التقاطع من A.' }
+        ],
+        cars: {
+          'N': {
+            label: 'N', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
+            d_center: 'M 35 235 L 195 235',
+            d_exit: 'M 195 235 Q 235 235 235 180 L 235 35',
+            d: 'M 35 235 L 180 235 Q 235 235 235 180 L 235 35',
+            hasTurn: true, turnDir: 'left', initRadarFree: true
+          },
+          'R': {
+            label: 'R', color: '#10B981', arrowColor: '#10B981', marker: 'arrow-green',
+            d: 'M 165 35 L 165 365',
+            hasTurn: false, initRadarFree: false, blockedBy: 'N'
+          },
+          'A': {
+            label: 'A', color: '#38BDF8', arrowColor: '#38BDF8', marker: 'arrow-cyan',
+            d: 'M 235 365 L 235 35',
+            hasTurn: false, initRadarFree: false, blockedBy: 'R'
+          }
+        }
+      },
+      '642': {
+        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/642.png',
+        title: 'الشكل الرسمي رقم 642 (أسبقية الترام المطلقة على القضبان)',
+        order: ['T (الترام)', 'A (للمركز)', 'O', 'M', 'A (يكمل)'],
+        tram: true,
+        steps: [
+          { car: 'T', text: '🚋 1. الترام T ينطلق أولاً فوق الجميع (Ha la precedenza)؛ لأن المركبات على قضبان لها أسبقية مطلقة وفقاً للمادة 145.' },
+          { car: 'A_center', text: '🟡 2. السيارة A تتقدم لمنتصف التقاطع وتتوقف لانتظار المركبات القادمة من يمينها.' },
+          { car: 'O', text: '🟢 3. بعد عبور الترام، يخلو يمين السيارة O فتعبر التقاطع.' },
+          { car: 'M', text: '🔵 4. السيارة M تعبر بعد خلو يمينها من السيارة O.' },
+          { car: 'A_exit', text: '🟢 5. السيارة A تكمل انعطافها وخروجها أخيراً بعد إخلاء التقاطع بالكامل.' }
+        ],
+        cars: {
+          'T': {
+            label: 'T', color: '#EC4899', isTram: true, arrowColor: '#EC4899', marker: 'arrow-pink',
+            d: 'M 200 30 L 200 370',
+            hasTurn: false, initRadarFree: true
+          },
+          'A': {
+            label: 'A', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
+            d_center: 'M 35 235 L 190 235',
+            d_exit: 'M 190 235 Q 235 235 235 180 L 235 35',
+            d: 'M 35 235 L 180 235 Q 235 235 235 180 L 235 35',
+            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'T'
+          },
+          'O': {
+            label: 'O', color: '#10B981', arrowColor: '#10B981', marker: 'arrow-green',
+            d: 'M 365 165 L 35 165',
+            hasTurn: false, initRadarFree: false, blockedBy: 'T'
+          },
+          'M': {
+            label: 'M', color: '#38BDF8', arrowColor: '#38BDF8', marker: 'arrow-cyan',
+            d: 'M 235 365 L 235 35',
+            hasTurn: false, initRadarFree: false, blockedBy: 'O'
+          }
         }
       }
     };
 
-    let activeSimKey = '605';
+    let activeSimKey = '608';
     let currentSimStep = 0;
     let isPlayingFull = false;
     let simTimeoutId = null;
+    let simSpeedMultiplier = 1.0;
+    let showRadarState = true;
+    let audioFxEnabled = true;
+    let carPathElements = {};
+    let audioCtx = null;
+
+    // تهيئة نظام الصوت الداخلي الخفيف (Web Audio API Synthesizer)
+    function playAudioTone(type) {
+      if (!audioFxEnabled) return;
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        const now = audioCtx.currentTime;
+        if (type === 'tick') {
+          // صوت تكة الغماز (Blinker Relay Click)
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(420, now);
+          gain.gain.setValueAtTime(0.04, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.035);
+          osc.start(now);
+          osc.stop(now + 0.04);
+        } else if (type === 'clear') {
+          // رنة خلو اليمين الأخضر
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(587.33, now); // D5
+          osc.frequency.exponentialRampToValueAtTime(880, now + 0.12); // A5
+          gain.gain.setValueAtTime(0.06, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+          osc.start(now);
+          osc.stop(now + 0.19);
+        } else if (type === 'complete') {
+          // رنة اكتمال التقاطع
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(523.25, now);
+          osc.frequency.setValueAtTime(659.25, now + 0.08);
+          osc.frequency.setValueAtTime(783.99, now + 0.16);
+          gain.gain.setValueAtTime(0.08, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+          osc.start(now);
+          osc.stop(now + 0.36);
+        }
+      } catch (e) {
+        // AudioContext silent fallback
+      }
+    }
+
+    function setSimSpeed(speed, btn) {
+      simSpeedMultiplier = speed;
+      document.querySelectorAll('.btn-speed-opt').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+    }
+
+    function toggleRadar() {
+      showRadarState = !showRadarState;
+      const btn = document.getElementById('btnRadarToggle');
+      if (btn) btn.classList.toggle('active', showRadarState);
+      document.querySelectorAll('.car-radar-cone').forEach(el => {
+        el.style.display = showRadarState ? 'block' : 'none';
+      });
+    }
+
+    function toggleAudio() {
+      audioFxEnabled = !audioFxEnabled;
+      const btn = document.getElementById('btnAudioToggle');
+      if (btn) {
+        btn.classList.toggle('active', audioFxEnabled);
+        btn.innerHTML = audioFxEnabled ? '<span>🔊 صوت الغماز</span>' : '<span>🔇 الصوت مكتوم</span>';
+      }
+    }
 
     function loadSimIncrocio(key, btn) {
       if (simTimeoutId) clearTimeout(simTimeoutId);
@@ -1292,48 +1611,255 @@
       const tramLayer = document.getElementById('tramTracks');
       if (tramLayer) tramLayer.style.display = data.tram ? 'block' : 'none';
 
+      // تحديث الصورة الوزارية والعنوان
+      const officialImg = document.getElementById('simOfficialImg');
+      const officialTitle = document.getElementById('simOfficialTitle');
+      if (officialImg) officialImg.src = data.img;
+      if (officialTitle) officialTitle.innerText = data.title;
+
       document.getElementById('simFinalOrderText').innerText = data.order.join(' ➔ ');
       document.getElementById('simStepBadge').innerText = '🏁 جاهز للمحاكاة';
-      document.getElementById('simReasonText').innerText = 'اضغط على «▶️ تشغيل المحاكاة» لمشاهدة الترتيب الزمني لانطلاق السيارات بناءً على قاعدة اليمين الخالي.';
+      document.getElementById('simReasonText').innerText = 'اضغط على «▶️ تشغيل المحاكاة» لمشاهدة الانعطاف الواقعي للسيارات وتفكيك أسبقية اليمين.';
 
-      renderSimCars();
+      renderSimTrajectoriesAndCars();
     }
 
-    function renderSimCars() {
-      const stage = document.getElementById('carsLayer');
-      if (!stage) return;
-      stage.innerHTML = '';
+    function renderSimTrajectoriesAndCars() {
+      const trajLayer = document.getElementById('trajectoriesLayer');
+      const carsLayer = document.getElementById('carsLayer');
+      if (!trajLayer || !carsLayer) return;
+
+      trajLayer.innerHTML = '';
+      carsLayer.innerHTML = '';
+      carPathElements = {};
 
       const data = SIM_DATABASE[activeSimKey];
+
+      // 1. رسم خطوط المسارات الرسمية المرئية بالأسهم (Trajectory Lines)
       Object.keys(data.cars).forEach(carId => {
         const car = data.cars[carId];
-        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-        g.setAttribute('class', 'sim-car-group');
-        g.setAttribute('id', 'car-group-' + carId);
-        g.setAttribute('transform', `translate(${car.init.x}, ${car.init.y}) rotate(${car.init.r})`);
+        const pathEl = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        pathEl.setAttribute('d', car.d);
+        pathEl.setAttribute('fill', 'none');
+        pathEl.setAttribute('stroke', car.arrowColor);
+        pathEl.setAttribute('stroke-width', '2.8');
+        pathEl.setAttribute('stroke-dasharray', '6 6');
+        pathEl.setAttribute('stroke-linecap', 'round');
+        pathEl.setAttribute('marker-end', `url(#${car.marker})`);
+        pathEl.setAttribute('id', 'traj-path-' + carId);
+        pathEl.style.opacity = '0.65';
+        pathEl.style.transition = 'opacity 0.3s, stroke-width 0.3s';
+        trajLayer.appendChild(pathEl);
 
+        carPathElements[carId] = pathEl;
+
+        // 2. رسم مجسم السيارة الواقعي عالي الدقة (Realistic Automotive Model)
         const isTram = Boolean(car.isTram);
-        const w = isTram ? 64 : 44;
+        const w = isTram ? 68 : 46;
         const h = isTram ? 24 : 26;
         const rx = isTram ? 4 : 8;
 
+        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        g.setAttribute('class', 'sim-car-group');
+        g.setAttribute('id', 'car-group-' + carId);
+
         g.innerHTML = `
-          <!-- هيكل المركبة -->
-          <rect x="${-w/2}" y="${-h/2}" width="${w}" height="${h}" rx="${rx}" fill="${car.color}" stroke="#FFFFFF" stroke-width="2" />
-          <!-- الزجاج الأمامي والخلفي -->
-          <rect x="${w/4 - 2}" y="${-h/2 + 3}" width="4" height="${h - 6}" rx="1" fill="rgba(15,23,42,0.8)" />
-          <rect x="${-w/4 - 2}" y="${-h/2 + 3}" width="4" height="${h - 6}" rx="1" fill="rgba(15,23,42,0.8)" />
-          <!-- الأضواء الأمامية -->
-          <circle cx="${w/2 - 2}" cy="${-h/2 + 4}" r="2" fill="#FBBF24" />
-          <circle cx="${w/2 - 2}" cy="${h/2 - 4}" r="2" fill="#FBBF24" />
-          <!-- حرف السيارة -->
-          <text x="0" y="5" font-family="'JetBrains Mono', monospace" font-size="${isTram ? '11' : '13'}" font-weight="900" fill="#FFFFFF" text-anchor="middle">${car.label}</text>
+          <!-- ظل أسفل السيارة -->
+          <ellipse cx="0" cy="0" rx="${w/2 + 2}" ry="${h/2 + 2}" fill="rgba(0,0,0,0.5)" filter="blur(2px)" />
+
+          <!-- إطارات العجلات الأربعة المطاطية -->
+          ${!isTram ? `
+            <!-- العجلات الخلفية -->
+            <rect x="-21" y="-15" width="9" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
+            <rect x="-21" y="10.5" width="9" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
+            <!-- العجلات الأمامية القابلة للتوجيه (Steerable Front Wheels) -->
+            <g id="front-wheel-left-${carId}" transform="translate(13, -12.5)">
+              <rect x="-4.5" y="-2.2" width="9" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
+            </g>
+            <g id="front-wheel-right-${carId}" transform="translate(13, 12.5)">
+              <rect x="-4.5" y="-2.2" width="9" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
+            </g>
+          ` : `
+            <!-- عجلات الترام الحديدية على القضبان -->
+            <rect x="-26" y="-13" width="10" height="3" fill="#64748B" />
+            <rect x="16" y="-13" width="10" height="3" fill="#64748B" />
+            <rect x="-26" y="10" width="10" height="3" fill="#64748B" />
+            <rect x="16" y="10" width="10" height="3" fill="#64748B" />
+          `}
+
+          <!-- هيكل السيارة المصقول -->
+          <rect x="${-w/2}" y="${-h/2}" width="${w}" height="${h}" rx="${rx}" fill="${car.color}" stroke="#FFFFFF" stroke-width="1.8" />
+
+          <!-- المرايا الجانبية للسيارة -->
+          ${!isTram ? `
+            <rect x="2" y="-15.5" width="3.5" height="2.5" rx="1" fill="${car.color}" stroke="#FFFFFF" stroke-width="0.8" />
+            <rect x="2" y="13" width="3.5" height="2.5" rx="1" fill="${car.color}" stroke="#FFFFFF" stroke-width="0.8" />
+          ` : ''}
+
+          <!-- أضواء المصابيح الأمامية الذهبية -->
+          <circle cx="${w/2 - 2}" cy="-7.5" r="2.5" fill="#FEF08A" />
+          <circle cx="${w/2 - 2}" cy="7.5" r="2.5" fill="#FEF08A" />
+          
+          <!-- الأضواء الخلفية الحمراء -->
+          <rect x="${-w/2}" y="-8.5" width="2.5" height="4" rx="1" fill="#EF4444" />
+          <rect x="${-w/2}" y="4.5" width="2.5" height="4" rx="1" fill="#EF4444" />
+
+          <!-- الزجاج الأمامي والخلفي المظلل -->
+          <path d="M ${w/6} -8 L ${w/3} -6 L ${w/3} 6 L ${w/6} 8 Z" fill="#0F172A" opacity="0.9" />
+          <path d="M ${-w/6} -7.5 L ${-w/3} -6 L ${-w/3} 6 L ${-w/6} 7.5 Z" fill="#0F172A" opacity="0.9" />
+
+          <!-- سقف السيارة والشارة الرسمية -->
+          <circle cx="0" cy="0" r="8.5" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" />
+          <text x="0" y="3.8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="900" fill="#0F172A" text-anchor="middle">${car.label}</text>
+
+          <!-- لمبات الغماز / الفليشر عند الانعطاف (Blinkers) -->
+          <circle id="blinker-fl-${carId}" cx="${w/2 - 2}" cy="-11.5" r="2.5" fill="#F59E0B" style="display:none;" />
+          <circle id="blinker-rl-${carId}" cx="${-w/2 + 2}" cy="-11.5" r="2.5" fill="#F59E0B" style="display:none;" />
+          <circle id="blinker-fr-${carId}" cx="${w/2 - 2}" cy="11.5" r="2.5" fill="#F59E0B" style="display:none;" />
+          <circle id="blinker-rr-${carId}" cx="${-w/2 + 2}" cy="11.5" r="2.5" fill="#F59E0B" style="display:none;" />
+
+          <!-- مخروط رادار اليمين التفاعلي (Sensore Destra Libera) -->
+          <g class="car-radar-cone" id="radar-cone-${carId}" transform="translate(0, ${h/2 + 2})" style="display:${showRadarState ? 'block' : 'none'};">
+            <!-- قوس مستشعر اليمين -->
+            <path id="radar-arc-${carId}" d="M -8 2 A 16 16 0 0 0 8 2 L 0 0 Z" fill="${car.initRadarFree ? 'rgba(16, 185, 129, 0.45)' : 'rgba(239, 68, 68, 0.45)'}" stroke="${car.initRadarFree ? '#10B981' : '#EF4444'}" stroke-width="1.2" />
+            <circle id="radar-dot-${carId}" cx="0" cy="7" r="2.2" fill="${car.initRadarFree ? '#10B981' : '#EF4444'}" />
+          </g>
         `;
 
-        stage.appendChild(g);
+        carsLayer.appendChild(g);
+
+        // وضع السيارة بدقة عند نقطة البداية للمسار (Length = 0) مع التوجيه الصحيح
+        placeCarAtProgress(carId, pathEl, 0);
       });
     }
 
+    // دالة وضع السيارة عند نسبة معينة من المسار بحساب المماس اللحظي (Tangent Steering)
+    function placeCarAtProgress(carId, pathEl, progress01) {
+      const g = document.getElementById('car-group-' + carId);
+      if (!g || !pathEl) return;
+
+      const totalLen = pathEl.getTotalLength();
+      const currentDist = Math.max(0, Math.min(progress01 * totalLen, totalLen));
+      const p1 = pathEl.getPointAtLength(currentDist);
+
+      let angle = 0;
+      if (currentDist >= totalLen - 2) {
+        const p0 = pathEl.getPointAtLength(Math.max(0, currentDist - 3));
+        angle = Math.atan2(p1.y - p0.y, p1.x - p0.x) * 180 / Math.PI;
+      } else {
+        const p2 = pathEl.getPointAtLength(Math.min(totalLen, currentDist + 3));
+        angle = Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180 / Math.PI;
+      }
+
+      g.setAttribute('transform', `translate(${p1.x}, ${p1.y}) rotate(${angle})`);
+    }
+
+    // محرك تحريك السيارة على مسار المنحنى بنعومة 60 إطار في الثانية (Steering Curve Physics)
+    function driveCarAlongPath(carId, pathEl, baseDurationMs, onComplete) {
+      const g = document.getElementById('car-group-' + carId);
+      const traj = document.getElementById('traj-path-' + carId);
+      if (!g || !pathEl) { if (onComplete) onComplete(); return; }
+
+      const data = SIM_DATABASE[activeSimKey];
+      const carInfo = data.cars[carId] || {};
+      const hasTurn = Boolean(carInfo.hasTurn);
+      const turnDir = carInfo.turnDir || 'left';
+
+      // إظهار الغماز المناسب
+      const blinkerF = document.getElementById(turnDir === 'left' ? 'blinker-fl-' + carId : 'blinker-fr-' + carId);
+      const blinkerR = document.getElementById(turnDir === 'left' ? 'blinker-rl-' + carId : 'blinker-rr-' + carId);
+
+      if (hasTurn) {
+        if (blinkerF) blinkerF.style.display = 'block';
+        if (blinkerR) blinkerR.style.display = 'block';
+      }
+
+      if (traj) {
+        traj.style.opacity = '1';
+        traj.style.strokeWidth = '4.2';
+      }
+
+      // إخفاء رادار اليمين أثناء الحركة لأن السيارة تعبر بالفعل
+      const radar = document.getElementById('radar-cone-' + carId);
+      if (radar) radar.style.display = 'none';
+
+      const durationMs = baseDurationMs / simSpeedMultiplier;
+      const startTime = performance.now();
+      let lastTickTime = 0;
+
+      function animate(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / durationMs, 1);
+        // دالة تسارع وانسياب هادئة
+        const ease = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+        placeCarAtProgress(carId, pathEl, ease);
+
+        // توجيه العجلات الأمامية (Steering Angle) أثناء الدخول في المنحنى
+        const wheelL = document.getElementById('front-wheel-left-' + carId);
+        const wheelR = document.getElementById('front-wheel-right-' + carId);
+        if (hasTurn && wheelL && wheelR) {
+          if (progress > 0.25 && progress < 0.8) {
+            const steerAngle = turnDir === 'left' ? -22 : 22;
+            wheelL.setAttribute('transform', `translate(13, -12.5) rotate(${steerAngle})`);
+            wheelR.setAttribute('transform', `translate(13, 12.5) rotate(${steerAngle})`);
+          } else {
+            wheelL.setAttribute('transform', 'translate(13, -12.5) rotate(0)');
+            wheelR.setAttribute('transform', 'translate(13, 12.5) rotate(0)');
+          }
+        }
+
+        // وميض الغماز مع صوت التكة
+        if (hasTurn && (blinkerF || blinkerR)) {
+          const isBlinkOn = Math.floor(elapsed / 160) % 2 === 0;
+          if (blinkerF) blinkerF.style.opacity = isBlinkOn ? '1' : '0.15';
+          if (blinkerR) blinkerR.style.opacity = isBlinkOn ? '1' : '0.15';
+
+          if (isBlinkOn && (currentTime - lastTickTime > 300)) {
+            playAudioTone('tick');
+            lastTickTime = currentTime;
+          }
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          if (blinkerF) blinkerF.style.display = 'none';
+          if (blinkerR) blinkerR.style.display = 'none';
+          if (wheelL) wheelL.setAttribute('transform', 'translate(13, -12.5) rotate(0)');
+          if (wheelR) wheelR.setAttribute('transform', 'translate(13, 12.5) rotate(0)');
+          if (traj) {
+            traj.style.opacity = '0.2';
+            traj.style.strokeWidth = '2';
+          }
+          g.style.opacity = '0.35';
+          if (onComplete) onComplete();
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    // تحديث رادار اليمين للسيارات المتبقية عند خلو مسارها
+    function updateRadarsAfterCarPass(passedCarId) {
+      const data = SIM_DATABASE[activeSimKey];
+      Object.keys(data.cars).forEach(cid => {
+        const c = data.cars[cid];
+        if (c.blockedBy === passedCarId) {
+          c.initRadarFree = true;
+          const arc = document.getElementById('radar-arc-' + cid);
+          const dot = document.getElementById('radar-dot-' + cid);
+          if (arc) {
+            arc.setAttribute('fill', 'rgba(16, 185, 129, 0.45)');
+            arc.setAttribute('stroke', '#10B981');
+          }
+          if (dot) dot.setAttribute('fill', '#10B981');
+          playAudioTone('clear');
+        }
+      });
+    }
+
+    // تشغيل خطوة واحدة من المحاكاة
     function stepSimulation() {
       const data = SIM_DATABASE[activeSimKey];
       if (currentSimStep >= data.steps.length) {
@@ -1345,43 +1871,59 @@
       document.getElementById('simStepBadge').innerText = `🚗 الخطوة ${currentSimStep + 1} من ${data.steps.length}`;
       document.getElementById('simReasonText').innerText = step.text;
 
-      // تحريك المركبة المناسبة
-      if (activeSimKey === '614') {
-        if (step.car === 'R_center') {
-          animateCarTo('R', data.cars.R.moveCenter);
-        } else if (step.car === 'L') {
-          animateCarTo('L', data.cars.L.move);
-        } else if (step.car === 'E') {
-          animateCarTo('E', data.cars.E.move);
-        } else if (step.car === 'N') {
-          animateCarTo('N', data.cars.N.move);
-        } else if (step.car === 'R_exit') {
-          animateCarTo('R', data.cars.R.moveExit);
+      // محاكاة تقاطع 617 أو 642 (التقدم لمنتصف التقاطع والتوقف)
+      if (activeSimKey === '617' || activeSimKey === '642') {
+        const leadKey = activeSimKey === '617' ? 'N' : 'A';
+        if (step.car === leadKey + '_center') {
+          // تقدم المركبة للمركز
+          let pCenterPath = document.getElementById('lead-center-temp-path');
+          if (!pCenterPath) {
+            pCenterPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            pCenterPath.setAttribute('d', data.cars[leadKey].d_center);
+            pCenterPath.setAttribute('id', 'lead-center-temp-path');
+            pCenterPath.style.display = 'none';
+            document.getElementById('simSvgStage').appendChild(pCenterPath);
+          }
+          driveCarAlongPath(leadKey, pCenterPath, 1100, () => {
+            const g = document.getElementById('car-group-' + leadKey);
+            if (g) g.style.opacity = '1';
+            updateRadarsAfterCarPass(leadKey);
+          });
+        } else if (step.car === leadKey + '_exit') {
+          let pExitPath = document.getElementById('lead-exit-temp-path');
+          if (!pExitPath) {
+            pExitPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            pExitPath.setAttribute('d', data.cars[leadKey].d_exit);
+            pExitPath.setAttribute('id', 'lead-exit-temp-path');
+            pExitPath.style.display = 'none';
+            document.getElementById('simSvgStage').appendChild(pExitPath);
+          }
+          driveCarAlongPath(leadKey, pExitPath, 1300, () => {
+            updateRadarsAfterCarPass(leadKey);
+          });
+        } else {
+          const pathEl = carPathElements[step.car];
+          if (pathEl) driveCarAlongPath(step.car, pathEl, 1400, () => {
+            updateRadarsAfterCarPass(step.car);
+          });
         }
       } else {
-        const car = data.cars[step.car];
-        if (car) {
-          animateCarTo(step.car, car.move);
+        const pathEl = carPathElements[step.car];
+        if (pathEl) {
+          driveCarAlongPath(step.car, pathEl, 1500, () => {
+            updateRadarsAfterCarPass(step.car);
+          });
         }
       }
 
       currentSimStep++;
       if (currentSimStep >= data.steps.length) {
         document.getElementById('simStepBadge').innerText = '🎉 اكتملت المحاكاة!';
+        playAudioTone('complete');
       }
     }
 
-    function animateCarTo(carId, target) {
-      const g = document.getElementById('car-group-' + carId);
-      if (!g) return;
-      g.classList.add('car-active');
-      g.setAttribute('transform', `translate(${target.x}, ${target.y}) rotate(${target.r})`);
-      setTimeout(() => {
-        g.classList.remove('car-active');
-        g.classList.add('car-passed');
-      }, 1100);
-    }
-
+    // تشغيل المحاكاة بالكامل بتتابع زمني مضبوط
     function playFullSimulation() {
       if (isPlayingFull) return;
       isPlayingFull = true;
@@ -1394,7 +1936,8 @@
         if (i < data.steps.length) {
           stepSimulation();
           i++;
-          simTimeoutId = setTimeout(next, 1600);
+          const stepInterval = (1850 / simSpeedMultiplier);
+          simTimeoutId = setTimeout(next, stepInterval);
         } else {
           isPlayingFull = false;
         }
@@ -1403,6 +1946,7 @@
       next();
     }
 
+    // إعادة ضبط المحاكاة
     function resetSimulation() {
       if (simTimeoutId) clearTimeout(simTimeoutId);
       isPlayingFull = false;
@@ -1412,7 +1956,7 @@
 
     // تهيئة المحاكي عند التحميل
     window.addEventListener('DOMContentLoaded', () => {
-      loadSimIncrocio('605');
+      loadSimIncrocio('608');
     });
 
   </script>
