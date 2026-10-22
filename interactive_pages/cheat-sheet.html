@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>كبسولات وجداول المراجعة السريعة ليلة الامتحان (Exam Cheat Sheet) | Patente B Pro</title>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0B0F19">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Patente B Pro">
+  <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cairo:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/theme-modes.css">
+  <script src="../assets/js/theme-engine.js"></script>
+  <script src="../assets/js/unified-nav.js" defer></script>
+
+  <style>
+    :root {
+      --cs-bg: #0B0F19;
+      --cs-surface: #111827;
+      --cs-card-bg: rgba(17, 24, 39, 0.78);
+      --cs-border: rgba(255, 255, 255, 0.08);
+      --cs-text: #F8FAFC;
+      --cs-text-sub: #94A3B8;
+      --cs-cyan: #38BDF8;
+      --cs-emerald: #10B981;
+      --cs-rose: #F43F5E;
+      --cs-amber: #F59E0B;
+      --cs-purple: #A855F7;
+    }
+
+    html.light {
+      --cs-bg: #F8FAFC;
+      --cs-surface: #FFFFFF;
+      --cs-card-bg: rgba(255, 255, 255, 0.85);
+      --cs-border: rgba(0, 0, 0, 0.08);
+      --cs-text: #0F172A;
+      --cs-text-sub: #64748B;
+      --cs-cyan: #0284C7;
+      --cs-emerald: #059669;
+      --cs-rose: #E11D48;
+      --cs-amber: #D97706;
+      --cs-purple: #9333EA;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--cs-bg);
+      color: var(--cs-text);
+      font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.25s, color 0.25s;
+    }
+
+    .cs-container {
+      max-width: 1040px;
+      margin: 20px auto 50px;
+      padding: 0 16px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* هيدر الكبسولات التكتيكي */
+    .cs-hero {
+      background: var(--cs-card-bg);
+      border: 1px solid var(--cs-border);
+      border-radius: 24px;
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cs-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--cs-cyan), var(--cs-purple), var(--cs-amber));
+    }
+
+    .cs-hero-title {
+      font-size: 1.55rem;
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cs-hero-desc {
+      font-size: 0.9rem;
+      color: var(--cs-text-sub);
+      max-width: 620px;
+      line-height: 1.6;
+    }
+
+    .cs-hero-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .cs-btn-print {
+      background: linear-gradient(135deg, var(--cs-cyan), #2563EB);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 12px;
+      padding: 10px 18px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+    .cs-btn-print:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(37, 99, 235, 0.45);
+    }
+
+    /* شريط فلترة الجداول والقفز السريع */
+    .cs-nav-chips {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 24px;
+      scrollbar-width: none;
+    }
+    .cs-nav-chips::-webkit-scrollbar { display: none; }
+
+    .cs-chip-link {
+      background: var(--cs-card-bg);
+      border: 1px solid var(--cs-border);
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--cs-text-sub);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cs-chip-link:hover, .cs-chip-link.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--cs-cyan);
+      color: var(--cs-cyan);
+    }
+
+    /* الحاويات الرئيسية للجداول */
+    .cs-section {
+      background: var(--cs-surface);
+      border: 1px solid var(--cs-border);
+      border-radius: 22px;
+      padding: 24px;
+      margin-bottom: 26px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .cs-sec-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--cs-border);
+    }
+    .cs-sec-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cs-sec-icon {
+      font-size: 1.5rem;
+    }
+    .cs-sec-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--cs-text);
+    }
+    .cs-sec-badge {
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--cs-text-sub);
+    }
+
+    /* الجداول التفاعلية النظيفة */
+    .cs-table-wrap {
+      overflow-x: auto;
+      border-radius: 14px;
+      border: 1px solid var(--cs-border);
+    }
+    table.cs-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: right;
+      font-size: 0.9rem;
+    }
+    table.cs-table th {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 12px 16px;
+      font-weight: 800;
+      color: var(--cs-cyan);
+      border-bottom: 1px solid var(--cs-border);
+      white-space: nowrap;
+    }
+    html.light table.cs-table th {
+      background: rgba(0, 0, 0, 0.03);
+    }
+    table.cs-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--cs-border);
+      color: var(--cs-text);
+      line-height: 1.5;
+    }
+    table.cs-table tr:last-child td {
+      border-bottom: none;
+    }
+    table.cs-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .num-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 800;
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+    .pill-green { background: rgba(16, 185, 129, 0.15); color: var(--cs-emerald); }
+    .pill-cyan { background: rgba(56, 189, 248, 0.15); color: var(--cs-cyan); }
+    .pill-amber { background: rgba(245, 158, 11, 0.15); color: var(--cs-amber); }
+    .pill-red { background: rgba(244, 63, 94, 0.15); color: var(--cs-rose); }
+
+    /* شبكة كبسولة الإسعافات والممنوعات */
+    .cs-dos-donts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 768px) {
+      .cs-dos-donts-grid { grid-template-columns: 1fr; }
+    }
+
+    .cs-box-donts {
+      background: rgba(244, 63, 94, 0.06);
+      border: 1px solid rgba(244, 63, 94, 0.25);
+      border-radius: 16px;
+      padding: 18px 20px;
+    }
+    .cs-box-dos {
+      background: rgba(16, 185, 129, 0.06);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 16px;
+      padding: 18px 20px;
+    }
+    .cs-box-header {
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cs-box-donts .cs-box-header { color: var(--cs-rose); }
+    .cs-box-dos .cs-box-header { color: var(--cs-emerald); }
+
+    .cs-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .cs-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    /* تنسيق خاص بالطباعة (Print Optimization) */
+    @media print {
+      body {
+        background: #FFFFFF !important;
+        color: #000000 !important;
+      }
+      .unified-portal-nav, .cs-hero-actions, .cs-nav-chips {
+        display: none !important;
+      }
+      .cs-container {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .cs-section {
+        box-shadow: none !important;
+        border: 1px solid #CCCCCC !important;
+        page-break-inside: avoid;
+        margin-bottom: 20px !important;
+      }
+      table.cs-table th {
+        background: #F0F0F0 !important;
+        color: #000000 !important;
+      }
+      table.cs-table td {
+        color: #000000 !important;
+      }
+      .pill-green, .pill-cyan, .pill-amber, .pill-red {
+        background: transparent !important;
+        border: 1px solid #999999 !important;
+        color: #000000 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- شريط الملاحة الموحد -->
+  <nav class="unified-portal-nav" id="portal-nav">
+    <a href="../index.html" class="nav-brand">
+      <span style="font-size:1.25rem;">🚦</span>
+      <span>Patente B Pro</span>
+      <span class="badge-tag">A2</span>
+    </a>
+    <nav class="nav-desktop-tabs">
+      <a href="piano-studio.html" class="nav-tab-desktop">📅 الخطة الدراسية</a>
+      <a href="cheat-sheet.html" class="nav-tab-desktop active">📋 كبسولات ليلة الامتحان</a>
+      <a href="zero-mistake.html" class="nav-tab-desktop">🎮 تحدي الـ 0 أخطاء</a>
+      <a href="parole-spia.html" class="nav-tab-desktop">🎯 الكلمات السحرية</a>
+      <a href="scheda-esame.html" class="nav-tab-desktop">📝 الامتحان</a>
+      <a href="trucchi-esame.html" class="nav-tab-desktop">💎 خزينة التريكات</a>
+      <a href="laboratorio-numeri.html" class="nav-tab-desktop">📏 معمل الأرقام</a>
+      <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 بنك الأبواب</a>
+    </nav>
+    <div class="nav-desktop-actions">
+      <button class="nav-theme-btn" id="themeToggleBtn" onclick="toggleTheme()" title="تبديل الوضع (نهاري / ليلي) [Alt + T]">
+        <span class="theme-icon-span">☀️</span>
+        <span class="theme-label-span">المظهر</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="cs-container">
+
+    <!-- هيدر الصفحة -->
+    <div class="cs-hero">
+      <div>
+        <h1 class="cs-hero-title">
+          <span>📋</span>
+          <span>كبسولات وجداول المراجعة السريعة ليلة الامتحان</span>
+        </h1>
+        <p class="cs-hero-desc">
+          المرجع الموحد الشامل لأكثر الجداول والأرقام حسماً في امتحان القيادة الإيطالي (السرعات، مسافات الأمان، سحب النقاط، نسب الكحول، والإسعافات). مهيأة للحفظ البصري الفوري وقابلة للطباعة A4 بضغطة واحدة.
+        </p>
+      </div>
+      <div class="cs-hero-actions">
+        <button class="cs-btn-print" onclick="window.print()">
+          <span>🖨️ طباعة الكبسولة (A4)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- شريط القفز السريع للجداول -->
+    <div class="cs-nav-chips">
+      <a href="#sec-speed" class="cs-chip-link active"><span>🏎️</span> <span>حدود السرعات</span></a>
+      <a href="#sec-dist" class="cs-chip-link"><span>📏</span> <span>مسافات الأمان والتوقف</span></a>
+      <a href="#sec-punti" class="cs-chip-link"><span>🎯</span> <span>جدول سحب النقاط</span></a>
+      <a href="#sec-alcol" class="cs-chip-link"><span>🍷</span> <span>نسب الكحول والعقوبات</span></a>
+      <a href="#sec-firstaid" class="cs-chip-link"><span>🚑</span> <span>الممنوعات والواجبات</span></a>
+    </div>
+
+    <!-- 1. جدول حدود السرعات -->
+    <div class="cs-section" id="sec-speed">
+      <div class="cs-sec-header">
+        <div class="cs-sec-title-wrap">
+          <span class="cs-sec-icon">🏎️</span>
+          <h2 class="cs-sec-title">1. جدول حدود السرعة الرسمية (Limiti di Velocità)</h2>
+        </div>
+        <span class="cs-sec-badge">الباب 11 • كود السير م 142</span>
+      </div>
+
+      <div class="cs-table-wrap">
+        <table class="cs-table">
+          <thead>
+            <tr>
+              <th>نوع الطريق / الفئة</th>
+              <th>السرعة العادية</th>
+              <th>في المطر والطقس السيئ</th>
+              <th>الجدد (Neopatentati 3 سنوات)</th>
+              <th>السيارات مع مقطورة (Rimorchio)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>طريق سريع (Autostrada A)</strong></td>
+              <td><span class="num-pill pill-green">130 كم/س</span></td>
+              <td><span class="num-pill pill-amber">110 كم/س</span></td>
+              <td><span class="num-pill pill-red">100 كم/س</span></td>
+              <td><span class="num-pill pill-red">80 كم/س</span></td>
+            </tr>
+            <tr>
+              <td><strong>طريق خارجي رئيسي (Extraurbana Principale)</strong></td>
+              <td><span class="num-pill pill-cyan">110 كم/س</span></td>
+              <td><span class="num-pill pill-amber">90 كم/س</span></td>
+              <td><span class="num-pill pill-red">90 كم/س</span></td>
+              <td><span class="num-pill pill-red">70 كم/س</span></td>
+            </tr>
+            <tr>
+              <td><strong>طريق خارجي ثانوي (Extraurbana Secondaria)</strong></td>
+              <td><span class="num-pill pill-cyan">90 كم/س</span></td>
+              <td><span class="num-pill pill-cyan">90 كم/س</span></td>
+              <td><span class="num-pill pill-cyan">90 كم/س</span></td>
+              <td><span class="num-pill pill-red">70 كم/س</span></td>
+            </tr>
+            <tr>
+              <td><strong>طرق داخل المدن (Strade Urbane)</strong></td>
+              <td><span class="num-pill pill-amber">50 كم/س (70 استثناء)</span></td>
+              <td><span class="num-pill pill-amber">50 كم/س</span></td>
+              <td><span class="num-pill pill-amber">50 كم/س</span></td>
+              <td><span class="num-pill pill-amber">50 كم/س</span></td>
+            </tr>
+            <tr>
+              <td><strong>دراجات صغيرة وكواد خفيف (Ciclomotori / Quad)</strong></td>
+              <td><span class="num-pill pill-red">45 كم/س</span> (داخل وخارج المدن)</td>
+              <td><span class="num-pill pill-red">45 كم/س</span></td>
+              <td><span class="num-pill pill-red">45 كم/س</span></td>
+              <td>ممنوع سحب مقطورة</td>
+            </tr>
+            <tr>
+              <td><strong>آلات زراعية (Macchine Agricole)</strong></td>
+              <td><span class="num-pill pill-amber">40 كم/س</span> (كاوتش) • <span class="num-pill pill-red">15 كم/س</span> (جنازير)</td>
+              <td>نفس الحد</td>
+              <td>نفس الحد</td>
+              <td>حسب نوع المقطورة الزراعية</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 2. جدول مسافات الأمان وأرقام التوقف -->
+    <div class="cs-section" id="sec-dist">
+      <div class="cs-sec-header">
+        <div class="cs-sec-title-wrap">
+          <span class="cs-sec-icon">📏</span>
+          <h2 class="cs-sec-title">2. مسافات الأمان ورد الفعل والتوقف (Distanza e Spazio di Arresto)</h2>
+        </div>
+        <span class="cs-sec-badge">الباب 12 • ثانية رد الفعل</span>
+      </div>
+
+      <div class="cs-table-wrap">
+        <table class="cs-table">
+          <thead>
+            <tr>
+              <th>السرعة (Velocità)</th>
+              <th>مسافة ثانية رد الفعل (Reazione = سرعة ÷ 10 × 3)</th>
+              <th>مسافة التوقف الإجمالي (Arresto Totale على جاف)</th>
+              <th>مسافة التوقف في المطر (على مبلل - تتضاعف الفرملة)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>50 كم/س</strong> (داخل المدينة)</td>
+              <td><span class="num-pill pill-cyan">~ 14 متر</span> (13.9 م)</td>
+              <td><span class="num-pill pill-green">~ 25 متر</span></td>
+              <td><span class="num-pill pill-amber">~ 36 متر</span></td>
+            </tr>
+            <tr>
+              <td><strong>90 كم/س</strong> (خارج المدينة)</td>
+              <td><span class="num-pill pill-cyan">~ 25 متر</span> (25 م)</td>
+              <td><span class="num-pill pill-green">~ 65 متر</span></td>
+              <td><span class="num-pill pill-amber">~ 105 أمتار</span></td>
+            </tr>
+            <tr>
+              <td><strong>100 كم/س</strong> (حد الجدد)</td>
+              <td><span class="num-pill pill-cyan">~ 28 متر</span> (27.8 م)</td>
+              <td><span class="num-pill pill-green">~ 80 متر</span></td>
+              <td><span class="num-pill pill-amber">~ 132 متر</span></td>
+            </tr>
+            <tr>
+              <td><strong>130 كم/س</strong> (أوتوستراد)</td>
+              <td><span class="num-pill pill-cyan">~ 36 متر</span> (36.1 م)</td>
+              <td><span class="num-pill pill-green">~ 130 متر</span></td>
+              <td><span class="num-pill pill-red">~ 218 متر</span></td>
+            </tr>
+            <tr>
+              <td><strong>150 كم/س</strong> (أقصى سرعة نظرية)</td>
+              <td><span class="num-pill pill-cyan">~ 42 متر</span> (41.7 م)</td>
+              <td><span class="num-pill pill-green">~ 170 متر</span></td>
+              <td><span class="num-pill pill-red">~ 298 متر</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="font-size:0.83rem; color:var(--cs-text-sub); margin-top:10px;">
+        💡 <strong>قواعد وزارية ذهبية:</strong> زمن رد الفعل = ثانية واحدة تقريباً • على الثلج والجليد تزيد مسافة التوقف حتى <strong>4 أضعاف</strong> (Quadruplica).
+      </div>
+    </div>
+
+    <!-- 3. جدول سحب النقاط من الرخصة -->
+    <div class="cs-section" id="sec-punti">
+      <div class="cs-sec-header">
+        <div class="cs-sec-title-wrap">
+          <span class="cs-sec-icon">🎯</span>
+          <h2 class="cs-sec-title">3. جدول سحب النقاط من الرخصة (Tabella Punti Patente)</h2>
+        </div>
+        <span class="cs-sec-badge">الباب 20 • رصيد 20 نقطة</span>
+      </div>
+
+      <div class="cs-table-wrap">
+        <table class="cs-table">
+          <thead>
+            <tr>
+              <th>النقاط المخصومة</th>
+              <th>أشهر المخالفات الامتحانية (Infrazioni الوزارية)</th>
+              <th>حكم الجدد (Neopatentati أول 3 سنوات)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="num-pill pill-red" style="font-size:1.05rem;">- 10 نقاط</span></td>
+              <td>
+                • السير عكس الاتجاه (Contromano) في المنعطفات أو الأوتوستراد.<br>
+                • تجاوز السرعة بأكثر من <strong>60 كم/س</strong> عن الحد.<br>
+                • القيادة تحت تأثير الكحول أو المخدرات بأعلى فئة (> 1.5 g/l).<br>
+                • الهروب بعد حادث به إصابات خطيرة (Omissione di soccorso).
+              </td>
+              <td><strong>- 20 نقطة</strong> (تصفير الرخصة فوراً)</td>
+            </tr>
+            <tr>
+              <td><span class="num-pill pill-red">- 8 نقاط</span></td>
+              <td>
+                • عدم إعطاء الأسبقية للمشاة على خطوط المشاة (Strisce pedonali).<br>
+                • الرجوع للخلف في الأوتوستراد (Retromarcia in autostrada).
+              </td>
+              <td><strong>- 16 نقطة</strong></td>
+            </tr>
+            <tr>
+              <td><span class="num-pill pill-amber">- 6 نقاط</span></td>
+              <td>• تجاوز السرعة القانونية بين <strong>40 و 60 كم/س</strong>.</td>
+              <td><strong>- 12 نقطة</strong></td>
+            </tr>
+            <tr>
+              <td><span class="num-pill pill-amber">- 5 نقاط</span></td>
+              <td>
+                • عدم ربط حزام الأمان (Cintura) أو عدم ارتداء الخوذة (Casco).<br>
+                • استخدام الهاتف المحمول باليد أثناء القيادة.<br>
+                • كسر الإشارة الضوئية الحمراء (Rosso) أو إشارة قف (STOP).<br>
+                • التجاوز الخطير في المنحنيات ومطبات الرؤية (Dossi).
+              </td>
+              <td><strong>- 10 نقاط</strong></td>
+            </tr>
+            <tr>
+              <td><span class="num-pill pill-cyan">- 4 نقاط</span></td>
+              <td>• عدم الالتزام بمسافة الأمان وتسببت في حادث مع تصادم وأضرار.</td>
+              <td><strong>- 8 نقاط</strong></td>
+            </tr>
+            <tr>
+              <td><span class="num-pill pill-cyan">- 3 نقاط</span></td>
+              <td>• عدم إضاءة الأنوار ليلاً في الأوتوستراد أو النفق.</td>
+              <td><strong>- 6 نقاط</strong></td>
+            </tr>
+            <tr>
+              <td><span class="num-pill pill-green">- 2 نقاط</span></td>
+              <td>• عدم الالتزام بأقصى مسار اليمين (Corsia di destra) على الطرق السريعة.</td>
+              <td><strong>- 4 نقاط</strong></td>
+            </tr>
+            <tr>
+              <td><span class="num-pill pill-green">- 1 نقطة</span></td>
+              <td>• استخدام آلة التنبيه (الكلاكس) بدون مبرر في المناطق المأهولة.</td>
+              <td><strong>- 2 نقطة</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="font-size:0.83rem; color:var(--cs-text-sub); margin-top:10px;">
+        💡 <strong>قاعدة البونص:</strong> في حال عدم ارتكاب أي مخالفة، يُمنح السائق <strong>نقطتين بونص كل سنتين</strong> حتى حد أقصى 30 نقطة.
+      </div>
+    </div>
+
+    <!-- 4. جدول نسب الكحول والعقوبات -->
+    <div class="cs-section" id="sec-alcol">
+      <div class="cs-sec-header">
+        <div class="cs-sec-title-wrap">
+          <span class="cs-sec-icon">🍷</span>
+          <h2 class="cs-sec-title">4. جدول نسب الكحول والعقوبات القانونية (Tasso Alcolemico)</h2>
+        </div>
+        <span class="cs-sec-badge">الباب 22 • مادة 186 كود السير</span>
+      </div>
+
+      <div class="cs-table-wrap">
+        <table class="cs-table">
+          <thead>
+            <tr>
+              <th>نسبة الكحول بالدم (g/l)</th>
+              <th>التصنيف القانوني</th>
+              <th>العقوبات المترتبة</th>
+              <th>الفئات الملزمة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="num-pill pill-red">0.00 جم/لتر</span><br>(Tolleranza Zero)</td>
+              <td><strong>الصفر القطعي</strong></td>
+              <td>أي نسبة كحول ولو طفيفة جداً تفرض غرامة مالية مضاعفة وخصم نقاط مضاعف.</td>
+              <td>
+                • السائقون الجدد (أول 3 سنوات).<br>
+                • الشباب أقل من 21 عاماً.<br>
+                • السائقون المهنيون (شاحنات، تاكسي، حافلات).
+              </td>
+            </tr>
+            <tr>
+              <td><span class="num-pill pill-amber">0.50 إلى 0.80 جم/لتر</span></td>
+              <td><strong>مخالفة إدارية فقط</strong><br>(Sanzione Amministrativa)</td>
+              <td>
+                • غرامة مالية من ~ 543€ إلى 2,170€.<br>
+                • تعليق الرخصة من 3 إلى 6 أشهر.<br>
+                • خصم 10 نقاط (20 للجدد).<br>
+                • <strong>لا يوجد حبس جنائي إطلاقاً</strong>.
+              </td>
+              <td>السائقون العاديون (أصحاب الرخص القديمة)</td>
+            </tr>
+            <tr>
+              <td><span class="num-pill pill-red">0.80 إلى 1.50 جم/لتر</span></td>
+              <td><strong>جريمة جنائية</strong><br>(Reato Penale)</td>
+              <td>
+                • حبس حتى 6 أشهر.<br>
+                • غرامة مالية من 800€ إلى 3,200€.<br>
+                • تعليق الرخصة من 6 أشهر إلى سنة.<br>
+                • خصم 10 نقاط.
+              </td>
+              <td>كافة السائقين دون استثناء</td>
+            </tr>
+            <tr>
+              <td><span class="num-pill pill-red" style="font-size:1.05rem;">أكثر من 1.50 جم/لتر</span></td>
+              <td><strong>جريمة جنائية كبرى</strong><br>(Reato Penale Grave)</td>
+              <td>
+                • حبس من 6 أشهر إلى سنة.<br>
+                • غرامة من 1,500€ إلى 6,000€.<br>
+                • تعليق الرخصة من سنة لسنتين.<br>
+                • <strong>مصادرة السيارة نهائياً (Confisca del veicolo)</strong>.
+              </td>
+              <td>كافة السائقين</td>
+            </tr>
+            <tr>
+              <td><strong>رفض الفحص (Rifiuto)</strong></td>
+              <td><strong>جريمة جنائية قصوى</strong></td>
+              <td>يُعامل قانوناً بنفس عقوبة الفئة الأعلى (> 1.5 g/l) مع الحبس ومصادرة المركبة.</td>
+              <td>كافة السائقين</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 5. كبسولة الإسعافات والممنوعات القطعية -->
+    <div class="cs-section" id="sec-firstaid">
+      <div class="cs-sec-header">
+        <div class="cs-sec-title-wrap">
+          <span class="cs-sec-icon">🚑</span>
+          <h2 class="cs-sec-title">5. كبسولة الإسعافات الأولية والممنوعات القطعية (Primo Soccorso)</h2>
+        </div>
+        <span class="cs-sec-badge">الباب 22 • 96 سؤالاً وزارياً</span>
+      </div>
+
+      <div class="cs-dos-donts-grid">
+        <!-- الممنوعات الـ 6 -->
+        <div class="cs-box-donts">
+          <div class="cs-box-header">
+            <span>❌</span>
+            <span>الممنوعات الـ 6 القطعية (100% FALSO بالامتحان)</span>
+          </div>
+          <ul class="cs-list">
+            <li><span>🚫</span> <span><strong>إعطاء ماء أو طعام أو كحول أو أدوية</strong> للمصاب بحادث إطلاقاً.</span></li>
+            <li><span>🚫</span> <span><strong>تحريك المصاب أو نقله من مكانه</strong> إلا عند خطر وشيك (حريق أو غرق).</span></li>
+            <li><span>🚫</span> <span><strong>نزع الخوذة (Casco)</strong> عن سائق دراجة نارية مصاب برأسه أو عنقه.</span></li>
+            <li><span>🚫</span> <span><strong>إخراج أي جسم غريب (Corpo estraneo)</strong> مغروس في جرح المصاب.</span></li>
+            <li><span>🚫</span> <span><strong>فرك أو تدليك الأطراف المتجمدة (Frizionare)</strong> في حالات انخفاض الحرارة.</span></li>
+            <li><span>🚫</span> <span><strong>استخدام القطن أو مطهرات كيميائية حارقة</strong> على الجروح العميقة المفتوحة.</span></li>
+          </ul>
+        </div>
+
+        <!-- الواجبات الإلزامية -->
+        <div class="cs-box-dos">
+          <div class="cs-box-header">
+            <span>✅</span>
+            <span>الواجبات والإجراءات الصحيحة (100% VERO بالامتحان)</span>
+          </div>
+          <ul class="cs-list">
+            <li><span>🛡️</span> <span><strong>حماية المكان أولاً:</strong> تشغيل أضواء الخطر (4 frecce) وارتداء السترة العاكسة.</span></li>
+            <li><span>📞</span> <span><strong>الاتصال برقم الطوارئ الأوروبي الموحد (112):</strong> مع ذكر الموقع الدقيق والإصابات.</span></li>
+            <li><span>🩹</span> <span><strong>إيقاف النزيف الخارجي:</strong> بالضغط المباشر بقطعة شاش معقمة ونظيفة (Tamponare).</span></li>
+            <li><span>🧥</span> <span><strong>تدفئة وتغطية المصاب ببطانية:</strong> لمنع الصدمة الناتجة عن هبوط الدورة الدموية.</span></li>
+            <li><span>🔄</span> <span><strong>وضع الإفاقة الجانبي (Posizione laterale di sicurezza):</strong> فقط عند فقدان الوعي مع وجود تنفس ونبض.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

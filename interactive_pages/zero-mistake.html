@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>وضع البقاء: تحدي الـ 0 أخطاء (Zero-Mistake Streak) | Patente B Pro</title>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0B0F19">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Patente B Pro">
+  <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cairo:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/theme-modes.css">
+  <script src="../assets/js/theme-engine.js"></script>
+  <script src="../assets/js/unified-nav.js" defer></script>
+  <script src="../assets/js/question-decoder.js"></script>
+
+  <style>
+    :root {
+      --zm-bg: #0B0F19;
+      --zm-surface: #111827;
+      --zm-surface-card: rgba(17, 24, 39, 0.75);
+      --zm-border: rgba(255, 255, 255, 0.08);
+      --zm-border-active: rgba(56, 189, 248, 0.4);
+      --zm-text: #F8FAFC;
+      --zm-text-sub: #94A3B8;
+      --zm-cyan: #38BDF8;
+      --zm-emerald: #10B981;
+      --zm-rose: #F43F5E;
+      --zm-amber: #F59E0B;
+      --zm-purple: #A855F7;
+    }
+
+    html.light {
+      --zm-bg: #F8FAFC;
+      --zm-surface: #FFFFFF;
+      --zm-surface-card: rgba(255, 255, 255, 0.85);
+      --zm-border: rgba(0, 0, 0, 0.08);
+      --zm-border-active: rgba(2, 132, 199, 0.35);
+      --zm-text: #0F172A;
+      --zm-text-sub: #64748B;
+      --zm-cyan: #0284C7;
+      --zm-emerald: #059669;
+      --zm-rose: #E11D48;
+      --zm-amber: #D97706;
+      --zm-purple: #9333EA;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--zm-bg);
+      color: var(--zm-text);
+      font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      transition: background-color 0.25s, color 0.25s;
+    }
+
+    .zm-container {
+      max-width: 820px;
+      margin: 20px auto 40px;
+      padding: 0 16px;
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* شريط العنوان التكتيكي */
+    .zm-header {
+      background: var(--zm-surface-card);
+      border: 1px solid var(--zm-border);
+      border-radius: 20px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .zm-header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--zm-rose), var(--zm-amber), var(--zm-emerald));
+    }
+    .zm-header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .zm-badge-mode {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(244, 63, 94, 0.12);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      color: var(--zm-rose);
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.3px;
+    }
+    .zm-chapter-tag {
+      font-size: 0.82rem;
+      color: var(--zm-cyan);
+      font-weight: 700;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+    .zm-title {
+      font-size: 1.4rem;
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+    .zm-desc {
+      font-size: 0.88rem;
+      color: var(--zm-text-sub);
+      line-height: 1.5;
+    }
+
+    /* لوحة السلسلة الحية والأرقام القياسية */
+    .zm-streak-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.2fr;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    @media (max-width: 640px) {
+      .zm-streak-bar {
+        grid-template-columns: 1fr 1fr;
+      }
+      .zm-streak-bar .zm-tier-box {
+        grid-column: 1 / -1;
+      }
+    }
+
+    .zm-stat-box {
+      background: var(--zm-surface-card);
+      border: 1px solid var(--zm-border);
+      border-radius: 16px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      backdrop-filter: blur(12px);
+      position: relative;
+    }
+    .zm-stat-box.is-fire {
+      border-color: rgba(245, 158, 11, 0.4);
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(244, 63, 94, 0.08));
+    }
+    .zm-stat-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--zm-text-sub);
+    }
+    .zm-stat-num {
+      font-size: 1.7rem;
+      font-weight: 900;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--zm-text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      line-height: 1.1;
+    }
+    .zm-stat-num.fire-glow {
+      color: var(--zm-amber);
+      text-shadow: 0 0 16px rgba(245, 158, 11, 0.5);
+      animation: pulseFire 1.2s infinite alternate ease-in-out;
+    }
+    @keyframes pulseFire {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.04); }
+    }
+
+    .zm-tier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 8px;
+      margin-top: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--zm-text-sub);
+      width: fit-content;
+    }
+
+    /* بطاقة السؤال الرئيسية */
+    .zm-card {
+      background: var(--zm-surface);
+      border: 1px solid var(--zm-border);
+      border-radius: 24px;
+      padding: 28px 24px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .zm-card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    .zm-q-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--zm-cyan);
+      background: rgba(56, 189, 248, 0.1);
+      padding: 4px 10px;
+      border-radius: 8px;
+    }
+    .zm-q-sub {
+      font-size: 0.82rem;
+      color: var(--zm-text-sub);
+      font-weight: 700;
+    }
+
+    .zm-img-wrap {
+      text-align: center;
+      margin: 4px auto 10px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--zm-border);
+      border-radius: 14px;
+      padding: 12px;
+      max-width: 240px;
+    }
+    .zm-img-wrap img {
+      max-height: 120px;
+      width: auto;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .zm-q-text-it {
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.55;
+      color: var(--zm-text);
+      direction: ltr;
+      text-align: left;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      padding: 6px 4px;
+    }
+
+    .zm-q-text-ar {
+      background: rgba(56, 189, 248, 0.05);
+      border-right: 3px solid var(--zm-cyan);
+      padding: 12px 14px;
+      border-radius: 0 12px 12px 0;
+      font-size: 0.95rem;
+      color: var(--zm-text);
+      line-height: 1.55;
+      font-weight: 600;
+    }
+
+    /* أزرار الإجابة الضخمة */
+    .zm-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 10px;
+    }
+    .zm-btn-choice {
+      padding: 18px 20px;
+      border-radius: 18px;
+      font-family: inherit;
+      font-size: 1.15rem;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 2px solid transparent;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .zm-btn-choice:active {
+      transform: scale(0.97);
+    }
+    .zm-btn-v {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: rgba(16, 185, 129, 0.4);
+      color: var(--zm-emerald);
+      box-shadow: 0 4px 18px rgba(16, 185, 129, 0.15);
+    }
+    .zm-btn-v:hover {
+      background: var(--zm-emerald);
+      color: #FFFFFF;
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
+      transform: translateY(-2px);
+    }
+    .zm-btn-f {
+      background: rgba(244, 63, 94, 0.12);
+      border-color: rgba(244, 63, 94, 0.4);
+      color: var(--zm-rose);
+      box-shadow: 0 4px 18px rgba(244, 63, 94, 0.15);
+    }
+    .zm-btn-f:hover {
+      background: var(--zm-rose);
+      color: #FFFFFF;
+      box-shadow: 0 8px 24px rgba(244, 63, 94, 0.35);
+      transform: translateY(-2px);
+    }
+    .zm-key-hint {
+      font-size: 0.72rem;
+      font-weight: 700;
+      opacity: 0.8;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .zm-keyboard-bar {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--zm-text-sub);
+      margin-top: 8px;
+    }
+    .zm-kbd {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--zm-border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+    }
+
+    /* نافذة نهاية الجولة (Game Over Modal) */
+    .zm-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      animation: fadeIn 0.25s ease;
+    }
+    .zm-modal-backdrop.is-open {
+      display: flex;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .zm-modal-card {
+      background: var(--zm-surface);
+      border: 1px solid var(--zm-border);
+      border-radius: 26px;
+      max-width: 620px;
+      width: 100%;
+      padding: 28px 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+      max-height: 90vh;
+      overflow-y: auto;
+      text-align: center;
+      position: relative;
+    }
+    .zm-modal-icon {
+      font-size: 3.2rem;
+      margin-bottom: 8px;
+      animation: bounceIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes bounceIn {
+      0% { transform: scale(0.3); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .zm-modal-title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--zm-rose);
+      margin-bottom: 6px;
+    }
+    .zm-modal-score-wrap {
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-radius: 16px;
+      padding: 14px 20px;
+      margin: 16px 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .zm-score-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .zm-score-lbl {
+      font-size: 0.78rem;
+      color: var(--zm-text-sub);
+      font-weight: 700;
+    }
+    .zm-score-val {
+      font-size: 1.6rem;
+      font-weight: 900;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--zm-amber);
+    }
+    .zm-record-alert {
+      background: linear-gradient(90deg, rgba(16, 185, 129, 0.15), rgba(56, 189, 248, 0.15));
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 12px;
+      padding: 8px 14px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--zm-emerald);
+      margin-bottom: 16px;
+    }
+
+    /* تحليل السؤال الخاطئ */
+    .zm-mistake-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--zm-border);
+      border-radius: 16px;
+      padding: 16px;
+      text-align: right;
+      margin-bottom: 20px;
+    }
+    .zm-mistake-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+    }
+    .zm-mistake-it {
+      font-size: 1.05rem;
+      font-weight: 700;
+      direction: ltr;
+      text-align: left;
+      color: var(--zm-text);
+      margin-bottom: 8px;
+    }
+    .zm-mistake-tr {
+      font-size: 0.9rem;
+      color: var(--zm-text-sub);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+    .zm-mistake-sp {
+      background: rgba(56, 189, 248, 0.08);
+      border-right: 3px solid var(--zm-cyan);
+      padding: 8px 12px;
+      font-size: 0.84rem;
+      border-radius: 0 8px 8px 0;
+      line-height: 1.5;
+    }
+
+    .zm-modal-btns {
+      display: flex;
+      gap: 12px;
+    }
+    .zm-btn-restart {
+      flex: 1;
+      background: var(--zm-emerald);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 14px;
+      padding: 14px 20px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
+      transition: transform 0.15s ease, background 0.15s;
+    }
+    .zm-btn-restart:hover {
+      background: #059669;
+      transform: translateY(-2px);
+    }
+    .zm-btn-back {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--zm-border);
+      color: var(--zm-text);
+      border-radius: 14px;
+      padding: 14px 18px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- شريط الملاحة الموحد -->
+  <nav class="unified-portal-nav" id="portal-nav">
+    <a href="../index.html" class="nav-brand">
+      <span style="font-size:1.25rem;">🚦</span>
+      <span>Patente B Pro</span>
+      <span class="badge-tag">A2</span>
+    </a>
+    <nav class="nav-desktop-tabs">
+      <a href="piano-studio.html" class="nav-tab-desktop">📅 الخطة الدراسية</a>
+      <a href="zero-mistake.html" class="nav-tab-desktop active">🎮 تحدي الـ 0 أخطاء</a>
+      <a href="parole-spia.html" class="nav-tab-desktop">🎯 الكلمات السحرية</a>
+      <a href="scheda-esame.html" class="nav-tab-desktop">📝 الامتحان الرسمي</a>
+      <a href="trucchi-esame.html" class="nav-tab-desktop">💎 خزينة التريكات</a>
+      <a href="decodificatore-incroci.html" class="nav-tab-desktop">🔄 شفرة التقاطعات</a>
+      <a href="../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/index.html" class="nav-tab-desktop">📚 الباب 01</a>
+    </nav>
+    <div class="nav-desktop-actions">
+      <button class="nav-theme-btn" id="themeToggleBtn" onclick="toggleTheme()" title="تبديل الوضع (نهاري / ليلي) [Alt + T]">
+        <span class="theme-icon-span">☀️</span>
+        <span class="theme-label-span">المظهر</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="zm-container">
+
+    <!-- شريط الرأس التعريفي -->
+    <div class="zm-header">
+      <div class="zm-header-top">
+        <span class="zm-badge-mode">🔥 MODALITÀ SOPRAVVIVENZA</span>
+        <span class="zm-chapter-tag">📖 الباب 01: المفاهيم العامة واستخدام الطريق (531 سؤالاً)</span>
+      </div>
+      <h1 class="zm-title">تحدي الـ 0 أخطاء (Zero-Mistake Survival Streak)</h1>
+      <p class="zm-desc">
+        النظام يطرح عليك أسئلة عشوائية متتالية من بنك الوزارة للباب الأول. كل إجابة صحيحة تزيد سلسلتك، ولكن <strong>خطأ واحد فقط يُسقطك فوراً</strong> وينهي الجولة! هل تستطيع الوصول لسلسلة 30 سؤالاً متتالياً؟
+      </p>
+    </div>
+
+    <!-- لوحة السلسلة الحية -->
+    <div class="zm-streak-bar">
+      <div class="zm-stat-box is-fire">
+        <span class="zm-stat-label">🔥 السلسلة الحالية (Current Streak)</span>
+        <div class="zm-stat-num fire-glow" id="currentStreak">0</div>
+      </div>
+      <div class="zm-stat-box">
+        <span class="zm-stat-label">🏆 أعلى رقم قياسي (Best Streak)</span>
+        <div class="zm-stat-num" id="bestStreak">0</div>
+      </div>
+      <div class="zm-stat-box zm-tier-box">
+        <span class="zm-stat-label">🎖️ رتبة الإتقان الحالية</span>
+        <div class="zm-tier-badge" id="tierBadge">🥉 مبتدئ (0/10)</div>
+      </div>
+    </div>
+
+    <!-- بطاقة السؤال -->
+    <div class="zm-card" id="questionCard">
+      <div class="zm-card-meta">
+        <span class="zm-q-pill" id="qIdPill">#1</span>
+        <span class="zm-q-sub" id="qSubTopic">المفاهيم العامة</span>
+      </div>
+
+      <div class="zm-img-wrap" id="qImgWrap" style="display:none;">
+        <img id="qImg" src="" alt="Segnale">
+      </div>
+
+      <div class="zm-q-text-it" id="qTextIt">
+        Caricamento domanda...
+      </div>
+
+      <div class="zm-q-text-ar" id="qTextAr">
+        جاري تحميل السؤال...
+      </div>
+
+      <!-- أزرار الاختيار -->
+      <div class="zm-actions">
+        <button class="zm-btn-choice zm-btn-v" onclick="handleUserAnswer(true)">
+          <span>VERO (صح)</span>
+          <span class="zm-key-hint">⌨️ اضغط V أو سهم يمين</span>
+        </button>
+        <button class="zm-btn-choice zm-btn-f" onclick="handleUserAnswer(false)">
+          <span>FALSO (خطأ)</span>
+          <span class="zm-key-hint">⌨️ اضغط F أو سهم يسار</span>
+        </button>
+      </div>
+
+      <div class="zm-keyboard-bar">
+        <span>💡 تحكم فائق السرعة عبر الكيبورد:</span>
+        <span class="zm-kbd">V</span> أو <span class="zm-kbd">→</span> لـ VERO • 
+        <span class="zm-kbd">F</span> أو <span class="zm-kbd">←</span> لـ FALSO
+      </div>
+    </div>
+
+  </div>
+
+  <!-- نافذة نهاية الجولة (Game Over) -->
+  <div class="zm-modal-backdrop" id="gameOverModal">
+    <div class="zm-modal-card">
+      <div class="zm-modal-icon" id="modalIcon">💥</div>
+      <h2 class="zm-modal-title" id="modalTitle">انتهت الجولة!</h2>
+      <p id="modalSub" style="color:var(--zm-text-sub); font-size:0.95rem;">خطأ واحد قطع سلسلتك! راجع السؤال وحاول سحق رقمك مجدداً.</p>
+
+      <div id="newRecordBox" class="zm-record-alert" style="display:none;">
+        🎉 رقم قياسي شخصي جديد في الباب الأول!
+      </div>
+
+      <div class="zm-modal-score-wrap">
+        <div class="zm-score-cell">
+          <span class="zm-score-lbl">السلسلة المحققة</span>
+          <span class="zm-score-val" id="modalScoreVal">0</span>
+        </div>
+        <div class="zm-score-cell">
+          <span class="zm-score-lbl">الرقم القياسي العام</span>
+          <span class="zm-score-val" id="modalBestVal">0</span>
+        </div>
+      </div>
+
+      <!-- تفاصيل السؤال الذي وقع فيه الخطأ -->
+      <div class="zm-mistake-box" id="mistakeDetailsBox">
+        <div class="zm-mistake-header">
+          <strong style="color:var(--zm-rose);">السؤال الذي أخطأت به:</strong>
+          <span>الصحيح: <strong style="color:var(--zm-emerald);" id="mistakeCorrectAns">VERO</strong></span>
+        </div>
+        <div class="zm-mistake-it" id="mistakeTextIt"></div>
+        <div class="zm-mistake-tr" id="mistakeTextTr"></div>
+        <div class="zm-mistake-sp" id="mistakeTextSp"></div>
+      </div>
+
+      <div class="zm-modal-btns">
+        <button class="zm-btn-restart" onclick="restartChallenge()">
+          <span>🔄 إعادة التحدي فوراً</span>
+        </button>
+        <a href="../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/index.html" class="zm-btn-back">
+          <span>📚 دراسة الباب</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- صوتيات Web Audio API التكتيكية الفائقة -->
+  <script>
+    const sound = {
+      ctx: null,
+      init() {
+        if (!this.ctx) {
+          const AC = window.AudioContext || window.webkitAudioContext;
+          if (AC) this.ctx = new AC();
+        }
+        if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
+      },
+      click() {
+        this.init(); if (!this.ctx) return;
+        try {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(600, this.ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(200, this.ctx.currentTime + 0.04);
+          gain.gain.setValueAtTime(0.05, this.ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
+          osc.connect(gain); gain.connect(this.ctx.destination);
+          osc.start(); osc.stop(this.ctx.currentTime + 0.04);
+        } catch(e){}
+      },
+      correct() {
+        this.init(); if (!this.ctx) return;
+        try {
+          const now = this.ctx.currentTime;
+          [523.25, 659.25, 783.99, 1046.5].forEach((freq, idx) => {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(freq, now + idx * 0.04);
+            gain.gain.setValueAtTime(0.06, now + idx * 0.04);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.04 + 0.12);
+            osc.connect(gain); gain.connect(this.ctx.destination);
+            osc.start(now + idx * 0.04); osc.stop(now + idx * 0.04 + 0.12);
+          });
+        } catch(e){}
+      },
+      wrong() {
+        this.init(); if (!this.ctx) return;
+        try {
+          const now = this.ctx.currentTime;
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(160, now);
+          osc.frequency.exponentialRampToValueAtTime(70, now + 0.28);
+          gain.gain.setValueAtTime(0.09, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+          osc.connect(gain); gain.connect(this.ctx.destination);
+          osc.start(now); osc.stop(now + 0.28);
+        } catch(e){}
+      }
+    };
+
+    // إدارة منطق التحدي
+    const STORAGE_BEST_KEY = 'patente_zero_mistake_best_cap1';
+    let chapterQuestions = [];
+    let currentStreak = 0;
+    let bestStreak = parseInt(localStorage.getItem(STORAGE_BEST_KEY) || '0', 10);
+    let currentQuestion = null;
+    let isProcessing = false;
+    let answeredSet = new Set();
+
+    // جلب أسئلة الباب الأول
+    async function loadQuestions() {
+      try {
+        const res = await fetch('../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/domande.json');
+        const json = await res.json();
+        chapterQuestions = json.domande || [];
+      } catch (err) {
+        console.warn('Failed loading local Cap 1 json, falling back to data_all_questions:', err);
+        if (window.ALL_QUESTIONS_DATA && Array.isArray(window.ALL_QUESTIONS_DATA)) {
+          chapterQuestions = window.ALL_QUESTIONS_DATA.filter(q => (q.ch === 1 || q.capitolo === 1)).map(q => ({
+            id: q.id,
+            domanda: q.q,
+            risposta: q.a,
+            immagine: q.img,
+            traduzione: q.tr,
+            spiegazione: q.sp,
+            trabocchetto: q.tb,
+            sotto_argomento: q.sub || 'المفاهيم العامة'
+          }));
+        }
+      }
+
+      updateStatsUI();
+      pickNextQuestion();
+    }
+
+    function updateStatsUI() {
+      document.getElementById('currentStreak').innerText = currentStreak;
+      document.getElementById('bestStreak').innerText = bestStreak;
+
+      // تحديث شارة الرتبة
+      const tierBadge = document.getElementById('tierBadge');
+      if (currentStreak >= 50) {
+        tierBadge.innerHTML = '💎 أسطورة الـ Zero Error (50+)';
+        tierBadge.style.color = '#A855F7';
+        tierBadge.style.background = 'rgba(168, 85, 247, 0.15)';
+      } else if (currentStreak >= 30) {
+        tierBadge.innerHTML = '🥇 جاهز للامتحان 100% (30+)';
+        tierBadge.style.color = '#10B981';
+        tierBadge.style.background = 'rgba(168, 85, 129, 0.15)';
+      } else if (currentStreak >= 20) {
+        tierBadge.innerHTML = '🥈 محترف متقدم (20/30)';
+        tierBadge.style.color = '#38BDF8';
+        tierBadge.style.background = 'rgba(56, 189, 248, 0.15)';
+      } else if (currentStreak >= 10) {
+        tierBadge.innerHTML = '🥉 بداية قوية (10/20)';
+        tierBadge.style.color = '#F59E0B';
+        tierBadge.style.background = 'rgba(245, 158, 11, 0.15)';
+      } else {
+        tierBadge.innerHTML = `🥉 مبتدئ (${currentStreak}/10)`;
+        tierBadge.style.color = 'var(--zm-text-sub)';
+        tierBadge.style.background = 'rgba(255, 255, 255, 0.05)';
+      }
+    }
+
+    function pickNextQuestion() {
+      if (!chapterQuestions || chapterQuestions.length === 0) return;
+
+      // إذا انتهت الأسئلة (نادر جداً في 531 سؤالاً) نعيد تصفير السجل
+      if (answeredSet.size >= chapterQuestions.length) {
+        answeredSet.clear();
+      }
+
+      // اختيار سؤال عشوائي لم يظهر في هذه الجولة
+      let available = chapterQuestions.filter(q => !answeredSet.has(q.id));
+      if (!available.length) available = chapterQuestions;
+
+      const randomIndex = Math.floor(Math.random() * available.length);
+      currentQuestion = available[randomIndex];
+      answeredSet.add(currentQuestion.id);
+
+      renderCurrentQuestion();
+    }
+
+    function renderCurrentQuestion() {
+      if (!currentQuestion) return;
+
+      document.getElementById('qIdPill').innerText = `#${currentQuestion.id}`;
+      document.getElementById('qSubTopic').innerText = currentQuestion.sotto_argomento || 'المفاهيم العامة';
+      document.getElementById('qTextIt').innerText = currentQuestion.domanda;
+      document.getElementById('qTextAr').innerText = currentQuestion.traduzione || 'غير متوفرة الترجمة حالياً.';
+
+      // الصورة
+      const imgWrap = document.getElementById('qImgWrap');
+      const qImg = document.getElementById('qImg');
+      const rawImg = (currentQuestion.immagine || currentQuestion.img || '').trim();
+
+      if (rawImg) {
+        const fn = rawImg.split('/').pop().trim();
+        qImg.src = `../img_sign/${fn}`;
+        qImg.onerror = () => {
+          qImg.onerror = null;
+          qImg.src = `../Capitoli_Divisi/Capitolo_01_definizioni_generali_doveri_strada/immagini/${fn}`;
+        };
+        imgWrap.style.display = 'block';
+      } else {
+        imgWrap.style.display = 'none';
+      }
+
+      // تحريك البطاقة خفيفاً للإشعار بتجدد السؤال
+      const card = document.getElementById('questionCard');
+      card.style.transform = 'translateY(4px)';
+      setTimeout(() => { card.style.transform = 'translateY(0)'; }, 60);
+      isProcessing = false;
+    }
+
+    function handleUserAnswer(userChoice) {
+      if (isProcessing || !currentQuestion) return;
+      isProcessing = true;
+
+      const isCorrect = (userChoice === currentQuestion.risposta);
+
+      if (isCorrect) {
+        sound.correct();
+        currentStreak++;
+        let isNewRecord = false;
+
+        if (currentStreak > bestStreak) {
+          bestStreak = currentStreak;
+          localStorage.setItem(STORAGE_BEST_KEY, String(bestStreak));
+          isNewRecord = true;
+        }
+
+        updateStatsUI();
+
+        // انتقال سريع للسؤال التالي
+        setTimeout(() => {
+          pickNextQuestion();
+        }, 120);
+
+      } else {
+        sound.wrong();
+        handleGameOver();
+      }
+    }
+
+    function handleGameOver() {
+      const isNewRecord = (currentStreak >= bestStreak && currentStreak > 0);
+      document.getElementById('modalScoreVal').innerText = currentStreak;
+      document.getElementById('modalBestVal').innerText = bestStreak;
+      document.getElementById('newRecordBox').style.display = isNewRecord ? 'block' : 'none';
+
+      // تفاصيل السؤال الخاطئ
+      document.getElementById('mistakeCorrectAns').innerText = currentQuestion.risposta ? 'VERO (صح)' : 'FALSO (خطأ)';
+      document.getElementById('mistakeTextIt').innerText = currentQuestion.domanda;
+      document.getElementById('mistakeTextTr').innerText = '📖 ' + (currentQuestion.traduzione || 'سؤال وزاري مباشر.');
+      document.getElementById('mistakeTextSp').innerHTML = '💡 <strong>الشرح القانوني وفك الفخ:</strong> ' + (currentQuestion.spiegazione || 'راجع قواعد كود السير.') + (currentQuestion.trabocchetto ? `<br>⚠️ <strong>فخ السؤال:</strong> ${currentQuestion.trabocchetto}` : '');
+
+      document.getElementById('gameOverModal').classList.add('is-open');
+    }
+
+    function restartChallenge() {
+      sound.click();
+      document.getElementById('gameOverModal').classList.remove('is-open');
+      currentStreak = 0;
+      answeredSet.clear();
+      updateStatsUI();
+      pickNextQuestion();
+    }
+
+    // دعم اختصارات لوحة المفاتيح
+    window.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('gameOverModal');
+      if (modal.classList.contains('is-open')) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') {
+          restartChallenge();
+        }
+        return;
+      }
+
+      if (e.key === 'v' || e.key === 'V' || e.key === 'ArrowRight') {
+        e.preventDefault();
+        handleUserAnswer(true);
+      } else if (e.key === 'f' || e.key === 'F' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        handleUserAnswer(false);
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', loadQuestions);
+  </script>
+</body>
+</html>
