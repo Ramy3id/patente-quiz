@@ -203,6 +203,7 @@
 
     // 2. الأدوات والمعامل الـ 12
     const tools = [
+      { id: 'mistakes', title: 'بنك أخطائي وتحدي التصحيح', it: 'Banca Errori e Correzione', desc: 'تجميع كافة أخطائك في كويز مخصص لإتقانها وتفادي الرسوب في الامتحان', icon: '⚠️', href: ctx.interactive + 'dashboard.html#mistakes', tags: 'اخطاء بنك اخطائي اسئلة خاطئة مراجعة تصحيح غلط غلطات errori sbagli srs' },
       { id: 'scheda', title: 'محاكي الامتحان الوزاري الرسمي', it: 'Scheda d’Esame Ministeriale', desc: '30 سؤال في 20 دقيقة بنظام الوزارة المحدث وتقييم النجاح', icon: '⏱️', href: ctx.interactive + 'scheda-esame.html', tags: 'محاكي امتحان تجريبي اختبار رسمي scheda esame timer وقت نتيجة' },
       { id: 'incroci', title: 'مفكك التقاطعات التفاعلي', it: 'Decodificatore Incroci', desc: 'تحليل أسبقية السير في الميادين وحساب مسار السيارات خطوة بخطوة', icon: '🔄', href: ctx.interactive + 'decodificatore-incroci.html', tags: 'تقاطعات مفكك اسبقية ميادين incroci precedenza rotatoria destra' },
       { id: 'parole', title: 'رادار الكلمات المفتاحية والفخاخ', it: 'Parole Spia e Trabocchetti', desc: 'كشف كلمات التأكيد (Sempre / Mai) وكلمات الخداع في أسئلة الباتنت', icon: '🎯', href: ctx.interactive + 'parole-spia.html', tags: 'رادار كلمات فخاخ مفتاحية sempre mai solo soltanto trabocchetti parole spia' },
@@ -500,6 +501,13 @@
                 </div>
                 ${isTrucchi ? '<span class="cat-current-tag">أنت هنا</span>' : ''}
               </a>
+              <a href="${ctx.interactive}dashboard.html#mistakes" class="nav-cat-item">
+                <div class="cat-item-icon" style="background:rgba(239, 68, 68, 0.15); color:#F87171;">⚠️</div>
+                <div class="cat-item-content">
+                  <div class="cat-item-title" style="color:#FCA5A5;">بنك أخطائي وتحدي التصحيح</div>
+                  <div class="cat-item-desc">تجميع أسئلتك الخاطئة في كويز مخصص لإتقانها وتفادي الرسوب</div>
+                </div>
+              </a>
             </div>
           </div>
 
@@ -714,6 +722,10 @@
               <span class="drawer-link-icon">💎</span>
               <span class="drawer-link-text">خزينة التريكات وأسرار النجاح</span>
               ${isTrucchi ? '<span class="drawer-link-badge">أنت هنا</span>' : ''}
+            </a>
+            <a href="${ctx.interactive}dashboard.html#mistakes" class="mobile-drawer-link">
+              <span class="drawer-link-icon">⚠️</span>
+              <span class="drawer-link-text">بنك أخطائي وتحدي التصحيح</span>
             </a>
             <a href="${ctx.interactive}dashboard.html" class="mobile-drawer-link ${isDash ? 'active' : ''}">
               <span class="drawer-link-icon">📊</span>

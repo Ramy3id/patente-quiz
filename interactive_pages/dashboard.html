@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>لوحة متابعة الجاهزية والتقدم | Patente B Pro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>لوحة الإنجاز ومؤشر الجاهزية وبنك الأخطاء | Patente B Pro</title>
   <link rel="manifest" href="../manifest.json">
   <meta name="theme-color" content="#0B0F19">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -12,30 +12,170 @@
   <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="interactive_style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cairo:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/theme-modes.css">
   <script src="../assets/js/theme-engine.js"></script>
   <script src="../assets/js/unified-nav.js" defer></script>
+  <script src="../assets/js/audio-engine.js"></script>
+  <script src="../assets/js/srs-engine.js"></script>
+  <script src="../Capitoli_Divisi/data_all_questions.js"></script>
+
   <style>
-    .dash-container {
-      max-width: 960px;
-      margin: 16px auto 40px;
+    :root {
+      --bg-base: #09090b;
+      --bg-surface: rgba(24, 24, 27, 0.75);
+      --bg-elevated: rgba(39, 39, 42, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(56, 189, 248, 0.28);
+      --text-primary: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --accent-cyan: #38BDF8;
+      --accent-emerald: #10B981;
+      --accent-amber: #F59E0B;
+      --accent-rose: #EF4444;
+      --accent-indigo: #6366F1;
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
+      line-height: 1.5;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(ellipse at 50% -10%, rgba(99, 102, 241, 0.12), transparent 60%),
+        radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.05), transparent 45%),
+        radial-gradient(circle at 90% 40%, rgba(245, 158, 11, 0.04), transparent 45%);
+    }
+
+    .dash-wrapper {
+      max-width: 1100px;
+      margin: 24px auto 60px;
       padding: 0 16px;
     }
+
+    /* 1. التبويبات العلوية للوحة التحكم */
+    .dash-tabs-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 6px;
+      margin-bottom: 24px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .dash-tabs-bar::-webkit-scrollbar { display: none; }
+    html.light .dash-tabs-bar {
+      background: #FFFFFF;
+      border-color: rgba(15, 23, 42, 0.1);
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+    .dash-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s var(--ease-spring);
+      white-space: nowrap;
+      font-family: inherit;
+    }
+    html.light .dash-tab-btn { color: #475569; }
+    .dash-tab-btn:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.05);
+    }
+    html.light .dash-tab-btn:hover {
+      color: #0F172A;
+      background: rgba(15, 23, 42, 0.04);
+    }
+    .dash-tab-btn.active {
+      background: rgba(56, 189, 248, 0.14);
+      border-color: rgba(56, 189, 248, 0.35);
+      color: var(--accent-cyan);
+    }
+    html.light .dash-tab-btn.active {
+      background: rgba(2, 132, 199, 0.1);
+      border-color: rgba(2, 132, 199, 0.3);
+      color: #0284C7;
+    }
+    .tab-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: rgba(239, 68, 68, 0.2);
+      color: #F87171;
+      border: 1px solid rgba(239, 68, 68, 0.35);
+    }
+    .dash-tab-btn.active .tab-badge {
+      background: #EF4444;
+      color: #FFFFFF;
+    }
+
+    /* أوعية التبويبات */
+    .tab-view {
+      display: none;
+      animation: fadeIn 0.2s var(--ease-spring);
+    }
+    .tab-view.active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* =========================================================
+       التبويب 1: عداد الجاهزية والملخص الإحصائي
+       ========================================================= */
     .readiness-hero {
       background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(56, 189, 248, 0.25);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-highlight);
       border-radius: 24px;
-      padding: 30px;
+      padding: 34px 24px;
       text-align: center;
       margin-bottom: 24px;
-      backdrop-filter: blur(16px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+      position: relative;
+      overflow: hidden;
     }
-    .readiness-gauge-wrap {
-      width: 180px;
-      height: 180px;
+    html.light .readiness-hero {
+      background: #FFFFFF;
+      border-color: rgba(15, 23, 42, 0.12);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+    }
+    .readiness-hero::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 250px;
+      height: 120px;
+      background: radial-gradient(ellipse, rgba(56, 189, 248, 0.2), transparent 70%);
+      pointer-events: none;
+    }
+
+    .gauge-container {
+      width: 190px;
+      height: 190px;
       margin: 0 auto 16px;
       position: relative;
       display: flex;
@@ -52,64 +192,730 @@
       stroke: rgba(255, 255, 255, 0.08);
       stroke-width: 12;
     }
+    html.light .gauge-bg { stroke: rgba(15, 23, 42, 0.08); }
     .gauge-fill {
       fill: none;
-      stroke: #38BDF8;
+      stroke: var(--accent-cyan);
       stroke-width: 12;
       stroke-linecap: round;
       stroke-dasharray: 440;
       stroke-dashoffset: 440;
-      transition: stroke-dashoffset 1s ease, stroke 0.5s ease;
+      transition: stroke-dashoffset 1.2s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.6s ease;
+      filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.4));
     }
-    .gauge-center-text {
+    .gauge-content {
       position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.1;
+    }
+    .gauge-pct {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 36px;
-      font-weight: 800;
+      font-size: 2.6rem;
+      font-weight: 900;
       color: #FFFFFF;
+      letter-spacing: -1px;
     }
+    html.light .gauge-pct { color: #0F172A; }
+    .gauge-sublabel {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
     .readiness-title {
-      font-size: 20px;
-      font-weight: 800;
-      color: #FFFFFF;
-      margin-bottom: 6px;
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--text-primary);
+      margin-bottom: 8px;
     }
+    html.light .readiness-title { color: #0F172A; }
     .readiness-desc {
-      font-size: 14px;
-      color: #94A3B8;
-      max-width: 500px;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      max-width: 620px;
       margin: 0 auto;
+      line-height: 1.6;
     }
-    .stats-tri-grid {
+    html.light .readiness-desc { color: #475569; }
+
+    /* شبكة معايير الجاهزية الثلاثية */
+    .pillars-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
       margin-bottom: 24px;
     }
-    .stat-metric-card {
-      background: rgba(15, 23, 42, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
+    @media (max-width: 768px) {
+      .pillars-grid { grid-template-columns: 1fr; }
+    }
+    .pillar-card {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
       padding: 20px;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
-    .stat-metric-val {
+    html.light .pillar-card {
+      background: #FFFFFF;
+      border-color: rgba(15, 23, 42, 0.08);
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03);
+    }
+    .pillar-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-highlight);
+    }
+    .pillar-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .pillar-icon {
+      font-size: 1.4rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    html.light .pillar-icon { background: rgba(15, 23, 42, 0.05); }
+    .pillar-val {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 32px;
+      font-size: 1.65rem;
+      font-weight: 900;
+      color: var(--text-primary);
+    }
+    html.light .pillar-val { color: #0F172A; }
+    .pillar-label {
+      font-size: 0.88rem;
       font-weight: 800;
-      color: #38BDF8;
-      margin-bottom: 4px;
+      color: var(--text-primary);
     }
-    .stat-metric-label {
-      font-size: 14px;
+    html.light .pillar-label { color: #0F172A; }
+    .pillar-sub {
+      font-size: 0.76rem;
+      color: var(--text-secondary);
+    }
+    html.light .pillar-sub { color: #64748B; }
+    .pillar-bar-track {
+      height: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 99px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+    html.light .pillar-bar-track { background: rgba(15, 23, 42, 0.08); }
+    .pillar-bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      transition: width 0.8s ease;
+    }
+
+    /* بطاقة نداء بنك الأخطاء */
+    .mistakes-callout-card {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(245, 158, 11, 0.08));
+      border: 1px solid rgba(239, 68, 68, 0.28);
+      border-radius: 20px;
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    html.light .mistakes-callout-card {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(245, 158, 11, 0.05));
+      border-color: rgba(239, 68, 68, 0.25);
+    }
+    .callout-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .callout-icon {
+      font-size: 2rem;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(239, 68, 68, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .callout-text strong {
+      font-size: 1.05rem;
+      color: #FCA5A5;
+      display: block;
+      margin-bottom: 3px;
+    }
+    html.light .callout-text strong { color: #DC2626; }
+    .callout-text p {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+    html.light .callout-text p { color: #475569; }
+    .callout-cta-btn {
+      padding: 10px 20px;
+      border-radius: 12px;
+      background: #EF4444;
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .callout-cta-btn:hover {
+      background: #DC2626;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(239, 68, 68, 0.35);
+    }
+
+    /* شبكة تشغيل الأدوات السريعة */
+    .quick-launch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .launch-card {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 16px;
+      text-decoration: none;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.2s ease;
+    }
+    html.light .launch-card {
+      background: #FFFFFF;
+      border-color: rgba(15, 23, 42, 0.08);
+      color: #0F172A;
+    }
+    .launch-card:hover {
+      background: rgba(56, 189, 248, 0.08);
+      border-color: rgba(56, 189, 248, 0.3);
+      transform: translateY(-2px);
+    }
+    .launch-icon {
+      font-size: 1.4rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    html.light .launch-icon { background: rgba(15, 23, 42, 0.05); }
+    .launch-title {
+      font-size: 0.88rem;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+    .launch-sub {
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    /* =========================================================
+       التبويب 2: بنك أخطائي الذكي وتحدي التصحيح
+       ========================================================= */
+    .mistakes-controls-bar {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    html.light .mistakes-controls-bar {
+      background: #FFFFFF;
+      border-color: rgba(15, 23, 42, 0.1);
+    }
+    .mistakes-filter-select {
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-primary);
+      padding: 0 14px;
+      font-size: 0.86rem;
+      font-family: inherit;
+      outline: none;
+      cursor: pointer;
+    }
+    html.light .mistakes-filter-select {
+      background: #F8FAFC;
+      border-color: rgba(15, 23, 42, 0.15);
+      color: #0F172A;
+    }
+    .mistakes-view-btns {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .view-mode-btn {
+      padding: 7px 14px;
+      border-radius: 9px;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-secondary);
+      font-size: 0.82rem;
       font-weight: 700;
-      color: #94A3B8;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s ease;
     }
-    .history-card {
+    html.light .view-mode-btn {
+      border-color: rgba(15, 23, 42, 0.12);
+      color: #475569;
+    }
+    .view-mode-btn.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.35);
+      color: var(--accent-cyan);
+    }
+    html.light .view-mode-btn.active {
+      background: rgba(2, 132, 199, 0.1);
+      border-color: rgba(2, 132, 199, 0.3);
+      color: #0284C7;
+    }
+
+    /* كويز تصحيح الأخطاء التفاعلي (Interactive Drill Mode) */
+    .drill-stage-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .drill-card {
       background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+    html.light .drill-card {
+      background: #FFFFFF;
+      border-color: rgba(15, 23, 42, 0.12);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+    }
+    .drill-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 18px;
+    }
+    html.light .drill-header { border-bottom-color: rgba(15, 23, 42, 0.08); }
+    .drill-q-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--accent-cyan);
+    }
+    .drill-btn-audio {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--accent-cyan);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .drill-img-wrap {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .drill-img {
+      max-height: 140px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #FFFFFF;
+      padding: 4px;
+    }
+    .drill-q-text {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+      line-height: 1.4;
+      direction: ltr;
+      text-align: left;
+    }
+    html.light .drill-q-text { color: #0F172A; }
+    .drill-q-tr {
+      font-size: 0.96rem;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    html.light .drill-q-tr { color: #334155; }
+    .drill-actions-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .btn-drill-choice {
+      height: 56px;
+      border-radius: 14px;
+      font-size: 1.2rem;
+      font-weight: 900;
+      cursor: pointer;
+      font-family: inherit;
+      border: none;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-drill-choice.v {
+      background: rgba(16, 185, 129, 0.15);
+      border: 2px solid rgba(16, 185, 129, 0.4);
+      color: #34D399;
+    }
+    .btn-drill-choice.v:hover {
+      background: #10B981;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    .btn-drill-choice.f {
+      background: rgba(239, 68, 68, 0.15);
+      border: 2px solid rgba(239, 68, 68, 0.4);
+      color: #F87171;
+    }
+    .btn-drill-choice.f:hover {
+      background: #EF4444;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    .drill-feedback-box {
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 18px;
+      display: none;
+      animation: fadeIn 0.2s ease;
+    }
+    .drill-feedback-box.correct {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #34D399;
+    }
+    .drill-feedback-box.wrong {
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #FCA5A5;
+    }
+    .drill-next-btn {
+      width: 100%;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--accent-cyan);
+      color: #0B0F19;
+      font-weight: 800;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+    .drill-next-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(56, 189, 248, 0.35);
+    }
+
+    /* قائمة استعراض الأخطاء (Browse Cards) */
+    .mistakes-cards-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .mistake-card {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 18px;
+      transition: border-color 0.15s ease;
+    }
+    html.light .mistake-card {
+      background: #FFFFFF;
+      border-color: rgba(15, 23, 42, 0.08);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+    }
+    .mistake-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .mistake-cap-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: rgba(239, 68, 68, 0.15);
+      color: #F87171;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+    .mistake-correct-ans-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+    .mistake-correct-ans-pill.v {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34D399;
+    }
+    .mistake-correct-ans-pill.f {
+      background: rgba(239, 68, 68, 0.15);
+      color: #F87171;
+    }
+    .mistake-q-it {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      direction: ltr;
+      text-align: left;
+    }
+    html.light .mistake-q-it { color: #0F172A; }
+    .mistake-q-ar {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      line-height: 1.45;
+    }
+    html.light .mistake-q-ar { color: #475569; }
+    .mistake-drawer {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 10px;
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.82rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    html.light .mistake-drawer {
+      background: #F8FAFC;
+      border-color: rgba(15, 23, 42, 0.06);
+    }
+    .trap-tag {
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      color: #FBBF24;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.78rem;
+    }
+    .empty-mistakes-state {
+      text-align: center;
+      padding: 60px 20px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+    }
+    html.light .empty-mistakes-state {
+      background: #FFFFFF;
+      border-color: rgba(15, 23, 42, 0.08);
+    }
+
+    /* =========================================================
+       التبويب 3: خريطة تقدم الأبواب الـ 25
+       ========================================================= */
+    .matrix-summary-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .matrix-stat-chip {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+    html.light .matrix-stat-chip {
+      background: #FFFFFF;
+      border-color: rgba(15, 23, 42, 0.08);
+    }
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 820px) {
+      .matrix-grid { grid-template-columns: 1fr; }
+    }
+    .chapter-card-matrix {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: all 0.2s ease;
+    }
+    html.light .chapter-card-matrix {
+      background: #FFFFFF;
+      border-color: rgba(15, 23, 42, 0.08);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+    }
+    .chapter-card-matrix:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-highlight);
+    }
+    .matrix-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .matrix-cap-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      font-weight: 800;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-cyan);
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .matrix-status-pill {
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .matrix-status-pill.done {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34D399;
+    }
+    .matrix-status-pill.progress {
+      background: rgba(245, 158, 11, 0.15);
+      color: #FBBF24;
+    }
+    .matrix-status-pill.new {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+    }
+    .matrix-card-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.35;
+    }
+    html.light .matrix-card-title { color: #0F172A; }
+    .matrix-card-it {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+    html.light .matrix-card-it { color: #64748B; }
+    .matrix-progress-track {
+      height: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    html.light .matrix-progress-track { background: rgba(15, 23, 42, 0.08); }
+    .matrix-progress-fill {
+      height: 100%;
+      border-radius: 99px;
+      transition: width 0.6s ease;
+    }
+    .matrix-card-stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.74rem;
+      color: var(--text-secondary);
+    }
+    .matrix-actions-row {
+      display: flex;
+      gap: 8px;
+      padding-top: 6px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    html.light .matrix-actions-row { border-top-color: rgba(15, 23, 42, 0.06); }
+    .matrix-btn {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 10px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .matrix-btn.quiz {
+      background: rgba(16, 185, 129, 0.12);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+    .matrix-btn.quiz:hover { background: rgba(16, 185, 129, 0.25); }
+    .matrix-btn.guide {
+      background: rgba(56, 189, 248, 0.12);
+      color: #38BDF8;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+    .matrix-btn.guide:hover { background: rgba(56, 189, 248, 0.25); }
+
+    /* =========================================================
+       التبويب 4: سجل الامتحانات الوزارية
+       ========================================================= */
+    .history-card {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid var(--border-subtle);
       border-radius: 20px;
       padding: 24px;
+    }
+    html.light .history-card {
+      background: #FFFFFF;
+      border-color: rgba(15, 23, 42, 0.08);
     }
     .history-title-strip {
       display: flex;
@@ -119,6 +925,7 @@
       padding-bottom: 12px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
+    html.light .history-title-strip { border-bottom-color: rgba(15, 23, 42, 0.08); }
     .history-item {
       display: flex;
       justify-content: space-between;
@@ -128,153 +935,965 @@
       background: rgba(255, 255, 255, 0.03);
       margin-bottom: 8px;
     }
+    html.light .history-item { background: #F8FAFC; }
     .history-pass { color: #10B981; font-weight: 800; }
     .history-fail { color: #EF4444; font-weight: 800; }
   </style>
 </head>
 <body>
 
-  <!-- شريط الملاحة الموحد والأدوات التفاعلية -->
-  <nav class="unified-portal-nav" id="portal-nav">
-    <a href="../index.html" class="nav-brand">
-      <span style="font-size:1.25rem;">🚦</span>
-      <span>Patente B Pro</span>
-      <span class="badge-tag">A2</span>
-    </a>
-    <nav class="nav-desktop-tabs">
-      <a href="piano-studio.html" class="nav-tab-desktop">📅 الخطة الدراسية</a>
-      <a href="scheda-esame.html" class="nav-tab-desktop">📝 الامتحان</a>
-      <a href="flashcards.html" class="nav-tab-desktop">💡 بطاقات الفلاش</a>
-      <a href="dashboard.html" class="nav-tab-desktop active">📊 لوحة البيانات</a>
-      <a href="traps_and_games.html" class="nav-tab-desktop">🎮 الفخاخ والألعاب</a>
-      <a href="index.html" class="nav-tab-desktop">🏛️ أدلة الشرح</a>
-      <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 بنك الأسئلة</a>
-    </nav>
-    <div class="nav-desktop-actions">
-      <button class="nav-theme-btn" id="themeToggleBtn" onclick="toggleTheme()" title="تبديل الوضع (نهاري / ليلي) [Alt + T]">
-        <span class="theme-icon-span">☀️</span>
-        <span class="theme-label-span">الوضع النهاري</span>
+  <div class="dash-wrapper">
+    <!-- شريط التبويبات العلوية -->
+    <div class="dash-tabs-bar" role="tablist">
+      <button class="dash-tab-btn active" data-tab="tabOverview" role="tab" aria-selected="true">
+        <span>📊</span>
+        <span>الجاهزية والملخص</span>
+      </button>
+      <button class="dash-tab-btn" data-tab="tabMistakes" role="tab" aria-selected="false" id="btnTabMistakes">
+        <span>⚠️</span>
+        <span>بنك أخطائي</span>
+        <span class="tab-badge" id="tabMistakesBadge" style="display:none;">0</span>
+      </button>
+      <button class="dash-tab-btn" data-tab="tabMatrix" role="tab" aria-selected="false">
+        <span>📚</span>
+        <span>خريطة الأبواب (1-25)</span>
+      </button>
+      <button class="dash-tab-btn" data-tab="tabHistory" role="tab" aria-selected="false">
+        <span>📜</span>
+        <span>سجل الامتحانات</span>
       </button>
     </div>
-  </nav>
-  <a href="../index.html" class="action-btn home-btn">🏠 العودة للصفحة الرئيسة</a>
 
-  <div class="dash-container">
-    <!-- بطل مؤشر الجاهزية -->
-    <div class="readiness-hero">
-      <div class="readiness-gauge-wrap">
-        <svg class="gauge-svg" viewBox="0 0 160 160">
-          <circle class="gauge-bg" cx="80" cy="80" r="70" />
-          <circle class="gauge-fill" id="gaugeCircle" cx="80" cy="80" r="70" />
-        </svg>
-        <div class="gauge-center-text" id="gaugeText">0%</div>
+    <!-- =========================================================
+         التبويب 1: عداد الجاهزية والملخص الإحصائي
+         ========================================================= -->
+    <section class="tab-view active" id="tabOverview">
+      <!-- بطل مؤشر الجاهزية -->
+      <div class="readiness-hero">
+        <div class="gauge-container">
+          <svg class="gauge-svg" viewBox="0 0 160 160">
+            <circle class="gauge-bg" cx="80" cy="80" r="70" />
+            <circle class="gauge-fill" id="gaugeCircle" cx="80" cy="80" r="70" />
+          </svg>
+          <div class="gauge-content">
+            <span class="gauge-pct" id="gaugeText">0%</span>
+            <span class="gauge-sublabel">احتمالية النجاح</span>
+          </div>
+        </div>
+
+        <h1 class="readiness-title" id="readinessStatus">ابدأ المذاكرة لقياس جاهزيتك للاختبار الرسمي 🚦</h1>
+        <p class="readiness-desc" id="readinessAdvice">
+          يقيس المؤشر نسبة جاهزيتك الحقيقية لاجتياز اختبار رخصة القيادة الإيطالية (Patente B) في المرور (Motorizzazione) بالاعتماد على تغطية الـ 25 باباً ودقة إجاباتك وسجل أخطائك.
+        </p>
       </div>
-      <div class="readiness-title" id="readinessStatus">ابدأ بحل أول امتحان وزاري لقياس مستواك 👏</div>
-      <div class="readiness-desc">يقيس المؤشر نسبة جاهزيتك لاجتياز الامتحان الوزاري الرسمي بناءً على سجل امتحاناتك وسجل أخطاء التكرار المتباعد (SRS).</div>
-    </div>
 
-    <!-- مقاييس الأداء الثلاثية -->
-    <div class="stats-tri-grid">
-      <div class="stat-metric-card">
-        <div class="stat-metric-val" id="valTotalExams">0</div>
-        <div class="stat-metric-label">عدد الامتحانات المنجزة</div>
+      <!-- بطاقة تنبيه الأخطاء المعلقة إن وجدت -->
+      <div class="mistakes-callout-card" id="mistakesCalloutCard" style="display:none;">
+        <div class="callout-info">
+          <div class="callout-icon">⚠️</div>
+          <div class="callout-text">
+            <strong id="calloutTitle">لديك 0 سؤالاً بحاجة للمراجعة والتصحيح</strong>
+            <p>حل الأخطاء المتكررة وتثبيت القواعد هي أسرع طريقة لرفع نسبة نجاحك وتفادي الرسوب بالمرور.</p>
+          </div>
+        </div>
+        <button class="callout-cta-btn" id="btnGoPracticeMistakes">
+          <span>⚡ بدء تدريب تصحيح الأخطاء الآن</span>
+          <span>⬅</span>
+        </button>
       </div>
-      <div class="stat-metric-card">
-        <div class="stat-metric-val" id="valTotalErrors" style="color:#EF4444;">0</div>
-        <div class="stat-metric-label">أخطاء قيد المراجعة في (SRS)</div>
+
+      <!-- الأعمدة الثلاثة للجاهزية -->
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-top">
+            <span class="pillar-icon">📖</span>
+            <span class="pillar-val" id="pillarCurriculumVal">0%</span>
+          </div>
+          <div class="pillar-label">إنجاز منهج الأبواب الـ 25</div>
+          <div class="pillar-sub" id="pillarCurriculumSub">0 من 7,139 سؤال رسمي</div>
+          <div class="pillar-bar-track">
+            <div class="pillar-bar-fill" id="pillarCurriculumBar" style="width:0%; background:#38BDF8;"></div>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-top">
+            <span class="pillar-icon">🎯</span>
+            <span class="pillar-val" id="pillarAccuracyVal">0%</span>
+          </div>
+          <div class="pillar-label">نسبة الدقة في الإجابات</div>
+          <div class="pillar-sub" id="pillarAccuracySub">0 صح مقابل 0 خطأ</div>
+          <div class="pillar-bar-track">
+            <div class="pillar-bar-fill" id="pillarAccuracyBar" style="width:0%; background:#10B981;"></div>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-top">
+            <span class="pillar-icon">⏱️</span>
+            <span class="pillar-val" id="pillarExamsVal">0%</span>
+          </div>
+          <div class="pillar-label">محاكي الامتحان الوزاري</div>
+          <div class="pillar-sub" id="pillarExamsSub">0 امتحانات مكتملة</div>
+          <div class="pillar-bar-track">
+            <div class="pillar-bar-fill" id="pillarExamsBar" style="width:0%; background:#F59E0B;"></div>
+          </div>
+        </div>
       </div>
-      <div class="stat-metric-card">
-        <div class="stat-metric-val" id="valPassRate" style="color:#10B981;">0%</div>
-        <div class="stat-metric-label">نسبة النجاح العامة</div>
+
+      <!-- شبكة تشغيل الأدوات التفاعلية السريعة -->
+      <div style="font-size:0.86rem; font-weight:800; color:var(--text-secondary); margin-bottom:12px; text-transform:uppercase;">🚀 الوصول السريع للأدوات والمعامل</div>
+      <div class="quick-launch-grid">
+        <a href="scheda-esame.html" class="launch-card">
+          <span class="launch-icon">⏱️</span>
+          <div>
+            <div class="launch-title">محاكي الامتحان الرسمي</div>
+            <div class="launch-sub">30 سؤال في 20 دقيقة بنظام الوزارة</div>
+          </div>
+        </a>
+        <a href="decodificatore-incroci.html" class="launch-card">
+          <span class="launch-icon">🔄</span>
+          <div>
+            <div class="launch-title">مفكك التقاطعات</div>
+            <div class="launch-sub">تحليل أسبقية السير في الميادين</div>
+          </div>
+        </a>
+        <a href="parole-spia.html" class="launch-card">
+          <span class="launch-icon">🎯</span>
+          <div>
+            <div class="launch-title">رادار الكلمات المفتاحية</div>
+            <div class="launch-sub">كشف كلمات التأكيد والفخاخ</div>
+          </div>
+        </a>
+        <a href="laboratorio-numeri.html" class="launch-card">
+          <span class="launch-icon">📏</span>
+          <div>
+            <div class="launch-title">معمل الأرقام والمسافات</div>
+            <div class="launch-sub">حساب السرعات ومسافة الأمان</div>
+          </div>
+        </a>
+        <a href="flashcards.html" class="launch-card">
+          <span class="launch-icon">🗂️</span>
+          <div>
+            <div class="launch-title">الفلاش كاردز التفاعلية</div>
+            <div class="launch-sub">حفظ ومراجعة الإشارات البصرية</div>
+          </div>
+        </a>
+        <a href="piano-studio.html" class="launch-card">
+          <span class="launch-icon">📅</span>
+          <div>
+            <div class="launch-title">خطة الدراسة والجدول</div>
+            <div class="launch-sub">جدول زمني منظم لإنهاء المنهج</div>
+          </div>
+        </a>
       </div>
-    </div>
+    </section>
 
-    <!-- سجل آخر الامتحانات -->
-    <div class="history-card">
-      <div class="history-title-strip">
-        <div style="font-weight:800; font-size:16px;">📜 سجل آخر الامتحانات الوزارية</div>
-        <button id="btnClearHistory" style="background:none; border:none; color:#64748B; font-size:12px; cursor:pointer; font-family:inherit;">🗑️ إعادة تعيين السجل</button>
+    <!-- =========================================================
+         التبويب 2: بنك أخطائي الذكي وتحدي التصحيح
+         ========================================================= -->
+    <section class="tab-view" id="tabMistakes">
+      <!-- شريط أدوات التحكم في بنك الأخطاء -->
+      <div class="mistakes-controls-bar">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <strong style="font-size:1.02rem;">⚠️ بنك الأخطاء: <span id="mistakesTotalCount" style="color:#EF4444;">0</span> سؤال</strong>
+          <select id="mistakesFilterSelect" class="mistakes-filter-select" aria-label="تصفية الأخطاء حسب الباب">
+            <option value="all">كل الأبواب (0)</option>
+          </select>
+        </div>
+
+        <div class="mistakes-view-btns">
+          <button class="view-mode-btn active" id="btnModeBrowse">📋 استعراض الأخطاء</button>
+          <button class="view-mode-btn" id="btnModeDrill">⚡ كويز تصحيح الأخطاء</button>
+          <button class="view-mode-btn" id="btnClearAllErrors" style="color:#EF4444;">🗑️ مسح الأخطاء</button>
+        </div>
       </div>
-      <div id="historyList">
-        <div style="text-align:center; padding:24px; color:#64748B;">لم تقم بإجراء أي امتحان بعد.</div>
-      </div>
-    </div>
-  </div>
 
-  <script src="../assets/js/srs-engine.js"></script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const srs = new PatenteSRSEngine();
-      const history = JSON.parse(localStorage.getItem("patente_exam_history") || "[]");
-      const srsErrors = srs.getAllErrorQuestions();
-
-      document.getElementById("valTotalErrors").textContent = srsErrors.length;
-      document.getElementById("valTotalExams").textContent = history.length;
-
-      let passCount = 0;
-      history.forEach(h => { if (h.passed) passCount++; });
-      const passRate = history.length > 0 ? Math.round((passCount / history.length) * 100) : 0;
-      document.getElementById("valPassRate").textContent = `${passRate}%`;
-
-      // حساب مؤشر الجاهزية (0 - 100)
-      let readiness = 0;
-      if (history.length > 0) {
-        const examWeight = Math.min(history.length * 10, 50); // حتى 5 امتحانات تعطي 50 نقطة
-        const rateWeight = (passRate / 100) * 40; // نسبة النجاح تعطي حتى 40 نقطة
-        const srsPenalty = Math.min(srsErrors.length * 2, 20); // خصم نقاط حسب أخطاء SRS المعلقة
-        readiness = Math.max(0, Math.min(100, Math.round(examWeight + rateWeight - srsPenalty + 10)));
-      }
-
-      document.getElementById("gaugeText").textContent = `${readiness}%`;
-
-      // تحريك الدائرة
-      const circle = document.getElementById("gaugeCircle");
-      const radius = 70;
-      const circumference = 2 * Math.PI * radius; // 439.82
-      circle.style.strokeDasharray = circumference;
-      const offset = circumference - (readiness / 100) * circumference;
-      setTimeout(() => {
-        circle.style.strokeDashoffset = offset;
-        if (readiness >= 80) circle.style.stroke = "#10B981";
-        else if (readiness >= 50) circle.style.stroke = "#38BDF8";
-        else circle.style.stroke = "#F59E0B";
-      }, 100);
-
-      const statusEl = document.getElementById("readinessStatus");
-      if (readiness >= 85) statusEl.textContent = "🚀 مستوى ممتاز! أنت جاهز تماماً للاختبار الرسمي بالمرور";
-      else if (readiness >= 65) statusEl.textContent = "📈 أداء واعد، راجع أخطاء الـ SRS واستمر في حل المحاكي";
-      else if (readiness > 0) statusEl.textContent = "💪 بداية جيدة، ركز على بنك الفخاخ وقواعد الأسبقية";
-
-      // عرض السجل
-      const listEl = document.getElementById("historyList");
-      if (history.length > 0) {
-        listEl.innerHTML = history.slice(-5).reverse().map(item => `
-          <div class="history-item">
-            <div>
-              <div style="font-weight:700; font-size:14px;">امتحان وزاري رسمي (${item.date || 'اليوم'})</div>
-              <div style="font-size:12px; color:#94A3B8;">الزمن المستغرق: ${item.duration || '20 دقيقة'}</div>
-            </div>
-            <div class="${item.passed ? 'history-pass' : 'history-fail'}">
-              ${item.passed ? 'ناجح ✅' : 'راسب ❌'} (${item.errors} أخطاء)
+      <!-- وضع 1: كويز تصحيح الأخطاء التفاعلي (Interactive Drill Mode) -->
+      <div class="drill-stage-container" id="drillStageWrap" style="display:none;">
+        <div class="drill-card" id="drillCard">
+          <div class="drill-header">
+            <span class="drill-q-count" id="drillCounter">السؤال 1 من 1</span>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span id="drillChapterBadge" class="mistake-cap-badge">الباب 01</span>
+              <button class="drill-btn-audio" id="btnDrillAudio" title="نطق السؤال بالإيطالية">
+                <span>🔊 استمع</span>
+              </button>
             </div>
           </div>
-        `).join("");
+
+          <div class="drill-img-wrap" id="drillImgBox" style="display:none;">
+            <img id="drillImg" class="drill-img" src="" alt="إشارة السؤال">
+          </div>
+
+          <div class="drill-q-text" id="drillQuestionText">Caricamento domanda...</div>
+          <div class="drill-q-tr" id="drillQuestionTr">جاري تحميل الترجمة والشرح...</div>
+
+          <div class="drill-actions-row" id="drillActionsRow">
+            <button class="btn-drill-choice v" id="btnDrillVero">
+              <span>VERO ✅</span>
+            </button>
+            <button class="btn-drill-choice f" id="btnDrillFalso">
+              <span>FALSO ❌</span>
+            </button>
+          </div>
+
+          <div class="drill-feedback-box" id="drillFeedbackBox">
+            <div id="drillFeedbackMsg" style="font-weight:800; font-size:1rem; margin-bottom:6px;"></div>
+            <div id="drillFeedbackExplanation" style="font-size:0.86rem; line-height:1.45;"></div>
+            <div id="drillFeedbackTrap" class="trap-tag" style="margin-top:8px; display:inline-block;"></div>
+          </div>
+
+          <button class="drill-next-btn" id="btnDrillNext" style="display:none;">
+            <span>السؤال التالي ⬅</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- وضع 2: قائمة استعراض الأخطاء (Browse Cards List) -->
+      <div class="mistakes-cards-list" id="mistakesCardsList">
+        <!-- Dynamic Cards -->
+      </div>
+
+      <!-- حالة خلو السجل من الأخطاء -->
+      <div class="empty-mistakes-state" id="emptyMistakesState" style="display:none;">
+        <span style="font-size:3.5rem; display:block; margin-bottom:12px;">🏆</span>
+        <h2 style="font-size:1.3rem; font-weight:800; color:#34D399; margin-bottom:6px;">سجل أخطائك نظيف تماماً! أحسنت!</h2>
+        <p style="font-size:0.9rem; color:var(--text-secondary); max-width:480px; margin:0 auto 18px;">
+          لم تسجل أي أخطاء معلقة، أو قمت بتصحيح جميع أسئلتك الخاطئة بنجاح. واصل التدريب وحل الامتحانات!
+        </p>
+        <a href="scheda-esame.html" class="callout-cta-btn" style="background:#10B981;">
+          <span>⏱️ إجراء امتحان وزاري تجريبي</span>
+          <span>⬅</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         التبويب 3: خريطة تقدم الأبواب الـ 25
+         ========================================================= -->
+    <section class="tab-view" id="tabMatrix">
+      <div class="matrix-summary-row">
+        <div class="matrix-stat-chip">
+          <span>🏆 مكتمل:</span>
+          <strong id="matrixCompletedCount" style="color:#10B981;">0</strong>
+          <span>/ 25 باباً</span>
+        </div>
+        <div class="matrix-stat-chip">
+          <span>📈 قيد المذاكرة:</span>
+          <strong id="matrixInProgressCount" style="color:#F59E0B;">0</strong>
+        </div>
+        <div class="matrix-stat-chip">
+          <span>⚪ لم يبدأ بعد:</span>
+          <strong id="matrixUntouchedCount" style="color:#64748B;">25</strong>
+        </div>
+      </div>
+
+      <div class="matrix-grid" id="matrixGridContainer">
+        <!-- 25 Chapters Cards Generated Dynamically -->
+      </div>
+    </section>
+
+    <!-- =========================================================
+         التبويب 4: سجل الامتحانات الوزارية
+         ========================================================= -->
+    <section class="tab-view" id="tabHistory">
+      <div class="history-card">
+        <div class="history-title-strip">
+          <div style="font-weight:800; font-size:1.05rem;">📜 سجل محاكي الامتحانات الوزارية الرسمية</div>
+          <button id="btnClearExamHistory" style="background:none; border:none; color:#EF4444; font-size:0.82rem; cursor:pointer; font-family:inherit; font-weight:700;">🗑️ إعادة تعيين السجل</button>
+        </div>
+        <div id="historyListContainer">
+          <div style="text-align:center; padding:36px; color:#64748B;">لم تقم بإجراء أي امتحان وزاري تجريبي بعد.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- محرك اللوحة وبنك الأخطاء المتكامل -->
+  <script>
+    (function() {
+      'use strict';
+
+      // 1. خريطة الأبواب الرسمية
+      const CHAPTERS_META = [
+        { num: 1, questions: 215, title: 'المفاهيم العامة وواجبات الطريق', itTitle: 'Definizioni generali e doveri della strada', folder: 'Capitolo_01_definizioni_generali_doveri_strada', guide: 'دليل_الباب_01_المفاهيم_العامة_وواجبات_مستخدمي_الطريق.html' },
+        { num: 2, questions: 412, title: 'إشارات الخطر', itTitle: 'Segnali di pericolo', folder: 'Capitolo_02_segnali_pericolo', guide: 'دليل_الباب_02_إشارات_الخطر.html' },
+        { num: 3, questions: 432, title: 'إشارات المنع', itTitle: 'Segnali di divieto', folder: 'Capitolo_03_segnali_divieto', guide: 'دليل_الباب_03_إشارات_المنع.html' },
+        { num: 4, questions: 279, title: 'إشارات الإلزام', itTitle: 'Segnali di obbligo', folder: 'Capitolo_04_segnali_obbligo', guide: 'دليل_الباب_04_إشارات_الإلزام.html' },
+        { num: 5, questions: 214, title: 'إشارات الأسبقية', itTitle: 'Segnali di precedenza', folder: 'Capitolo_05_segnali_precedenza', guide: 'دليل_الباب_05_إشارات_الأسبقية.html' },
+        { num: 6, questions: 379, title: 'العلامات الأرضية والمطبات', itTitle: 'Segnaletica orizzontale e ostacoli', folder: 'Capitolo_06_segnaletica_orizzontale_ostacoli', guide: 'دليل_الباب_06_العلامات_الأرضية_والإشارات_الأفقية.html' },
+        { num: 7, questions: 265, title: 'إشارات المرور الضوئية والشرطي', itTitle: 'Semafori e segnali dei vigili', folder: 'Capitolo_07_semafori_vigili', guide: 'دليل_الباب_07_إشارات_المرور_الضوئية_ورجال_الشرطة.html' },
+        { num: 8, questions: 387, title: 'إشارات الإرشاد والمعلومات والخدمات', itTitle: 'Segnali di indicazione e servizi', folder: 'Capitolo_08_segnali_indicazione', guide: 'دليل_الباب_08_إشارات_الإرشاد_والمعلومات.html' },
+        { num: 9, questions: 184, title: 'إشارات الورش والتحويلات المؤقتة', itTitle: 'Segnali complementari e cantiere', folder: 'Capitolo_09_segnali_complementari_cantiere', guide: 'دليل_الباب_09_الإشارات_التكميلية_وورش_العمل.html' },
+        { num: 10, questions: 221, title: 'اللوحات الإضافية الملحقة بالإشارات', itTitle: 'Pannelli integrativi', folder: 'Capitolo_10_pannelli_integrativi', guide: 'دليل_الباب_10_اللوحات_الإضافية_الملحقة_بالإشارات.html' },
+        { num: 11, questions: 218, title: 'حدود السرعة ومخاطرها', itTitle: 'Limiti di velocità e pericoli', folder: 'Capitolo_11_limiti_di_velocita', guide: 'دليل_الباب_11_حدود_السرعة_ومخاطرها.html' },
+        { num: 12, questions: 219, title: 'مسافة الأمان والعوامل المؤثرة', itTitle: 'Distanza di sicurezza', folder: 'Capitolo_12_distanza_di_sicurezza', guide: 'دليل_الباب_12_مسافة_الأمان_والعوامل_المؤثرة.html' },
+        { num: 13, questions: 367, title: 'قواعد السير وتنظيم الحارات والمسارات', itTitle: 'Norme di circolazione e corsie', folder: 'Capitolo_13_norme_di_circolazione', guide: 'دليل_الباب_13_قواعد_السير_والمسارات.html' },
+        { num: 14, questions: 278, title: 'أسبقية المرور وفك التقاطعات المعقدة', itTitle: 'Precedenza negli incroci', folder: 'Capitolo_14_precedenza_incroci', guide: 'دليل_الباب_14_أسبقية_المرور_وفك_التقاطعات.html' },
+        { num: 15, questions: 265, title: 'مناورة التجاوز والتخطي', itTitle: 'Manovra di sorpasso', folder: 'Capitolo_15_sorpasso', guide: 'دليل_الباب_15_مناورة_التجاوز_والتخطي.html' },
+        { num: 16, questions: 308, title: 'الوقوف والتوقف والركن', itTitle: 'Fermata, sosta e arresto', folder: 'Capitolo_16_fermata_sosta_arresto', guide: 'دليل_الباب_16_الوقوف_والتوقف_والركن.html' },
+        { num: 17, questions: 341, title: 'الأوتوستراد وسحب المقطورات والحمولة', itTitle: 'Autostrade, rimorchi e carico', folder: 'Capitolo_17_norme_varie_autostrade_pannelli', guide: 'دليل_الباب_17_الأوتوستراد_والحمولة_وسحب_المقطورات.html' },
+        { num: 18, questions: 268, title: 'استخدام الأضواء ولمبات التابلوه', itTitle: 'Uso delle luci e spie cruscotto', folder: 'Capitolo_18_luci_dispositivi_acustici', guide: 'دليل_الباب_18_استخدام_الأضواء_ولمبات_التابلوه_والعواكس.html' },
+        { num: 19, questions: 265, title: 'أحزمة الأمان والخوذة ومقاعد الأطفال', itTitle: 'Cinture, casco e seggiolini', folder: 'Capitolo_19_cinture_casco_sicurezza', guide: 'دليل_الباب_19_أحزمة_الأمان_والخوذة_ومقاعد_الأطفال.html' },
+        { num: 20, questions: 374, title: 'رخص القيادة والنقاط والعقوبات الرسمية', itTitle: 'Patenti di guida, punti e sanzioni', folder: 'Capitolo_20_patente_punti_documenti', guide: 'دليل_الباب_20_رخص_القيادة_والنقاط_والعقوبات.html' },
+        { num: 21, questions: 302, title: 'حوادث السير وظروف الطقس الصعبة', itTitle: 'Incidenti stradali e maltempo', folder: 'Capitolo_21_incidenti_stradali_comportamenti', guide: 'دليل_الباب_21_حوادث_السير_وظروف_الطقس_الصعبة.html' },
+        { num: 22, questions: 282, title: 'الكحول والمخدرات والإسعافات الأولية', itTitle: 'Alcool, droga e primo soccorso', folder: 'Capitolo_22_alcool_droga_primo_soccorso', guide: 'دليل_الباب_22_الكحول_والمخدرات_والإسعافات_الأولية.html' },
+        { num: 23, questions: 263, title: 'المسؤولية المدنية والجنائية والتأمين RCA', itTitle: 'Responsabilità civile, penale e RCA', folder: 'Capitolo_23_responsabilita_civile_penale_e_assicurazione', guide: 'دليل_الباب_23_المسؤولية_والتأمين.html' },
+        { num: 24, questions: 233, title: 'استهلاك الوقود وحماية البيئة والتلوث', itTitle: 'Consumi ed inquinamento', folder: 'Capitolo_24_consumi_ambiente_inquinamento', guide: 'دليل_الباب_24_استهلاك_الوقود_وحماية_البيئة.html' },
+        { num: 25, questions: 400, title: 'الميكانيكا وصيانة المركبة وأجهزة الأمان', itTitle: 'Elementi del veicolo e manutenzione', folder: 'Capitolo_25_elementi_veicolo_manutenzione_comportamenti', guide: 'دليل_الباب_25_الميكانيكا_وصيانة_المركبة_وأجهزة_الأمان.html' }
+      ];
+
+      const TOTAL_QUESTIONS_COUNT = 7139;
+
+      let allMistakes = [];
+      let currentDrillIndex = 0;
+      let activeMistakesFilter = 'all';
+      let audioEngine = null;
+
+      try {
+        if (typeof PatenteAudioEngine === 'function') {
+          audioEngine = new PatenteAudioEngine();
+        }
+      } catch (_) {}
+
+      // فهرسة الأسئلة بالـ composite key (ch_id) للبحث O(1)
+      const questionsIndex = new Map();
+      if (typeof ALL_QUESTIONS_DATA !== 'undefined' && Array.isArray(ALL_QUESTIONS_DATA)) {
+        ALL_QUESTIONS_DATA.forEach(q => {
+          questionsIndex.set(`${q.ch}_${q.id}`, q);
+        });
       }
 
-      document.getElementById("btnClearHistory").addEventListener("click", () => {
-        if (confirm("هل تريد بالتأكيد مسح سجل الامتحانات والإحصائيات؟")) {
-          localStorage.removeItem("patente_exam_history");
-          location.reload();
+      function resolveImgPath(img) {
+        if (!img || typeof img !== 'string') return null;
+        if (img.startsWith('http')) return img;
+        if (img.startsWith('../')) return img;
+        if (img.includes('Capitolo_')) return `../Capitoli_Divisi/${img}`;
+        const filename = img.split('/').pop().trim();
+        return filename ? `../img_sign/${filename}` : null;
+      }
+
+      // 2. تجميع كافة الأخطاء عبر الأبواب والـ SRS
+      function collectAllMistakes() {
+        const list = [];
+        const seen = new Set();
+
+        // 1. فحص ملفات تقدم الأبواب (patente_progress_cap_1 to 25)
+        for (let ch = 1; ch <= 25; ch++) {
+          try {
+            const raw = localStorage.getItem('patente_progress_cap_' + ch);
+            if (raw) {
+              const parsed = JSON.parse(raw);
+              if (parsed && parsed.userAnswers) {
+                Object.keys(parsed.userAnswers).forEach(qidStr => {
+                  const ans = parsed.userAnswers[qidStr];
+                  if (ans && ans.isCorrect === false) {
+                    const qid = parseInt(qidStr, 10);
+                    const key = `${ch}_${qid}`;
+                    if (!seen.has(key)) {
+                      seen.add(key);
+                      const fullQ = questionsIndex.get(key) || {};
+                      list.push({
+                        key,
+                        ch,
+                        id: qid,
+                        q: fullQ.q || 'Testo domanda...',
+                        a: (fullQ.a !== undefined) ? fullQ.a : false,
+                        tr: fullQ.tr || 'الترجمة قيد المراجعة',
+                        sp: fullQ.sp || 'الشرح المعتمد وفق كود السير.',
+                        tb: fullQ.tb || '',
+                        img: resolveImgPath(fullQ.img),
+                        pk: fullQ.pk || [],
+                        userChoice: ans.userChoice,
+                        source: 'chapter'
+                      });
+                    }
+                  }
+                });
+              }
+            }
+          } catch (e) {
+            console.warn('Error collecting mistakes for cap', ch, e);
+          }
+        }
+
+        // 2. فحص مخزن أخطاء SRS (patente_b_pro_srs_vault)
+        try {
+          const srsRaw = localStorage.getItem('patente_b_pro_srs_vault');
+          if (srsRaw) {
+            const vault = JSON.parse(srsRaw);
+            Object.keys(vault).forEach(qidStr => {
+              const item = vault[qidStr];
+              const qid = parseInt(qidStr, 10);
+              const ch = item.capitolo || 1;
+              const key = `${ch}_${qid}`;
+              if (!seen.has(key)) {
+                seen.add(key);
+                const fullQ = questionsIndex.get(key) || {};
+                list.push({
+                  key,
+                  ch,
+                  id: qid,
+                  q: item.domanda || fullQ.q || 'Testo domanda...',
+                  a: (item.risposta !== undefined) ? item.risposta : ((fullQ.a !== undefined) ? fullQ.a : false),
+                  tr: item.traduzione || fullQ.tr || '',
+                  sp: item.spiegazione || fullQ.sp || '',
+                  tb: item.trabocchetto || fullQ.tb || '',
+                  img: resolveImgPath(item.img || fullQ.img),
+                  pk: item.parole_chiave || fullQ.pk || [],
+                  source: 'srs'
+                });
+              }
+            });
+          }
+        } catch (_) {}
+
+        return list;
+      }
+
+      // 3. تصحيح خطأ وحفظه فورياً
+      function resolveMistake(ch, qid, newChoice) {
+        const capKey = 'patente_progress_cap_' + ch;
+        try {
+          const raw = localStorage.getItem(capKey);
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            if (parsed && parsed.userAnswers && parsed.userAnswers[qid]) {
+              parsed.userAnswers[qid] = {
+                userChoice: newChoice,
+                isCorrect: true,
+                correctedAt: Date.now()
+              };
+              if (parsed.userStats) {
+                parsed.userStats.correct = (parsed.userStats.correct || 0) + 1;
+                parsed.userStats.wrong = Math.max(0, (parsed.userStats.wrong || 1) - 1);
+              }
+              localStorage.setItem(capKey, JSON.stringify(parsed));
+            }
+          }
+        } catch (_) {}
+
+        // تحديث مخزن SRS إن وجد
+        try {
+          const srsKey = 'patente_b_pro_srs_vault';
+          const srsRaw = localStorage.getItem(srsKey);
+          if (srsRaw) {
+            const srsVault = JSON.parse(srsRaw);
+            if (srsVault[qid]) {
+              srsVault[qid].consecutiveCorrect = (srsVault[qid].consecutiveCorrect || 0) + 1;
+              if (srsVault[qid].consecutiveCorrect >= 2) {
+                delete srsVault[qid];
+              }
+              localStorage.setItem(srsKey, JSON.stringify(srsVault));
+            }
+          }
+        } catch (_) {}
+
+        // تحديث شارات الهيدر الموحد فوراً
+        if (typeof window.updatePortalProgress === 'function') {
+          window.updatePortalProgress();
+        }
+
+        // تحديث القائمة المحلية
+        allMistakes = allMistakes.filter(m => !(m.ch === ch && m.id === qid));
+        renderMistakesUi();
+        calculateAndRenderStats();
+      }
+
+      // 4. حساب وإظهار مؤشرات الجاهزية والخريطة
+      function calculateAndRenderStats() {
+        let totalAnswered = 0;
+        let totalCorrect = 0;
+        let completedCaps = 0;
+        let inProgressCaps = 0;
+        let untouchedCaps = 0;
+
+        const chaptersStats = [];
+
+        for (let ch = 1; ch <= 25; ch++) {
+          const meta = CHAPTERS_META.find(c => c.num === ch);
+          const totalQ = meta ? meta.questions : 200;
+          let ansCount = 0;
+          let cCount = 0;
+          let wCount = 0;
+
+          try {
+            const raw = localStorage.getItem('patente_progress_cap_' + ch);
+            if (raw) {
+              const parsed = JSON.parse(raw);
+              if (parsed && parsed.userAnswers) {
+                const keys = Object.keys(parsed.userAnswers);
+                ansCount = keys.length;
+                keys.forEach(k => {
+                  if (parsed.userAnswers[k] && parsed.userAnswers[k].isCorrect) cCount++;
+                  else if (parsed.userAnswers[k] && parsed.userAnswers[k].isCorrect === false) wCount++;
+                });
+              }
+            }
+          } catch (_) {}
+
+          totalAnswered += ansCount;
+          totalCorrect += cCount;
+
+          const pct = Math.min(100, Math.round((ansCount / totalQ) * 100));
+          if (pct >= 100) completedCaps++;
+          else if (ansCount > 0) inProgressCaps++;
+          else untouchedCaps++;
+
+          chaptersStats.push({
+            num: ch,
+            meta,
+            answered: ansCount,
+            correct: cCount,
+            wrong: wCount,
+            totalQ,
+            pct,
+            completed: pct >= 100
+          });
+        }
+
+        // سجل الامتحانات الوزارية
+        const examHistory = JSON.parse(localStorage.getItem('patente_exam_history') || '[]');
+        let passCount = 0;
+        examHistory.forEach(h => { if (h.passed) passCount++; });
+        const examPassRate = examHistory.length > 0 ? Math.round((passCount / examHistory.length) * 100) : 0;
+
+        // دقة الإجابات
+        const accuracyRate = totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
+
+        // تغطية المنهج
+        const curriculumPct = Math.min(100, Math.round((totalAnswered / TOTAL_QUESTIONS_COUNT) * 100));
+
+        // حساب مؤشر الجاهزية بالمرور (Exam Passing Probability 0 - 100%)
+        let examScore = 0;
+        if (examHistory.length > 0) {
+          const recent = examHistory.slice(-10);
+          const pCnt = recent.filter(e => e.passed).length;
+          const pRate = (pCnt / recent.length) * 100;
+          const vol = Math.min(recent.length * 10, 100);
+          examScore = (pRate * 0.7) + (vol * 0.3);
+        }
+
+        const uncorrectedErrors = allMistakes.length;
+        const penalty = Math.min(15, uncorrectedErrors * 0.4);
+
+        let readiness = 0;
+        if (examHistory.length === 0) {
+          readiness = Math.round(curriculumPct * 0.6 + accuracyRate * 0.4 - penalty);
+        } else {
+          readiness = Math.round(curriculumPct * 0.35 + accuracyRate * 0.30 + examScore * 0.35 - penalty);
+        }
+        readiness = Math.max(0, Math.min(100, readiness));
+
+        // رسم الدائرة
+        const circle = document.getElementById('gaugeCircle');
+        const gaugeText = document.getElementById('gaugeText');
+        if (gaugeText) gaugeText.textContent = `${readiness}%`;
+
+        if (circle) {
+          const radius = 70;
+          const circumference = 2 * Math.PI * radius; // 439.82
+          circle.style.strokeDasharray = circumference;
+          const offset = circumference - (readiness / 100) * circumference;
+          setTimeout(() => {
+            circle.style.strokeDashoffset = offset;
+            if (readiness >= 85) circle.style.stroke = '#10B981';
+            else if (readiness >= 70) circle.style.stroke = '#38BDF8';
+            else if (readiness >= 40) circle.style.stroke = '#F59E0B';
+            else circle.style.stroke = '#EF4444';
+          }, 80);
+        }
+
+        // تشخيص مستوى الجاهزية
+        const statusEl = document.getElementById('readinessStatus');
+        const adviceEl = document.getElementById('readinessAdvice');
+        if (readiness >= 85) {
+          if (statusEl) statusEl.textContent = '🚀 مستوى ممتاز! جاهز بنسبة 95%+ لاجتياز اختبار المرور';
+          if (adviceEl) adviceEl.textContent = 'أداؤك مذهل وثابت! تغطيتك للمنهج عالية ودقتك ممتازة. يمكنك التوجه للامتحان الرسمي بثقة تامة.';
+        } else if (readiness >= 70) {
+          if (statusEl) statusEl.textContent = '📈 أداء متقدم ومبشر! اقتربت جداً من الجاهزية التامة';
+          if (adviceEl) adviceEl.textContent = 'مستواك رائع، استمر في حل امتحانات المحاكي الوزاري وتصحيح الأخطاء المتبقية لضمان النتيجة.';
+        } else if (readiness >= 40) {
+          if (statusEl) statusEl.textContent = '⚡ أداء جيد وقيد التطور! واصل مذاكرة باقي الأبواب';
+          if (adviceEl) adviceEl.textContent = 'قطعت شوطاً طيباً، ركز على مراجعة الأخطاء في بنك الأخطاء وتثبيت الإشارات المعقدة لرفع نسبة جاهزيتك.';
+        } else {
+          if (statusEl) statusEl.textContent = '📚 في بداية الرحلة! ابدأ بحل الأبواب الموديلار خطوة بخطوة';
+          if (adviceEl) adviceEl.textContent = 'كل خطوة مهمة! افتح أول باب وتدرب على كويزاته، وستشهد نسبة جاهزيتك ترتفع مع كل وحدة تنجزها.';
+        }
+
+        // بطاقات المعايير الثلاثة
+        document.getElementById('pillarCurriculumVal').textContent = `${curriculumPct}%`;
+        document.getElementById('pillarCurriculumSub').textContent = `تم إنجاز ${totalAnswered} من ${TOTAL_QUESTIONS_COUNT} سؤال`;
+        document.getElementById('pillarCurriculumBar').style.width = `${curriculumPct}%`;
+
+        document.getElementById('pillarAccuracyVal').textContent = `${accuracyRate}%`;
+        document.getElementById('pillarAccuracySub').textContent = `${totalCorrect} صح مقابل ${totalAnswered - totalCorrect} خطأ`;
+        document.getElementById('pillarAccuracyBar').style.width = `${accuracyRate}%`;
+
+        document.getElementById('pillarExamsVal').textContent = `${examPassRate}%`;
+        document.getElementById('pillarExamsSub').textContent = `${examHistory.length} امتحان (${passCount} ناجح)`;
+        document.getElementById('pillarExamsBar').style.width = `${examPassRate}%`;
+
+        // إحصائيات خريطة الأبواب
+        document.getElementById('matrixCompletedCount').textContent = completedCaps;
+        document.getElementById('matrixInProgressCount').textContent = inProgressCaps;
+        document.getElementById('matrixUntouchedCount').textContent = untouchedCaps;
+
+        // توليد بطاقات خريطة الأبواب الـ 25
+        const grid = document.getElementById('matrixGridContainer');
+        if (grid) {
+          grid.innerHTML = chaptersStats.map(c => {
+            const pad = c.num < 10 ? '0' + c.num : String(c.num);
+            const statusLabel = c.completed 
+              ? '<span class="matrix-status-pill done">✅ مكتمل 100%</span>'
+              : (c.answered > 0 ? `<span class="matrix-status-pill progress">🟡 ${c.pct}%</span>` : '<span class="matrix-status-pill new">⚪ لم يبدأ</span>');
+            const chErrors = allMistakes.filter(m => m.ch === c.num).length;
+            const errorBadge = chErrors > 0 ? `<span class="tab-badge" style="cursor:pointer;" onclick="window.filterMistakesByChapter(${c.num})">⚠️ ${chErrors} أخطاء</span>` : '';
+
+            return `
+              <div class="chapter-card-matrix">
+                <div class="matrix-card-top">
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <span class="matrix-cap-pill">الباب ${pad}</span>
+                    ${errorBadge}
+                  </div>
+                  ${statusLabel}
+                </div>
+                <div>
+                  <div class="matrix-card-title">${c.meta.title}</div>
+                  <div class="matrix-card-it">${c.meta.itTitle}</div>
+                </div>
+                <div class="matrix-progress-track">
+                  <div class="matrix-progress-fill" style="width:${c.pct}%; background:${c.completed ? '#10B981' : (c.pct > 50 ? '#38BDF8' : '#F59E0B')};"></div>
+                </div>
+                <div class="matrix-card-stats">
+                  <span>تم حل: ${c.answered} / ${c.totalQ} سؤال</span>
+                  <span>نسبة الإنجاز: ${c.pct}%</span>
+                </div>
+                <div class="matrix-actions-row">
+                  <a href="../Capitoli_Divisi/${c.meta.folder}/index.html" class="matrix-btn quiz">
+                    <span>📝 حل الأسئلة</span>
+                  </a>
+                  <a href="${c.meta.guide}" class="matrix-btn guide">
+                    <span>📖 الشرح</span>
+                  </a>
+                </div>
+              </div>
+            `;
+          }).join('');
+        }
+
+        // عرض سجل الامتحانات
+        const historyContainer = document.getElementById('historyListContainer');
+        if (historyContainer) {
+          if (examHistory.length > 0) {
+            historyContainer.innerHTML = examHistory.slice(-8).reverse().map(item => `
+              <div class="history-item">
+                <div>
+                  <div style="font-weight:700; font-size:0.92rem;">امتحان وزاري رسمي (${item.date || 'مؤخراً'})</div>
+                  <div style="font-size:0.75rem; color:#94A3B8;">الزمن: ${item.duration || '20 دقيقة'} • عدد الأسئلة: 30</div>
+                </div>
+                <div class="${item.passed ? 'history-pass' : 'history-fail'}">
+                  ${item.passed ? 'ناجح ✅' : 'راسب ❌'} (${item.errors} أخطاء)
+                </div>
+              </div>
+            `).join('');
+          } else {
+            historyContainer.innerHTML = `<div style="text-align:center; padding:36px; color:#64748B;">لم تقم بإجراء أي امتحان وزاري تجريبي بعد.</div>`;
+          }
+        }
+      }
+
+      // 5. إدارة بنك الأخطاء التفاعلي
+      function renderMistakesUi() {
+        const total = allMistakes.length;
+        const totalCountEl = document.getElementById('mistakesTotalCount');
+        const badgeEl = document.getElementById('tabMistakesBadge');
+        const calloutCard = document.getElementById('mistakesCalloutCard');
+        const calloutTitle = document.getElementById('calloutTitle');
+        const emptyState = document.getElementById('emptyMistakesState');
+        const cardsList = document.getElementById('mistakesCardsList');
+        const drillStage = document.getElementById('drillStageWrap');
+
+        if (totalCountEl) totalCountEl.textContent = total;
+        if (badgeEl) {
+          badgeEl.textContent = total;
+          badgeEl.style.display = total > 0 ? 'inline-block' : 'none';
+        }
+
+        if (total > 0) {
+          if (calloutCard) calloutCard.style.display = 'flex';
+          if (calloutTitle) calloutTitle.textContent = `لديك ${total} سؤالاً بحاجة للمراجعة والتصحيح ⚠️`;
+          if (emptyState) emptyState.style.display = 'none';
+        } else {
+          if (calloutCard) calloutCard.style.display = 'none';
+          if (emptyState) emptyState.style.display = 'block';
+          if (cardsList) cardsList.innerHTML = '';
+          if (drillStage) drillStage.style.display = 'none';
+          return;
+        }
+
+        // تحديث خيارات فلتر الأبواب
+        const filterSelect = document.getElementById('mistakesFilterSelect');
+        if (filterSelect) {
+          const capCounts = {};
+          allMistakes.forEach(m => { capCounts[m.ch] = (capCounts[m.ch] || 0) + 1; });
+          let optHtml = `<option value="all">كل الأبواب (${total})</option>`;
+          Object.keys(capCounts).sort((a,b) => a-b).forEach(ch => {
+            const meta = CHAPTERS_META.find(c => c.num == ch);
+            const title = meta ? meta.title : `الباب ${ch}`;
+            optHtml += `<option value="${ch}" ${activeMistakesFilter == ch ? 'selected' : ''}>الباب ${ch}: ${title} (${capCounts[ch]})</option>`;
+          });
+          filterSelect.innerHTML = optHtml;
+        }
+
+        // فلترة القائمة
+        const filtered = activeMistakesFilter === 'all' 
+          ? allMistakes 
+          : allMistakes.filter(m => m.ch == activeMistakesFilter);
+
+        // وضع الاستعراض
+        if (cardsList) {
+          cardsList.innerHTML = filtered.map(m => {
+            const pad = m.ch < 10 ? '0' + m.ch : String(m.ch);
+            return `
+              <div class="mistake-card" id="mcard-${m.key}">
+                <div class="mistake-card-top">
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <span class="mistake-cap-badge">الباب ${pad}</span>
+                    <span class="mistake-correct-ans-pill ${m.a ? 'v' : 'f'}">الإجابة الصحيحة: ${m.a ? 'VERO ✅' : 'FALSO ❌'}</span>
+                  </div>
+                  <button class="drill-btn-audio" onclick="window.speakItalianText('${escapeForAttr(m.q)}')">
+                    <span>🔊 نطق</span>
+                  </button>
+                </div>
+                ${m.img ? `<div style="text-align:center; margin-bottom:10px;"><img src="${m.img}" style="max-height:90px; border-radius:8px; border:1px solid rgba(255,255,255,0.1); background:#FFF; padding:3px;" alt="إشارة"></div>` : ''}
+                <div class="mistake-q-it">${window.escapeHtml(m.q)}</div>
+                <div class="mistake-q-ar">${window.escapeHtml(m.tr)}</div>
+                <div class="mistake-drawer">
+                  <div><strong>💡 الشرح والقاعدة:</strong> ${window.escapeHtml(m.sp)}</div>
+                  ${m.tb ? `<div class="trap-tag">⚠️ كشف الفخ: ${window.escapeHtml(m.tb)}</div>` : ''}
+                </div>
+                <div style="margin-top:12px; display:flex; justify-content:flex-end;">
+                  <button class="callout-cta-btn" style="background:#10B981; font-size:0.8rem; padding:6px 14px;" onclick="window.resolveSingleMistake(${m.ch}, ${m.id}, ${m.a})">
+                    <span>✅ تم الحفظ والفهم (إزالة من الأخطاء)</span>
+                  </button>
+                </div>
+              </div>
+            `;
+          }).join('');
+        }
+      }
+
+      function escapeForAttr(str) {
+        return (str || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+      }
+
+      window.speakItalianText = function(text) {
+        if (audioEngine && typeof audioEngine.speakItalian === 'function') {
+          audioEngine.speakItalian(text);
+        } else if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          const u = new SpeechSynthesisUtterance(text);
+          u.lang = 'it-IT';
+          u.rate = 0.85;
+          window.speechSynthesis.speak(u);
+        }
+      };
+
+      window.resolveSingleMistake = function(ch, qid, correctChoice) {
+        if (audioEngine) audioEngine.playFeedbackTone('correct');
+        resolveMistake(ch, qid, correctChoice);
+      };
+
+      window.filterMistakesByChapter = function(ch) {
+        activeMistakesFilter = ch;
+        switchTab('tabMistakes');
+        renderMistakesUi();
+      };
+
+      // 6. تشغيل كويز تصحيح الأخطاء (Practice Drill Quiz)
+      function startMistakesDrill() {
+        const filtered = activeMistakesFilter === 'all' 
+          ? allMistakes 
+          : allMistakes.filter(m => m.ch == activeMistakesFilter);
+
+        if (filtered.length === 0) return;
+
+        currentDrillIndex = 0;
+        document.getElementById('drillStageWrap').style.display = 'block';
+        document.getElementById('mistakesCardsList').style.display = 'none';
+        document.getElementById('btnModeDrill').classList.add('active');
+        document.getElementById('btnModeBrowse').classList.remove('active');
+        loadDrillQuestion();
+      }
+
+      function stopMistakesDrill() {
+        document.getElementById('drillStageWrap').style.display = 'none';
+        document.getElementById('mistakesCardsList').style.display = 'flex';
+        document.getElementById('btnModeDrill').classList.remove('active');
+        document.getElementById('btnModeBrowse').classList.add('active');
+      }
+
+      function loadDrillQuestion() {
+        const filtered = activeMistakesFilter === 'all' 
+          ? allMistakes 
+          : allMistakes.filter(m => m.ch == activeMistakesFilter);
+
+        if (currentDrillIndex >= filtered.length) {
+          // اكتمال الجلسة
+          document.getElementById('drillQuestionText').innerHTML = '🎉 أحسنت صنعاً!';
+          document.getElementById('drillQuestionTr').textContent = 'تم الانتهاء من مراجعة وتصحيح هذه المجموعة من الأخطاء.';
+          document.getElementById('drillActionsRow').style.display = 'none';
+          document.getElementById('drillFeedbackBox').style.display = 'none';
+          document.getElementById('drillNextBtn').style.display = 'block';
+          document.getElementById('drillNextBtn').textContent = 'العودة لقائمة الأخطاء ↺';
+          document.getElementById('drillNextBtn').onclick = stopMistakesDrill;
+          return;
+        }
+
+        const q = filtered[currentDrillIndex];
+        const pad = q.ch < 10 ? '0' + q.ch : String(q.ch);
+
+        document.getElementById('drillCounter').textContent = `السؤال ${currentDrillIndex + 1} من ${filtered.length}`;
+        document.getElementById('drillChapterBadge').textContent = `الباب ${pad}`;
+        document.getElementById('drillQuestionText').textContent = q.q;
+        document.getElementById('drillQuestionTr').textContent = q.tr;
+
+        const imgBox = document.getElementById('drillImgBox');
+        const imgEl = document.getElementById('drillImg');
+        if (q.img) {
+          imgEl.src = q.img;
+          imgBox.style.display = 'block';
+        } else {
+          imgBox.style.display = 'none';
+        }
+
+        // إعادة ضبط الأزرار والملاحظات
+        document.getElementById('drillActionsRow').style.display = 'grid';
+        document.getElementById('drillFeedbackBox').style.display = 'none';
+        document.getElementById('btnDrillNext').style.display = 'none';
+
+        const btnV = document.getElementById('btnDrillVero');
+        const btnF = document.getElementById('btnDrillFalso');
+        btnV.onclick = () => handleDrillAnswer(q, true);
+        btnF.onclick = () => handleDrillAnswer(q, false);
+
+        document.getElementById('btnDrillAudio').onclick = () => window.speakItalianText(q.q);
+      }
+
+      function handleDrillAnswer(q, userChoice) {
+        const isCorrect = (userChoice === q.a);
+        const fbBox = document.getElementById('drillFeedbackBox');
+        const fbMsg = document.getElementById('drillFeedbackMsg');
+        const fbExp = document.getElementById('drillFeedbackExplanation');
+        const fbTrap = document.getElementById('drillFeedbackTrap');
+        const nextBtn = document.getElementById('btnDrillNext');
+
+        document.getElementById('drillActionsRow').style.display = 'none';
+        fbBox.style.display = 'block';
+        nextBtn.style.display = 'block';
+        nextBtn.textContent = 'السؤال التالي ⬅';
+        nextBtn.onclick = () => {
+          currentDrillIndex++;
+          loadDrillQuestion();
+        };
+
+        if (isCorrect) {
+          if (audioEngine) audioEngine.playFeedbackTone('correct');
+          fbBox.className = 'drill-feedback-box correct';
+          fbMsg.innerHTML = '🎉 أحسنت! إجابة صحيحة وتم تصحيح الخطأ!';
+          fbExp.innerHTML = `<strong>القاعدة:</strong> ${window.escapeHtml(q.sp)}`;
+          // تطبيق التصحيح الفوري
+          resolveMistake(q.ch, q.id, userChoice);
+        } else {
+          if (audioEngine) audioEngine.playFeedbackTone('error');
+          fbBox.className = 'drill-feedback-box wrong';
+          fbMsg.innerHTML = `❌ للأسف إجابة خاطئة! الإجابة الصحيحة هي: <strong>${q.a ? 'VERO' : 'FALSO'}</strong>`;
+          fbExp.innerHTML = `<strong>الشرح المروري:</strong> ${window.escapeHtml(q.sp)}`;
+        }
+
+        if (q.tb) {
+          fbTrap.style.display = 'inline-block';
+          fbTrap.textContent = `⚠️ كشف الفخ: ${q.tb}`;
+        } else {
+          fbTrap.style.display = 'none';
+        }
+      }
+
+      // 7. إدارة التبويبات
+      function switchTab(tabId) {
+        document.querySelectorAll('.dash-tab-btn').forEach(b => {
+          b.classList.toggle('active', b.getAttribute('data-tab') === tabId);
+        });
+        document.querySelectorAll('.tab-view').forEach(v => {
+          v.classList.toggle('active', v.id === tabId);
+        });
+      }
+
+      document.querySelectorAll('.dash-tab-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const tab = this.getAttribute('data-tab');
+          switchTab(tab);
+        });
+      });
+
+      // أزرار أخرى
+      document.getElementById('btnGoPracticeMistakes').addEventListener('click', () => {
+        switchTab('tabMistakes');
+        startMistakesDrill();
+      });
+      document.getElementById('btnModeDrill').addEventListener('click', startMistakesDrill);
+      document.getElementById('btnModeBrowse').addEventListener('click', stopMistakesDrill);
+
+      const filterSelect = document.getElementById('mistakesFilterSelect');
+      if (filterSelect) {
+        filterSelect.addEventListener('change', function() {
+          activeMistakesFilter = this.value;
+          renderMistakesUi();
+        });
+      }
+
+      document.getElementById('btnClearAllErrors').addEventListener('click', () => {
+        if (confirm('هل أنت متأكد من رغبتك في تفريغ وإعادة تعيين سجل الأخطاء؟')) {
+          localStorage.removeItem('patente_b_pro_srs_vault');
+          allMistakes = [];
+          renderMistakesUi();
+          calculateAndRenderStats();
         }
       });
-    });
 
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('../service-worker.js').catch(err => console.log('SW err', err));
+      document.getElementById('btnClearExamHistory').addEventListener('click', () => {
+        if (confirm('هل تريد مسح سجل الامتحانات التجريبية بالكامل؟')) {
+          localStorage.removeItem('patente_exam_history');
+          calculateAndRenderStats();
+        }
       });
-    }
+
+      // 8. فحص الـ Hash في الرابط للتوجيه التلقائي
+      function checkUrlHash() {
+        const hash = window.location.hash.toLowerCase();
+        if (hash.includes('mistake') || hash.includes('error')) {
+          switchTab('tabMistakes');
+        } else if (hash.includes('matrix') || hash.includes('chapter')) {
+          switchTab('tabMatrix');
+        } else if (hash.includes('history')) {
+          switchTab('tabHistory');
+        }
+      }
+
+      // التهيئة عند تحميل المستند
+      document.addEventListener('DOMContentLoaded', () => {
+        allMistakes = collectAllMistakes();
+        renderMistakesUi();
+        calculateAndRenderStats();
+        checkUrlHash();
+
+        window.addEventListener('hashchange', checkUrlHash);
+      });
+
+    })();
   </script>
 </body>
 </html>
