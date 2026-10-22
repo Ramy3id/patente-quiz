@@ -402,6 +402,17 @@
 </head>
 <body>
 
+  <!-- شريط العينة المجانية للزوار -->
+  <div class="guest-free-sample-banner" id="guestTrucchiBanner" style="display:none;">
+    <div class="sample-banner-text">
+      <span>🎁</span>
+      <span><strong>عينة مجانية:</strong> أنت تتصفح عينة مجانية تشمل أول 5 حيل ودساتير للأبواب. سجّل حسابك المجاني في ثوانٍ لفتح جميع الـ 25 باباً ودستور الامتحان بالكامل!</span>
+    </div>
+    <button class="sample-banner-btn" onclick="window.PatenteAuth && window.PatenteAuth.openAuthModal(true)">
+      <span>🚀 فتح باقي الـ 20 باباً مجاناً</span>
+    </button>
+  </div>
+
   <div class="tr-container">
 
     <!-- شريط التنقل -->
@@ -999,34 +1010,68 @@
 
     function renderConstitutionGrid() {
       const container = document.getElementById('capGrid');
-      container.innerHTML = CHAPTERS_RULES.map(c => `
-        <div class="cap-card">
-          <div>
-            <div class="cap-card-header">
-              <span class="cap-num-badge">الباب ${c.num}</span>
-              <span style="font-size:0.8rem; font-weight:700; color:var(--tr-text-sub);">${c.count} سؤالاً</span>
-            </div>
-            <h3 class="cap-title-ar">${c.ar}</h3>
-            <div class="cap-title-it">${c.it}</div>
-            
-            <div class="cap-secret-box">
-              <strong>✨ السوبر تريكة:</strong> ${c.secret}
-            </div>
-            <div class="cap-trap-box">
-              <strong>⚠️ الفخ الوزاري:</strong> ${c.trap}
-            </div>
-          </div>
+      if (!container) return;
 
-          <div class="cap-footer">
-            <span>بنك الوزارة الرسمي</span>
-            <a href="../Capitoli_Divisi/Capitolo_${String(c.num).padStart(2, '0')}_${getSlug(c.num)}/index.html" class="btn-cap-train">
-              <span>تدرب على الباب</span>
-              <span>⬅️</span>
-            </a>
+      const isLoggedIn = (window.PatenteAuth && window.PatenteAuth.isLoggedIn) ? window.PatenteAuth.isLoggedIn() : Boolean(localStorage.getItem('patente_user_profile'));
+
+      const banner = document.getElementById('guestTrucchiBanner');
+      if (banner) banner.style.display = isLoggedIn ? 'none' : 'flex';
+
+      container.innerHTML = CHAPTERS_RULES.map((c, idx) => {
+        const isLocked = !isLoggedIn && idx >= 5;
+        if (isLocked) {
+          return `
+            <div class="cap-card locked-preview-card" onclick="window.PatenteAuth && window.PatenteAuth.showGateModal({ title: 'افتح دستور وحيل الـ 25 باباً بالكامل!', message: 'لقد شاهدت عينة مجانية تشمل أول 5 أبواب. أنشئ حسابك المجاني في 10 ثوانٍ لفتح جميع الـ 25 باباً وحيل الامتحان بدون أي حدود.' })">
+              <div class="locked-preview-overlay">
+                <div style="font-size:2.2rem; margin-bottom:8px;">🔒</div>
+                <div style="font-weight:800; font-size:1rem; color:#FBBF24; margin-bottom:6px;">ميزة حصرية للطلاب المسجلين</div>
+                <div style="font-size:0.8rem; color:#94A3B8; max-width:270px; line-height:1.5;">الباب ${c.num}: ${c.ar}<br>انقر لإنشاء حسابك المجاني وفتح الدستور بالكامل 🚀</div>
+              </div>
+              <div style="filter:blur(4px); opacity:0.3; pointer-events:none;">
+                <div class="cap-card-header">
+                  <span class="cap-num-badge">الباب ${c.num}</span>
+                  <span style="font-size:0.8rem; font-weight:700;">${c.count} سؤالاً</span>
+                </div>
+                <h3 class="cap-title-ar">${c.ar}</h3>
+                <div class="cap-title-it">${c.it}</div>
+              </div>
+            </div>
+          `;
+        }
+
+        return `
+          <div class="cap-card">
+            <div>
+              <div class="cap-card-header">
+                <span class="cap-num-badge">الباب ${c.num}</span>
+                <span style="font-size:0.8rem; font-weight:700; color:var(--tr-text-sub);">${c.count} سؤالاً</span>
+              </div>
+              <h3 class="cap-title-ar">${c.ar}</h3>
+              <div class="cap-title-it">${c.it}</div>
+              
+              <div class="cap-secret-box">
+                <strong>✨ السوبر تريكة:</strong> ${c.secret}
+              </div>
+              <div class="cap-trap-box">
+                <strong>⚠️ الفخ الوزاري:</strong> ${c.trap}
+              </div>
+            </div>
+
+            <div class="cap-footer">
+              <span>بنك الوزارة الرسمي</span>
+              <a href="../Capitoli_Divisi/Capitolo_${String(c.num).padStart(2, '0')}_${getSlug(c.num)}/index.html" class="btn-cap-train">
+                <span>تدرب على الباب</span>
+                <span>⬅️</span>
+              </a>
+            </div>
           </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
     }
+
+    window.addEventListener('patente:auth-changed', () => {
+      renderConstitutionGrid();
+    });
 
     function getSlug(num) {
       const slugs = {
