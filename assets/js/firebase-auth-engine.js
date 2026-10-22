@@ -367,6 +367,47 @@
     return res.user;
   }
 
+  // تفريغ كافة حقول النماذج ومسح أي بيانات مؤقتة (Sanitize & Reset Auth Forms)
+  function clearAuthForms() {
+    try {
+      const loginForm = document.getElementById('authLoginForm');
+      if (loginForm && typeof loginForm.reset === 'function') loginForm.reset();
+
+      const regForm = document.getElementById('authRegisterForm');
+      if (regForm && typeof regForm.reset === 'function') regForm.reset();
+
+      const inputIds = [
+        'loginEmail', 'loginPassword',
+        'regFirstName', 'regLastName', 'regEmail', 'regPassword',
+        'regPhone', 'regBirthDate'
+      ];
+      inputIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.value = '';
+          el.defaultValue = '';
+        }
+      });
+
+      const genderSelect = document.getElementById('regGender');
+      if (genderSelect) genderSelect.value = 'male';
+
+      const phoneCodeSelect = document.getElementById('regPhoneCountryCode');
+      if (phoneCodeSelect) phoneCodeSelect.value = '+39';
+
+      lastUnverifiedCredentials = null;
+      lastRegisteredCredentials = null;
+
+      const alertBox = document.getElementById('authAlertMsg');
+      if (alertBox) {
+        alertBox.textContent = '';
+        alertBox.className = 'auth-alert-msg';
+      }
+    } catch (e) {
+      console.warn('clearAuthForms notice:', e);
+    }
+  }
+
   // 8. تسجيل الخروج (Logout)
   async function logoutAccount() {
     if (!authInstance) return;
@@ -376,6 +417,7 @@
     try {
       localStorage.removeItem('patente_user_profile');
     } catch (_) {}
+    clearAuthForms();
     updateAuthUiLoggedOut();
   }
 
@@ -402,9 +444,10 @@
     // 3. حذف الحساب من Firebase Auth
     await currentUser.delete();
 
-    // 4. تحديث حالة الواجهة كـ زائر
+    // 4. تحديث حالة الواجهة وتفريغ الحقول بالكامل كـ زائر جديد
     currentUser = null;
     userProfile = null;
+    clearAuthForms();
     updateAuthUiLoggedOut();
   }
 
@@ -1166,17 +1209,17 @@
         <div class="auth-alert-msg" id="authAlertMsg"></div>
 
         <!-- فورم تسجيل الدخول -->
-        <form id="authLoginForm" class="auth-form-animated">
+        <form id="authLoginForm" class="auth-form-animated" autocomplete="on">
           <div class="auth-field-group">
             <label class="auth-label">البريد الإلكتروني</label>
-            <input type="email" class="auth-input" id="loginEmail" placeholder="name@example.com" required dir="ltr">
+            <input type="email" class="auth-input" id="loginEmail" placeholder="name@example.com" required dir="ltr" autocomplete="username">
           </div>
           <div class="auth-field-group">
             <div style="display:flex; justify-content:space-between; align-items:center;">
               <label class="auth-label">كلمة المرور</label>
               <a href="#" id="btnForgotPassword" style="font-size:0.75rem; color:#38BDF8; text-decoration:none;">نسيت كلمة المرور؟</a>
             </div>
-            <input type="password" class="auth-input" id="loginPassword" placeholder="Password" required dir="ltr">
+            <input type="password" class="auth-input" id="loginPassword" placeholder="Password" required dir="ltr" autocomplete="current-password">
           </div>
           <button type="submit" class="auth-submit-btn" id="btnSubmitLogin">
             <span>تسجيل الدخول</span>
@@ -1185,16 +1228,16 @@
         </form>
 
         <!-- فورم إنشاء حساب جديد (مضغوط ومتناسق بدون سكرول على الديسكتوب) -->
-        <form id="authRegisterForm" class="auth-form-animated" style="display:none;">
+        <form id="authRegisterForm" class="auth-form-animated" style="display:none;" autocomplete="off">
           <!-- الصف 1: الاسم الأول + اللقب -->
           <div class="auth-row-2">
             <div class="auth-field-group">
               <label class="auth-label">الاسم الأول</label>
-              <input type="text" class="auth-input" id="regFirstName" placeholder="رامي" required>
+              <input type="text" class="auth-input" id="regFirstName" placeholder="رامي" required autocomplete="off">
             </div>
             <div class="auth-field-group">
               <label class="auth-label">اللقب / العائلة</label>
-              <input type="text" class="auth-input" id="regLastName" placeholder="المصري" required>
+              <input type="text" class="auth-input" id="regLastName" placeholder="المصري" required autocomplete="off">
             </div>
           </div>
 
@@ -1202,11 +1245,11 @@
           <div class="auth-row-2">
             <div class="auth-field-group">
               <label class="auth-label">البريد الإلكتروني <span style="color:#38BDF8; font-size:0.68rem;">(ستصلك رسالة تفعيل)</span></label>
-              <input type="email" class="auth-input" id="regEmail" placeholder="name@example.com" required dir="ltr">
+              <input type="email" class="auth-input" id="regEmail" placeholder="name@example.com" required dir="ltr" autocomplete="off">
             </div>
             <div class="auth-field-group">
               <label class="auth-label">كلمة المرور</label>
-              <input type="password" class="auth-input" id="regPassword" placeholder="Password" required minlength="6" dir="ltr" title="6 خانات على الأقل مع رمز خاص">
+              <input type="password" class="auth-input" id="regPassword" placeholder="Password" required minlength="6" dir="ltr" title="6 خانات على الأقل مع رمز خاص" autocomplete="new-password">
               <span style="font-size:0.68rem; color:#94A3B8; display:block; margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">💡 6+ خانات مع رمز خاص (@, #, $, %...)</span>
             </div>
           </div>
@@ -1233,12 +1276,12 @@
                   <option value="+44">🇬🇧 +44</option>
                   <option value="">🌍 أخرى</option>
                 </select>
-                <input type="tel" class="auth-input" id="regPhone" placeholder="345 123 4567" style="flex:1;" dir="ltr" required>
+                <input type="tel" class="auth-input" id="regPhone" placeholder="345 123 4567" style="flex:1;" dir="ltr" required autocomplete="off">
               </div>
             </div>
             <div class="auth-field-group">
               <label class="auth-label">تاريخ الميلاد</label>
-              <input type="date" class="auth-input" id="regBirthDate" required>
+              <input type="date" class="auth-input" id="regBirthDate" required autocomplete="off">
             </div>
           </div>
 
@@ -1365,6 +1408,8 @@
         tabLogin.classList.remove('active');
         formLogin.style.display = 'none';
         formReg.style.display = 'block';
+        const regPass = document.getElementById('regPassword');
+        if (regPass) regPass.value = '';
         formReg.classList.remove('auth-form-animated');
         void formReg.offsetWidth; // إجبار المتصفح على إعادة تطبيق حركة الدخول
         formReg.classList.add('auth-form-animated');
@@ -1374,6 +1419,8 @@
         tabReg.classList.remove('active');
         formReg.style.display = 'none';
         formLogin.style.display = 'block';
+        const loginPass = document.getElementById('loginPassword');
+        if (loginPass) loginPass.value = '';
         formLogin.classList.remove('auth-form-animated');
         void formLogin.offsetWidth;
         formLogin.classList.add('auth-form-animated');
@@ -1929,10 +1976,13 @@
   function openAuthModal(openRegisterTab = false) {
     const modal = document.getElementById('patenteAuthModal');
     if (modal) {
-      modal.classList.add('open');
       if (openRegisterTab) {
+        clearAuthForms();
+        modal.classList.add('open');
         const tabReg = document.getElementById('tabBtnRegister');
         if (tabReg) tabReg.click();
+      } else {
+        modal.classList.add('open');
       }
     }
   }
