@@ -427,7 +427,7 @@
         to { opacity: 1; transform: scale(1.2); }
       }
 
-      /* نافذة المصادقة المنبثقة الفاخرة - Apple HIG Motion & Fluid Scrolling */
+      /* نافذة المصادقة المنبثقة الفاخرة - Apple HIG Motion (تناسق كامل بدون سكرول على الديسكتوب) */
       .auth-modal-backdrop {
         position: fixed;
         inset: 0;
@@ -436,19 +436,16 @@
         -webkit-backdrop-filter: blur(16px);
         z-index: 100000;
         display: flex;
-        align-items: flex-start;
+        align-items: center; /* توسيط عمودي مثالي */
         justify-content: center;
-        padding: 32px 16px;
+        padding: 16px;
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
-        overflow-y: auto;
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
-        overscroll-behavior: contain;
-        transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
-                    visibility 0.32s ease,
-                    backdrop-filter 0.32s ease;
+        overflow: hidden; /* منع السكرول على الديسكتوب */
+        transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                    visibility 0.3s ease,
+                    backdrop-filter 0.3s ease;
       }
       .auth-modal-backdrop.open {
         opacity: 1;
@@ -456,86 +453,56 @@
         pointer-events: auto;
       }
       .auth-modal-card {
-        margin: auto;
         background: #0F172A;
         border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 26px;
+        border-radius: 24px;
         width: 100%;
-        max-width: 490px;
-        max-height: calc(100vh - 64px);
-        overflow-y: auto;
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
-        overscroll-behavior-y: contain;
-        scroll-behavior: smooth;
-        padding: 30px 24px;
+        max-width: 530px;
+        padding: 22px 24px 20px;
         box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.06);
-        transform: scale(0.93) translateY(24px);
+        transform: scale(0.94) translateY(18px);
         opacity: 0;
-        transition: transform 0.36s cubic-bezier(0.32, 0.72, 0, 1),
-                    opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-                    box-shadow 0.3s ease;
+        transition: transform 0.34s cubic-bezier(0.32, 0.72, 0, 1),
+                    opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
         color: #F8FAFC;
         position: relative;
         direction: rtl;
         text-align: right;
-        scrollbar-width: thin;
-        scrollbar-color: rgba(56, 189, 248, 0.45) rgba(255, 255, 255, 0.03);
+        overflow: hidden; /* إخفاء أي شريط تمرير على الديسكتوب */
+        scrollbar-width: none;
+        box-sizing: border-box;
+      }
+      .auth-modal-card::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
       }
       html.light .auth-modal-card {
         background: #FFFFFF;
         border-color: rgba(15, 23, 42, 0.12);
         color: #0F172A;
         box-shadow: 0 25px 60px -12px rgba(15, 23, 42, 0.18), 0 0 0 1px rgba(15, 23, 42, 0.05);
-        scrollbar-color: rgba(2, 132, 199, 0.45) rgba(15, 23, 42, 0.03);
       }
       .auth-modal-backdrop.open .auth-modal-card {
         transform: scale(1) translateY(0);
         opacity: 1;
       }
 
-      /* شريط التمرير الانسيابي الأنيق */
-      .auth-modal-card::-webkit-scrollbar {
-        width: 6px;
-      }
-      .auth-modal-card::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 999px;
-        margin: 10px 0;
-      }
-      .auth-modal-card::-webkit-scrollbar-thumb {
-        background: rgba(56, 189, 248, 0.45);
-        border-radius: 999px;
-        transition: background 0.2s ease;
-      }
-      .auth-modal-card::-webkit-scrollbar-thumb:hover {
-        background: rgba(56, 189, 248, 0.8);
-      }
-      html.light .auth-modal-card::-webkit-scrollbar-track {
-        background: rgba(15, 23, 42, 0.04);
-      }
-      html.light .auth-modal-card::-webkit-scrollbar-thumb {
-        background: rgba(2, 132, 199, 0.45);
-      }
-      html.light .auth-modal-card::-webkit-scrollbar-thumb:hover {
-        background: rgba(2, 132, 199, 0.8);
-      }
-
       .auth-close-btn {
         position: absolute;
-        top: 20px;
-        left: 20px;
+        top: 16px;
+        left: 16px;
         background: rgba(255, 255, 255, 0.08);
         border: none;
         color: #94A3B8;
-        width: 34px;
-        height: 34px;
+        width: 30px;
+        height: 30px;
         border-radius: 50%;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.05rem;
+        font-size: 0.95rem;
         transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
                     background-color 0.2s ease,
                     color 0.2s ease;
@@ -554,23 +521,23 @@
       .auth-tabs-nav {
         display: flex;
         background: rgba(255, 255, 255, 0.05);
-        border-radius: 14px;
-        padding: 4px;
-        margin-bottom: 22px;
+        border-radius: 12px;
+        padding: 3px;
+        margin-bottom: 12px;
         border: 1px solid rgba(255, 255, 255, 0.08);
       }
       html.light .auth-tabs-nav { background: #F1F5F9; border-color: rgba(15, 23, 42, 0.08); }
       .auth-tab-btn {
         flex: 1;
-        padding: 10px;
+        padding: 7px 10px;
         border: none;
         background: transparent;
         color: #94A3B8;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         font-weight: 700;
         cursor: pointer;
-        border-radius: 10px;
-        transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+        border-radius: 9px;
+        transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
         font-family: inherit;
         position: relative;
       }
@@ -581,7 +548,7 @@
       .auth-tab-btn.active {
         background: #38BDF8;
         color: #0F172A;
-        box-shadow: 0 2px 10px rgba(56, 189, 248, 0.4);
+        box-shadow: 0 2px 8px rgba(56, 189, 248, 0.35);
       }
       html.light .auth-tab-btn.active {
         background: #0284C7;
@@ -590,13 +557,13 @@
 
       /* حركة النماذج الانسيابية */
       .auth-form-animated {
-        animation: authFormSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+        animation: authFormSlideIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
         will-change: transform, opacity;
       }
       @keyframes authFormSlideIn {
         from {
           opacity: 0;
-          transform: translateY(12px) scale(0.985);
+          transform: translateY(8px) scale(0.99);
         }
         to {
           opacity: 1;
@@ -606,31 +573,32 @@
 
       /* حقول الإدخال */
       .auth-field-group {
-        margin-bottom: 14px;
+        margin-bottom: 9px;
       }
       .auth-label {
         display: block;
-        font-size: 0.8rem;
+        font-size: 0.77rem;
         font-weight: 700;
-        margin-bottom: 6px;
+        margin-bottom: 3px;
         color: #94A3B8;
       }
       html.light .auth-label { color: #475569; }
       .auth-input, .auth-select {
         width: 100%;
-        height: 44px;
-        border-radius: 12px;
+        height: 38px;
+        border-radius: 10px;
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.12);
         color: #FFF;
-        padding: 0 14px;
+        padding: 0 11px;
         font-family: inherit;
-        font-size: 0.9rem;
+        font-size: 0.86rem;
         outline: none;
         transition: border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
                     background-color 0.2s ease,
                     box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
                     transform 0.15s ease;
+        box-sizing: border-box;
       }
       html.light .auth-input, html.light .auth-select {
         background: #F8FAFC;
@@ -646,18 +614,18 @@
       .auth-row-2 {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 12px;
+        gap: 10px;
       }
 
       /* زر الإجراء الأساسي */
       .auth-submit-btn {
         width: 100%;
-        height: 46px;
-        border-radius: 12px;
+        height: 42px;
+        border-radius: 11px;
         background: #10B981;
         color: #FFFFFF;
         border: none;
-        font-size: 0.95rem;
+        font-size: 0.92rem;
         font-weight: 800;
         cursor: pointer;
         transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
@@ -668,14 +636,14 @@
         align-items: center;
         justify-content: center;
         gap: 8px;
-        margin-top: 18px;
+        margin-top: 10px;
         box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
         will-change: transform;
       }
       .auth-submit-btn:hover {
         background: #059669;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 18px rgba(16, 185, 129, 0.4);
       }
       .auth-submit-btn:active {
         transform: translateY(1px) scale(0.985);
@@ -689,19 +657,19 @@
       /* زر الدخول بجوجل */
       .auth-google-btn {
         width: 100%;
-        height: 44px;
-        border-radius: 12px;
+        height: 38px;
+        border-radius: 11px;
         background: #FFFFFF;
         color: #0F172A;
         border: 1px solid rgba(15, 23, 42, 0.15);
-        font-size: 0.88rem;
+        font-size: 0.85rem;
         font-weight: 700;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
-        margin-top: 12px;
+        gap: 9px;
+        margin-top: 6px;
         font-family: inherit;
         transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
                     box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
@@ -710,8 +678,8 @@
       }
       .auth-google-btn:hover {
         background: #F8FAFC;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       }
       .auth-google-btn:active {
         transform: translateY(1px) scale(0.985);
@@ -719,11 +687,11 @@
 
       /* تنبيهات الأخطاء والنجاح */
       .auth-alert-msg {
-        padding: 11px 15px;
-        border-radius: 12px;
-        font-size: 0.83rem;
+        padding: 9px 12px;
+        border-radius: 10px;
+        font-size: 0.8rem;
         font-weight: 600;
-        margin-bottom: 16px;
+        margin-bottom: 10px;
         display: none;
       }
       .auth-alert-msg.error {
@@ -788,21 +756,25 @@
         transform: translateY(0) scale(1);
       }
 
-      /* تحسين التجاوب على الهواتف والشاشات الصغيرة */
+      /* سلوك الهاتف المخصص: يظهر التمرير فقط عند صعود لوحة المفاتيح */
       @media (max-width: 640px) {
         .auth-modal-backdrop {
-          padding: 12px 10px;
-          align-items: flex-end;
+          padding: 8px;
+          align-items: flex-end; /* يلتصق بأسفل الشاشة كـ Bottom Sheet */
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
         }
         .auth-modal-card {
-          max-height: 92vh;
-          border-radius: 24px 24px 18px 18px;
-          padding: 24px 18px 30px;
+          max-height: 94vh;
+          overflow-y: auto; /* متاح للتمرير عند صعود اللوحة فقط */
+          -webkit-overflow-scrolling: touch;
+          border-radius: 22px 22px 14px 14px;
+          padding: 20px 16px 24px;
           margin: 0 auto;
         }
         .auth-row-2 {
           grid-template-columns: 1fr;
-          gap: 10px;
+          gap: 8px;
         }
       }
     `;
@@ -820,10 +792,10 @@
       <div class="auth-modal-card" role="dialog" aria-modal="true">
         <button class="auth-close-btn" id="btnAuthClose" title="إغلاق">✕</button>
 
-        <div style="text-align:center; margin-bottom:18px;">
-          <div style="font-size:2rem; margin-bottom:4px;">🚦</div>
-          <h2 style="font-size:1.25rem; font-weight:800; margin:0;" id="authModalTitle">تسجيل الدخول إلى Patente B Pro</h2>
-          <p style="font-size:0.78rem; color:#94A3B8; margin-top:4px;">احفظ إنجازك في السحابة وزامنه عبر جميع أجهزتك</p>
+        <div style="text-align:center; margin-bottom:12px;">
+          <div style="font-size:1.5rem; line-height:1.2; margin-bottom:2px;">🚦</div>
+          <h2 style="font-size:1.15rem; font-weight:800; margin:0;" id="authModalTitle">تسجيل الدخول إلى Patente B Pro</h2>
+          <p style="font-size:0.74rem; color:#94A3B8; margin:2px 0 0;">احفظ إنجازك في السحابة وزامنه عبر جميع أجهزتك</p>
         </div>
 
         <div class="auth-tabs-nav">
@@ -852,8 +824,9 @@
           </button>
         </form>
 
-        <!-- فورم إنشاء حساب جديد -->
+        <!-- فورم إنشاء حساب جديد (مضغوط ومتناسق بدون سكرول على الديسكتوب) -->
         <form id="authRegisterForm" class="auth-form-animated" style="display:none;">
+          <!-- الصف 1: الاسم الأول + اللقب -->
           <div class="auth-row-2">
             <div class="auth-field-group">
               <label class="auth-label">الاسم الأول</label>
@@ -865,54 +838,58 @@
             </div>
           </div>
 
-          <div class="auth-field-group">
-            <label class="auth-label">البريد الإلكتروني</label>
-            <input type="email" class="auth-input" id="regEmail" placeholder="name@example.com" required dir="ltr">
-          </div>
-
-          <div class="auth-field-group">
-            <label class="auth-label">كلمة المرور</label>
-            <input type="password" class="auth-input" id="regPassword" placeholder="6 خانات على الأقل مع رمز خاص (مثل: @, #, $, !, %, *, -)" required minlength="6" dir="ltr">
-            <span style="font-size:0.72rem; color:#94A3B8; display:block; margin-top:4px;">💡 6 خانات على الأقل مع رمز خاص مثل: @ # $ % ! * - + § ?</span>
-          </div>
-
-          <div class="auth-field-group">
-            <label class="auth-label">رقم الهاتف</label>
-            <div style="display:flex; gap:8px; direction:ltr;">
-              <select class="auth-select" id="regPhoneCountryCode" style="width:148px; flex-shrink:0; font-family:inherit; font-size:0.82rem; padding:0 6px;">
-                <option value="+39" selected>🇮🇹 إيطاليا (+39)</option>
-                <option value="+20">🇪🇬 مصر (+20)</option>
-                <option value="+212">🇲🇦 المغرب (+212)</option>
-                <option value="+216">🇹🇳 تونس (+216)</option>
-                <option value="+213">🇩🇿 الجزائر (+213)</option>
-                <option value="+218">🇱🇾 ليبيا (+218)</option>
-                <option value="+249">🇸🇩 السودان (+249)</option>
-                <option value="+966">🇸🇦 السعودية (+966)</option>
-                <option value="+971">🇦🇪 الإمارات (+971)</option>
-                <option value="+49">🇩🇪 ألمانيا (+49)</option>
-                <option value="+33">🇫🇷 فرنسا (+33)</option>
-                <option value="+34">🇪🇸 إسبانيا (+34)</option>
-                <option value="+41">🇨🇭 سويسرا (+41)</option>
-                <option value="+44">🇬🇧 بريطانيا (+44)</option>
-                <option value="">🌍 أخرى</option>
-              </select>
-              <input type="tel" class="auth-input" id="regPhone" placeholder="345 123 4567" style="flex:1;" dir="ltr">
+          <!-- الصف 2: البريد الإلكتروني + كلمة المرور -->
+          <div class="auth-row-2">
+            <div class="auth-field-group">
+              <label class="auth-label">البريد الإلكتروني</label>
+              <input type="email" class="auth-input" id="regEmail" placeholder="name@example.com" required dir="ltr">
+            </div>
+            <div class="auth-field-group">
+              <label class="auth-label">كلمة المرور</label>
+              <input type="password" class="auth-input" id="regPassword" placeholder="6+ خانات مع رمز خاص" required minlength="6" dir="ltr" title="6 خانات على الأقل مع رمز خاص">
+              <span style="font-size:0.68rem; color:#94A3B8; display:block; margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">💡 6+ خانات مع رمز خاص (@, #, $, %...)</span>
             </div>
           </div>
 
+          <!-- الصف 3: الهاتف + تاريخ الميلاد -->
           <div class="auth-row-2">
+            <div class="auth-field-group">
+              <label class="auth-label">رقم الهاتف</label>
+              <div style="display:flex; gap:6px; direction:ltr;">
+                <select class="auth-select" id="regPhoneCountryCode" style="width:96px; flex-shrink:0; font-family:inherit; font-size:0.8rem; padding:0 4px;">
+                  <option value="+39" selected>🇮🇹 +39</option>
+                  <option value="+20">🇪🇬 +20</option>
+                  <option value="+212">🇲🇦 +212</option>
+                  <option value="+216">🇹🇳 +216</option>
+                  <option value="+213">🇩🇿 +213</option>
+                  <option value="+218">🇱🇾 +218</option>
+                  <option value="+249">🇸🇩 +249</option>
+                  <option value="+966">🇸🇦 +966</option>
+                  <option value="+971">🇦🇪 +971</option>
+                  <option value="+49">🇩🇪 +49</option>
+                  <option value="+33">🇫🇷 +33</option>
+                  <option value="+34">🇪🇸 +34</option>
+                  <option value="+41">🇨🇭 +41</option>
+                  <option value="+44">🇬🇧 +44</option>
+                  <option value="">🌍 أخرى</option>
+                </select>
+                <input type="tel" class="auth-input" id="regPhone" placeholder="345 123 4567" style="flex:1;" dir="ltr">
+              </div>
+            </div>
             <div class="auth-field-group">
               <label class="auth-label">تاريخ الميلاد</label>
               <input type="date" class="auth-input" id="regBirthDate" required>
             </div>
-            <div class="auth-field-group">
-              <label class="auth-label">النوع</label>
-              <select class="auth-select" id="regGender" required>
-                <option value="male">ذكر (Maschio)</option>
-                <option value="female">أنثى (Femmina)</option>
-                <option value="other">غير محدد / أفضل عدم الإفصاح (Altro / Non specificato)</option>
-              </select>
-            </div>
+          </div>
+
+          <!-- الصف 4: النوع -->
+          <div class="auth-field-group">
+            <label class="auth-label">النوع</label>
+            <select class="auth-select" id="regGender" required>
+              <option value="male">ذكر (Maschio)</option>
+              <option value="female">أنثى (Femmina)</option>
+              <option value="other">غير محدد / أفضل عدم الإفصاح (Altro / Non specificato)</option>
+            </select>
           </div>
 
           <button type="submit" class="auth-submit-btn" id="btnSubmitRegister">
@@ -922,7 +899,7 @@
         </form>
 
         <!-- فاصل أو الدخول بجوجل -->
-        <div style="display:flex; align-items:center; gap:10px; margin:16px 0 6px;">
+        <div style="display:flex; align-items:center; gap:10px; margin:10px 0 6px;">
           <div style="flex:1; height:1px; background:rgba(255,255,255,0.1);"></div>
           <span style="font-size:0.75rem; color:#64748B;">أو عبر</span>
           <div style="flex:1; height:1px; background:rgba(255,255,255,0.1);"></div>
@@ -1007,6 +984,15 @@
 
     tabLogin.onclick = () => switchTab(false);
     tabReg.onclick = () => switchTab(true);
+
+    // على الهواتف: عند ظهور لوحة المفاتيح والتركيز في أي حقل، يتم التمرير بسلاسة ليبقى الحقل ظاهراً في المنتصف
+    modal.addEventListener('focusin', (e) => {
+      if (window.innerWidth <= 640 && e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT')) {
+        setTimeout(() => {
+          e.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 220);
+      }
+    });
 
     // إرسال تسجيل الدخول
     formLogin.onsubmit = async (e) => {
