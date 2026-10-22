@@ -34,6 +34,8 @@
   let isSyncing = false;
   let lastSyncTime = null;
   let isRegistrationInProgress = false;
+  let lastUnverifiedCredentials = null;
+  let lastRegisteredCredentials = null;
 
   // دالة مساعدة لحماية النصوص من ثغرات الحقن (XSS Sanitizer)
   function escapeHtml(str) {
@@ -112,8 +114,26 @@
   // 4. معالجة تغير حالة المصادقة (Auth State Change)
   async function handleAuthStateChange(user) {
     if (isRegistrationInProgress) {
-      // أثناء التسجيل، تتولى دالة registerAccount حفظ البيانات وتحديث الواجهة مباشرة
+      // أثناء التسجيل، تتولى دالة registerAccount إدارة الحالة
       return;
+    }
+
+    if (user) {
+      const isGoogle = user.providerData && user.providerData.some(p => p.providerId === 'google.com');
+      // إذا كان الحساب مسجلاً بالبريد وكلمة المرور ولكنه غير مفعل بعد، لا يُسمح له بالدخول إطلاقاً
+      if (!isGoogle && !user.emailVerified) {
+        currentUser = null;
+        userProfile = null;
+        try {
+          localStorage.removeItem('patente_user_profile');
+        } catch (_) {}
+        try {
+          await authInstance.signOut();
+        } catch (_) {}
+        updateAuthUiLoggedOut();
+        window.dispatchEvent(new CustomEvent('patente:auth-changed', { detail: { loggedIn: false } }));
+        return;
+      }
     }
 
     currentUser = user;
@@ -150,6 +170,7 @@
               phone: user.phoneNumber || '',
               birthDate: '',
               gender: 'unspecified',
+              emailVerified: true,
               createdAt: window.firebase.firestore.FieldValue.serverTimestamp(),
               platform: 'Patente B Pro 2026'
             };
@@ -190,27 +211,50 @@
     }
   }
 
-  // 5. تسجيل حساب جديد (Register)
+  // 5. تسجيل حساب جديد مع التحقق الإلزامي من البريد (Register with Email Verification)
   async function registerAccount({ firstName, lastName, email, password, phone, birthDate, gender }) {
     if (!authInstance) throw new Error('خدمة السحابة غير مهيأة بعد');
-    if (!email || !password) throw new Error('يرجى ملء البريد الإلكتروني وكلمة المرور');
+    if (!firstName || !firstName.trim() || !lastName || !lastName.trim()) {
+      throw new Error('يرجى ملء الاسم الأول واللقب');
+    }
+    if (!email || !password) {
+      throw new Error('يرجى ملء البريد الإلكتروني وكلمة المرور');
+    }
     
+    // فحص قوة كلمة المرور
     const specialCharRegex = /[^a-zA-Z0-9\s]/;
     if (password.length < 6 || !specialCharRegex.test(password)) {
       throw new Error('كلمة المرور يجب أن تتكون من 6 خانات على الأقل وتتضمن رمزاً خاصاً واحداً على الأقل (مثل: @, #, $, %, !, -, *, +, §)');
     }
 
+    // فحص صيغة البريد الإلكتروني
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      throw new Error('يرجى إدخال بريد إلكتروني صالح (مثال: name@example.com)');
+    }
+
+    // فحص رقم الهاتف بدقة (بين 7 و15 رقماً بعد استبعاد المسافات والرموز)
+    const phoneDigits = (phone || '').replace(/\D/g, '');
+    if (phoneDigits.length < 7 || phoneDigits.length > 15) {
+      throw new Error('يرجى إدخال رقم هاتف صحيح مكوّن من 7 إلى 15 رقماً.');
+    }
+
     isRegistrationInProgress = true;
     try {
-      // إنشاء الحساب في Firebase Auth
-      const cred = await authInstance.createUserWithEmailAndPassword(email, password);
+      // 1. إنشاء الحساب في Firebase Auth
+      const cred = await authInstance.createUserWithEmailAndPassword(email.trim(), password);
       const user = cred.user;
 
-      // تحديث الاسم المعروض في Firebase Auth
+      // 2. تحديث الاسم المعروض في Firebase Auth
       const fullName = `${firstName.trim()} ${lastName.trim()}`.trim();
-      await user.updateProfile({ displayName: fullName });
+      try {
+        await user.updateProfile({ displayName: fullName });
+      } catch (_) {}
 
-      // حفظ تفاصيل الملف الشخصي الكاملة في Firestore
+      // 3. إرسال رابط تأكيد وتفعيل الحساب إلى البريد الإلكتروني فوراً
+      await user.sendEmailVerification();
+
+      // 4. حفظ تفاصيل الملف الشخصي الكاملة في Firestore كحساب بانتظار التفعيل
       const profileData = {
         uid: user.uid,
         firstName: firstName.trim(),
@@ -220,44 +264,98 @@
         phone: (phone || '').trim(),
         birthDate: birthDate || '',
         gender: gender || 'unspecified',
+        emailVerified: false,
         createdAt: window.firebase.firestore.FieldValue.serverTimestamp(),
         lastLoginAt: window.firebase.firestore.FieldValue.serverTimestamp(),
         platform: 'Patente B Pro 2026'
       };
 
-      await firestoreInstance.collection('users').doc(user.uid).set(profileData);
-      userProfile = profileData;
-      currentUser = user;
-
       try {
-        localStorage.setItem('patente_user_profile', JSON.stringify(profileData));
+        await firestoreInstance.collection('users').doc(user.uid).set(profileData);
+      } catch (err) {
+        console.warn('Firestore profile save notice:', err);
+      }
+
+      // 5. تسجيل الخروج فوراً لمنع الدخول العشوائي قبل تفعيل البريد
+      await authInstance.signOut();
+      currentUser = null;
+      userProfile = null;
+      try {
+        localStorage.removeItem('patente_user_profile');
       } catch (_) {}
+      updateAuthUiLoggedOut();
 
-      // تحديث شريط الهيدر والقائمة فوراً ببيانات المستخدم الحقيقية
-      updateAuthUiLoggedIn(profileData);
-
-      // رفع التقدم المحلي الحالي تلقائياً إلى الحساب الجديد لمنع ضياع أي إنجاز سابق
-      await uploadLocalProgressToCloud(user.uid);
-
-      return user;
+      return {
+        success: true,
+        email: profileData.email,
+        fullName: fullName,
+        password: password
+      };
     } finally {
       isRegistrationInProgress = false;
     }
   }
 
-  // 6. تسجيل الدخول (Email & Password)
+  // 6. تسجيل الدخول مع فحص تفعيل البريد الإلكتروني
   async function loginAccount(email, password) {
     if (!authInstance) throw new Error('خدمة السحابة غير مهيأة بعد');
+    if (!email || !password) throw new Error('يرجى إدخال البريد الإلكتروني وكلمة المرور');
+
     const cred = await authInstance.signInWithEmailAndPassword(email.trim(), password);
-    
-    // تحديث تاريخ آخر دخول
+    const user = cred.user;
+
+    // فحص هل البريد مفعل بالرابط
+    if (!user.emailVerified) {
+      // الحساب لم يتم تفعيله بعد: نحتفظ ببيانات مؤقتة لزر إعادة الإرسال الفوري
+      lastUnverifiedCredentials = { email: email.trim(), password: password };
+
+      await authInstance.signOut();
+      currentUser = null;
+      userProfile = null;
+      try {
+        localStorage.removeItem('patente_user_profile');
+      } catch (_) {}
+      updateAuthUiLoggedOut();
+
+      const err = new Error('EMAIL_NOT_VERIFIED');
+      err.code = 'auth/email-not-verified';
+      err.email = email.trim();
+      throw err;
+    }
+
+    // الحساب مفعل بنجاح! مسح أي مؤقتات
+    lastUnverifiedCredentials = null;
+
+    // تحديث تاريخ آخر دخول وتحديث حالة التفعيل في Firestore
     try {
-      await firestoreInstance.collection('users').doc(cred.user.uid).update({
-        lastLoginAt: window.firebase.firestore.FieldValue.serverTimestamp()
+      await firestoreInstance.collection('users').doc(user.uid).update({
+        lastLoginAt: window.firebase.firestore.FieldValue.serverTimestamp(),
+        emailVerified: true
       });
     } catch (_) {}
 
-    return cred.user;
+    return user;
+  }
+
+  // 6.1 إعادة إرسال رابط تفعيل البريد (Resend Verification Email)
+  async function resendVerificationEmail(email, password) {
+    if (!authInstance) throw new Error('خدمة السحابة غير مهيأة بعد');
+    const targetEmail = (email || (lastUnverifiedCredentials && lastUnverifiedCredentials.email) || (lastRegisteredCredentials && lastRegisteredCredentials.email) || '').trim();
+    const targetPass = password || (lastUnverifiedCredentials && lastUnverifiedCredentials.password) || (lastRegisteredCredentials && lastRegisteredCredentials.password);
+
+    if (!targetEmail || !targetPass) {
+      throw new Error('يرجى كتابة البريد وكلمة المرور لإعادة إرسال رابط التفعيل.');
+    }
+
+    const cred = await authInstance.signInWithEmailAndPassword(targetEmail, targetPass);
+    if (cred.user.emailVerified) {
+      await authInstance.signOut();
+      return { alreadyVerified: true, email: targetEmail };
+    }
+
+    await cred.user.sendEmailVerification();
+    await authInstance.signOut();
+    return { sent: true, email: targetEmail };
   }
 
   // 7. الدخول عبر Google
@@ -1057,10 +1155,10 @@
         <div style="text-align:center; margin-bottom:12px;">
           <div style="font-size:1.5rem; line-height:1.2; margin-bottom:2px;">🚦</div>
           <h2 style="font-size:1.15rem; font-weight:800; margin:0;" id="authModalTitle">تسجيل الدخول إلى Patente B Pro</h2>
-          <p style="font-size:0.74rem; color:#94A3B8; margin:2px 0 0;">احفظ إنجازك في السحابة وزامنه عبر جميع أجهزتك</p>
+          <p style="font-size:0.74rem; color:#94A3B8; margin:2px 0 0;" id="authModalSubtitle">احفظ إنجازك في السحابة وزامنه عبر جميع أجهزتك</p>
         </div>
 
-        <div class="auth-tabs-nav">
+        <div class="auth-tabs-nav" id="authTabsNav">
           <button class="auth-tab-btn active" id="tabBtnLogin">تسجيل الدخول</button>
           <button class="auth-tab-btn" id="tabBtnRegister">حساب جديد</button>
         </div>
@@ -1103,7 +1201,7 @@
           <!-- الصف 2: البريد الإلكتروني + كلمة المرور -->
           <div class="auth-row-2">
             <div class="auth-field-group">
-              <label class="auth-label">البريد الإلكتروني</label>
+              <label class="auth-label">البريد الإلكتروني <span style="color:#38BDF8; font-size:0.68rem;">(ستصلك رسالة تفعيل)</span></label>
               <input type="email" class="auth-input" id="regEmail" placeholder="name@example.com" required dir="ltr">
             </div>
             <div class="auth-field-group">
@@ -1116,7 +1214,7 @@
           <!-- الصف 3: الهاتف + تاريخ الميلاد -->
           <div class="auth-row-2">
             <div class="auth-field-group">
-              <label class="auth-label">رقم الهاتف</label>
+              <label class="auth-label">رقم الهاتف <span style="color:#38BDF8; font-size:0.68rem;">(حقيقي للتحقق)</span></label>
               <div style="display:flex; gap:6px; direction:ltr;">
                 <select class="auth-select" id="regPhoneCountryCode" style="width:96px; flex-shrink:0; font-family:inherit; font-size:0.8rem; padding:0 4px;">
                   <option value="+39" selected>🇮🇹 +39</option>
@@ -1135,7 +1233,7 @@
                   <option value="+44">🇬🇧 +44</option>
                   <option value="">🌍 أخرى</option>
                 </select>
-                <input type="tel" class="auth-input" id="regPhone" placeholder="345 123 4567" style="flex:1;" dir="ltr">
+                <input type="tel" class="auth-input" id="regPhone" placeholder="345 123 4567" style="flex:1;" dir="ltr" required>
               </div>
             </div>
             <div class="auth-field-group">
@@ -1160,8 +1258,36 @@
           </button>
         </form>
 
+        <!-- شاشة تأكيد البريد الإلكتروني الفاخرة (Apple HIG Verification Screen) -->
+        <div id="authVerifyScreen" style="display:none; text-align:center; padding:6px 2px;" class="auth-form-animated">
+          <div style="font-size:2.8rem; line-height:1; margin-bottom:8px;">✉️</div>
+          <h3 style="font-size:1.18rem; font-weight:800; color:#10B981; margin:0 0 6px;">تم إنشاء حسابك بنجاح! 🎉</h3>
+          <p style="font-size:0.83rem; color:#94A3B8; margin:0 0 12px; line-height:1.6;">
+            أرسلنا رابط التحقق والتفعيل فوراً إلى بريدك الإلكتروني:<br>
+            <strong id="verifyScreenEmail" style="color:#38BDF8; font-size:0.92rem;" dir="ltr">name@example.com</strong>
+          </p>
+
+          <div style="background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.25); border-radius:14px; padding:12px 14px; font-size:0.79rem; color:#CBD5E1; margin-bottom:14px; text-align:right; line-height:1.7;">
+            <div style="font-weight:800; color:#38BDF8; margin-bottom:4px;">📌 خطوة واحدة لتفعيل حسابك والدخول:</div>
+            1. افتح تطبيق البريد الإلكتروني (Inbox ومجلد Spam / غير المرغوب فيها).<br>
+            2. افتح رسالة <strong>Google Firebase</strong> واضغط على رابط التفعيل المرفق.<br>
+            3. عد إلى هنا وسجل دخولك لتجد كافة ميزاتك وتقدمك بانتظارك.
+          </div>
+
+          <button type="button" class="auth-submit-btn" id="btnVerifyGoLogin" style="margin-top:0;">
+            <span>التوجه إلى تسجيل الدخول</span>
+            <span>⬅</span>
+          </button>
+
+          <div style="margin-top:10px;">
+            <button type="button" id="btnResendFromVerifyScreen" style="background:transparent; border:none; color:#38BDF8; font-size:0.78rem; font-weight:700; cursor:pointer; font-family:inherit; text-decoration:underline;">
+              لم تصلك الرسالة؟ اضغط لإعادة إرسال الرابط 🔄
+            </button>
+          </div>
+        </div>
+
         <!-- فاصل أو الدخول بجوجل -->
-        <div style="display:flex; align-items:center; gap:10px; margin:10px 0 6px;">
+        <div id="authGoogleDivider" style="display:flex; align-items:center; gap:10px; margin:10px 0 6px;">
           <div style="flex:1; height:1px; background:rgba(255,255,255,0.1);"></div>
           <span style="font-size:0.75rem; color:#64748B;">أو عبر</span>
           <div style="flex:1; height:1px; background:rgba(255,255,255,0.1);"></div>
@@ -1186,10 +1312,20 @@
     const tabReg = document.getElementById('tabBtnRegister');
     const formLogin = document.getElementById('authLoginForm');
     const formReg = document.getElementById('authRegisterForm');
+    const verifyScreen = document.getElementById('authVerifyScreen');
+    const tabsNav = document.getElementById('authTabsNav');
+    const googleDivider = document.getElementById('authGoogleDivider');
+    const googleBtn = document.getElementById('btnGoogleAuth');
+    const titleEl = document.getElementById('authModalTitle');
+    const subtitleEl = document.getElementById('authModalSubtitle');
     const alertBox = document.getElementById('authAlertMsg');
 
-    function showAlert(msg, isSuccess = false) {
-      alertBox.textContent = msg;
+    function showAlert(msg, isSuccess = false, isHtml = false) {
+      if (isHtml) {
+        alertBox.innerHTML = msg;
+      } else {
+        alertBox.textContent = msg;
+      }
       alertBox.className = 'auth-alert-msg ' + (isSuccess ? 'success' : 'error');
     }
 
@@ -1216,7 +1352,13 @@
     function switchTab(toRegister) {
       clearAlert();
       const card = modal.querySelector('.auth-modal-card');
-      const titleEl = document.getElementById('authModalTitle');
+
+      // إعادة إظهار التبويبات والفاصل إن كانت مخفية بشاشة التأكيد
+      if (verifyScreen) verifyScreen.style.display = 'none';
+      if (tabsNav) tabsNav.style.display = 'flex';
+      if (googleDivider) googleDivider.style.display = 'flex';
+      if (googleBtn) googleBtn.style.display = 'flex';
+      if (subtitleEl) subtitleEl.style.display = 'block';
 
       if (toRegister) {
         tabReg.classList.add('active');
@@ -1247,6 +1389,48 @@
     tabLogin.onclick = () => switchTab(false);
     tabReg.onclick = () => switchTab(true);
 
+    // زر التوجه للدخول من شاشة التأكيد
+    const btnVerifyGoLogin = document.getElementById('btnVerifyGoLogin');
+    if (btnVerifyGoLogin) {
+      btnVerifyGoLogin.onclick = () => {
+        switchTab(false);
+        if (lastRegisteredCredentials && lastRegisteredCredentials.email) {
+          const loginEmailInput = document.getElementById('loginEmail');
+          if (loginEmailInput) loginEmailInput.value = lastRegisteredCredentials.email;
+          const loginPassInput = document.getElementById('loginPassword');
+          if (loginPassInput) {
+            loginPassInput.value = '';
+            loginPassInput.focus();
+          }
+        }
+      };
+    }
+
+    // زر إعادة إرسال الرابط من شاشة التأكيد
+    const btnResendFromVerify = document.getElementById('btnResendFromVerifyScreen');
+    if (btnResendFromVerify) {
+      btnResendFromVerify.onclick = async () => {
+        btnResendFromVerify.disabled = true;
+        btnResendFromVerify.textContent = 'جاري إعادة الإرسال... ⏳';
+        try {
+          await resendVerificationEmail(
+            lastRegisteredCredentials ? lastRegisteredCredentials.email : '',
+            lastRegisteredCredentials ? lastRegisteredCredentials.password : ''
+          );
+          btnResendFromVerify.textContent = '✅ تم إرسال رابط تأكيد جديد إلى بريدك!';
+          showAlert('✅ تم إرسال رابط تأكيد جديد إلى بريدك بنجاح! تفقد بريدك الآن.', true);
+          setTimeout(() => {
+            btnResendFromVerify.disabled = false;
+            btnResendFromVerify.textContent = 'لم تصلك الرسالة؟ اضغط لإعادة إرسال الرابط 🔄';
+          }, 4000);
+        } catch (e) {
+          btnResendFromVerify.disabled = false;
+          btnResendFromVerify.textContent = 'لم تصلك الرسالة؟ اضغط لإعادة إرسال الرابط 🔄';
+          showAlert('تعذر إعادة الإرسال: ' + translateFirebaseError(e.code || e.message));
+        }
+      };
+    }
+
     // على الهواتف: عند ظهور لوحة المفاتيح والتركيز في أي حقل، يتم التمرير بسلاسة ليبقى الحقل ظاهراً في المنتصف
     modal.addEventListener('focusin', (e) => {
       if (window.innerWidth <= 640 && e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT')) {
@@ -1272,7 +1456,37 @@
         showAlert('تم تسجيل الدخول بنجاح! مرحباً بك 🚀', true);
         setTimeout(() => modal.classList.remove('open'), 900);
       } catch (err) {
-        showAlert(translateFirebaseError(err.code || err.message));
+        if (err && err.code === 'auth/email-not-verified') {
+          // عرض تنبيه تفاعلي أنيق مع زر لإعادة إرسال الرابط فوراً
+          const htmlMsg = `
+            <div style="text-align:right; line-height:1.6;">
+              <div style="font-weight:800; margin-bottom:4px; color:#F87171;">⚠️ هذا الحساب غير مفعل بعد!</div>
+              أرسلنا رابط التفعيل إلى بريدك الإلكتروني. يرجى الضغط على الرابط في رسالتك لتفعيل الحساب لتتمكن من تسجيل الدخول.
+              <div style="margin-top:8px;">
+                <button type="button" id="btnResendFromLoginAlert" style="background:#38BDF8; color:#0F172A; border:none; border-radius:7px; padding:5px 12px; font-weight:800; font-size:0.77rem; cursor:pointer; font-family:inherit;">
+                  📧 إعادة إرسال رابط التفعيل الآن
+                </button>
+              </div>
+            </div>
+          `;
+          showAlert(htmlMsg, false, true);
+
+          const alertResendBtn = document.getElementById('btnResendFromLoginAlert');
+          if (alertResendBtn) {
+            alertResendBtn.onclick = async () => {
+              alertResendBtn.disabled = true;
+              alertResendBtn.textContent = 'جاري الإرسال... ⏳';
+              try {
+                await resendVerificationEmail(email, pass);
+                showAlert('✅ تم إعادة إرسال رابط التفعيل إلى بريدك بنجاح! يرجى فحص صندوق الوارد أو Spam.', true);
+              } catch (resendErr) {
+                showAlert('تعذر إرسال الرابط: ' + translateFirebaseError(resendErr.code || resendErr.message));
+              }
+            };
+          }
+        } else {
+          showAlert(translateFirebaseError(err.code || err.message));
+        }
       } finally {
         submitBtn.disabled = false;
         submitBtn.innerHTML = '<span>تسجيل الدخول</span> <span>⬅</span>';
@@ -1284,6 +1498,20 @@
       e.preventDefault();
       clearAlert();
 
+      const firstName = (document.getElementById('regFirstName').value || '').trim();
+      const lastName = (document.getElementById('regLastName').value || '').trim();
+      if (!firstName || !lastName) {
+        showAlert('يرجى كتابة الاسم الأول واللقب.');
+        return;
+      }
+
+      const email = (document.getElementById('regEmail').value || '').trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        showAlert('يرجى إدخال عنوان بريد إلكتروني صالح (مثال: name@example.com).');
+        return;
+      }
+
       const password = (document.getElementById('regPassword').value || '');
       const specialCharRegex = /[^a-zA-Z0-9\s]/;
       if (password.length < 6 || !specialCharRegex.test(password)) {
@@ -1291,29 +1519,55 @@
         return;
       }
 
+      const phoneCode = document.getElementById('regPhoneCountryCode') ? document.getElementById('regPhoneCountryCode').value : '+39';
+      const rawPhone = (document.getElementById('regPhone').value || '').trim();
+      const phoneDigits = rawPhone.replace(/\D/g, '');
+      if (!rawPhone || phoneDigits.length < 7 || phoneDigits.length > 15) {
+        showAlert('يرجى إدخال رقم هاتف صحيح مكوّن من 7 إلى 15 رقماً.');
+        return;
+      }
+      const combinedPhone = phoneCode ? `${phoneCode} ${rawPhone}`.trim() : rawPhone;
+
+      const birthDate = document.getElementById('regBirthDate').value;
+      if (!birthDate) {
+        showAlert('يرجى تحديد تاريخ الميلاد.');
+        return;
+      }
+
       const submitBtn = document.getElementById('btnSubmitRegister');
 
-      const phoneCode = document.getElementById('regPhoneCountryCode') ? document.getElementById('regPhoneCountryCode').value : '+39';
-      const phoneNum = (document.getElementById('regPhone').value || '').trim();
-      const combinedPhone = phoneCode ? `${phoneCode} ${phoneNum}`.trim() : phoneNum;
-
       const data = {
-        firstName: document.getElementById('regFirstName').value,
-        lastName: document.getElementById('regLastName').value,
-        email: document.getElementById('regEmail').value,
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
         password: password,
         phone: combinedPhone,
-        birthDate: document.getElementById('regBirthDate').value,
+        birthDate: birthDate,
         gender: document.getElementById('regGender').value
       };
 
       submitBtn.disabled = true;
-      submitBtn.innerHTML = 'جاري إنشاء الحساب ومزامنة بياناتك... ⏳';
+      submitBtn.innerHTML = 'جاري إنشاء الحساب وإرسال رابط التفعيل... ⏳';
 
       try {
-        await registerAccount(data);
-        showAlert('🎉 تم إنشاء حسابك بنجاح وربط إنجازك بالسحابة!', true);
-        setTimeout(() => modal.classList.remove('open'), 1200);
+        const result = await registerAccount(data);
+        lastRegisteredCredentials = { email: data.email, password: data.password };
+
+        // تحويل الواجهة فوراً لشاشة تأكيد البريد الإلكتروني (Apple HIG Verification Screen)
+        formReg.style.display = 'none';
+        if (tabsNav) tabsNav.style.display = 'none';
+        if (googleDivider) googleDivider.style.display = 'none';
+        if (googleBtn) googleBtn.style.display = 'none';
+        if (subtitleEl) subtitleEl.style.display = 'none';
+
+        if (titleEl) titleEl.textContent = 'تأكيد البريد الإلكتروني';
+        const verifyEmailSpan = document.getElementById('verifyScreenEmail');
+        if (verifyEmailSpan) verifyEmailSpan.textContent = result.email;
+        if (verifyScreen) verifyScreen.style.display = 'block';
+
+        const card = modal.querySelector('.auth-modal-card');
+        if (card) card.scrollTo({ top: 0, behavior: 'smooth' });
+
       } catch (err) {
         showAlert(translateFirebaseError(err.code || err.message));
       } finally {
@@ -1354,6 +1608,15 @@
   // 17. ترجمة أخطاء Firebase للعربية بشكل مفهوم
   function translateFirebaseError(code) {
     if (!code) return 'حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى.';
+    if (code.includes('email-not-verified')) {
+      return '⚠️ لم يتم تفعيل حسابك بعد! أرسلنا رابط التفعيل إلى بريدك الإلكتروني. يرجى فتح الرسالة وتأكيد حسابك لتتمكن من الدخول.';
+    }
+    if (code.includes('too-many-requests')) {
+      return 'تم تعطيل المحاولات مؤقتاً لكثرة الطلبات. يرجى الانتظار بضع دقائق والمحاولة مجدداً.';
+    }
+    if (code.includes('quota-exceeded')) {
+      return 'تم تجاوز الحد الأقصى المسموح به في السحابة حالياً.';
+    }
     if (code.includes('user-not-found') || code.includes('wrong-password') || code.includes('invalid-credential')) {
       return 'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
     }
@@ -1584,12 +1847,12 @@
 
   // 21. التحقق من حالة الدخول وبوابة الميزات المتقدمة (Feature Gating)
   function isUserLoggedIn() {
-    if (currentUser) return true;
-    try {
-      const raw = localStorage.getItem('patente_user_profile');
-      if (raw) return true;
-    } catch (_) {}
-    return false;
+    if (!currentUser) return false;
+    const isGoogle = currentUser.providerData && currentUser.providerData.some(p => p.providerId === 'google.com');
+    if (!isGoogle && !currentUser.emailVerified) {
+      return false;
+    }
+    return true;
   }
 
   function injectGateModalHtml() {
@@ -1683,6 +1946,7 @@
     logout: logoutAccount,
     deleteAccount: deleteCurrentAccount,
     resetPassword: resetPassword,
+    resendVerificationEmail: resendVerificationEmail,
     syncToCloud: () => currentUser ? uploadLocalProgressToCloud(currentUser.uid) : Promise.resolve(),
     pullFromCloud: () => currentUser ? pullCloudProgressToLocal(currentUser.uid) : Promise.resolve(),
     getCurrentUser: () => currentUser,
