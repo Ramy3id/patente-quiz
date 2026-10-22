@@ -546,6 +546,14 @@
             </div>
           </a>
 
+          <!-- زر الحساب السحابي الموحد (Desktop Auth Pill) -->
+          <div style="position:relative; display:inline-flex; align-items:center;">
+            <button class="nav-auth-pill guest" id="globalAuthPill" title="تسجيل الدخول أو إنشاء حساب جديد لحفظ تقدمك سحابياً">
+              <span>👤</span>
+              <span>دخول / تسجيل</span>
+            </button>
+          </div>
+
           <!-- زر تبديل الوضع النهاري / الليلي -->
           <button class="nav-theme-btn" onclick="window.toggleTheme && window.toggleTheme()" title="تبديل الوضع (نهاري / ليلي) [Alt + T]">
             <span class="theme-icon-span">☀️</span>
@@ -560,6 +568,11 @@
             <span class="mob-prog-icon">🎯</span>
             <span class="mob-prog-text" id="globalMobileProgressVal">${globalStats.pct}%</span>
           </a>
+
+          <!-- زر الحساب للموبايل -->
+          <button class="nav-mobile-btn" id="btnOpenMobileAuth" title="حسابي والمزامنة السحابية" aria-label="حسابي">
+            <span style="font-size:1.15rem;">👤</span>
+          </button>
 
           <!-- زر البحث للموبايل -->
           <button class="nav-mobile-btn" id="btnOpenMobileSearch" title="بحث فوري" aria-label="بحث سريع">
@@ -2844,6 +2857,16 @@
     window.addEventListener('focus', function () {
       updateAllProgressBadges();
     });
+
+    // 7. زر حساب المستخدم والمزامنة للموبايل
+    const mobAuthBtn = document.getElementById('btnOpenMobileAuth');
+    if (mobAuthBtn) {
+      mobAuthBtn.onclick = () => {
+        if (window.PatenteAuth && window.PatenteAuth.openAuthModal) {
+          window.PatenteAuth.openAuthModal();
+        }
+      };
+    }
   }
 
   // 10. ==================== تحديث فوري لشارات الإنجاز ====================
@@ -2928,6 +2951,14 @@
 
     // 4. ربط الأحداث
     setupInteractiveEvents(ctx);
+
+    // 5. تحميل محرك المصادقة والمزامنة السحابية (Firebase Auth Engine)
+    if (!window.PatenteAuth && !document.querySelector('script[src*="firebase-auth-engine.js"]')) {
+      const authScript = document.createElement('script');
+      authScript.src = ctx.root + 'assets/js/firebase-auth-engine.js';
+      authScript.defer = true;
+      document.head.appendChild(authScript);
+    }
   }
 
   if (document.readyState === 'loading') {

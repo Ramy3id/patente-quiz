@@ -1417,6 +1417,32 @@
         </p>
       </div>
 
+      <!-- بطاقة المزامنة السحابية المباشرة Firebase -->
+      <div class="backup-card" style="border-top: 4px solid #F59E0B; margin-bottom: 20px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+          <div>
+            <div style="font-size:1.05rem; font-weight:800; display:flex; align-items:center; gap:8px;">
+              <span>☁️</span>
+              <span>المزامنة السحابية التلقائية (Google Firebase Cloud Sync)</span>
+              <span class="tab-badge" id="dashCloudBadge" style="background:rgba(245,158,11,0.15); color:#F59E0B; border-color:rgba(245,158,11,0.3);">جاهز للمزامنة</span>
+            </div>
+            <p style="font-size:0.82rem; color:var(--text-secondary); margin:6px 0 0;" id="dashCloudDesc">
+              سجّل دخولك لحفظ وتحديث إجاباتك ومستواك في الأبواب الـ 25 وسجل الامتحانات عبر هاتفك وحاسوبك تلقائياً دون الحاجة لتنزيل ملفات يدوياً.
+            </p>
+          </div>
+          <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+            <button class="backup-action-btn" id="btnDashCloudSyncNow" style="width:auto; padding:9px 16px; background:rgba(56,189,248,0.14); border:1px solid rgba(56,189,248,0.35); color:#38BDF8;">
+              <span>🔄</span>
+              <span>مزامنة سحابية الآن</span>
+            </button>
+            <button class="backup-action-btn" id="btnDashCloudAuth" style="width:auto; padding:9px 16px; background:#10B981; color:#FFF;">
+              <span>👤</span>
+              <span id="btnDashCloudAuthLabel">تسجيل الدخول / حساب جديد</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
       <!-- شبكة بطاقات التصدير والاستيراد -->
       <div class="backup-grid">
         <!-- بطاقة التصدير -->
@@ -2515,6 +2541,46 @@
           showBackupToast('تم إعادة ضبط كافة البيانات بنجاح 🔄');
         });
       }
+
+      // ربط أزرار المزامنة السحابية بلوحة التحكم
+      const btnCloudSync = document.getElementById('btnDashCloudSyncNow');
+      if (btnCloudSync) {
+        btnCloudSync.addEventListener('click', async () => {
+          if (!window.PatenteAuth) {
+            showBackupToast('جاري الاتصال بخدمة السحابة...', '⏳');
+            return;
+          }
+          const user = window.PatenteAuth.getCurrentUser();
+          if (!user) {
+            window.PatenteAuth.openAuthModal();
+            return;
+          }
+          btnCloudSync.innerHTML = 'جاري المزامنة... ⏳';
+          btnCloudSync.disabled = true;
+          await window.PatenteAuth.syncToCloud();
+          btnCloudSync.innerHTML = '<span>🔄</span> <span>مزامنة سحابية الآن</span>';
+          btnCloudSync.disabled = false;
+          showBackupToast('تمت المزامنة السحابية بنجاح! ☁️');
+        });
+      }
+
+      const btnCloudAuth = document.getElementById('btnDashCloudAuth');
+      if (btnCloudAuth) {
+        btnCloudAuth.addEventListener('click', () => {
+          if (window.PatenteAuth && window.PatenteAuth.openAuthModal) {
+            window.PatenteAuth.openAuthModal();
+          }
+        });
+      }
+
+      // الاستماع لحدث اكتمال المزامنة السحابية
+      window.addEventListener('patente:cloud-synced', () => {
+        allMistakes = collectAllMistakes();
+        renderMistakesUi();
+        calculateAndRenderStats();
+        updateBackupStatsPreview();
+        showBackupToast('تم استلام وتحديث بياناتك السحابية! 🚀');
+      });
 
       // 9. فحص الـ Hash في الرابط للتوجيه التلقائي
       function checkUrlHash() {
