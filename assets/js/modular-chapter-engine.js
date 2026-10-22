@@ -28,6 +28,9 @@
       this.groups = config.groups || {};
       this.subtopicMap = config.subtopicMap || {};
 
+      // Load persisted progress from localStorage
+      this.loadProgress();
+
       // Map each question to its unified group
       this.data.domande.forEach(q => {
         const rawSub = q.sotto_argomento ? q.sotto_argomento.trim() : '';
@@ -41,6 +44,115 @@
       this.renderHub();
       this.renderChips();
       this.renderQuestions();
+      this.updateChapterProgress();
+    },
+
+    getStorageKey() {
+      const id = (this.data && this.data.numero !== undefined) ? this.data.numero : (this.data && this.data.capitolo_id ? this.data.capitolo_id : 'default');
+      return 'patente_progress_cap_' + id;
+    },
+
+    loadProgress() {
+      try {
+        if (typeof window === 'undefined' || !window.localStorage) return;
+        const raw = window.localStorage.getItem(this.getStorageKey());
+        if (!raw) return;
+        const parsed = JSON.parse(raw);
+        if (parsed && typeof parsed.userAnswers === 'object') {
+          this.userAnswers = parsed.userAnswers || {};
+          let c = 0, w = 0;
+          Object.keys(this.userAnswers).forEach(qid => {
+            const item = this.userAnswers[qid];
+            if (item && item.isCorrect) c++;
+            else if (item && item.isCorrect === false) w++;
+          });
+          this.userStats = { correct: c, wrong: w };
+        }
+      } catch (e) {
+        console.warn('ModularChapterEngine: could not load progress from localStorage', e);
+      }
+    },
+
+    saveProgress() {
+      try {
+        if (typeof window === 'undefined' || !window.localStorage) return;
+        const payload = {
+          userAnswers: this.userAnswers,
+          userStats: this.userStats,
+          updatedAt: Date.now()
+        };
+        window.localStorage.setItem(this.getStorageKey(), JSON.stringify(payload));
+      } catch (e) {
+        console.warn('ModularChapterEngine: could not save progress to localStorage', e);
+      }
+    },
+
+    resetChapterProgress() {
+      if (window.soundEngine && window.soundEngine.click) window.soundEngine.click();
+      const confirmed = window.confirm('هل أنت متأكد من رغبتك في إعادة تعيين إنجاز هذا الباب لبدء المذاكرة من جديد؟');
+      if (!confirmed) return;
+
+      try {
+        if (typeof window !== 'undefined' && window.localStorage) {
+          window.localStorage.removeItem(this.getStorageKey());
+        }
+      } catch (e) {}
+
+      this.userAnswers = {};
+      this.userStats = { correct: 0, wrong: 0 };
+
+      this.renderHub();
+      this.renderChips();
+      this.renderQuestions();
+      this.updateScoreDisplay();
+      this.updateChapterProgress();
+    },
+
+    getOverallProgress() {
+      const totalQuestions = this.data && this.data.domande ? this.data.domande.length : 0;
+      let answeredCount = 0;
+      if (this.data && this.data.domande) {
+        this.data.domande.forEach(q => {
+          if (this.userAnswers[q.id]) answeredCount++;
+        });
+      }
+
+      const groupKeys = Object.keys(this.groups);
+      const totalGroups = groupKeys.length;
+      let completedGroups = 0;
+
+      groupKeys.forEach(gKey => {
+        const groupQuestions = this.data.domande.filter(q => q.gruppo_unificato === gKey);
+        const gTotal = groupQuestions.length;
+        let gAnswered = 0;
+        groupQuestions.forEach(q => {
+          if (this.userAnswers[q.id]) gAnswered++;
+        });
+        if (gTotal > 0 && gAnswered === gTotal) completedGroups++;
+      });
+
+      const pct = totalQuestions > 0 ? Math.round((answeredCount / totalQuestions) * 100) : 0;
+
+      return {
+        totalQuestions,
+        answeredCount,
+        pct,
+        totalGroups,
+        completedGroups
+      };
+    },
+
+    updateChapterProgress() {
+      const progress = this.getOverallProgress();
+      const fillEl = document.getElementById('chapter-progress-fill');
+      const pctBadge = document.getElementById('chapter-progress-pct');
+      const qMeta = document.getElementById('chapter-progress-q-meta');
+      const gMeta = document.getElementById('chapter-progress-g-meta');
+
+      if (fillEl) fillEl.style.width = `${progress.pct}%`;
+      if (pctBadge) pctBadge.innerText = `${progress.pct}%`;
+      if (qMeta) qMeta.innerText = `📝 أُجيب: ${progress.answeredCount} من ${progress.totalQuestions} سؤالاً`;
+      if (gMeta) gMeta.innerText = `🏆 اكتمل: ${progress.completedGroups} من ${progress.totalGroups} قسماً`;
     },
 
     bindGlobals() {
@@ -55,22 +167,19 @@
       window.toggleSubtopicSection = (key) => self.toggleSubtopicSection(key);
       window.expandAllSections = () => self.expandAllSections();
       window.collapseAllSections = () => self.collapseAllSections();
+      window.resetChapterProgress = () => self.resetChapterProgress();
       window.renderQuestions = () => self.renderQuestions();
     },
 
     renderHub() {
-      const existingHub = document.getElementById('subtopics-hub-card');
-      if (existingHub) return; // already in DOM
-
+      let hub = document.getElementById('subtopics-hub-card');
       const qList = document.getElementById('questions-list');
       if (!qList) return;
 
       const groupCount = Object.keys(this.groups).length || 1;
-      const hub = document.createElement('div');
-      hub.className = 'subtopics-hub-card';
-      hub.id = 'subtopics-hub-card';
+      const progress = this.getOverallProgress();
 
-      hub.innerHTML = `
+      const hubContent = `
         <div class="subtopics-hub-header">
           <div class="subtopics-hub-title-wrap">
             <span class="subtopics-hub-badge">📑 تقسيم دراسي ذكي</span>
@@ -94,10 +203,37 @@
           </div>
         </div>
 
+        <div class="chapter-progress-strip" id="chapter-progress-strip">
+          <div class="chapter-progress-top">
+            <div class="chapter-progress-title">
+              <span>📊 تقدم المذاكرة والإنجاز المحفوظ</span>
+              <span class="chapter-progress-pct-badge" id="chapter-progress-pct">${progress.pct}%</span>
+            </div>
+            <div class="chapter-progress-meta">
+              <span id="chapter-progress-q-meta">📝 أُجيب: ${progress.answeredCount} من ${progress.totalQuestions} سؤالاً</span>
+              <span id="chapter-progress-g-meta">🏆 اكتمل: ${progress.completedGroups} من ${progress.totalGroups} قسماً</span>
+              <button class="chapter-reset-btn" onclick="resetChapterProgress()" title="إعادة تعيين التقدم لهذا الباب">
+                <span>🔄 تصفير الإنجاز</span>
+              </button>
+            </div>
+          </div>
+          <div class="chapter-progress-bar-track">
+            <div class="chapter-progress-bar-fill" id="chapter-progress-fill" style="width: ${progress.pct}%;"></div>
+          </div>
+        </div>
+
         <div class="subtopics-chips-scroll" id="subtopics-chips-bar"></div>
       `;
 
-      qList.parentNode.insertBefore(hub, qList);
+      if (hub) {
+        hub.innerHTML = hubContent;
+      } else {
+        hub = document.createElement('div');
+        hub.className = 'subtopics-hub-card';
+        hub.id = 'subtopics-hub-card';
+        hub.innerHTML = hubContent;
+        qList.parentNode.insertBefore(hub, qList);
+      }
     },
 
     renderChips() {
@@ -129,10 +265,18 @@
         const num = info.num ? `${info.num}. ` : '';
         const label = info.short_ar || info.ar || gKey;
 
+        // Check if group is fully answered
+        const groupQuestions = this.data.domande.filter(q => q.gruppo_unificato === gKey);
+        let gAnswered = 0;
+        groupQuestions.forEach(q => {
+          if (this.userAnswers[q.id]) gAnswered++;
+        });
+        const isCompleted = (count > 0 && gAnswered === count);
+
         html += `
-          <button class="subtopic-chip ${isActive ? 'active' : ''}" onclick="selectSubtopicFilter('${gKey}')" title="${info.ar || ''} (${info.it || ''})">
-            <span>${icon} ${num}${label}</span>
-            <span class="chip-count">${count}</span>
+          <button class="subtopic-chip ${isActive ? 'active' : ''} ${isCompleted ? 'is-completed' : ''}" onclick="selectSubtopicFilter('${gKey}')" title="${info.ar || ''} (${info.it || ''})">
+            <span>${isCompleted ? '✅' : icon} ${num}${label}</span>
+            <span class="chip-count">${isCompleted ? 'مكتمل' : count}</span>
           </button>
         `;
       });
@@ -252,10 +396,10 @@
             <div class="q-text-content">${q.domanda}</div>
 
             <div class="q-actions-row">
-              <button class="btn-ans btn-ans-v" onclick="answerQuestion(${q.id}, true)">
+              <button class="btn-ans btn-ans-v ${ans && ans.userChoice === true ? 'selected' : ''}" onclick="answerQuestion(${q.id}, true)">
                 <span>VERO</span>
               </button>
-              <button class="btn-ans btn-ans-f" onclick="answerQuestion(${q.id}, false)">
+              <button class="btn-ans btn-ans-f ${ans && ans.userChoice === false ? 'selected' : ''}" onclick="answerQuestion(${q.id}, false)">
                 <span>FALSO</span>
               </button>
 
@@ -461,6 +605,13 @@
       const card = document.getElementById(`q-card-${id}`);
       const tag = document.getElementById(`status-${id}`);
 
+      if (card) {
+        const btnV = card.querySelector('.btn-ans-v');
+        const btnF = card.querySelector('.btn-ans-f');
+        if (btnV) btnV.classList.toggle('selected', userChoice === true);
+        if (btnF) btnF.classList.toggle('selected', userChoice === false);
+      }
+
       if (isCorrect) {
         if (window.soundEngine && window.soundEngine.correct) window.soundEngine.correct();
         if (tag) {
@@ -485,8 +636,11 @@
         if (drawer) drawer.classList.add('open');
       }
 
+      this.saveProgress();
       this.updateSubtopicProgress(q.gruppo_unificato);
       this.updateScoreDisplay();
+      this.updateChapterProgress();
+      this.renderChips();
     },
 
     toggleDrawer(id) {
