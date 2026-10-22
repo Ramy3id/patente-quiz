@@ -1627,6 +1627,66 @@
         color: #0F172A;
       }
 
+      /* زر الحساب السحابي الموحد (Desktop & Mobile) */
+      .nav-auth-pill {
+        height: 36px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0 12px;
+        background: rgba(56, 189, 248, 0.08);
+        border: 1px solid rgba(56, 189, 248, 0.28);
+        border-radius: 9px;
+        color: #38BDF8;
+        font-size: 0.8rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-family: inherit;
+        white-space: nowrap;
+        text-decoration: none;
+        outline: none;
+      }
+      html.light .nav-auth-pill {
+        background: rgba(2, 132, 199, 0.06);
+        border-color: rgba(2, 132, 199, 0.25);
+        color: #0284C7;
+      }
+      .nav-auth-pill:hover {
+        background: rgba(56, 189, 248, 0.18);
+        border-color: rgba(56, 189, 248, 0.5);
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(56, 189, 248, 0.2);
+      }
+      html.light .nav-auth-pill:hover {
+        background: rgba(2, 132, 199, 0.12);
+        border-color: rgba(2, 132, 199, 0.45);
+        box-shadow: 0 2px 8px rgba(2, 132, 199, 0.15);
+      }
+      .nav-auth-pill.logged-in {
+        background: rgba(16, 185, 129, 0.1);
+        border-color: rgba(16, 185, 129, 0.35);
+        color: #34D399;
+      }
+      html.light .nav-auth-pill.logged-in {
+        background: rgba(5, 150, 105, 0.08);
+        border-color: rgba(5, 150, 105, 0.3);
+        color: #059669;
+      }
+      .auth-online-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #10B981;
+        box-shadow: 0 0 8px #10B981;
+        display: inline-block;
+      }
+      .auth-online-dot.syncing {
+        background: #F59E0B;
+        box-shadow: 0 0 8px #F59E0B;
+        animation: authPulse 0.8s infinite alternate;
+      }
+
       /* عناصر تحكم الموبايل */
       .nav-mobile-controls {
         display: none;
@@ -2858,15 +2918,21 @@
       updateAllProgressBadges();
     });
 
-    // 7. زر حساب المستخدم والمزامنة للموبايل
+    // 7. زر حساب المستخدم والمزامنة (Desktop & Mobile)
+    const openAuthFn = function (e) {
+      if (e) e.preventDefault();
+      if (window.PatenteAuth && window.PatenteAuth.openAuthModal) {
+        window.PatenteAuth.openAuthModal();
+      } else {
+        const m = document.getElementById('patenteAuthModal');
+        if (m) m.classList.add('open');
+      }
+    };
+    const deskAuthBtn = document.getElementById('globalAuthPill');
+    if (deskAuthBtn) deskAuthBtn.onclick = openAuthFn;
+
     const mobAuthBtn = document.getElementById('btnOpenMobileAuth');
-    if (mobAuthBtn) {
-      mobAuthBtn.onclick = () => {
-        if (window.PatenteAuth && window.PatenteAuth.openAuthModal) {
-          window.PatenteAuth.openAuthModal();
-        }
-      };
-    }
+    if (mobAuthBtn) mobAuthBtn.onclick = openAuthFn;
   }
 
   // 10. ==================== تحديث فوري لشارات الإنجاز ====================

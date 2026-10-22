@@ -34,47 +34,36 @@
   let isSyncing = false;
   let lastSyncTime = null;
 
-  // 2. تحميل مكتبات Firebase SDK ديناميكياً (Compatibility CDN)
-  function loadFirebaseSDKs() {
+  // 2. تحميل مكتبات Firebase SDK ديناميكياً بشكل متسلسل آمن
+  function loadSingleScript(src) {
     return new Promise((resolve, reject) => {
-      if (window.firebase && window.firebase.auth && window.firebase.firestore) {
-        return resolve(window.firebase);
-      }
-
-      const scripts = [
-        'https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js',
-        'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js',
-        'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js'
-      ];
-
-      let loadedCount = 0;
-      let hasError = false;
-
-      scripts.forEach(src => {
-        if (document.querySelector(`script[src="${src}"]`)) {
-          loadedCount++;
-          if (loadedCount === scripts.length) resolve(window.firebase);
-          return;
-        }
-
-        const script = document.createElement('script');
-        script.src = src;
-        script.async = true;
-        script.onload = () => {
-          if (hasError) return;
-          loadedCount++;
-          if (loadedCount === scripts.length) {
-            resolve(window.firebase);
-          }
-        };
-        script.onerror = (err) => {
-          hasError = true;
-          console.warn('تعذر تحميل Firebase SDK:', src, err);
-          reject(err);
-        };
-        document.head.appendChild(script);
-      });
+      if (document.querySelector(`script[src="${src}"]`)) return resolve();
+      const script = document.createElement('script');
+      script.src = src;
+      script.onload = () => resolve();
+      script.onerror = (err) => {
+        console.warn('تعذر تحميل السكربت:', src, err);
+        reject(err);
+      };
+      document.head.appendChild(script);
     });
+  }
+
+  async function loadFirebaseSDKs() {
+    if (window.firebase && window.firebase.auth && window.firebase.firestore) {
+      return window.firebase;
+    }
+
+    // 1. يجب تحميل app-compat أولاً لتعريف window.firebase
+    await loadSingleScript('https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js');
+
+    // 2. تحميل auth و firestore معاً
+    await Promise.all([
+      loadSingleScript('https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js'),
+      loadSingleScript('https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js')
+    ]);
+
+    return window.firebase;
   }
 
   // 3. تهيئة النظام السحابي
@@ -371,40 +360,49 @@
     style.textContent = `
       /* زر الحساب في الهيدر */
       .nav-auth-pill {
+        height: 36px;
         display: inline-flex;
         align-items: center;
-        gap: 8px;
-        padding: 7px 14px;
-        border-radius: 20px;
+        gap: 6px;
+        padding: 0 12px;
+        border-radius: 9px;
         font-family: inherit;
-        font-size: 0.84rem;
+        font-size: 0.8rem;
         font-weight: 700;
         cursor: pointer;
-        border: 1px solid rgba(56, 189, 248, 0.35);
-        background: rgba(56, 189, 248, 0.1);
-        color: var(--accent-cyan, #38BDF8);
-        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        border: 1px solid rgba(56, 189, 248, 0.28);
+        background: rgba(56, 189, 248, 0.08);
+        color: #38BDF8;
+        transition: all 0.2s ease;
         position: relative;
         white-space: nowrap;
+        outline: none;
+        text-decoration: none;
       }
       .nav-auth-pill:hover {
-        background: rgba(56, 189, 248, 0.2);
+        background: rgba(56, 189, 248, 0.18);
+        border-color: rgba(56, 189, 248, 0.5);
         transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
+        box-shadow: 0 2px 8px rgba(56, 189, 248, 0.2);
       }
       html.light .nav-auth-pill {
-        background: #F0F9FF;
-        border-color: #BAE6FD;
+        background: rgba(2, 132, 199, 0.06);
+        border-color: rgba(2, 132, 199, 0.25);
         color: #0284C7;
       }
+      html.light .nav-auth-pill:hover {
+        background: rgba(2, 132, 199, 0.12);
+        border-color: rgba(2, 132, 199, 0.45);
+        box-shadow: 0 2px 8px rgba(2, 132, 199, 0.15);
+      }
       .nav-auth-pill.logged-in {
-        border-color: rgba(16, 185, 129, 0.4);
-        background: rgba(16, 185, 129, 0.12);
+        background: rgba(16, 185, 129, 0.1);
+        border-color: rgba(16, 185, 129, 0.35);
         color: #34D399;
       }
       html.light .nav-auth-pill.logged-in {
-        background: #ECFDF5;
-        border-color: #A7F3D0;
+        background: rgba(5, 150, 105, 0.08);
+        border-color: rgba(5, 150, 105, 0.3);
         color: #059669;
       }
       .auth-online-dot {
@@ -1078,11 +1076,17 @@
     }
   };
 
-  // تهيئة المحرك عند جاهزية الصفحة
-  document.addEventListener('DOMContentLoaded', () => {
+  // تهيئة وتشغيل المحرك فورياً
+  function startEngine() {
     injectAuthStyles();
     injectAuthModalHtml();
     initFirebase();
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startEngine);
+  } else {
+    startEngine();
+  }
 
 })();
