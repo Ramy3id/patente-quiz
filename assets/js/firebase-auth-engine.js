@@ -16,7 +16,7 @@
 
   // 1. مفاتيح إعدادات مشروع Firebase الرسمي
   const FIREBASE_CONFIG = {
-    apiKey: "AIzaSyBvnl-gy7sGsdG5M6dTmhYU7ZI5VUblH7s",
+    apiKey: "AIzaSyBVnl-gy7sGsdG5M6dTmhYU7ZI5VUblH7s",
     authDomain: "patente-b-pro.firebaseapp.com",
     projectId: "patente-b-pro",
     storageBucket: "patente-b-pro.firebasestorage.app",
@@ -139,7 +139,11 @@
   async function registerAccount({ firstName, lastName, email, password, phone, birthDate, gender }) {
     if (!authInstance) throw new Error('خدمة السحابة غير مهيأة بعد');
     if (!email || !password) throw new Error('يرجى ملء البريد الإلكتروني وكلمة المرور');
-    if (password.length < 6) throw new Error('كلمة المرور يجب ألا تقل عن 6 خانات');
+    
+    const specialCharRegex = /[^a-zA-Z0-9\s]/;
+    if (password.length < 6 || !specialCharRegex.test(password)) {
+      throw new Error('كلمة المرور يجب أن تتكون من 6 خانات على الأقل وتتضمن رمزاً خاصاً واحداً على الأقل (مثل: @, #, $, %, !, -, *, +, §)');
+    }
 
     // إنشاء الحساب في Firebase Auth
     const cred = await authInstance.createUserWithEmailAndPassword(email, password);
@@ -729,7 +733,8 @@
 
           <div class="auth-field-group">
             <label class="auth-label">كلمة المرور</label>
-            <input type="password" class="auth-input" id="regPassword" placeholder="6 خانات على الأقل" required minlength="6" dir="ltr">
+            <input type="password" class="auth-input" id="regPassword" placeholder="6 خانات على الأقل مع رمز خاص (مثل: @, #, $, !, %, *, -)" required minlength="6" dir="ltr">
+            <span style="font-size:0.72rem; color:#94A3B8; display:block; margin-top:4px;">💡 6 خانات على الأقل مع رمز خاص مثل: @ # $ % ! * - + § ?</span>
           </div>
 
           <div class="auth-field-group">
@@ -863,6 +868,14 @@
     formReg.onsubmit = async (e) => {
       e.preventDefault();
       clearAlert();
+
+      const password = (document.getElementById('regPassword').value || '');
+      const specialCharRegex = /[^a-zA-Z0-9\s]/;
+      if (password.length < 6 || !specialCharRegex.test(password)) {
+        showAlert('كلمة المرور يجب أن تتكون من 6 خانات على الأقل وتتضمن رمزاً خاصاً واحداً على الأقل (مثل: @, #, $, %, !, -, *, +, §)');
+        return;
+      }
+
       const submitBtn = document.getElementById('btnSubmitRegister');
 
       const phoneCode = document.getElementById('regPhoneCountryCode') ? document.getElementById('regPhoneCountryCode').value : '+39';
@@ -873,7 +886,7 @@
         firstName: document.getElementById('regFirstName').value,
         lastName: document.getElementById('regLastName').value,
         email: document.getElementById('regEmail').value,
-        password: document.getElementById('regPassword').value,
+        password: password,
         phone: combinedPhone,
         birthDate: document.getElementById('regBirthDate').value,
         gender: document.getElementById('regGender').value
@@ -936,10 +949,16 @@
       return 'صيغة البريد الإلكتروني غير صالحة.';
     }
     if (code.includes('weak-password')) {
-      return 'كلمة المرور ضعيفة جداً، يرجى كتابة 6 خانات على الأقل.';
+      return 'كلمة المرور ضعيفة جداً. يجب أن تحتوي على 6 خانات على الأقل وتتضمن رمزاً خاصاً.';
     }
     if (code.includes('popup-closed-by-user')) {
       return 'تم إلغاء نافذة الدخول بواسطة المستخدم.';
+    }
+    if (code.includes('api-key-not-valid') || code.includes('invalid-api-key')) {
+      return 'مفتاح التهيئة السحابي غير صالح. يرجى مراجعة إعدادات Firebase.';
+    }
+    if (code.includes('unauthorized-domain')) {
+      return 'هذا النطاق غير مصرح به في Firebase Authentication. يرجى تشغيل الموقع عبر خادم محلي أو إضافة النطاق.';
     }
     return code;
   }
