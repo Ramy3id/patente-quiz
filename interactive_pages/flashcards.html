@@ -316,7 +316,12 @@
         } else if (mode === "traps") {
           selected = traps.filterTraps(allQuestionsPool).slice(0, 50);
         } else {
-          selected = [...allQuestionsPool].sort(() => 0.5 - Math.random()).slice(0, 50);
+          const isLoggedIn = (window.PatenteAuth && window.PatenteAuth.isLoggedIn) ? window.PatenteAuth.isLoggedIn() : Boolean(localStorage.getItem('patente_user_profile'));
+        const bannerEl = document.getElementById('guestCardsBanner');
+        if (bannerEl) bannerEl.style.display = isLoggedIn ? 'none' : 'flex';
+
+        const deckLimit = isLoggedIn ? 50 : 5;
+        selected = [...allQuestionsPool].sort(() => 0.5 - Math.random()).slice(0, deckLimit);
         }
 
         fcEngine.loadQuestions(selected);

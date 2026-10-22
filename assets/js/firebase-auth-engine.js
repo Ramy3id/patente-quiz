@@ -104,6 +104,7 @@
     } catch (err) {
       console.warn('PatenteAuth: يعمل التطبيق في الوضع المحلي (Offline Mode)');
       updateAuthUiLoggedOut();
+    window.dispatchEvent(new CustomEvent('patente:auth-changed', { detail: { loggedIn: false } }));
       return false;
     }
   }
@@ -160,6 +161,7 @@
         }
 
         updateAuthUiLoggedIn(userProfile);
+        window.dispatchEvent(new CustomEvent('patente:auth-changed', { detail: { loggedIn: true, user: userProfile } }));
 
         // مزامنة تلقائية هادئة مع السحابة عند الدخول
         syncBidirectional(user.uid);
@@ -273,6 +275,38 @@
     await authInstance.signOut();
     userProfile = null;
     currentUser = null;
+    try {
+      localStorage.removeItem('patente_user_profile');
+    } catch (_) {}
+    updateAuthUiLoggedOut();
+  }
+
+  // 8.1 حذف الحساب نهائياً من السحابة والواجهة (Permanent Account Deletion)
+  async function deleteCurrentAccount() {
+    if (!currentUser) return;
+    const uid = currentUser.uid;
+
+    // 1. مسح وثائق المستخدم من Firestore
+    try {
+      if (firestoreInstance) {
+        await firestoreInstance.collection('users').doc(uid).collection('userData').doc('progress').delete();
+        await firestoreInstance.collection('users').doc(uid).delete();
+      }
+    } catch (e) {
+      console.warn('Firestore deletion notice:', e);
+    }
+
+    // 2. تنظيف التخزين المحلي
+    try {
+      localStorage.removeItem('patente_user_profile');
+    } catch (_) {}
+
+    // 3. حذف الحساب من Firebase Auth
+    await currentUser.delete();
+
+    // 4. تحديث حالة الواجهة كـ زائر
+    currentUser = null;
+    userProfile = null;
     updateAuthUiLoggedOut();
   }
 
@@ -851,6 +885,160 @@
           max-width: calc(100vw - 24px) !important;
         }
       }
+
+      /* نافذة إتاحة الميزات للطلاب المسجلين (Feature Gate VIP Modal) */
+      .auth-gate-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.82);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        z-index: 100001;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.28s;
+      }
+      .auth-gate-backdrop.open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+      .auth-gate-card {
+        background: #0F172A;
+        border: 1px solid rgba(56, 189, 248, 0.35);
+        border-radius: 24px;
+        width: 100%;
+        max-width: 480px;
+        padding: 28px 24px 22px;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(56, 189, 248, 0.15);
+        transform: scale(0.92) translateY(16px);
+        opacity: 0;
+        transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.26s ease;
+        color: #F8FAFC;
+        position: relative;
+        direction: rtl;
+        text-align: center;
+        box-sizing: border-box;
+      }
+      html.light .auth-gate-card {
+        background: #FFFFFF;
+        border-color: rgba(2, 132, 199, 0.35);
+        color: #0F172A;
+        box-shadow: 0 25px 60px rgba(15, 23, 42, 0.15);
+      }
+      .auth-gate-backdrop.open .auth-gate-card {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+      .gate-vip-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 800;
+        background: rgba(245, 158, 11, 0.15);
+        color: #FBBF24;
+        border: 1px solid rgba(245, 158, 11, 0.35);
+        margin-bottom: 8px;
+      }
+      html.light .gate-vip-tag {
+        background: rgba(217, 119, 6, 0.12);
+        color: #B45309;
+        
+      border-color: rgba(217, 119, 6, 0.3);
+    }
+
+    /* شريط العينة المجانية في أعلى الأدوات */
+    .guest-free-sample-banner {
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.14), rgba(16, 185, 129, 0.14));
+      border-bottom: 1px solid rgba(56, 189, 248, 0.28);
+      padding: 9px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.83rem;
+      color: #F8FAFC;
+      direction: rtl;
+      position: relative;
+      z-index: 999;
+    }
+    html.light .guest-free-sample-banner {
+      background: linear-gradient(90deg, rgba(2, 132, 199, 0.09), rgba(5, 150, 105, 0.09));
+      border-bottom-color: rgba(2, 132, 199, 0.22);
+      color: #0F172A;
+    }
+    .sample-banner-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+    .sample-banner-btn {
+      background: #10B981;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 9px;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+      font-family: inherit;
+      transition: transform 0.18s ease, box-shadow 0.2s ease, background-color 0.2s;
+      box-shadow: 0 2px 10px rgba(16, 185, 129, 0.35);
+    }
+    .sample-banner-btn:hover {
+      background: #059669;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.45);
+    }
+    @media (max-width: 640px) {
+      .guest-free-sample-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+        padding: 10px 14px;
+      }
+    }
+
+    /* بطاقة المعاينة المقفولة */
+    .locked-preview-card {
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 16px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .locked-preview-card:hover {
+      transform: translateY(-2px);
+    }
+    .locked-preview-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.78);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 16px;
+      z-index: 10;
+      color: #FFF;
+    }
+    html.light .locked-preview-overlay {
+      background: rgba(248, 250, 252, 0.85);
+      color: #0F172A;
+    }
     `;
     document.head.appendChild(style);
   }
@@ -1292,7 +1480,13 @@
       <div style="font-size:0.78rem; color:#94A3B8; margin-bottom:12px; line-height:1.7;">
         <div>📱 <strong>الهاتف:</strong> <span dir="ltr">${escapeHtml(phone)}</span></div>
         <div>🎂 <strong>الميلاد:</strong> ${escapeHtml(bdate)}</div>
-        <div>👤 <strong>النوع:</strong> ${genderStr}</div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div>👤 <strong>النوع:</strong> ${genderStr}</div>
+          <button id="btnDeleteAccountInline" title="حذف الحساب وجميع البيانات نهائياً من السحابة" style="background:transparent; border:none; color:#EF4444; font-size:0.72rem; cursor:pointer; padding:1px 4px; border-radius:4px; opacity:0.8; font-family:inherit; transition:all 0.2s; display:inline-flex; align-items:center; gap:3px;">
+            <span>🗑️</span>
+            <span>حذف الحساب</span>
+          </button>
+        </div>
       </div>
 
       <div style="background:rgba(255,255,255,0.04); border-radius:10px; padding:10px; margin-bottom:12px; font-size:0.75rem;">
@@ -1334,6 +1528,38 @@
       }
     };
 
+    // زر حذف الحساب نهائياً (الموجود في قسم البيانات)
+    const delBtn = document.getElementById('btnDeleteAccountInline');
+    if (delBtn) {
+      delBtn.onclick = async () => {
+        const confirmed = confirm(
+          '⚠️ تحذير نهائي:\n\n' +
+          'هل أنت متأكد تماماً من حذف حسابك وكافة سجلاتك وتقدمك السحابي نهائياً؟\n\n' +
+          '• سيتم مسح ملفك وجميع سجلاتك من خوادم السحابة فوراً.\n' +
+          '• لن تتمكن من استرجاع تقدمك في الأسئلة أو الامتحانات بعد الحذف.\n' +
+          '• يمكنك إنشاء حساب جديد بنفس البريد لاحقاً في أي وقت.'
+        );
+        if (!confirmed) return;
+
+        delBtn.innerHTML = 'جاري الحذف... ⏳';
+        delBtn.disabled = true;
+
+        try {
+          await deleteCurrentAccount();
+          drop.classList.remove('open');
+          alert('✅ تم حذف حسابك وكافة بياناتك السحابية نهائياً بنجاح.');
+        } catch (err) {
+          delBtn.innerHTML = '<span>🗑️</span> <span>حذف الحساب</span>';
+          delBtn.disabled = false;
+          if (err && err.code === 'auth/requires-recent-login') {
+            alert('🔒 لأسباب أمنية مشددة، يتطلب حذف الحساب إعادة تسجيل الدخول حديثاً. يرجى تسجيل الخروج ثم الدخول مرة أخرى والمحاولة مجدداً.');
+          } else {
+            alert('تعذر حذف الحساب حالياً: ' + ((err && err.message) || 'يرجى المحاولة لاحقاً.'));
+          }
+        }
+      };
+    }
+
     // إغلاق عند النقر بالخارج
     const closeListener = (evt) => {
       if (!drop.contains(evt.target) && evt.target !== pill && (!mobBtn || !mobBtn.contains(evt.target))) {
@@ -1356,28 +1582,122 @@
     if (el) el.textContent = text;
   }
 
-  // 21. الواجهة البرمجية العامة المعرضة للتطبيق (Global API)
+  // 21. التحقق من حالة الدخول وبوابة الميزات المتقدمة (Feature Gating)
+  function isUserLoggedIn() {
+    if (currentUser) return true;
+    try {
+      const raw = localStorage.getItem('patente_user_profile');
+      if (raw) return true;
+    } catch (_) {}
+    return false;
+  }
+
+  function injectGateModalHtml() {
+    if (document.getElementById('patenteGateModal')) return;
+
+    const gate = document.createElement('div');
+    gate.className = 'auth-gate-backdrop';
+    gate.id = 'patenteGateModal';
+    gate.innerHTML = `
+      <div class="auth-gate-card" role="dialog" aria-modal="true">
+        <button class="auth-close-btn" id="btnGateClose" title="إغلاق">✕</button>
+        <div style="font-size:2.6rem; line-height:1; margin-bottom:8px;">👑</div>
+        <span class="gate-vip-tag" id="gateModalBadge">ميزة حصرية للطلاب</span>
+        <h3 id="gateModalTitle" style="font-size:1.22rem; font-weight:800; margin:10px 0 8px; color:inherit;">
+          هذه الميزة متاحة مجاناً للطلاب المسجلين!
+        </h3>
+        <p id="gateModalDesc" style="font-size:0.86rem; color:#94A3B8; margin:0 0 20px; line-height:1.65;">
+          لقد شاهدت عينة مجانية من هذه الأداة. أنشئ حسابك المجاني في ثوانٍ لفتح جميع المحتويات وحفظ أخطائك وإنجازك سحابياً عبر كل أجهزتك.
+        </p>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <button id="btnGateRegister" class="auth-submit-btn" style="margin-top:0; height:42px; font-size:0.92rem;">
+            <span>🚀 إنشاء حساب مجاني الآن</span>
+          </button>
+          <button id="btnGateDismiss" style="height:36px; border-radius:10px; background:transparent; border:1px solid rgba(255,255,255,0.12); color:#94A3B8; font-weight:600; cursor:pointer; font-size:0.82rem; font-family:inherit;">
+            <span>متابعة التصفح كزائر</span>
+          </button>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(gate);
+
+    const closeBtn = document.getElementById('btnGateClose');
+    const dismissBtn = document.getElementById('btnGateDismiss');
+    const regBtn = document.getElementById('btnGateRegister');
+
+    const closeGate = () => gate.classList.remove('open');
+    if (closeBtn) closeBtn.onclick = closeGate;
+    if (dismissBtn) dismissBtn.onclick = closeGate;
+    gate.onclick = (e) => {
+      if (e.target === gate) closeGate();
+    };
+
+    if (regBtn) {
+      regBtn.onclick = () => {
+        closeGate();
+        openAuthModal(true);
+      };
+    }
+  }
+
+  function showGateModal(options = {}) {
+    injectGateModalHtml();
+    const modal = document.getElementById('patenteGateModal');
+    if (!modal) return;
+
+    const titleEl = document.getElementById('gateModalTitle');
+    const descEl = document.getElementById('gateModalDesc');
+    const badgeEl = document.getElementById('gateModalBadge');
+
+    if (titleEl && options.title) titleEl.textContent = options.title;
+    if (descEl && options.message) descEl.textContent = options.message;
+    if (badgeEl && options.badge) badgeEl.textContent = options.badge;
+
+    modal.classList.add('open');
+  }
+
+  function requireAuth(options = {}) {
+    if (isUserLoggedIn()) return true;
+    showGateModal(options);
+    return false;
+  }
+
+  function openAuthModal(openRegisterTab = false) {
+    const modal = document.getElementById('patenteAuthModal');
+    if (modal) {
+      modal.classList.add('open');
+      if (openRegisterTab) {
+        const tabReg = document.getElementById('tabBtnRegister');
+        if (tabReg) tabReg.click();
+      }
+    }
+  }
+
+  // 22. الواجهة البرمجية العامة المعرضة للتطبيق (Global API)
   window.PatenteAuth = {
     init: initFirebase,
     register: registerAccount,
     login: loginAccount,
     loginWithGoogle: loginWithGoogle,
     logout: logoutAccount,
+    deleteAccount: deleteCurrentAccount,
     resetPassword: resetPassword,
     syncToCloud: () => currentUser ? uploadLocalProgressToCloud(currentUser.uid) : Promise.resolve(),
     pullFromCloud: () => currentUser ? pullCloudProgressToLocal(currentUser.uid) : Promise.resolve(),
     getCurrentUser: () => currentUser,
     getUserProfile: () => userProfile,
-    openAuthModal: () => {
-      const modal = document.getElementById('patenteAuthModal');
-      if (modal) modal.classList.add('open');
-    }
+    isLoggedIn: isUserLoggedIn,
+    showGateModal: showGateModal,
+    requireAuth: requireAuth,
+    openAuthModal: openAuthModal
   };
 
   // تهيئة وتشغيل المحرك فورياً
   function startEngine() {
     injectAuthStyles();
     injectAuthModalHtml();
+    injectGateModalHtml();
     initFirebase();
   }
 

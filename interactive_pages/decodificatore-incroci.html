@@ -517,6 +517,16 @@
 </head>
 <body>
 
+  
+  <div class="guest-free-sample-banner" id="guestIncrociBanner" style="display:none;">
+    <div class="sample-banner-text">
+      <span>🎁</span>
+      <span><strong>عينة مجانية:</strong> أنت تشاهد عينة تجريبية من مفكك التقاطعات (أول تقاطعين). أنشئ حسابك المجاني في 10 ثوانٍ لفك شفرة كافة الـ 183 تقاطعاً وحفظ إنجازك.</span>
+    </div>
+    <button class="sample-banner-btn" onclick="window.PatenteAuth && window.PatenteAuth.openAuthModal(true)">
+      <span>🚀 إنشاء حساب مجاني</span>
+    </button>
+  </div>
   <div class="inc-container">
 
     <!-- شريط التنقل -->
@@ -654,6 +664,7 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       initData();
+      window.addEventListener('patente:auth-changed', () => renderQuestions());
     });
 
     function initData() {
@@ -737,7 +748,35 @@
         return;
       }
 
-      container.innerHTML = filtered.map(q => {
+      const isLoggedIn = (window.PatenteAuth && window.PatenteAuth.isLoggedIn) ? window.PatenteAuth.isLoggedIn() : Boolean(localStorage.getItem('patente_user_profile'));
+      
+      const bannerEl = document.getElementById('guestIncrociBanner');
+      if (bannerEl) bannerEl.style.display = isLoggedIn ? 'none' : 'flex';
+
+      container.innerHTML = filtered.map((q, idx) => {
+        // أول تقاطعين متاحان مجاناً كعينة تجريبية للزائر، وباقي التقاطعات تطلب تسجيلاً مجانياً
+        if (!isLoggedIn && idx >= 2) {
+          const imgSrc = q.img ? `../Capitoli_Divisi/${q.img}` : '../assets/images/placeholder.png';
+          return `
+            <div class="q-card locked-preview-card" onclick="window.PatenteAuth && window.PatenteAuth.showGateModal({ title: 'افتح جميع التقاطعات الـ 183 مجاناً!', message: 'لقد شاهدت عينة مجانية من مفكك التقاطعات. أنشئ حسابك المجاني في 10 ثوانٍ لفك شفرة كافة التقاطعات وحفظ أخطائك سحابياً.' })">
+              <div class="q-img-wrap" style="filter:blur(4px); opacity:0.5;">
+                <img src="${imgSrc}" alt="تقاطع سؤال ${q.id}" loading="lazy">
+              </div>
+              <div class="q-info-col" style="filter:blur(3px); opacity:0.4; user-select:none;">
+                <div class="q-meta-row">
+                  <span class="q-id-badge">سؤال #${q.id}</span>
+                </div>
+                <p class="q-it-text">${highlightKeyword(q.q || '')}</p>
+                <p class="q-ar-text">${escapeHtml(q.tr || '')}</p>
+              </div>
+              <div class="locked-preview-overlay">
+                <div style="font-size:2rem; margin-bottom:6px;">🔒</div>
+                <div style="font-weight:800; font-size:1rem; margin-bottom:4px;">متاح مجاناً للطلاب المسجلين</div>
+                <div style="font-size:0.78rem; color:#38BDF8; font-weight:700;">انقر لإنشاء حساب مجاني وفتح كافة التقاطعات 🚀</div>
+              </div>
+            </div>
+          `;
+        }
         const isVero = (q.a === true);
         const ansBadge = isVero ? '<span class="ans-badge-v">✅ VERO</span>' : '<span class="ans-badge-f">❌ FALSO</span>';
         const imgSrc = q.img ? `../Capitoli_Divisi/${q.img}` : '../assets/images/placeholder.png';

@@ -1118,6 +1118,7 @@
 
       loadMasteryState();
       updateMarathonStatsUI();
+      window.addEventListener('patente:auth-changed', () => renderQuestionsList());
       renderQuestionsList();
     }
 
@@ -1167,6 +1168,16 @@
     }
 
     function selectConstantCategory(catId, cardEl) {
+      const isLoggedIn = (window.PatenteAuth && window.PatenteAuth.isLoggedIn) ? window.PatenteAuth.isLoggedIn() : Boolean(localStorage.getItem('patente_user_profile'));
+      if (!isLoggedIn && catId !== 'battistrada' && catId !== 'all') {
+        if (window.PatenteAuth && window.PatenteAuth.showGateModal) {
+          window.PatenteAuth.showGateModal({
+            title: 'افتح جميع فئات معمل الأرقام مجاناً!',
+            message: 'لقد شاهدت عينة مجانية من معمل الأرقام. أنشئ حسابك المجاني لفك شفرة كافة مسافات الأمان، السرعات، أوزان الشاحنات، ونسب الكحول.'
+          });
+        }
+        return;
+      }
       if (selectedCat === catId) {
         selectedCat = 'all';
         document.querySelectorAll('.c-card').forEach(c => c.classList.remove('active'));
@@ -1285,7 +1296,33 @@
         return;
       }
 
-      container.innerHTML = filtered.map(q => {
+      const isLoggedIn = (window.PatenteAuth && window.PatenteAuth.isLoggedIn) ? window.PatenteAuth.isLoggedIn() : Boolean(localStorage.getItem('patente_user_profile'));
+      const bannerEl = document.getElementById('guestNumeriBanner');
+      if (bannerEl) bannerEl.style.display = isLoggedIn ? 'none' : 'flex';
+
+      container.innerHTML = filtered.map((q, idx) => {
+        if (!isLoggedIn && idx >= 3) {
+          const ansBadge = (q.a === true)
+            ? '<span class="q-badge-ans q-badge-vero">✅ VERO</span>'
+            : '<span class="q-badge-ans q-badge-falso">❌ FALSO</span>';
+          return `
+            <div class="q-card locked-preview-card" onclick="window.PatenteAuth && window.PatenteAuth.showGateModal({ title: 'افتح جميع فئات معمل الأرقام مجاناً!', message: 'أنشئ حسابك المجاني في 10 ثوانٍ لفك شفرة كافة قواعد الأرقام والسرعات وحفظ أخطائك سحابياً.' })">
+              <div class="q-card-header" style="filter:blur(3px); opacity:0.5;">
+                <div class="q-meta">
+                  ${ansBadge}
+                  <span class="q-subtopic-tag">الباب ${q.ch} • ${escapeHtml(q.sub || '')}</span>
+                </div>
+              </div>
+              <div class="q-text-it" style="filter:blur(3px); opacity:0.4; user-select:none;">${escapeHtml(q.q)}</div>
+              <div class="q-text-ar" style="filter:blur(3px); opacity:0.4; user-select:none;">📖 ${escapeHtml(q.tr || '')}</div>
+              <div class="locked-preview-overlay">
+                <div style="font-size:2rem; margin-bottom:6px;">🔒</div>
+                <div style="font-weight:800; font-size:1rem; margin-bottom:4px;">متاح مجاناً للطلاب المسجلين</div>
+                <div style="font-size:0.78rem; color:#38BDF8; font-weight:700;">انقر لإنشاء حساب مجاني وفتح كافة قواعد الأرقام 🚀</div>
+              </div>
+            </div>
+          `;
+        }
         const isVero = q.a === true;
         const ansBadge = isVero 
           ? `<span class="q-badge-ans q-badge-vero">✅ VERO</span>` 

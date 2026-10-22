@@ -945,6 +945,7 @@
       ALL_FIRST_AID_QUESTIONS = ALL_QUESTIONS_DATA.filter(q => q.ch === 22 && FIRST_AID_SUBS.includes(q.sub));
       loadMasteryState();
       updateMarathonStatsUI();
+      window.addEventListener('patente:auth-changed', () => renderQuestionsList());
       renderQuestionsList();
     }
 
@@ -1045,7 +1046,33 @@
         return;
       }
 
+      const isLoggedIn = (window.PatenteAuth && window.PatenteAuth.isLoggedIn) ? window.PatenteAuth.isLoggedIn() : Boolean(localStorage.getItem('patente_user_profile'));
+      const bannerEl = document.getElementById('guestSoccorsoBanner');
+      if (bannerEl) bannerEl.style.display = isLoggedIn ? 'none' : 'flex';
+
       container.innerHTML = filtered.map((q, idx) => {
+        if (!isLoggedIn && idx >= 3) {
+          const ansBadge = (q.a === true)
+            ? '<span class="q-badge-ans q-badge-vero">✅ VERO</span>'
+            : '<span class="q-badge-ans q-badge-falso">❌ FALSO</span>';
+          return `
+            <div class="q-card locked-preview-card" onclick="window.PatenteAuth && window.PatenteAuth.showGateModal({ title: 'افتح جميع أسئلة الإسعافات الأولية مجاناً!', message: 'أنشئ حسابك المجاني في 10 ثوانٍ لفك شفرة كافة أسئلة الصدمة، النزيف، والإنقاذ وحفظ أخطائك سحابياً.' })">
+              <div class="q-card-header" style="filter:blur(3px); opacity:0.5;">
+                <div class="q-meta">
+                  ${ansBadge}
+                  <span class="q-subtopic-tag">${escapeHtml(q.sub || 'Primo Soccorso')}</span>
+                </div>
+              </div>
+              <div class="q-text-it" style="filter:blur(3px); opacity:0.4; user-select:none;">${escapeHtml(q.q)}</div>
+              <div class="q-text-ar" style="filter:blur(3px); opacity:0.4; user-select:none;">📖 ${escapeHtml(q.tr || '')}</div>
+              <div class="locked-preview-overlay">
+                <div style="font-size:2rem; margin-bottom:6px;">🔒</div>
+                <div style="font-weight:800; font-size:1rem; margin-bottom:4px;">متاح مجاناً للطلاب المسجلين</div>
+                <div style="font-size:0.78rem; color:#38BDF8; font-weight:700;">انقر لإنشاء حساب مجاني وفتح كافة الأسئلة 🚀</div>
+              </div>
+            </div>
+          `;
+        }
         const isVero = q.a === true;
         const ansBadge = isVero 
           ? `<span class="q-badge-ans q-badge-vero">✅ VERO</span>` 

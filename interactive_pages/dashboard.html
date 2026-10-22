@@ -1128,7 +1128,22 @@
 </head>
 <body>
 
-  <div class="dash-wrapper">
+    <div class="dash-wrapper">
+    <!-- إشعار الزائر للحفظ السحابي والمزامنة -->
+    <div id="guestDashboardNotice" style="display:none; background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(16, 185, 129, 0.12)); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 18px; padding: 14px 18px; margin-bottom: 16px; text-align: right; direction: rtl;">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="font-size: 1.8rem;">☁️</div>
+          <div>
+            <strong style="font-size: 0.95rem; color: #38BDF8; display: block; margin-bottom: 2px;">أنت تتصفح كزائر — بياناتك وإنجازك محفوظان على هذا المتصفح فقط</strong>
+            <span style="font-size: 0.78rem; color: #94A3B8;">أنشئ حسابك المجاني في 10 ثوانٍ لربط بنك أخطائك بالسحابة ومزامنة تقدمك تلقائياً عبر هاتفك والكمبيوتر.</span>
+          </div>
+        </div>
+        <button onclick="window.PatenteAuth && window.PatenteAuth.openAuthModal(true)" style="background: #10B981; color: #FFF; border: none; border-radius: 9px; padding: 7px 15px; font-weight: 800; font-size: 0.82rem; cursor: pointer; font-family: inherit; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); white-space: nowrap;">
+          <span>🚀 حفظ بالسحابة ومزامنة مجاناً</span>
+        </button>
+      </div>
+    </div>
     <!-- شريط التبويبات العلوية -->
     <div class="dash-tabs-bar" role="tablist">
       <button class="dash-tab-btn active" data-tab="tabOverview" role="tab" aria-selected="true">
@@ -2605,6 +2620,14 @@
         checkUrlHash();
 
         window.addEventListener('hashchange', checkUrlHash);
+
+        function updateGuestNotice() {
+          const isUserAuth = (window.PatenteAuth && window.PatenteAuth.isLoggedIn) ? window.PatenteAuth.isLoggedIn() : Boolean(localStorage.getItem('patente_user_profile'));
+          const gNotice = document.getElementById('guestDashboardNotice');
+          if (gNotice) gNotice.style.display = isUserAuth ? 'none' : 'block';
+        }
+        updateGuestNotice();
+        window.addEventListener('patente:auth-changed', updateGuestNotice);
       });
 
     })();
