@@ -1694,16 +1694,17 @@
       .mobile-prog-pill {
         display: inline-flex;
         align-items: center;
-        gap: 4px;
-        padding: 5px 9px;
+        gap: 3px;
+        padding: 4px 7px;
         border-radius: 8px;
         background: rgba(16, 185, 129, 0.12);
         border: 1px solid rgba(16, 185, 129, 0.25);
         color: #34D399;
         font-family: 'JetBrains Mono', monospace;
-        font-size: 0.78rem;
+        font-size: 0.74rem;
         font-weight: 800;
         text-decoration: none;
+        flex-shrink: 0;
       }
       html.light .mobile-prog-pill {
         background: rgba(5, 150, 105, 0.08);
@@ -1711,26 +1712,9 @@
         color: #059669;
       }
       .nav-mobile-btn {
-        width: 38px;
-        height: 38px;
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        color: #FFF;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-      }
-      html.light .nav-mobile-btn {
-        background: rgba(15, 23, 42, 0.05);
-        border-color: rgba(15, 23, 42, 0.1);
-        color: #0F172A;
-      }
-      .nav-mobile-hamburger {
-        width: 38px;
-        height: 38px;
-        border-radius: 10px;
+        width: 33px;
+        height: 33px;
+        border-radius: 8px;
         background: rgba(255, 255, 255, 0.06);
         border: 1px solid rgba(255, 255, 255, 0.1);
         color: #FFF;
@@ -1739,6 +1723,26 @@
         justify-content: center;
         cursor: pointer;
         padding: 0;
+        flex-shrink: 0;
+      }
+      html.light .nav-mobile-btn {
+        background: rgba(15, 23, 42, 0.05);
+        border-color: rgba(15, 23, 42, 0.1);
+        color: #0F172A;
+      }
+      .nav-mobile-hamburger {
+        width: 35px;
+        height: 35px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #FFF;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        padding: 0;
+        flex-shrink: 0;
       }
       html.light .nav-mobile-hamburger {
         background: rgba(15, 23, 42, 0.05);
@@ -1746,8 +1750,8 @@
         color: #0F172A;
       }
       .hamburger-box {
-        width: 18px;
-        height: 13px;
+        width: 17px;
+        height: 12px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -1761,25 +1765,56 @@
         transition: transform 0.25s ease, opacity 0.2s ease;
       }
       .nav-mobile-hamburger.is-active .line-top {
-        transform: translateY(5.5px) rotate(45deg);
+        transform: translateY(5px) rotate(45deg);
         background-color: #38BDF8;
       }
       .nav-mobile-hamburger.is-active .line-mid {
         opacity: 0;
       }
       .nav-mobile-hamburger.is-active .line-bot {
-        transform: translateY(-5.5px) rotate(-45deg);
+        transform: translateY(-5px) rotate(-45deg);
         background-color: #38BDF8;
       }
 
       @media (max-width: 992px) {
+        .unified-portal-nav {
+          padding: 0 10px !important;
+          gap: 6px !important;
+        }
         .nav-chapters-wrapper { display: none !important; }
         .nav-desktop-tabs { display: none !important; }
         .nav-desktop-actions { display: none !important; }
         .nav-mobile-controls {
           display: flex !important;
           align-items: center;
-          gap: 6px;
+          gap: 5px;
+          flex-shrink: 0;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .unified-portal-nav {
+          padding: 0 8px !important;
+          gap: 4px !important;
+        }
+        .nav-brand-group {
+          gap: 6px !important;
+          min-width: 0;
+          overflow: hidden;
+        }
+        .nav-brand .badge-tag {
+          display: none !important;
+        }
+        .nav-brand .brand-text {
+          font-size: 0.95rem !important;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+        .nav-mobile-controls {
+          gap: 4px !important;
+        }
+        .nav-mobile-theme-btn {
+          display: none !important; /* توفير المساحة لشاشات الموبايل الضيقة لأن الثيم متاح داخل قائمة البرجر */
         }
       }
 

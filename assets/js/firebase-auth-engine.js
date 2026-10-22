@@ -714,7 +714,7 @@
           <div class="auth-row-2">
             <div class="auth-field-group">
               <label class="auth-label">الاسم الأول</label>
-              <input type="text" class="auth-input" id="regFirstName" placeholder="أحمد" required>
+              <input type="text" class="auth-input" id="regFirstName" placeholder="رامي" required>
             </div>
             <div class="auth-field-group">
               <label class="auth-label">اللقب / العائلة</label>
@@ -727,14 +727,32 @@
             <input type="email" class="auth-input" id="regEmail" placeholder="name@example.com" required dir="ltr">
           </div>
 
-          <div class="auth-row-2">
-            <div class="auth-field-group">
-              <label class="auth-label">كلمة المرور</label>
-              <input type="password" class="auth-input" id="regPassword" placeholder="6 خانات على الأقل" required minlength="6" dir="ltr">
-            </div>
-            <div class="auth-field-group">
-              <label class="auth-label">رقم الهاتف (مع كود الدولة)</label>
-              <input type="tel" class="auth-input" id="regPhone" placeholder="+39 345 123 4567" dir="ltr">
+          <div class="auth-field-group">
+            <label class="auth-label">كلمة المرور</label>
+            <input type="password" class="auth-input" id="regPassword" placeholder="6 خانات على الأقل" required minlength="6" dir="ltr">
+          </div>
+
+          <div class="auth-field-group">
+            <label class="auth-label">رقم الهاتف</label>
+            <div style="display:flex; gap:8px; direction:ltr;">
+              <select class="auth-select" id="regPhoneCountryCode" style="width:148px; flex-shrink:0; font-family:inherit; font-size:0.82rem; padding:0 6px;">
+                <option value="+39" selected>🇮🇹 إيطاليا (+39)</option>
+                <option value="+20">🇪🇬 مصر (+20)</option>
+                <option value="+212">🇲🇦 المغرب (+212)</option>
+                <option value="+216">🇹🇳 تونس (+216)</option>
+                <option value="+213">🇩🇿 الجزائر (+213)</option>
+                <option value="+218">🇱🇾 ليبيا (+218)</option>
+                <option value="+249">🇸🇩 السودان (+249)</option>
+                <option value="+966">🇸🇦 السعودية (+966)</option>
+                <option value="+971">🇦🇪 الإمارات (+971)</option>
+                <option value="+49">🇩🇪 ألمانيا (+49)</option>
+                <option value="+33">🇫🇷 فرنسا (+33)</option>
+                <option value="+34">🇪🇸 إسبانيا (+34)</option>
+                <option value="+41">🇨🇭 سويسرا (+41)</option>
+                <option value="+44">🇬🇧 بريطانيا (+44)</option>
+                <option value="">🌍 أخرى</option>
+              </select>
+              <input type="tel" class="auth-input" id="regPhone" placeholder="345 123 4567" style="flex:1;" dir="ltr">
             </div>
           </div>
 
@@ -746,8 +764,9 @@
             <div class="auth-field-group">
               <label class="auth-label">النوع</label>
               <select class="auth-select" id="regGender" required>
-                <option value="male">ذكر</option>
-                <option value="female">أنثى</option>
+                <option value="male">ذكر (Maschio)</option>
+                <option value="female">أنثى (Femmina)</option>
+                <option value="other">غير محدد / أفضل عدم الإفصاح (Altro / Non specificato)</option>
               </select>
             </div>
           </div>
@@ -846,12 +865,16 @@
       clearAlert();
       const submitBtn = document.getElementById('btnSubmitRegister');
 
+      const phoneCode = document.getElementById('regPhoneCountryCode') ? document.getElementById('regPhoneCountryCode').value : '+39';
+      const phoneNum = (document.getElementById('regPhone').value || '').trim();
+      const combinedPhone = phoneCode ? `${phoneCode} ${phoneNum}`.trim() : phoneNum;
+
       const data = {
         firstName: document.getElementById('regFirstName').value,
         lastName: document.getElementById('regLastName').value,
         email: document.getElementById('regEmail').value,
         password: document.getElementById('regPassword').value,
-        phone: document.getElementById('regPhone').value,
+        phone: combinedPhone,
         birthDate: document.getElementById('regBirthDate').value,
         gender: document.getElementById('regGender').value
       };
@@ -980,7 +1003,7 @@
     const email = profile.email || '';
     const phone = profile.phone || 'غير مسجل';
     const bdate = profile.birthDate || 'غير مسجل';
-    const genderStr = profile.gender === 'male' ? 'ذكر 👨' : profile.gender === 'female' ? 'أنثى 👩' : 'غير محدد';
+    const genderStr = profile.gender === 'male' ? 'ذكر 👨' : profile.gender === 'female' ? 'أنثى 👩' : 'غير محدد / آخر 👤';
 
     drop.innerHTML = `
       <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.08);">
