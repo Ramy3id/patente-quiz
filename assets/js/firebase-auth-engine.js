@@ -1111,7 +1111,11 @@
       return 'مفتاح التهيئة السحابي غير صالح. يرجى مراجعة إعدادات Firebase.';
     }
     if (code.includes('unauthorized-domain')) {
-      return 'هذا النطاق غير مصرح به في Firebase Authentication. يرجى تشغيل الموقع عبر خادم محلي أو إضافة النطاق.';
+      const host = window.location.hostname;
+      if (!host || window.location.protocol === 'file:') {
+        return 'المصادقة السحابية تتطلب تشغيل الموقع عبر خادم محلي (localhost) أو استضافة، ولا تعمل عبر فتح الملف مباشرة (file://). يرجى تشغيل ملف run_local_server.bat المرفق.';
+      }
+      return `النطاق الحالي (${host}) غير مصرح به في Firebase. يرجى إضافته في إعدادات المشروع (Authorized domains).`;
     }
     return code;
   }
