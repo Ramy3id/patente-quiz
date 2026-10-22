@@ -92,6 +92,8 @@
       }
 
       authInstance = fb.auth();
+      // ضبط لغة رسائل التحقق واستعادة كلمة المرور الرسمية إلى العربية
+      authInstance.languageCode = 'ar';
       firestoreInstance = fb.firestore();
 
       // تفعيل الكاش الداخلي بدون إنترنت
