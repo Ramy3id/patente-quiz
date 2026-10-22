@@ -964,6 +964,16 @@
   </style>
 </head>
 <body>
+  <!-- شريط العينة المجانية للزوار -->
+  <div class="guest-free-sample-banner" id="guestParoleBanner" style="display:none;">
+    <div class="sample-banner-text">
+      <span>🎁</span>
+      <span><strong>عينة مجانية:</strong> أنت تتصفح أول 5 كلمات تجسس مجاناً. أنشئ حسابك المجاني في ثوانٍ لفتح أكثر من 35 كلمة مفتاحية، الأزواج اللغوية، وماراثون التدريب التفاعلي!</span>
+    </div>
+    <button class="sample-banner-btn" onclick="window.PatenteAuth && window.PatenteAuth.openAuthModal(true)">
+      <span>🚀 فتح باقي الكلمات والماراثون مجاناً</span>
+    </button>
+  </div>
 
   <!-- شريط الملاحة الموحد والأدوات التفاعلية -->
   <nav class="unified-portal-nav" id="portal-nav">
@@ -2196,6 +2206,10 @@
       answered: false
     };
 
+    
+    window.addEventListener('patente:auth-changed', () => {
+      if (typeof renderCards === 'function') renderCards();
+    });
     window.addEventListener("DOMContentLoaded", () => {
       calculateCounts();
       renderCards();
@@ -2282,7 +2296,33 @@
         return;
       }
 
-      grid.innerHTML = filtered.map(item => {
+      const isLoggedIn = (window.PatenteAuth && window.PatenteAuth.isLoggedIn) ? window.PatenteAuth.isLoggedIn() : Boolean(localStorage.getItem('patente_user_profile'));
+      const banner = document.getElementById('guestParoleBanner');
+      if (banner) banner.style.display = isLoggedIn ? 'none' : 'flex';
+
+      grid.innerHTML = filtered.map((item, idx) => {
+        const isLocked = !isLoggedIn && idx >= 5;
+        if (isLocked) {
+          return `
+            <div class="ps-card locked-preview-card" onclick="window.PatenteAuth && window.PatenteAuth.showGateModal({ title: 'افتح جميع كلمات التجسس والعبارات السحرية!', message: 'لقد شاهدت عينة مجانية تشمل أول 5 كلمات تجسس. أنشئ حسابك المجاني لفتح أكثر من 35 كلمة ذهبية، الأزواج القاتلة، وماراثون التدريب بالكامل!' })">
+              <div class="locked-preview-overlay">
+                <div style="font-size:2.2rem; margin-bottom:8px;">🔒</div>
+                <div style="font-weight:800; font-size:1rem; color:#FBBF24; margin-bottom:6px;">ميزة حصرية للطلاب المسجلين</div>
+                <div style="font-size:0.8rem; color:#94A3B8; max-width:270px; line-height:1.5;">${item.it} (${item.ar})<br>انقر لإنشاء حسابك المجاني واستعراض أسئلة البنك 🚀</div>
+              </div>
+              <div style="filter:blur(4px); opacity:0.3; pointer-events:none;">
+                <div class="ps-card-top">
+                  <div class="ps-word-wrap">
+                    <span class="ps-word-it">${item.it}</span>
+                  </div>
+                  <span class="ps-rate-badge">${item.rate}</span>
+                </div>
+                <div class="ps-word-ar">${item.ar}</div>
+                <div class="ps-rule-box">${item.rule}</div>
+              </div>
+            </div>
+          `;
+        }
         const isFalso = item.type === 'falso';
         let rateBadgeClass = 'rate-badge-vero';
         if (item.isPair) rateBadgeClass = 'rate-badge-pair';
@@ -2779,6 +2819,16 @@
      * بدء جولة جديدة (30 سؤالاً عشوائياً بدون تكرار الأسئلة الصحيحة، مع أولوية الأخطاء)
      */
     function startMarathonRound() {
+      const isLoggedIn = (window.PatenteAuth && window.PatenteAuth.isLoggedIn) ? window.PatenteAuth.isLoggedIn() : Boolean(localStorage.getItem('patente_user_profile'));
+      if (!isLoggedIn) {
+        if (window.PatenteAuth && window.PatenteAuth.showGateModal) {
+          window.PatenteAuth.showGateModal({
+            title: 'ماراثون التدريب الشامل للكلمات السحرية',
+            message: 'الماراثون التفاعلي ميزة حصرية للطلاب المسجلين لحفظ الكلمات وإتقانها بدون أي أخطاء. سجّل حسابك المجاني الآن للبدء!'
+          });
+        }
+        return;
+      }
       if (!ALL_MAGIC_INDEX.length) initMagicQuestionsIndex();
 
       const store = getMarathonStore();

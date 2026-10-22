@@ -116,6 +116,16 @@
   </style>
 </head>
 <body>
+  <!-- شريط العينة المجانية للزوار -->
+  <div class="guest-free-sample-banner" id="guestTrapsBanner" style="display:none;">
+    <div class="sample-banner-text">
+      <span>🎁</span>
+      <span><strong>عينة مجانية:</strong> أنت تتصفح عينة مجانية تشمل أول 5 فخاخ وزارية. سجّل حسابك المجاني في ثوانٍ لفتح بنك الفخاخ بالكامل (300+ فخ) ولعبة تحدي السرعة التفاعلية!</span>
+    </div>
+    <button class="sample-banner-btn" onclick="window.PatenteAuth && window.PatenteAuth.openAuthModal(true)">
+      <span>🚀 فتح بنك الفخاخ بالكامل مجاناً</span>
+    </button>
+  </div>
 
   <!-- شريط الملاحة الموحد والأدوات التفاعلية -->
   <nav class="unified-portal-nav" id="portal-nav">
@@ -176,6 +186,10 @@
     }
 
     document.addEventListener("DOMContentLoaded", async () => {
+      window.addEventListener('patente:auth-changed', () => {
+        if (typeof renderTraps === 'function') renderTraps();
+      });
+
       const trapsEngine = new PatenteTrapEngine();
       const audio = new PatenteAudioEngine();
 
@@ -208,8 +222,33 @@
       }
 
       function renderTraps() {
+        const isLoggedIn = (window.PatenteAuth && window.PatenteAuth.isLoggedIn) ? window.PatenteAuth.isLoggedIn() : Boolean(localStorage.getItem('patente_user_profile'));
+        const banner = document.getElementById('guestTrapsBanner');
+        if (banner) banner.style.display = isLoggedIn ? 'none' : 'flex';
+
         const tricky = trapsEngine.filterTraps(allQuestions).slice(0, 100);
         trapsGrid.innerHTML = tricky.map((q, idx) => {
+          const isLocked = !isLoggedIn && idx >= 5;
+          if (isLocked) {
+            return `
+              <div class="trap-card-item locked-preview-card" onclick="window.PatenteAuth && window.PatenteAuth.showGateModal({ title: 'افتح بنك الفخاخ والألعاب بالكامل!', message: 'لقد شاهدت عينة مجانية تشمل أول 5 فخاخ. أنشئ حسابك المجاني لفتح أكثر من 300 فخ وزاري محلل ولعبة مطابقة الشواخص التفاعلية بدون قيود!' })">
+                <div class="locked-preview-overlay">
+                  <div style="font-size:2.2rem; margin-bottom:8px;">🔒</div>
+                  <div style="font-weight:800; font-size:1rem; color:#FBBF24; margin-bottom:6px;">ميزة حصرية للطلاب المسجلين</div>
+                  <div style="font-size:0.8rem; color:#94A3B8; max-width:270px; line-height:1.5;">فخ #${idx + 1} | باب ${q.capitolo_num || 1}<br>انقر لإنشاء حسابك المجاني وفك شفرة الفخ 🚀</div>
+                </div>
+                <div style="filter:blur(4px); opacity:0.3; pointer-events:none;">
+                  <div class="trap-card-header">
+                    <span class="trap-badge">🚨 فخ #${idx + 1} | باب ${q.capitolo_num || 1}</span>
+                    <span class="trap-verdict ${q.risposta ? 'verdict-vero' : 'verdict-falso'}">
+                      الحكم: ${q.risposta ? 'VERO (صح)' : 'FALSO (خطأ)'}
+                    </span>
+                  </div>
+                  <div class="trap-it-text">${q.domanda}</div>
+                </div>
+              </div>
+            `;
+          }
           const highlightedText = trapsEngine.highlightTrapWords(q.domanda);
           const rawImg = (q.img || q.immagine || "").trim();
           const imgPath = resolveImgPath(rawImg);
@@ -237,7 +276,18 @@
         const matchingEngine = new PatenteMatchingGameEngine(gameContainer, {
           durationSeconds: 45,
           onScoreUpdate: () => audio.playFeedbackTone("click"),
-          onGameOver: (res) => audio.playFeedbackTone(res.isWin ? "correct" : "error")
+          onGameOver: (res) => {
+          audio.playFeedbackTone(res.isWin ? "correct" : "error");
+          const isLoggedIn = (window.PatenteAuth && window.PatenteAuth.isLoggedIn) ? window.PatenteAuth.isLoggedIn() : Boolean(localStorage.getItem('patente_user_profile'));
+          if (!isLoggedIn && window.PatenteAuth && window.PatenteAuth.showGateModal) {
+            setTimeout(() => {
+              window.PatenteAuth.showGateModal({
+                title: 'أحسنت! افتح جميع مستويات لعبة تحدي السرعة',
+                message: 'لقد أنهيت الجولة التجريبية الأولى. أنشئ حسابك المجاني الآن للعب جميع المستويات وحفظ أرقامك القياسية!'
+              });
+            }, 1200);
+          }
+        }
         });
 
         // اختيار 6 عناصر مناسبة للمطابقة مع صور رسمية

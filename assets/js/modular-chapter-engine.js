@@ -19,6 +19,29 @@
     expandedSections: new Set(),
     isStudyMode: false,
 
+    isUserLoggedIn() {
+      if (typeof window !== 'undefined' && window.PatenteAuth && typeof window.PatenteAuth.isLoggedIn === 'function') {
+        return window.PatenteAuth.isLoggedIn();
+      }
+      if (typeof window !== 'undefined' && window.localStorage) {
+        return Boolean(window.localStorage.getItem('patente_user_profile'));
+      }
+      return false;
+    },
+
+    isChapterGated() {
+      const chNum = (this.data && typeof this.data.numero === 'number') ? this.data.numero : 0;
+      // Chapter 1 and 2 are 100% free; chapters 3 to 25 are gated for registered users
+      return chNum > 2 && !this.isUserLoggedIn();
+    },
+
+    isQuestionLocked(q) {
+      if (!this.isChapterGated()) return false;
+      // Free sample: first 5 questions of this chapter
+      const originalIndex = this.data.domande.findIndex(item => item.id === q.id);
+      return originalIndex >= 5;
+    },
+
     init(config) {
       if (!config || !config.data) {
         console.error('ModularChapterEngine: missing config.data');
@@ -175,12 +198,49 @@
       window.collapseAllSections = () => self.collapseAllSections();
       window.resetChapterProgress = () => self.resetChapterProgress();
       window.renderQuestions = () => self.renderQuestions();
+
+      window.addEventListener('patente:auth-changed', () => {
+        self.renderHub();
+        self.renderChips();
+        self.renderQuestions();
+      });
     },
 
     renderHub() {
       let hub = document.getElementById('subtopics-hub-card');
       const qList = document.getElementById('questions-list');
       if (!qList) return;
+
+      // Update or create guest chapter sample banner for chapters 3 to 25
+      let banner = document.getElementById('guestChapterBanner');
+      const isGated = this.isChapterGated();
+      if (isGated) {
+        const totalQ = (this.data && this.data.domande) ? this.data.domande.length : 500;
+        const bannerHtml = `
+          <div class="sample-banner-text">
+            <span>🎁</span>
+            <span><strong>عينة مجانية:</strong> أنت تتصفح عينة مجانية تشمل أول 5 أسئلة مع الشرح وفك الفخاخ. الشرح الكامل لبنك أسئلة هذا الباب (${totalQ} سؤالاً) مخصص للطلاب المسجلين. سجّل حسابك المجاني في 10 ثوانٍ لفتح الباب بالكامل!</span>
+          </div>
+          <button class="sample-banner-btn" onclick="window.PatenteAuth && window.PatenteAuth.openAuthModal(true)">
+            <span>🚀 فتح شرح الباب بالكامل مجاناً</span>
+          </button>
+        `;
+        if (!banner) {
+          banner = document.createElement('div');
+          banner.id = 'guestChapterBanner';
+          banner.className = 'guest-free-sample-banner';
+          banner.style.margin = '0 0 18px 0';
+          banner.style.borderRadius = '14px';
+          banner.innerHTML = bannerHtml;
+          const container = document.querySelector('.container') || document.body;
+          container.insertBefore(banner, container.firstChild);
+        } else {
+          banner.innerHTML = bannerHtml;
+          banner.style.display = 'flex';
+        }
+      } else if (banner) {
+        banner.style.display = 'none';
+      }
 
       const groupCount = Object.keys(this.groups).length || 1;
       const progress = this.getOverallProgress();
@@ -362,6 +422,33 @@
     },
 
     buildQuestionCardHtml(q) {
+      const gInfo = this.groups[q.gruppo_unificato] || {};
+      const subLabel = gInfo.short_ar ? `${gInfo.icon || '📌'} ${gInfo.num ? gInfo.num + '. ' : ''}${gInfo.short_ar}` : (q.sotto_argomento || '');
+
+      if (this.isQuestionLocked(q)) {
+        const totalCapQ = (this.data && this.data.domande) ? this.data.domande.length : 500;
+        return `
+          <div class="q-card locked-preview-card" onclick="window.PatenteAuth && window.PatenteAuth.showGateModal({ title: 'افتح شرح بنك أسئلة الباب بالكامل!', message: 'لقد شاهدت عينة مجانية تشمل أول 5 أسئلة مع الشرح الشامل وفك الفخاخ. أنشئ حسابك المجاني في 10 ثوانٍ لفتح جميع أسئلة هذا الباب (${totalCapQ} سؤالاً) وشروحاتها الحصرية وفك الشفرات بالكامل!' })">
+            <div class="locked-preview-overlay">
+              <div style="font-size:2.2rem; margin-bottom:8px;">🔒</div>
+              <div style="font-weight:800; font-size:1rem; color:#FBBF24; margin-bottom:6px;">الشرح وفك الفخاخ متاح للطلاب المسجلين</div>
+              <div style="font-size:0.8rem; color:#94A3B8; max-width:320px; line-height:1.5;">سؤال #${q.id} - ${subLabel}<br>انقر هنا لإنشاء حسابك المجاني ومتابعة الدراسة 🚀</div>
+            </div>
+            <div style="filter:blur(4px); opacity:0.3; pointer-events:none;">
+              <div class="q-card-top">
+                <span class="q-id-pill">#${q.id}</span>
+                <span class="q-sub-badge">${subLabel}</span>
+              </div>
+              <div class="q-text-content">${q.domanda}</div>
+              <div class="q-actions-row">
+                <button class="btn-ans btn-ans-v"><span>VERO</span></button>
+                <button class="btn-ans btn-ans-f"><span>FALSO</span></button>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
       let imgHtml = '';
       if (q.immagine && q.immagine.trim() !== '') {
         imgHtml = `
@@ -387,8 +474,6 @@
         }
       }
 
-      const gInfo = this.groups[q.gruppo_unificato] || {};
-      const subLabel = gInfo.short_ar ? `${gInfo.icon || '📌'} ${gInfo.num ? gInfo.num + '. ' : ''}${gInfo.short_ar}` : (q.sotto_argomento || '');
 
       return `
         <div class="${cardClass}" id="q-card-${q.id}">
@@ -591,6 +676,17 @@
     answerQuestion(id, userChoice) {
       const q = this.data.domande.find(item => item.id === id);
       if (!q) return;
+
+      if (this.isQuestionLocked(q)) {
+        if (window.PatenteAuth && window.PatenteAuth.showGateModal) {
+          const totalCapQ = (this.data && this.data.domande) ? this.data.domande.length : 500;
+          window.PatenteAuth.showGateModal({
+            title: 'افتح شرح بنك أسئلة الباب بالكامل!',
+            message: 'لقد شاهدت عينة مجانية تشمل أول 5 أسئلة مع الشرح وفك الفخاخ. أنشئ حسابك المجاني في 10 ثوانٍ لفتح جميع أسئلة هذا الباب (' + totalCapQ + ' سؤالاً) وشروحاتها وتفكيك الفخاخ بالكامل!'
+          });
+        }
+        return;
+      }
 
       const isCorrect = (userChoice === q.risposta);
       const wasAnswered = !!this.userAnswers[id];
