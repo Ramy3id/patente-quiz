@@ -1221,6 +1221,16 @@
         const fn = rawImg.split('/').pop().trim();
         qImg.removeAttribute("data-fallback");
         qImg.src = "../img_sign/" + fn;
+        const simWrap = document.getElementById("simTriggerWrap");
+        const simFigMatch = fn.match(/^(604|606|607|608|610|613|614|615|616|617|618|620|631|632|633|634|636|637|638|639|640|642|643|644|646|647|648|650|651|652|654|655|657|659|660|661|662|663|664|665|667|668|669)\.png$/);
+        if (simWrap) {
+          if (simFigMatch) {
+            simWrap.innerHTML = `<a href="decodificatore-incroci.html?fig=${simFigMatch[1]}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:rgba(99,102,241,0.2);border:1px solid rgba(99,102,241,0.45);color:#818CF8;padding:6px 14px;border-radius:999px;font-size:0.85rem;font-weight:bold;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,0.25);">🎬 تشغيل المحاكاة ورادار اليمين الخالي (تقاطع ${simFigMatch[1]}) ↗</a>`;
+            simWrap.style.display = "block";
+          } else {
+            simWrap.style.display = "none";
+          }
+        }
         qImg.onerror = function() {
           if (!this.dataset.fallback && rawImg) {
             this.dataset.fallback = "1";

@@ -381,9 +381,19 @@
 
       let imgHtml = '';
       if (q.img) {
+        const simFigMatch = (q.img || '').match(/(604|606|607|608|610|613|614|615|616|617|618|620|631|632|633|634|636|637|638|639|640|642|643|644|646|647|648|650|651|652|654|655|657|659|660|661|662|663|664|665|667|668|669)\.png/);
+        const simBtnHtml = simFigMatch ? `
+          <div style="margin-top: 8px; text-align: center;">
+            <a href="interactive_pages/decodificatore-incroci.html?fig=${simFigMatch[1]}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:rgba(99,102,241,0.2);border:1px solid rgba(99,102,241,0.45);color:#818CF8;padding:6px 14px;border-radius:999px;font-size:0.82rem;font-weight:bold;text-decoration:none;transition:all 0.2s;">
+              🎬 محاكاة تقاطع ${simFigMatch[1]} ورادار اليمين الخالي ↗
+            </a>
+          </div>
+        ` : '';
+
         imgHtml = `
           <div class="q-img-wrap">
             <img src="${q.img}" alt="Segnale" onerror="this.style.display='none'">
+            ${simBtnHtml}
           </div>
         `;
       }

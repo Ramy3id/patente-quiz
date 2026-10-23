@@ -673,6 +673,347 @@
       font-size: 0.95rem;
       line-height: 1.5;
     }
+  
+    /* استايلات محاكي مسافة الأمان التفاعلي */
+    .sim-safety-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 1.5px solid rgba(99, 102, 241, 0.35);
+      border-radius: 24px;
+      padding: 26px 22px;
+      margin-bottom: 35px;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+    html.light .sim-safety-card {
+      background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 100%);
+      border-color: #CBD5E1;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+    .sim-safety-card::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .sim-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(99, 102, 241, 0.2);
+      color: #818CF8;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      border: 1px solid rgba(99, 102, 241, 0.4);
+    }
+    .sim-title {
+      font-size: 1.65rem;
+      font-weight: 900;
+      margin: 0 0 8px;
+      color: var(--ln-text);
+      letter-spacing: -0.3px;
+    }
+    .sim-subtitle {
+      font-size: 0.95rem;
+      color: var(--ln-text-sub);
+      margin: 0 0 24px;
+      line-height: 1.6;
+    }
+    
+    /* شبكة عناصر التحكم */
+    .sim-controls-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .sim-ctrl-box {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    html.light .sim-ctrl-box {
+      background: #F8FAFC;
+      border-color: #E2E8F0;
+    }
+    .sim-ctrl-label {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--ln-text);
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .sim-speed-display {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--ln-cyan);
+    }
+    .sim-slider {
+      width: 100%;
+      height: 8px;
+      border-radius: 6px;
+      background: #334155;
+      outline: none;
+      -webkit-appearance: none;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+    .sim-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #38BDF8;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+      border: 2px solid #FFFFFF;
+    }
+    .sim-quick-speeds {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .sim-speed-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--ln-text-sub);
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .sim-speed-btn:hover, .sim-speed-btn.active {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: #38BDF8;
+      color: #38BDF8;
+    }
+    .sim-btn-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .sim-toggle-btn {
+      flex: 1;
+      min-width: 80px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--ln-text-sub);
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .sim-toggle-btn:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+    .sim-toggle-btn.active {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(56, 189, 248, 0.2) 100%);
+      border-color: #818CF8;
+      color: #F8FAFC;
+      box-shadow: 0 2px 10px rgba(99, 102, 241, 0.25);
+    }
+    html.light .sim-toggle-btn.active {
+      color: #4F46E5;
+      font-weight: 800;
+    }
+
+    /* كروت الأرقام المحسوبة */
+    .sim-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .sim-metric-card {
+      background: rgba(15, 23, 42, 0.7);
+      border-radius: 16px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+    }
+    html.light .sim-metric-card {
+      background: #FFFFFF;
+      border-color: #E2E8F0;
+    }
+    .sim-metric-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .sim-metric-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.7rem;
+      font-weight: 900;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+    .sim-metric-unit {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--ln-text-sub);
+    }
+    .sim-metric-formula {
+      font-size: 0.76rem;
+      color: var(--ln-text-sub);
+      line-height: 1.4;
+    }
+
+    /* مسرح المحاكاة الحركي للشارع */
+    .sim-stage-wrap {
+      background: #0B0F19;
+      border: 1px solid #334155;
+      border-radius: 18px;
+      padding: 18px 16px;
+      margin-bottom: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .sim-road-track {
+      height: 90px;
+      background: #141E33;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      border-top: 2px solid rgba(255,255,255,0.2);
+      border-bottom: 2px solid rgba(255,255,255,0.2);
+    }
+    .sim-road-line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: repeating-linear-gradient(90deg, #FFFFFF, #FFFFFF 20px, transparent 20px, transparent 40px);
+      transform: translateY(-50%);
+      opacity: 0.45;
+    }
+    .sim-hazard-target {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 28px;
+      z-index: 5;
+      filter: drop-shadow(0 0 8px rgba(244,63,94,0.7));
+    }
+    .sim-car-actor {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: left 0.1s linear;
+      z-index: 10;
+      font-size: 32px;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
+    }
+    .sim-distance-bars {
+      display: flex;
+      height: 14px;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: 12px;
+      background: rgba(255,255,255,0.06);
+    }
+    .sim-bar-reaz {
+      background: #38BDF8;
+      height: 100%;
+      transition: width 0.3s;
+    }
+    .sim-bar-fren {
+      background: #F97316;
+      height: 100%;
+      transition: width 0.3s;
+    }
+    .sim-bars-legend {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .sim-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sim-legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+    }
+    
+    /* زر الفحص الحركي */
+    .sim-action-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .sim-test-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 12px;
+      font-size: 0.92rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+      transition: all 0.2s;
+    }
+    .sim-test-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+    }
+
+    /* بطاقة فخاخ الامتحان الديناميكية */
+    .sim-trap-box {
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 14px;
+      padding: 14px 16px;
+      color: #FDE68A;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+    html.light .sim-trap-box {
+      background: #FFFBEB;
+      border-color: #FCD34D;
+      color: #92400E;
+    }
+
   </style>
 </head>
 <body>
@@ -713,6 +1054,172 @@
         الوزارة في الامتحان تختبر حفظك لأرقام دقيقة وثابتة لا تتغير. احفظ الثوابت الذهبية الثمانية التالية، وأي رقم آخر تجده في السؤال احكم عليه بأنه <strong>FALSO فوراً</strong> دون تردد!
       </p>
     </header>
+
+    
+    <!-- محاكي مسافة الأمان والفرملة والتوقف التفاعلي (Simulatore Distanza di Sicurezza) -->
+    <div class="sim-safety-card" id="safetySimulatorModule">
+      <div class="sim-badge">
+        <span>⚡ المحاكي الفيزيائي التفاعلي المباشر (Art. 149 CdS)</span>
+      </div>
+      <h2 class="sim-title">محاكي مسافة الأمان، مسافة رد الفعل، ومسافة الفرملة</h2>
+      <p class="sim-subtitle">
+        غير السرعة وحالة الطريق وانتباه السائق لتشاهد فورياً كيف تتغير المسافات وفق القواعد الفيزيائية والوزارية الإيطالية الصارمة لامتحان الباتنت.
+      </p>
+
+      <!-- عناصر التحكم التفاعلية -->
+      <div class="sim-controls-grid">
+        <!-- 1. التحكم بالسرعة -->
+        <div class="sim-ctrl-box">
+          <div class="sim-ctrl-label">
+            <span>🚗 سرعة المركبة (Velocità):</span>
+            <span class="sim-speed-display"><span id="simSpeedVal">100</span> <small style="font-size:0.8rem;color:var(--ln-text-sub);">km/h</small></span>
+          </div>
+          <input type="range" class="sim-slider" id="simSpeedSlider" min="10" max="150" step="5" value="100" oninput="updateSafetySimulation()">
+          <div class="sim-quick-speeds">
+            <button class="sim-speed-btn" onclick="setSimSpeed(50)">50 مدينة</button>
+            <button class="sim-speed-btn" onclick="setSimSpeed(90)">90 خارجها</button>
+            <button class="sim-speed-btn" onclick="setSimSpeed(110)">110 سريعة</button>
+            <button class="sim-speed-btn active" onclick="setSimSpeed(100)">100 مقياس</button>
+            <button class="sim-speed-btn" onclick="setSimSpeed(130)">130 أوتوستراد</button>
+          </div>
+        </div>
+
+        <!-- 2. حالة الطريق والطقس -->
+        <div class="sim-ctrl-box">
+          <div class="sim-ctrl-label">
+            <span>🌦️ حالة الأسفلت والطقس (Fondo Stradale):</span>
+            <span id="simRoadDesc" style="color:var(--ln-emerald);font-size:0.8rem;">أسفلت جاف</span>
+          </div>
+          <div class="sim-btn-group">
+            <button class="sim-toggle-btn active" id="btnRoadDry" onclick="setRoadCondition('dry')">☀️ جاف (Asciutto)</button>
+            <button class="sim-toggle-btn" id="btnRoadWet" onclick="setRoadCondition('wet')">🌧️ مبلل (Bagnato)</button>
+            <button class="sim-toggle-btn" id="btnRoadIce" onclick="setRoadCondition('ice')">❄️ جليد (Ghiaccio)</button>
+          </div>
+        </div>
+
+        <!-- 3. حالة السائق ونوع المركبة -->
+        <div class="sim-ctrl-box">
+          <div class="sim-ctrl-label">
+            <span>🧠 حالة انتباه السائق والقطر:</span>
+          </div>
+          <div class="sim-btn-group" style="margin-bottom:8px;">
+            <button class="sim-toggle-btn active" id="btnDriverAlert" onclick="setDriverState('alert')">⚡ منتبه (1 ثانية)</button>
+            <button class="sim-toggle-btn" id="btnDriverTired" onclick="setDriverState('tired')">🥱 مشتت / مرهق (2 ثانية)</button>
+          </div>
+          <div class="sim-btn-group">
+            <button class="sim-toggle-btn active" id="btnVehSolo" onclick="setVehTrailer(false)">🚗 سيارة منفردة</button>
+            <button class="sim-toggle-btn" id="btnVehTrailer" onclick="setVehTrailer(true)">🚙🚗 مع مقطورة/كارافان</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- شبكة المؤشرات الحسابية الرسمية -->
+      <div class="sim-metrics-grid">
+        <!-- مسافة رد الفعل -->
+        <div class="sim-metric-card" style="border-right: 4px solid #38BDF8;">
+          <div class="sim-metric-header" style="color: #38BDF8;">
+            <span>⏱️ 1. مسافة رد الفعل (Reazione)</span>
+          </div>
+          <div class="sim-metric-val" style="color: #38BDF8;">
+            <span id="metricReazVal">28</span>
+            <span class="sim-metric-unit">متر (m)</span>
+          </div>
+          <div class="sim-metric-formula">
+            القاعدة الإيطالية: <code>(v ÷ 10) × 3</code><br>
+            المسافة المقطوعة قبل الضغط على الفرامل.
+          </div>
+        </div>
+
+        <!-- مسافة الفرملة -->
+        <div class="sim-metric-card" style="border-right: 4px solid #F97316;">
+          <div class="sim-metric-header" style="color: #F97316;">
+            <span>🛑 2. مسافة الفرملة (Frenatura)</span>
+          </div>
+          <div class="sim-metric-val" style="color: #F97316;">
+            <span id="metricFrenVal">40</span>
+            <span class="sim-metric-unit">متر (m)</span>
+          </div>
+          <div class="sim-metric-formula">
+            تتناسب مع <strong>مربع السرعة (v²)</strong>.<br>
+            تتضاعف حتى 4 مرات في المطر والجليد!
+          </div>
+        </div>
+
+        <!-- مسافة التوقف الكلية -->
+        <div class="sim-metric-card" style="border-right: 4px solid #F43F5E;">
+          <div class="sim-metric-header" style="color: #F43F5E;">
+            <span>🏁 3. مسافة التوقف (Arresto Totale)</span>
+          </div>
+          <div class="sim-metric-val" style="color: #F43F5E;">
+            <span id="metricArrestVal">68</span>
+            <span class="sim-metric-unit">متر (m)</span>
+          </div>
+          <div class="sim-metric-formula">
+            المسافة الكلية = <strong>رد الفعل + الفرملة</strong>.<br>
+            حتى سكون المركبة التام.
+          </div>
+        </div>
+
+        <!-- مسافة الأمان الدنيا -->
+        <div class="sim-metric-card" style="border-right: 4px solid #10B981;">
+          <div class="sim-metric-header" style="color: #10B981;">
+            <span>🛡️ 4. مسافة الأمان الدنيا (Sicurezza)</span>
+          </div>
+          <div class="sim-metric-val" style="color: #10B981;">
+            <span id="metricSafeVal">28</span>
+            <span class="sim-metric-unit">متر (m)</span>
+          </div>
+          <div class="sim-metric-formula" id="metricSafeFormula">
+            لا تقل أبداً عن <strong>مسافة رد الفعل</strong>.<br>
+            قانونياً في ظروف السير العادية.
+          </div>
+        </div>
+      </div>
+
+      <!-- مسرح المحاكاة الحركي والتفاعلي -->
+      <div class="sim-stage-wrap">
+        <div class="sim-road-track" id="simRoadTrack">
+          <div class="sim-road-line"></div>
+          <div class="sim-hazard-target" id="simHazard">⚠️</div>
+          <div class="sim-car-actor" id="simCarActor">🚗</div>
+        </div>
+
+        <!-- أشرطة المقارنة التناسبية -->
+        <div class="sim-distance-bars">
+          <div class="sim-bar-reaz" id="simBarReaz" style="width: 40%;" title="مسافة رد الفعل"></div>
+          <div class="sim-bar-fren" id="simBarFren" style="width: 60%;" title="مسافة الفرملة"></div>
+        </div>
+
+        <div class="sim-bars-legend">
+          <div class="sim-legend-item">
+            <span class="sim-legend-dot" style="background:#38BDF8;"></span>
+            <span>مسافة رد الفعل (Spazio di reazione): <strong id="lblLegReaz">28 m</strong></span>
+          </div>
+          <div class="sim-legend-item">
+            <span class="sim-legend-dot" style="background:#F97316;"></span>
+            <span>مسافة الفرملة (Spazio di frenatura): <strong id="lblLegFren">40 m</strong></span>
+          </div>
+          <div class="sim-legend-item">
+            <span class="sim-legend-dot" style="background:#F43F5E;"></span>
+            <span>إجمالي مسافة التوقف (Spazio di arresto): <strong id="lblLegTotal">68 m</strong></span>
+          </div>
+        </div>
+
+        <div class="sim-action-row">
+          <button class="sim-test-btn" id="btnTestBraking" onclick="runBrakingSimulation()">
+            <span>▶️ محاكاة الفرملة في الطوارئ (Test di Frenata)</span>
+          </button>
+          <div id="simLiveStatus" style="font-size:0.85rem;font-weight:700;color:var(--ln-cyan);">
+            جاهز للاختبار. اضغط على الزر لتشغيل فرملة الطوارئ!
+          </div>
+        </div>
+      </div>
+
+      <!-- فخاخ الامتحان الذهبية الذكية -->
+      <div class="sim-trap-box" id="simTrapCard">
+        💡 <strong>القاعدة الذهبية الوزارية:</strong> مسافة رد الفعل تعتمد فقط على <em>السرعة</em> و<em>حالة السائق</em> ولا تتأثر بحالة الطقس أو الفرامل! بينما مسافة الفرملة تتناسب مع <em>مربع السرعة (v²)</em> وتتضاعف في المطر والجليد.
+      </div>
+    </div>
 
     <!-- شبكة الثوابت الذهبية الثمانية (Cheat Sheet) -->
     <h2 class="constants-section-title">
@@ -1565,7 +2072,222 @@
       return String(str).replace(/'/g, "\\'").replace(/"/g, '&quot;');
     }
 
+    
+    // منطق محاكي مسافة الأمان والفرملة التفاعلي
+    let simState = {
+      speed: 100,
+      road: 'dry',     // dry, wet, ice
+      driver: 'alert', // alert (1s), tired (2s)
+      hasTrailer: false,
+      isAnimating: false
+    };
+
+    function setSimSpeed(val) {
+      simState.speed = val;
+      const slider = document.getElementById('simSpeedSlider');
+      if (slider) slider.value = val;
+      
+      // Update quick buttons active class
+      document.querySelectorAll('.sim-speed-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.innerText.startsWith(String(val)));
+      });
+      updateSafetySimulation();
+    }
+
+    function setRoadCondition(cond) {
+      simState.road = cond;
+      document.getElementById('btnRoadDry').classList.toggle('active', cond === 'dry');
+      document.getElementById('btnRoadWet').classList.toggle('active', cond === 'wet');
+      document.getElementById('btnRoadIce').classList.toggle('active', cond === 'ice');
+      
+      const descEl = document.getElementById('simRoadDesc');
+      if (descEl) {
+        if (cond === 'dry') {
+          descEl.innerText = 'أسفلت جاف (احتكاك مثالي)';
+          descEl.style.color = '#10B981';
+        } else if (cond === 'wet') {
+          descEl.innerText = 'أسفلت مبلل (فرملة تتضاعف)';
+          descEl.style.color = '#F59E0B';
+        } else {
+          descEl.innerText = 'جليد / ثلج (انزلاق شديد 4x)';
+          descEl.style.color = '#F43F5E';
+        }
+      }
+      updateSafetySimulation();
+    }
+
+    function setDriverState(st) {
+      simState.driver = st;
+      document.getElementById('btnDriverAlert').classList.toggle('active', st === 'alert');
+      document.getElementById('btnDriverTired').classList.toggle('active', st === 'tired');
+      updateSafetySimulation();
+    }
+
+    function setVehTrailer(has) {
+      simState.hasTrailer = has;
+      document.getElementById('btnVehSolo').classList.toggle('active', !has);
+      document.getElementById('btnVehTrailer').classList.toggle('active', has);
+      
+      const carActor = document.getElementById('simCarActor');
+      if (carActor) carActor.innerText = has ? '🚙🚗' : '🚗';
+      updateSafetySimulation();
+    }
+
+    function calculateSafetyMetrics() {
+      const v = simState.speed;
+      const t_reaz = (simState.driver === 'tired') ? 2.0 : 1.0;
+      
+      // مسافة رد الفعل = (v / 3.6) * t_reaz تقريبية = (v / 10) * 3 * t_reaz
+      const d_reaz = Math.round((v / 3.6) * t_reaz);
+      
+      // مسافة الفرملة على أسفلت جاف = v^2 / (2 * g * mu) حيث g=9.8 و mu=0.8 جاف
+      let mu = 0.8;
+      if (simState.road === 'wet') mu = 0.45;
+      if (simState.road === 'ice') mu = 0.18;
+      
+      // تأثير المقطورة
+      const trailerMultiplier = simState.hasTrailer ? 1.25 : 1.0;
+      
+      const d_fren = Math.round(((v / 3.6) ** 2 / (2 * 9.81 * mu)) * trailerMultiplier);
+      const d_arresto = d_reaz + d_fren;
+      
+      // مسافة الأمان الدنيا القانونية: لا تقل عن مسافة رد الفعل
+      let d_sicurezza = d_reaz;
+      if (simState.road === 'wet') d_sicurezza = Math.round(d_reaz * 1.3);
+      if (simState.road === 'ice') d_sicurezza = Math.round(d_reaz * 2.0);
+      if (simState.hasTrailer) d_sicurezza = Math.round(d_sicurezza * 1.2);
+      
+      return { d_reaz, d_fren, d_arresto, d_sicurezza };
+    }
+
+    function updateSafetySimulation() {
+      const slider = document.getElementById('simSpeedSlider');
+      if (slider) simState.speed = parseInt(slider.value, 10);
+      
+      const speedValEl = document.getElementById('simSpeedVal');
+      if (speedValEl) speedValEl.innerText = simState.speed;
+      
+      const m = calculateSafetyMetrics();
+      
+      // تحديث شاشات الأرقام
+      const rEl = document.getElementById('metricReazVal');
+      const fEl = document.getElementById('metricFrenVal');
+      const aEl = document.getElementById('metricArrestVal');
+      const sEl = document.getElementById('metricSafeVal');
+      
+      if (rEl) rEl.innerText = m.d_reaz;
+      if (fEl) fEl.innerText = m.d_fren;
+      if (aEl) aEl.innerText = m.d_arresto;
+      if (sEl) sEl.innerText = m.d_sicurezza;
+      
+      // تحديث الأشرطة التناسبية
+      const barReaz = document.getElementById('simBarReaz');
+      const barFren = document.getElementById('simBarFren');
+      const lblReaz = document.getElementById('lblLegReaz');
+      const lblFren = document.getElementById('lblLegFren');
+      const lblTotal = document.getElementById('lblLegTotal');
+      
+      const totalWidth = m.d_reaz + m.d_fren;
+      const pctReaz = Math.max(10, Math.round((m.d_reaz / totalWidth) * 100));
+      const pctFren = 100 - pctReaz;
+      
+      if (barReaz) barReaz.style.width = pctReaz + '%';
+      if (barFren) barFren.style.width = pctFren + '%';
+      if (lblReaz) lblReaz.innerText = m.d_reaz + ' m';
+      if (lblFren) lblFren.innerText = m.d_fren + ' m';
+      if (lblTotal) lblTotal.innerText = m.d_arresto + ' m';
+      
+      // تحديث بطاقة الفخاخ
+      const trapEl = document.getElementById('simTrapCard');
+      if (trapEl) {
+        if (simState.road === 'ice') {
+          trapEl.innerHTML = '❄️ <strong>فخ الجليد (Ghiaccio):</strong> مسافة الفرملة تتضاعف حتى 4 مرات أو أكثر مقارنة بالطريق الجاف! مسافة الأمان يجب أن تُضاعف بشكل حاسم لمنع الانزلاق والاصطدام الخلفي (Tamponamento).';
+        } else if (simState.hasTrailer) {
+          trapEl.innerHTML = '🚛 <strong>فخ المقطورات والكارافان:</strong> وجود مقطورة يزيد وزن القصور الذاتي ويزيد مسافة الفرملة حتماً. السرعة القصوى تنخفض قانوناً إلى 70 خارج المدينة و 80 على الأوتوستراد.';
+        } else if (simState.driver === 'tired') {
+          trapEl.innerHTML = '⚠️ <strong>فخ زمن رد الفعل:</strong> الإرهاق أو استخدام الهاتف يزيد زمن رد الفعل (قد يصل لثانيتين). تذكر: مسافة رد الفعل لا تتأثر بسلامة المكابح بل بانتباه السائق وسرعته فقط!';
+        } else {
+          trapEl.innerHTML = '💡 <strong>القاعدة الذهبية الوزارية:</strong> مسافة الفرملة تتناسب مع <em>مربع السرعة (v²)</em>: إذا تضاعفت السرعة من 50 إلى 100 كم/س (مرتين)، فإن مسافة الفرملة تزيد 4 مرات (2² = 4)!';
+        }
+      }
+    }
+
+    // تشغيل المحاكاة الحركية للفرملة
+    function runBrakingSimulation() {
+      if (simState.isAnimating) return;
+      simState.isAnimating = true;
+      
+      const car = document.getElementById('simCarActor');
+      const track = document.getElementById('simRoadTrack');
+      const statusEl = document.getElementById('simLiveStatus');
+      const testBtn = document.getElementById('btnTestBraking');
+      
+      if (!car || !track) return;
+      
+      if (testBtn) testBtn.disabled = true;
+      if (statusEl) {
+        statusEl.innerText = '⚡ انطلقت المركبة بالسرعة المحددة... انتبه للعائق!';
+        statusEl.style.color = '#38BDF8';
+      }
+      
+      const trackWidth = track.clientWidth - 70;
+      const m = calculateSafetyMetrics();
+      
+      // مسار رد الفعل -> مسار الفرملة
+      car.style.transition = 'none';
+      car.style.left = '20px';
+      
+      // تشغيل نغمة صوتية خفيفة إذا كان AudioContext متاحاً
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) {
+          const actx = new AudioCtx();
+          const osc = actx.createOscillator();
+          const gain = actx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(300, actx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(100, actx.currentTime + 1.2);
+          gain.gain.setValueAtTime(0.08, actx.currentTime);
+          gain.gain.linearRampToValueAtTime(0, actx.currentTime + 1.2);
+          osc.connect(gain);
+          gain.connect(actx.destination);
+          osc.start();
+          osc.stop(actx.currentTime + 1.2);
+        }
+      } catch (e) {}
+      
+      setTimeout(() => {
+        // مرحلة رد الفعل (سرعة ثابتة)
+        car.style.transition = 'left 0.6s linear';
+        const reazPx = Math.min(trackWidth * 0.45, 20 + (m.d_reaz / (m.d_arresto || 1)) * (trackWidth - 40));
+        car.style.left = reazPx + 'px';
+        
+        if (statusEl) {
+          statusEl.innerText = '⏱️ السائق يدرك الخطر (زمن رد الفعل: المسافة ' + m.d_reaz + ' م)';
+          statusEl.style.color = '#F59E0B';
+        }
+        
+        setTimeout(() => {
+          // مرحلة الفرملة (تباطؤ تدريجي)
+          car.style.transition = 'left 1.2s cubic-bezier(0.1, 0.9, 0.2, 1.0)';
+          const finalPx = Math.min(trackWidth - 20, 20 + trackWidth * 0.85);
+          car.style.left = finalPx + 'px';
+          
+          if (statusEl) {
+            statusEl.innerText = '🛑 الفرامل تعمل! توقفت المركبة بأمان عند ' + m.d_arresto + ' متر.';
+            statusEl.style.color = '#10B981';
+          }
+          
+          setTimeout(() => {
+            simState.isAnimating = false;
+            if (testBtn) testBtn.disabled = false;
+          }, 1300);
+        }, 650);
+      }, 50);
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
+      updateSafetySimulation();
       initData();
     });
   </script>
