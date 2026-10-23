@@ -574,42 +574,306 @@
       line-height: 1.4;
     }
 
-    /* أزرار اختيار التقاطع */
-    .sim-tabs-strip {
+    /* شريط التنقل المدمج والأنيق للتقاطعات (بديل الشريط القديم المزدحم) */
+    .sim-nav-header {
       display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 8px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
       margin-bottom: 18px;
-      scrollbar-width: none;
-    }
-    .sim-tabs-strip::-webkit-scrollbar { display: none; }
-    .sim-tab-btn {
-      background: rgba(255, 255, 255, 0.04);
+      padding: 10px 14px;
+      background: rgba(15, 23, 42, 0.7);
       border: 1px solid var(--inc-card-border);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+    }
+    .sim-selector-wrap {
+      flex: 1;
+      min-width: 220px;
+    }
+    .sim-selector-btn {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(14, 165, 233, 0.35);
       border-radius: 12px;
-      padding: 9px 16px;
-      color: var(--inc-text-sub);
-      font-family: inherit;
-      font-size: 0.85rem;
-      font-weight: 800;
+      padding: 9px 14px;
+      color: var(--inc-text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
       cursor: pointer;
-      white-space: nowrap;
+      font-family: inherit;
       transition: all 0.2s ease;
-      display: inline-flex;
+      text-align: right;
+    }
+    .sim-selector-btn:hover {
+      background: rgba(14, 165, 233, 0.12);
+      border-color: #0EA5E9;
+      box-shadow: 0 0 16px rgba(14, 165, 233, 0.25);
+    }
+    .sim-sel-icon {
+      font-size: 1.25rem;
+    }
+    .sim-sel-text-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .sim-sel-label {
+      font-size: 0.72rem;
+      color: var(--inc-cyan);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .sim-sel-val {
+      font-size: 0.92rem;
+      font-weight: 900;
+      color: #FFFFFF;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sim-sel-arrow {
+      color: var(--inc-cyan);
+      font-size: 0.85rem;
+      transition: transform 0.2s;
+    }
+    .sim-arrows-wrap {
+      display: flex;
       align-items: center;
       gap: 6px;
     }
-    .sim-tab-btn:hover {
-      background: rgba(255, 255, 255, 0.09);
+    .sim-nav-arrow-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--inc-card-border);
+      border-radius: 10px;
+      padding: 8px 14px;
       color: var(--inc-text);
-      transform: translateY(-1px);
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
-    .sim-tab-btn.active {
-      background: rgba(14, 165, 233, 0.18);
+    .sim-nav-arrow-btn:hover {
+      background: rgba(14, 165, 233, 0.2);
       border-color: #0EA5E9;
       color: #38BDF8;
-      box-shadow: 0 0 14px rgba(14, 165, 233, 0.28);
+    }
+    .sim-nav-counter {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--inc-text-sub);
+      padding: 0 6px;
+      white-space: nowrap;
+    }
+
+    /* نافذة منتقي التقاطعات البصرية الكبرى (Visual Figure Picker Modal) */
+    .fig-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 7, 18, 0.85);
+      backdrop-filter: blur(10px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .fig-modal-backdrop.open {
+      display: flex;
+    }
+    .fig-modal-card {
+      background: #0B1120;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 24px;
+      width: 100%;
+      max-width: 900px;
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(14, 165, 233, 0.15);
+      overflow: hidden;
+    }
+    .fig-modal-header {
+      padding: 18px 22px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .fig-modal-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .fig-modal-title {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .fig-modal-close {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--inc-text-sub);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .fig-modal-close:hover {
+      background: rgba(244, 63, 94, 0.2);
+      border-color: #F43F5E;
+      color: #F43F5E;
+    }
+    .fig-modal-search {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 10px 14px;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border 0.2s;
+    }
+    .fig-modal-search:focus {
+      border-color: #0EA5E9;
+      background: rgba(14, 165, 233, 0.06);
+    }
+    .fig-modal-filters {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+    }
+    .fig-modal-chip {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--inc-card-border);
+      border-radius: 20px;
+      padding: 5px 12px;
+      color: var(--inc-text-sub);
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .fig-modal-chip.active {
+      background: rgba(14, 165, 233, 0.2);
+      border-color: #0EA5E9;
+      color: #38BDF8;
+    }
+    .fig-modal-body {
+      padding: 18px 22px;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .fig-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+      gap: 12px;
+    }
+    .fig-card-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .fig-card-item:hover {
+      background: rgba(14, 165, 233, 0.08);
+      border-color: #0EA5E9;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    }
+    .fig-card-item.active {
+      border-color: #0EA5E9;
+      background: rgba(14, 165, 233, 0.16);
+      box-shadow: 0 0 14px rgba(14, 165, 233, 0.3);
+    }
+    .fig-thumb-wrap {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #FFFFFF;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+    }
+    .fig-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .fig-card-num {
+      font-size: 0.88rem;
+      font-weight: 900;
+      color: #FFFFFF;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .fig-card-vehs {
+      font-size: 0.72rem;
+      color: var(--inc-text-sub);
+      text-align: center;
+      line-height: 1.3;
+    }
+    .fig-sim-badge {
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: #10B981;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    /* زر تشغيل المحاكاة من داخل بطاقة السؤال */
+    .btn-card-sim {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.16), rgba(99, 102, 241, 0.2));
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38BDF8;
+      border-radius: 20px;
+      padding: 4px 10px;
+      font-family: inherit;
+      font-size: 0.74rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+    }
+    .btn-card-sim:hover {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.3), rgba(99, 102, 241, 0.35));
+      border-color: #38BDF8;
+      transform: scale(1.03);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
     }
 
     /* تخطيط المحاكي: لوحة الرسم SVG + لوحة التحكم والمقارنة الوزارية */
@@ -965,26 +1229,28 @@
         </div>
       </div>
 
-      <!-- تبويبات التقاطعات الرسمية المعتمدة في الامتحان الوزاري -->
-      <div class="sim-tabs-strip" id="simTabsStrip">
-        <button class="sim-tab-btn active" onclick="loadSimIncrocio('608', this)">
-          <span>🚌</span> <span>تقاطع 608 (حافلات Autobus B و H على شكل T)</span>
-        </button>
-        <button class="sim-tab-btn" onclick="loadSimIncrocio('614', this)">
-          <span>🚙</span> <span>تقاطع 614 (تقاطع مائل X: سيارات R, A, T)</span>
-        </button>
-        <button class="sim-tab-btn" onclick="loadSimIncrocio('618', this)">
-          <span>🏎️</span> <span>تقاطع 618 (تقاطع مائل X: سيارات L, C, H)</span>
-        </button>
-        <button class="sim-tab-btn" onclick="loadSimIncrocio('617', this)">
-          <span>🚘</span> <span>تقاطع 617 (فخ المركز الشهير N al centro)</span>
-        </button>
-        <button class="sim-tab-btn" onclick="loadSimIncrocio('642', this)">
-          <span>🚋</span> <span>تقاطع 642 (الترام الأخضر T ودراجة M النارية)</span>
-        </button>
-        <button class="sim-tab-btn" onclick="loadSimIncrocio('650', this)">
-          <span>🚛</span> <span>تقاطع 650 (شاحنة النقل Autocarro N وفيلوباص R)</span>
-        </button>
+      <!-- شريط التنقل المدمج والمنتقي البصري الذكي للتقاطعات -->
+      <div class="sim-nav-header">
+        <div class="sim-selector-wrap">
+          <button class="sim-selector-btn" id="btnOpenFigureModal" onclick="openFigureModal()" title="انقر لعرض قائمة الـ 43 تقاطعاً بالصور والبحث">
+            <span class="sim-sel-icon">🔍</span>
+            <div class="sim-sel-text-wrap">
+              <span class="sim-sel-label">التقاطع الحالي (اضغط لتغيير التقاطع)</span>
+              <span class="sim-sel-val" id="simCurrentFigureName">تقاطع 608 (حافلات Autobus B و H على شكل T)</span>
+            </div>
+            <span class="sim-sel-arrow">▼</span>
+          </button>
+        </div>
+
+        <div class="sim-arrows-wrap">
+          <button class="sim-nav-arrow-btn" onclick="navSimFigure(-1)" title="التقاطع السابق">
+            <span>◀ السابق</span>
+          </button>
+          <span class="sim-nav-counter" id="simNavCounter">1 / 43</span>
+          <button class="sim-nav-arrow-btn" onclick="navSimFigure(1)" title="التقاطع التالي">
+            <span>التالي ▶</span>
+          </button>
+        </div>
       </div>      <!-- شبكة المحاكي: مسرح الحركة التفاعلي SVG + لوحة التحكم والمقارنة -->
       <div class="sim-body-grid">
         <!-- المسرح الرسومي التفاعلي SVG -->
@@ -1131,6 +1397,35 @@
     </div>
   </div>
 
+  
+  <!-- نافذة منتقي التقاطعات البصرية الكبرى (Visual Figure Picker Modal) -->
+  <div class="fig-modal-backdrop" id="figModalBackdrop" onclick="closeFigureModal(event)">
+    <div class="fig-modal-card" onclick="event.stopPropagation()">
+      <div class="fig-modal-header">
+        <div class="fig-modal-title-row">
+          <div class="fig-modal-title">
+            <span>🗺️</span>
+            <span>دليل الـ 43 تقاطعاً بالباب 14 (Seleziona Incrocio)</span>
+          </div>
+          <button class="fig-modal-close" onclick="closeFigureModal()">✕</button>
+        </div>
+        <input type="text" class="fig-modal-search" id="figModalSearch" placeholder="🔍 ابحث برقم التقاطع (مثلاً 614، 642) أو اسم المركبة (Tram / Bus)..." oninput="filterFigureModal()">
+        <div class="fig-modal-filters">
+          <button class="fig-modal-chip active" id="figChipAll" onclick="setFigModalCategory('all', this)">🌟 جميع التقاطعات (43)</button>
+          <button class="fig-modal-chip" onclick="setFigModalCategory('cross_4way', this)">🚗 تقاطعات 4 اتجاهات</button>
+          <button class="fig-modal-chip" onclick="setFigModalCategory('t_junction', this)">🚏 تقاطعات حرف T</button>
+          <button class="fig-modal-chip" onclick="setFigModalCategory('tram', this)">🚋 ترام وقضبان</button>
+          <button class="fig-modal-chip" onclick="setFigModalCategory('oblique', this)">📐 تقاطعات مائلة X</button>
+        </div>
+      </div>
+      <div class="fig-modal-body">
+        <div class="fig-grid" id="figModalGrid">
+          <!-- يتم توليد كروت التقاطعات الـ 43 بالجافاسكريبت تلقائياً -->
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ملفات البيانات المشتركة -->
   <script src="../Capitoli_Divisi/data_all_questions.js"></script>
 
@@ -1241,6 +1536,13 @@
               <div class="q-info-col" style="filter:blur(3px); opacity:0.4; user-select:none;">
                 <div class="q-meta-row">
                   <span class="q-id-badge">سؤال #${q.id}</span>
+                ${(() => {
+                  const fm = (q.img || '').match(/(\d+)\.png/);
+                  if (fm) {
+                    return `<button class="btn-card-sim" onclick="openSimForFigure('${fm[1]}', event)">🎬 محاكاة تقاطع ${fm[1]}</button>`;
+                  }
+                  return '';
+                })()}
                 </div>
                 <p class="q-it-text">${highlightKeyword(q.q || '')}</p>
                 <p class="q-ar-text">${escapeHtml(q.tr || '')}</p>
@@ -1267,6 +1569,13 @@
             <div class="q-info-col">
               <div class="q-meta-row">
                 <span class="q-id-badge">سؤال #${q.id}</span>
+                ${(() => {
+                  const fm = (q.img || '').match(/(\d+)\.png/);
+                  if (fm) {
+                    return `<button class="btn-card-sim" onclick="openSimForFigure('${fm[1]}', event)">🎬 محاكاة تقاطع ${fm[1]}</button>`;
+                  }
+                  return '';
+                })()}
                 <div style="display:flex; gap:6px; align-items:center;">
                   ${hasContemp ? '<span class="trap-badge">فخ Contemporaneamente</span>' : ''}
                   ${ansBadge}
@@ -1318,6 +1627,488 @@
        🎬 محرك المحاكاة فائق الواقعية المتطابق مع الرسومات الوزارية (100% Authentic Physics & Models)
        متطابق شكلاً وهندسة مع أشكال الوزارة: T-Junction, Oblique-X, 4-Way Cross, Tram, Bus, Truck, Moto
        ======================================================== */
+    
+    const ALL_FIGURES_LIST = [
+  {
+    "id": "604",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/604.png",
+    "cat": "cross_4way",
+    "vehs": "D, R",
+    "qCount": 5,
+    "title": "تقاطع 604 (شاحنة استثنائية D وسيارات R, A)",
+    "hasSim": false
+  },
+  {
+    "id": "606",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/606.png",
+    "cat": "cross_4way",
+    "vehs": "C, E, M",
+    "qCount": 6,
+    "title": "تقاطع 606 (سيارات E, C, M)",
+    "hasSim": false
+  },
+  {
+    "id": "607",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/607.png",
+    "cat": "cross_4way",
+    "vehs": "M, T (Bus)",
+    "qCount": 6,
+    "title": "تقاطع 607 (حافلة T وسيارات M, P)",
+    "hasSim": false
+  },
+  {
+    "id": "608",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/608.png",
+    "cat": "t_junction",
+    "vehs": "B, C, H (Bus)",
+    "qCount": 10,
+    "title": "تقاطع 608 (حافلات Autobus B و H وسيارة C على شكل T)",
+    "hasSim": true
+  },
+  {
+    "id": "610",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/610.png",
+    "cat": "cross_4way",
+    "vehs": "T",
+    "qCount": 2,
+    "title": "تقاطع 610 (سيارة T مع ترام ومسارات جانبية)",
+    "hasSim": false
+  },
+  {
+    "id": "613",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/613.png",
+    "cat": "cross_4way",
+    "vehs": "A, O, T",
+    "qCount": 10,
+    "title": "تقاطع 613 (سيارات T, O, A)",
+    "hasSim": false
+  },
+  {
+    "id": "614",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/614.png",
+    "cat": "oblique",
+    "vehs": "A, R, T",
+    "qCount": 9,
+    "title": "تقاطع 614 (تقاطع مائل X: سيارات R, A, T)",
+    "hasSim": true
+  },
+  {
+    "id": "615",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/615.png",
+    "cat": "cross_4way",
+    "vehs": "A, C, R",
+    "qCount": 12,
+    "title": "تقاطع 615 (سيارات C, R, A)",
+    "hasSim": false
+  },
+  {
+    "id": "616",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/616.png",
+    "cat": "cross_4way",
+    "vehs": "B, S, T",
+    "qCount": 7,
+    "title": "تقاطع 616 (حافلة B وسيارات T, S)",
+    "hasSim": false
+  },
+  {
+    "id": "617",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/617.png",
+    "cat": "cross_4way",
+    "vehs": "A, N, R",
+    "qCount": 19,
+    "title": "تقاطع 617 (فخ المركز الشهير N al centro)",
+    "hasSim": true
+  },
+  {
+    "id": "618",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/618.png",
+    "cat": "oblique",
+    "vehs": "C, H, L",
+    "qCount": 9,
+    "title": "تقاطع 618 (تقاطع مائل X: سيارات L, C, H)",
+    "hasSim": true
+  },
+  {
+    "id": "620",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/620.png",
+    "cat": "cross_4way",
+    "vehs": "B, C, P",
+    "qCount": 8,
+    "title": "تقاطع 620 (سيارات P, B, C)",
+    "hasSim": false
+  },
+  {
+    "id": "631",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/631.png",
+    "cat": "t_junction",
+    "vehs": "D, F",
+    "qCount": 4,
+    "title": "تقاطع 631 (تقاطع T: سيارات R, D, F)",
+    "hasSim": false
+  },
+  {
+    "id": "632",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/632.png",
+    "cat": "t_junction",
+    "vehs": "B, D, N, P",
+    "qCount": 13,
+    "title": "تقاطع 632 (تقاطع T: سيارات L, E, C)",
+    "hasSim": false
+  },
+  {
+    "id": "633",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/633.png",
+    "cat": "t_junction",
+    "vehs": "A, N, R",
+    "qCount": 5,
+    "title": "تقاطع 633 (تقاطع T: سيارات N, A, R)",
+    "hasSim": false
+  },
+  {
+    "id": "634",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/634.png",
+    "cat": "t_junction",
+    "vehs": "A, C, L",
+    "qCount": 8,
+    "title": "تقاطع 634 (تقاطع T: سيارات A, C, L)",
+    "hasSim": false
+  },
+  {
+    "id": "636",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/636.png",
+    "cat": "t_junction",
+    "vehs": "A, S, T",
+    "qCount": 8,
+    "title": "تقاطع 636 (تقاطع T: سيارات T, A, S)",
+    "hasSim": false
+  },
+  {
+    "id": "637",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/637.png",
+    "cat": "t_junction",
+    "vehs": "A, C, D, L",
+    "qCount": 14,
+    "title": "تقاطع 637 (تقاطع T: سيارات B, R, D)",
+    "hasSim": false
+  },
+  {
+    "id": "638",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/638.png",
+    "cat": "t_junction",
+    "vehs": "B, D, N, R",
+    "qCount": 19,
+    "title": "تقاطع 638 (تقاطع T: فخ الدخول للمركز)",
+    "hasSim": false
+  },
+  {
+    "id": "639",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/639.png",
+    "cat": "tram",
+    "vehs": "Tram A, B, C",
+    "qCount": 10,
+    "title": "تقاطع 639 (فخ المرور المتزامن T و B معاً)",
+    "hasSim": false
+  },
+  {
+    "id": "640",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/640.png",
+    "cat": "cross_4way",
+    "vehs": "B, D, R",
+    "qCount": 8,
+    "title": "تقاطع 640 (سيارات D, P, B)",
+    "hasSim": false
+  },
+  {
+    "id": "642",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/642.png",
+    "cat": "tram",
+    "vehs": "Tram A, M, O",
+    "qCount": 11,
+    "title": "تقاطع 642 (الترام الأخضر T ودراجة M النارية)",
+    "hasSim": true
+  },
+  {
+    "id": "643",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/643.png",
+    "cat": "tram",
+    "vehs": "B, D, H, L",
+    "qCount": 13,
+    "title": "تقاطع 643 (الترام وسيارات التقاطع الرباعي)",
+    "hasSim": false
+  },
+  {
+    "id": "644",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/644.png",
+    "cat": "tram",
+    "vehs": "B, D, L, P",
+    "qCount": 9,
+    "title": "تقاطع 644 (ترام T وسيارات P, D, B, L)",
+    "hasSim": false
+  },
+  {
+    "id": "646",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/646.png",
+    "cat": "oblique",
+    "vehs": "A, C, D, H",
+    "qCount": 11,
+    "title": "تقاطع 646 (تقاطع مائل: سيارات C, A, P)",
+    "hasSim": false
+  },
+  {
+    "id": "647",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/647.png",
+    "cat": "cross_4way",
+    "vehs": "B, H, L, O",
+    "qCount": 12,
+    "title": "تقاطع 647 (تقاطع رباعي: سيارات R, D, T)",
+    "hasSim": false
+  },
+  {
+    "id": "648",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/648.png",
+    "cat": "tram",
+    "vehs": "Tram B, G, P, T",
+    "qCount": 18,
+    "title": "تقاطع 648 (شاحنة T وسيارات G, P, B)",
+    "hasSim": false
+  },
+  {
+    "id": "650",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/650.png",
+    "cat": "cross_4way",
+    "vehs": "E, L, N, R (Truck)",
+    "qCount": 18,
+    "title": "تقاطع 650 (شاحنة Autocarro N وفيلوباص R)",
+    "hasSim": true
+  },
+  {
+    "id": "651",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/651.png",
+    "cat": "cross_4way",
+    "vehs": "A, D, E",
+    "qCount": 13,
+    "title": "تقاطع 651 (4 مركبات: D, E, S, A)",
+    "hasSim": false
+  },
+  {
+    "id": "652",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/652.png",
+    "cat": "cross_4way",
+    "vehs": "A, F, H, L",
+    "qCount": 11,
+    "title": "تقاطع 652 (4 مركبات: H, A, F, L)",
+    "hasSim": false
+  },
+  {
+    "id": "654",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/654.png",
+    "cat": "cross_4way",
+    "vehs": "A, C, H, R",
+    "qCount": 12,
+    "title": "تقاطع 654 (4 مركبات: C, D, P, B)",
+    "hasSim": false
+  },
+  {
+    "id": "655",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/655.png",
+    "cat": "cross_4way",
+    "vehs": "A, E, R, S",
+    "qCount": 11,
+    "title": "تقاطع 655 (4 مركبات: R, T, A, S)",
+    "hasSim": false
+  },
+  {
+    "id": "657",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/657.png",
+    "cat": "cross_4way",
+    "vehs": "A, C, R",
+    "qCount": 8,
+    "title": "تقاطع 657 (سيارات R, A, C)",
+    "hasSim": false
+  },
+  {
+    "id": "659",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/659.png",
+    "cat": "cross_4way",
+    "vehs": "A, C, R",
+    "qCount": 8,
+    "title": "تقاطع 659 (حافلة وسيارتان)",
+    "hasSim": false
+  },
+  {
+    "id": "660",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/660.png",
+    "cat": "cross_4way",
+    "vehs": "B, D, H",
+    "qCount": 8,
+    "title": "تقاطع 660 (سيارات E, L, C)",
+    "hasSim": false
+  },
+  {
+    "id": "661",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/661.png",
+    "cat": "cross_4way",
+    "vehs": "C, E, L",
+    "qCount": 8,
+    "title": "تقاطع 661 (سيارات E, C, L)",
+    "hasSim": false
+  },
+  {
+    "id": "662",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/662.png",
+    "cat": "cross_4way",
+    "vehs": "A, B, E",
+    "qCount": 10,
+    "title": "تقاطع 662 (شاحنة وسيارتان)",
+    "hasSim": false
+  },
+  {
+    "id": "663",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/663.png",
+    "cat": "cross_4way",
+    "vehs": "B, D, T",
+    "qCount": 3,
+    "title": "تقاطع 663 (4 مركبات: R, B, D, T)",
+    "hasSim": false
+  },
+  {
+    "id": "664",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/664.png",
+    "cat": "cross_4way",
+    "vehs": "B, S",
+    "qCount": 4,
+    "title": "تقاطع 664 (4 مركبات: S, B, L, D)",
+    "hasSim": false
+  },
+  {
+    "id": "665",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/665.png",
+    "cat": "cross_4way",
+    "vehs": "A, C, E, H, V",
+    "qCount": 11,
+    "title": "تقاطع 665 (4 مركبات مع الترام)",
+    "hasSim": false
+  },
+  {
+    "id": "667",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/667.png",
+    "cat": "cross_4way",
+    "vehs": "A, C, P",
+    "qCount": 6,
+    "title": "تقاطع 667 (دوار Rotatoria وسيارات)",
+    "hasSim": false
+  },
+  {
+    "id": "668",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/668.png",
+    "cat": "tram",
+    "vehs": "C, N, S",
+    "qCount": 6,
+    "title": "تقاطع 668 (ترام ودوار تفاعلي)",
+    "hasSim": false
+  },
+  {
+    "id": "669",
+    "img": "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/669.png",
+    "cat": "cross_4way",
+    "vehs": "A, C, E, L, R",
+    "qCount": 12,
+    "title": "تقاطع 669 (دوار Rotatoria مع 4 فروع)",
+    "hasSim": false
+  }
+];
+    let currentFigModalCategory = 'all';
+
+    function openFigureModal() {
+      const modal = document.getElementById('figModalBackdrop');
+      if (!modal) return;
+      modal.classList.add('open');
+      renderFigureModalGrid();
+      const searchInput = document.getElementById('figModalSearch');
+      if (searchInput) {
+        searchInput.value = '';
+        setTimeout(() => searchInput.focus(), 100);
+      }
+    }
+
+    function closeFigureModal(e) {
+      if (!e || e.target.id === 'figModalBackdrop' || e.target.classList.contains('fig-modal-close')) {
+        const modal = document.getElementById('figModalBackdrop');
+        if (modal) modal.classList.remove('open');
+      }
+    }
+
+    function setFigModalCategory(cat, btn) {
+      currentFigModalCategory = cat;
+      document.querySelectorAll('.fig-modal-chip').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      renderFigureModalGrid();
+    }
+
+    function filterFigureModal() {
+      renderFigureModalGrid();
+    }
+
+    function renderFigureModalGrid() {
+      const grid = document.getElementById('figModalGrid');
+      if (!grid) return;
+
+      const search = (document.getElementById('figModalSearch')?.value || '').trim().toLowerCase();
+
+      const filtered = ALL_FIGURES_LIST.filter(fig => {
+        if (currentFigModalCategory !== 'all' && fig.cat !== currentFigModalCategory) return false;
+        if (search) {
+          const matchId = String(fig.id).includes(search);
+          const matchTitle = (fig.title || '').toLowerCase().includes(search);
+          const matchVehs = (fig.vehs || '').toLowerCase().includes(search);
+          if (!matchId && !matchTitle && !matchVehs) return false;
+        }
+        return true;
+      });
+
+      if (!filtered.length) {
+        grid.innerHTML = '<div style="grid-column: 1 / -1; text-align:center; padding:30px; color:var(--inc-text-sub);">لا توجد تقاطعات مطابقة للبحث</div>';
+        return;
+      }
+
+      grid.innerHTML = filtered.map(fig => {
+        const isActive = (fig.id === activeSimKey);
+        const simBadge = fig.hasSim ? '<span class="fig-sim-badge">✨ محاكاة 3D</span>' : '';
+        return `
+          <div class="fig-card-item ${isActive ? 'active' : ''}" onclick="selectFigureFromModal('${fig.id}')">
+            <div class="fig-thumb-wrap">
+              <img src="${fig.img}" alt="شكل ${fig.id}" loading="lazy">
+            </div>
+            <div class="fig-card-num">Figura ${fig.id}</div>
+            <div class="fig-card-vehs">${escapeHtml(fig.vehs)}</div>
+            ${simBadge}
+          </div>
+        `;
+      }).join('');
+    }
+
+    function selectFigureFromModal(figId) {
+      closeFigureModal();
+      loadSimIncrocio(figId);
+      document.getElementById('trafficSimSection')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function navSimFigure(delta) {
+      let currentIndex = ALL_FIGURES_LIST.findIndex(f => f.id === activeSimKey);
+      if (currentIndex === -1) currentIndex = 0;
+      let newIndex = currentIndex + delta;
+      if (newIndex < 0) newIndex = ALL_FIGURES_LIST.length - 1;
+      if (newIndex >= ALL_FIGURES_LIST.length) newIndex = 0;
+      loadSimIncrocio(ALL_FIGURES_LIST[newIndex].id);
+    }
+
+    function openSimForFigure(figId, e) {
+      if (e) e.stopPropagation();
+      loadSimIncrocio(figId);
+      document.getElementById('trafficSimSection')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(() => playFullSimulation(), 450);
+    }
+
     const SIM_DATABASE = {
       '608': {
         img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/608.png',
@@ -1903,27 +2694,47 @@
       activeSimKey = key;
       currentSimStep = 0;
 
-      if (btn) {
-        document.querySelectorAll('.sim-tab-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-      }
+      // تحديث زر القائمة والعداد
+      const figMeta = ALL_FIGURES_LIST.find(f => f.id === key) || { title: `التقاطع رقم ${key}` };
+      const curIndex = ALL_FIGURES_LIST.findIndex(f => f.id === key);
+      const nameEl = document.getElementById('simCurrentFigureName');
+      const counterEl = document.getElementById('simNavCounter');
+      if (nameEl) nameEl.innerText = figMeta.title;
+      if (counterEl && curIndex !== -1) counterEl.innerText = `${curIndex + 1} / ${ALL_FIGURES_LIST.length}`;
 
       const data = SIM_DATABASE[key];
-
-      // 1. رسم شكل الطريق الهندسي المخصص للشكل
-      renderRoadGeometry(data.roadType);
-
-      // 2. تحديث صورة الوزارة المصغرة
       const officialImg = document.getElementById('simOfficialImg');
       const officialTitle = document.getElementById('simOfficialTitle');
-      if (officialImg) officialImg.src = data.img;
-      if (officialTitle) officialTitle.innerText = data.title;
 
-      document.getElementById('simFinalOrderText').innerText = data.order.join(' ➔ ');
-      document.getElementById('simStepBadge').innerText = '🏁 جاهز للمحاكاة';
-      document.getElementById('simReasonText').innerText = 'اضغط على «▶️ تشغيل المحاكاة» لمشاهدة الانعطاف الواقعي للمركبات وتفكيك أسبقية اليمين.';
+      if (data) {
+        // 1. رسم شكل الطريق الهندسي المخصص للشكل
+        renderRoadGeometry(data.roadType);
 
-      renderSimTrajectoriesAndCars();
+        // 2. تحديث صورة الوزارة المصغرة
+        if (officialImg) officialImg.src = data.img;
+        if (officialTitle) officialTitle.innerText = data.title;
+
+        document.getElementById('simFinalOrderText').innerText = data.order.join(' ➔ ');
+        document.getElementById('simStepBadge').innerText = '🏁 جاهز للمحاكاة';
+        document.getElementById('simReasonText').innerText = 'اضغط على «▶️ تشغيل المحاكاة» لمشاهدة الانعطاف الواقعي للمركبات وتفكيك أسبقية اليمين.';
+
+        renderSimTrajectoriesAndCars();
+      } else {
+        // إذا كان التقاطع من ضمن الـ 43 وقيد إضافة حركته
+        const imgPath = `../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/${key}.png`;
+        if (officialImg) officialImg.src = imgPath;
+        if (officialTitle) officialTitle.innerText = figMeta.title;
+
+        renderRoadGeometry('CROSS_4WAY');
+        const trajLayer = document.getElementById('trajectoriesLayer');
+        const carsLayer = document.getElementById('carsLayer');
+        if (trajLayer) trajLayer.innerHTML = '';
+        if (carsLayer) carsLayer.innerHTML = '';
+
+        document.getElementById('simFinalOrderText').innerText = figMeta.vehs || 'قيد المعالجة';
+        document.getElementById('simStepBadge').innerText = 'ℹ️ رسمة رسمية معتمدة';
+        document.getElementById('simReasonText').innerText = 'يمكنك مراجعة رسمة التقاطع والأسئلة الوزارية الخاصة به أدناه. المحاكاة ثلاثية الأبعاد قيد التجهيز لهذا الشكل.';
+      }
     }
 
     function renderSimTrajectoriesAndCars() {
