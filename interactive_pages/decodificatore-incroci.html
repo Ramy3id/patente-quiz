@@ -968,23 +968,24 @@
       <!-- تبويبات التقاطعات الرسمية المعتمدة في الامتحان الوزاري -->
       <div class="sim-tabs-strip" id="simTabsStrip">
         <button class="sim-tab-btn active" onclick="loadSimIncrocio('608', this)">
-          <span>🚗</span> <span>تقاطع 608 (B ➔ H ➔ C)</span>
+          <span>🚌</span> <span>تقاطع 608 (حافلات Autobus B و H على شكل T)</span>
         </button>
         <button class="sim-tab-btn" onclick="loadSimIncrocio('614', this)">
-          <span>🚙</span> <span>تقاطع 614 (R ➔ A ➔ T)</span>
+          <span>🚙</span> <span>تقاطع 614 (تقاطع مائل X: سيارات R, A, T)</span>
         </button>
         <button class="sim-tab-btn" onclick="loadSimIncrocio('618', this)">
-          <span>🏎️</span> <span>تقاطع 618 (L ➔ C ➔ H)</span>
+          <span>🏎️</span> <span>تقاطع 618 (تقاطع مائل X: سيارات L, C, H)</span>
         </button>
         <button class="sim-tab-btn" onclick="loadSimIncrocio('617', this)">
-          <span>🚘</span> <span>تقاطع 617 (فخ المركز N al centro)</span>
+          <span>🚘</span> <span>تقاطع 617 (فخ المركز الشهير N al centro)</span>
         </button>
         <button class="sim-tab-btn" onclick="loadSimIncrocio('642', this)">
-          <span>🚋</span> <span>تقاطع 642 (أسبقية الترام T ➔ O ➔ M ➔ A)</span>
+          <span>🚋</span> <span>تقاطع 642 (الترام الأخضر T ودراجة M النارية)</span>
         </button>
-      </div>
-
-      <!-- شبكة المحاكي: مسرح الحركة التفاعلي SVG + لوحة التحكم والمقارنة -->
+        <button class="sim-tab-btn" onclick="loadSimIncrocio('650', this)">
+          <span>🚛</span> <span>تقاطع 650 (شاحنة النقل Autocarro N وفيلوباص R)</span>
+        </button>
+      </div>      <!-- شبكة المحاكي: مسرح الحركة التفاعلي SVG + لوحة التحكم والمقارنة -->
       <div class="sim-body-grid">
         <!-- المسرح الرسومي التفاعلي SVG -->
         <div class="sim-canvas-wrap">
@@ -1008,57 +1009,13 @@
               </marker>
             </defs>
 
-            <!-- أرضية التقاطع (إسفلت أسود غامق) -->
-            <rect x="0" y="0" width="400" height="400" fill="#0B0F19" />
-
-            <!-- الأرصفة الجانبية بزوايا دائرية طبيعية (Curbs) -->
-            <rect x="0" y="0" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
-            <rect x="270" y="0" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
-            <rect x="0" y="270" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
-            <rect x="270" y="270" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
-            
-            <!-- نهر الطريق الإسفلتي (Carreggiata) -->
-            <rect x="130" y="0" width="140" height="400" fill="#141E33" />
-            <rect x="0" y="130" width="400" height="140" fill="#141E33" />
-            
-            <!-- خطوط حواف الطريق البيضاء -->
-            <line x1="130" y1="0" x2="130" y2="130" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
-            <line x1="270" y1="0" x2="270" y2="130" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
-            <line x1="130" y1="270" x2="130" y2="400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
-            <line x1="270" y1="270" x2="270" y2="400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
-            <line x1="0" y1="130" x2="130" y2="130" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
-            <line x1="0" y1="270" x2="130" y2="270" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
-            <line x1="270" y1="130" x2="400" y2="130" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
-            <line x1="270" y1="270" x2="400" y2="270" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
-
-            <!-- خطوط المنتصف المتقطعة (Strisce di mezzeria) -->
-            <line x1="200" y1="0" x2="200" y2="120" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
-            <line x1="200" y1="280" x2="200" y2="400" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
-            <line x1="0" y1="200" x2="120" y2="200" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
-            <line x1="280" y1="200" x2="400" y2="200" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
-
-            <!-- خطوط التوقف العريضة عند المداخل (Strisce trasversali di arresto) -->
-            <line x1="130" y1="130" x2="200" y2="130" stroke="#FFFFFF" stroke-width="4" />
-            <line x1="200" y1="270" x2="270" y2="270" stroke="#FFFFFF" stroke-width="4" />
-            <line x1="130" y1="200" x2="130" y2="270" stroke="#FFFFFF" stroke-width="4" />
-            <line x1="270" y1="130" x2="270" y2="200" stroke="#FFFFFF" stroke-width="4" />
-
-            <!-- خطوط مسار الترام (تظهر عند وجود ترام) -->
-            <g id="tramTracks" style="display:none;">
-              <!-- قضبان السكة الحديد -->
-              <line x1="194" y1="0" x2="194" y2="400" stroke="#94A3B8" stroke-width="3" />
-              <line x1="206" y1="0" x2="206" y2="400" stroke="#94A3B8" stroke-width="3" />
-              <!-- عوارض السكة الحديد (Traversine) -->
-              <line x1="188" y1="30" x2="212" y2="30" stroke="#475569" stroke-width="2.5" />
-              <line x1="188" y1="75" x2="212" y2="75" stroke="#475569" stroke-width="2.5" />
-              <line x1="188" y1="325" x2="212" y2="325" stroke="#475569" stroke-width="2.5" />
-              <line x1="188" y1="370" x2="212" y2="370" stroke="#475569" stroke-width="2.5" />
-            </g>
+            <!-- طبقة شكل الطريق الإسفلتي والأرصفة الهندسية المطابقة للرسمة (Road Geometry Layer) -->
+            <g id="roadLayer"></g>
 
             <!-- طبقة مسارات الحركة المرئية المنقطة (Trajectory Paths) -->
             <g id="trajectoriesLayer"></g>
 
-            <!-- طبقة سيارات التقاطع الواقعية (Cars Layer) -->
+            <!-- طبقة سيارات ومركبات التقاطع الواقعية (Cars & Heavy Vehicles Layer) -->
             <g id="carsLayer"></g>
           </svg>
         </div>
@@ -1358,159 +1315,196 @@
     }
   
     /* ========================================================
-       🎬 محرك المحاكاة الانسيابي الواقعي (Realistic Automotive Physics Engine)
-       متوافق مع أحدث معايير كود السير والامتحان الوزاري الرسمي
+       🎬 محرك المحاكاة فائق الواقعية المتطابق مع الرسومات الوزارية (100% Authentic Physics & Models)
+       متطابق شكلاً وهندسة مع أشكال الوزارة: T-Junction, Oblique-X, 4-Way Cross, Tram, Bus, Truck, Moto
        ======================================================== */
     const SIM_DATABASE = {
       '608': {
         img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/608.png',
-        title: 'الشكل الرسمي رقم 608 (Figura 608)',
-        order: ['B', 'H', 'C'],
-        tram: false,
+        title: 'الشكل الرسمي رقم 608 (Incrocio a T con Autobus)',
+        roadType: 'T_JUNCTION',
+        order: ['B (حافلة حمراء)', 'H (حافلة زرقاء)', 'C (سيارة برتقالية)'],
         steps: [
-          { car: 'B', text: '🟢 1. السيارة B تسير للأمام مباشرة؛ جهة يمينها خالية تماماً (Destra Libera)، لذا تنطلق وتعبر التقاطع أولاً.' },
-          { car: 'H', text: '🟡 2. بعد عبور B، أصبح يمين السيارة H خالياً؛ الآن H تشغل غماز اليسار وتنعطف بنعومة ثانياً.' },
-          { car: 'C', text: '🔵 3. السيارة C تسير للأمام مباشرة وتعبر أخيراً بعد خلو يمينها من السيارة H.' }
+          { car: 'B', text: '🟢 1. الحافلة B (حمراء في اليمين): تتجه للأمام غرباً ويمينها خالٍ تماماً (الجهة الشمالية رصيف مغلق)؛ فتعبر أولاً دون انتظار.' },
+          { car: 'H', text: '🟡 2. الحافلة H (زرقاء في الأسفل): بعد عبور B، أصبح يمينها خالياً من الشرق؛ تشغل غماز اليسار وتنعطف غرباً ثانياً.' },
+          { car: 'C', text: '🔵 3. السيارة C (برتقالية في اليسار): تعبر للأمام شرقاً أخيراً بعد إخلاء مسار يمينها من الحافلة H.' }
         ],
         cars: {
           'B': {
-            label: 'B', color: '#10B981', arrowColor: '#10B981', marker: 'arrow-green',
-            d: 'M 235 365 L 235 35',
+            label: 'B', type: 'bus', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-amber',
+            // من الشرق متجهة غرباً مباشرة
+            d: 'M 350 72 L 40 72',
             hasTurn: false, initRadarFree: true
           },
           'H': {
-            label: 'H', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d: 'M 35 235 L 180 235 Q 235 235 235 180 L 235 35',
+            label: 'H', type: 'bus', color: '#2563EB', arrowColor: '#2563EB', marker: 'arrow-cyan',
+            // من الجنوب تنعطف يساراً للغرب
+            d: 'M 235 340 L 235 150 Q 235 72 155 72 L 40 72',
             hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'B'
           },
           'C': {
-            label: 'C', color: '#38BDF8', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 365 165 L 35 165',
+            label: 'C', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
+            // من الغرب متجهة شرقاً مباشرة
+            d: 'M 50 135 L 350 135',
             hasTurn: false, initRadarFree: false, blockedBy: 'H'
           }
         }
       },
       '614': {
         img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/614.png',
-        title: 'الشكل الرسمي رقم 614 (Figura 614)',
+        title: 'الشكل الرسمي رقم 614 (تقاطع مائل X: سيارات R, A, T)',
+        roadType: 'OBLIQUE_X',
         order: ['R', 'A', 'T'],
-        tram: false,
         steps: [
-          { car: 'R', text: '🟢 1. السيارة R تسير للأمام مباشرة من الغرب للشرق ويمينها خالٍ تماماً؛ لذا تعبر أولاً دون انتظار.' },
-          { car: 'A', text: '🟡 2. بعد عبور R، يخلو يمين السيارة A القادمة من الجنوب؛ فتسير للأمام مباشرة وتعبر ثانياً.' },
-          { car: 'T', text: '🔵 3. السيارة T تشغل غماز اليسار وتنعطف لليسار إلى الجنوب بعد خلو يمينها من A.' }
+          { car: 'R', text: '🟢 1. السيارة R (زرقاء بالغرب): تسير للأمام مباشرة شرقاً؛ جهة يمينها (الذراع المائل الجنوبي) خالٍ؛ فتعبر أولاً.' },
+          { car: 'A', text: '🟡 2. السيارة A (برتقالية بالذراع المائل العلوي): بعد عبور R، يخلو يمينها؛ فتعبر التقاطع ثانياً باتجاه الجنوب الشرقي.' },
+          { car: 'T', text: '🔵 3. السيارة T (حمراء بالشرق): تشغل غماز اليسار وتنعطف يساراً نحو الذراع المائل بعد خلو يمينها من السيارة A.' }
         ],
         cars: {
           'R': {
-            label: 'R', color: '#10B981', arrowColor: '#10B981', marker: 'arrow-green',
-            d: 'M 35 235 L 365 235',
+            label: 'R', type: 'car', color: '#2563EB', arrowColor: '#2563EB', marker: 'arrow-cyan',
+            d: 'M 50 235 L 350 235',
             hasTurn: false, initRadarFree: true
           },
           'A': {
-            label: 'A', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d: 'M 235 365 L 235 35',
+            label: 'A', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
+            d: 'M 80 75 L 325 325',
             hasTurn: false, initRadarFree: false, blockedBy: 'R'
           },
           'T': {
-            label: 'T', color: '#38BDF8', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 365 165 L 220 165 Q 165 165 165 220 L 165 365',
+            label: 'T', type: 'car', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-amber',
+            d: 'M 340 165 L 210 165 Q 165 165 200 220 L 280 325',
             hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'A'
           }
         }
       },
       '618': {
         img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/618.png',
-        title: 'الشكل الرسمي رقم 618 (Figura 618)',
+        title: 'الشكل الرسمي رقم 618 (تقاطع مائل X: سيارات L, C, H)',
+        roadType: 'OBLIQUE_X',
         order: ['L', 'C', 'H'],
-        tram: false,
         steps: [
-          { car: 'L', text: '🟢 1. السيارة L تتجه للأمام مباشرة من الشمال للجنوب ويمينها خالٍ تماماً؛ فتعبر أولاً.' },
-          { car: 'C', text: '🟡 2. بعد عبور L، يخلو يمين السيارة C فتنعطف لليسار إلى الغرب وتعبر ثانياً.' },
-          { car: 'H', text: '🔵 3. السيارة H تمر أخيراً للأمام مباشرة بعد خلو مسارها من السيارة C.' }
+          { car: 'L', text: '🟢 1. السيارة L (زرقاء بالغرب): تتجه للأمام شرقاً ويمينها خالٍ من أي مركبة؛ فتعبر أولاً.' },
+          { car: 'C', text: '🟡 2. السيارة C (برتقالية بالذراع المائل): بعد عبور L، يخلو يمينها؛ فتنعطف لليسار إلى الذراع المائل السفلي ثانياً.' },
+          { car: 'H', text: '🔵 3. السيارة H (حمراء بالشرق): تسير للأمام مباشرة غرباً وتعبر أخيراً بعد خلو يمينها من السيارة C.' }
         ],
         cars: {
           'L': {
-            label: 'L', color: '#10B981', arrowColor: '#10B981', marker: 'arrow-green',
-            d: 'M 165 35 L 165 365',
+            label: 'L', type: 'car', color: '#2563EB', arrowColor: '#2563EB', marker: 'arrow-cyan',
+            d: 'M 50 235 L 350 235',
             hasTurn: false, initRadarFree: true
           },
           'C': {
-            label: 'C', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d: 'M 235 365 L 235 220 Q 235 165 180 165 L 35 165',
+            label: 'C', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
+            d: 'M 85 70 L 160 160 Q 200 210 235 255 L 285 330',
             hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'L'
           },
           'H': {
-            label: 'H', color: '#38BDF8', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 365 165 L 35 165',
+            label: 'H', type: 'car', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-amber',
+            d: 'M 340 165 L 50 165',
             hasTurn: false, initRadarFree: false, blockedBy: 'C'
           }
         }
       },
       '617': {
         img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/617.png',
-        title: 'الشكل الرسمي رقم 617 (فخ التقدم لمركز التقاطع والتوقف)',
+        title: 'الشكل الرسمي رقم 617 (فخ التقدم للمركز والتوقف N al centro)',
+        roadType: 'CROSS_4WAY',
         order: ['N (للمركز)', 'R', 'A', 'N (يكمل)'],
-        tram: false,
         steps: [
-          { car: 'N_center', text: '🟡 1. السيارة N تبدأ أولاً وتتقدم لمنتصف التقاطع وتتوقف (Si ferma al centro) لأن مسار دورانها يعترضه A من اليمين.' },
-          { car: 'R', text: '🟢 2. بتقدم N للمنتصف، أصبح يمين السيارة R خالياً؛ فتعبر R بالكامل أولاً (Conclude per primo).' },
-          { car: 'A', text: '🔵 3. بعد عبور R، يخلو يمين السيارة A فتعبر التقاطع ثانياً.' },
-          { car: 'N_exit', text: '🟢 4. السيارة N تكمل دورانها وخروجها أخيراً (Conclude per ultimo) بعد خلو التقاطع من A.' }
+          { car: 'N_center', text: '🟡 1. السيارة N (سوداء في الشمال): تتقدم لمنتصف التقاطع وتتوقف (Si ferma al centro) لأن مسار دورانها لليسار يعترضه A القادم من الجنوب (على يمينها).' },
+          { car: 'R', text: '🟢 2. السيارة R (حمراء في الشرق): بتقدم N للمركز خلى يمين R تماماً؛ فتنطلق R وتعبر أولاً (Conclude per primo).' },
+          { car: 'A', text: '🔵 3. السيارة A (زرقاء في الجنوب): بعد عبور R، يخلو يمين A فتعبر التقاطع ثانياً مباشرة للأمام.' },
+          { car: 'N_exit', text: '🟢 4. السيارة N: بعد إخلاء التقاطع من A، تكمل N دورانها لليسار وتخرج أخيراً (Conclude per ultimo).' }
         ],
         cars: {
           'N': {
-            label: 'N', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d_center: 'M 35 235 L 195 235',
-            d_exit: 'M 195 235 Q 235 235 235 180 L 235 35',
-            d: 'M 35 235 L 180 235 Q 235 235 235 180 L 235 35',
+            label: 'N', type: 'car', color: '#0F172A', arrowColor: '#38BDF8', marker: 'arrow-cyan',
+            d_center: 'M 165 55 L 165 190',
+            d_exit: 'M 165 190 Q 165 235 210 235 L 350 235',
+            d: 'M 165 55 L 165 180 Q 165 235 210 235 L 350 235',
             hasTurn: true, turnDir: 'left', initRadarFree: true
           },
           'R': {
-            label: 'R', color: '#10B981', arrowColor: '#10B981', marker: 'arrow-green',
-            d: 'M 165 35 L 165 365',
+            label: 'R', type: 'car', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-amber',
+            d: 'M 345 165 L 50 165',
             hasTurn: false, initRadarFree: false, blockedBy: 'N'
           },
           'A': {
-            label: 'A', color: '#38BDF8', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 235 365 L 235 35',
+            label: 'A', type: 'car', color: '#2563EB', arrowColor: '#2563EB', marker: 'arrow-cyan',
+            d: 'M 235 345 L 235 50',
             hasTurn: false, initRadarFree: false, blockedBy: 'R'
           }
         }
       },
       '642': {
         img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/642.png',
-        title: 'الشكل الرسمي رقم 642 (أسبقية الترام المطلقة على القضبان)',
-        order: ['T (الترام)', 'A (للمركز)', 'O', 'M', 'A (يكمل)'],
-        tram: true,
+        title: 'الشكل الرسمي رقم 642 (الترام الأخضر T والدراجة النارية M)',
+        roadType: 'TRAM_CROSS',
+        order: ['T (الترام)', 'A (للمركز)', 'O', 'M (دراجة)', 'A (يكمل)'],
         steps: [
-          { car: 'T', text: '🚋 1. الترام T ينطلق أولاً فوق الجميع (Ha la precedenza)؛ لأن المركبات على قضبان لها أسبقية مطلقة وفقاً للمادة 145.' },
-          { car: 'A_center', text: '🟡 2. السيارة A تتقدم لمنتصف التقاطع وتتوقف لانتظار المركبات القادمة من يمينها.' },
-          { car: 'O', text: '🟢 3. بعد عبور الترام، يخلو يمين السيارة O فتعبر التقاطع.' },
-          { car: 'M', text: '🔵 4. السيارة M تعبر بعد خلو يمينها من السيارة O.' },
-          { car: 'A_exit', text: '🟢 5. السيارة A تكمل انعطافها وخروجها أخيراً بعد إخلاء التقاطع بالكامل.' }
+          { car: 'T', text: '🚋 1. الترام الأخضر T (على السكة الأفقية): يعبر أولاً فوق الجميع (Ha la precedenza)؛ لقاعدة أسبقية مركبات القضبان (المادة 145).' },
+          { car: 'A_center', text: '🟡 2. السيارة A (برتقالية بالغرب): تتقدم لمنتصف التقاطع وتتوقف لانتظار السيارات القادمة من يمينها (O و M).' },
+          { car: 'O', text: '🟢 3. السيارة O (سوداء بالشمال): بعد عبور الترام خلى يمين O؛ فتعبر للأمام جنوباً.' },
+          { car: 'M', text: '🔵 4. الدراجة النارية M (بالشرق): تعبر غرباً للأمام بعد خلو يمينها من السيارة O.' },
+          { car: 'A_exit', text: '🟢 5. السيارة A: تكمل دورانها لليسار وتخرج أخيراً بعد خلو التقاطع بالكامل.' }
         ],
         cars: {
           'T': {
-            label: 'T', color: '#EC4899', isTram: true, arrowColor: '#EC4899', marker: 'arrow-pink',
-            d: 'M 200 30 L 200 370',
+            label: 'T', type: 'tram', color: '#15803D', arrowColor: '#10B981', marker: 'arrow-green',
+            d: 'M 350 201 L 40 201',
             hasTurn: false, initRadarFree: true
           },
-          'A': {
-            label: 'A', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d_center: 'M 35 235 L 190 235',
-            d_exit: 'M 190 235 Q 235 235 235 180 L 235 35',
-            d: 'M 35 235 L 180 235 Q 235 235 235 180 L 235 35',
-            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'T'
-          },
           'O': {
-            label: 'O', color: '#10B981', arrowColor: '#10B981', marker: 'arrow-green',
-            d: 'M 365 165 L 35 165',
+            label: 'O', type: 'car', color: '#0F172A', arrowColor: '#38BDF8', marker: 'arrow-cyan',
+            d: 'M 165 55 L 165 350',
             hasTurn: false, initRadarFree: false, blockedBy: 'T'
           },
           'M': {
-            label: 'M', color: '#38BDF8', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 235 365 L 235 35',
+            label: 'M', type: 'moto', color: '#0EA5E9', arrowColor: '#0EA5E9', marker: 'arrow-cyan',
+            d: 'M 330 145 L 50 145',
             hasTurn: false, initRadarFree: false, blockedBy: 'O'
+          },
+          'A': {
+            label: 'A', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
+            d_center: 'M 60 265 L 180 265',
+            d_exit: 'M 180 265 Q 235 265 235 180 L 235 50',
+            d: 'M 60 265 L 180 265 Q 235 265 235 180 L 235 50',
+            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'T'
+          }
+        }
+      },
+      '650': {
+        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/650.png',
+        title: 'الشكل الرسمي رقم 650 (شاحنة النقل Autocarro N والفيلوباص R)',
+        roadType: 'CROSS_4WAY',
+        order: ['L', 'E', 'N (شاحنة)', 'R (فيلوباص)'],
+        steps: [
+          { car: 'L', text: '🟢 1. السيارة L (برتقالية بالجنوب): تنعطف يميناً ويمينها خالٍ تماماً من أي سيارة؛ فتعبر أولاً.' },
+          { car: 'E', text: '🟡 2. السيارة E (خضراء بالغرب): بعد عبور L، يخلو يمين E؛ فتعبر التقاطع ثانياً مباشرة للأمام.' },
+          { car: 'N', text: '🔵 3. شاحنة النقل Autocarro N (حمراء بالشمال): تعبر ثالثاً مباشرة للأمام بعد خلو يمينها من السيارة E.' },
+          { car: 'R', text: '🟣 4. الفيلوباص R (أزرق بالشرق): ينعطف يساراً للجنوب ويعبر أخيراً بعد خلو يمينه من الشاحنة N.' }
+        ],
+        cars: {
+          'L': {
+            label: 'L', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
+            d: 'M 235 345 L 235 270 Q 235 235 270 235 L 350 235',
+            hasTurn: true, turnDir: 'right', initRadarFree: true
+          },
+          'E': {
+            label: 'E', type: 'car', color: '#10B981', arrowColor: '#10B981', marker: 'arrow-green',
+            d: 'M 50 235 L 350 235',
+            hasTurn: false, initRadarFree: false, blockedBy: 'L'
+          },
+          'N': {
+            label: 'N', type: 'truck', color: '#DC2626', arrowColor: '#EF4444', marker: 'arrow-amber',
+            d: 'M 165 55 L 165 350',
+            hasTurn: false, initRadarFree: false, blockedBy: 'E'
+          },
+          'R': {
+            label: 'R', type: 'bus', color: '#1E3A8A', arrowColor: '#38BDF8', marker: 'arrow-cyan',
+            d: 'M 345 165 L 235 165 Q 165 165 165 235 L 165 350',
+            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'N'
           }
         }
       }
@@ -1526,6 +1520,302 @@
     let carPathElements = {};
     let audioCtx = null;
 
+    // رسم هندسة الطريق الإسفلتي والأرصفة بما يطابق الرسمة الوزارية بدقة
+    function renderRoadGeometry(roadType) {
+      const roadLayer = document.getElementById('roadLayer');
+      if (!roadLayer) return;
+
+      if (roadType === 'T_JUNCTION') {
+        // تقاطع T: طريق أفقي بالكامل في الأعلى + فرع عمودي يتجه للأسفل فقط
+        roadLayer.innerHTML = `
+          <!-- أرضية التقاطع (إسفلت أسود غامق) -->
+          <rect x="0" y="0" width="400" height="400" fill="#0B0F19" />
+
+          <!-- الرصيف المغلق العلوي بالكامل (لا يوجد طريق للأعلى) -->
+          <rect x="0" y="0" width="400" height="35" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <line x1="0" y1="35" x2="400" y2="35" stroke="#FFFFFF" stroke-width="2" opacity="0.7" />
+
+          <!-- الرصيفان السفليان بزوايا دائرية طبيعية (Curbs) -->
+          <path d="M 0 175 L 130 175 Q 148 175 148 195 L 148 400 L 0 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <path d="M 400 175 L 270 175 Q 252 175 252 195 L 252 400 L 400 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+
+          <!-- نهر الطريق الإسفلتي Carreggiata -->
+          <rect x="0" y="35" width="400" height="140" fill="#141E33" />
+          <rect x="148" y="175" width="104" height="225" fill="#141E33" />
+
+          <!-- خطوط حواف الطريق البيضاء -->
+          <line x1="0" y1="175" x2="130" y2="175" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+          <line x1="270" y1="175" x2="400" y2="175" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+          <line x1="148" y1="195" x2="148" y2="400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+          <line x1="252" y1="195" x2="252" y2="400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+
+          <!-- خطوط المنتصف المتقطعة -->
+          <line x1="0" y1="105" x2="400" y2="105" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="200" y1="175" x2="200" y2="400" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+
+          <!-- خطوط التوقف العريضة -->
+          <line x1="200" y1="175" x2="252" y2="175" stroke="#FFFFFF" stroke-width="4" />
+        `;
+      } else if (roadType === 'OBLIQUE_X') {
+        // تقاطع مائل: طريق أفقي رئيسي + طريق قادم بميل من الشمال الغربي للجنوب الشرقي
+        roadLayer.innerHTML = `
+          <rect x="0" y="0" width="400" height="400" fill="#0B0F19" />
+
+          <!-- الجزر والأرصفة المحيطة بالتقاطع المائل -->
+          <path d="M 0 0 L 50 0 L 155 130 L 0 130 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <path d="M 180 0 L 400 0 L 400 130 L 250 130 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <path d="M 0 270 L 155 270 L 225 400 L 0 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <path d="M 250 270 L 400 270 L 400 400 L 350 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+
+          <!-- نهر الطريق الأفقي والمائل -->
+          <rect x="0" y="130" width="400" height="140" fill="#141E33" />
+          <polygon points="50,0 180,0 350,400 225,400" fill="#141E33" />
+
+          <!-- خطوط المنتصف -->
+          <line x1="0" y1="200" x2="400" y2="200" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="115" y1="0" x2="288" y2="400" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+        `;
+      } else if (roadType === 'TRAM_CROSS') {
+        // تقاطع رباعي مع مسار ترام أفقي مخصص
+        roadLayer.innerHTML = `
+          <rect x="0" y="0" width="400" height="400" fill="#0B0F19" />
+          <!-- الأرصفة الأربعة -->
+          <rect x="0" y="0" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
+          <rect x="270" y="0" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
+          <rect x="0" y="270" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
+          <rect x="270" y="270" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
+          
+          <rect x="130" y="0" width="140" height="400" fill="#141E33" />
+          <rect x="0" y="130" width="400" height="140" fill="#141E33" />
+
+          <!-- قضبان السكة الحديد الأفقية للترام مع العوارض الخشبية -->
+          <line x1="0" y1="195" x2="400" y2="195" stroke="#94A3B8" stroke-width="3.5" />
+          <line x1="0" y1="207" x2="400" y2="207" stroke="#94A3B8" stroke-width="3.5" />
+          ${[30, 70, 110, 150, 190, 230, 270, 310, 350, 380].map(x => `<line x1="${x}" y1="190" x2="${x}" y2="212" stroke="#475569" stroke-width="2.5" />`).join('')}
+
+          <!-- مسار الدراجات / الدراجة النارية بالشرق -->
+          <rect x="300" y="135" width="22" height="18" rx="3" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" />
+          <text x="311" y="148" font-size="11" text-anchor="middle">🚲</text>
+
+          <line x1="200" y1="0" x2="200" y2="120" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="200" y1="280" x2="200" y2="400" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+        `;
+      } else {
+        // تقاطع رباعي قياسي CROSS_4WAY
+        roadLayer.innerHTML = `
+          <rect x="0" y="0" width="400" height="400" fill="#0B0F19" />
+          <rect x="0" y="0" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
+          <rect x="270" y="0" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
+          <rect x="0" y="270" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
+          <rect x="270" y="270" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
+          
+          <rect x="130" y="0" width="140" height="400" fill="#141E33" />
+          <rect x="0" y="130" width="400" height="140" fill="#141E33" />
+
+          <line x1="200" y1="0" x2="200" y2="120" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="200" y1="280" x2="200" y2="400" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="0" y1="200" x2="120" y2="200" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="280" y1="200" x2="400" y2="200" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+
+          <line x1="130" y1="130" x2="200" y2="130" stroke="#FFFFFF" stroke-width="4" />
+          <line x1="200" y1="270" x2="270" y2="270" stroke="#FFFFFF" stroke-width="4" />
+          <line x1="130" y1="200" x2="130" y2="270" stroke="#FFFFFF" stroke-width="4" />
+          <line x1="270" y1="130" x2="270" y2="200" stroke="#FFFFFF" stroke-width="4" />
+        `;
+      }
+    }
+
+    // بناء مجسم المركبة وفق نوعها الحقيقي (Bus, Truck, Tram, Moto, Car)
+    function buildVehicleSvgMarkup(car) {
+      const type = car.type || 'car';
+      const label = car.label;
+      const color = car.color;
+
+      if (type === 'moto') {
+        // دراجة نارية مع سائق وخوذة
+        return `
+          <ellipse cx="0" cy="0" rx="18" ry="7" fill="rgba(0,0,0,0.45)" filter="blur(2px)" />
+          <!-- العجلات -->
+          <rect x="-14" y="-2.5" width="6" height="5" rx="1.5" fill="#0F172A" />
+          <rect x="8" y="-2.5" width="6" height="5" rx="1.5" fill="#0F172A" />
+          <!-- هيكل الدراجة -->
+          <line x1="-10" y1="0" x2="10" y2="0" stroke="#334155" stroke-width="3" />
+          <!-- المقود -->
+          <line x1="6" y1="-7" x2="6" y2="7" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+          <!-- المصباح -->
+          <circle cx="12" cy="0" r="2.5" fill="#FEF08A" />
+          <!-- السائق بالخوذة من الأعلى -->
+          <line x1="0" y1="-5" x2="5" y2="-6" stroke="#1E293B" stroke-width="2" />
+          <line x1="0" y1="5" x2="5" y2="6" stroke="#1E293B" stroke-width="2" />
+          <ellipse cx="-2" cy="0" rx="6" ry="4.5" fill="${color}" stroke="#0F172A" stroke-width="1" />
+          <circle cx="-1" cy="0" r="4.2" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" />
+          <path d="M 1 -2.5 A 3 3 0 0 1 1 2.5 Z" fill="#0F172A" />
+          <!-- شارة الحرف -->
+          <circle cx="-14" cy="0" r="6" fill="#FFFFFF" stroke="#0F172A" stroke-width="1" />
+          <text x="-14" y="3" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="900" fill="#0F172A" text-anchor="middle">${label}</text>
+        `;
+      }
+
+      if (type === 'bus') {
+        // حافلة ركاب كبيرة AUTOBUS
+        const w = 84, h = 28;
+        return `
+          <ellipse cx="0" cy="0" rx="${w/2 + 2}" ry="${h/2 + 3}" fill="rgba(0,0,0,0.5)" filter="blur(3px)" />
+          <!-- 6 إطارات: 2 بالأمام + 4 مزدوجة بالخلف -->
+          <rect x="-32" y="-16" width="10" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
+          <rect x="-20" y="-16" width="10" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
+          <rect x="-32" y="11.5" width="10" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
+          <rect x="-20" y="11.5" width="10" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
+          <!-- العجلات الأمامية القابلة للتوجيه -->
+          <g id="front-wheel-left-${label}" transform="translate(28, -13.5)">
+            <rect x="-5" y="-2.5" width="10" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
+          </g>
+          <g id="front-wheel-right-${label}" transform="translate(28, 13.5)">
+            <rect x="-5" y="-2" width="10" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
+          </g>
+
+          <!-- هيكل الحافلة -->
+          <rect x="${-w/2}" y="${-h/2}" width="${w}" height="${h}" rx="5" fill="${color}" stroke="#FFFFFF" stroke-width="2" />
+          <!-- مصد أمامي أبيض بارز كما في الرسمة -->
+          <rect x="${w/2 - 5}" y="${-h/2 + 1}" width="4" height="${h - 2}" rx="2" fill="#FFFFFF" />
+
+          <!-- الأضواء -->
+          <circle cx="${w/2 - 2}" cy="-9" r="2.8" fill="#FEF08A" />
+          <circle cx="${w/2 - 2}" cy="9" r="2.8" fill="#FEF08A" />
+          <rect x="${-w/2}" y="-10" width="2.5" height="5" rx="1" fill="#EF4444" />
+          <rect x="${-w/2}" y="5" width="2.5" height="5" rx="1" fill="#EF4444" />
+
+          <!-- الزجاج الأمامي المظلل -->
+          <path d="M ${w/2 - 12} -10 L ${w/2 - 6} -9 L ${w/2 - 6} 9 L ${w/2 - 12} 10 Z" fill="#0F172A" opacity="0.9" />
+
+          <!-- نوافذ الركاب الجانبية -->
+          <rect x="-34" y="-12" width="54" height="2.5" fill="#0F172A" opacity="0.85" rx="1" />
+          <rect x="-34" y="9.5" width="54" height="2.5" fill="#0F172A" opacity="0.85" rx="1" />
+
+          <!-- كلمة AUTOBUS بالخط العريض على السقف -->
+          <text x="6" y="3.5" font-family="'JetBrains Mono', sans-serif" font-size="10" font-weight="900" fill="#FFFFFF" letter-spacing="1.5" text-anchor="middle">AUTOBUS</text>
+
+          <!-- شارة حرف الحافلة -->
+          <circle cx="-28" cy="0" r="8" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" />
+          <text x="-28" y="3.5" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="900" fill="#0F172A" text-anchor="middle">${label}</text>
+
+          <!-- الغمازات -->
+          <circle id="blinker-fl-${label}" cx="${w/2 - 2}" cy="-13" r="2.5" fill="#F59E0B" style="display:none;" />
+          <circle id="blinker-rl-${label}" cx="${-w/2 + 2}" cy="-13" r="2.5" fill="#F59E0B" style="display:none;" />
+          <circle id="blinker-fr-${label}" cx="${w/2 - 2}" cy="13" r="2.5" fill="#F59E0B" style="display:none;" />
+          <circle id="blinker-rr-${label}" cx="${-w/2 + 2}" cy="13" r="2.5" fill="#F59E0B" style="display:none;" />
+        `;
+      }
+
+      if (type === 'truck') {
+        // شاحنة نقل ثقيل AUTOCARRO (كابينة + صندوق حمولة كبير)
+        const w = 82, h = 28;
+        return `
+          <ellipse cx="0" cy="0" rx="${w/2 + 2}" ry="${h/2 + 3}" fill="rgba(0,0,0,0.5)" filter="blur(3px)" />
+          <!-- 6 إطارات ثقيلة -->
+          <rect x="-30" y="-16" width="10" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
+          <rect x="-18" y="-16" width="10" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
+          <rect x="-30" y="11.5" width="10" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
+          <rect x="-18" y="11.5" width="10" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
+          <!-- العجلات الأمامية -->
+          <g id="front-wheel-left-${label}" transform="translate(28, -13.5)">
+            <rect x="-5" y="-2.5" width="10" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
+          </g>
+          <g id="front-wheel-right-${label}" transform="translate(28, 13.5)">
+            <rect x="-5" y="-2" width="10" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
+          </g>
+
+          <!-- صندوق الحمولة المضلع (Cassone) -->
+          <rect x="-40" y="-13" width="50" height="26" rx="3" fill="${color}" stroke="#FFFFFF" stroke-width="1.8" />
+          <line x1="-32" y1="-10" x2="-32" y2="10" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
+          <line x1="-24" y1="-10" x2="-24" y2="10" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
+          <line x1="-16" y1="-10" x2="-16" y2="10" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
+          <line x1="-8" y1="-10" x2="-8" y2="10" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
+          <line x1="0" y1="-10" x2="0" y2="10" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
+
+          <!-- كابينة السائق الأمامية المتميزة -->
+          <rect x="13" y="-13.5" width="27" height="27" rx="5" fill="#B91C1C" stroke="#FFFFFF" stroke-width="1.8" />
+          <path d="M 28 -10 L 37 -8 L 37 8 L 28 10 Z" fill="#0F172A" opacity="0.95" />
+          <circle cx="38" cy="-9" r="2.8" fill="#FEF08A" />
+          <circle cx="38" cy="9" r="2.8" fill="#FEF08A" />
+
+          <text x="-15" y="3.5" font-family="'JetBrains Mono', sans-serif" font-size="8.5" font-weight="900" fill="#FFFFFF" letter-spacing="1">AUTOCARRO</text>
+          <circle cx="24" cy="0" r="7.5" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" />
+          <text x="24" y="3.2" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="900" fill="#0F172A" text-anchor="middle">${label}</text>
+
+          <circle id="blinker-fl-${label}" cx="38" cy="-13" r="2.5" fill="#F59E0B" style="display:none;" />
+          <circle id="blinker-rl-${label}" cx="-38" cy="-13" r="2.5" fill="#F59E0B" style="display:none;" />
+          <circle id="blinker-fr-${label}" cx="38" cy="13" r="2.5" fill="#F59E0B" style="display:none;" />
+          <circle id="blinker-rr-${label}" cx="-38" cy="13" r="2.5" fill="#F59E0B" style="display:none;" />
+        `;
+      }
+
+      if (type === 'tram') {
+        // ترام السكة الحديد الأخضر TRAM
+        const w = 96, h = 26;
+        return `
+          <ellipse cx="0" cy="0" rx="${w/2 + 3}" ry="${h/2 + 3}" fill="rgba(0,0,0,0.5)" filter="blur(3px)" />
+          <rect x="-38" y="-13" width="14" height="3" fill="#64748B" />
+          <rect x="24" y="-13" width="14" height="3" fill="#64748B" />
+          <rect x="-38" y="10" width="14" height="3" fill="#64748B" />
+          <rect x="24" y="10" width="14" height="3" fill="#64748B" />
+
+          <!-- هيكل الترام المشطوف الطرفين -->
+          <path d="M ${-w/2 + 8} ${-h/2} L ${w/2 - 8} ${-h/2} L ${w/2} 0 L ${w/2 - 8} ${h/2} L ${-w/2 + 8} ${h/2} L ${-w/2} 0 Z" fill="#15803D" stroke="#FFFFFF" stroke-width="2" />
+          
+          <!-- البانتوجراف على السقف (Pantografo) -->
+          <polygon points="-8,-4 0,-9 8,-4 0,1" fill="none" stroke="#CBD5E1" stroke-width="1.8" />
+          <line x1="0" y1="-9" x2="0" y2="-15" stroke="#E2E8F0" stroke-width="2" />
+          <line x1="-7" y1="-15" x2="7" y2="-15" stroke="#F8FAFC" stroke-width="2.5" />
+
+          <circle cx="${w/2 - 3}" cy="-6" r="2.5" fill="#FEF08A" />
+          <circle cx="${w/2 - 3}" cy="6" r="2.5" fill="#FEF08A" />
+
+          <rect x="-34" y="-10.5" width="68" height="2.5" rx="1" fill="#0F172A" opacity="0.9" />
+          <rect x="-34" y="8" width="68" height="2.5" rx="1" fill="#0F172A" opacity="0.9" />
+
+          <text x="14" y="3.5" font-family="'JetBrains Mono', sans-serif" font-size="11" font-weight="900" fill="#FFFFFF" letter-spacing="2">TRAM</text>
+          <circle cx="-16" cy="0" r="7.5" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" />
+          <text x="-16" y="3.5" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="900" fill="#0F172A" text-anchor="middle">${label}</text>
+        `;
+      }
+
+      // سيارة ملاكي عادية (Car)
+      const w = 46, h = 24;
+      return `
+        <ellipse cx="0" cy="0" rx="${w/2 + 2}" ry="${h/2 + 2}" fill="rgba(0,0,0,0.5)" filter="blur(2px)" />
+        <rect x="-21" y="-14" width="9" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
+        <rect x="-21" y="9.5" width="9" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
+        <g id="front-wheel-left-${label}" transform="translate(13, -11.5)">
+          <rect x="-4.5" y="-2.2" width="9" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
+        </g>
+        <g id="front-wheel-right-${label}" transform="translate(13, 11.5)">
+          <rect x="-4.5" y="-2.2" width="9" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
+        </g>
+
+        <rect x="${-w/2}" y="${-h/2}" width="${w}" height="${h}" rx="7" fill="${color}" stroke="#FFFFFF" stroke-width="1.8" />
+
+        <rect x="2" y="-14.5" width="3" height="2" rx="1" fill="${color}" stroke="#FFFFFF" stroke-width="0.8" />
+        <rect x="2" y="12.5" width="3" height="2" rx="1" fill="${color}" stroke="#FFFFFF" stroke-width="0.8" />
+
+        <circle cx="${w/2 - 2}" cy="-6.5" r="2.5" fill="#FEF08A" />
+        <circle cx="${w/2 - 2}" cy="6.5" r="2.5" fill="#FEF08A" />
+        <rect x="${-w/2}" y="-7.5" width="2.5" height="4" rx="1" fill="#EF4444" />
+        <rect x="${-w/2}" y="3.5" width="2.5" height="4" rx="1" fill="#EF4444" />
+
+        <path d="M ${w/6} -7 L ${w/3} -5 L ${w/3} 5 L ${w/6} 7 Z" fill="#0F172A" opacity="0.9" />
+        <path d="M ${-w/6} -6.5 L ${-w/3} -5 L ${-w/3} 5 L ${-w/6} 6.5 Z" fill="#0F172A" opacity="0.9" />
+
+        <circle cx="0" cy="0" r="7.5" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" />
+        <text x="0" y="3.5" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="900" fill="#0F172A" text-anchor="middle">${label}</text>
+
+        <circle id="blinker-fl-${label}" cx="${w/2 - 2}" cy="-10.5" r="2.5" fill="#F59E0B" style="display:none;" />
+        <circle id="blinker-rl-${label}" cx="${-w/2 + 2}" cy="-10.5" r="2.5" fill="#F59E0B" style="display:none;" />
+        <circle id="blinker-fr-${label}" cx="${w/2 - 2}" cy="10.5" r="2.5" fill="#F59E0B" style="display:none;" />
+        <circle id="blinker-rr-${label}" cx="${-w/2 + 2}" cy="10.5" r="2.5" fill="#F59E0B" style="display:none;" />
+      `;
+    }
+
     // تهيئة نظام الصوت الداخلي الخفيف (Web Audio API Synthesizer)
     function playAudioTone(type) {
       if (!audioFxEnabled) return;
@@ -1540,7 +1830,6 @@
 
         const now = audioCtx.currentTime;
         if (type === 'tick') {
-          // صوت تكة الغماز (Blinker Relay Click)
           osc.type = 'sine';
           osc.frequency.setValueAtTime(420, now);
           gain.gain.setValueAtTime(0.04, now);
@@ -1548,16 +1837,14 @@
           osc.start(now);
           osc.stop(now + 0.04);
         } else if (type === 'clear') {
-          // رنة خلو اليمين الأخضر
           osc.type = 'triangle';
-          osc.frequency.setValueAtTime(587.33, now); // D5
-          osc.frequency.exponentialRampToValueAtTime(880, now + 0.12); // A5
+          osc.frequency.setValueAtTime(587.33, now);
+          osc.frequency.exponentialRampToValueAtTime(880, now + 0.12);
           gain.gain.setValueAtTime(0.06, now);
           gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
           osc.start(now);
           osc.stop(now + 0.19);
         } else if (type === 'complete') {
-          // رنة اكتمال التقاطع
           osc.type = 'sine';
           osc.frequency.setValueAtTime(523.25, now);
           osc.frequency.setValueAtTime(659.25, now + 0.08);
@@ -1567,9 +1854,7 @@
           osc.start(now);
           osc.stop(now + 0.36);
         }
-      } catch (e) {
-        // AudioContext silent fallback
-      }
+      } catch (e) {}
     }
 
     function setSimSpeed(speed, btn) {
@@ -1608,10 +1893,11 @@
       }
 
       const data = SIM_DATABASE[key];
-      const tramLayer = document.getElementById('tramTracks');
-      if (tramLayer) tramLayer.style.display = data.tram ? 'block' : 'none';
 
-      // تحديث الصورة الوزارية والعنوان
+      // 1. رسم شكل الطريق الهندسي المخصص للشكل
+      renderRoadGeometry(data.roadType);
+
+      // 2. تحديث صورة الوزارة المصغرة
       const officialImg = document.getElementById('simOfficialImg');
       const officialTitle = document.getElementById('simOfficialTitle');
       if (officialImg) officialImg.src = data.img;
@@ -1619,7 +1905,7 @@
 
       document.getElementById('simFinalOrderText').innerText = data.order.join(' ➔ ');
       document.getElementById('simStepBadge').innerText = '🏁 جاهز للمحاكاة';
-      document.getElementById('simReasonText').innerText = 'اضغط على «▶️ تشغيل المحاكاة» لمشاهدة الانعطاف الواقعي للسيارات وتفكيك أسبقية اليمين.';
+      document.getElementById('simReasonText').innerText = 'اضغط على «▶️ تشغيل المحاكاة» لمشاهدة الانعطاف الواقعي للمركبات وتفكيك أسبقية اليمين.';
 
       renderSimTrajectoriesAndCars();
     }
@@ -1635,7 +1921,7 @@
 
       const data = SIM_DATABASE[activeSimKey];
 
-      // 1. رسم خطوط المسارات الرسمية المرئية بالأسهم (Trajectory Lines)
+      // رسم مسارات الحركة المنقطة بالأسهم الرسمية
       Object.keys(data.cars).forEach(carId => {
         const car = data.cars[carId];
         const pathEl = document.createElementNS('http://www.w3.org/2000/svg', 'path');
@@ -1647,80 +1933,23 @@
         pathEl.setAttribute('stroke-linecap', 'round');
         pathEl.setAttribute('marker-end', `url(#${car.marker})`);
         pathEl.setAttribute('id', 'traj-path-' + carId);
-        pathEl.style.opacity = '0.65';
-        pathEl.style.transition = 'opacity 0.3s, stroke-width 0.3s';
+        pathEl.style.opacity = '0.7';
         trajLayer.appendChild(pathEl);
 
         carPathElements[carId] = pathEl;
 
-        // 2. رسم مجسم السيارة الواقعي عالي الدقة (Realistic Automotive Model)
-        const isTram = Boolean(car.isTram);
-        const w = isTram ? 68 : 46;
-        const h = isTram ? 24 : 26;
-        const rx = isTram ? 4 : 8;
-
+        // رسم مجسم المركبة
         const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
         g.setAttribute('class', 'sim-car-group');
         g.setAttribute('id', 'car-group-' + carId);
 
+        const h = (car.type === 'bus' || car.type === 'truck') ? 28 : (car.type === 'tram' ? 26 : (car.type === 'moto' ? 14 : 24));
+
         g.innerHTML = `
-          <!-- ظل أسفل السيارة -->
-          <ellipse cx="0" cy="0" rx="${w/2 + 2}" ry="${h/2 + 2}" fill="rgba(0,0,0,0.5)" filter="blur(2px)" />
+          ${buildVehicleSvgMarkup(car)}
 
-          <!-- إطارات العجلات الأربعة المطاطية -->
-          ${!isTram ? `
-            <!-- العجلات الخلفية -->
-            <rect x="-21" y="-15" width="9" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
-            <rect x="-21" y="10.5" width="9" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
-            <!-- العجلات الأمامية القابلة للتوجيه (Steerable Front Wheels) -->
-            <g id="front-wheel-left-${carId}" transform="translate(13, -12.5)">
-              <rect x="-4.5" y="-2.2" width="9" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
-            </g>
-            <g id="front-wheel-right-${carId}" transform="translate(13, 12.5)">
-              <rect x="-4.5" y="-2.2" width="9" height="4.5" rx="2" fill="#020617" stroke="#334155" stroke-width="0.8" />
-            </g>
-          ` : `
-            <!-- عجلات الترام الحديدية على القضبان -->
-            <rect x="-26" y="-13" width="10" height="3" fill="#64748B" />
-            <rect x="16" y="-13" width="10" height="3" fill="#64748B" />
-            <rect x="-26" y="10" width="10" height="3" fill="#64748B" />
-            <rect x="16" y="10" width="10" height="3" fill="#64748B" />
-          `}
-
-          <!-- هيكل السيارة المصقول -->
-          <rect x="${-w/2}" y="${-h/2}" width="${w}" height="${h}" rx="${rx}" fill="${car.color}" stroke="#FFFFFF" stroke-width="1.8" />
-
-          <!-- المرايا الجانبية للسيارة -->
-          ${!isTram ? `
-            <rect x="2" y="-15.5" width="3.5" height="2.5" rx="1" fill="${car.color}" stroke="#FFFFFF" stroke-width="0.8" />
-            <rect x="2" y="13" width="3.5" height="2.5" rx="1" fill="${car.color}" stroke="#FFFFFF" stroke-width="0.8" />
-          ` : ''}
-
-          <!-- أضواء المصابيح الأمامية الذهبية -->
-          <circle cx="${w/2 - 2}" cy="-7.5" r="2.5" fill="#FEF08A" />
-          <circle cx="${w/2 - 2}" cy="7.5" r="2.5" fill="#FEF08A" />
-          
-          <!-- الأضواء الخلفية الحمراء -->
-          <rect x="${-w/2}" y="-8.5" width="2.5" height="4" rx="1" fill="#EF4444" />
-          <rect x="${-w/2}" y="4.5" width="2.5" height="4" rx="1" fill="#EF4444" />
-
-          <!-- الزجاج الأمامي والخلفي المظلل -->
-          <path d="M ${w/6} -8 L ${w/3} -6 L ${w/3} 6 L ${w/6} 8 Z" fill="#0F172A" opacity="0.9" />
-          <path d="M ${-w/6} -7.5 L ${-w/3} -6 L ${-w/3} 6 L ${-w/6} 7.5 Z" fill="#0F172A" opacity="0.9" />
-
-          <!-- سقف السيارة والشارة الرسمية -->
-          <circle cx="0" cy="0" r="8.5" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" />
-          <text x="0" y="3.8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="900" fill="#0F172A" text-anchor="middle">${car.label}</text>
-
-          <!-- لمبات الغماز / الفليشر عند الانعطاف (Blinkers) -->
-          <circle id="blinker-fl-${carId}" cx="${w/2 - 2}" cy="-11.5" r="2.5" fill="#F59E0B" style="display:none;" />
-          <circle id="blinker-rl-${carId}" cx="${-w/2 + 2}" cy="-11.5" r="2.5" fill="#F59E0B" style="display:none;" />
-          <circle id="blinker-fr-${carId}" cx="${w/2 - 2}" cy="11.5" r="2.5" fill="#F59E0B" style="display:none;" />
-          <circle id="blinker-rr-${carId}" cx="${-w/2 + 2}" cy="11.5" r="2.5" fill="#F59E0B" style="display:none;" />
-
-          <!-- مخروط رادار اليمين التفاعلي (Sensore Destra Libera) -->
-          <g class="car-radar-cone" id="radar-cone-${carId}" transform="translate(0, ${h/2 + 2})" style="display:${showRadarState ? 'block' : 'none'};">
-            <!-- قوس مستشعر اليمين -->
+          <!-- مخروط رادار أسبقية اليمين التفاعلي (Sensore Destra Libera) -->
+          <g class="car-radar-cone" id="radar-cone-${carId}" transform="translate(0, ${h/2 + 3})" style="display:${showRadarState ? 'block' : 'none'};">
             <path id="radar-arc-${carId}" d="M -8 2 A 16 16 0 0 0 8 2 L 0 0 Z" fill="${car.initRadarFree ? 'rgba(16, 185, 129, 0.45)' : 'rgba(239, 68, 68, 0.45)'}" stroke="${car.initRadarFree ? '#10B981' : '#EF4444'}" stroke-width="1.2" />
             <circle id="radar-dot-${carId}" cx="0" cy="7" r="2.2" fill="${car.initRadarFree ? '#10B981' : '#EF4444'}" />
           </g>
@@ -1728,12 +1957,10 @@
 
         carsLayer.appendChild(g);
 
-        // وضع السيارة بدقة عند نقطة البداية للمسار (Length = 0) مع التوجيه الصحيح
         placeCarAtProgress(carId, pathEl, 0);
       });
     }
 
-    // دالة وضع السيارة عند نسبة معينة من المسار بحساب المماس اللحظي (Tangent Steering)
     function placeCarAtProgress(carId, pathEl, progress01) {
       const g = document.getElementById('car-group-' + carId);
       if (!g || !pathEl) return;
@@ -1754,7 +1981,6 @@
       g.setAttribute('transform', `translate(${p1.x}, ${p1.y}) rotate(${angle})`);
     }
 
-    // محرك تحريك السيارة على مسار المنحنى بنعومة 60 إطار في الثانية (Steering Curve Physics)
     function driveCarAlongPath(carId, pathEl, baseDurationMs, onComplete) {
       const g = document.getElementById('car-group-' + carId);
       const traj = document.getElementById('traj-path-' + carId);
@@ -1765,7 +1991,6 @@
       const hasTurn = Boolean(carInfo.hasTurn);
       const turnDir = carInfo.turnDir || 'left';
 
-      // إظهار الغماز المناسب
       const blinkerF = document.getElementById(turnDir === 'left' ? 'blinker-fl-' + carId : 'blinker-fr-' + carId);
       const blinkerR = document.getElementById(turnDir === 'left' ? 'blinker-rl-' + carId : 'blinker-rr-' + carId);
 
@@ -1779,7 +2004,6 @@
         traj.style.strokeWidth = '4.2';
       }
 
-      // إخفاء رادار اليمين أثناء الحركة لأن السيارة تعبر بالفعل
       const radar = document.getElementById('radar-cone-' + carId);
       if (radar) radar.style.display = 'none';
 
@@ -1790,22 +2014,25 @@
       function animate(currentTime) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / durationMs, 1);
-        // دالة تسارع وانسياب هادئة
         const ease = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
 
         placeCarAtProgress(carId, pathEl, ease);
 
-        // توجيه العجلات الأمامية (Steering Angle) أثناء الدخول في المنحنى
+        // توجيه العجلات الأمامية
         const wheelL = document.getElementById('front-wheel-left-' + carId);
         const wheelR = document.getElementById('front-wheel-right-' + carId);
         if (hasTurn && wheelL && wheelR) {
           if (progress > 0.25 && progress < 0.8) {
             const steerAngle = turnDir === 'left' ? -22 : 22;
-            wheelL.setAttribute('transform', `translate(13, -12.5) rotate(${steerAngle})`);
-            wheelR.setAttribute('transform', `translate(13, 12.5) rotate(${steerAngle})`);
+            const posX = (carInfo.type === 'bus' || carInfo.type === 'truck') ? 28 : 13;
+            const posY = (carInfo.type === 'bus' || carInfo.type === 'truck') ? 13.5 : 11.5;
+            wheelL.setAttribute('transform', `translate(${posX}, ${-posY}) rotate(${steerAngle})`);
+            wheelR.setAttribute('transform', `translate(${posX}, ${posY}) rotate(${steerAngle})`);
           } else {
-            wheelL.setAttribute('transform', 'translate(13, -12.5) rotate(0)');
-            wheelR.setAttribute('transform', 'translate(13, 12.5) rotate(0)');
+            const posX = (carInfo.type === 'bus' || carInfo.type === 'truck') ? 28 : 13;
+            const posY = (carInfo.type === 'bus' || carInfo.type === 'truck') ? 13.5 : 11.5;
+            wheelL.setAttribute('transform', `translate(${posX}, ${-posY}) rotate(0)`);
+            wheelR.setAttribute('transform', `translate(${posX}, ${posY}) rotate(0)`);
           }
         }
 
@@ -1826,8 +2053,8 @@
         } else {
           if (blinkerF) blinkerF.style.display = 'none';
           if (blinkerR) blinkerR.style.display = 'none';
-          if (wheelL) wheelL.setAttribute('transform', 'translate(13, -12.5) rotate(0)');
-          if (wheelR) wheelR.setAttribute('transform', 'translate(13, 12.5) rotate(0)');
+          if (wheelL) wheelL.removeAttribute('transform');
+          if (wheelR) wheelR.removeAttribute('transform');
           if (traj) {
             traj.style.opacity = '0.2';
             traj.style.strokeWidth = '2';
@@ -1840,7 +2067,6 @@
       requestAnimationFrame(animate);
     }
 
-    // تحديث رادار اليمين للسيارات المتبقية عند خلو مسارها
     function updateRadarsAfterCarPass(passedCarId) {
       const data = SIM_DATABASE[activeSimKey];
       Object.keys(data.cars).forEach(cid => {
@@ -1859,7 +2085,6 @@
       });
     }
 
-    // تشغيل خطوة واحدة من المحاكاة
     function stepSimulation() {
       const data = SIM_DATABASE[activeSimKey];
       if (currentSimStep >= data.steps.length) {
@@ -1871,11 +2096,10 @@
       document.getElementById('simStepBadge').innerText = `🚗 الخطوة ${currentSimStep + 1} من ${data.steps.length}`;
       document.getElementById('simReasonText').innerText = step.text;
 
-      // محاكاة تقاطع 617 أو 642 (التقدم لمنتصف التقاطع والتوقف)
+      // تقدم المركز في تقاطعات المركز (617 أو 642)
       if (activeSimKey === '617' || activeSimKey === '642') {
         const leadKey = activeSimKey === '617' ? 'N' : 'A';
         if (step.car === leadKey + '_center') {
-          // تقدم المركبة للمركز
           let pCenterPath = document.getElementById('lead-center-temp-path');
           if (!pCenterPath) {
             pCenterPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
@@ -1923,7 +2147,6 @@
       }
     }
 
-    // تشغيل المحاكاة بالكامل بتتابع زمني مضبوط
     function playFullSimulation() {
       if (isPlayingFull) return;
       isPlayingFull = true;
@@ -1946,7 +2169,6 @@
       next();
     }
 
-    // إعادة ضبط المحاكاة
     function resetSimulation() {
       if (simTimeoutId) clearTimeout(simTimeoutId);
       isPlayingFull = false;
@@ -1954,7 +2176,6 @@
       loadSimIncrocio(activeSimKey);
     }
 
-    // تهيئة المحاكي عند التحميل
     window.addEventListener('DOMContentLoaded', () => {
       loadSimIncrocio('608');
     });
