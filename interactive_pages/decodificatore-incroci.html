@@ -1539,7 +1539,12 @@
                 ${(() => {
                   const fm = (q.img || '').match(/(\d+)\.png/);
                   if (fm) {
-                    return `<button class="btn-card-sim" onclick="openSimForFigure('${fm[1]}', event)">🎬 محاكاة تقاطع ${fm[1]}</button>`;
+                    const isAllowed = checkSimAccess(fm[1]);
+                    if (isAllowed) {
+                      return `<button class="btn-card-sim" onclick="openSimForFigure('${fm[1]}', event)">🎬 محاكاة تقاطع ${fm[1]}</button>`;
+                    } else {
+                      return `<button class="btn-card-sim" style="background:rgba(244,63,94,0.12); border-color:rgba(244,63,94,0.35); color:#F43F5E;" onclick="openSimForFigure('${fm[1]}', event)">🔒 محاكاة تقاطع ${fm[1]}</button>`;
+                    }
                   }
                   return '';
                 })()}
@@ -1628,6 +1633,14 @@
        متطابق شكلاً وهندسة مع أشكال الوزارة: T-Junction, Oblique-X, 4-Way Cross, Tram, Bus, Truck, Moto
        ======================================================== */
     
+    const FREE_SIM_KEYS = ['608', '614', '618'];
+
+    function checkSimAccess(key) {
+      const isLoggedIn = (window.PatenteAuth && window.PatenteAuth.isLoggedIn) ? window.PatenteAuth.isLoggedIn() : Boolean(localStorage.getItem('patente_user_profile'));
+      if (isLoggedIn) return true;
+      return FREE_SIM_KEYS.includes(String(key));
+    }
+
     const ALL_FIGURES_LIST = [
   {
     "id": "604",
@@ -2073,7 +2086,16 @@
 
       grid.innerHTML = filtered.map(fig => {
         const isActive = (fig.id === activeSimKey);
-        const simBadge = fig.hasSim ? '<span class="fig-sim-badge">✨ محاكاة 3D</span>' : '';
+        const isFree = FREE_SIM_KEYS.includes(String(fig.id));
+        const hasAccess = checkSimAccess(fig.id);
+        let simBadge = '';
+        if (fig.hasSim) {
+          if (hasAccess) {
+            simBadge = '<span class="fig-sim-badge">✨ محاكاة 3D</span>';
+          } else {
+            simBadge = '<span class="fig-sim-badge" style="background:rgba(244,63,94,0.15); border-color:rgba(244,63,94,0.3); color:#F43F5E;">🔒 للمسجلين</span>';
+          }
+        }
         return `
           <div class="fig-card-item ${isActive ? 'active' : ''}" onclick="selectFigureFromModal('${fig.id}')">
             <div class="fig-thumb-wrap">
@@ -2104,6 +2126,15 @@
 
     function openSimForFigure(figId, e) {
       if (e) e.stopPropagation();
+      if (!checkSimAccess(figId)) {
+        if (window.PatenteAuth && window.PatenteAuth.showGateModal) {
+          window.PatenteAuth.showGateModal({
+            title: 'افتح المحاكاة الحركية لكافة التقاطعات مجاناً!',
+            message: 'لقد شاهدت العينة المجانية لأول 3 تقاطعات حركية. أنشئ حسابك المجاني في 10 ثوانٍ لفتح محاكاة كافة التقاطعات الـ 43 وحفظ تقدمك.'
+          });
+        }
+        return;
+      }
       loadSimIncrocio(figId);
       document.getElementById('trafficSimSection')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       setTimeout(() => playFullSimulation(), 450);
@@ -2715,8 +2746,13 @@
         if (officialTitle) officialTitle.innerText = data.title;
 
         document.getElementById('simFinalOrderText').innerText = data.order.join(' ➔ ');
-        document.getElementById('simStepBadge').innerText = '🏁 جاهز للمحاكاة';
-        document.getElementById('simReasonText').innerText = 'اضغط على «▶️ تشغيل المحاكاة» لمشاهدة الانعطاف الواقعي للمركبات وتفكيك أسبقية اليمين.';
+        if (checkSimAccess(key)) {
+          document.getElementById('simStepBadge').innerText = '🏁 جاهز للمحاكاة';
+          document.getElementById('simReasonText').innerText = 'اضغط على «▶️ تشغيل المحاكاة» لمشاهدة الانعطاف الواقعي للمركبات وتفكيك أسبقية اليمين.';
+        } else {
+          document.getElementById('simStepBadge').innerText = '🔒 محاكاة حركية للطلاب المسجلين';
+          document.getElementById('simReasonText').innerText = 'لقد شاهدت عينة الـ 3 تقاطعات المجانية؛ محاكاة حركة هذا التقاطع متاحة مجاناً للطلاب المسجلين. اضغط على «تشغيل المحاكاة» لفتحها في 10 ثوانٍ.';
+        }
 
         renderSimTrajectoriesAndCars();
       } else {
@@ -2913,6 +2949,15 @@
     }
 
     function stepSimulation() {
+      if (!checkSimAccess(activeSimKey)) {
+        if (window.PatenteAuth && window.PatenteAuth.showGateModal) {
+          window.PatenteAuth.showGateModal({
+            title: 'افتح المحاكاة الحركية لكافة التقاطعات مجاناً!',
+            message: 'لقد شاهدت العينة المجانية لأول 3 تقاطعات حركية. أنشئ حسابك المجاني في 10 ثوانٍ لفتح محاكاة كافة التقاطعات الـ 43 وحفظ تقدمك.'
+          });
+        }
+        return;
+      }
       const data = SIM_DATABASE[activeSimKey];
       if (currentSimStep >= data.steps.length) {
         resetSimulation();
@@ -2975,6 +3020,15 @@
     }
 
     function playFullSimulation() {
+      if (!checkSimAccess(activeSimKey)) {
+        if (window.PatenteAuth && window.PatenteAuth.showGateModal) {
+          window.PatenteAuth.showGateModal({
+            title: 'افتح المحاكاة الحركية لكافة التقاطعات مجاناً!',
+            message: 'لقد شاهدت العينة المجانية لأول 3 تقاطعات حركية. أنشئ حسابك المجاني في 10 ثوانٍ لفتح محاكاة كافة التقاطعات الـ 43 وحفظ تقدمك.'
+          });
+        }
+        return;
+      }
       if (isPlayingFull) return;
       isPlayingFull = true;
       resetSimulation();

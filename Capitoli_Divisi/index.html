@@ -2252,6 +2252,31 @@
     document.querySelectorAll('.chapter-gated-badge').forEach(badge => {
       badge.style.display = isLoggedIn ? 'none' : 'inline-block';
     });
+
+    // إغلاق الأبواب من 3 إلى 25 أمام غير المسجلين وفتحها فوراً عند التسجيل
+    document.querySelectorAll('.chapter-card').forEach((card, idx) => {
+      // الباب 1 هو idx = 0، الباب 2 هو idx = 1، الأبواب من 3 حتى 25 هي idx >= 2
+      if (idx >= 2) {
+        const studyBtn = card.querySelector('.btn-action-study');
+        if (studyBtn) {
+          if (!isLoggedIn) {
+            studyBtn.onclick = function(e) {
+              e.preventDefault();
+              if (window.PatenteAuth && window.PatenteAuth.showGateModal) {
+                window.PatenteAuth.showGateModal({
+                  title: 'افتح شرح جميع الأبواب الـ 25 مجاناً!',
+                  message: 'لقد شاهدت عينة الشرح المجانية للبابين 1 و 2. أنشئ حسابك المجاني في 10 ثوانٍ لفتح شرح كافة الأبواب الـ 25 بالكامل وحفظ تقدمك سحابياً.'
+                });
+              }
+            };
+          } else {
+            studyBtn.onclick = function() {
+              if (window.soundEngine) soundEngine.click();
+            };
+          }
+        }
+      }
+    });
   }
   window.addEventListener('DOMContentLoaded', updateChaptersIndexGating);
   window.addEventListener('patente:auth-changed', updateChaptersIndexGating);
