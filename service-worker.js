@@ -6,7 +6,7 @@
  * @description يتيح تصفح وحل امتحانات المنصة بالكامل بدون اتصال بالإنترنت (Offline Mode)
  */
 
-const CACHE_NAME = "patente-b-pro-v12";
+const CACHE_NAME = "patente-b-pro-v13";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
