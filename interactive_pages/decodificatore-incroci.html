@@ -2117,6 +2117,15 @@
 
     function selectFigureFromModal(figId) {
       closeFigureModal();
+      if (!checkSimAccess(figId)) {
+        if (window.PatenteAuth && window.PatenteAuth.showGateModal) {
+          window.PatenteAuth.showGateModal({
+            title: `افتح محاكاة التقاطع ${figId} مجاناً!`,
+            message: 'التقاطعات المجانية المفتوحة للزوار هي (608, 614, 618). أنشئ حسابك المجاني في 10 ثوانٍ لفتح محاكاة هذا التقاطع وكافة التقاطعات الـ 43 وحفظ تقدمك.'
+          });
+        }
+        return;
+      }
       loadSimIncrocio(figId);
       document.getElementById('trafficSimSection')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -2127,7 +2136,17 @@
       let newIndex = currentIndex + delta;
       if (newIndex < 0) newIndex = ALL_FIGURES_LIST.length - 1;
       if (newIndex >= ALL_FIGURES_LIST.length) newIndex = 0;
-      loadSimIncrocio(ALL_FIGURES_LIST[newIndex].id);
+      const targetId = ALL_FIGURES_LIST[newIndex].id;
+      if (!checkSimAccess(targetId)) {
+        if (window.PatenteAuth && window.PatenteAuth.showGateModal) {
+          window.PatenteAuth.showGateModal({
+            title: 'افتح المحاكاة الحركية لكافة التقاطعات مجاناً!',
+            message: 'لقد شاهدت العينة المجانية لأول 3 تقاطعات حركية (608, 614, 618). أنشئ حسابك المجاني في 10 ثوانٍ لفتح محاكاة كافة التقاطعات الـ 43 وحفظ تقدمك.'
+          });
+        }
+        return;
+      }
+      loadSimIncrocio(targetId);
     }
 
     function openSimForFigure(figId, e) {
@@ -4232,7 +4251,19 @@
       const urlParams = new URLSearchParams(window.location.search);
       const targetFig = urlParams.get('fig') || urlParams.get('id');
       if (targetFig && SIM_DATABASE[targetFig]) {
-        openSimForFigure(targetFig);
+        if (!checkSimAccess(targetFig)) {
+          loadSimIncrocio('608');
+          setTimeout(() => {
+            if (window.PatenteAuth && window.PatenteAuth.showGateModal) {
+              window.PatenteAuth.showGateModal({
+                title: `محاكاة التقاطع ${targetFig} متاحة للطلاب المسجلين مجاناً!`,
+                message: 'التقاطعات المجانية للزوار هي (608, 614, 618). أنشئ حسابك المجاني في 10 ثوانٍ لفتح محاكاة هذا التقاطع وكافة الـ 43 تقاطعاً.'
+              });
+            }
+          }, 350);
+        } else {
+          openSimForFigure(targetFig);
+        }
       } else {
         loadSimIncrocio('608');
       }

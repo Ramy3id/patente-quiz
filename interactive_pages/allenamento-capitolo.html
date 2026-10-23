@@ -1225,7 +1225,13 @@
         const simFigMatch = fn.match(/^(604|606|607|608|610|613|614|615|616|617|618|620|631|632|633|634|636|637|638|639|640|642|643|644|646|647|648|650|651|652|654|655|657|659|660|661|662|663|664|665|667|668|669)\.png$/);
         if (simWrap) {
           if (simFigMatch) {
-            simWrap.innerHTML = `<a href="decodificatore-incroci.html?fig=${simFigMatch[1]}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:rgba(99,102,241,0.2);border:1px solid rgba(99,102,241,0.45);color:#818CF8;padding:6px 14px;border-radius:999px;font-size:0.85rem;font-weight:bold;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,0.25);">🎬 تشغيل المحاكاة ورادار اليمين الخالي (تقاطع ${simFigMatch[1]}) ↗</a>`;
+            const isFreeFig = ['608', '614', '618'].includes(simFigMatch[1]);
+            const isUserLoggedIn = (window.PatenteAuth && window.PatenteAuth.isLoggedIn) ? window.PatenteAuth.isLoggedIn() : Boolean(localStorage.getItem('patente_user_profile'));
+            if (isFreeFig || isUserLoggedIn) {
+              simWrap.innerHTML = `<a href="decodificatore-incroci.html?fig=${simFigMatch[1]}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,0.2);border:1px solid rgba(16,185,129,0.45);color:#34D399;padding:6px 14px;border-radius:999px;font-size:0.85rem;font-weight:bold;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,0.25);">${isFreeFig ? '✨ محاكاة مجانية' : '🎬 تشغيل المحاكاة'}: تقاطع ${simFigMatch[1]} ↗</a>`;
+            } else {
+              simWrap.innerHTML = `<a href="decodificatore-incroci.html?fig=${simFigMatch[1]}" onclick="event.preventDefault(); window.PatenteAuth && window.PatenteAuth.showGateModal ? window.PatenteAuth.showGateModal({title:'محاكاة التقاطع ' + simFigMatch[1] + ' للمسجلين مجاناً!', message:'أنشئ حسابك المجاني في 10 ثوانٍ لفتح محاكاة كافة التقاطعات الـ 43.'}) : window.location.href='decodificatore-incroci.html?fig=' + simFigMatch[1];" style="display:inline-flex;align-items:center;gap:6px;background:rgba(244,63,94,0.18);border:1px solid rgba(244,63,94,0.4);color:#F43F5E;padding:6px 14px;border-radius:999px;font-size:0.85rem;font-weight:bold;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,0.25);cursor:pointer;">🔒 محاكاة تقاطع ${simFigMatch[1]} (للمسجلين) ↗</a>`;
+            }
             simWrap.style.display = "block";
           } else {
             simWrap.style.display = "none";

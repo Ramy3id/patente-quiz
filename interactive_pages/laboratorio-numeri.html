@@ -1014,6 +1014,10 @@
       color: #92400E;
     }
 
+  
+    .user-logged-in .lock-icon { display: none !important; }
+    .user-logged-in .gate-badge { display: none !important; }
+
   </style>
 </head>
 <body>
@@ -1077,10 +1081,10 @@
           <input type="range" class="sim-slider" id="simSpeedSlider" min="10" max="150" step="5" value="100" oninput="updateSafetySimulation()">
           <div class="sim-quick-speeds">
             <button class="sim-speed-btn" onclick="setSimSpeed(50)">50 مدينة</button>
-            <button class="sim-speed-btn" onclick="setSimSpeed(90)">90 خارجها</button>
-            <button class="sim-speed-btn" onclick="setSimSpeed(110)">110 سريعة</button>
-            <button class="sim-speed-btn active" onclick="setSimSpeed(100)">100 مقياس</button>
-            <button class="sim-speed-btn" onclick="setSimSpeed(130)">130 أوتوستراد</button>
+            <button class="sim-speed-btn gate-item" onclick="setSimSpeed(90)">90 خارجها <span class="lock-icon">🔒</span></button>
+            <button class="sim-speed-btn gate-item" onclick="setSimSpeed(110)">110 سريعة <span class="lock-icon">🔒</span></button>
+            <button class="sim-speed-btn active" onclick="setSimSpeed(50)">50 مقياس مجاني</button>
+            <button class="sim-speed-btn gate-item" onclick="setSimSpeed(130)">130 أوتوستراد <span class="lock-icon">🔒</span></button>
           </div>
         </div>
 
@@ -2082,7 +2086,22 @@
       isAnimating: false
     };
 
+    function checkSafetySimGate(featureName) {
+      const isLoggedIn = (window.PatenteAuth && window.PatenteAuth.isLoggedIn) ? window.PatenteAuth.isLoggedIn() : Boolean(localStorage.getItem('patente_user_profile'));
+      if (isLoggedIn) return true;
+      if (window.PatenteAuth && window.PatenteAuth.showGateModal) {
+        window.PatenteAuth.showGateModal({
+          title: 'افتح المحاكي الكامل لمسافة الأمان مجاناً!',
+          message: 'لقد جربت العينة المجانية لسرعة 50 كم/س على الطريق الجاف. أنشئ حسابك المجاني في 10 ثوانٍ لاختبار سرعات الأوتوستراد (130 كم/س)، واختبار فرملة الجليد والمطر، ومسافات المقطورات.'
+        });
+      }
+      return false;
+    }
+
     function setSimSpeed(val) {
+      if (val > 50 && !checkSafetySimGate('speed')) {
+        return;
+      }
       simState.speed = val;
       const slider = document.getElementById('simSpeedSlider');
       if (slider) slider.value = val;
@@ -2095,6 +2114,9 @@
     }
 
     function setRoadCondition(cond) {
+      if (cond !== 'dry' && !checkSafetySimGate('road')) {
+        return;
+      }
       simState.road = cond;
       document.getElementById('btnRoadDry').classList.toggle('active', cond === 'dry');
       document.getElementById('btnRoadWet').classList.toggle('active', cond === 'wet');
@@ -2117,6 +2139,9 @@
     }
 
     function setDriverState(st) {
+      if (st !== 'alert' && !checkSafetySimGate('driver')) {
+        return;
+      }
       simState.driver = st;
       document.getElementById('btnDriverAlert').classList.toggle('active', st === 'alert');
       document.getElementById('btnDriverTired').classList.toggle('active', st === 'tired');
@@ -2124,6 +2149,9 @@
     }
 
     function setVehTrailer(has) {
+      if (has && !checkSafetySimGate('trailer')) {
+        return;
+      }
       simState.hasTrailer = has;
       document.getElementById('btnVehSolo').classList.toggle('active', !has);
       document.getElementById('btnVehTrailer').classList.toggle('active', has);
@@ -2160,9 +2188,24 @@
       return { d_reaz, d_fren, d_arresto, d_sicurezza };
     }
 
+    let simGateDebounce = false;
     function updateSafetySimulation() {
       const slider = document.getElementById('simSpeedSlider');
-      if (slider) simState.speed = parseInt(slider.value, 10);
+      if (slider) {
+        let val = parseInt(slider.value, 10);
+        const isLoggedIn = (window.PatenteAuth && window.PatenteAuth.isLoggedIn) ? window.PatenteAuth.isLoggedIn() : Boolean(localStorage.getItem('patente_user_profile'));
+        if (val > 50 && !isLoggedIn) {
+          slider.value = 50;
+          simState.speed = 50;
+          if (!simGateDebounce) {
+            simGateDebounce = true;
+            setTimeout(() => { simGateDebounce = false; }, 1200);
+            checkSafetySimGate('speed');
+          }
+        } else {
+          simState.speed = val;
+        }
+      }
       
       const speedValEl = document.getElementById('simSpeedVal');
       if (speedValEl) speedValEl.innerText = simState.speed;
@@ -2285,6 +2328,18 @@
         }, 650);
       }, 50);
     }
+
+    
+    function updateLabAuthUi() {
+      const isLoggedIn = (window.PatenteAuth && window.PatenteAuth.isLoggedIn) ? window.PatenteAuth.isLoggedIn() : Boolean(localStorage.getItem('patente_user_profile'));
+      if (isLoggedIn) {
+        document.body.classList.add('user-logged-in');
+      } else {
+        document.body.classList.remove('user-logged-in');
+      }
+    }
+    window.addEventListener('DOMContentLoaded', updateLabAuthUi);
+    window.addEventListener('patente:auth-changed', updateLabAuthUi);
 
     window.addEventListener('DOMContentLoaded', () => {
       updateSafetySimulation();
