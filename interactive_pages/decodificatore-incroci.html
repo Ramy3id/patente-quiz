@@ -2211,8 +2211,8 @@
       ],
       cars: {
         R: { label: "R", type: "car", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 40 235 L 360 235", hasTurn: false, initRadarFree: true },
-        A: { label: "A", type: "car", color: "#F59E0B", arrowColor: "#F59E0B", marker: "arrow-amber", d: "M 160 40 L 226 130 L 226 270 L 310 365", hasTurn: false, initRadarFree: false, blockedBy: "R" },
-        T: { label: "T", type: "truck", truckText: "AUTOCARRO", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 360 165 L 220 165 Q 175 165 185 220 Q 195 265 240 310 L 310 365", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "A" }
+        A: { label: "A", type: "car", color: "#F59E0B", arrowColor: "#F59E0B", marker: "arrow-amber", d: "M 155 40 L 205 130 L 205 270 L 295 365", hasTurn: false, initRadarFree: false, blockedBy: "R" },
+        T: { label: "T", type: "truck", truckText: "AUTOCARRO", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 360 165 L 220 165 Q 175 165 185 220 Q 195 265 240 310 L 295 365", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "A" }
       }
     },
       "618": {
@@ -2338,15 +2338,15 @@
       img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/604.png",
       title: "الشكل الرسمي رقم 604 (تقاطع مائل X: سيارات R ثم D ثم A)",
       roadType: "OBLIQUE_X",
-      order: ["R (سيارة زرقاء من الغرب)", "D (شاحنة حمراء من الشمال الغربي)", "A (سيارة برتقالية من الشرق)"],
+      order: ["R (سيارة زرقاء من الغرب)", "D (شاحنة حمراء من الذراع المائل)", "A (سيارة برتقالية من الشرق)"],
       steps: [
-        { car: "R", text: "🟢 1. السيارة R (زرقاء بالغرب): تتجه للأمام مباشرة شرقاً ويمينها خالٍ فتعبر أولاً." },
+        { car: "R", text: "🟢 1. السيارة R (زرقاء بالغرب): تتجه للأمام مباشرة شرقاً ويمينها خالٍ من أي مركبات فتعبر أولاً." },
         { car: "D", text: "🟡 2. الشاحنة D (حمراء بالذراع المائل الشمالي الغربي): بعد عبور R يخلو يمينها فتعبر ثانياً وتتجه عبر الذراع المائل." },
-        { car: "A", text: "🔵 3. السيارة A (برتقالية بالشرق تتجه غرباً): ملزمة بانتظار D فتعبر ثالثاً وأخيراً." }
+        { car: "A", text: "🔵 3. السيارة A (برتقالية بالشرق تتجه غرباً): ملزمة بانتظار الشاحنة D القادمة من يمينها فتعبر ثالثاً وأخيراً." }
       ],
       cars: {
         R: { label: "R", type: "car", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 40 235 L 360 235", hasTurn: false, initRadarFree: true },
-        D: { label: "D", type: "truck", truckText: "AUTOCARRO", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 160 40 L 226 130 L 226 270 L 310 365", hasTurn: false, initRadarFree: false, blockedBy: "R" },
+        D: { label: "D", type: "truck", truckText: "AUTOCARRO", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 155 40 L 205 130 L 205 270 L 295 365", hasTurn: false, initRadarFree: false, blockedBy: "R" },
         A: { label: "A", type: "car", color: "#F59E0B", arrowColor: "#F59E0B", marker: "arrow-amber", d: "M 360 165 L 40 165", hasTurn: false, initRadarFree: false, blockedBy: "D" }
       }
     },
@@ -2412,34 +2412,22 @@
         R: { label: "R", type: "car", color: "#0F172A", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 40 235 L 180 235 Q 235 235 235 150 L 235 40", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "A" }
       }
     },
-      '634': {
-        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/634.png',
-        title: 'الشكل الرسمي رقم 634 (تقاطع مائل: سيارات A ثم C ثم L)',
-        roadType: 'BRANCH_K',
-        order: ['A (سيارة برتقالية من الجنوب الغربي)', 'C (شاحنة حمراء من الشمال الغربي)', 'L (سيارة زرقاء من الجنوب الشرقي)'],
-        steps: [
-          { car: 'A', text: '🟢 1. السيارة A (برتقالية في الفرع الجنوبي الغربي تتجه نحو الجنوب الشرقي): جهة يمينها خالية تماماً فتعبر أولاً.' },
-          { car: 'C', text: '🟡 2. الشاحنة C (حمراء في الشمال الغربي تتجه نحو الجنوب الشرقي): بعد مرور A يخلو يمينها فتعبر ثانياً.' },
-          { car: 'L', text: '🔵 3. السيارة L (زرقاء في الجنوب الشرقي تنعطف نحو الجنوب الغربي): ملزمة بانتظار C فتعبر ثالثاً وأخيراً.' }
-        ],
-        cars: {
-          'A': {
-            label: 'A', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d: 'M 100 330 L 190 250 L 310 280',
-            hasTurn: false, initRadarFree: true
-          },
-          'C': {
-            label: 'C', type: 'truck', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-red',
-            d: 'M 90 60 L 190 190 L 300 280',
-            hasTurn: false, initRadarFree: false, blockedBy: 'A'
-          },
-          'L': {
-            label: 'L', type: 'car', color: '#2563EB', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 310 270 L 220 220 Q 160 230 110 320',
-            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'C'
-          }
-        }
-      },
+      "634": {
+      img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/634.png",
+      title: "الشكل الرسمي رقم 634 (تقاطع فروع مائل: سيارات A ثم C ثم L)",
+      roadType: "BRANCH_K",
+      order: ["A (سيارة برتقالية من الفرع الجنوبي الغربي)", "C (شاحنة حمراء من الفرع الشمالي الغربي)", "L (سيارة زرقاء من الجنوب الشرقي)"],
+      steps: [
+        { car: "A", text: "🟢 1. السيارة A (برتقالية في الفرع الجنوبي الغربي): يمينها خالٍ من أي مركبة فتعبر أولاً وتتجه شرقاً." },
+        { car: "C", text: "🟡 2. الشاحنة C (حمراء في الفرع الشمالي الغربي): بعد عبور A يخلو يمينها فتعبر ثانياً وتتجه نحو الشرق." },
+        { car: "L", text: "🔵 3. السيارة L (زرقاء في الشرق تنعطف نحو الفرع الجنوبي الغربي): ملزمة بانتظار C فتعبر ثالثاً وأخيراً." }
+      ],
+      cars: {
+        A: { label: "A", type: "car", color: "#F59E0B", arrowColor: "#F59E0B", marker: "arrow-amber", d: "M 145 365 L 175 305 Q 195 245 240 235 L 360 235", hasTurn: true, turnDir: "right", initRadarFree: true },
+        C: { label: "C", type: "truck", truckText: "AUTOCARRO", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 155 40 L 185 105 Q 195 150 240 200 L 360 235", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "A" },
+        L: { label: "L", type: "car", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 360 165 L 240 165 Q 185 180 145 365", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "C" }
+      }
+    },
       '636': {
         img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/636.png',
         title: 'الشكل الرسمي رقم 636 (ترام عمودي T وشاحنة S وسيارة A)',
@@ -2468,75 +2456,41 @@
           }
         }
       },
-      '637': {
-        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/637.png',
-        title: 'الشكل الرسمي رقم 637 (تقاطع T: عبور متزامن للمركبتين C و A)',
-        roadType: 'CROSS_4WAY',
-        order: ['L (سيارة زرقاء من الغرب)', 'C و A معاً (عبور متزامن contemporaneamente)', 'D (سيارة حمراء من الشرق)'],
-        steps: [
-          { car: 'L', text: '🟢 1. السيارة L (زرقاء في الغرب تتجه شرقاً للأمام): يمينها خالٍ من الجنوب فتعبر أولاً.' },
-          { cars: ['C', 'A'], text: '🟡 2. المركبتان C و A (قادمتان من الجنوب): تعبران معاً في نفس الوقت (contemporaneamente)؛ لأن C تنعطف يميناً و A تتجه للأمام دون أي تقاطع بينهما.' },
-          { car: 'D', text: '🔵 3. السيارة D (حمراء في الشرق تنعطف يساراً للجنوب): تعبر أخيراً بعد إخلاء مسارها من الجميع.' }
-        ],
-        cars: {
-          'L': {
-            label: 'L', type: 'car', color: '#2563EB', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 40 235 L 360 235',
-            hasTurn: false, initRadarFree: true
-          },
-          'C': {
-            label: 'C', type: 'car', color: '#10B981', arrowColor: '#10B981', marker: 'arrow-green',
-            d: 'M 215 360 L 215 270 Q 215 235 250 235 L 360 235',
-            hasTurn: true, turnDir: 'right', initRadarFree: false, blockedBy: 'L'
-          },
-          'A': {
-            label: 'A', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d: 'M 245 360 L 245 40',
-            hasTurn: false, initRadarFree: false, blockedBy: 'L'
-          },
-          'D': {
-            label: 'D', type: 'car', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-amber',
-            d: 'M 360 165 L 240 165 Q 165 165 165 240 L 165 360',
-            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'A'
-          }
-        }
-      },
-      '638': {
-        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/638.png',
-        title: 'الشكل الرسمي رقم 638 (تقاطع فخ التوقف بالمركز: تقدم B ثم عبور R ثم D و N معاً)',
-        roadType: 'CROSS_4WAY',
-        order: ['B (يتقدم لمركز التقاطع ويتوقف)', 'R (تعبر أولاً بالكامل)', 'D و N معاً (عبور متزامن contemporaneamente)', 'B (يكمل انعطافه ويخلي التقاطع)'],
-        steps: [
-          { car: 'B_center', text: '🟡 1. السيارة B (في الشمال): تبدأ بالانعطاف يساراً وتتقدم إلى وسط التقاطع (Si ferma al centro) وتتوقف لأن يمينها محجوز بالسيارة N القادمة في وجهها.' },
-          { car: 'R', text: '🟢 2. السيارة R (في الشرق متجهة غرباً): بتقدم B للمركز، أصبح يمين R خالياً تماماً فتعبر أولاً بكامل مسارها.' },
-          { cars: ['D', 'N'], text: '🔵 3. السيارتان D و N (في الجنوب): بعد عبور R، أصبح يمينهما خالياً فتعبران معاً في نفس الوقت (contemporaneamente).' },
-          { car: 'B_exit', text: '🟣 4. السيارة B: بعد مرور N و D، يخلو مسارها فتكمل انعطافها لليسار وتخلي التقاطع أخيراً.' }
-        ],
-        cars: {
-          'B': {
-            label: 'B', type: 'car', color: '#A855F7', arrowColor: '#A855F7', marker: 'arrow-purple',
-            d: 'M 165 40 L 165 165 Q 165 210 240 210 L 360 210',
-            d_center: 'M 165 40 L 165 165 Q 165 195 195 195',
-            d_exit: 'M 195 195 Q 210 195 240 210 L 360 210',
-            hasTurn: true, turnDir: 'left', initRadarFree: true
-          },
-          'R': {
-            label: 'R', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d: 'M 360 165 L 40 165',
-            hasTurn: false, initRadarFree: false, blockedBy: 'B'
-          },
-          'D': {
-            label: 'D', type: 'car', color: '#2563EB', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 215 360 L 215 270 Q 215 235 250 235 L 360 235',
-            hasTurn: true, turnDir: 'right', initRadarFree: false, blockedBy: 'R'
-          },
-          'N': {
-            label: 'N', type: 'car', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-amber',
-            d: 'M 245 360 L 245 40',
-            hasTurn: false, initRadarFree: false, blockedBy: 'R'
-          }
-        }
-      },
+      "637": {
+      img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/637.png",
+      title: "الشكل الرسمي رقم 637 (حارتان متوازيتان بالجنوب: L أولاً ثم C و A معاً ثم D)",
+      roadType: "CROSS_4WAY",
+      order: ["L (سيارة زرقاء من الغرب)", "C و A معاً (عبور متزامن contemporaneamente)", "D (سيارة حمراء من الشرق)"],
+      steps: [
+        { car: "L", text: "🟢 1. السيارة L (زرقاء في الغرب تتجه شرقاً للأمام): جهة يمينها خالية تماماً فتعبر أولاً دون انتظار." },
+        { car: "C", text: "🟡 2. المركبتان C (برتقالية تنعطف يميناً) و A (حمراء تتجه للأمام): بعد عبور L يخلو يمينهما معاً، وبما أن مساريهما متوازيان لا يتقاطعان، فإنهما تعبران معاً في وقت واحد (contemporaneamente)." },
+        { car: "D", text: "🔵 3. السيارة D (حمراء في الشرق تنعطف يساراً للجنوب): ملزمة بإعطاء الأسبقية لـ A و C القادمتين من يمينها فتعبر أخيراً." }
+      ],
+      cars: {
+        L: { label: "L", type: "car", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 40 235 L 360 235", hasTurn: false, initRadarFree: true },
+        C: { label: "C", type: "car", color: "#F59E0B", arrowColor: "#F59E0B", marker: "arrow-amber", d: "M 205 360 L 205 270 Q 205 235 250 235 L 360 235", hasTurn: true, turnDir: "right", initRadarFree: false, blockedBy: "L" },
+        A: { label: "A", type: "car", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 245 360 L 245 40", hasTurn: false, initRadarFree: false, blockedBy: "L" },
+        D: { label: "D", type: "car", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 360 165 L 240 165 Q 165 165 165 240 L 165 360", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "A" }
+      }
+    },
+      "638": {
+      img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/638.png",
+      title: "الشكل الرسمي رقم 638 (التقدم لمركز التقاطع: B يتقدم للمركز ثم R ثم D و N معاً ثم B يكمل)",
+      roadType: "CROSS_4WAY",
+      order: ["B (يتقدم لمركز التقاطع ويتوقف)", "R (تعبر أولاً بالكامل)", "D و N معاً (عبور متزامن contemporaneamente)", "B (يكمل انعطافه ويخلي التقاطع)"],
+      steps: [
+        { car: "B", text: "🟡 1. السيارة B (سوداء في الشمال): يمينها الأصلي خالٍ، فتتقدم لمنتصف التقاطع وتشغله (si sposta al centro) ثم تتوقف لانتظار N المقابلة." },
+        { car: "R", text: "🟢 2. السيارة R (برتقالية في الشرق تتجه غرباً): بتقدم B يفرغ يمين R تماماً، فتعبر التقاطع كأول مركبة تخلي مسارها." },
+        { car: "D", text: "🔵 3. المركبتان D (زرقاء تنعطف يميناً) و N (حمراء تتجه للأمام): بعد عبور R يخلو يمينهما فتعبران معاً في نفس الوقت (contemporaneamente)." },
+        { car: "B", text: "🟣 4. السيارة B (في منتصف التقاطع): بعد عبور N المقابلة، يخلو مسار B بالكامل فتكمل دورانها نحو الشرق وتخرج أخيراً." }
+      ],
+      cars: {
+        B: { label: "B", type: "car", color: "#0F172A", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 165 40 L 165 170 Q 165 210 240 210 L 360 210", hasTurn: true, turnDir: "left", initRadarFree: true },
+        R: { label: "R", type: "car", color: "#F59E0B", arrowColor: "#F59E0B", marker: "arrow-amber", d: "M 360 165 L 40 165", hasTurn: false, initRadarFree: false, blockedBy: "B" },
+        D: { label: "D", type: "car", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 205 360 L 205 270 Q 205 235 250 235 L 360 235", hasTurn: true, turnDir: "right", initRadarFree: false, blockedBy: "R" },
+        N: { label: "N", type: "car", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 245 360 L 245 40", hasTurn: false, initRadarFree: false, blockedBy: "R" }
+      }
+    },
       '643': {
         img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/643.png',
         title: 'الشكل الرسمي رقم 643 (4 سيارات: H ثم D ثم B ثم L)',
@@ -2606,34 +2560,22 @@
         }
       },
 
-      '606': {
-        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/606.png',
-        title: 'الشكل الرسمي رقم 606 (تقاطع متفرع T مائل: سيارات E, C, M)',
-        roadType: 'BRANCH_K',
-        order: ['E (سيارة برتقالية من الغرب)', 'C (سيارة حمراء من الشرق)', 'M (سيارة زرقاء من الجنوب الغربي)'],
-        steps: [
-          { car: 'E', text: '🟢 1. السيارة E (برتقالية في الغرب تنعطف يميناً للفرع الجنوبي): يمينها خالٍ فتعبر أولاً.' },
-          { car: 'C', text: '🟡 2. السيارة C (حمراء في الشرق تنعطف يساراً للغرب): بعد مرور E يخلو يمينها فتعبر ثانياً.' },
-          { car: 'M', text: '🔵 3. السيارة M (زرقاء في الفرع الجنوبي الغربي تنعطف يساراً للغرب): ملزمة بانتظار مرور E و C فتعبر أخيراً.' }
-        ],
-        cars: {
-          'E': {
-            label: 'E', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d: 'M 40 160 L 140 160 Q 170 190 120 280 L 100 340',
-            hasTurn: true, turnDir: 'right', initRadarFree: true
-          },
-          'C': {
-            label: 'C', type: 'car', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-red',
-            d: 'M 360 140 L 180 140 L 40 140',
-            hasTurn: false, initRadarFree: false, blockedBy: 'E'
-          },
-          'M': {
-            label: 'M', type: 'car', color: '#2563EB', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 140 330 L 180 230 Q 190 160 140 160 L 40 160',
-            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'C'
-          }
-        }
-      },
+      "606": {
+      img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/606.png",
+      title: "الشكل الرسمي رقم 606 (تقاطع ثلاثي مائل Y: سيارات E ثم C ثم M)",
+      roadType: "BRANCH_3WAY_Y",
+      order: ["E (سيارة برتقالية من الغرب)", "C (سيارة حمراء من الشرق)", "M (سيارة زرقاء من الفرع المائل)"],
+      steps: [
+        { car: "E", text: "🟢 1. السيارة E (برتقالية في الغرب تنعطف نحو الفرع المائل الجنوبي الغربي): جهة يمينها خالية تماماً فتعبر أولاً." },
+        { car: "C", text: "🟡 2. السيارة C (حمراء في الشرق تتجه للأمام غرباً): بعد عبور E يخلو مسار يمينها فتعبر ثانياً وتتمتع بالأسبقية على M." },
+        { car: "M", text: "🔵 3. السيارة M (زرقاء في الفرع المائل تنعطف غرباً): ملزمة بإعطاء الأسبقية للمركبة C القادمة من يمينها فتعبر أخيراً." }
+      ],
+      cars: {
+        E: { label: "E", type: "car", color: "#F59E0B", arrowColor: "#F59E0B", marker: "arrow-amber", d: "M 40 85 L 140 85 Q 170 115 120 220 L 75 350", hasTurn: true, turnDir: "right", initRadarFree: true },
+        C: { label: "C", type: "car", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 360 55 L 40 55", hasTurn: false, initRadarFree: false, blockedBy: "E" },
+        M: { label: "M", type: "car", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 105 350 L 145 220 Q 165 115 120 85 L 40 85", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "C" }
+      }
+    },
       '607': {
         img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/607.png',
         title: 'الشكل الرسمي رقم 607 (ترام T على السكة وسيارات P وحافلة M)',
@@ -2662,39 +2604,23 @@
           }
         }
       },
-      '610': {
-        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/610.png',
-        title: 'الشكل الرسمي رقم 610 (قطار الترام T وسيارات L, A, C مع عبور متزامن)',
-        roadType: 'TRAM_CROSS',
-        order: ['T (قطار الترام على السكة)', 'L و A معاً (عبور متزامن contemporaneamente)', 'C (سيارة زرقاء)'],
-        steps: [
-          { car: 'T', text: '⚡ 1. قطار الترام T (على السكة المخصصة): له حق الأسبقية المطلقة (Ha la precedenza) فليعبر أولاً.' },
-          { cars: ['L', 'A'], text: '🟢 2. المركبتان L و A (في الشمال): تعبران معاً في نفس الوقت (contemporaneamente) بعد مرور الترام، حيث L تنعطف يميناً و A تتجه للأمام دون أي تعارض.' },
-          { car: 'C', text: '🔵 3. السيارة C (في الغرب): تعبر أخيراً بعد إخلاء التقاطع من المركبات ذات الأسبقية.' }
-        ],
-        cars: {
-          'T': {
-            label: 'T', type: 'tram', color: '#15803D', arrowColor: '#10B981', marker: 'arrow-green',
-            d: 'M 360 200 L 40 200',
-            hasTurn: false, initRadarFree: true
-          },
-          'L': {
-            label: 'L', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d: 'M 165 40 L 165 130 Q 165 165 130 165 L 40 165',
-            hasTurn: true, turnDir: 'right', initRadarFree: false, blockedBy: 'T'
-          },
-          'A': {
-            label: 'A', type: 'car', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-red',
-            d: 'M 195 40 L 195 360',
-            hasTurn: false, initRadarFree: false, blockedBy: 'T'
-          },
-          'C': {
-            label: 'C', type: 'car', color: '#2563EB', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 40 235 L 360 235',
-            hasTurn: false, initRadarFree: false, blockedBy: 'A'
-          }
-        }
-      },
+      "610": {
+      img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/610.png",
+      title: "الشكل الرسمي رقم 610 (تقاطع رباعي بدون ترام: مركبة T ثم L و A معاً ثم C)",
+      roadType: "CROSS_4WAY",
+      order: ["T (شاحنة صفراء من الشمال)", "L و A معاً (عبور متزامن contemporaneamente)", "C (سيارة حمراء من الجنوب)"],
+      steps: [
+        { car: "T", text: "🟢 1. المركبة T (شاحنة صفراء في الشمال تنعطف شرقاً): جهة يمينها خالية تماماً فتعبر أولاً دون انتظار." },
+        { car: "L", text: "🟡 2. المركبتان L (حمراء في الشمال) و A (زرقاء في الغرب): بعد عبور T يخلو يمينهما معاً، ومساراهما لا يتقاطعان، فتعبران معاً في نفس الوقت (contemporaneamente)." },
+        { car: "C", text: "🔵 3. السيارة C (حمراء في الجنوب تنعطف غرباً): تنتظر خلو يمينها من A فتعبر أخيراً." }
+      ],
+      cars: {
+        T: { label: "T", type: "truck", truckText: "AUTOCARRO", color: "#F59E0B", arrowColor: "#F59E0B", marker: "arrow-amber", d: "M 165 40 L 165 170 Q 165 235 240 235 L 360 235", hasTurn: true, turnDir: "left", initRadarFree: true },
+        L: { label: "L", type: "car", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 235 40 L 235 360", hasTurn: false, initRadarFree: false, blockedBy: "T" },
+        A: { label: "A", type: "car", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 40 235 L 360 235", hasTurn: false, initRadarFree: false, blockedBy: "T" },
+        C: { label: "C", type: "car", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 235 360 L 235 220 Q 235 165 170 165 L 40 165", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "A" }
+      }
+    },
       '613': {
         img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/613.png',
         title: 'الشكل الرسمي رقم 613 (ترام T وشاحنة A وسيارة O)',
@@ -2723,34 +2649,22 @@
           }
         }
       },
-      '615': {
-        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/615.png',
-        title: 'الشكل الرسمي رقم 615 (تقاطع مائل 3 فروع: سيارات R, A, C)',
-        roadType: 'BRANCH_K',
-        order: ['R (سيارة حمراء من الشمال)', 'A (سيارة برتقالية من الشرق)', 'C (سيارة زرقاء من الجنوب الغربي)'],
-        steps: [
-          { car: 'R', text: '🟢 1. السيارة R (حمراء في الشمال تنعطف نحو الفرع الجنوبي الغربي): جهة يمينها خالية تماماً فتعبر أولاً.' },
-          { car: 'A', text: '🟡 2. السيارة A (برتقالية في الشرق تنعطف يساراً نحو الغرب): بعد مرور R يخلو يمينها فتعبر ثانياً.' },
-          { car: 'C', text: '🔵 3. السيارة C (زرقاء في الفرع الجنوبي الغربي تتجه نحو الشمال): ملزمة بانتظار A فتعبر ثالثاً وأخيراً.' }
-        ],
-        cars: {
-          'R': {
-            label: 'R', type: 'car', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-red',
-            d: 'M 165 40 L 165 140 Q 170 200 120 280 L 100 340',
-            hasTurn: true, turnDir: 'right', initRadarFree: true
-          },
-          'A': {
-            label: 'A', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d: 'M 360 200 L 230 200 Q 160 190 40 180',
-            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'R'
-          },
-          'C': {
-            label: 'C', type: 'car', color: '#2563EB', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 140 330 L 180 230 Q 200 160 200 40',
-            hasTurn: false, initRadarFree: false, blockedBy: 'A'
-          }
-        }
-      },
+      "615": {
+      img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/615.png",
+      title: "الشكل الرسمي رقم 615 (تقاطع مائل T بفرع جانبي: سيارات R ثم A ثم C)",
+      roadType: "BRANCH_T_OBLIQUE",
+      order: ["R (سيارة حمراء من الشمال)", "A (سيارة برتقالية من الشرق)", "C (سيارة زرقاء من الفرع المائل الجنوبي الغربي)"],
+      steps: [
+        { car: "R", text: "🟢 1. السيارة R (حمراء في الشمال تنعطف نحو الفرع المائل الجنوبي الغربي): يمينها خالٍ تماماً فتعبر أولاً." },
+        { car: "A", text: "🟡 2. السيارة A (برتقالية في الشرق تتجه غرباً للأمام): بعد عبور R يخلو مسار يمينها فتعبر ثانياً وتسبق C." },
+        { car: "C", text: "🔵 3. السيارة C (زرقاء في الفرع المائل تنعطف نحو الشمال): ملزمة بإعطاء الأسبقية لـ A القادمة من يمينها فتعبر أخيراً." }
+      ],
+      cars: {
+        R: { label: "R", type: "car", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 170 40 L 170 180 Q 170 240 105 350", hasTurn: true, turnDir: "right", initRadarFree: true },
+        A: { label: "A", type: "car", color: "#F59E0B", arrowColor: "#F59E0B", marker: "arrow-amber", d: "M 360 165 L 40 165", hasTurn: false, initRadarFree: false, blockedBy: "R" },
+        C: { label: "C", type: "car", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 105 350 L 145 260 Q 230 200 230 40", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "A" }
+      }
+    },
       "616": {
       img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/616.png",
       title: "الشكل الرسمي رقم 616 (تقاطع مائل بفرعين متفرعين: حافلة B وسيارات T, S)",
@@ -2828,34 +2742,22 @@
           }
         }
       },
-      '640': {
-        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/640.png',
-        title: 'الشكل الرسمي رقم 640 (شاحنة B وسيارات D, R)',
-        roadType: 'CROSS_4WAY',
-        order: ['R (سيارة خضراء من الشرق)', 'D (سيارة زرقاء من الجنوب)', 'B (شاحنة حمراء من الغرب)'],
-        steps: [
-          { car: 'R', text: '🟢 1. السيارة R (خضراء في الشرق تتجه مستقيماً للغرب): جهة يمينها في الشمال خالية تماماً فتعبر أولاً.' },
-          { car: 'D', text: '🟡 2. السيارة D (زرقاء في الجنوب تتجه مستقيماً للشمال): بعد مرور R يخلو يمينها فتعبر ثانياً.' },
-          { car: 'B', text: '🔵 3. الشاحنة B (حمراء في الغرب تتجه مستقيماً للشرق): تنتظر مرور D القادمة من يمينها فتعبر ثالثاً وأخيراً.' }
-        ],
-        cars: {
-          'R': {
-            label: 'R', type: 'car', color: '#10B981', arrowColor: '#10B981', marker: 'arrow-emerald',
-            d: 'M 360 165 L 40 165',
-            hasTurn: false, initRadarFree: true
-          },
-          'D': {
-            label: 'D', type: 'car', color: '#2563EB', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 235 360 L 235 40',
-            hasTurn: false, initRadarFree: false, blockedBy: 'R'
-          },
-          'B': {
-            label: 'B', type: 'truck', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-red',
-            d: 'M 40 235 L 360 235',
-            hasTurn: false, initRadarFree: false, blockedBy: 'D'
-          }
-        }
-      },
+      "640": {
+      img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/640.png",
+      title: "الشكل الرسمي رقم 640 (تقاطع ثلاثي: سيارات R ثم D ثم B)",
+      roadType: "CROSS_4WAY",
+      order: ["R (سيارة خضراء من الشرق)", "D (سيارة زرقاء من الجنوب)", "B (شاحنة حمراء من الغرب)"],
+      steps: [
+        { car: "R", text: "🟢 1. السيارة R (خضراء في الشرق تتجه غرباً للأمام): جهة يمينها خالية تماماً فتعبر أولاً." },
+        { car: "D", text: "🟡 2. السيارة D (زرقاء في الجنوب تتجه شمالاً للأمام): بعد عبور R يخلو يمينها فتعبر ثانياً." },
+        { car: "B", text: "🔵 3. الشاحنة B (حمراء في الغرب تتجه شرقاً): ملزمة بانتظار D القادمة من يمينها فتعبر ثالثاً وأخيراً." }
+      ],
+      cars: {
+        R: { label: "R", type: "car", color: "#10B981", arrowColor: "#10B981", marker: "arrow-emerald", d: "M 360 165 L 40 165", hasTurn: false, initRadarFree: true },
+        D: { label: "D", type: "car", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 235 360 L 235 40", hasTurn: false, initRadarFree: false, blockedBy: "R" },
+        B: { label: "B", type: "truck", truckText: "AUTOCARRO", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 40 235 L 360 235", hasTurn: false, initRadarFree: false, blockedBy: "D" }
+      }
+    },
       '646': {
         img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/646.png',
         title: 'الشكل الرسمي رقم 646 (شريط أخضر: شاحنة C وسيارات D, A, H)',
@@ -2889,73 +2791,41 @@
             hasTurn: false, initRadarFree: false, blockedBy: 'A'
           }
         }
-      },      '647': {
-        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/647.png',
-        title: 'الشكل الرسمي رقم 647 (مركبات L و H معاً ثم B ثم O)',
-        roadType: 'CROSS_4WAY',
-        order: ['L (سيارة زرقاء من الشرق) و H (سيارة برتقالية من الغرب) معاً', 'B (سيارة حمراء من الشمال)', 'O (سيارة خضراء من الجنوب الشرقي)'],
-        steps: [
-          { cars: ['L', 'H'], text: '🟢 1. المركبتان L (شرقاً للأمام) و H (غرباً للأمام) تسيران على طريق الأسبقية الرئيسي ومساراهما متوازيان لا يتقاطعان، فتعبران معاً في نفس الوقت أولاً.' },
-          { car: 'B', text: '🟡 2. السيارة B (في الشمال تنعطف يميناً للغرب): بعد مرور L و H يخلو مسارها وتنعطف غرباً دون انتظار O.' },
-          { car: 'O', text: '🔵 3. السيارة O (قادمة من الطريق الفرعي تنعطف يساراً للغرب): تعبر أخيراً بعد إعطاء الأسبقية للجميع.' }
-        ],
-        cars: {
-          'H': {
-            label: 'H', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d: 'M 40 235 L 360 235',
-            hasTurn: false, initRadarFree: true
-          },
-          'L': {
-            label: 'L', type: 'car', color: '#2563EB', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 360 165 L 40 165',
-            hasTurn: false, initRadarFree: true
-          },
-          'B': {
-            label: 'B', type: 'car', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-red',
-            d: 'M 165 40 L 165 140 Q 165 180 120 180 L 40 180',
-            hasTurn: true, turnDir: 'right', initRadarFree: false, blockedBy: 'H'
-          },
-          'O': {
-            label: 'O', type: 'car', color: '#10B981', arrowColor: '#10B981', marker: 'arrow-green',
-            d: 'M 300 360 L 250 270 Q 220 220 160 210 L 40 210',
-            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'B'
-          }
-        }
-      },
-      '648': {
-        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/648.png',
-        title: 'الشكل الرسمي رقم 648 (ترام T مع سيارات G, P, B)',
-        roadType: 'TRAM_CROSS',
-        order: ['T (ترام أخضر على سكته)', 'G (سيارة حمراء من الغرب)', 'P (سيارة سوداء من الجنوب)', 'B (سيارة زرقاء من الشمال)'],
-        steps: [
-          { car: 'T', text: '🟢 1. الترام T (قادم من الشرق وينعطف جنوباً على سكته): يمتلك الأسبقية المطلقة لأنه يسير على قضبان حديدية، فيعبر أولاً.' },
-          { car: 'G', text: '🟡 2. السيارة G (في الغرب تتجه للأمام شرقاً): بعد عبور الترام يخلو يمينها فتعبر ثانياً.' },
-          { car: 'P', text: '🔵 3. السيارة P (في الجنوب تتجه شمالاً): بعد عبور T و G تعبر ثالثاً قبل B.' },
-          { car: 'B', text: '🟣 4. السيارة B (في الشمال تنعطف يساراً): تنعطف يساراً وعليها إشارة إعطاء الأسبقية فتعبر رابعاً وأخيراً.' }
-        ],
-        cars: {
-          'T': {
-            label: 'T', type: 'tram', color: '#10B981', arrowColor: '#10B981', marker: 'arrow-green',
-            d: 'M 360 165 L 260 165 Q 165 165 165 260 L 165 360',
-            hasTurn: true, turnDir: 'left', initRadarFree: true
-          },
-          'G': {
-            label: 'G', type: 'car', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-red',
-            d: 'M 40 235 L 360 235',
-            hasTurn: false, initRadarFree: false, blockedBy: 'T'
-          },
-          'P': {
-            label: 'P', type: 'car', color: '#0F172A', arrowColor: '#94A3B8', marker: 'arrow-cyan',
-            d: 'M 235 360 L 235 40',
-            hasTurn: false, initRadarFree: false, blockedBy: 'G'
-          },
-          'B': {
-            label: 'B', type: 'car', color: '#2563EB', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 165 40 L 165 180 Q 165 245 220 280 L 245 360',
-            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'P'
-          }
-        }
-      },
+      },      "647": {
+      img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/647.png",
+      title: "الشكل الرسمي رقم 647 (طريق رئيسي ذو أسبقية: L و H معاً ثم B ثم O)",
+      roadType: "CROSS_4WAY",
+      order: ["L و H معاً (عبور متزامن على طريق الأسبقية الرئيسي)", "B (سيارة حمراء من الشمال)", "O (سيارة خضراء من الجنوب)"],
+      steps: [
+        { car: "L", text: "🟢 1. المركبتان L (زرقاء بالشرق) و H (برتقالية بالغرب): تسيران على الشارع الرئيسي ذي الأسبقية ومساراهما متوازيان لا يتقاطعان، فتعبران معاً في وقت واحد أولاً (contemporaneamente)." },
+        { car: "B", text: "🟡 2. السيارة B (حمراء في الشمال على شارع فرعي ▽): بعد عبور L و H، يخلو يمينها وتتمتع بالأسبقية على O، فتعبر ثانياً." },
+        { car: "O", text: "🔵 3. السيارة O (خضراء في الجنوب على شارع فرعي ▽): ملزمة بإعطاء الأسبقية لمركبات الشارع الرئيسي وكذلك لـ B القادمة من يمينها فتعبر أخيراً." }
+      ],
+      cars: {
+        L: { label: "L", type: "car", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 360 165 L 40 165", hasTurn: false, initRadarFree: true },
+        H: { label: "H", type: "car", color: "#F59E0B", arrowColor: "#F59E0B", marker: "arrow-amber", d: "M 40 235 L 360 235", hasTurn: false, initRadarFree: true },
+        B: { label: "B", type: "car", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 165 40 L 165 140 Q 165 165 120 165 L 40 165", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "L" },
+        O: { label: "O", type: "car", color: "#10B981", arrowColor: "#10B981", marker: "arrow-emerald", d: "M 235 360 L 235 240 Q 235 165 120 165 L 40 165", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "B" }
+      }
+    },
+      "648": {
+      img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/648.png",
+      title: "الشكل الرسمي رقم 648 (تقاطع ترام وشارع رئيسي: T ثم G ثم P ثم B)",
+      roadType: "TRAM_CROSS",
+      order: ["T (ترام أخضر على سكته الحديدية)", "G (سيارة حمراء من الغرب)", "P (سيارة سوداء من الجنوب)", "B (سيارة زرقاء من الشمال)"],
+      steps: [
+        { car: "T", text: "🟢 1. الترام T (أخضر على السكة الحديدية): يتمتع بالأسبقية المطلقة لحركته على قضبان حديدية (veicolo su rotaie) فيعبر أولاً." },
+        { car: "G", text: "🟡 2. السيارة G (حمراء في الغرب): بعد عبور الترام يخلو مسار يمينها فتعبر ثانياً وتتمتع بالأسبقية على P." },
+        { car: "P", text: "🔵 3. السيارة P (سوداء في الجنوب): بعد عبور G يخلو يمينها فتعبر ثالثاً وتسبق B." },
+        { car: "B", text: "🟣 4. السيارة B (زرقاء في الشمال): ملزمة بإعطاء الأسبقية لكافة المركبات الأخرى فتعبر رابعاً وأخيراً." }
+      ],
+      cars: {
+        T: { label: "T", type: "tram", tramText: "TRAM", color: "#10B981", arrowColor: "#10B981", marker: "arrow-emerald", d: "M 360 195 L 40 195", hasTurn: false, initRadarFree: true },
+        G: { label: "G", type: "car", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 40 235 L 360 235", hasTurn: false, initRadarFree: false, blockedBy: "T" },
+        P: { label: "P", type: "car", color: "#0F172A", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 235 360 L 235 40", hasTurn: false, initRadarFree: false, blockedBy: "G" },
+        B: { label: "B", type: "car", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 165 40 L 165 360", hasTurn: false, initRadarFree: false, blockedBy: "P" }
+      }
+    },
       '651': {
         img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/651.png',
         title: 'الشكل الرسمي رقم 651 (شريط أخضر: 4 مركبات D ثم E ثم S ثم A)',
@@ -2990,40 +2860,24 @@
           }
         }
       },
-      '652': {
-        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/652.png',
-        title: 'الشكل الرسمي رقم 652 (شاحنة A وحافلة F وسيارات H, L)',
-        roadType: 'OBLIQUE_X',
-        order: ['H (سيارة صفراء من الجنوب الغربي)', 'A (شاحنة حمراء من الشمال الغربي)', 'F (حافلة زرقاء من الشمال الشرقي)', 'L (سيارة زرقاء من الجنوب الشرقي)'],
-        steps: [
-          { car: 'H', text: '🟢 1. السيارة H (في الجنوب الغربي تنعطف يميناً): يمينها خالٍ فتعبر أولاً دون انتظار.' },
-          { car: 'A', text: '🟡 2. الشاحنة A (في الشمال الغربي تتجه للأمام): بعد عبور H يخلو يمينها فتعبر ثانياً.' },
-          { car: 'F', text: '🔵 3. الحافلة F (في الشمال الشرقي تنعطف يميناً): بعد عبور A يخلو يمينها فتعبر ثالثاً.' },
-          { car: 'L', text: '🟣 4. السيارة L (في الجنوب الشرقي تنعطف يساراً): يمينها كان مشغولاً بالجميع فتعبر رابعاً وأخيراً.' }
-        ],
-        cars: {
-          'H': {
-            label: 'H', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d: 'M 90 350 L 170 280 Q 220 250 320 300',
-            hasTurn: true, turnDir: 'right', initRadarFree: true
-          },
-          'A': {
-            label: 'A', type: 'truck', truckText: 'AUTOCARRO', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-red',
-            d: 'M 80 80 L 320 320',
-            hasTurn: false, initRadarFree: false, blockedBy: 'H'
-          },
-          'F': {
-            label: 'F', type: 'bus', busText: 'AUTOBUS', color: '#2563EB', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 300 40 L 260 160 Q 220 220 100 270',
-            hasTurn: true, turnDir: 'right', initRadarFree: false, blockedBy: 'A'
-          },
-          'L': {
-            label: 'L', type: 'car', color: '#1D4ED8', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 350 280 L 260 220 Q 200 200 120 220',
-            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'F'
-          }
-        }
-      },
+      "652": {
+      img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/652.png",
+      title: "الشكل الرسمي رقم 652 (تقاطع مائل ذو أسبقية: H ثم A ثم F ثم L)",
+      roadType: "OBLIQUE_X",
+      order: ["H (سيارة صفراء على مسار الأسبقية)", "A (شاحنة حمراء على مسار الأسبقية)", "F (حافلة زرقاء من الشمال الشرقي)", "L (سيارة زرقاء من الجنوب الشرقي)"],
+      steps: [
+        { car: "H", text: "🟢 1. السيارة H (صفراء في الفرع المائل على طريق الأسبقية ◊): يمينها خالٍ على مسار الأسبقية فتعبر أولاً." },
+        { car: "A", text: "🟡 2. الشاحنة A (حمراء في الشمال الغربي على طريق الأسبقية ◊): تعبر ثانياً وتتمتع بالأسبقية على المركبات الفرعية." },
+        { car: "F", text: "🔵 3. الحافلة F (زرقاء في الشمال الشرقي على طريق فرعي ▽): بعد عبور A و H يخلو يمينها فتعبر ثالثاً قبل L." },
+        { car: "L", text: "🟣 4. السيارة L (زرقاء في الجنوب الشرقي على طريق فرعي ▽): ملزمة بانتظار F فتعبر رابعاً وأخيراً." }
+      ],
+      cars: {
+        H: { label: "H", type: "car", color: "#F59E0B", arrowColor: "#F59E0B", marker: "arrow-amber", d: "M 155 365 L 185 295 Q 210 240 245 200 Q 270 165 310 165 L 360 165", hasTurn: true, turnDir: "right", initRadarFree: true },
+        A: { label: "A", type: "truck", truckText: "AUTOCARRO", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 155 40 L 205 130 L 205 270 L 295 365", hasTurn: false, initRadarFree: false, blockedBy: "H" },
+        F: { label: "F", type: "bus", busText: "AUTOBUS", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 360 165 L 240 165 Q 195 195 155 365", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "A" },
+        L: { label: "L", type: "car", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 360 235 L 40 235", hasTurn: false, initRadarFree: false, blockedBy: "F" }
+      }
+    },
       '654': {
         img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/654.png',
         title: 'الشكل الرسمي رقم 654 (شاحنة بمقطورة C وسيارات R, A, H)',
@@ -3092,350 +2946,194 @@
           }
         }
       },
-      '657': {
-        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/657.png',
-        title: 'الشكل الرسمي رقم 657 (تقاطع متفرع: سيارات R, A, C)',
-        roadType: 'BRANCH_K',
-        order: ['R (سيارة صفراء من الشرق)', 'A (سيارة زرقاء من الجنوب الشرقي)', 'C (سيارة حمراء من الجنوب الغربي)'],
-        steps: [
-          { car: 'R', text: '🟢 1. السيارة R (في الشرق تنعطف يساراً للفرع الجنوبي الغربي): يمينها خالٍ من الشمال والغرب فتعبر أولاً.' },
-          { car: 'A', text: '🟡 2. السيارة A (في الفرع الجنوبي الشرقي تنعطف يساراً): بعد عبور R يخلو يمينها فتعبر ثانياً.' },
-          { car: 'C', text: '🔵 3. السيارة C (في الفرع الجنوبي الغربي تنعطف يميناً): بعد عبور A يخلو يمينها فتعبر ثالثاً وأخيراً.' }
-        ],
-        cars: {
-          'R': {
-            label: 'R', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d: 'M 360 140 L 260 140 Q 180 160 120 280',
-            hasTurn: true, turnDir: 'left', initRadarFree: true
-          },
-          'A': {
-            label: 'A', type: 'car', color: '#2563EB', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 290 280 L 250 200 Q 210 160 40 160',
-            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'R'
-          },
-          'C': {
-            label: 'C', type: 'car', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-red',
-            d: 'M 130 280 L 180 210 Q 240 180 360 180',
-            hasTurn: true, turnDir: 'right', initRadarFree: false, blockedBy: 'A'
-          }
-        }
-      },
-      '659': {
-        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/659.png',
-        title: 'الشكل الرسمي رقم 659 (حافلة A وسيارات R, C)',
-        roadType: 'BRANCH_K',
-        order: ['R (سيارة صفراء من الشرق)', 'A (حافلة زرقاء من الجنوب الشرقي)', 'C (سيارة حمراء من الجنوب الغربي)'],
-        steps: [
-          { car: 'R', text: '🟢 1. السيارة R (في الشرق تنعطف يساراً): يمينها خالٍ فتعبر أولاً.' },
-          { car: 'A', text: '🟡 2. الحافلة A (في الفرع الجنوبي الشرقي): بعد عبور R يخلو يمينها فتعبر ثانياً.' },
-          { car: 'C', text: '🔵 3. السيارة C (في الفرع الجنوبي الغربي): بعد عبور الحافلة A يخلو يمينها فتعبر ثالثاً وأخيراً.' }
-        ],
-        cars: {
-          'R': {
-            label: 'R', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d: 'M 360 140 L 260 140 Q 180 160 120 280',
-            hasTurn: true, turnDir: 'left', initRadarFree: true
-          },
-          'A': {
-            label: 'A', type: 'bus', busText: 'AUTOBUS', color: '#2563EB', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 290 280 L 250 200 Q 210 160 40 160',
-            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'R'
-          },
-          'C': {
-            label: 'C', type: 'car', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-red',
-            d: 'M 130 280 L 180 210 Q 240 180 360 180',
-            hasTurn: true, turnDir: 'right', initRadarFree: false, blockedBy: 'A'
-          }
-        }
-      },
-      '660': {
-        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/660.png',
-        title: 'الشكل الرسمي رقم 660 (تقاطع متفرع: سيارات H, D, B)',
-        roadType: 'BRANCH_K',
-        order: ['H (سيارة حمراء من الشمال)', 'D (سيارة صفراء من الشرق)', 'B (سيارة زرقاء من الغرب)'],
-        steps: [
-          { car: 'H', text: '🟢 1. السيارة H (في الشمال تنعطف يميناً للغرب): يمينها خالٍ فتعبر أولاً.' },
-          { car: 'D', text: '🟡 2. السيارة D (في الشرق تتجه للأمام غرباً): بعد عبور H يخلو يمينها فتعبر ثانياً.' },
-          { car: 'B', text: '🔵 3. السيارة B (في الغرب تنعطف يساراً للشمال): بعد عبور D يخلو يمينها فتعبر ثالثاً وأخيراً.' }
-        ],
-        cars: {
-          'H': {
-            label: 'H', type: 'car', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-red',
-            d: 'M 180 40 L 180 130 Q 180 160 120 160 L 40 160',
-            hasTurn: true, turnDir: 'right', initRadarFree: true
-          },
-          'D': {
-            label: 'D', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d: 'M 360 180 L 40 180',
-            hasTurn: false, initRadarFree: false, blockedBy: 'H'
-          },
-          'B': {
-            label: 'B', type: 'car', color: '#2563EB', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 40 210 L 150 210 Q 220 210 220 120 L 220 40',
-            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'D'
-          }
-        }
-      },
-      '661': {
-        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/661.png',
-        title: 'الشكل الرسمي رقم 661 (تقاطع متفرع: سيارات E, C, L)',
-        roadType: 'BRANCH_K',
-        order: ['E (سيارة حمراء من الشمال)', 'C (سيارة صفراء من الشرق)', 'L (سيارة زرقاء من الجنوب الشرقي)'],
-        steps: [
-          { car: 'E', text: '🟢 1. السيارة E (في الشمال تنعطف يميناً للفرع الجنوبي الغربي): يمينها خالٍ تماماً فتعبر أولاً.' },
-          { car: 'C', text: '🟡 2. السيارة C (في الشرق تنعطف يساراً للفرع الجنوبي الغربي): بعد عبور E يخلو يمينها فتعبر ثانياً.' },
-          { car: 'L', text: '🔵 3. السيارة L (في الفرع الجنوبي الشرقي تتجه للأمام للشمال): بعد عبور C يخلو يمينها فتعبر ثالثاً وأخيراً.' }
-        ],
-        cars: {
-          'E': {
-            label: 'E', type: 'car', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-red',
-            d: 'M 180 40 L 180 140 Q 170 200 120 280',
-            hasTurn: true, turnDir: 'right', initRadarFree: true
-          },
-          'C': {
-            label: 'C', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d: 'M 360 160 L 250 160 Q 190 180 120 280',
-            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'E'
-          },
-          'L': {
-            label: 'L', type: 'car', color: '#2563EB', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 290 280 L 250 190 Q 220 140 220 40',
-            hasTurn: false, initRadarFree: false, blockedBy: 'C'
-          }
-        }
-      },
-      '662': {
-        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/662.png',
-        title: 'الشكل الرسمي رقم 662 (شاحنة A وسيارات E, B)',
-        roadType: 'BRANCH_K',
-        order: ['A (شاحنة زرقاء من الغرب)', 'E (سيارة حمراء من الشمال)', 'B (سيارة صفراء من الشرق)'],
-        steps: [
-          { car: 'A', text: '🟢 1. الشاحنة A (في الغرب تنعطف يساراً للشمال): يمينها خالٍ في الجنوب فتعبر أولاً.' },
-          { car: 'E', text: '🟡 2. السيارة E (في الشمال تنعطف يميناً للفرع الجنوبي الغربي): بعد عبور A يخلو يمينها فتعبر ثانياً.' },
-          { car: 'B', text: '🔵 3. السيارة B (في الشرق تنعطف يساراً للفرع الجنوبي الغربي): بعد عبور E يخلو يمينها فتعبر ثالثاً وأخيراً.' }
-        ],
-        cars: {
-          'A': {
-            label: 'A', type: 'truck', truckText: 'AUTOCARRO', color: '#2563EB', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 40 200 L 150 200 Q 220 200 220 120 L 220 40',
-            hasTurn: true, turnDir: 'left', initRadarFree: true
-          },
-          'E': {
-            label: 'E', type: 'car', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-red',
-            d: 'M 180 40 L 180 140 Q 170 200 120 280',
-            hasTurn: true, turnDir: 'right', initRadarFree: false, blockedBy: 'A'
-          },
-          'B': {
-            label: 'B', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d: 'M 360 160 L 250 160 Q 190 180 120 280',
-            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'E'
-          }
-        }
-      },
-      '663': {
-        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/663.png',
-        title: 'الشكل الرسمي رقم 663 (4 مركبات: R ثم B ثم D ثم T)',
-        roadType: 'BRANCH_K',
-        order: ['R (سيارة حمراء من الشمال)', 'B (سيارة صفراء من الشرق)', 'D (سيارة سوداء من الجنوب الشرقي)', 'T (سيارة زرقاء من الجنوب الغربي)'],
-        steps: [
-          { car: 'R', text: '🟢 1. السيارة R (في الشمال تنعطف يميناً): يمينها خالٍ فتعبر أولاً.' },
-          { car: 'B', text: '🟡 2. السيارة B (في الشرق تنعطف يساراً للفرع الجنوبي الغربي): بعد مرور R يخلو يمينها فتعبر ثانياً.' },
-          { car: 'D', text: '🔵 3. السيارة D (في الفرع الجنوبي الشرقي تنعطف للشرق): بعد مرور B يخلو يمينها فتعبر ثالثاً.' },
-          { car: 'T', text: '🟣 4. السيارة T (في الفرع الجنوبي الغربي تنعطف للشرق): بعد مرور D يخلو يمينها فتعبر رابعاً وأخيراً.' }
-        ],
-        cars: {
-          'R': {
-            label: 'R', type: 'car', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-red',
-            d: 'M 180 40 L 180 140 Q 170 200 120 280',
-            hasTurn: true, turnDir: 'right', initRadarFree: true
-          },
-          'B': {
-            label: 'B', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d: 'M 360 160 L 250 160 Q 190 180 120 280',
-            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'R'
-          },
-          'D': {
-            label: 'D', type: 'car', color: '#0F172A', arrowColor: '#94A3B8', marker: 'arrow-cyan',
-            d: 'M 290 280 L 250 200 Q 280 180 360 180',
-            hasTurn: true, turnDir: 'right', initRadarFree: false, blockedBy: 'B'
-          },
-          'T': {
-            label: 'T', type: 'car', color: '#2563EB', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 130 280 L 180 220 Q 250 190 360 190',
-            hasTurn: true, turnDir: 'right', initRadarFree: false, blockedBy: 'D'
-          }
-        }
-      },
-      '664': {
-        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/664.png',
-        title: 'الشكل الرسمي رقم 664 (4 مركبات: S ثم B ثم L ثم D)',
-        roadType: 'BRANCH_K',
-        order: ['S (سيارة حمراء من الشمال)', 'B (سيارة صفراء من الشرق)', 'L (سيارة زرقاء من الجنوب الشرقي)', 'D (سيارة خضراء من الجنوب الغربي)'],
-        steps: [
-          { car: 'S', text: '🟢 1. السيارة S (في الشمال تنعطف يميناً): يمينها خالٍ فتعبر أولاً.' },
-          { car: 'B', text: '🟡 2. السيارة B (في الشرق تنعطف يساراً): بعد مرور S يخلو يمينها فتعبر ثانياً.' },
-          { car: 'L', text: '🔵 3. السيارة L (في الفرع الجنوبي الشرقي تتجه للشمال): بعد مرور B يخلو يمينها فتعبر ثالثاً.' },
-          { car: 'D', text: '🟣 4. السيارة D (في الفرع الجنوبي الغربي): تعبر رابعاً وأخيراً بعد خلو التقاطع.' }
-        ],
-        cars: {
-          'S': {
-            label: 'S', type: 'car', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-red',
-            d: 'M 180 40 L 180 140 Q 170 200 120 280',
-            hasTurn: true, turnDir: 'right', initRadarFree: true
-          },
-          'B': {
-            label: 'B', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d: 'M 360 160 L 250 160 Q 190 180 120 280',
-            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'S'
-          },
-          'L': {
-            label: 'L', type: 'car', color: '#2563EB', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 290 280 L 250 190 Q 220 140 220 40',
-            hasTurn: false, initRadarFree: false, blockedBy: 'B'
-          },
-          'D': {
-            label: 'D', type: 'car', color: '#10B981', arrowColor: '#10B981', marker: 'arrow-green',
-            d: 'M 130 280 L 170 230 Q 210 200 220 40',
-            hasTurn: false, initRadarFree: false, blockedBy: 'L'
-          }
-        }
-      },
-      '665': {
-        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/665.png',
-        title: 'الشكل الرسمي رقم 665 (5 مركبات كلاسيكية: A ثم E ثم V ثم H ثم C)',
-        roadType: 'BRANCH_K',
-        order: ['A (سيارة صفراء من الغرب)', 'E (سيارة حمراء من الشمال)', 'V (سيارة زرقاء من الشرق)', 'H (سيارة خضراء من الجنوب الشرقي)', 'C (سيارة سوداء من الجنوب الغربي)'],
-        steps: [
-          { car: 'A', text: '🟢 1. السيارة A (في الغرب تنعطف يساراً للشمال): يمينها خالٍ فتعبر أولاً.' },
-          { car: 'E', text: '🟡 2. السيارة E (في الشمال تنعطف يميناً): بعد عبور A يخلو يمينها فتعبر ثانياً.' },
-          { car: 'V', text: '🔵 3. السيارة V (في الشرق تنعطف يساراً): بعد عبور E يخلو يمينها فتعبر ثالثاً.' },
-          { car: 'H', text: '🟣 4. السيارة H (في الجنوب الشرقي تنعطف للشرق): بعد عبور V يخلو يمينها فتعبر رابعاً.' },
-          { car: 'C', text: '🟤 5. السيارة C (في الجنوب الغربي تنعطف للشرق): بعد عبور H يخلو يمينها فتعبر خامساً وأخيراً.' }
-        ],
-        cars: {
-          'A': {
-            label: 'A', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d: 'M 40 200 L 150 200 Q 220 200 220 120 L 220 40',
-            hasTurn: true, turnDir: 'left', initRadarFree: true
-          },
-          'E': {
-            label: 'E', type: 'car', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-red',
-            d: 'M 180 40 L 180 140 Q 170 200 120 280',
-            hasTurn: true, turnDir: 'right', initRadarFree: false, blockedBy: 'A'
-          },
-          'V': {
-            label: 'V', type: 'car', color: '#2563EB', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 360 160 L 250 160 Q 190 180 120 280',
-            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'E'
-          },
-          'H': {
-            label: 'H', type: 'car', color: '#10B981', arrowColor: '#10B981', marker: 'arrow-green',
-            d: 'M 290 280 L 250 200 Q 280 180 360 180',
-            hasTurn: true, turnDir: 'right', initRadarFree: false, blockedBy: 'V'
-          },
-          'C': {
-            label: 'C', type: 'car', color: '#0F172A', arrowColor: '#94A3B8', marker: 'arrow-cyan',
-            d: 'M 130 280 L 180 220 Q 250 190 360 190',
-            hasTurn: true, turnDir: 'right', initRadarFree: false, blockedBy: 'H'
-          }
-        }
-      },
-      '667': {
-        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/667.png',
-        title: 'الشكل الرسمي رقم 667 (تقاطع نجمي: سيارات C, A, P)',
-        roadType: 'STAR_MULTI',
-        order: ['C (سيارة حمراء من الشمال الشرقي)', 'A (سيارة صفراء من الشرق)', 'P (سيارة زرقاء من الجنوب الغربي)'],
-        steps: [
-          { car: 'C', text: '🟢 1. السيارة C (في الفرع الشمالي الشرقي تنعطف للشرق): يمينها خالٍ فتعبر أولاً.' },
-          { car: 'A', text: '🟡 2. السيارة A (في الشرق تنعطف للشمال): بعد مرور C يخلو يمينها فتعبر ثانياً.' },
-          { car: 'P', text: '🔵 3. السيارة P (في الفرع الجنوبي الغربي تتجه للشمال): بعد مرور A يخلو يمينها فتعبر ثالثاً وأخيراً.' }
-        ],
-        cars: {
-          'C': {
-            label: 'C', type: 'car', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-red',
-            d: 'M 310 110 L 260 180 Q 260 210 360 210',
-            hasTurn: true, turnDir: 'left', initRadarFree: true
-          },
-          'A': {
-            label: 'A', type: 'car', color: '#F59E0B', arrowColor: '#F59E0B', marker: 'arrow-amber',
-            d: 'M 360 170 L 270 170 Q 210 160 200 40',
-            hasTurn: true, turnDir: 'right', initRadarFree: false, blockedBy: 'C'
-          },
-          'P': {
-            label: 'P', type: 'car', color: '#2563EB', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 110 320 L 170 230 Q 190 140 190 40',
-            hasTurn: false, initRadarFree: false, blockedBy: 'A'
-          }
-        }
-      },
-      '668': {
-        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/668.png',
-        title: 'الشكل الرسمي رقم 668 (تقاطع نجمي: سيارات S, N, C)',
-        roadType: 'STAR_MULTI',
-        order: ['S (سيارة زرقاء من الجنوب الغربي)', 'N (سيارة حمراء من الغرب)', 'C (سيارة سوداء من الشمال)'],
-        steps: [
-          { car: 'S', text: '🟢 1. السيارة S (في الفرع الجنوبي الغربي تنعطف للشمال): يمينها خالٍ فتعبر أولاً.' },
-          { car: 'N', text: '🟡 2. السيارة N (في الغرب تنعطف للجنوب): بعد عبور S يخلو يمينها فتعبر ثانياً.' },
-          { car: 'C', text: '🔵 3. السيارة C (في الشمال تنعطف للجنوب): بعد عبور N يخلو يمينها فتعبر ثالثاً وأخيراً.' }
-        ],
-        cars: {
-          'S': {
-            label: 'S', type: 'car', color: '#2563EB', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 110 320 L 170 230 Q 190 140 190 40',
-            hasTurn: false, initRadarFree: true
-          },
-          'N': {
-            label: 'N', type: 'car', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-red',
-            d: 'M 40 190 L 140 190 Q 200 200 200 360',
-            hasTurn: true, turnDir: 'right', initRadarFree: false, blockedBy: 'S'
-          },
-          'C': {
-            label: 'C', type: 'car', color: '#0F172A', arrowColor: '#94A3B8', marker: 'arrow-cyan',
-            d: 'M 160 40 L 160 140 Q 170 220 200 360',
-            hasTurn: false, initRadarFree: false, blockedBy: 'N'
-          }
-        }
-      },
-      '669': {
-        img: '../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/669.png',
-        title: 'الشكل الرسمي رقم 669 (5 فروع: شاحنة R وسيارات C, A, L, E)',
-        roadType: 'STAR_MULTI',
-        order: ['C (سيارة زرقاء من الجنوب الشرقي)', 'A (سيارة حمراء من الجنوب الغربي)', 'L (سيارة سوداء من الشمال الغربي)', 'R (شاحنة حمراء من الشمال الشرقي)', 'E (سيارة خضراء من الشرق)'],
-        steps: [
-          { car: 'C', text: '🟢 1. السيارة C (في الفرع الجنوبي الشرقي تنعطف للشرق): يمينها خالٍ فتعبر أولاً.' },
-          { car: 'A', text: '🟡 2. السيارة A (في الفرع الجنوبي الغربي تنعطف للشرق): بعد مرور C يخلو يمينها فتعبر ثانياً.' },
-          { car: 'L', text: '🔵 3. السيارة L (في الفرع الشمالي الغربي تنعطف للشرق): بعد مرور A يخلو يمينها فتعبر ثالثاً.' },
-          { car: 'R', text: '🟣 4. الشاحنة R (في الفرع الشمالي الشرقي تنعطف للغرب): بعد مرور L يخلو يمينها فتعبر رابعاً.' },
-          { car: 'E', text: '🟤 5. السيارة E (في الشرق تتجه للأمام للغرب): بعد مرور R يخلو يمينها فتعبر خامساً وأخيراً.' }
-        ],
-        cars: {
-          'C': {
-            label: 'C', type: 'car', color: '#2563EB', arrowColor: '#38BDF8', marker: 'arrow-cyan',
-            d: 'M 290 320 L 250 250 Q 260 210 360 210',
-            hasTurn: true, turnDir: 'right', initRadarFree: true
-          },
-          'A': {
-            label: 'A', type: 'car', color: '#EF4444', arrowColor: '#EF4444', marker: 'arrow-red',
-            d: 'M 110 320 L 160 240 Q 240 210 360 210',
-            hasTurn: true, turnDir: 'right', initRadarFree: false, blockedBy: 'C'
-          },
-          'L': {
-            label: 'L', type: 'car', color: '#0F172A', arrowColor: '#94A3B8', marker: 'arrow-cyan',
-            d: 'M 100 80 L 160 160 Q 220 210 360 210',
-            hasTurn: true, turnDir: 'left', initRadarFree: false, blockedBy: 'A'
-          },
-          'R': {
-            label: 'R', type: 'truck', truckText: 'AUTOCARRO', color: '#DC2626', arrowColor: '#EF4444', marker: 'arrow-red',
-            d: 'M 320 80 L 240 160 Q 160 170 40 170',
-            hasTurn: true, turnDir: 'right', initRadarFree: false, blockedBy: 'L'
-          },
-          'E': {
-            label: 'E', type: 'car', color: '#10B981', arrowColor: '#10B981', marker: 'arrow-green',
-            d: 'M 360 170 L 40 170',
-            hasTurn: false, initRadarFree: false, blockedBy: 'R'
-          }
-        }
-      },
+      "657": {
+      img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/657.png",
+      title: "الشكل الرسمي رقم 657 (تقاطع التقاء وتفرع: سيارات R ثم A ثم C)",
+      roadType: "BRANCH_5WAY",
+      order: ["R (سيارة صفراء من الشرق)", "A (سيارة زرقاء من الفرع الجنوبي الشرقي)", "C (سيارة حمراء من الفرع الجنوبي الغربي)"],
+      steps: [
+        { car: "R", text: "🟢 1. السيارة R (صفراء في الشرق تتجه غرباً للأمام): جهة يمينها خالية تماماً فتعبر أولاً." },
+        { car: "A", text: "🟡 2. السيارة A (زرقاء في الفرع الجنوبي الشرقي تتجه شمالاً): بعد عبور R يخلو يمينها فتعبر ثانياً وتسبق C." },
+        { car: "C", text: "🔵 3. السيارة C (حمراء في الفرع الجنوبي الغربي): ملزمة بإعطاء الأسبقية لـ A القادمة من يمينها فتعبر أخيراً." }
+      ],
+      cars: {
+        R: { label: "R", type: "car", color: "#F59E0B", arrowColor: "#F59E0B", marker: "arrow-amber", d: "M 360 125 L 40 125", hasTurn: false, initRadarFree: true },
+        A: { label: "A", type: "car", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 285 360 L 250 250 Q 230 180 230 40", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "R" },
+        C: { label: "C", type: "car", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 115 360 L 150 250 Q 170 180 230 40", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "A" }
+      }
+    },
+      "659": {
+      img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/659.png",
+      title: "الشكل الرسمي رقم 659 (تقاطع التقاء وتفرع: سيارة R ثم حافلة A ثم سيارة C)",
+      roadType: "BRANCH_5WAY",
+      order: ["R (سيارة صفراء من الشرق)", "A (حافلة زرقاء من الفرع الجنوبي الشرقي)", "C (سيارة حمراء من الفرع الجنوبي الغربي)"],
+      steps: [
+        { car: "R", text: "🟢 1. السيارة R (صفراء في الشرق تتجه غرباً للأمام): جهة يمينها خالية تماماً فتعبر أولاً." },
+        { car: "A", text: "🟡 2. الحافلة A (زرقاء في الفرع الجنوبي الشرقي): بعد عبور R يخلو يمينها فتعبر ثانياً وتتمتع بالأسبقية على C." },
+        { car: "C", text: "🔵 3. السيارة C (حمراء في الفرع الجنوبي الغربي): ملزمة بإعطاء الأسبقية للحافلة A القادمة من يمينها فتعبر أخيراً." }
+      ],
+      cars: {
+        R: { label: "R", type: "car", color: "#F59E0B", arrowColor: "#F59E0B", marker: "arrow-amber", d: "M 360 125 L 40 125", hasTurn: false, initRadarFree: true },
+        A: { label: "A", type: "bus", busText: "AUTOBUS", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 285 360 L 250 250 Q 230 180 230 40", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "R" },
+        C: { label: "C", type: "car", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 115 360 L 150 250 Q 170 180 230 40", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "A" }
+      }
+    },
+      "660": {
+      img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/660.png",
+      title: "الشكل الرسمي رقم 660 (تقاطع التقاء: سيارات H ثم D ثم B)",
+      roadType: "BRANCH_5WAY",
+      order: ["H (سيارة حمراء من الشمال)", "D (سيارة صفراء من الشرق)", "B (سيارة زرقاء من الغرب)"],
+      steps: [
+        { car: "H", text: "🟢 1. السيارة H (حمراء في الشمال تتجه نحو الفرع الجنوبي الغربي): يمينها خالٍ فتعبر أولاً." },
+        { car: "D", text: "🟡 2. السيارة D (صفراء في الشرق تتجه غرباً): بعد عبور H يخلو يمينها فتعبر ثانياً." },
+        { car: "B", text: "🔵 3. السيارة B (زرقاء في الغرب تنعطف نحو الفرع الجنوبي الشرقي): ملزمة بانتظار D فتعبر ثالثاً وأخيراً." }
+      ],
+      cars: {
+        H: { label: "H", type: "car", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 170 40 L 170 150 Q 170 230 115 360", hasTurn: true, turnDir: "right", initRadarFree: true },
+        D: { label: "D", type: "car", color: "#F59E0B", arrowColor: "#F59E0B", marker: "arrow-amber", d: "M 360 125 L 40 125", hasTurn: false, initRadarFree: false, blockedBy: "H" },
+        B: { label: "B", type: "car", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 40 185 L 170 185 Q 230 230 285 360", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "D" }
+      }
+    },
+      "661": {
+      img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/661.png",
+      title: "الشكل الرسمي رقم 661 (تقاطع التقاء: سيارات E ثم C ثم L)",
+      roadType: "BRANCH_5WAY",
+      order: ["E (سيارة حمراء من الشمال)", "C (سيارة صفراء من الشرق)", "L (سيارة زرقاء من الفرع الجنوبي الشرقي)"],
+      steps: [
+        { car: "E", text: "🟢 1. السيارة E (حمراء في الشمال تتجه نحو الفرع الجنوبي الغربي): يمينها خالٍ تماماً فتعبر أولاً." },
+        { car: "C", text: "🟡 2. السيارة C (صفراء في الشرق تتجه غرباً): بعد عبور E يخلو يمينها فتعبر ثانياً." },
+        { car: "L", text: "🔵 3. السيارة L (زرقاء في الفرع الجنوبي الشرقي تتجه شمالاً): ملزمة بانتظار C فتعبر أخيراً." }
+      ],
+      cars: {
+        E: { label: "E", type: "car", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 170 40 L 170 150 Q 170 230 115 360", hasTurn: true, turnDir: "right", initRadarFree: true },
+        C: { label: "C", type: "car", color: "#F59E0B", arrowColor: "#F59E0B", marker: "arrow-amber", d: "M 360 125 L 40 125", hasTurn: false, initRadarFree: false, blockedBy: "E" },
+        L: { label: "L", type: "car", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 285 360 L 250 250 Q 230 180 230 40", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "C" }
+      }
+    },
+      "662": {
+      img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/662.png",
+      title: "الشكل الرسمي رقم 662 (تقاطع التقاء: شاحنة A ثم سيارة E ثم سيارة B)",
+      roadType: "BRANCH_5WAY",
+      order: ["A (شاحنة زرقاء من الغرب)", "E (سيارة حمراء من الشمال)", "B (سيارة صفراء من الشرق)"],
+      steps: [
+        { car: "A", text: "🟢 1. الشاحنة A (زرقاء في الغرب تتجه للأمام شرقاً): جهة يمينها خالية تماماً فتعبر أولاً." },
+        { car: "E", text: "🟡 2. السيارة E (حمراء في الشمال تنعطف يميناً نحو الشرق): بعد عبور A يخلو يمينها فتعبر ثانياً." },
+        { car: "B", text: "🔵 3. السيارة B (صفراء في الشرق تنعطف يساراً نحو الشمال): ملزمة بانتظار E فتعبر أخيراً." }
+      ],
+      cars: {
+        A: { label: "A", type: "truck", truckText: "AUTOCARRO", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 40 185 L 360 185", hasTurn: false, initRadarFree: true },
+        E: { label: "E", type: "car", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 170 40 L 170 125 Q 170 185 240 185 L 360 185", hasTurn: true, turnDir: "right", initRadarFree: false, blockedBy: "A" },
+        B: { label: "B", type: "car", color: "#F59E0B", arrowColor: "#F59E0B", marker: "arrow-amber", d: "M 360 125 L 230 125 Q 230 90 230 40", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "E" }
+      }
+    },
+      "663": {
+      img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/663.png",
+      title: "الشكل الرسمي رقم 663 (تقاطع التقاء رباعي: R ثم B ثم D ثم T)",
+      roadType: "BRANCH_5WAY",
+      order: ["R (سيارة حمراء من الشمال)", "B (سيارة صفراء من الشرق)", "D (سيارة سوداء من الجنوب الشرقي)", "T (سيارة زرقاء من الجنوب الغربي)"],
+      steps: [
+        { car: "R", text: "🟢 1. السيارة R (حمراء في الشمال): جهة يمينها خالية تماماً فتعبر أولاً نحو الفرع الجنوبي الغربي." },
+        { car: "B", text: "🟡 2. السيارة B (صفراء في الشرق تتجه غرباً): بعد عبور R يخلو يمينها فتعبر ثانياً." },
+        { car: "D", text: "🔵 3. السيارة D (سوداء في الفرع الجنوبي الشرقي): بعد عبور B يخلو يمينها فتعبر ثالثاً نحو الشمال." },
+        { car: "T", text: "🟣 4. السيارة T (زرقاء في الفرع الجنوبي الغربي): ملزمة بانتظار D فتعبر رابعاً وأخيراً نحو الشرق." }
+      ],
+      cars: {
+        R: { label: "R", type: "car", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 170 40 L 170 150 Q 170 230 115 360", hasTurn: true, turnDir: "right", initRadarFree: true },
+        B: { label: "B", type: "car", color: "#F59E0B", arrowColor: "#F59E0B", marker: "arrow-amber", d: "M 360 125 L 40 125", hasTurn: false, initRadarFree: false, blockedBy: "R" },
+        D: { label: "D", type: "car", color: "#0F172A", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 285 360 L 250 250 Q 230 180 230 40", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "B" },
+        T: { label: "T", type: "car", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 115 360 L 150 230 Q 200 185 360 185", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "D" }
+      }
+    },
+      "664": {
+      img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/664.png",
+      title: "الشكل الرسمي رقم 664 (تقاطع التقاء رباعي: S ثم B ثم L ثم D)",
+      roadType: "BRANCH_5WAY",
+      order: ["S (سيارة حمراء من الشمال)", "B (سيارة صفراء من الشرق)", "L (سيارة زرقاء من الجنوب الشرقي)", "D (سيارة خضراء من الجنوب الغربي)"],
+      steps: [
+        { car: "S", text: "🟢 1. السيارة S (حمراء في الشمال): يمينها خالٍ فتعبر أولاً نحو الفرع الجنوبي الغربي." },
+        { car: "B", text: "🟡 2. السيارة B (صفراء في الشرق): بعد عبور S يخلو يمينها فتعبر ثانياً نحو الغرب." },
+        { car: "L", text: "🔵 3. السيارة L (زرقاء في الفرع الجنوبي الشرقي): بعد عبور B يخلو يمينها فتعبر ثالثاً نحو الشمال." },
+        { car: "D", text: "🟣 4. السيارة D (خضراء في الفرع الجنوبي الغربي): ملزمة بانتظار L فتعبر رابعاً وأخيراً نحو الشرق." }
+      ],
+      cars: {
+        S: { label: "S", type: "car", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 170 40 L 170 150 Q 170 230 115 360", hasTurn: true, turnDir: "right", initRadarFree: true },
+        B: { label: "B", type: "car", color: "#F59E0B", arrowColor: "#F59E0B", marker: "arrow-amber", d: "M 360 125 L 40 125", hasTurn: false, initRadarFree: false, blockedBy: "S" },
+        L: { label: "L", type: "car", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 285 360 L 250 250 Q 230 180 230 40", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "B" },
+        D: { label: "D", type: "car", color: "#10B981", arrowColor: "#10B981", marker: "arrow-emerald", d: "M 115 360 L 150 230 Q 200 185 360 185", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "L" }
+      }
+    },
+      "665": {
+      img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/665.png",
+      title: "الشكل الرسمي رقم 665 (تقاطع ذو أسبقية خماسي: A ثم E ثم V ثم H ثم C)",
+      roadType: "BRANCH_5WAY",
+      order: ["A (سيارة صفراء على طريق الأسبقية)", "E (سيارة حمراء على طريق الأسبقية)", "V (سيارة زرقاء من الشرق)", "H (سيارة خضراء من الجنوب الشرقي)", "C (سيارة سوداء من الجنوب الغربي)"],
+      steps: [
+        { car: "A", text: "🟢 1. السيارة A (صفراء في الغرب على طريق الأسبقية ◊): يمينها خالٍ على مسار الأسبقية فتعبر أولاً نحو الشمال." },
+        { car: "E", text: "🟡 2. السيارة E (حمراء في الشمال على طريق الأسبقية ◊): تعبر ثانياً وتنعطف نحو الغرب." },
+        { car: "V", text: "🔵 3. السيارة V (زرقاء في الشرق على طريق فرعي ▽): بعد عبور مركبات الأسبقية، يخلو يمينها فتمر ثالثاً." },
+        { car: "H", text: "🟣 4. السيارة H (خضراء في الفرع الجنوبي الشرقي): بعد عبور V يخلو يمينها فتمر رابعاً نحو الشمال." },
+        { car: "C", text: "🟤 5. السيارة C (سوداء في الفرع الجنوبي الغربي): ملزمة بانتظار H فتعبر خامساً وأخيراً نحو الشرق." }
+      ],
+      cars: {
+        A: { label: "A", type: "car", color: "#F59E0B", arrowColor: "#F59E0B", marker: "arrow-amber", d: "M 40 185 L 150 185 Q 230 185 230 40", hasTurn: true, turnDir: "left", initRadarFree: true },
+        E: { label: "E", type: "car", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 170 40 L 170 125 Q 170 185 40 185", hasTurn: true, turnDir: "right", initRadarFree: false, blockedBy: "A" },
+        V: { label: "V", type: "car", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 360 125 L 40 125", hasTurn: false, initRadarFree: false, blockedBy: "E" },
+        H: { label: "H", type: "car", color: "#10B981", arrowColor: "#10B981", marker: "arrow-emerald", d: "M 285 360 L 250 250 Q 230 180 230 40", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "V" },
+        C: { label: "C", type: "car", color: "#0F172A", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 115 360 L 150 230 Q 200 185 360 185", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "H" }
+      }
+    },
+      "667": {
+      img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/667.png",
+      title: "الشكل الرسمي رقم 667 (تقاطع نجمي خماسي: سيارات C ثم A ثم P)",
+      roadType: "STAR_5BRANCH",
+      order: ["C (سيارة حمراء من الشمال الشرقي)", "A (سيارة صفراء من الشرق)", "P (سيارة زرقاء من الجنوب الغربي)"],
+      steps: [
+        { car: "C", text: "🟢 1. السيارة C (حمراء في الفرع الشمالي الشرقي): جهة يمينها خالية تماماً فتعبر أولاً وتنعطف شرقاً." },
+        { car: "A", text: "🟡 2. السيارة A (صفراء في الشرق): بعد عبور C يخلو يمينها فتعبر ثانياً وتتجه نحو الشمال الغربي." },
+        { car: "P", text: "🔵 3. السيارة P (زرقاء في الفرع الجنوبي الغربي): ملزمة بانتظار A القادمة من يمينها فتعبر أخيراً." }
+      ],
+      cars: {
+        C: { label: "C", type: "car", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 280 50 L 245 130 Q 240 200 360 200", hasTurn: true, turnDir: "left", initRadarFree: true },
+        A: { label: "A", type: "car", color: "#F59E0B", arrowColor: "#F59E0B", marker: "arrow-amber", d: "M 360 170 L 250 170 Q 180 150 120 50", hasTurn: true, turnDir: "right", initRadarFree: false, blockedBy: "C" },
+        P: { label: "P", type: "car", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 120 350 L 160 250 Q 220 160 280 50", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "A" }
+      }
+    },
+      "668": {
+      img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/668.png",
+      title: "الشكل الرسمي رقم 668 (تقاطع نجمي خماسي: سيارات S ثم N ثم C)",
+      roadType: "STAR_5BRANCH",
+      order: ["S (سيارة زرقاء من الجنوب الغربي)", "N (سيارة حمراء من الشمال الغربي)", "C (سيارة سوداء من الشمال الشرقي)"],
+      steps: [
+        { car: "S", text: "🟢 1. السيارة S (زرقاء في الفرع الجنوبي الغربي): يمينها خالٍ فتعبر أولاً وتتجه نحو الشمال الشرقي." },
+        { car: "N", text: "🟡 2. السيارة N (حمراء في الفرع الشمالي الغربي): بعد عبور S يخلو يمينها فتعبر ثانياً وتتجه جنوباً." },
+        { car: "C", text: "🔵 3. السيارة C (سوداء في الفرع الشمالي الشرقي): ملزمة بانتظار N فتعبر ثالثاً وأخيراً." }
+      ],
+      cars: {
+        S: { label: "S", type: "car", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 120 350 L 160 250 Q 220 160 280 50", hasTurn: true, turnDir: "left", initRadarFree: true },
+        N: { label: "N", type: "car", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 120 50 L 160 150 Q 220 250 280 350", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "S" },
+        C: { label: "C", type: "car", color: "#0F172A", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 280 50 L 240 150 Q 180 250 120 350", hasTurn: true, turnDir: "right", initRadarFree: false, blockedBy: "N" }
+      }
+    },
+      "669": {
+      img: "../Capitoli_Divisi/Capitolo_14_precedenza_incroci/immagini/669.png",
+      title: "الشكل الرسمي رقم 669 (تقاطع نجمي ذو أسبقية: C ثم A ثم L ثم R ثم E)",
+      roadType: "STAR_5BRANCH",
+      order: ["C (سيارة زرقاء على طريق الأسبقية)", "A (سيارة حمراء على طريق الأسبقية)", "L (سيارة سوداء من الشمال الغربي)", "R (شاحنة حمراء من الشمال الشرقي)", "E (سيارة خضراء من الشرق)"],
+      steps: [
+        { car: "C", text: "🟢 1. السيارة C (زرقاء في الفرع الجنوبي الشرقي على طريق الأسبقية ◊): يمينها خالٍ على مسار الأسبقية فتعبر أولاً." },
+        { car: "A", text: "🟡 2. السيارة A (حمراء في الفرع الجنوبي الغربي على طريق الأسبقية ◊): تعبر ثانياً وتتجه شرقاً." },
+        { car: "L", text: "🔵 3. السيارة L (سوداء في الشمال الغربي على طريق فرعي ▽): بعد عبور الأسبقية يخلو يمينها فتعبر ثالثاً." },
+        { car: "R", text: "🟣 4. الشاحنة R (حمراء في الشمال الشرقي على طريق فرعي ▽): بعد عبور L يخلو يمينها فتعبر رابعاً." },
+        { car: "E", text: "🟤 5. السيارة E (خضراء في الشرق على طريق فرعي ▽): ملزمة بانتظار R فتعبر خامساً وأخيراً." }
+      ],
+      cars: {
+        C: { label: "C", type: "car", color: "#2563EB", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 280 350 L 245 270 Q 250 200 360 200", hasTurn: true, turnDir: "right", initRadarFree: true },
+        A: { label: "A", type: "car", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 120 350 L 180 270 Q 230 290 280 350", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "C" },
+        L: { label: "L", type: "car", color: "#0F172A", arrowColor: "#38BDF8", marker: "arrow-cyan", d: "M 120 50 L 180 130 Q 240 200 360 200", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "A" },
+        R: { label: "R", type: "truck", truckText: "AUTOCARRO", color: "#EF4444", arrowColor: "#EF4444", marker: "arrow-red", d: "M 280 50 L 230 160 Q 170 250 120 350", hasTurn: true, turnDir: "right", initRadarFree: false, blockedBy: "L" },
+        E: { label: "E", type: "car", color: "#10B981", arrowColor: "#10B981", marker: "arrow-emerald", d: "M 360 220 L 240 200 Q 170 140 120 50", hasTurn: true, turnDir: "left", initRadarFree: false, blockedBy: "R" }
+      }
+    },
 
     };
 
@@ -3632,82 +3330,166 @@
       if (roadType === 'T_JUNCTION') {
         // تقاطع T: طريق أفقي بالكامل في الأعلى + فرع عمودي يتجه للأسفل فقط
         roadLayer.innerHTML = `
-          <!-- أرضية التقاطع (إسفلت أسود غامق) -->
           <rect x="0" y="0" width="400" height="400" fill="#0B0F19" />
-
-          <!-- الرصيف المغلق العلوي بالكامل (لا يوجد طريق للأعلى) -->
           <rect x="0" y="0" width="400" height="35" fill="#1E293B" stroke="#334155" stroke-width="2" />
           <line x1="0" y1="35" x2="400" y2="35" stroke="#FFFFFF" stroke-width="2" opacity="0.7" />
-
-          <!-- الرصيفان السفليان بزوايا دائرية طبيعية (Curbs) -->
           <path d="M 0 175 L 130 175 Q 148 175 148 195 L 148 400 L 0 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
           <path d="M 400 175 L 270 175 Q 252 175 252 195 L 252 400 L 400 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
-
-          <!-- نهر الطريق الإسفلتي Carreggiata -->
           <rect x="0" y="35" width="400" height="140" fill="#141E33" />
           <rect x="148" y="175" width="104" height="225" fill="#141E33" />
-
-          <!-- خطوط حواف الطريق البيضاء -->
-          <line x1="0" y1="175" x2="130" y2="175" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
-          <line x1="270" y1="175" x2="400" y2="175" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
-          <line x1="148" y1="195" x2="148" y2="400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
-          <line x1="252" y1="195" x2="252" y2="400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
-
-          <!-- خطوط المنتصف المتقطعة -->
           <line x1="0" y1="105" x2="400" y2="105" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
           <line x1="200" y1="175" x2="200" y2="400" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
-
-          <!-- خطوط التوقف العريضة -->
-          
         `;
       } else if (roadType === 'CROSS_MEDIAN') {
-        // تقاطع رباعي مع جزيرة وسطية خضراء (شريط أخضر سبارتيترافيكو) في الطريق الشمالي والجنوبي
+        // تقاطع رباعي مع جزيرة وسطية خضراء (Spartitraffico Erboso) للأشكال 620 و 646 و 651
         roadLayer.innerHTML = `
           <rect x="0" y="0" width="400" height="400" fill="#0B0F19" />
-          <!-- الأرصفة الأربعة للتقاطع -->
           <rect x="0" y="0" width="125" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
           <rect x="275" y="0" width="125" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
           <rect x="0" y="270" width="125" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
           <rect x="275" y="270" width="125" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
-          
-          <!-- نهري الطريق: العمودي المقسوم والأفقي المفتوح -->
           <rect x="125" y="0" width="150" height="400" fill="#141E33" />
           <rect x="0" y="130" width="400" height="140" fill="#141E33" />
-
-          <!-- خطوط الحواف البيضاء حول الجزيرة الوسطية -->
-          <line x1="192" y1="0" x2="192" y2="125" stroke="#FFFFFF" stroke-width="2" opacity="0.8" />
-          <line x1="208" y1="0" x2="208" y2="125" stroke="#FFFFFF" stroke-width="2" opacity="0.8" />
-          <line x1="192" y1="275" x2="192" y2="400" stroke="#FFFFFF" stroke-width="2" opacity="0.8" />
-          <line x1="208" y1="275" x2="208" y2="400" stroke="#FFFFFF" stroke-width="2" opacity="0.8" />
-
-          <!-- الشريط الأخضر الشمالي (Spartitraffico Erboso) -->
           <rect x="193" y="0" width="14" height="125" rx="7" fill="#15803D" stroke="#166534" stroke-width="1.5" />
           <line x1="200" y1="5" x2="200" y2="120" stroke="#22C55E" stroke-width="2.5" stroke-dasharray="6 4" opacity="0.9" />
-
-          <!-- الشريط الأخضر الجنوبي (Spartitraffico Erboso) -->
           <rect x="193" y="275" width="14" height="125" rx="7" fill="#15803D" stroke="#166534" stroke-width="1.5" />
           <line x1="200" y1="280" x2="200" y2="395" stroke="#22C55E" stroke-width="2.5" stroke-dasharray="6 4" opacity="0.9" />
-
-          <!-- خطوط المنتصف الأفقية المتقطعة -->
           <line x1="0" y1="200" x2="115" y2="200" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
           <line x1="285" y1="200" x2="400" y2="200" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
         `;
-      } else if (roadType === 'OBLIQUE_X') {
-        // تقاطع مائل: طريق أفقي رئيسي + طريق قادم بميل من الشمال الغربي للجنوب الشرقي
+      } else if (roadType === 'BRANCH_5WAY') {
+        // تقاطع التفرع والالتقاء الخماسي مطابق للأشكال 657 و 659 و 660 و 661 و 662 و 663 و 664 و 665
         roadLayer.innerHTML = `
           <rect x="0" y="0" width="400" height="400" fill="#0B0F19" />
-
-          <!-- الجزر والأرصفة المحيطة بالتقاطع المائل -->
+          <rect x="0" y="95" width="400" height="120" fill="#141E33" />
+          <rect x="140" y="0" width="120" height="200" fill="#141E33" />
+          <polygon points="10,400 150,400 200,210 100,210" fill="#141E33" />
+          <polygon points="250,400 390,400 300,210 200,210" fill="#141E33" />
+          <polygon points="100,210 300,210 250,400 150,400" fill="#141E33" />
+          <!-- الجزيرة الرصيفية المثلثة الفاصلة بين الفرعين السفليين -->
+          <polygon points="200,215 155,400 245,400" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <line x1="200" y1="215" x2="155" y2="400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+          <line x1="200" y1="215" x2="245" y2="400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+          <!-- الرصيف الشمالي الغربي -->
+          <path d="M 0 0 L 140 0 L 140 95 L 0 95 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <line x1="140" y1="0" x2="140" y2="95" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+          <line x1="0" y1="95" x2="140" y2="95" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+          <!-- الرصيف الشمالي الشرقي -->
+          <path d="M 260 0 L 400 0 L 400 95 L 260 95 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <line x1="260" y1="0" x2="260" y2="95" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+          <line x1="260" y1="95" x2="400" y2="95" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+          <!-- الرصيف الخارجي الجنوبي الغربي -->
+          <path d="M 0 215 L 100 215 L 10 400 L 0 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <path d="M 0 215 L 100 215 L 10 400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" fill="none" />
+          <!-- الرصيف الخارجي الجنوبي الشرقي -->
+          <path d="M 400 215 L 300 215 L 390 400 L 400 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <path d="M 400 215 L 300 215 L 390 400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" fill="none" />
+          <!-- خطوط المنتصف المتقطعة -->
+          <line x1="200" y1="0" x2="200" y2="95" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="0" y1="155" x2="100" y2="155" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="300" y1="155" x2="400" y2="155" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="75" y1="400" x2="150" y2="250" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="325" y1="400" x2="250" y2="250" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+        `;
+      } else if (roadType === 'STAR_5BRANCH' || roadType === 'STAR_MULTI') {
+        // تقاطع نجمي خماسي أصيل مطابق للأشكال 667 و 668 و 669
+        roadLayer.innerHTML = `
+          <rect x="0" y="0" width="400" height="400" fill="#0B0F19" />
+          <circle cx="200" cy="200" r="130" fill="#141E33" />
+          <polygon points="45,0 165,0 200,200 120,200" fill="#141E33" />
+          <polygon points="235,0 355,0 280,200 200,200" fill="#141E33" />
+          <rect x="200" y="140" width="200" height="120" fill="#141E33" />
+          <polygon points="235,400 355,400 280,200 200,200" fill="#141E33" />
+          <polygon points="45,400 165,400 200,200 120,200" fill="#141E33" />
+          <!-- الأرصفة الخمسة المنحنية -->
+          <path d="M 165 0 L 235 0 Q 200 110 165 0 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <path d="M 165 0 Q 200 110 235 0" stroke="#FFFFFF" stroke-width="2" opacity="0.6" fill="none" />
+          <path d="M 355 0 L 400 0 L 400 140 Q 275 140 355 0 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <path d="M 355 0 Q 275 140 400 140" stroke="#FFFFFF" stroke-width="2" opacity="0.6" fill="none" />
+          <path d="M 400 260 L 400 400 L 355 400 Q 275 260 400 260 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <path d="M 400 260 Q 275 260 355 400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" fill="none" />
+          <path d="M 235 400 L 165 400 Q 200 290 235 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <path d="M 235 400 Q 200 290 165 400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" fill="none" />
+          <path d="M 45 0 L 0 0 L 0 400 L 45 400 Q 110 200 45 0 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <path d="M 45 0 Q 110 200 45 400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" fill="none" />
+          <line x1="105" y1="0" x2="155" y2="105" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="295" y1="0" x2="245" y2="105" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="280" y1="200" x2="400" y2="200" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="295" y1="400" x2="245" y2="295" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="105" y1="400" x2="155" y2="295" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+        `;
+      } else if (roadType === 'BRANCH_3WAY_Y') {
+        // تقاطع فرعي مائل ثلاثي مطابق تماماً للشكل 606
+        roadLayer.innerHTML = `
+          <rect x="0" y="0" width="400" height="400" fill="#0B0F19" />
+          <rect x="0" y="25" width="400" height="120" fill="#141E33" />
+          <polygon points="15,400 155,400 230,145 90,145" fill="#141E33" />
+          <rect x="0" y="0" width="400" height="25" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <line x1="0" y1="25" x2="400" y2="25" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+          <path d="M 0 145 L 90 145 L 15 400 L 0 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <path d="M 0 145 L 90 145 L 15 400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" fill="none" />
+          <path d="M 400 145 L 230 145 L 155 400 L 400 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <path d="M 400 145 L 230 145 L 155 400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" fill="none" />
+          <line x1="0" y1="85" x2="400" y2="85" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="85" y1="400" x2="160" y2="145" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+        `;
+      } else if (roadType === 'BRANCH_T_OBLIQUE') {
+        // تقاطع رباعي مائل مطابق تماماً للشكل 615
+        roadLayer.innerHTML = `
+          <rect x="0" y="0" width="400" height="400" fill="#0B0F19" />
+          <rect x="0" y="130" width="400" height="130" fill="#141E33" />
+          <rect x="140" y="0" width="120" height="150" fill="#141E33" />
+          <polygon points="15,400 155,400 230,260 90,260" fill="#141E33" />
+          <path d="M 0 0 L 140 0 L 140 130 L 0 130 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <line x1="140" y1="0" x2="140" y2="130" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+          <line x1="0" y1="130" x2="140" y2="130" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+          <path d="M 260 0 L 400 0 L 400 130 L 260 130 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <line x1="260" y1="0" x2="260" y2="130" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+          <line x1="260" y1="130" x2="400" y2="130" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+          <path d="M 0 260 L 90 260 L 15 400 L 0 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <path d="M 0 260 L 90 260 L 15 400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" fill="none" />
+          <path d="M 400 260 L 230 260 L 155 400 L 400 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <path d="M 400 260 L 230 260 L 155 400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" fill="none" />
+          <line x1="200" y1="0" x2="200" y2="130" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="0" y1="195" x2="100" y2="195" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="300" y1="195" x2="400" y2="195" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="85" y1="400" x2="160" y2="260" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+        `;
+      } else if (roadType === 'BRANCH_K') {
+        // تقاطع فروع مائل متفرع (K-Junction) مطابق للأشكال 632 و 616 و 634
+        roadLayer.innerHTML = `
+          <rect x="0" y="0" width="400" height="400" fill="#0B0F19" />
+          <rect x="0" y="130" width="400" height="140" fill="#141E33" />
+          <polygon points="25,0 185,0 260,130 115,130" fill="#141E33" />
+          <polygon points="25,400 185,400 260,270 115,270" fill="#141E33" />
+          <polygon points="115,130 260,130 260,270 115,270" fill="#141E33" />
+          <path d="M 185 0 L 250 115 Q 265 130 285 130 L 400 130 L 400 0 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <path d="M 185 0 L 250 115 Q 265 130 285 130 L 400 130" stroke="#FFFFFF" stroke-width="2" opacity="0.6" fill="none" />
+          <path d="M 400 270 L 285 270 Q 265 270 250 285 L 185 400 L 400 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <path d="M 400 270 L 285 270 Q 265 270 250 285 L 185 400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" fill="none" />
+          <path d="M 0 0 L 25 0 L 105 110 Q 115 130 95 130 L 0 130 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <path d="M 25 0 L 105 110 Q 115 130 95 130 L 0 130" stroke="#FFFFFF" stroke-width="2" opacity="0.6" fill="none" />
+          <path d="M 0 270 L 95 270 Q 115 270 105 290 L 25 400 L 0 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
+          <path d="M 0 270 L 95 270 Q 115 270 105 290 L 25 400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" fill="none" />
+          <line x1="0" y1="200" x2="85" y2="200" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="295" y1="200" x2="400" y2="200" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="105" y1="0" x2="165" y2="105" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="105" y1="400" x2="165" y2="295" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line x1="105" y1="110" x2="185" y2="65" stroke="#FFFFFF" stroke-width="3" opacity="0.75" />
+          <line x1="105" y1="290" x2="185" y2="335" stroke="#FFFFFF" stroke-width="3" opacity="0.75" />
+          <line x1="90" y1="130" x2="90" y2="270" stroke="#FFFFFF" stroke-width="3" opacity="0.75" />
+          <line x1="290" y1="130" x2="290" y2="270" stroke="#FFFFFF" stroke-width="3" opacity="0.75" />
+        `;
+      } else if (roadType === 'OBLIQUE_X') {
+        // تقاطع مائل X مطابق للأشكال 604 و 614 و 618 و 652
+        roadLayer.innerHTML = `
+          <rect x="0" y="0" width="400" height="400" fill="#0B0F19" />
           <path d="M 0 0 L 50 0 L 155 130 L 0 130 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
           <path d="M 180 0 L 400 0 L 400 130 L 250 130 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
           <path d="M 0 270 L 155 270 L 225 400 L 0 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
           <path d="M 250 270 L 400 270 L 400 400 L 350 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
-
-          <!-- نهر الطريق الأفقي والمائل -->
           <rect x="0" y="130" width="400" height="140" fill="#141E33" />
           <polygon points="50,0 180,0 350,400 225,400" fill="#141E33" />
-
-          <!-- خطوط حواف الطريق البيضاء -->
           <line x1="0" y1="130" x2="155" y2="130" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
           <line x1="250" y1="130" x2="400" y2="130" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
           <line x1="0" y1="270" x2="155" y2="270" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
@@ -3716,99 +3498,25 @@
           <line x1="180" y1="0" x2="250" y2="130" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
           <line x1="155" y1="270" x2="225" y2="400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
           <line x1="250" y1="270" x2="350" y2="400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
-
-          <!-- خطوط المنتصف المتقطعة (تتوقف قبل منطقة التقاطع لمنع التداخل والارتباك وفق كود الطرق الإيطالي) -->
           <line x1="0" y1="200" x2="120" y2="200" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
           <line x1="280" y1="200" x2="400" y2="200" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
           <line x1="115" y1="0" x2="160" y2="105" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
           <line x1="243" y1="295" x2="288" y2="400" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
         `;
-      } else if (roadType === 'BRANCH_K') {
-// تقاطع فروع مائل متفرع (K-Junction / Ramificato) مطابق للشكل 632 و 616 و 634
-        roadLayer.innerHTML = `
-          <!-- أرضية التقاطع (إسفلت أسود غامق) -->
-          <rect x="0" y="0" width="400" height="400" fill="#0B0F19" />
-
-          <!-- نهر الطريق الإسفلتي الشامل لكافة الفروع المتفرعة -->
-          <rect x="0" y="130" width="400" height="140" fill="#141E33" />
-          <polygon points="25,0 185,0 260,130 115,130" fill="#141E33" />
-          <polygon points="25,400 185,400 260,270 115,270" fill="#141E33" />
-          <polygon points="115,130 260,130 260,270 115,270" fill="#141E33" />
-
-          <!-- الرصيف الشمالي الشرقي (NE Sidewalk) -->
-          <path d="M 185 0 L 250 115 Q 265 130 285 130 L 400 130 L 400 0 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
-          <path d="M 185 0 L 250 115 Q 265 130 285 130 L 400 130" stroke="#FFFFFF" stroke-width="2" opacity="0.6" fill="none" />
-
-          <!-- الرصيف الجنوبي الشرقي (SE Sidewalk) -->
-          <path d="M 400 270 L 285 270 Q 265 270 250 285 L 185 400 L 400 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
-          <path d="M 400 270 L 285 270 Q 265 270 250 285 L 185 400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" fill="none" />
-
-          <!-- الجزيرة الرصيفية الشمالية الغربية (NW Island Curb) بين الفرع المائل والطريق الغربي -->
-          <path d="M 0 0 L 25 0 L 105 110 Q 115 130 95 130 L 0 130 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
-          <path d="M 25 0 L 105 110 Q 115 130 95 130 L 0 130" stroke="#FFFFFF" stroke-width="2" opacity="0.6" fill="none" />
-
-          <!-- الجزيرة الرصيفية الجنوبية الغربية (SW Island Curb) بين الفرع المائل والطريق الغربي -->
-          <path d="M 0 270 L 95 270 Q 115 270 105 290 L 25 400 L 0 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
-          <path d="M 0 270 L 95 270 Q 115 270 105 290 L 25 400" stroke="#FFFFFF" stroke-width="2" opacity="0.6" fill="none" />
-
-          <!-- خطوط المنتصف المتقطعة لكافة المسارات -->
-          <line x1="0" y1="200" x2="85" y2="200" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
-          <line x1="295" y1="200" x2="400" y2="200" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
-          <line x1="105" y1="0" x2="165" y2="105" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
-          <line x1="105" y1="400" x2="165" y2="295" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
-
-          <!-- خطوط التوقف العريضة على مداخل الفروع -->
-          <line x1="105" y1="110" x2="185" y2="65" stroke="#FFFFFF" stroke-width="3" opacity="0.75" />
-          <line x1="105" y1="290" x2="185" y2="335" stroke="#FFFFFF" stroke-width="3" opacity="0.75" />
-          <line x1="90" y1="130" x2="90" y2="270" stroke="#FFFFFF" stroke-width="3" opacity="0.75" />
-          <line x1="290" y1="130" x2="290" y2="270" stroke="#FFFFFF" stroke-width="3" opacity="0.75" />
-        `;
-      } else if (roadType === 'STAR_MULTI') {
-        // تقاطع نجمي متعدد الفروع مطابق للأشكال 667 و 668 و 669
-        roadLayer.innerHTML = `
-          <rect x="0" y="0" width="400" height="400" fill="#0B0F19" />
-          <!-- ساحة التقاطع المركزية -->
-          <circle cx="200" cy="200" r="140" fill="#141E33" />
-          <!-- الفروع الخمسة المشعة -->
-          <rect x="155" y="0" width="90" height="200" fill="#141E33" />
-          <rect x="250" y="155" width="150" height="90" fill="#141E33" transform="rotate(-36 200 200)" />
-          <rect x="250" y="155" width="150" height="90" fill="#141E33" transform="rotate(36 200 200)" />
-          <rect x="0" y="155" width="150" height="90" fill="#141E33" transform="rotate(-36 200 200)" />
-          <rect x="0" y="155" width="150" height="90" fill="#141E33" transform="rotate(36 200 200)" />
-
-          <!-- الجزر الرصيفية بين الفروع الخمسة -->
-          <path d="M 0 0 L 145 0 Q 160 110 90 150 L 0 100 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
-          <path d="M 400 0 L 255 0 Q 240 110 310 150 L 400 100 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
-          <path d="M 400 400 L 400 270 Q 300 260 270 340 L 300 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
-          <path d="M 0 400 L 0 270 Q 100 260 130 340 L 100 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
-          <path d="M 150 400 L 250 400 Q 200 310 150 400 Z" fill="#1E293B" stroke="#334155" stroke-width="2" />
-
-          <!-- خطوط توجيهية وإشعاعية متقطعة -->
-          <line x1="200" y1="0" x2="200" y2="100" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
-          <circle cx="200" cy="200" r="18" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-dasharray="6 6" />
-        `;
       } else if (roadType === 'TRAM_CROSS') {
-        // تقاطع رباعي مع مسار ترام أفقي مخصص
+        // تقاطع رباعي مع مسار ترام أفقي مخصص مطابق للشكل 648 و 607 و 613 و 639 و 642
         roadLayer.innerHTML = `
           <rect x="0" y="0" width="400" height="400" fill="#0B0F19" />
-          <!-- الأرصفة الأربعة -->
           <rect x="0" y="0" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
           <rect x="270" y="0" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
           <rect x="0" y="270" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
           <rect x="270" y="270" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
-          
           <rect x="130" y="0" width="140" height="400" fill="#141E33" />
           <rect x="0" y="130" width="400" height="140" fill="#141E33" />
-
-          <!-- قضبان السكة الحديد الأفقية للترام مع العوارض الخشبية -->
+          <!-- قضبان السكة الحديد الأفقية للترام -->
           <line x1="0" y1="195" x2="400" y2="195" stroke="#94A3B8" stroke-width="3.5" />
           <line x1="0" y1="207" x2="400" y2="207" stroke="#94A3B8" stroke-width="3.5" />
           ${[30, 70, 110, 150, 190, 230, 270, 310, 350, 380].map(x => `<line x1="${x}" y1="190" x2="${x}" y2="212" stroke="#475569" stroke-width="2.5" />`).join('')}
-
-          <!-- مسار الدراجات / الدراجة النارية بالشرق -->
-          <rect x="300" y="135" width="22" height="18" rx="3" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" />
-          <text x="311" y="148" font-size="11" text-anchor="middle">🚲</text>
-
           <line x1="200" y1="0" x2="200" y2="120" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
           <line x1="200" y1="280" x2="200" y2="400" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
         `;
@@ -3820,24 +3528,16 @@
           <rect x="270" y="0" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
           <rect x="0" y="270" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
           <rect x="270" y="270" width="130" height="130" fill="#1E293B" rx="16" stroke="#334155" stroke-width="2" />
-          
           <rect x="130" y="0" width="140" height="400" fill="#141E33" />
           <rect x="0" y="130" width="400" height="140" fill="#141E33" />
-
           <line x1="200" y1="0" x2="200" y2="120" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
           <line x1="200" y1="280" x2="200" y2="400" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
           <line x1="0" y1="200" x2="120" y2="200" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
           <line x1="280" y1="200" x2="400" y2="200" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="10 8" />
-
-          
-          
-          
-          
         `;
       }
     }
 
-    // بناء مجسم المركبة وفق نوعها الحقيقي (Bus, Truck, Tram, Moto, Car)
     function buildVehicleSvgMarkup(car) {
       const type = car.type || 'car';
       const label = car.label;
