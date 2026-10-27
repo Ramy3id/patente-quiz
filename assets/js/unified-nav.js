@@ -556,13 +556,11 @@
             <kbd class="search-kbd">Ctrl K</kbd>
           </button>
 
-          <!-- شارة الإنجاز العامة -->
+          <!-- شارة الإنجاز العامة الفاخرة (Clean Horizontal Layout) -->
           <a href="${ctx.interactive}dashboard.html" class="nav-progress-pill" id="globalProgressPill" title="إنجازك العام: تم حل ${globalStats.answered} من ${globalStats.total} سؤال (انقر لعرض لوحة التحكم)">
             <span class="prog-pill-icon">🎯</span>
-            <div class="prog-pill-meta">
-              <span class="prog-pill-label">إنجازك</span>
-              <strong class="prog-pill-val" id="globalProgressPctVal">${globalStats.pct}%</strong>
-            </div>
+            <span class="prog-pill-label">إنجازك</span>
+            <strong class="prog-pill-val" id="globalProgressPctVal">${globalStats.pct}%</strong>
             <div class="prog-pill-bar-track">
               <div class="prog-pill-bar-fill" id="globalProgressMiniFill" style="width:${globalStats.pct}%;"></div>
             </div>
@@ -1045,6 +1043,80 @@
         background: rgba(99, 102, 241, 0.08) !important;
         border-color: rgba(99, 102, 241, 0.25) !important;
         color: #4F46E5 !important;
+      }
+
+            /* Custom Luxury Styling for .nav-progress-pill */
+      .nav-progress-pill {
+        height: 36px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        padding: 0 10px !important;
+        border-radius: 10px !important;
+        background: rgba(16, 185, 129, 0.08) !important;
+        border: 1px solid rgba(16, 185, 129, 0.28) !important;
+        text-decoration: none !important;
+        white-space: nowrap !important;
+        line-height: 1 !important;
+        transition: all 0.2s ease !important;
+      }
+      html.light .nav-progress-pill {
+        background: rgba(16, 185, 129, 0.06) !important;
+        border-color: rgba(16, 185, 129, 0.3) !important;
+      }
+      .nav-progress-pill:hover {
+        background: rgba(16, 185, 129, 0.16) !important;
+        border-color: rgba(16, 185, 129, 0.5) !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 3px 10px rgba(16, 185, 129, 0.18) !important;
+      }
+      .prog-pill-icon {
+        font-size: 0.95rem !important;
+        line-height: 1 !important;
+        flex-shrink: 0 !important;
+      }
+      .prog-pill-label {
+        font-size: 0.78rem !important;
+        font-weight: 700 !important;
+        color: #94A3B8 !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+        letter-spacing: normal !important;
+      }
+      html.light .prog-pill-label {
+        color: #475569 !important;
+      }
+      .prog-pill-val {
+        font-family: 'JetBrains Mono', monospace !important;
+        font-size: 0.84rem !important;
+        font-weight: 800 !important;
+        color: #10B981 !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+      }
+      html.light .prog-pill-val {
+        color: #059669 !important;
+      }
+      .prog-pill-bar-track {
+        width: 38px !important;
+        height: 5px !important;
+        background: rgba(255, 255, 255, 0.12) !important;
+        border-radius: 99px !important;
+        overflow: hidden !important;
+        flex-shrink: 0 !important;
+        margin-right: 2px !important;
+      }
+      html.light .prog-pill-bar-track {
+        background: rgba(15, 23, 42, 0.1) !important;
+      }
+      .prog-pill-bar-fill {
+        height: 100% !important;
+        background: #10B981 !important;
+        border-radius: 99px !important;
+        transition: width 0.3s ease !important;
+      }
+      html.light .prog-pill-bar-fill {
+        background: #059669 !important;
       }
 
       /* Unified Right Toolbar Action Pills */
@@ -3219,18 +3291,45 @@
     // 7. زر حساب المستخدم والمزامنة (Desktop & Mobile)
     const openAuthFn = function (e) {
       if (e) e.preventDefault();
-      if (window.PatenteAuth && window.PatenteAuth.openAuthModal) {
-        window.PatenteAuth.openAuthModal();
-      } else {
-        const m = document.getElementById('patenteAuthModal');
-        if (m) m.classList.add('open');
+      if (window.PatenteAuth) {
+        if (window.PatenteAuth.isLoggedIn && window.PatenteAuth.isLoggedIn()) {
+          if (window.PatenteAuth.toggleProfileDropdown) {
+            window.PatenteAuth.toggleProfileDropdown();
+            return;
+          }
+        }
+        if (window.PatenteAuth.openAuthModal) {
+          window.PatenteAuth.openAuthModal();
+          return;
+        }
       }
+      const m = document.getElementById('patenteAuthModal');
+      if (m) m.classList.add('open');
     };
     const deskAuthBtn = document.getElementById('globalAuthPill');
     if (deskAuthBtn) deskAuthBtn.onclick = openAuthFn;
 
     const mobAuthBtn = document.getElementById('btnOpenMobileAuth');
     if (mobAuthBtn) mobAuthBtn.onclick = openAuthFn;
+
+    // Listen to patente:auth-changed to wire dynamic profile dropdown
+    window.addEventListener('patente:auth-changed', function (ev) {
+      const detail = ev.detail || {};
+      const mobBtn = document.getElementById('btnOpenMobileAuth');
+      const deskPill = document.getElementById('globalAuthPill');
+      if (detail.loggedIn) {
+        const profile = detail.user || (window.PatenteAuth && window.PatenteAuth.getUserProfile && window.PatenteAuth.getUserProfile());
+        if (mobBtn) {
+          mobBtn.classList.add('logged-in');
+          mobBtn.onclick = (e) => {
+            e.stopPropagation();
+            if (window.PatenteAuth && window.PatenteAuth.toggleProfileDropdown) {
+              window.PatenteAuth.toggleProfileDropdown(profile);
+            }
+          };
+        }
+      }
+    });
   }
 
   // 10. ==================== تحديث فوري لشارات الإنجاز ====================
@@ -3391,6 +3490,15 @@
   function initUnifiedPortalUI() {
     injectStyles();
     const ctx = getPathContext();
+
+    // التأكد من وجود أيقونة التبويب (Favicon) تلقائياً في كامل صفحات المنصة
+    if (!document.querySelector('link[rel*="icon"]')) {
+      const fav = document.createElement('link');
+      fav.rel = 'icon';
+      fav.type = 'image/x-icon';
+      fav.href = ctx.root + 'favicon.ico';
+      document.head.appendChild(fav);
+    }
 
     // 1. تنظيف أي عناصر قديمة مكررة
     const oldDrawerPanel = document.getElementById('mobile-drawer-panel') || document.querySelector('.mobile-drawer-panel');
