@@ -887,6 +887,224 @@
     style.textContent = `
       /* =========================================================
          1. شريط التنقل العلوي الموحد (Unified Portal Nav)
+
+      
+      /* =========================================================
+         Harmonized GDPR Cookie Banner (Adaptive Light & Dark Mode)
+         ========================================================= */
+      .patente-gdpr-banner {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        width: calc(100% - 32px);
+        max-width: 620px;
+        background: #FFFFFF;
+        border: 1.5px solid rgba(16, 185, 129, 0.45);
+        box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.22), 0 4px 12px rgba(15, 23, 42, 0.08);
+        border-radius: 18px;
+        padding: 22px 24px;
+        z-index: 9999999;
+        color: #0F172A;
+        font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
+        opacity: 0;
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        direction: rtl;
+        text-align: right;
+      }
+      html:not(.light) .patente-gdpr-banner {
+        background: #111827;
+        border-color: rgba(16, 185, 129, 0.4);
+        box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        color: #F8FAFC;
+      }
+      .patente-gdpr-title {
+        font-weight: 800;
+        font-size: 0.98rem;
+        color: #0F172A;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      html:not(.light) .patente-gdpr-title {
+        color: #FFFFFF;
+      }
+      .patente-gdpr-badge {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #059669;
+        direction: ltr;
+        font-family: 'JetBrains Mono', monospace;
+        background: rgba(16, 185, 129, 0.1);
+        padding: 2px 7px;
+        border-radius: 6px;
+      }
+      html:not(.light) .patente-gdpr-badge {
+        color: #34D399;
+        background: rgba(16, 185, 129, 0.18);
+      }
+      .patente-gdpr-body-ar {
+        font-size: 0.86rem;
+        color: #334155;
+        line-height: 1.6;
+        margin: 0;
+        font-weight: 500;
+      }
+      html:not(.light) .patente-gdpr-body-ar {
+        color: #E2E8F0;
+      }
+      .patente-gdpr-body-it {
+        font-size: 0.78rem;
+        color: #64748B;
+        line-height: 1.45;
+        margin: 8px 0 0 0;
+        direction: ltr;
+        text-align: left;
+        font-style: italic;
+      }
+      html:not(.light) .patente-gdpr-body-it {
+        color: #94A3B8;
+      }
+      .patente-gdpr-footer {
+        display: flex;
+        gap: 12px;
+        justify-content: flex-end;
+        align-items: center;
+        border-top: 1px solid rgba(15, 23, 42, 0.08);
+        padding-top: 14px;
+        margin-top: 14px;
+      }
+      html:not(.light) .patente-gdpr-footer {
+        border-top-color: rgba(255, 255, 255, 0.1);
+      }
+      .patente-gdpr-link-btn {
+        background: transparent;
+        border: none;
+        color: #0284C7;
+        font-size: 0.82rem;
+        font-weight: 700;
+        cursor: pointer;
+        padding: 8px 12px;
+        text-decoration: underline;
+        transition: color 0.2s;
+        font-family: inherit;
+      }
+      html:not(.light) .patente-gdpr-link-btn {
+        color: #38BDF8;
+      }
+      .patente-gdpr-link-btn:hover {
+        color: #0369A1;
+      }
+      html:not(.light) .patente-gdpr-link-btn:hover {
+        color: #7DD3FC;
+      }
+      .patente-gdpr-accept-btn {
+        background: #10B981;
+        color: #FFFFFF;
+        border: none;
+        font-size: 0.86rem;
+        font-weight: 800;
+        padding: 9px 24px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.15s, background 0.15s, box-shadow 0.15s;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
+        font-family: inherit;
+      }
+      .patente-gdpr-accept-btn:hover {
+        background: #059669;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(16, 185, 129, 0.45);
+      }
+
+      /* =========================================================
+         Harmonized Apple HIG Header System (Uniform Buttons & Bars)
+         ========================================================= */
+      .nav-chapters-btn {
+        height: 36px !important;
+        border-radius: 10px !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: #94A3B8 !important;
+        font-size: 0.82rem !important;
+        font-weight: 700 !important;
+        transition: all 0.2s ease !important;
+      }
+      html.light .nav-chapters-btn {
+        background: rgba(15, 23, 42, 0.04) !important;
+        border-color: rgba(15, 23, 42, 0.08) !important;
+        color: #334155 !important;
+      }
+      .nav-chapters-btn:hover, .nav-chapters-btn.active {
+        background: rgba(99, 102, 241, 0.12) !important;
+        border-color: rgba(99, 102, 241, 0.3) !important;
+        color: #818CF8 !important;
+      }
+      html.light .nav-chapters-btn:hover, html.light .nav-chapters-btn.active {
+        background: rgba(99, 102, 241, 0.08) !important;
+        border-color: rgba(99, 102, 241, 0.25) !important;
+        color: #4F46E5 !important;
+      }
+
+      /* Unified Right Toolbar Action Pills */
+      .nav-desktop-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .nav-search-trigger,
+      .nav-progress-pill,
+      .nav-auth-pill,
+      .nav-theme-btn {
+        height: 36px !important;
+        border-radius: 10px !important;
+        background: rgba(255, 255, 255, 0.04) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        font-size: 0.82rem !important;
+        font-weight: 600 !important;
+        transition: all 0.2s ease !important;
+        box-shadow: none !important;
+      }
+      html.light .nav-search-trigger,
+      html.light .nav-progress-pill,
+      html.light .nav-auth-pill,
+      html.light .nav-theme-btn {
+        background: rgba(15, 23, 42, 0.04) !important;
+        border-color: rgba(15, 23, 42, 0.08) !important;
+        color: #334155 !important;
+      }
+
+      .nav-search-trigger:hover,
+      .nav-progress-pill:hover,
+      .nav-auth-pill:hover,
+      .nav-theme-btn:hover {
+        background: rgba(255, 255, 255, 0.08) !important;
+        border-color: rgba(255, 255, 255, 0.18) !important;
+        transform: translateY(-1px) !important;
+      }
+      html.light .nav-search-trigger:hover,
+      html.light .nav-progress-pill:hover,
+      html.light .nav-auth-pill:hover,
+      html.light .nav-theme-btn:hover {
+        background: rgba(15, 23, 42, 0.07) !important;
+        border-color: rgba(15, 23, 42, 0.15) !important;
+        color: #0F172A !important;
+      }
+
+      .nav-auth-pill {
+        color: #38BDF8 !important;
+      }
+      html.light .nav-auth-pill {
+        color: #0284C7 !important;
+      }
+      .nav-auth-pill.logged-in {
+        color: #34D399 !important;
+      }
+      html.light .nav-auth-pill.logged-in {
+        color: #059669 !important;
+      }
+
          ========================================================= */
       .unified-portal-nav {
         position: sticky;
@@ -3048,65 +3266,25 @@
     if (document.getElementById('patenteGdprBanner')) return;
 
     const bannerHtml = `
-      <div id="patenteGdprBanner" style="
-        position: fixed;
-        bottom: 24px;
-        left: 50%;
-        transform: translateX(-50%) translateY(20px);
-        width: calc(100% - 32px);
-        max-width: 620px;
-        background: rgba(18, 18, 22, 0.94);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(16, 185, 129, 0.35);
-        box-shadow: 0 16px 40px -10px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.1);
-        border-radius: 18px;
-        padding: 20px 24px;
-        z-index: 9999999;
-        color: #f4f4f5;
-        font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, sans-serif;
-        opacity: 0;
-        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-        direction: rtl;
-        text-align: right;
-      ">
-        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 12px;">
-          <div style="font-size: 1.6rem; line-height: 1; flex-shrink: 0;">🛡️</div>
-          <div style="flex: 1;">
-            <div style="font-weight: 800; font-size: 0.95rem; color: #fff; margin-bottom: 4px; display: flex; align-items: center; justify-content: space-between;">
+      <div id="patenteGdprBanner" class="patente-gdpr-banner">
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 8px;">
+          <div style="font-size: 1.7rem; line-height: 1; flex-shrink: 0; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">🛡️</div>
+          <div style="flex: 1; min-width: 0;">
+            <div class="patente-gdpr-title">
               <span>الخصوصية وحماية البيانات (GDPR)</span>
-              <span style="font-size: 0.75rem; font-weight: 600; color: #10b981; direction: ltr; font-family: monospace;">EU 2016/679</span>
+              <span class="patente-gdpr-badge">EU 2016/679</span>
             </div>
-            <p style="font-size: 0.82rem; color: #a1a1aa; line-height: 1.55; margin: 0;">
-              نستخدم ملفات تعريف ارتباط تقنية وتخزيناً محلياً لحفظ تقدمك الدراسي ومزامنة بنك الأخطاء مع سيرفرات Firebase المشفرة. لا نبيع بياناتك ولا نستخدم أي تتبع إعلاني خارجي.
+            <p class="patente-gdpr-body-ar">
+              نستخدم ملفات تعريف ارتباط تقنية وتخزيناً محلياً لحفظ تقدمك الدراسي ومزامنة بنك الأخطاء مع سيرفرات Firebase المشفرة. <strong>لا نبيع بياناتك ولا نستخدم أي تتبع إعلاني خارجي.</strong>
             </p>
-            <p style="font-size: 0.74rem; color: #71717a; line-height: 1.4; margin: 6px 0 0 0; direction: ltr; text-align: left;">
-              Utilizziamo cookie tecnici per memorizzare i progressi di studio e sincronizzare gli errori in conformità al GDPR europeo.
+            <p class="patente-gdpr-body-it">
+              Utilizziamo cookie tecnici per memorizzare i progressi di studio e sincronizzare gli errori in conformità al GDPR europeo. Nessun tracciamento pubblicitario.
             </p>
           </div>
         </div>
-        <div style="display: flex; gap: 10px; justify-content: flex-end; align-items: center; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 14px;">
-          <button id="btnGdprDetails" style="
-            background: transparent;
-            border: none;
-            color: #38bdf8;
-            font-size: 0.82rem;
-            font-weight: 600;
-            cursor: pointer;
-            padding: 8px 12px;
-            text-decoration: underline;
-          ">تفاصيل السياسة / Dettagli</button>
-          <button id="btnGdprAccept" style="
-            background: #10b981;
-            color: #09090b;
-            border: none;
-            font-size: 0.85rem;
-            font-weight: 700;
-            padding: 9px 22px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.15s, background 0.15s;
-          ">قبول ومتابعة (Accetta)</button>
+        <div class="patente-gdpr-footer">
+          <button id="btnGdprDetails" class="patente-gdpr-link-btn">تفاصيل السياسة / Dettagli</button>
+          <button id="btnGdprAccept" class="patente-gdpr-accept-btn">قبول ومتابعة (Accetta)</button>
         </div>
       </div>
     `;

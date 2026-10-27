@@ -341,7 +341,104 @@
     align-items: center;
     margin-bottom: 12px;
   }
+  
+  /* Clean Architecture for Chapter Cards */
+  .card-top-strip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
   .ch-pill-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.76rem;
+    font-weight: 700;
+    background: rgba(99, 102, 241, 0.12);
+    color: #818cf8;
+    border: 1px solid rgba(99, 102, 241, 0.28);
+    padding: 3px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+    flex-shrink: 0;
+  }
+  html.light .ch-pill-num {
+    background: rgba(99, 102, 241, 0.08);
+    color: #4f46e5;
+    border-color: rgba(99, 102, 241, 0.22);
+  }
+
+  .gate-free-badge {
+    background: rgba(16, 185, 129, 0.12);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    font-size: 0.72rem;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  html.light .gate-free-badge {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+    border-color: rgba(16, 185, 129, 0.25);
+  }
+
+  .chapter-gated-badge {
+    background: rgba(245, 158, 11, 0.12);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    font-size: 0.72rem;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  html.light .chapter-gated-badge {
+    background: rgba(217, 119, 6, 0.08);
+    color: #b45309;
+    border-color: rgba(217, 119, 6, 0.25);
+  }
+
+  .card-stats-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .stat-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', 'Cairo', monospace;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-subtle);
+    padding: 4px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+  }
+  html.light .stat-pill {
+    background: #f1f5f9;
+    border-color: rgba(15, 23, 42, 0.08);
+    color: #475569;
+  }
+  .stat-pill strong {
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+  .stat-ico {
+    font-size: 0.82rem;
+    line-height: 1;
+  }
+
+  /* Old pill styles */
+  .old-ch-pill {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.76rem;
     font-weight: 700;
@@ -1454,14 +1551,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 01</span>
-          <span class="gate-free-badge" style="background: rgba(16, 185, 129, 0.15); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🟢 مفتوح مجاناً 100%</span>
-          <div class="ch-stats-strip">
-            <span>📝 531 Q</span>
-            <span>🖼️ 7 IMG</span>
-          </div>
+          <span class="gate-free-badge">🟢 مفتوح مجاناً</span>
         </div>
         <div class="ch-title-it">Capitolo 01 - Definizioni generali e doveri della strada</div>
         <div class="ch-title-ar">المفاهيم العامة واستخدام الطريق</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>531</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>7</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_01_definizioni_generali_doveri_strada/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1477,14 +1574,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 02</span>
-          <span class="gate-free-badge" style="background: rgba(16, 185, 129, 0.15); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🟢 مفتوح مجاناً 100%</span>
-          <div class="ch-stats-strip">
-            <span>📝 662 Q</span>
-            <span>🖼️ 54 IMG</span>
-          </div>
+          <span class="gate-free-badge">🟢 مفتوح مجاناً</span>
         </div>
         <div class="ch-title-it">Capitolo 02 - Segnali di pericolo</div>
         <div class="ch-title-ar">إشارات الخطر</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>662</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>54</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_02_segnali_pericolo/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1500,14 +1597,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 03</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 521 Q</span>
-            <span>🖼️ 47 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 03 - Segnali di divieto</div>
         <div class="ch-title-ar">إشارات المنع</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>521</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>47</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_03_segnali_divieto/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1523,14 +1620,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 04</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 433 Q</span>
-            <span>🖼️ 30 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 04 - Segnali di obbligo</div>
         <div class="ch-title-ar">إشارات الإلزام</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>433</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>30</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_04_segnali_obbligo/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1546,14 +1643,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 05</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 243 Q</span>
-            <span>🖼️ 15 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 05 - Segnali di precedenza</div>
         <div class="ch-title-ar">إشارات الأسبقية</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>243</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>15</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_05_segnali_precedenza/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1569,14 +1666,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 06</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 260 Q</span>
-            <span>🖼️ 30 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 06 - Segnaletica orizzontale e ostacoli</div>
         <div class="ch-title-ar">الإشارات الأرضية والعوائق</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>260</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>30</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_06_segnaletica_orizzontale_ostacoli/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1592,14 +1689,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 07</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 253 Q</span>
-            <span>🖼️ 13 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 07 - Semafori e agenti del traffico</div>
         <div class="ch-title-ar">إشارات المرور الضوئية ورجال المرور</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>253</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>13</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_07_semafori_vigili/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1615,14 +1712,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 08</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 603 Q</span>
-            <span>🖼️ 63 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 08 - Segnali di indicazione</div>
         <div class="ch-title-ar">الإشارات الإرشادية</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>603</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>63</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_08_segnali_indicazione/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1638,14 +1735,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 09</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 181 Q</span>
-            <span>🖼️ 19 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 09 - Segnali complementari e cantieri stradali</div>
         <div class="ch-title-ar">الإشارات التكميلية وأعمال الطرق</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>181</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>19</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_09_segnali_complementari_cantiere/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1661,14 +1758,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 10</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 263 Q</span>
-            <span>🖼️ 72 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 10 - Pannelli integrativi dei segnali</div>
         <div class="ch-title-ar">اللوحات الإضافية</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>263</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>72</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_10_pannelli_integrativi/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1684,14 +1781,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 11</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 256 Q</span>
-            <span>🖼️ 1 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 11 - Limiti di velocita e pericolo</div>
         <div class="ch-title-ar">حدود السرعة ومسافة التوقف</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>256</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>1</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_11_limiti_di_velocita/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1707,14 +1804,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 12</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 135 Q</span>
-            <span>🖼️ 0 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 12 - Distanza di sicurezza</div>
         <div class="ch-title-ar">مسافة الأمان</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>135</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>0</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_12_distanza_di_sicurezza/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1730,14 +1827,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 13</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 379 Q</span>
-            <span>🖼️ 19 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 13 - Norme di circolazione e posizione dei veicoli</div>
         <div class="ch-title-ar">قواعد السير ومسارات الطريق</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>379</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>19</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_13_norme_di_circolazione/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1753,14 +1850,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 14</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 415 Q</span>
-            <span>🖼️ 43 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 14 - Precedenza agli incroci</div>
         <div class="ch-title-ar">أسبقية المرور في التقاطعات</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>415</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>43</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_14_precedenza_incroci/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1776,14 +1873,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 15</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 156 Q</span>
-            <span>🖼️ 0 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 15 - Sorpasso</div>
         <div class="ch-title-ar">التجاوز والتخطي</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>156</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>0</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_15_sorpasso/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1799,14 +1896,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 16</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 191 Q</span>
-            <span>🖼️ 1 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 16 - Fermata, sosta, arresto e partenza</div>
         <div class="ch-title-ar">الوقوف والتوقف والانتظار</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>191</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>1</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_16_fermata_sosta_arresto/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1822,14 +1919,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 17</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 332 Q</span>
-            <span>🖼️ 5 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 17 - Norme varie e autostrade</div>
         <div class="ch-title-ar">السير على الطرق السريعة وقواعد متنوعة</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>332</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>5</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_17_norme_varie_autostrade_pannelli/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1845,14 +1942,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 18</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 176 Q</span>
-            <span>🖼️ 9 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 18 - Uso delle luci e dispositivi acustici</div>
         <div class="ch-title-ar">استخدام الأضواء وأجهزة التنبيه</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>176</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>9</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_18_luci_dispositivi_acustici/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1868,14 +1965,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 19</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 135 Q</span>
-            <span>🖼️ 0 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 19 - Cinture di sicurezza, casco e sistemi di ritenuta</div>
         <div class="ch-title-ar">أحزمة الأمان والخوذة ومقاعد الأطفال</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>135</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>0</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_19_cinture_casco_sicurezza/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1891,14 +1988,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 20</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 234 Q</span>
-            <span>🖼️ 0 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 20 - Patente di guida, punti e documenti</div>
         <div class="ch-title-ar">رخص القيادة ونظام النقاط والمستندات</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>234</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>0</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_20_patente_punti_documenti/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1914,14 +2011,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 21</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 102 Q</span>
-            <span>🖼️ 2 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 21 - Incidenti stradali e comportamenti</div>
         <div class="ch-title-ar">حوادث السير والتصرف الواجب</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>102</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>2</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_21_incidenti_stradali_comportamenti/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1937,14 +2034,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 22</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 141 Q</span>
-            <span>🖼️ 0 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 22 - Guida sotto effetto di alcool, droga e primo soccorso</div>
         <div class="ch-title-ar">القيادة تحت تأثير الكحول والمخدرات والإسعافات الأولية</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>141</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>0</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_22_alcool_droga_primo_soccorso/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1960,14 +2057,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 23</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 149 Q</span>
-            <span>🖼️ 0 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 23 - Responsabilita civile, penale e assicurazione RCA</div>
         <div class="ch-title-ar">المسؤولية القانونية والتأمين الإجباري</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>149</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>0</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_23_responsabilita_civile_penale_e_assicurazione/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -1983,14 +2080,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 24</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 103 Q</span>
-            <span>🖼️ 0 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 24 - Limitazione dei consumi e rispetto ambiente</div>
         <div class="ch-title-ar">ترشيد استهلاك الوقود وحماية البيئة</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>103</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>0</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_24_consumi_ambiente_inquinamento/index.html" class="btn-action-study" onclick="soundEngine.click()">
@@ -2006,14 +2103,14 @@
       <div>
         <div class="card-top-strip">
           <span class="ch-pill-num">CAPITOLO 25</span>
-          <span class="chapter-gated-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-inline-start: 6px;">🔒 عينة 5 أسئلة + تسجيل</span>
-          <div class="ch-stats-strip">
-            <span>📝 285 Q</span>
-            <span>🖼️ 0 IMG</span>
-          </div>
+          <span class="chapter-gated-badge">🔒 عينة 5 أسئلة</span>
         </div>
         <div class="ch-title-it">Capitolo 25 - Elementi del veicolo, manutenzione e sicurezza</div>
         <div class="ch-title-ar">أجزاء المركبة والميكانيكا والصيانة</div>
+        <div class="card-stats-row">
+          <span class="stat-pill"><span class="stat-ico">📝</span> <strong>285</strong> سؤال</span>
+          <span class="stat-pill"><span class="stat-ico">🖼️</span> <strong>0</strong> إشارة</span>
+        </div>
       </div>
       <div class="card-actions-strip">
         <a href="Capitolo_25_elementi_veicolo_manutenzione_comportamenti/index.html" class="btn-action-study" onclick="soundEngine.click()">
