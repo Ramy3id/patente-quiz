@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>🔍 محرك البحث الوزاري الفوري (Cerca Quiz) | Patente B Pro</title>
+  
+  <meta name="description" content="محرك بحث فوري وسريع في جميع أسئلة الباتنتي الإيطالية (7,139 سؤالاً) بالإيطالية والعربية، مع الإجابة الرسمية، الفخ، والشرح المفصل في 0.01 ثانية.">
+  <meta name="theme-color" content="#0B0F19">
+
+  <!-- الخطوط الرسمية -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- الأنماط الأساسية للمنصة -->
+  <link rel="stylesheet" href="../assets/css/unified-nav.css">
+  
+  <style>
+    :root {
+      --cq-bg: #0B0F19;
+      --cq-surface: #111827;
+      --cq-card: rgba(17, 24, 39, 0.75);
+      --cq-card-border: rgba(255, 255, 255, 0.08);
+      --cq-card-hover: rgba(30, 41, 59, 0.85);
+      --cq-text: #F8FAFC;
+      --cq-text-sub: #94A3B8;
+      --cq-cyan: #38BDF8;
+      --cq-blue: #3B82F6;
+      --cq-emerald: #10B981;
+      --cq-rose: #F43F5E;
+      --cq-amber: #F59E0B;
+      --cq-purple: #A855F7;
+      --cq-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+    }
+
+    html.light {
+      --cq-bg: #F8FAFC;
+      --cq-surface: #FFFFFF;
+      --cq-card: #FFFFFF;
+      --cq-card-border: #E2E8F0;
+      --cq-card-hover: #F1F5F9;
+      --cq-text: #0F172A;
+      --cq-text-sub: #64748B;
+      --cq-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--cq-bg);
+      color: var(--cq-text);
+      font-family: 'Cairo', system-ui, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .cq-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 16px 80px;
+    }
+
+    /* Hero Header */
+    .cq-hero {
+      text-align: center;
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    .cq-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--cq-cyan);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      backdrop-filter: blur(8px);
+    }
+
+    .cq-title {
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #38BDF8 60%, #818CF8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    html.light .cq-title {
+      background: linear-gradient(135deg, #0F172A 0%, #0284C7 60%, #4338CA 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cq-subtitle {
+      color: var(--cq-text-sub);
+      font-size: 1.05rem;
+      max-width: 720px;
+      margin: 0 auto;
+      font-weight: 600;
+    }
+
+    /* Search Box Wrapper */
+    .cq-search-box-wrapper {
+      position: sticky;
+      top: 75px;
+      z-index: 40;
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 14px 0 16px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: background 0.3s;
+    }
+
+    html.light .cq-search-box-wrapper {
+      background: rgba(248, 250, 252, 0.85);
+      border-bottom-color: rgba(0, 0, 0, 0.06);
+    }
+
+    .cq-search-input-group {
+      position: relative;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .cq-search-icon {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.4rem;
+      color: var(--cq-cyan);
+      pointer-events: none;
+    }
+
+    .cq-search-input {
+      width: 100%;
+      padding: 16px 56px 16px 110px;
+      font-family: inherit;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--cq-text);
+      background: var(--cq-surface);
+      border: 2px solid rgba(56, 189, 248, 0.3);
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+      outline: none;
+      transition: all 0.25s ease;
+    }
+
+    .cq-search-input:focus {
+      border-color: var(--cq-cyan);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25), 0 12px 30px -5px rgba(0, 0, 0, 0.4);
+    }
+
+    .cq-search-actions {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cq-clear-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: var(--cq-text-sub);
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+
+    .cq-clear-btn:hover {
+      background: var(--cq-rose);
+      color: #FFF;
+    }
+
+    .cq-shortcut-badge {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--cq-text-sub);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      user-select: none;
+    }
+
+    /* Popular Chips */
+    .cq-chips-scroll {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 10px 4px 6px;
+      max-width: 860px;
+      margin: 0 auto;
+      scrollbar-width: none;
+    }
+
+    .cq-chips-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cq-chips-label {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--cq-text-sub);
+      white-space: nowrap;
+      margin-left: 4px;
+    }
+
+    .cq-chip {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--cq-text);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    html.light .cq-chip {
+      background: #FFFFFF;
+      border-color: #E2E8F0;
+    }
+
+    .cq-chip:hover {
+      background: var(--cq-cyan);
+      color: #0B0F19;
+      border-color: var(--cq-cyan);
+      transform: translateY(-1px);
+    }
+
+    /* Filters Bar */
+    .cq-filters-panel {
+      max-width: 860px;
+      margin: 0 auto 24px;
+      background: var(--cq-card);
+      border: 1px solid var(--cq-card-border);
+      border-radius: 16px;
+      padding: 14px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: var(--cq-shadow);
+    }
+
+    .cq-filter-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .cq-filter-btn {
+      padding: 6px 14px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid transparent;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--cq-text-sub);
+      transition: all 0.2s;
+    }
+
+    html.light .cq-filter-btn {
+      background: #F1F5F9;
+    }
+
+    .cq-filter-btn:hover {
+      color: var(--cq-text);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .cq-filter-btn.active {
+      background: var(--cq-cyan);
+      color: #0B0F19;
+      font-weight: 800;
+    }
+
+    .cq-filter-btn.btn-vero.active {
+      background: var(--cq-emerald);
+      color: #FFFFFF;
+    }
+
+    .cq-filter-btn.btn-falso.active {
+      background: var(--cq-rose);
+      color: #FFFFFF;
+    }
+
+    .cq-select {
+      background: var(--cq-surface);
+      color: var(--cq-text);
+      border: 1px solid var(--cq-card-border);
+      padding: 7px 12px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      outline: none;
+      cursor: pointer;
+      max-width: 230px;
+    }
+
+    /* Stats strip */
+    .cq-status-bar {
+      max-width: 860px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--cq-text-sub);
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 0 4px;
+    }
+
+    .cq-status-bar strong {
+      color: var(--cq-cyan);
+    }
+
+    /* Question Cards List */
+    .cq-results-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .cq-q-card {
+      background: var(--cq-card);
+      border: 1px solid var(--cq-card-border);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: var(--cq-shadow);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cq-q-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.35);
+    }
+
+    .cq-q-card.is-vero {
+      border-right: 5px solid var(--cq-emerald);
+    }
+
+    .cq-q-card.is-falso {
+      border-right: 5px solid var(--cq-rose);
+    }
+
+    /* Card Header */
+    .cq-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .cq-badges-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .cq-ch-badge {
+      font-size: 0.8rem;
+      font-weight: 800;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--cq-cyan);
+      padding: 4px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    .cq-id-badge {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--cq-text-sub);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+
+    .cq-sub-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--cq-text-sub);
+    }
+
+    .cq-answer-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-weight: 900;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+    }
+
+    .cq-answer-pill.pill-vero {
+      background: rgba(16, 185, 129, 0.15);
+      color: #10B981;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    .cq-answer-pill.pill-falso {
+      background: rgba(244, 63, 94, 0.15);
+      color: #F43F5E;
+      border: 1px solid rgba(244, 63, 94, 0.4);
+    }
+
+    /* Card Content Layout */
+    .cq-card-body {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .cq-card-body.has-img {
+      grid-template-columns: 110px 1fr;
+    }
+
+    @media (max-width: 640px) {
+      .cq-card-body.has-img {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Image Thumbnail */
+    .cq-img-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cq-img-thumb-wrap {
+      width: 100%;
+      height: 100px;
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: 1px solid var(--cq-card-border);
+      transition: transform 0.2s;
+    }
+
+    .cq-img-thumb-wrap:hover {
+      transform: scale(1.04);
+    }
+
+    .cq-img-thumb {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .cq-img-zoom-hint {
+      font-size: 0.72rem;
+      color: var(--cq-text-sub);
+      font-weight: 700;
+    }
+
+    /* Question Text & Translation */
+    .cq-text-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .cq-q-italian {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--cq-text);
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    .cq-q-arabic {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #38BDF8;
+      line-height: 1.6;
+    }
+
+    html.light .cq-q-arabic {
+      color: #0284C7;
+    }
+
+    /* Highlighting */
+    mark.cq-highlight {
+      background: rgba(245, 158, 11, 0.35);
+      color: inherit;
+      padding: 0 4px;
+      border-radius: 4px;
+      font-weight: 800;
+    }
+
+    /* Details Accordion */
+    .cq-details-toggle {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--cq-card-border);
+      border-radius: 10px;
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--cq-text-sub);
+      cursor: pointer;
+      margin-top: 6px;
+      transition: background 0.2s;
+    }
+
+    .cq-details-toggle:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--cq-text);
+    }
+
+    .cq-details-box {
+      display: none;
+      padding: 14px 4px 0;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cq-details-box.open {
+      display: flex;
+    }
+
+    .cq-sp-box {
+      background: rgba(16, 185, 129, 0.08);
+      border-right: 4px solid var(--cq-emerald);
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--cq-text);
+    }
+
+    .cq-tb-box {
+      background: rgba(245, 158, 11, 0.1);
+      border-right: 4px solid var(--cq-amber);
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: #FBBF24;
+    }
+
+    html.light .cq-tb-box {
+      color: #B45309;
+    }
+
+    .cq-pk-tags {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .cq-pk-tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--cq-text-sub);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .cq-pk-tag:hover {
+      background: var(--cq-cyan);
+      color: #0B0F19;
+    }
+
+    /* Card Actions Footer */
+    .cq-card-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .cq-action-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--cq-text-sub);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .cq-action-btn:hover {
+      background: var(--cq-cyan);
+      color: #0B0F19;
+      border-color: var(--cq-cyan);
+    }
+
+    /* Load More Button */
+    .cq-load-more-wrap {
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    .cq-load-more-btn {
+      background: linear-gradient(135deg, #0284C7 0%, #2563EB 100%);
+      color: #FFFFFF;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 14px;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
+      transition: all 0.2s;
+    }
+
+    .cq-load-more-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px -5px rgba(37, 99, 235, 0.6);
+    }
+
+    /* Empty state */
+    .cq-empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--cq-card);
+      border: 1px dashed var(--cq-card-border);
+      border-radius: 20px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .cq-empty-icon {
+      font-size: 3.5rem;
+      margin-bottom: 12px;
+    }
+
+    .cq-empty-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .cq-empty-desc {
+      color: var(--cq-text-sub);
+      font-size: 0.95rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* Lightbox Modal */
+    .cq-lightbox-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .cq-lightbox-modal.open {
+      display: flex;
+    }
+
+    .cq-lightbox-content {
+      background: #FFFFFF;
+      border-radius: 18px;
+      padding: 20px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+    }
+
+    .cq-lightbox-img {
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+    }
+
+    .cq-lightbox-close {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #111827;
+      color: #FFF;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    /* Toast */
+    .cq-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #10B981;
+      color: #FFFFFF;
+      padding: 10px 22px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      z-index: 999;
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .cq-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- شريط الملاحة الموحد -->
+  <nav class="unified-portal-nav" id="portal-nav">
+    <a href="../index.html" class="nav-brand">
+      <span style="font-size:1.25rem;">🚦</span>
+      <span>Patente B Pro</span>
+      <span class="badge-tag">A2</span>
+    </a>
+    <nav class="nav-desktop-tabs">
+      <a href="piano-studio.html" class="nav-tab-desktop">📅 الخطة الدراسية</a>
+      <a href="cerca-quiz.html" class="nav-tab-desktop active">🔍 محرك البحث</a>
+      <a href="parole-spia.html" class="nav-tab-desktop">🎯 الكلمات السحرية</a>
+      <a href="scheda-esame.html" class="nav-tab-desktop">📝 الامتحان</a>
+      <a href="flashcards.html" class="nav-tab-desktop">💡 بطاقات الفلاش</a>
+      <a href="dashboard.html" class="nav-tab-desktop">📊 لوحة البيانات</a>
+      <a href="traps_and_games.html" class="nav-tab-desktop">🎮 الفخاخ والألعاب</a>
+      <a href="index.html" class="nav-tab-desktop">🏛️ أدلة الشرح</a>
+      <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 بنك الأسئلة</a>
+    </nav>
+    <div class="nav-desktop-actions">
+      <button class="nav-theme-btn" id="themeToggleBtn" onclick="toggleTheme()" title="تبديل الوضع (نهاري / ليلي) [Alt + T]">
+        <span class="theme-icon-span">☀️</span>
+        <span class="theme-label-span">الوضع النهاري</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="cq-container">
+    
+    <!-- Hero Header -->
+    <header class="cq-hero">
+      <div class="cq-hero-badge">
+        <span>⚡ بحث فوري في بنك الوزارة الرسمي (7,139 سؤالاً) في 0.01 ثانية</span>
+      </div>
+      <h1 class="cq-title">🔍 محرك البحث الوزاري الفوري (Cerca Quiz)</h1>
+      <p class="cq-subtitle">
+        ابحث بأي كلمة أو جملة بالإيطالية أو العربية، برقم السؤال، أو باسم الإشارة، لتصل فوراً للإجابة الرسمية، الفخ الخبيث، والشرح المفصل.
+      </p>
+    </header>
+
+    <!-- Search Box Sticky Wrapper -->
+    <div class="cq-search-box-wrapper">
+      <div class="cq-search-input-group">
+        <span class="cq-search-icon">🔍</span>
+        <input 
+          type="text" 
+          id="cqSearchInput" 
+          class="cq-search-input" 
+          placeholder="ابحث هنا بالإيطالية (مثل sorpasso in curva) أو بالعربية (مثل الدبرياج، مسافة الأمان)..."
+          autocomplete="off"
+          spellcheck="false"
+          oninput="handleSearchInput()"
+        >
+        <div class="cq-search-actions">
+          <button class="cq-clear-btn" id="cqClearBtn" onclick="clearSearch()" title="مسح حقل البحث">✕</button>
+          <span class="cq-shortcut-badge" title="اضغط / للتركيز في حقل البحث">/</span>
+        </div>
+      </div>
+
+      <!-- سحابة الكلمات والأسئلة الأكثر بحثاً -->
+      <div class="cq-chips-scroll">
+        <span class="cq-chips-label">🔥 الأكثر بحثاً:</span>
+        <button class="cq-chip" onclick="setSearchTerm('sorpasso in curva')">sorpasso in curva (التجاوز في المنعطف)</button>
+        <button class="cq-chip" onclick="setSearchTerm('frizione')">frizione (الدبرياج)</button>
+        <button class="cq-chip" onclick="setSearchTerm('distanza di sicurezza')">distanza di sicurezza (مسافة الأمان)</button>
+        <button class="cq-chip" onclick="setSearchTerm('quadricicli')">quadricicli (السيارات الرباعية)</button>
+        <button class="cq-chip" onclick="setSearchTerm('sempre')">sempre (فخ دائماً)</button>
+        <button class="cq-chip" onclick="setSearchTerm('solo')">solo (فخ فقط)</button>
+        <button class="cq-chip" onclick="setSearchTerm('alcol')">alcol (نسبة الكحول)</button>
+        <button class="cq-chip" onclick="setSearchTerm('punti patente')">punti patente (نقاط الرخصة)</button>
+        <button class="cq-chip" onclick="setSearchTerm('pannelli integrativi')">pannelli integrativi (اللوحات)</button>
+        <button class="cq-chip" onclick="setSearchTerm('figura 604')">figura 604 (التقاطعات)</button>
+        <button class="cq-chip" onclick="setSearchTerm('spazio di frenata')">spazio di frenata (مسافة الفرملة)</button>
+      </div>
+    </div>
+
+    <!-- لوحة الفلاتر الذكية -->
+    <div class="cq-filters-panel">
+      <!-- فلتر الإجابة -->
+      <div class="cq-filter-group">
+        <span style="font-size:0.85rem; font-weight:800; color:var(--cq-text-sub);">الإجابة:</span>
+        <button class="cq-filter-btn active" id="btnAnsAll" onclick="setAnswerFilter('all')">🌟 الكل</button>
+        <button class="cq-filter-btn btn-vero" id="btnAnsVero" onclick="setAnswerFilter('vero')">🟢 VERO فقط</button>
+        <button class="cq-filter-btn btn-falso" id="btnAnsFalso" onclick="setAnswerFilter('falso')">🔴 FALSO فقط</button>
+      </div>
+
+      <!-- فلتر الباب -->
+      <div class="cq-filter-group">
+        <span style="font-size:0.85rem; font-weight:800; color:var(--cq-text-sub);">الباب:</span>
+        <select class="cq-select" id="cqChapterSelect" onchange="handleFilterChange()">
+          <option value="all">📚 جميع الأبواب الـ 25</option>
+          <option value="1">الباب 1: المفاهيم العامة</option>
+          <option value="2">الباب 2: إشارات الخطر</option>
+          <option value="3">الباب 3: إشارات المنع</option>
+          <option value="4">الباب 4: إشارات الإلزام</option>
+          <option value="5">الباب 5: إشارات الأسبقية</option>
+          <option value="6">الباب 6: التخطيط الأرضي</option>
+          <option value="7">الباب 7: الإشارات الضوئية والشرطي</option>
+          <option value="8">الباب 8: إشارات الإرشاد</option>
+          <option value="9">الباب 9: اللوحات المتممة والتحذير</option>
+          <option value="10">الباب 10: اللوحات الإضافية</option>
+          <option value="11">الباب 11: السرعة والمناورات</option>
+          <option value="12">الباب 12: مسافة الأمان</option>
+          <option value="13">الباب 13: قواعد السير</option>
+          <option value="14">الباب 14: أسبقية التقاطعات</option>
+          <option value="15">الباب 15: التجاوز (Sorpasso)</option>
+          <option value="16">الباب 16: الوقوف والانتظار</option>
+          <option value="17">الباب 17: الحوادث والطوارئ</option>
+          <option value="18">الباب 18: أجهزة الرؤية والإضاءة</option>
+          <option value="19">الباب 19: أجهزة السلامة والأمان</option>
+          <option value="20">الباب 20: رخص القيادة والنقاط</option>
+          <option value="21">الباب 21: المسؤولية والتأمين</option>
+          <option value="22">الباب 22: الحالة البدنية والنفسية</option>
+          <option value="23">الباب 23: العوامل المشتتة للقيادة</option>
+          <option value="24">الباب 24: حماية البيئة والاستهلاك</option>
+          <option value="25">الباب 25: ميكانيكا وصيانة السيارة</option>
+        </select>
+      </div>
+
+      <!-- فلاتر خاصة -->
+      <div class="cq-filter-group">
+        <button class="cq-filter-btn" id="btnOnlyImg" onclick="toggleImgFilter()">🖼️ صور فقط</button>
+        <button class="cq-filter-btn" id="btnOnlyTrap" onclick="toggleTrapFilter()">⚠️ فخاخ وزارية فقط</button>
+      </div>
+    </div>
+
+    <!-- شريط الإحصائيات الفوري -->
+    <div class="cq-status-bar" id="cqStatusBar">
+      <span id="cqCountText">تم العثور على <strong>7,139 سؤالاً</strong></span>
+      <span id="cqSpeedText" style="font-family:'Fira Code', monospace; font-size:0.8rem;">⚡ 0.01 ثانية</span>
+    </div>
+
+    <!-- شبكة / قائمة النتائج -->
+    <div class="cq-results-list" id="cqResultsList">
+      <div style="text-align:center; padding:50px; color:var(--cq-text-sub);">
+        ⏳ جاري تحميل بنك الأسئلة بالكامل (7,139 سؤالاً)...
+      </div>
+    </div>
+
+    <!-- زر تحميل المزيد عند الحاجة -->
+    <div class="cq-load-more-wrap" id="cqLoadMoreWrap" style="display:none;">
+      <button class="cq-load-more-btn" onclick="loadMoreResults()">
+        <span>عرض المزيد من الأسئلة (+25 سؤالاً) ⬇️</span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- لايت بوكس تكبير الصور -->
+  <div class="cq-lightbox-modal" id="cqLightbox" onclick="closeLightbox(event)">
+    <div class="cq-lightbox-content">
+      <button class="cq-lightbox-close" onclick="closeLightbox(event)">✕</button>
+      <img id="cqLightboxImg" class="cq-lightbox-img" src="" alt="صورة الإشارة">
+      <div id="cqLightboxCaption" style="font-size:0.9rem; font-weight:700; color:#111827; margin-top:10px;"></div>
+    </div>
+  </div>
+
+  <!-- إشعار النسخ السريع (Toast) -->
+  <div class="cq-toast" id="cqToast">تم نسخ السؤال والترجمة بنجاح! 📋</div>
+
+  <!-- استدعاء ملفات البيانات والسكربتات -->
+  <script src="../assets/js/theme-engine.js"></script>
+  <script src="../Capitoli_Divisi/data_all_questions.js"></script>
+  <script src="../assets/js/unified-nav.js" defer></script>
+
+  <script>
+    /**
+     * محرك البحث الفوري Cerca Quiz Engine
+     */
+    let ALL_QUESTIONS = [];
+    let currentResults = [];
+    let displayedCount = 25;
+    const PAGE_SIZE = 25;
+
+    // Filters state
+    let state = {
+      query: '',
+      answer: 'all', // 'all', 'vero', 'falso'
+      chapter: 'all',
+      onlyImg: false,
+      onlyTrap: false
+    };
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', () => {
+      if (typeof ALL_QUESTIONS_DATA !== 'undefined' && Array.isArray(ALL_QUESTIONS_DATA)) {
+        ALL_QUESTIONS = ALL_QUESTIONS_DATA;
+        initSearch();
+      } else {
+        document.getElementById('cqResultsList').innerHTML = `
+          <div class="cq-empty-state">
+            <div class="cq-empty-icon">⚠️</div>
+            <div class="cq-empty-title">تعذر تحميل بنك الأسئلة</div>
+            <div class="cq-empty-desc">تأكد من وجود ملف data_all_questions.js في مساره الصحيح.</div>
+          </div>
+        `;
+      }
+
+      // Hotkey focus
+      document.addEventListener('keydown', (e) => {
+        if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+          e.preventDefault();
+          const input = document.getElementById('cqSearchInput');
+          input.focus();
+          input.select();
+        }
+      });
+    });
+
+    function initSearch() {
+      // Check URL search params (e.g. ?q=frizione)
+      const urlParams = new URLSearchParams(window.location.search);
+      const qParam = urlParams.get('q');
+      if (qParam) {
+        document.getElementById('cqSearchInput').value = qParam;
+        state.query = qParam;
+      }
+      executeSearch();
+    }
+
+    /**
+     * تطهير وتوحيد النصوص للبحث الصوتي واللغوي
+     */
+    function normalizeText(str) {
+      if (!str) return '';
+      return String(str)
+        .toLowerCase()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // إزالة النبرات الإيطالية
+        .replace(/[أإآٱ]/g, 'ا')
+        .replace(/[ة]/g, 'ه')
+        .replace(/[ى]/g, 'ي')
+        .replace(/[ًٌٍَُِّْ]/g, '') // إزالة التشكيل العربي
+        .trim();
+    }
+
+    let debounceTimer = null;
+    function handleSearchInput() {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        state.query = document.getElementById('cqSearchInput').value;
+        const clearBtn = document.getElementById('cqClearBtn');
+        clearBtn.style.display = state.query ? 'flex' : 'none';
+        executeSearch();
+      }, 100);
+    }
+
+    function clearSearch() {
+      document.getElementById('cqSearchInput').value = '';
+      state.query = '';
+      document.getElementById('cqClearBtn').style.display = 'none';
+      document.getElementById('cqSearchInput').focus();
+      executeSearch();
+    }
+
+    function setSearchTerm(term) {
+      document.getElementById('cqSearchInput').value = term;
+      state.query = term;
+      document.getElementById('cqClearBtn').style.display = 'flex';
+      executeSearch();
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+
+    function setAnswerFilter(ans) {
+      state.answer = ans;
+      document.querySelectorAll('#btnAnsAll, #btnAnsVero, #btnAnsFalso').forEach(b => b.classList.remove('active'));
+      if (ans === 'all') document.getElementById('btnAnsAll').classList.add('active');
+      if (ans === 'vero') document.getElementById('btnAnsVero').classList.add('active');
+      if (ans === 'falso') document.getElementById('btnAnsFalso').classList.add('active');
+      executeSearch();
+    }
+
+    function handleFilterChange() {
+      state.chapter = document.getElementById('cqChapterSelect').value;
+      executeSearch();
+    }
+
+    function toggleImgFilter() {
+      state.onlyImg = !state.onlyImg;
+      document.getElementById('btnOnlyImg').classList.toggle('active', state.onlyImg);
+      executeSearch();
+    }
+
+    function toggleTrapFilter() {
+      state.onlyTrap = !state.onlyTrap;
+      document.getElementById('btnOnlyTrap').classList.toggle('active', state.onlyTrap);
+      executeSearch();
+    }
+
+    /**
+     * تنفيذ البحث السريع بجميع الفلاتر
+     */
+    function executeSearch() {
+      const t0 = performance.now();
+      const qNorm = normalizeText(state.query);
+      const words = qNorm.split(/\s+/).filter(Boolean);
+
+      currentResults = ALL_QUESTIONS.filter(q => {
+        // فلتر الإجابة
+        if (state.answer === 'vero' && !(q.a === true || q.a === 'Vero' || q.a === 'VERO')) return false;
+        if (state.answer === 'falso' && !(q.a === false || q.a === 'Falso' || q.a === 'FALSO')) return false;
+
+        // فلتر الباب
+        if (state.chapter !== 'all' && q.ch !== parseInt(state.chapter)) return false;
+
+        // فلتر الصور
+        if (state.onlyImg && !q.img) return false;
+
+        // فلتر الفخاخ
+        if (state.onlyTrap && (!q.tb || q.tb.length < 5)) return false;
+
+        // مطابقة النص
+        if (words.length === 0) return true;
+
+        const itText = normalizeText(q.q || '');
+        const arText = normalizeText(q.tr || '');
+        const spText = normalizeText(q.sp || '');
+        const tbText = normalizeText(q.tb || '');
+        const subText = normalizeText(q.sub || '');
+        const idText = String(q.id || '');
+        const figMatch = (q.img || '').match(/\/([0-9]+)\.png/i);
+        const figNum = figMatch ? figMatch[1] : '';
+
+        const fullHaystack = `${itText} ${arText} ${spText} ${tbText} ${subText} #${idText} fig:${figNum} figura ${figNum}`;
+
+        return words.every(w => fullHaystack.includes(w));
+      });
+
+      const t1 = performance.now();
+      const elapsed = ((t1 - t0) / 1000).toFixed(3);
+
+      displayedCount = PAGE_SIZE;
+      renderResults();
+
+      // تحديث شريط الحالة
+      document.getElementById('cqCountText').innerHTML = `تم العثور على <strong>${currentResults.length} سؤالاً</strong> من أصل 7,139`;
+      document.getElementById('cqSpeedText').innerHTML = `⚡ ${elapsed} ثانية`;
+    }
+
+    /**
+     * تلوين الكلمات المطابقة في السؤال
+     */
+    function highlightQuery(text, query) {
+      if (!query || !query.trim() || !text) return escapeHtml(text);
+      const escapedText = escapeHtml(text);
+      const words = query.trim().split(/\s+/).filter(w => w.length >= 2);
+      if (!words.length) return escapedText;
+
+      try {
+        const pattern = words.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+        const re = new RegExp(`(${pattern})`, 'gi');
+        return escapedText.replace(re, '<mark class="cq-highlight">$1</mark>');
+      } catch (e) {
+        return escapedText;
+      }
+    }
+
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    /**
+     * رندر البطاقات
+     */
+    function renderResults() {
+      const container = document.getElementById('cqResultsList');
+      const loadMoreWrap = document.getElementById('cqLoadMoreWrap');
+
+      if (!currentResults.length) {
+        container.innerHTML = `
+          <div class="cq-empty-state">
+            <div class="cq-empty-icon">🔎</div>
+            <div class="cq-empty-title">لم نجد أي سؤال يطابق بحثك</div>
+            <div class="cq-empty-desc">
+              تأكد من كتابة الكلمة بشكل صحيح، أو جرّب البحث بكلمة أقصر (مثل: sorpasso أو precedenza أو مسافة).
+            </div>
+          </div>
+        `;
+        loadMoreWrap.style.display = 'none';
+        return;
+      }
+
+      const batch = currentResults.slice(0, displayedCount);
+      let html = '';
+
+      batch.forEach(q => {
+        const isVero = (q.a === true || q.a === 'Vero' || q.a === 'VERO');
+        const hasImg = !!q.img;
+        const imgUrl = hasImg ? `../Capitoli_Divisi/${q.img}` : '';
+        const cardClass = isVero ? 'is-vero' : 'is-falso';
+        const pillClass = isVero ? 'pill-vero' : 'pill-falso';
+        const pillText = isVero ? '🟢 VERO (صحيح)' : '🔴 FALSO (خطأ)';
+
+        const itHighlighted = highlightQuery(q.q, state.query);
+        const arHighlighted = highlightQuery(q.tr, state.query);
+
+        // Tags
+        let pkHtml = '';
+        if (Array.isArray(q.pk) && q.pk.length > 0) {
+          pkHtml = `
+            <div class="cq-pk-tags">
+              <span style="font-size:0.75rem; font-weight:800; color:var(--cq-text-sub);">المفردات:</span>
+              ${q.pk.map(p => `<span class="cq-pk-tag" onclick="setSearchTerm('${escapeHtml(p.it)}')">${escapeHtml(p.it)}</span>`).join('')}
+            </div>
+          `;
+        }
+
+        html += `
+          <div class="cq-q-card ${cardClass}" id="card_ch${q.ch}_${q.id}">
+            <!-- رأس الكارت -->
+            <div class="cq-card-header">
+              <div class="cq-badges-row">
+                <span class="cq-ch-badge">الباب ${q.ch}: ${escapeHtml(q.ch_name || '')}</span>
+                <span class="cq-id-badge">#Q${q.id}</span>
+                ${q.sub ? `<span class="cq-sub-badge">${escapeHtml(q.sub)}</span>` : ''}
+              </div>
+              <span class="cq-answer-pill ${pillClass}">${pillText}</span>
+            </div>
+
+            <!-- جسم الكارت -->
+            <div class="cq-card-body ${hasImg ? 'has-img' : ''}">
+              ${hasImg ? `
+                <div class="cq-img-col">
+                  <div class="cq-img-thumb-wrap" onclick="openLightbox('${imgUrl}', 'الباب ${q.ch} - سؤال #${q.id}')" title="اضغط للتكبير">
+                    <img class="cq-img-thumb" src="${imgUrl}" alt="إشارة رسمية" loading="lazy">
+                  </div>
+                  <span class="cq-img-zoom-hint">🔍 انقر للتكبير</span>
+                </div>
+              ` : ''}
+
+              <div class="cq-text-col">
+                <div class="cq-q-italian">${itHighlighted}</div>
+                <div class="cq-q-arabic">${arHighlighted}</div>
+
+                <!-- تفاصيل الشرح والفخ الوزاري -->
+                ${(q.sp || q.tb) ? `
+                  <div class="cq-details-toggle" onclick="toggleDetails(${q.ch}, ${q.id})">
+                    <span>💡 الشرح الوزاري والفخ الخبيث</span>
+                    <span id="arrow_${q.ch}_${q.id}">▾</span>
+                  </div>
+                  <div class="cq-details-box" id="details_${q.ch}_${q.id}">
+                    ${q.sp ? `
+                      <div class="cq-sp-box">
+                        <strong>💡 الشرح القانوني:</strong> ${escapeHtml(q.sp)}
+                      </div>
+                    ` : ''}
+                    ${q.tb ? `
+                      <div class="cq-tb-box">
+                        <strong>🚨 فخ الامتحان (Attenzione):</strong> ${escapeHtml(q.tb)}
+                      </div>
+                    ` : ''}
+                    ${pkHtml}
+                  </div>
+                ` : ''}
+              </div>
+            </div>
+
+            <!-- ذيل الإجراءات -->
+            <div class="cq-card-actions">
+              <button class="cq-action-btn" onclick="speakItalian('${encodeURIComponent(q.q || '')}')" title="استمع لنطق السؤال بالإيطالية">
+                <span>🔊 استمع</span>
+              </button>
+              <button class="cq-action-btn" onclick="copyQuestion('${encodeURIComponent(q.q || '')}', '${encodeURIComponent(q.tr || '')}', ${isVero})" title="نسخ السؤال وترجمته">
+                <span>📋 نسخ</span>
+              </button>
+              <a href="../Capitoli_Divisi/index.html?ch=${q.ch}&q=${q.id}" class="cq-action-btn" target="_blank" title="تصفح السؤال داخل بابه">
+                <span>🔗 تصفح الباب</span>
+              </a>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+
+      // التحكم في زر تحميل المزيد
+      if (displayedCount < currentResults.length) {
+        loadMoreWrap.style.display = 'block';
+      } else {
+        loadMoreWrap.style.display = 'none';
+      }
+    }
+
+    function loadMoreResults() {
+      displayedCount += PAGE_SIZE;
+      renderResults();
+    }
+
+    function toggleDetails(ch, id) {
+      const box = document.getElementById(`details_${ch}_${id}`);
+      const arrow = document.getElementById(`arrow_${ch}_${id}`);
+      if (!box) return;
+      const isOpen = box.classList.contains('open');
+      box.classList.toggle('open', !isOpen);
+      if (arrow) arrow.innerText = !isOpen ? '▴' : '▾';
+    }
+
+    /**
+     * نطق السؤال بالصوت الإيطالي
+     */
+    function speakItalian(encodedText) {
+      const text = decodeURIComponent(encodedText);
+      if (!window.speechSynthesis) {
+        alert('المتصفح لا يدعم نطق الصوت.');
+        return;
+      }
+      window.speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = 'it-IT';
+      utter.rate = 0.95;
+      window.speechSynthesis.speak(utter);
+    }
+
+    /**
+     * نسخ السؤال والترجمة
+     */
+    function copyQuestion(encodedQ, encodedTr, isVero) {
+      const q = decodeURIComponent(encodedQ);
+      const tr = decodeURIComponent(encodedTr);
+      const text = `${q}\n[${isVero ? 'VERO' : 'FALSO'}]\n${tr}\n\n— عبر Patente B Pro (Cerca Quiz)`;
+      
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('تم نسخ السؤال وترجمته إلى الحافظة! 📋');
+      }).catch(() => {
+        showToast('تم النسخ!');
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('cqToast');
+      toast.innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    /**
+     * لايت بوكس تكبير الصور
+     */
+    function openLightbox(src, caption) {
+      const modal = document.getElementById('cqLightbox');
+      document.getElementById('cqLightboxImg').src = src;
+      document.getElementById('cqLightboxCaption').innerText = caption;
+      modal.classList.add('open');
+    }
+
+    function closeLightbox(e) {
+      if (e.target.id === 'cqLightbox' || e.target.classList.contains('cq-lightbox-close')) {
+        document.getElementById('cqLightbox').classList.remove('open');
+      }
+    }
+  </script>
+</body>
+</html>

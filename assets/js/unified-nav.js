@@ -287,6 +287,7 @@
     const isHub = (full.includes('capitoli_divisi') && cur.includes('index')) || 
                   (!full.includes('interactive_pages') && cur.includes('index') && !isGuide);
     const isPiano = cur.includes('piano-studio');
+    const isCerca = cur.includes('cerca-quiz');
     const isIncroci = cur.includes('decodificatore-incroci');
     const isParole = cur.includes('parole-spia');
     const isNumeri = cur.includes('laboratorio-numeri');
@@ -300,7 +301,7 @@
 
     // تصنيفات الهيدر
     const isCurriculumActive = isGuide || isHub || isPiano;
-    const isLabsActive = isIncroci || isParole || isNumeri || isSoccorso;
+    const isLabsActive = isCerca || isIncroci || isParole || isNumeri || isSoccorso;
     const isTrainingActive = isScheda || isCards || isTraps || isTrucchi;
 
     // حساب التقدم العام
@@ -435,6 +436,14 @@
                 <span class="cat-menu-badge">المعامل التفاعلية</span>
                 <span class="cat-menu-subtitle">أدوات ذكية متطورة لحل العقد وتفكيك القواعد</span>
               </div>
+              <a href="${ctx.interactive}cerca-quiz.html" class="nav-cat-item ${isCerca ? 'active' : ''}">
+                <div class="cat-item-icon">🔍</div>
+                <div class="cat-item-content">
+                  <div class="cat-item-title">محرك البحث الوزاري الفوري (Cerca Quiz)</div>
+                  <div class="cat-item-desc">بحث فوري فائق السرعة في الـ 7,139 سؤالاً مع كشف الفخاخ والشروحات</div>
+                </div>
+                ${isCerca ? '<span class="cat-current-tag">أنت هنا</span>' : ''}
+              </a>
               <a href="${ctx.interactive}decodificatore-incroci.html" class="nav-cat-item ${isIncroci ? 'active' : ''}">
                 <div class="cat-item-icon">🔄</div>
                 <div class="cat-item-content">
@@ -705,6 +714,11 @@
             <!-- 2. المعامل الذكية -->
             <div class="mobile-drawer-divider"></div>
             <div class="mobile-drawer-section-label">🔬 المعامل الذكية</div>
+            <a href="${ctx.interactive}cerca-quiz.html" class="mobile-drawer-link ${isCerca ? 'active' : ''}">
+              <span class="drawer-link-icon">🔍</span>
+              <span class="drawer-link-text">محرك البحث الوزاري الفوري (Cerca Quiz)</span>
+              ${isCerca ? '<span class="drawer-link-badge">أنت هنا</span>' : ''}
+            </a>
             <a href="${ctx.interactive}decodificatore-incroci.html" class="mobile-drawer-link ${isIncroci ? 'active' : ''}">
               <span class="drawer-link-icon">🔄</span>
               <span class="drawer-link-text">مفكك التقاطعات التفاعلي</span>
