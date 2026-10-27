@@ -20,48 +20,35 @@
     { "source": "/Studio_Quiz_Patente", "destination": "/Studio_Quiz_Patente.html" },
     { "source": "/capitoli", "destination": "/Capitoli_Divisi/index.html" },
     { "source": "/Capitoli_Divisi", "destination": "/Capitoli_Divisi/index.html" },
-    { "source": "/privacy", "destination": "/interactive_pages/index.html" },
-    { "source": "/terms", "destination": "/interactive_pages/index.html" }
+    { "source": "/privacy", "destination": "/interactive_pages/privacy.html" },
+    { "source": "/terms", "destination": "/interactive_pages/privacy.html" }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        }
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
       ]
     },
     {
-      "source": "/assets/js/(.*)",
+      "source": "/assets/(css|js)/(.*)",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
+        { "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" }
       ]
     },
     {
-      "source": "/assets/(.*)",
+      "source": "/(img_sign|assets/images|assets/icons)/(.*)",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=86400"
-        }
+        { "key": "Cache-Control", "value": "public, max-age=2592000, immutable" }
       ]
     },
     {
       "source": "/service-worker.js",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
     }
   ]

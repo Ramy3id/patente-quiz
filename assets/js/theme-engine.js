@@ -16,8 +16,8 @@
       const saved = localStorage.getItem(THEME_KEY);
       if (saved === 'light' || saved === 'dark') return saved;
     } catch (_) {}
-    // Default to dark mode for Patente B Pro
-    return 'dark';
+    // Default to light mode for Patente B Pro
+    return 'light';
   }
 
   const currentTheme = getPreferredTheme();

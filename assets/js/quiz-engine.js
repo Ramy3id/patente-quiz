@@ -166,6 +166,11 @@ class PatenteExamEngine {
   recordAnswer(questionId, value) {
     if (this.isSubmitted) return;
     this.answers[questionId] = Boolean(value);
+    
+    // Haptic Feedback for Mobile Touch (Apple HIG & Android Haptics)
+    if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+      try { navigator.vibrate(12); } catch (_) {}
+    }
   }
 
   /**
@@ -264,6 +269,17 @@ class PatenteExamEngine {
     });
 
     analysis.passed = analysis.errors <= this.maxAllowedErrors;
+
+    // Haptic Feedback based on Exam Result (Pass vs Fail)
+    if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+      try {
+        if (analysis.passed) {
+          navigator.vibrate([20, 30, 40]);
+        } else {
+          navigator.vibrate([40, 60, 40]);
+        }
+      } catch (_) {}
+    }
 
     // حفظ النتيجة محلياً
     this.saveResultHistory(analysis);
