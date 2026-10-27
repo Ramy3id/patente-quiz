@@ -193,8 +193,8 @@
 
       if (fillEl) fillEl.style.width = `${progress.pct}%`;
       if (pctBadge) pctBadge.innerText = `${progress.pct}%`;
-      if (qMeta) qMeta.innerText = `📝 أُجيب: ${progress.answeredCount} من ${progress.totalQuestions} سؤالاً`;
-      if (gMeta) gMeta.innerText = `🏆 اكتمل: ${progress.completedGroups} من ${progress.totalGroups} قسماً`;
+      if (qMeta) qMeta.innerText = `🎯 أُتقن: ${progress.answeredCount} من ${progress.totalQuestions} سؤالاً`;
+      if (gMeta) gMeta.innerText = `🏆 أُتقن بالكامل: ${progress.completedGroups} من ${progress.totalGroups} قسماً`;
     },
 
     bindGlobals() {
@@ -293,8 +293,8 @@
               <span class="chapter-progress-pct-badge" id="chapter-progress-pct">${progress.pct}%</span>
             </div>
             <div class="chapter-progress-meta">
-              <span id="chapter-progress-q-meta">📝 أُجيب: ${progress.answeredCount} من ${progress.totalQuestions} سؤالاً</span>
-              <span id="chapter-progress-g-meta">🏆 اكتمل: ${progress.completedGroups} من ${progress.totalGroups} قسماً</span>
+              <span id="chapter-progress-q-meta">🎯 أُتقن: ${progress.answeredCount} من ${progress.totalQuestions} سؤالاً</span>
+              <span id="chapter-progress-g-meta">🏆 أُتقن بالكامل: ${progress.completedGroups} من ${progress.totalGroups} قسماً</span>
               <button class="chapter-reset-btn" onclick="resetChapterProgress()" title="إعادة تعيين التقدم لهذا الباب">
                 <span>🔄 تصفير الإنجاز</span>
               </button>
@@ -428,14 +428,14 @@
 
       const groupQuestions = this.data.domande.filter(q => q.gruppo_unificato === gKey);
       const total = groupQuestions.length;
-      let answered = 0;
+      let mastered = 0;
       groupQuestions.forEach(q => {
-        if (this.userAnswers[q.id]) answered++;
+        if (this.masteredIds.has(q.id)) mastered++;
       });
 
-      const isDone = (answered === total && total > 0);
+      const isDone = (mastered >= total && total > 0);
       badge.className = `subtopic-stat-pill progress-pill ${isDone ? 'done' : ''}`;
-      badge.innerText = `${isDone ? '🎉 مكتمل ' : '🎯 إنجاز '}${answered}/${total}`;
+      badge.innerText = `${isDone ? '🏆 إتقان كامل ' : '🎯 إتقان '}${mastered}/${total}`;
     },
 
     buildQuestionCardHtml(q) {
@@ -823,8 +823,22 @@
     startPartQuiz(gKey, reqCount) {
       if (window.soundEngine && window.soundEngine.click) window.soundEngine.click();
       
-      const questionsInGroup = this.data.domande.filter(q => q.gruppo_unificato === gKey);
+      let questionsInGroup = this.data.domande.filter(q => q.gruppo_unificato === gKey);
       if (!questionsInGroup.length) return;
+
+      if (this.isChapterGated()) {
+        const available = questionsInGroup.filter(q => !this.isQuestionLocked(q));
+        if (available.length === 0) {
+          if (window.PatenteAuth && window.PatenteAuth.showGateModal) {
+            window.PatenteAuth.showGateModal({
+              title: 'كويزات الإتقان مخصصة للطلاب المسجلين!',
+              message: 'اختبارات الإتقان الذكية وحفظ تقدم الأجزاء متاحة للطلاب المسجلين. سجّل حسابك المجاني في 10 ثوانٍ لفتح جميع كويزات هذا الباب!'
+            });
+          }
+          return;
+        }
+        questionsInGroup = available;
+      }
 
       // Priority Sampling:
       // Priority 1: Unmastered questions (never answered correctly in quiz)
@@ -1519,6 +1533,13 @@
         }
         .quiz-mistake-item:last-child {
           border-bottom: none;
+        }
+        html.light .quiz-mistakes-header {
+          color: #DC2626;
+          border-bottom-color: rgba(220, 38, 38, 0.2);
+        }
+        html.light .quiz-mistake-item {
+          border-bottom-color: rgba(15, 23, 42, 0.08);
         }
 
         .quiz-results-actions {
