@@ -961,6 +961,207 @@
       margin-top: 8px;
       text-align: center;
     }
+  
+    /* ================= MASTER RADAR TABS ================= */
+    .ps-master-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 768px) {
+      .ps-master-tabs {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+    }
+    .ps-master-tab {
+      background: var(--ps-card-bg);
+      border: 1px solid var(--ps-card-border);
+      border-radius: 18px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      text-align: right;
+      transition: all 0.25s ease;
+      position: relative;
+      color: var(--ps-text);
+      font-family: inherit;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .ps-master-tab:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    .ps-master-tab.active {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.14) 0%, rgba(15, 23, 42, 0.85) 100%);
+      border-color: var(--ps-cyan);
+      box-shadow: 0 0 24px rgba(56, 189, 248, 0.18);
+    }
+    html.light .ps-master-tab.active {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, #FFFFFF 100%);
+      border-color: #0284C7;
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.15);
+    }
+    .pmt-icon {
+      font-size: 2rem;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+    .pmt-content {
+      flex: 1;
+    }
+    .pmt-title {
+      display: block;
+      font-weight: 800;
+      font-size: 1.05rem;
+      margin-bottom: 3px;
+      color: var(--ps-text);
+    }
+    .pmt-desc {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--ps-text-sub);
+    }
+    .pmt-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--ps-amber);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      position: absolute;
+      top: 12px;
+      left: 12px;
+    }
+
+    /* Radar Section Wrapper */
+    .radar-tab-section {
+      animation: fadeInTab 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes fadeInTab {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Mini Hero Intro Strip */
+    .radar-intro-strip {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--ps-card-border);
+      border-radius: 16px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    html.light .radar-intro-strip {
+      background: #F8FAFC;
+    }
+    .radar-intro-icon {
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+    .radar-intro-body h3 {
+      margin: 0 0 4px 0;
+      font-size: 1.05rem;
+      font-weight: 800;
+    }
+    .radar-intro-body p {
+      margin: 0;
+      font-size: 0.86rem;
+      color: var(--ps-text-sub);
+      line-height: 1.5;
+    }
+
+    /* Sign & Theory Cards */
+    .ps-sign-card, .ps-theory-card {
+      background: var(--ps-card-bg);
+      border: 1px solid var(--ps-card-border);
+      border-radius: 18px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+    .ps-sign-card:hover, .ps-theory-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+    .sign-card-thumb-wrap {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--ps-card-border);
+      border-radius: 14px;
+      padding: 12px;
+      margin: 12px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 110px;
+    }
+    html.light .sign-card-thumb-wrap {
+      background: #F1F5F9;
+    }
+    .sign-card-thumb {
+      max-height: 95px;
+      max-width: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+    }
+    .trap-keyword-box {
+      background: rgba(244, 63, 94, 0.08);
+      border: 1px dashed rgba(244, 63, 94, 0.3);
+      border-radius: 10px;
+      padding: 8px 12px;
+      margin-bottom: 10px;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .trap-keyword-box.vero-key {
+      background: rgba(16, 185, 129, 0.08);
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+    .trap-expl-text {
+      font-size: 0.86rem;
+      line-height: 1.6;
+      color: var(--ps-text-sub);
+      margin-bottom: 12px;
+    }
+    .rule-action-btn {
+      width: 100%;
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--ps-cyan);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 12px;
+      padding: 10px;
+      font-weight: 800;
+      font-family: inherit;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .rule-action-btn:hover {
+      background: var(--ps-cyan);
+      color: #0F172A;
+      border-color: var(--ps-cyan);
+    }
+
   </style>
 </head>
 <body>
@@ -1028,6 +1229,39 @@
         </div>
       </div>
     </header>
+
+    <!-- أزرار التبويب الرئيسية الثلاثة لرادار الامتحان -->
+    <div class="ps-master-tabs" role="tablist">
+      <button class="ps-master-tab active" id="tabBtnGeneral" onclick="switchMainRadarTab('general')">
+        <span class="pmt-icon">🔤</span>
+        <div class="pmt-content">
+          <span class="pmt-title">الكلمات السحرية العامة</span>
+          <span class="pmt-desc">كلمات الحسم وماراثون الإتقان</span>
+        </div>
+      </button>
+
+      <button class="ps-master-tab" id="tabBtnSigns" onclick="switchMainRadarTab('signs')">
+        <span class="pmt-icon">🚦</span>
+        <div class="pmt-content">
+          <span class="pmt-title">رادار كشف الفخ مع الإشارة</span>
+          <span class="pmt-desc">الأبواب 1 - 10 (فخاخ الإشارات)</span>
+        </div>
+        <span class="pmt-badge">جديد ⚡</span>
+      </button>
+
+      <button class="ps-master-tab" id="tabBtnTheory" onclick="switchMainRadarTab('theory')">
+        <span class="pmt-icon">⚖️</span>
+        <div class="pmt-content">
+          <span class="pmt-title">القواعد والمحرمات النظرية</span>
+          <span class="pmt-desc">الأبواب 11 - 25 (الإسعافات والتأمين...)</span>
+        </div>
+        <span class="pmt-badge">جديد ⚡</span>
+      </button>
+    </div>
+
+    <!-- 1. قسم الكلمات السحرية العامة والماراثون -->
+    <div id="radarSectionGeneral" class="radar-tab-section active">
+
 
     <!-- كارت ماراثون التحدي الشامل -->
     <section class="ps-marathon-card" id="marathonCard">
@@ -1110,6 +1344,80 @@
       <div style="text-align:center; grid-column:1/-1; padding:40px; color:var(--ps-text-sub);">جاري تحميل الكلمات وبنك الأسئلة...</div>
     </div>
 
+    </div><!-- نهاية radarSectionGeneral -->
+
+    <!-- 2. قسم رادار كشف الفخ مع الإشارة (الأبواب 1 - 10) -->
+    <div id="radarSectionSigns" class="radar-tab-section" style="display:none;">
+      <div class="radar-intro-strip">
+        <span class="radar-intro-icon">🚦</span>
+        <div class="radar-intro-body">
+          <h3>رادار فخاخ الإشارات واللوحات الرسمية (الأبواب 1 - 10)</h3>
+          <p>
+            تكتيكات مدارس تعليم القيادة: عند رؤية إشارة محددة مع كلمة إيطالية معينة في نص السؤال، تحسم الإجابة فوراً VERO أو FALSO بنسبة 100%!
+            اختر أي قاعدة لاستعراض كافة أسئلتها الوزارية واختبار نفسك فيها.
+          </p>
+        </div>
+      </div>
+
+      <!-- شريط البحث والفلترة للإشارات -->
+      <div class="ps-controls">
+        <input type="text" id="signSearchInput" class="ps-search-input" placeholder="🔍 ابحث برقم الإشارة أو اسمها أو الكلمة المفتاحية (مثل filobus أو STOP أو sosta)..." oninput="filterSignsCards()">
+        <div class="ps-filters-row">
+          <button class="ps-filter-btn active" id="btnSignFilterAll" onclick="setSignFilter('all')">🌟 كافة فخاخ الإشارات (<span id="cntSignAll">0</span>)</button>
+          <button class="ps-filter-btn filter-falso" id="btnSignFilterFalso" onclick="setSignFilter('falso')">🔴 أفخاخ FALSO القطعية (<span id="cntSignFalso">0</span>)</button>
+          <button class="ps-filter-btn filter-vero" id="btnSignFilterVero" onclick="setSignFilter('vero')">🟢 مفاتيح VERO المؤكدة (<span id="cntSignVero">0</span>)</button>
+          <button class="ps-filter-btn" id="btnSignFilterPericolo" onclick="setSignFilter('pericolo')">⚠️ إشارات الخطر</button>
+          <button class="ps-filter-btn" id="btnSignFilterDivieto" onclick="setSignFilter('divieto')">🚫 إشارات المنع</button>
+          <button class="ps-filter-btn" id="btnSignFilterObbligo" onclick="setSignFilter('obbligo')">🔵 إشارات الإلزام</button>
+          <button class="ps-filter-btn" id="btnSignFilterPrecedenza" onclick="setSignFilter('precedenza')">🔺 إشارات الأسبقية</button>
+          <button class="ps-filter-btn" id="btnSignFilterOrizzontale" onclick="setSignFilter('orizzontale')">➖ الإشارات الأرضية</button>
+        </div>
+      </div>
+
+      <!-- شبكة بطاقات فخاخ الإشارات -->
+      <div class="ps-grid" id="signsGrid">
+        <div style="text-align:center; grid-column:1/-1; padding:40px; color:var(--ps-text-sub);">جاري تحميل بطاقات فخاخ الإشارات...</div>
+      </div>
+    </div><!-- نهاية radarSectionSigns -->
+
+    <!-- 3. قسم القواعد والمحرمات النظرية (الأبواب 11 - 25) -->
+    <div id="radarSectionTheory" class="radar-tab-section" style="display:none;">
+      <div class="radar-intro-strip">
+        <span class="radar-intro-icon">⚖️</span>
+        <div class="radar-intro-body">
+          <h3>رادار القواعد الذهبية والمحرمات النظرية (الأبواب 11 - 25)</h3>
+          <p>
+            الثوابت القطعية في الإسعافات الأولية، التأمين الإجباري RCA، أحزمة الأمان والوسائد الهوائية، وحدود السرعة والفرملة.
+            هذه القواعد لا تحتمل التأويل وتأتي أسئلتها حاسمة 100% في الامتحان الوزاري.
+          </p>
+        </div>
+      </div>
+
+      <!-- شريط البحث والفلترة للقواعد النظرية -->
+      <div class="ps-controls">
+        <input type="text" id="theorySearchInput" class="ps-search-input" placeholder="🔍 ابحث في القواعد النظرية (مثل الإسعافات، التأمين، الحزام، السرعة، النقاط)..." oninput="filterTheoryCards()">
+        <div class="ps-filters-row">
+          <button class="ps-filter-btn active" id="btnTheoryFilterAll" onclick="setTheoryFilter('all')">🌟 كافة القواعد (<span id="cntTheoryAll">0</span>)</button>
+          <button class="ps-filter-btn filter-falso" id="btnTheoryFilterFalso" onclick="setTheoryFilter('falso')">🔴 محرمات FALSO القطعية (<span id="cntTheoryFalso">0</span>)</button>
+          <button class="ps-filter-btn filter-vero" id="btnTheoryFilterVero" onclick="setTheoryFilter('vero')">🟢 ثوابت VERO المؤكدة (<span id="cntTheoryVero">0</span>)</button>
+          <button class="ps-filter-btn" id="btnTheoryFilterSoccorso" onclick="setTheoryFilter('soccorso')">🚑 الإسعافات الأولية</button>
+          <button class="ps-filter-btn" id="btnTheoryFilterAssicurazione" onclick="setTheoryFilter('assicurazione')">🛡️ التأمين RCA</button>
+          <button class="ps-filter-btn" id="btnTheoryFilterCinture" onclick="setTheoryFilter('cinture')">💺 الحزام والأيرباج</button>
+          <button class="ps-filter-btn" id="btnTheoryFilterDistanza" onclick="setTheoryFilter('distanza')">📏 السرعة ومسافة الأمان</button>
+          <button class="ps-filter-btn" id="btnTheoryFilterAlcool" onclick="setTheoryFilter('alcool')">🍷 الكحول والمخدرات</button>
+          <button class="ps-filter-btn" id="btnTheoryFilterPatente" onclick="setTheoryFilter('patente')">📋 الرخص ونظام النقاط</button>
+          <button class="ps-filter-btn" id="btnTheoryFilterSosta" onclick="setTheoryFilter('sosta')">🛑 الوقوف والتوقف</button>
+          <button class="ps-filter-btn" id="btnTheoryFilterMeccanica" onclick="setTheoryFilter('meccanica')">🔧 الميكانيكا والإطارات</button>
+        </div>
+      </div>
+
+      <!-- شبكة بطاقات القواعد النظرية -->
+      <div class="ps-grid" id="theoryGrid">
+        <div style="text-align:center; grid-column:1/-1; padding:40px; color:var(--ps-text-sub);">جاري تحميل بطاقات القواعد النظرية...</div>
+      </div>
+    </div><!-- نهاية radarSectionTheory -->
+
+
   </div>
 
   <!-- نافذة استعراض وتدريب الأسئلة Modal -->
@@ -1177,6 +1485,7 @@
   <script src="../assets/js/bilingual-highlighter.js"></script>
   <script src="../assets/js/trap-vault.js"></script>
   <script src="../assets/js/question-decoder.js"></script>
+  <script src="../assets/js/data-radar-expanded.js"></script>
 
   <script>
     /**
@@ -2811,6 +3120,8 @@
       renderCards();
       initMagicQuestionsIndex();
       updateMarathonDashboardUI();
+      if (typeof initSignCounts === 'function') initSignCounts();
+      if (typeof initTheoryCounts === 'function') initTheoryCounts();
     });
 
     /**
@@ -3928,6 +4239,404 @@
         navigator.serviceWorker.register('../service-worker.js').catch(err => console.log('SW registration failed:', err));
       });
     }
+  
+    // =========================================================================
+    // رادار كشف الفخ مع الإشارة والقواعد النظرية (Master Radar Engine)
+    // =========================================================================
+    let currentMasterTab = 'general';
+    let activeSignFilter = 'all';
+    let activeTheoryFilter = 'all';
+    let signsRendered = false;
+    let theoryRendered = false;
+
+    function switchMainRadarTab(tabKey) {
+      currentMasterTab = tabKey;
+
+      // تحديث أزرار التبويب
+      document.querySelectorAll('.ps-master-tab').forEach(b => b.classList.remove('active'));
+      const activeBtn = document.getElementById(
+        tabKey === 'general' ? 'tabBtnGeneral' :
+        tabKey === 'signs' ? 'tabBtnSigns' : 'tabBtnTheory'
+      );
+      if (activeBtn) activeBtn.classList.add('active');
+
+      // تبديل الأقسام
+      const secGen = document.getElementById('radarSectionGeneral');
+      const secSigns = document.getElementById('radarSectionSigns');
+      const secTheory = document.getElementById('radarSectionTheory');
+
+      if (secGen) secGen.style.display = tabKey === 'general' ? 'block' : 'none';
+      if (secSigns) secSigns.style.display = tabKey === 'signs' ? 'block' : 'none';
+      if (secTheory) secTheory.style.display = tabKey === 'theory' ? 'block' : 'none';
+
+      // تحديث إحصائيات الهيدر التفاعلية
+      const statWordsEl = document.getElementById('statWordsCount');
+      const statQsEl = document.getElementById('statQuestionsCovered');
+
+      if (tabKey === 'general') {
+        if (statWordsEl) statWordsEl.innerText = '36 كلمة';
+        if (statQsEl) statQsEl.innerText = '457 سؤالاً';
+      } else if (tabKey === 'signs') {
+        const signCount = (typeof RADAR_SIGN_TRAPS !== 'undefined') ? RADAR_SIGN_TRAPS.length : 19;
+        const totalSignQs = (typeof RADAR_SIGN_TRAPS !== 'undefined') ? RADAR_SIGN_TRAPS.reduce((acc, r) => acc + (r.count || 0), 0) : 68;
+        if (statWordsEl) statWordsEl.innerText = `${signCount} إشارة وفخ`;
+        if (statQsEl) statQsEl.innerText = `${totalSignQs} سؤالاً`;
+        if (!signsRendered) {
+          renderSignsRadar();
+          signsRendered = true;
+        }
+      } else if (tabKey === 'theory') {
+        const theoryCount = (typeof RADAR_THEORY_RULES !== 'undefined') ? RADAR_THEORY_RULES.length : 17;
+        const totalTheoryQs = (typeof RADAR_THEORY_RULES !== 'undefined') ? RADAR_THEORY_RULES.reduce((acc, r) => acc + (r.count || 0), 0) : 155;
+        if (statWordsEl) statWordsEl.innerText = `${theoryCount} قاعدة ومحرّم`;
+        if (statQsEl) statQsEl.innerText = `${totalTheoryQs} سؤالاً`;
+        if (!theoryRendered) {
+          renderTheoryRadar();
+          theoryRendered = true;
+        }
+      }
+
+      // تمرير ناعم لأعلى الحاوية إذا لزم
+      const container = document.querySelector('.ps-container');
+      if (container && window.scrollY > 300) {
+        container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 1. منطق رادار فخاخ الإشارات (Sign-Trap Radar)
+    // -------------------------------------------------------------------------
+    function initSignCounts() {
+      if (typeof RADAR_SIGN_TRAPS === 'undefined') return;
+      const all = RADAR_SIGN_TRAPS.length;
+      const falso = RADAR_SIGN_TRAPS.filter(r => r.type === 'falso').length;
+      const vero = RADAR_SIGN_TRAPS.filter(r => r.type === 'vero').length;
+
+      const elAll = document.getElementById('cntSignAll');
+      const elFalso = document.getElementById('cntSignFalso');
+      const elVero = document.getElementById('cntSignVero');
+
+      if (elAll) elAll.innerText = all;
+      if (elFalso) elFalso.innerText = falso;
+      if (elVero) elVero.innerText = vero;
+    }
+
+    function setSignFilter(fKey) {
+      activeSignFilter = fKey;
+      document.querySelectorAll('#radarSectionSigns .ps-filter-btn').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById(
+        fKey === 'all' ? 'btnSignFilterAll' :
+        fKey === 'falso' ? 'btnSignFilterFalso' :
+        fKey === 'vero' ? 'btnSignFilterVero' :
+        fKey === 'pericolo' ? 'btnSignFilterPericolo' :
+        fKey === 'divieto' ? 'btnSignFilterDivieto' :
+        fKey === 'obbligo' ? 'btnSignFilterObbligo' :
+        fKey === 'precedenza' ? 'btnSignFilterPrecedenza' : 'btnSignFilterOrizzontale'
+      );
+      if (activeBtn) activeBtn.classList.add('active');
+      filterSignsCards();
+    }
+
+    function filterSignsCards() {
+      if (typeof RADAR_SIGN_TRAPS === 'undefined') return;
+      const query = (document.getElementById('signSearchInput')?.value || '').trim().toLowerCase();
+
+      const filtered = RADAR_SIGN_TRAPS.filter(r => {
+        // فلتر النوع أو التصنيف
+        let matchFilter = true;
+        if (activeSignFilter === 'falso') matchFilter = (r.type === 'falso');
+        else if (activeSignFilter === 'vero') matchFilter = (r.type === 'vero');
+        else if (activeSignFilter !== 'all') matchFilter = (r.category === activeSignFilter);
+
+        if (!matchFilter) return false;
+
+        // فلتر البحث
+        if (!query) return true;
+        const qStr = `${r.title_it} ${r.title_ar} ${r.keyword_it} ${r.trap_ar} ${r.rule_ar} ${r.fig}`.toLowerCase();
+        return qStr.includes(query);
+      });
+
+      renderSignsGrid(filtered);
+    }
+
+    function renderSignsRadar() {
+      initSignCounts();
+      filterSignsCards();
+    }
+
+    function renderSignsGrid(list) {
+      const container = document.getElementById('signsGrid');
+      if (!container) return;
+
+      if (!list || list.length === 0) {
+        container.innerHTML = `
+          <div style="text-align:center; grid-column:1/-1; padding:40px; color:var(--ps-text-sub);">
+            🔍 لا توجد فخاخ إشارات مطابقة لخيارات البحث.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = list.map(r => {
+        const isFalso = r.type === 'falso';
+        const rateColor = isFalso ? 'var(--ps-rose)' : 'var(--ps-emerald)';
+        const rateBg = isFalso ? 'rgba(244, 63, 94, 0.12)' : 'rgba(16, 185, 129, 0.12)';
+        const rateBorder = isFalso ? 'rgba(244, 63, 94, 0.3)' : 'rgba(16, 185, 129, 0.3)';
+
+        const catName =
+          r.category === 'pericolo' ? '⚠️ إشارة خطر' :
+          r.category === 'divieto' ? '🚫 إشارة منع' :
+          r.category === 'obbligo' ? '🔵 إشارة إلزام' :
+          r.category === 'precedenza' ? '🔺 إشارة أسبقية' : '➖ إشارة أرضية';
+
+        const fn = r.fig || '';
+        const rawImg = r.img || '';
+
+        return `
+          <div class="ps-sign-card">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span style="font-size:0.75rem; font-weight:800; color:var(--ps-cyan); background:rgba(56,189,248,0.1); padding:3px 8px; border-radius:6px;">
+                  ${catName} | الباب ${r.ch}
+                </span>
+                <span style="font-size:0.75rem; font-weight:800; color:${rateColor}; background:${rateBg}; border:1px solid ${rateBorder}; padding:3px 8px; border-radius:999px;">
+                  ${r.rate}
+                </span>
+              </div>
+
+              <!-- معاينة الإشارة المرورية -->
+              <div class="sign-card-thumb-wrap">
+                <img src="../img_sign/${fn}" alt="${r.title_it}" class="sign-card-thumb" loading="lazy"
+                  onerror="if(!this.dataset.fallback && '${rawImg}'){this.dataset.fallback='1'; this.src='../Capitoli_Divisi/' + '${rawImg}';}else{this.parentElement.style.display='none';}">
+              </div>
+
+              <h4 style="margin:0 0 4px 0; font-size:1.02rem; font-weight:800; color:var(--ps-text);">
+                ${r.title_ar}
+              </h4>
+              <div style="direction:ltr; text-align:left; font-family:'Plus Jakarta Sans', sans-serif; font-size:0.8rem; font-weight:700; color:var(--ps-cyan); margin-bottom:10px;">
+                ${r.title_it}
+              </div>
+
+              <!-- كبسولة الكلمة المفتاحية أو الفخ -->
+              <div class="trap-keyword-box ${isFalso ? '' : 'vero-key'}">
+                <span style="font-weight:800; color:${rateColor};">
+                  ${isFalso ? '⚠️ الكلمة الفخ (FALSO):' : '🟢 الكلمة الحسم (VERO):'}
+                </span>
+                <strong style="direction:ltr; font-family:'Plus Jakarta Sans', sans-serif; font-size:0.95rem; color:var(--ps-text);">
+                  ${r.keyword_it}
+                </strong>
+              </div>
+
+              <!-- شرح الفخ وسر الإجابة -->
+              <p class="trap-expl-text">
+                <strong>💡 سر الفخ:</strong> ${r.trap_ar}
+              </p>
+            </div>
+
+            <!-- زر فتح الأسئلة والكويز -->
+            <button class="rule-action-btn" onclick="openSignRuleModal('${r.id}')">
+              <span>⚡ تدريب على أسئلة الفخ (${r.count || (r.questions ? r.questions.length : 0)} أسئلة)</span>
+              <span>⬅</span>
+            </button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // -------------------------------------------------------------------------
+    // 2. منطق رادار القواعد الذهبية والمحرمات النظرية (Theory Radar)
+    // -------------------------------------------------------------------------
+    function initTheoryCounts() {
+      if (typeof RADAR_THEORY_RULES === 'undefined') return;
+      const all = RADAR_THEORY_RULES.length;
+      const falso = RADAR_THEORY_RULES.filter(r => r.type === 'falso').length;
+      const vero = RADAR_THEORY_RULES.filter(r => r.type === 'vero').length;
+
+      const elAll = document.getElementById('cntTheoryAll');
+      const elFalso = document.getElementById('cntTheoryFalso');
+      const elVero = document.getElementById('cntTheoryVero');
+
+      if (elAll) elAll.innerText = all;
+      if (elFalso) elFalso.innerText = falso;
+      if (elVero) elVero.innerText = vero;
+    }
+
+    function setTheoryFilter(fKey) {
+      activeTheoryFilter = fKey;
+      document.querySelectorAll('#radarSectionTheory .ps-filter-btn').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById(
+        fKey === 'all' ? 'btnTheoryFilterAll' :
+        fKey === 'falso' ? 'btnTheoryFilterFalso' :
+        fKey === 'vero' ? 'btnTheoryFilterVero' :
+        fKey === 'soccorso' ? 'btnTheoryFilterSoccorso' :
+        fKey === 'assicurazione' ? 'btnTheoryFilterAssicurazione' :
+        fKey === 'cinture' ? 'btnTheoryFilterCinture' :
+        fKey === 'distanza' ? 'btnTheoryFilterDistanza' :
+        fKey === 'alcool' ? 'btnTheoryFilterAlcool' :
+        fKey === 'patente' ? 'btnTheoryFilterPatente' :
+        fKey === 'sosta' ? 'btnTheoryFilterSosta' : 'btnTheoryFilterMeccanica'
+      );
+      if (activeBtn) activeBtn.classList.add('active');
+      filterTheoryCards();
+    }
+
+    function filterTheoryCards() {
+      if (typeof RADAR_THEORY_RULES === 'undefined') return;
+      const query = (document.getElementById('theorySearchInput')?.value || '').trim().toLowerCase();
+
+      const filtered = RADAR_THEORY_RULES.filter(r => {
+        let matchFilter = true;
+        if (activeTheoryFilter === 'falso') matchFilter = (r.type === 'falso');
+        else if (activeTheoryFilter === 'vero') matchFilter = (r.type === 'vero');
+        else if (activeTheoryFilter !== 'all') matchFilter = (r.category === activeTheoryFilter);
+
+        if (!matchFilter) return false;
+
+        if (!query) return true;
+        const qStr = `${r.topic} ${r.title_ar} ${r.title_it} ${r.keywords_it} ${r.golden_rule_ar} ${r.why_trap_ar}`.toLowerCase();
+        return qStr.includes(query);
+      });
+
+      renderTheoryGrid(filtered);
+    }
+
+    function renderTheoryRadar() {
+      initTheoryCounts();
+      filterTheoryCards();
+    }
+
+    function renderTheoryGrid(list) {
+      const container = document.getElementById('theoryGrid');
+      if (!container) return;
+
+      if (!list || list.length === 0) {
+        container.innerHTML = `
+          <div style="text-align:center; grid-column:1/-1; padding:40px; color:var(--ps-text-sub);">
+            🔍 لا توجد قواعد نظرية مطابقة لخيارات البحث.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = list.map(r => {
+        const isFalso = r.type === 'falso';
+        const rateColor = isFalso ? 'var(--ps-rose)' : 'var(--ps-emerald)';
+        const rateBg = isFalso ? 'rgba(244, 63, 94, 0.12)' : 'rgba(16, 185, 129, 0.12)';
+        const rateBorder = isFalso ? 'rgba(244, 63, 94, 0.3)' : 'rgba(16, 185, 129, 0.3)';
+
+        return `
+          <div class="ps-theory-card">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span style="font-size:0.75rem; font-weight:800; color:var(--ps-cyan); background:rgba(56,189,248,0.1); padding:3px 8px; border-radius:6px;">
+                  ${r.topic} | الباب ${r.ch}
+                </span>
+                <span style="font-size:0.75rem; font-weight:800; color:${rateColor}; background:${rateBg}; border:1px solid ${rateBorder}; padding:3px 8px; border-radius:999px;">
+                  ${r.rate}
+                </span>
+              </div>
+
+              <h4 style="margin:6px 0 4px 0; font-size:1.05rem; font-weight:800; color:var(--ps-text);">
+                ${r.title_ar}
+              </h4>
+              <div style="direction:ltr; text-align:left; font-family:'Plus Jakarta Sans', sans-serif; font-size:0.8rem; font-weight:700; color:var(--ps-cyan); margin-bottom:10px;">
+                ${r.title_it}
+              </div>
+
+              <!-- كبسولة الكلمات المفتاحية باللغة الإيطالية -->
+              <div class="trap-keyword-box ${isFalso ? '' : 'vero-key'}">
+                <span style="font-weight:800; color:${rateColor}; font-size:0.8rem;">
+                  ${isFalso ? '⚠️ المحرّمات الإيطالية:' : '🟢 الثوابت الوزارية:'}
+                </span>
+                <strong style="direction:ltr; font-family:'Plus Jakarta Sans', sans-serif; font-size:0.88rem; color:var(--ps-text);">
+                  ${r.keywords_it}
+                </strong>
+              </div>
+
+              <!-- القاعدة الذهبية وسر الفخ الوزاري -->
+              <p class="trap-expl-text">
+                <strong>💡 القاعدة القطعية:</strong> ${r.golden_rule_ar}
+              </p>
+              <p class="trap-expl-text" style="color:var(--ps-amber); font-size:0.82rem; margin-top:-6px;">
+                <strong>⚠️ الفخ الوزاري:</strong> ${r.why_trap_ar}
+              </p>
+            </div>
+
+            <!-- زر فتح الأسئلة والكويز -->
+            <button class="rule-action-btn" onclick="openTheoryRuleModal('${r.id}')">
+              <span>⚡ تدريب على أسئلة القاعدة (${r.count || (r.questions ? r.questions.length : 0)} أسئلة)</span>
+              <span>⬅</span>
+            </button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // -------------------------------------------------------------------------
+    // 3. فتح نوافذ الاستعراض والكويز لقواعد الإشارات والنظري
+    // -------------------------------------------------------------------------
+    function openSignRuleModal(ruleId) {
+      if (typeof RADAR_SIGN_TRAPS === 'undefined') return;
+      const rule = RADAR_SIGN_TRAPS.find(r => r.id === ruleId);
+      if (!rule) return;
+
+      activeModalWord = {
+        it: rule.keyword_it,
+        ar: rule.title_ar,
+        type: rule.type,
+        rate: rule.rate,
+        rule: rule.trap_ar,
+        regex: (rule.keyword_it || "").split("/")[0].trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+      };
+      activeModalQuestions = rule.questions || [];
+
+      const icon = rule.type === 'falso' ? '🔴' : '🟢';
+      document.getElementById("modalTitle").innerHTML = `
+        <span>${icon} فخ إشارة:</span>
+        <strong style="color:var(--ps-cyan);">${rule.title_ar}</strong>
+      `;
+      document.getElementById("modalSummaryText").innerHTML = `
+        يتم الآن استعراض <strong>${activeModalQuestions.length} سؤالاً</strong> رسمياً على هذا الفخ (<strong style="color:${rule.type === 'falso' ? 'var(--ps-rose)' : 'var(--ps-emerald)'};">${rule.rate}</strong>)
+      `;
+
+      modalMode = 'browse';
+      updateModalTabsUI();
+      renderModalBody();
+
+      document.getElementById("qModal").classList.add("open");
+    }
+
+    function openTheoryRuleModal(ruleId) {
+      if (typeof RADAR_THEORY_RULES === 'undefined') return;
+      const rule = RADAR_THEORY_RULES.find(r => r.id === ruleId);
+      if (!rule) return;
+
+      activeModalWord = {
+        it: rule.keywords_it,
+        ar: rule.title_ar,
+        type: rule.type,
+        rate: rule.rate,
+        rule: rule.golden_rule_ar,
+        regex: (rule.keywords_it || "").split("/")[0].trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+      };
+      activeModalQuestions = rule.questions || [];
+
+      const icon = rule.type === 'falso' ? '🔴' : '🟢';
+      document.getElementById("modalTitle").innerHTML = `
+        <span>${icon} قاعدة نظرية:</span>
+        <strong style="color:var(--ps-cyan);">${rule.title_ar}</strong>
+      `;
+      document.getElementById("modalSummaryText").innerHTML = `
+        يتم الآن استعراض <strong>${activeModalQuestions.length} سؤالاً</strong> رسمياً على هذه القاعدة (<strong style="color:${rule.type === 'falso' ? 'var(--ps-rose)' : 'var(--ps-emerald)'};">${rule.rate}</strong>)
+      `;
+
+      modalMode = 'browse';
+      updateModalTabsUI();
+      renderModalBody();
+
+      document.getElementById("qModal").classList.add("open");
+    }
+
   </script>
 </body>
 </html>
