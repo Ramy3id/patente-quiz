@@ -6,20 +6,23 @@ echo   🚦 Patente B Pro 2026 - تشغيل الخادم المحلي السري
 echo ========================================================
 echo.
 echo [1/2] جاري تهيئة الخادم المحلي على المنفذ 8080...
-echo [2/2] جاري فتح لوحة التحكم التفاعلية في المتصفح...
+echo [2/2] جاري فتح المنهج التفاعلي في المتصفح...
 echo.
-echo 🌐 الرابط المحلي: http://localhost:8080/interactive_pages/dashboard.html
+echo 🌐 الرابط المحلي: http://localhost:8080/Capitoli_Divisi/index.html
 echo.
 echo (يرجى ترك هذه النافذة مفتوحة أثناء استخدام التطبيق)
 echo اضغط Ctrl + C لإيقاف الخادم في أي وقت.
 echo ========================================================
 echo.
 
-start http://localhost:8080/interactive_pages/dashboard.html
-python -m http.server 8080
+start http://localhost:8080/Capitoli_Divisi/index.html
 
-if errorlevel 1 (
-  echo تعذر تشغيل بايثون، جاري المحاولة عبر Node.js npx serve...
-  npx -y serve -l 8080 .
+where node >nul 2>nul
+if %errorlevel% equ 0 (
+  node tools/serve.js 8080
+) else (
+  echo تعذر العثور على Node.js، جاري التشغيل عبر Python...
+  python -m http.server 8080
 )
+
 pause

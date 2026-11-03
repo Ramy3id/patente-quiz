@@ -6,11 +6,12 @@
  * @description يتيح تصفح وحل امتحانات المنصة بالكامل بدون اتصال بالإنترنت (Offline Mode)
  */
 
-const CACHE_NAME = "patente-b-pro-v19";
+const CACHE_NAME = 'patente-pro-v2026-11-02-FINAL';
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
   "./Capitoli_Divisi/index.html",
+  "./Capitoli_Divisi/dizionario-sinonimi.html",
   "./assets/js/data-simulatore-questions.js",
   "./Capitoli_Divisi/data_all_questions.js",
   "./assets/css/theme-modes.css",
@@ -29,14 +30,10 @@ const ASSETS_TO_CACHE = [
   "./interactive_pages/decodificatore-incroci.html",
   "./interactive_pages/trucchi-esame.html",
   "./interactive_pages/laboratorio-numeri.html",
-  "./interactive_pages/primo-soccorso.html",
   "./interactive_pages/scheda-esame.html",
-  "./interactive_pages/flashcards.html",
   "./interactive_pages/dashboard.html",
-  "./interactive_pages/traps_and_games.html",
   "./interactive_pages/allenamento-capitolo.html",
   "./interactive_pages/piano-studio.html",
-  "./assets/js/flashcards-engine.js",
   "./assets/js/audio-engine.js",
   "./assets/icons/icon-192.png",
   "./assets/icons/icon-512.png",
@@ -45,12 +42,13 @@ const ASSETS_TO_CACHE = [
 
 // تثبيت السيرفيس وركر وتخزين الأصول الأساسية
 self.addEventListener("install", (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(ASSETS_TO_CACHE).catch((err) => {
         console.warn("Some offline assets failed to precache, will cache on demand:", err);
       });
-    }).then(() => self.skipWaiting())
+    })
   );
 });
 
@@ -61,12 +59,18 @@ self.addEventListener("activate", (event) => {
       return Promise.all(
         keys.map((key) => {
           if (key !== CACHE_NAME) {
+            console.log("[ServiceWorker] Purging old cache:", key);
             return caches.delete(key);
           }
         })
       );
-    }).then(() => self.clients.claim())
+    }).then(() => self.clients.claim()).then(() => {
+      return self.clients.matchAll({ type: 'window' }).then(clients => {
+        clients.forEach(client => client.postMessage({ type: 'CACHE_UPDATED' }));
+      });
+    })
   );
+});
 });
 
 // اعتراض الطلبات وتوفير الكاش عند انقطاع الإنترنت (Network First with Cache Fallback)
