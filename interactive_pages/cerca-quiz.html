@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@500;700&display=swap" rel="stylesheet">
   
   <!-- الأنماط الأساسية للمنصة -->
-  <link rel="stylesheet" href="../assets/css/theme-modes.css">
+  <link rel="stylesheet" href="../assets/css/theme-modes.css?v=2026.11.02.FINAL">
   
   <style>
     :root {
@@ -90,13 +90,30 @@
     }
 
     .cq-title {
-      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      font-size: clamp(1.4rem, 4vw, 2.4rem);
       font-weight: 900;
       letter-spacing: -0.5px;
       margin-bottom: 10px;
       background: linear-gradient(135deg, #FFFFFF 0%, #38BDF8 60%, #818CF8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      line-height: 1.25;
+    }
+
+    .cq-title-it {
+      display: block;
+      font-size: clamp(0.85rem, 2.5vw, 1rem);
+      font-weight: 700;
+      color: var(--cq-cyan);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      direction: ltr;
+      margin-top: 4px;
+      letter-spacing: 0.5px;
+      -webkit-text-fill-color: var(--cq-cyan);
+    }
+    html.light .cq-title-it {
+      color: #0284C7;
+      -webkit-text-fill-color: #0284C7;
     }
 
     html.light .cq-title {
@@ -113,23 +130,23 @@
       font-weight: 600;
     }
 
-    /* Search Box Wrapper */
+        /* Search Box Wrapper */
     .cq-search-box-wrapper {
       position: sticky;
-      top: 75px;
+      top: 60px;
       z-index: 40;
-      background: rgba(11, 15, 25, 0.85);
+      background: rgba(11, 15, 25, 0.92);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      padding: 14px 0 16px;
-      margin-bottom: 20px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 12px 0 14px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       transition: background 0.3s;
     }
 
     html.light .cq-search-box-wrapper {
-      background: rgba(248, 250, 252, 0.85);
-      border-bottom-color: rgba(0, 0, 0, 0.06);
+      background: rgba(248, 250, 252, 0.92);
+      border-bottom-color: rgba(0, 0, 0, 0.08);
     }
 
     .cq-search-input-group {
@@ -140,37 +157,53 @@
 
     .cq-search-icon {
       position: absolute;
-      right: 20px;
+      right: 18px;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       color: var(--cq-cyan);
       pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .cq-search-input {
       width: 100%;
-      padding: 16px 56px 16px 110px;
+      height: 54px;
+      padding: 12px 52px 12px 75px;
       font-family: inherit;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: var(--cq-text);
       background: var(--cq-surface);
-      border: 2px solid rgba(56, 189, 248, 0.3);
+      border: 2px solid rgba(56, 189, 248, 0.35);
       border-radius: 16px;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
       outline: none;
       transition: all 0.25s ease;
+      box-sizing: border-box;
+    }
+
+    html.light .cq-search-input {
+      background: #FFFFFF;
+      border-color: #CBD5E1;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
     }
 
     .cq-search-input:focus {
       border-color: var(--cq-cyan);
-      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25), 0 12px 30px -5px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25), 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    html.light .cq-search-input:focus {
+      border-color: #0284C7;
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.2), 0 8px 24px rgba(0, 0, 0, 0.08);
     }
 
     .cq-search-actions {
       position: absolute;
-      left: 14px;
+      left: 12px;
       top: 50%;
       transform: translateY(-50%);
       display: flex;
@@ -179,7 +212,7 @@
     }
 
     .cq-clear-btn {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.12);
       border: none;
       color: var(--cq-text-sub);
       width: 32px;
@@ -191,6 +224,10 @@
       justify-content: center;
       font-size: 1rem;
       transition: all 0.2s;
+    }
+    html.light .cq-clear-btn {
+      background: #E2E8F0;
+      color: #64748B;
     }
 
     .cq-clear-btn:hover {
@@ -210,127 +247,486 @@
       user-select: none;
     }
 
-    /* Popular Chips */
-    .cq-chips-scroll {
+    /* Custom Dropdown for Popular Searches (Inside Container Frame) */
+    .cq-popular-wrap {
+      max-width: 860px;
+      margin: 10px auto 0;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       gap: 8px;
-      overflow-x: auto;
-      padding: 10px 4px 6px;
-      max-width: 860px;
-      margin: 0 auto;
-      scrollbar-width: none;
     }
 
-    .cq-chips-scroll::-webkit-scrollbar {
-      display: none;
-    }
-
-    .cq-chips-label {
-      font-size: 0.85rem;
-      font-weight: 800;
-      color: var(--cq-text-sub);
-      white-space: nowrap;
-      margin-left: 4px;
-    }
-
-    .cq-chip {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--cq-text);
-      padding: 6px 14px;
-      border-radius: 9999px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.2s ease;
-    }
-
-    html.light .cq-chip {
-      background: #FFFFFF;
-      border-color: #E2E8F0;
-    }
-
-    .cq-chip:hover {
-      background: var(--cq-cyan);
-      color: #0B0F19;
-      border-color: var(--cq-cyan);
-      transform: translateY(-1px);
-    }
-
-    /* Filters Bar */
-    .cq-filters-panel {
-      max-width: 860px;
-      margin: 0 auto 24px;
-      background: var(--cq-card);
-      border: 1px solid var(--cq-card-border);
-      border-radius: 16px;
-      padding: 14px 18px;
+    .cq-popular-header {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      box-shadow: var(--cq-shadow);
     }
 
-    .cq-filter-group {
+    .cq-popular-label {
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--cq-text-sub);
       display: flex;
       align-items: center;
       gap: 6px;
-      flex-wrap: wrap;
     }
 
-    .cq-filter-btn {
-      padding: 6px 14px;
-      border-radius: 10px;
+    .cq-custom-dropdown {
+      position: relative;
+      width: 100%;
+    }
+
+    .cq-dd-trigger {
+      width: 100%;
+      height: 44px;
+      padding: 0 14px;
+      border-radius: 12px;
+      font-family: inherit;
       font-size: 0.88rem;
       font-weight: 700;
-      cursor: pointer;
-      border: 1px solid transparent;
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--cq-text-sub);
-      transition: all 0.2s;
-    }
-
-    html.light .cq-filter-btn {
-      background: #F1F5F9;
-    }
-
-    .cq-filter-btn:hover {
       color: var(--cq-text);
-      background: rgba(255, 255, 255, 0.1);
+      background: var(--cq-surface);
+      border: 1px solid var(--cq-card-border);
+      outline: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+      text-align: right;
     }
 
-    .cq-filter-btn.active {
+    html.light .cq-dd-trigger {
+      background: #FFFFFF;
+      border-color: #CBD5E1;
+      color: #1E293B;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .cq-dd-trigger:hover,
+    .cq-custom-dropdown.is-open .cq-dd-trigger {
+      border-color: var(--cq-cyan);
+    }
+
+    html.light .cq-dd-trigger:hover,
+    html.light .cq-custom-dropdown.is-open .cq-dd-trigger {
+      border-color: #0284C7;
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    }
+
+    .cq-dd-trigger-content {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .cq-dd-icon {
+      font-size: 1rem;
+      color: var(--cq-cyan);
+    }
+
+    .cq-dd-selected {
+      font-weight: 700;
+      font-size: 0.86rem;
+      color: var(--cq-text);
+    }
+
+    .cq-dd-selected.is-placeholder {
+      color: var(--cq-text-sub);
+    }
+
+    .cq-dd-arrow {
+      font-size: 0.85rem;
+      color: var(--cq-text-sub);
+      transition: transform 0.2s ease;
+    }
+
+    .cq-custom-dropdown.is-open .cq-dd-arrow {
+      transform: rotate(180deg);
+      color: var(--cq-cyan);
+    }
+
+    /* Dropdown Menu Popup - Bound 100% to Container Width */
+    .cq-dd-menu {
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
+      left: 0;
+      width: 100%;
+      max-width: 100%;
+      max-height: 290px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background: var(--cq-surface);
+      border: 1px solid var(--cq-card-border);
+      border-radius: 14px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+      z-index: 100;
+      display: none;
+      padding: 6px;
+      box-sizing: border-box;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      scrollbar-width: thin;
+    }
+
+    .cq-dd-menu::-webkit-scrollbar {
+      width: 5px;
+    }
+    .cq-dd-menu::-webkit-scrollbar-thumb {
+      background: rgba(56, 189, 248, 0.3);
+      border-radius: 999px;
+    }
+    html.light .cq-dd-menu::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+    }
+
+    html.light .cq-dd-menu {
+      background: #FFFFFF;
+      border-color: #E2E8F0;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .cq-custom-dropdown.is-open .cq-dd-menu {
+      display: block;
+      animation: cqFadeDown 0.2s ease;
+    }
+
+    @keyframes cqFadeDown {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .cq-dd-group-title {
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: var(--cq-cyan);
+      padding: 8px 10px 4px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 4px;
+      letter-spacing: 0.3px;
+    }
+
+    html.light .cq-dd-group-title {
+      color: #0284C7;
+      border-bottom-color: #F1F5F9;
+    }
+
+    .cq-dd-group-title:first-child {
+      margin-top: 0;
+    }
+
+    .cq-dd-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-size: 0.85rem;
+      gap: 10px;
+    }
+
+    .cq-dd-item:hover {
+      background: rgba(56, 189, 248, 0.12);
+    }
+
+    html.light .cq-dd-item:hover {
+      background: #F0F9FF;
+    }
+
+    .cq-dd-it {
+      font-family: 'Fira Code', 'Cairo', monospace;
+      font-weight: 700;
+      color: var(--cq-text);
+      font-size: 0.86rem;
+      white-space: nowrap;
+    }
+
+    html.light .cq-dd-it {
+      color: #0F172A;
+    }
+
+    .cq-dd-ar {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--cq-text-sub);
+      text-align: left;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* Quick Badges */
+    .cq-quick-pills-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding: 2px 0;
+      scrollbar-width: none;
+    }
+    .cq-quick-pills-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cq-quick-pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--cq-text-sub);
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Fira Code', 'Cairo', monospace;
+    }
+
+    html.light .cq-quick-pill {
+      background: #F1F5F9;
+      border-color: #E2E8F0;
+      color: #475569;
+    }
+
+    .cq-quick-pill:hover {
       background: var(--cq-cyan);
       color: #0B0F19;
+      border-color: var(--cq-cyan);
+    }
+
+    html.light .cq-quick-pill:hover {
+      background: #0284C7;
+      color: #FFFFFF;
+      border-color: #0284C7;
+    }
+
+    /* Filters Bar - Clean Modular Grid System */
+    .cq-filters-panel {
+      max-width: 860px;
+      margin: 0 auto 20px;
+      background: var(--cq-card);
+      border: 1px solid var(--cq-card-border);
+      border-radius: 18px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: var(--cq-shadow);
+    }
+
+    html.light .cq-filters-panel {
+      background: #FFFFFF;
+      border-color: #E2E8F0;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+    }
+
+    .cq-filter-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .cq-filter-row-header {
+      font-size: 0.82rem;
       font-weight: 800;
+      color: var(--cq-text-sub);
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .cq-filter-btn.btn-vero.active {
-      background: var(--cq-emerald);
-      color: #FFFFFF;
+    /* Segmented Control for VERO / FALSO / ALL */
+    .cq-seg-control {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 4px;
+      border-radius: 12px;
+      border: 1px solid var(--cq-card-border);
     }
 
-    .cq-filter-btn.btn-falso.active {
-      background: var(--cq-rose);
-      color: #FFFFFF;
+    html.light .cq-seg-control {
+      background: #F8FAFC;
+      border-color: #E2E8F0;
+    }
+
+    .cq-seg-btn {
+      padding: 8px 10px;
+      border-radius: 9px;
+      font-size: 0.86rem;
+      font-weight: 800;
+      text-align: center;
+      border: none;
+      background: transparent;
+      color: var(--cq-text-sub);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-family: inherit;
+    }
+
+    .cq-seg-btn:hover {
+      color: var(--cq-text);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    html.light .cq-seg-btn:hover {
+      color: #0F172A;
+      background: #E2E8F0;
+    }
+
+    .cq-seg-btn.active {
+      background: var(--cq-surface);
+      color: var(--cq-text);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    html.light .cq-seg-btn.active {
+      background: #FFFFFF;
+      color: #0284C7;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .cq-seg-btn.btn-vero.active {
+      background: var(--cq-emerald) !important;
+      color: #FFFFFF !important;
+    }
+
+    .cq-seg-btn.btn-falso.active {
+      background: var(--cq-rose) !important;
+      color: #FFFFFF !important;
+    }
+
+    /* Chapter Select */
+    .cq-chapter-select-wrap {
+      width: 100%;
     }
 
     .cq-select {
+      width: 100%;
+      height: 42px;
       background: var(--cq-surface);
       color: var(--cq-text);
       border: 1px solid var(--cq-card-border);
-      padding: 7px 12px;
-      border-radius: 10px;
+      padding: 0 14px;
+      border-radius: 12px;
       font-family: inherit;
       font-size: 0.88rem;
       font-weight: 700;
       outline: none;
       cursor: pointer;
-      max-width: 230px;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+    }
+
+    html.light .cq-select {
+      background: #F8FAFC;
+      border-color: #CBD5E1;
+      color: #0F172A;
+    }
+
+    .cq-select:focus {
+      border-color: var(--cq-cyan);
+    }
+
+    /* Special 2-column Grid */
+    .cq-special-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .cq-toggle-btn {
+      height: 42px;
+      padding: 0 12px;
+      border-radius: 12px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      border: 1px solid var(--cq-card-border);
+      background: var(--cq-surface);
+      color: var(--cq-text-sub);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+
+    html.light .cq-toggle-btn {
+      background: #F8FAFC;
+      border-color: #E2E8F0;
+      color: #475569;
+    }
+
+    .cq-toggle-btn:hover {
+      border-color: var(--cq-cyan);
+      color: var(--cq-text);
+    }
+
+    .cq-toggle-btn.active {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--cq-cyan);
+      border-color: var(--cq-cyan);
+      font-weight: 800;
+    }
+
+    html.light .cq-toggle-btn.active {
+      background: #E0F2FE;
+      color: #0284C7;
+      border-color: #0284C7;
+    }
+
+    @media (max-width: 640px) {
+      .cq-search-input {
+        padding: 10px 42px 10px 38px;
+        font-size: 0.9rem;
+        height: 46px;
+      }
+      .cq-search-icon {
+        right: 12px;
+        font-size: 1.1rem;
+      }
+      .cq-shortcut-badge {
+        display: none !important;
+      }
+      .cq-popular-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+      }
+      .cq-popular-label {
+        font-size: 0.82rem;
+      }
+      .cq-seg-btn {
+        padding: 6px 4px;
+        font-size: 0.8rem;
+        gap: 3px;
+        white-space: nowrap;
+      }
+      .cq-toggle-btn {
+        font-size: 0.76rem;
+        padding: 0 6px;
+      }
+      .cq-quick-pill {
+        font-size: 0.72rem;
+        padding: 3px 6px;
+      }
     }
 
     /* Stats strip */
@@ -625,32 +1021,68 @@
     .cq-card-actions {
       display: flex;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: center;
       gap: 10px;
       margin-top: 14px;
       padding-top: 12px;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
+      flex-wrap: wrap;
     }
 
-    .cq-action-btn {
+    html.light .cq-card-actions {
+      border-top-color: #E2E8F0;
+    }
+
+    .cq-card-actions .cq-action-btn,
+    button.cq-action-btn,
+    a.cq-action-btn {
+      height: 40px !important;
+      min-height: 40px !important;
+      max-height: 40px !important;
+      box-sizing: border-box !important;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.08);
       color: var(--cq-text-sub);
-      padding: 6px 12px;
-      border-radius: 8px;
-      font-size: 0.82rem;
+      padding: 0 14px !important;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.84rem;
       font-weight: 700;
+      line-height: 38px !important;
       cursor: pointer;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      vertical-align: middle !important;
+      margin: 0 !important;
+    }
+
+    .cq-action-btn span {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      transition: all 0.2s;
+      line-height: 1;
+    }
+
+    html.light .cq-action-btn {
+      background: #F1F5F9;
+      border-color: #E2E8F0;
+      color: #475569;
     }
 
     .cq-action-btn:hover {
       background: var(--cq-cyan);
       color: #0B0F19;
       border-color: var(--cq-cyan);
+      transform: translateY(-1px);
+    }
+
+    html.light .cq-action-btn:hover {
+      background: #0284C7;
+      color: #FFFFFF;
+      border-color: #0284C7;
     }
 
     /* Load More Button */
@@ -780,32 +1212,6 @@
 </head>
 <body>
 
-  <!-- شريط الملاحة الموحد -->
-  <nav class="unified-portal-nav" id="portal-nav">
-    <a href="../index.html" class="nav-brand">
-      <span style="font-size:1.25rem;">🚦</span>
-      <span>Patente B Pro</span>
-      <span class="badge-tag">A2</span>
-    </a>
-    <nav class="nav-desktop-tabs">
-      <a href="piano-studio.html" class="nav-tab-desktop">📅 الخطة الدراسية</a>
-      <a href="cerca-quiz.html" class="nav-tab-desktop active">🔍 محرك البحث</a>
-      <a href="parole-spia.html" class="nav-tab-desktop">🎯 الكلمات السحرية</a>
-      <a href="scheda-esame.html" class="nav-tab-desktop">📝 الامتحان</a>
-      <a href="flashcards.html" class="nav-tab-desktop">💡 بطاقات الفلاش</a>
-      <a href="dashboard.html" class="nav-tab-desktop">📊 لوحة البيانات</a>
-      <a href="traps_and_games.html" class="nav-tab-desktop">🎮 الفخاخ والألعاب</a>
-      <a href="index.html" class="nav-tab-desktop">🏛️ أدلة الشرح</a>
-      <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 بنك الأسئلة</a>
-    </nav>
-    <div class="nav-desktop-actions">
-      <button class="nav-theme-btn" id="themeToggleBtn" onclick="toggleTheme()" title="تبديل الوضع (نهاري / ليلي) [Alt + T]">
-        <span class="theme-icon-span">☀️</span>
-        <span class="theme-label-span">الوضع النهاري</span>
-      </button>
-    </div>
-  </nav>
-
   <div class="cq-container">
     
     <!-- Hero Header -->
@@ -813,13 +1219,16 @@
       <div class="cq-hero-badge">
         <span>⚡ بحث فوري في بنك الوزارة الرسمي (7,139 سؤالاً) في 0.01 ثانية</span>
       </div>
-      <h1 class="cq-title">🔍 محرك البحث الوزاري الفوري (Cerca Quiz)</h1>
+      <h1 class="cq-title">
+        <span>🔍 محرك البحث الوزاري الفوري</span>
+        <span class="cq-title-it">Cerca Quiz Ministeriale</span>
+      </h1>
       <p class="cq-subtitle">
         ابحث بأي كلمة أو جملة بالإيطالية أو العربية، برقم السؤال، أو باسم الإشارة، لتصل فوراً للإجابة الرسمية، الفخ الخبيث، والشرح المفصل.
       </p>
     </header>
 
-    <!-- Search Box Sticky Wrapper -->
+        <!-- Search Box Sticky Wrapper -->
     <div class="cq-search-box-wrapper">
       <div class="cq-search-input-group">
         <span class="cq-search-icon">🔍</span>
@@ -827,7 +1236,7 @@
           type="text" 
           id="cqSearchInput" 
           class="cq-search-input" 
-          placeholder="ابحث هنا بالإيطالية (مثل sorpasso in curva) أو بالعربية (مثل الدبرياج، مسافة الأمان)..."
+          placeholder="ابحث بكلمة، جملة، أو برقم السؤال..."
           autocomplete="off"
           spellcheck="false"
           oninput="handleSearchInput()"
@@ -838,73 +1247,169 @@
         </div>
       </div>
 
-      <!-- سحابة الكلمات والأسئلة الأكثر بحثاً -->
-      <div class="cq-chips-scroll">
-        <span class="cq-chips-label">🔥 الأكثر بحثاً:</span>
-        <button class="cq-chip" onclick="setSearchTerm('sorpasso in curva')">sorpasso in curva (التجاوز في المنعطف)</button>
-        <button class="cq-chip" onclick="setSearchTerm('frizione')">frizione (الدبرياج)</button>
-        <button class="cq-chip" onclick="setSearchTerm('distanza di sicurezza')">distanza di sicurezza (مسافة الأمان)</button>
-        <button class="cq-chip" onclick="setSearchTerm('quadricicli')">quadricicli (السيارات الرباعية)</button>
-        <button class="cq-chip" onclick="setSearchTerm('sempre')">sempre (فخ دائماً)</button>
-        <button class="cq-chip" onclick="setSearchTerm('solo')">solo (فخ فقط)</button>
-        <button class="cq-chip" onclick="setSearchTerm('alcol')">alcol (نسبة الكحول)</button>
-        <button class="cq-chip" onclick="setSearchTerm('punti patente')">punti patente (نقاط الرخصة)</button>
-        <button class="cq-chip" onclick="setSearchTerm('pannelli integrativi')">pannelli integrativi (اللوحات)</button>
-        <button class="cq-chip" onclick="setSearchTerm('figura 604')">figura 604 (التقاطعات)</button>
-        <button class="cq-chip" onclick="setSearchTerm('spazio di frenata')">spazio di frenata (مسافة الفرملة)</button>
+      <!-- الأكثر بحثاً: قائمة منسدلة مخصصة فائقة الأناقة -->
+      <div class="cq-popular-wrap">
+        <div class="cq-popular-header">
+          <span class="cq-popular-label">
+            <span>🔥</span>
+            <span>الأكثر بحثاً في بنك الوزارة:</span>
+          </span>
+        </div>
+
+        <div class="cq-custom-dropdown" id="cqPopularDropdown">
+          <button type="button" class="cq-dd-trigger" id="cqDropdownTrigger" onclick="togglePopularMenu(event)" aria-expanded="false">
+            <span class="cq-dd-trigger-content">
+              <span class="cq-dd-icon">⚡</span>
+              <span class="cq-dd-selected is-placeholder" id="cqSelectedPopularText">اختر مصطلحاً أو فخاً شائعاً للبحث...</span>
+            </span>
+            <span class="cq-dd-arrow" id="cqDropdownArrow">▾</span>
+          </button>
+
+          <div class="cq-dd-menu" id="cqPopularMenu" role="listbox">
+            <!-- قسم 1: المفاهيم المتكررة -->
+            <div class="cq-dd-group-title">🚗 مصطلحات ومفاهيم متكررة</div>
+            <div class="cq-dd-item" onclick="selectPopularTerm('sorpasso in curva', 'sorpasso in curva (التجاوز في المنعطف)')">
+              <span class="cq-dd-it">sorpasso in curva</span>
+              <span class="cq-dd-ar">التجاوز في المنعطف</span>
+            </div>
+            <div class="cq-dd-item" onclick="selectPopularTerm('frizione', 'frizione (الدبرياج)')">
+              <span class="cq-dd-it">frizione</span>
+              <span class="cq-dd-ar">الدبرياج / القابض</span>
+            </div>
+            <div class="cq-dd-item" onclick="selectPopularTerm('distanza di sicurezza', 'distanza di sicurezza (مسافة الأمان)')">
+              <span class="cq-dd-it">distanza di sicurezza</span>
+              <span class="cq-dd-ar">مسافة الأمان</span>
+            </div>
+            <div class="cq-dd-item" onclick="selectPopularTerm('quadricicli', 'quadricicli (السيارات الرباعية)')">
+              <span class="cq-dd-it">quadricicli</span>
+              <span class="cq-dd-ar">السيارات الرباعية الخفيفة</span>
+            </div>
+            <div class="cq-dd-item" onclick="selectPopularTerm('spazio di frenata', 'spazio di frenata (مسافة الفرملة)')">
+              <span class="cq-dd-it">spazio di frenata</span>
+              <span class="cq-dd-ar">مسافة الفرملة</span>
+            </div>
+
+            <!-- قسم 2: أشهر فخاخ الكلمات -->
+            <div class="cq-dd-group-title">⚠️ أشهر فخاخ الكلمات المطلقة</div>
+            <div class="cq-dd-item" onclick="selectPopularTerm('sempre', 'sempre (فخ دائماً)')">
+              <span class="cq-dd-it" style="color:var(--cq-rose);">sempre</span>
+              <span class="cq-dd-ar">فخ دائماً (غالباً FALSO)</span>
+            </div>
+            <div class="cq-dd-item" onclick="selectPopularTerm('solo', 'solo (فخ فقط)')">
+              <span class="cq-dd-it" style="color:var(--cq-rose);">solo</span>
+              <span class="cq-dd-ar">فخ فقط (استثناءات محددة)</span>
+            </div>
+            <div class="cq-dd-item" onclick="selectPopularTerm('mai', 'mai (فخ أبداً)')">
+              <span class="cq-dd-it" style="color:var(--cq-rose);">mai</span>
+              <span class="cq-dd-ar">فخ أبداً</span>
+            </div>
+            <div class="cq-dd-item" onclick="selectPopularTerm('qualsiasi', 'qualsiasi (فخ أي مركبة)')">
+              <span class="cq-dd-it" style="color:var(--cq-rose);">qualsiasi</span>
+              <span class="cq-dd-ar">فخ أي مركبة / أياً كان</span>
+            </div>
+
+            <!-- قسم 3: الرخص والمخالفات -->
+            <div class="cq-dd-group-title">⚖️ الرخص والمخالفات والأمان</div>
+            <div class="cq-dd-item" onclick="selectPopularTerm('punti patente', 'punti patente (نقاط الرخصة)')">
+              <span class="cq-dd-it">punti patente</span>
+              <span class="cq-dd-ar">نقاط رخصة القيادة</span>
+            </div>
+            <div class="cq-dd-item" onclick="selectPopularTerm('tasso alcolico', 'tasso alcolico (نسبة الكحول)')">
+              <span class="cq-dd-it">tasso alcolico</span>
+              <span class="cq-dd-ar">نسبة الكحول في الدم</span>
+            </div>
+            <div class="cq-dd-item" onclick="selectPopularTerm('cintura di sicurezza', 'cintura di sicurezza (حزام الأمان)')">
+              <span class="cq-dd-it">cintura di sicurezza</span>
+              <span class="cq-dd-ar">حزام الأمان ومقاعد الأطفال</span>
+            </div>
+
+            <!-- قسم 4: التقاطعات واللوحات -->
+            <div class="cq-dd-group-title">🚦 اللوحات والتقاطعات</div>
+            <div class="cq-dd-item" onclick="selectPopularTerm('pannelli integrativi', 'pannelli integrativi (اللوحات الإضافية)')">
+              <span class="cq-dd-it">pannelli integrativi</span>
+              <span class="cq-dd-ar">اللوحات الإضافية المتممة</span>
+            </div>
+            <div class="cq-dd-item" onclick="selectPopularTerm('figura 604', 'figura 604 (التقاطعات المعقدة)')">
+              <span class="cq-dd-it">figura 604</span>
+              <span class="cq-dd-ar">التقاطعات المعقدة</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- أزرار الاختيار السريع المباشر (Quick Tags) -->
+        <div class="cq-quick-pills-row">
+          <button type="button" class="cq-quick-pill" onclick="selectPopularTerm('frizione', 'frizione (الدبرياج)')">frizione (الدبرياج)</button>
+          <button type="button" class="cq-quick-pill" onclick="selectPopularTerm('sempre', 'sempre (دائماً)')">sempre (دائماً)</button>
+          <button type="button" class="cq-quick-pill" onclick="selectPopularTerm('sorpasso', 'sorpasso (التجاوز)')">sorpasso (التجاوز)</button>
+        </div>
       </div>
     </div>
 
-    <!-- لوحة الفلاتر الذكية -->
+    <!-- لوحة الفلاتر المنظمة -->
     <div class="cq-filters-panel">
-      <!-- فلتر الإجابة -->
-      <div class="cq-filter-group">
-        <span style="font-size:0.85rem; font-weight:800; color:var(--cq-text-sub);">الإجابة:</span>
-        <button class="cq-filter-btn active" id="btnAnsAll" onclick="setAnswerFilter('all')">🌟 الكل</button>
-        <button class="cq-filter-btn btn-vero" id="btnAnsVero" onclick="setAnswerFilter('vero')">🟢 VERO فقط</button>
-        <button class="cq-filter-btn btn-falso" id="btnAnsFalso" onclick="setAnswerFilter('falso')">🔴 FALSO فقط</button>
+      <!-- 1. فلتر نوع الإجابة (Segmented Control) -->
+      <div class="cq-filter-row">
+        <div class="cq-filter-row-header">
+          <span>🎯 تصفية حسب الإجابة:</span>
+        </div>
+        <div class="cq-seg-control">
+          <button class="cq-seg-btn active" id="btnAnsAll" onclick="setAnswerFilter('all')">🌟 الكل</button>
+          <button class="cq-seg-btn btn-vero" id="btnAnsVero" onclick="setAnswerFilter('vero')">🟢 صح VERO</button>
+          <button class="cq-seg-btn btn-falso" id="btnAnsFalso" onclick="setAnswerFilter('falso')">🔴 خطأ FALSO</button>
+        </div>
       </div>
 
-      <!-- فلتر الباب -->
-      <div class="cq-filter-group">
-        <span style="font-size:0.85rem; font-weight:800; color:var(--cq-text-sub);">الباب:</span>
-        <select class="cq-select" id="cqChapterSelect" onchange="handleFilterChange()">
-          <option value="all">📚 جميع الأبواب الـ 25</option>
-          <option value="1">الباب 1: المفاهيم العامة</option>
-          <option value="2">الباب 2: إشارات الخطر</option>
-          <option value="3">الباب 3: إشارات المنع</option>
-          <option value="4">الباب 4: إشارات الإلزام</option>
-          <option value="5">الباب 5: إشارات الأسبقية</option>
-          <option value="6">الباب 6: التخطيط الأرضي</option>
-          <option value="7">الباب 7: الإشارات الضوئية والشرطي</option>
-          <option value="8">الباب 8: إشارات الإرشاد</option>
-          <option value="9">الباب 9: اللوحات المتممة والتحذير</option>
-          <option value="10">الباب 10: اللوحات الإضافية</option>
-          <option value="11">الباب 11: السرعة والمناورات</option>
-          <option value="12">الباب 12: مسافة الأمان</option>
-          <option value="13">الباب 13: قواعد السير</option>
-          <option value="14">الباب 14: أسبقية التقاطعات</option>
-          <option value="15">الباب 15: التجاوز (Sorpasso)</option>
-          <option value="16">الباب 16: الوقوف والانتظار</option>
-          <option value="17">الباب 17: الحوادث والطوارئ</option>
-          <option value="18">الباب 18: أجهزة الرؤية والإضاءة</option>
-          <option value="19">الباب 19: أجهزة السلامة والأمان</option>
-          <option value="20">الباب 20: رخص القيادة والنقاط</option>
-          <option value="21">الباب 21: المسؤولية والتأمين</option>
-          <option value="22">الباب 22: الحالة البدنية والنفسية</option>
-          <option value="23">الباب 23: العوامل المشتتة للقيادة</option>
-          <option value="24">الباب 24: حماية البيئة والاستهلاك</option>
-          <option value="25">الباب 25: ميكانيكا وصيانة السيارة</option>
-        </select>
+      <!-- 2. فلتر الباب الدراسي -->
+      <div class="cq-filter-row">
+        <div class="cq-filter-row-header">
+          <span>📚 تصفية حسب الباب:</span>
+        </div>
+        <div class="cq-chapter-select-wrap">
+          <select class="cq-select" id="cqChapterSelect" onchange="handleFilterChange()">
+            <option value="all">📚 جميع الأبواب الـ 25 (بنك الأسئلة بالكامل)</option>
+            <option value="1">الباب 1: المفاهيم العامة واستخدام الطريق</option>
+            <option value="2">الباب 2: إشارات الخطر (Pericolo)</option>
+            <option value="3">الباب 3: إشارات المنع (Divieto)</option>
+            <option value="4">الباب 4: إشارات الإلزام (Obbligo)</option>
+            <option value="5">الباب 5: إشارات الأسبقية (Precedenza)</option>
+            <option value="6">الباب 6: التخطيط الأرضي (Segnaletica Orizzontale)</option>
+            <option value="7">الباب 7: الإشارات الضوئية والشرطي</option>
+            <option value="8">الباب 8: إشارات الإرشاد (Indicazione)</option>
+            <option value="9">الباب 9: اللوحات المتممة والتحذير</option>
+            <option value="10">الباب 10: اللوحات الإضافية (Pannelli Integrativi)</option>
+            <option value="11">الباب 11: السرعة والمناورات</option>
+            <option value="12">الباب 12: مسافة الأمان (Distanza di Sicurezza)</option>
+            <option value="13">الباب 13: قواعد السير وحركة المرور</option>
+            <option value="14">الباب 14: أسبقية التقاطعات (Incroci)</option>
+            <option value="15">الباب 15: التجاوز (Sorpasso)</option>
+            <option value="16">الباب 16: الوقوف والانتظار (Sosta e Fermata)</option>
+            <option value="17">الباب 17: الحوادث والطوارئ والإسعاف</option>
+            <option value="18">الباب 18: أجهزة الرؤية والإضاءة</option>
+            <option value="19">الباب 19: أجهزة السلامة والأمان (Casco e Cinture)</option>
+            <option value="20">الباب 20: رخص القيادة وسحب النقاط</option>
+            <option value="21">الباب 21: المسؤولية المدنية والجنائية والتأمين</option>
+            <option value="22">الباب 22: الحالة البدنية والنفسية والكحول</option>
+            <option value="23">الباب 23: العوامل المشتتة للقيادة</option>
+            <option value="24">الباب 24: حماية البيئة واستهلاك الوقود</option>
+            <option value="25">الباب 25: ميكانيكا وصيانة السيارة</option>
+          </select>
+        </div>
       </div>
 
-      <!-- فلاتر خاصة -->
-      <div class="cq-filter-group">
-        <button class="cq-filter-btn" id="btnOnlyImg" onclick="toggleImgFilter()">🖼️ صور فقط</button>
-        <button class="cq-filter-btn" id="btnOnlyTrap" onclick="toggleTrapFilter()">⚠️ فخاخ وزارية فقط</button>
+      <!-- 3. فلاتر خاصة إضافية (شبكة ثنائية متوازنة) -->
+      <div class="cq-filter-row">
+        <div class="cq-special-grid">
+          <button class="cq-toggle-btn" id="btnOnlyImg" onclick="toggleImgFilter()">
+            <span>🖼️</span>
+            <span>أسئلة بها صور توضيحية</span>
+          </button>
+          <button class="cq-toggle-btn" id="btnOnlyTrap" onclick="toggleTrapFilter()">
+            <span>⚠️</span>
+            <span>الأفخاخ الوزارية فقط</span>
+          </button>
+        </div>
       </div>
     </div>
-
     <!-- شريط الإحصائيات الفوري -->
     <div class="cq-status-bar" id="cqStatusBar">
       <span id="cqCountText">تم العثور على <strong>7,139 سؤالاً</strong></span>
@@ -942,7 +1447,7 @@
   <!-- استدعاء ملفات البيانات والسكربتات -->
   <script src="../assets/js/theme-engine.js"></script>
   <script src="../Capitoli_Divisi/data_all_questions.js"></script>
-  <script src="../assets/js/unified-nav.js" defer></script>
+  <script src="../assets/js/unified-nav.js?v=2026.11.02.FINAL" defer></script>
 
   <script>
     /**
@@ -1025,10 +1530,59 @@
       }, 100);
     }
 
+    function togglePopularMenu(e) {
+      if (e) e.stopPropagation();
+      const dd = document.getElementById('cqPopularDropdown');
+      if (dd) {
+        const isOpen = dd.classList.toggle('is-open');
+        const trigger = document.getElementById('cqDropdownTrigger');
+        if (trigger) trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      }
+    }
+
+    function closePopularMenu() {
+      const dd = document.getElementById('cqPopularDropdown');
+      if (dd) {
+        dd.classList.remove('is-open');
+        const trigger = document.getElementById('cqDropdownTrigger');
+        if (trigger) trigger.setAttribute('aria-expanded', 'false');
+      }
+    }
+
+    function selectPopularTerm(term, label) {
+      closePopularMenu();
+      const selLabel = document.getElementById('cqSelectedPopularText');
+      if (selLabel) {
+        selLabel.textContent = label || term;
+        selLabel.classList.remove('is-placeholder');
+      }
+      setSearchTerm(term);
+    }
+
+    // إغلاق القائمة عند النقر خارجها
+    document.addEventListener('click', (e) => {
+      const dd = document.getElementById('cqPopularDropdown');
+      if (dd && !dd.contains(e.target)) {
+        closePopularMenu();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closePopularMenu();
+      }
+    });
+
     function clearSearch() {
       document.getElementById('cqSearchInput').value = '';
       state.query = '';
       document.getElementById('cqClearBtn').style.display = 'none';
+      const selLabel = document.getElementById('cqSelectedPopularText');
+      if (selLabel) {
+        selLabel.textContent = 'اختر مصطلحاً أو فخاً شائعاً للبحث...';
+        selLabel.classList.add('is-placeholder');
+      }
+      closePopularMenu();
       document.getElementById('cqSearchInput').focus();
       executeSearch();
     }

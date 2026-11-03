@@ -1,0 +1,35 @@
+<script>
+    function resolveImgPath(img) {
+      if (!img || typeof img !== 'string' || !img.trim()) return null;
+      if (img.startsWith('http') || img.startsWith('../')) return img;
+      if (img.includes('Capitolo_')) return `../Capitoli_Divisi/${img}`;
+      const filename = img.split('/').pop().trim();
+      return filename ? `../img_sign/${filename}` : null;
+    }
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      let currentSkin = localStorage.getItem('patente_exam_skin') || 'modern';
+      const flaggedQuestions = new Set();
+      let showArabicTr = false; // للأسئلة المعلمة بـ Da rivedere
+
+      const exam = new PatenteExamEngine({
+        totalQuestions: 30,
+        durationMinutes: 20,
+        onTick: (formattedTime, remainingSec) => {
+          const tEl = document.getElementById("examTimerDisplay");
+          const motoTimer = document.getElementById("motoTimerBadge");
+          if (tEl) {
+            tEl.textContent = `⏱️ ${formattedTime}`;
+            tEl.classList.toggle("timer-warning", remainingSec <= 300);
+          }
+          if (motoTimer) {
+            motoTimer.textContent = `⏱️ ${formattedTime}`;
+            motoTimer.classList.toggle("warning", remainingSec <= 300);
+          }
+        },
+        onFinish: (result) => renderExamResults(result)
+      });
+      window.exam = exam;
+
+      const srs = typeof PatenteSRSEngine === 'function' ? new PatenteSRSEngine() : null;
+      const audio = typeof PatenteAudioEngine === 'function' 

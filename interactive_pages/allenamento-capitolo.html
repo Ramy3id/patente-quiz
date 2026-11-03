@@ -10,9 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="interactive_style.css">
-  <link rel="stylesheet" href="../assets/css/theme-modes.css">
+  <link rel="stylesheet" href="../assets/css/theme-modes.css?v=2026.11.02.FINAL">
   <script src="../assets/js/theme-engine.js"></script>
-  <script src="../assets/js/unified-nav.js" defer></script>
+  <script src="../assets/js/unified-nav.js?v=2026.11.02.FINAL" defer></script>
 
   <style>
     :root {
@@ -76,10 +76,12 @@
 
     .tr-header-top {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
+      justify-content: center;
+      gap: 14px;
+      width: 100%;
+      text-align: center;
     }
 
     .tr-badge-chapter {
@@ -98,8 +100,11 @@
     .tr-controls-wrap {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       flex-wrap: wrap;
+      width: 100%;
+      margin: 0 auto;
     }
 
     .tr-count-btn {
@@ -506,14 +511,17 @@
     }
 
     .tr-back-plan-btn {
-      display: inline-flex;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
       align-items: center;
+      box-sizing: border-box;
       gap: 10px;
       background: rgba(56, 189, 248, 0.12);
       border: 1px solid rgba(56, 189, 248, 0.35);
       color: var(--tr-cyan);
-      padding: 10px 18px;
-      border-radius: 12px;
+      padding: 12px 20px;
+      border-radius: var(--tr-radius);
       font-weight: 800;
       font-size: 0.95rem;
       text-decoration: none;
@@ -532,7 +540,7 @@
       transition: transform 0.2s ease;
     }
     .tr-back-plan-btn:hover .tr-back-arrow {
-      transform: translateX(-4px);
+      transform: translateX(4px);
     }
     .tr-back-plan-btn .tr-back-pill {
       background: rgba(255, 255, 255, 0.12);
@@ -588,47 +596,283 @@
       background: #F1F5F9;
       border-color: #94A3B8;
     }
+  
+    /* شريط الأدوات المساعدة الذكية في بلوك مستقل */
+    .tr-smart-tools-card {
+      background: var(--tr-surface);
+      border: 1px solid var(--tr-border);
+      border-radius: var(--tr-radius);
+      padding: 10px 14px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .tr-smart-tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      align-items: center;
+    }
+
+    .tr-smart-tool-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--tr-border);
+      color: var(--tr-text-sub);
+      transition: all 0.2s ease;
+      min-height: 44px;
+      white-space: nowrap;
+    }
+
+    .tr-smart-tool-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--tr-text);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .tr-smart-tool-btn.active {
+      background: rgba(99, 102, 241, 0.18);
+      border-color: var(--tr-indigo);
+      color: #FFFFFF;
+      box-shadow: 0 0 12px rgba(99, 102, 241, 0.35);
+      font-weight: 800;
+    }
+
+    /* توسيط أزرار الصح والخطأ في منتصف الكارت بدقة */
+    .tr-choice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(130px, 220px)) !important;
+      justify-content: center !important;
+      gap: 16px;
+      margin: 24px auto 16px !important;
+      width: 100%;
+    }
+
+    /* شريط التنقل المتناسق (السابق / الخطة / التالي) */
+    .tr-card-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 24px;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .tr-nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      gap: 12px;
+    }
+
+    .tr-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+      min-height: 44px;
+      white-space: nowrap;
+    }
+
+    .tr-nav-prev {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--tr-border);
+      color: var(--tr-text);
+    }
+    .tr-nav-prev:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+    .tr-nav-prev:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .tr-nav-next {
+      background: linear-gradient(135deg, #0284C7, #0EA5E9);
+      border: 1px solid rgba(14, 165, 233, 0.5);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35);
+    }
+    .tr-nav-next:hover {
+      background: linear-gradient(135deg, #0369A1, #0284C7);
+      box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5);
+      transform: translateY(-1px);
+    }
+    .tr-nav-next.highlight-next {
+      animation: pulseNext 1.5s infinite;
+    }
+
+    .tr-nav-plan-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--tr-cyan);
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      text-decoration: none;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .tr-nav-plan-link:hover {
+      background: rgba(56, 189, 248, 0.16);
+      border-color: var(--tr-cyan);
+    }
+
+    .tr-srs-tip {
+      width: 100%;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--tr-text-sub);
+      padding-top: 10px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+
+    /* Light Mode Overrides */
+    html.light .tr-smart-tools-card {
+      background: #FFFFFF;
+      border-color: #E2E8F0;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    }
+
+    html.light .tr-smart-tool-btn {
+      background: #F8FAFC;
+      border-color: #E2E8F0;
+      color: #475569;
+    }
+
+    html.light .tr-smart-tool-btn:hover {
+      background: #F1F5F9;
+      color: #0F172A;
+      border-color: #CBD5E1;
+    }
+
+    html.light .tr-smart-tool-btn.active {
+      background: #EEF2FF;
+      border-color: #6366F1;
+      color: #4338CA;
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.2);
+    }
+
+    html.light .tr-nav-prev {
+      background: #F8FAFC;
+      border-color: #CBD5E1;
+      color: #334155;
+    }
+    html.light .tr-nav-prev:hover:not(:disabled) {
+      background: #F1F5F9;
+      border-color: #94A3B8;
+    }
+    html.light .tr-nav-plan-link {
+      background: #F0F9FF;
+      border-color: #BAE6FD;
+      color: #0284C7;
+    }
+    html.light .tr-srs-tip {
+      color: #64748B;
+      border-top-color: #E2E8F0;
+    }
+
+    @media (max-width: 480px) {
+      .tr-smart-tools-grid {
+        gap: 6px;
+      }
+      .tr-smart-tool-btn {
+        padding: 8px 6px;
+        font-size: 0.8rem;
+        gap: 4px;
+      }
+      .tr-nav-btn {
+        padding: 10px 12px;
+        font-size: 0.88rem;
+      }
+    }
+
+  
+    /* إصلاح تباين الزر النشط في الوضع النهاري ليصبح بارزاً ومقروءاً */
+    html.light .tr-count-btn.active {
+      background: #0284C7 !important;
+      color: #FFFFFF !important;
+      border-color: #0284C7 !important;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35) !important;
+    }
+
+  
+    /* توحيد الارتفاع ولون البوردر الدقيق لزر الخطة و15 سؤالاً وباقي أزرار التحكم */
+    .tr-controls-wrap .tr-count-btn {
+      height: 38px !important;
+      min-height: 38px !important;
+      max-height: 38px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 6px !important;
+      box-sizing: border-box !important;
+      line-height: 1 !important;
+      padding: 0 14px !important;
+      border-radius: 10px !important;
+      font-size: 0.85rem !important;
+      font-weight: 700 !important;
+      border: 1px solid var(--tr-border) !important;
+      text-decoration: none !important;
+    }
+
+    html.light .tr-controls-wrap .tr-count-btn {
+      background: #FFFFFF !important;
+      border: 1px solid #CBD5E1 !important;
+      color: #334155 !important;
+    }
+
+    html.light .tr-controls-wrap .tr-count-btn:hover {
+      background: #F8FAFC !important;
+      border-color: #94A3B8 !important;
+      color: #0F172A !important;
+    }
+
+    html.light .tr-controls-wrap .tr-count-btn.active {
+      background: #0284C7 !important;
+      border-color: #0284C7 !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35) !important;
+    }
+
   </style>
 </head>
 <body>
-
-  <!-- شريط الملاحة الموحد -->
-  <nav class="unified-portal-nav" id="portal-nav">
-    <a href="../index.html" class="nav-brand">
-      <span style="font-size:1.25rem;">🚦</span>
-      <span>Patente B Pro</span>
-      <span class="badge-tag">A2</span>
-    </a>
-    <nav class="nav-desktop-tabs">
-      <a href="piano-studio.html" class="nav-tab-desktop active">📅 الخطة الدراسية</a>
-      <a href="parole-spia.html" class="nav-tab-desktop">🎯 الكلمات السحرية</a>
-      <a href="scheda-esame.html" class="nav-tab-desktop">📝 الامتحان</a>
-      <a href="flashcards.html" class="nav-tab-desktop">💡 بطاقات الفلاش</a>
-      <a href="dashboard.html" class="nav-tab-desktop">📊 لوحة البيانات</a>
-      <a href="traps_and_games.html" class="nav-tab-desktop">🎮 الفخاخ والألعاب</a>
-      <a href="index.html" class="nav-tab-desktop">🏛️ أدلة الشرح</a>
-      <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 بنك الأسئلة</a>
-    </nav>
-    <div class="nav-desktop-actions">
-      <button class="nav-theme-btn" id="themeToggleBtn" onclick="toggleTheme()" title="تبديل الوضع (نهاري / ليلي)">
-        <span class="theme-icon-span">☀️</span>
-        <span class="theme-label-span">الوضع النهاري</span>
-      </button>
-    </div>
-  </nav>
 
   <div class="tr-container">
 
     <!-- شريط الرجوع السريع للخطة الدراسية -->
     <div class="tr-top-action-bar">
       <a href="piano-studio.html" class="tr-back-plan-btn" id="btnReturnToPlanTop" title="العودة لجدول الخطة الدراسية">
-        <span class="tr-back-arrow">⬅</span>
-        <span>العودة إلى جدول الخطة الدراسية</span>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span class="tr-back-arrow">➡</span>
+          <span>العودة إلى جدول الخطة الدراسية</span>
+        </div>
         <span class="tr-back-pill">📅 الخطة</span>
       </a>
-      <a href="../index.html" class="tr-back-home-link" title="الصفحة الرئيسية للبرنامج">
-        <span>🏠 الرئيسية</span>
-      </a>
+
     </div>
 
     <!-- بطاقة الترويسة والتحكم بالجلسة -->
@@ -639,7 +883,7 @@
           <span id="lblChapterName">الباب 01: المفاهيم العامة واستخدام الطريق</span>
         </span>
         <div class="tr-controls-wrap">
-          <a href="piano-studio.html" class="tr-count-btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px; border-color: rgba(56, 189, 248, 0.4); color: var(--tr-cyan);" title="العودة لجدول الخطة الدراسية">📅 الخطة</a>
+          <a href="piano-studio.html" class="tr-count-btn" title="العودة لجدول الخطة الدراسية">📅 الخطة</a>
           <span style="font-size: 0.82rem; color: var(--tr-text-sub);">عدد الأسئلة:</span>
           <button class="tr-count-btn" id="btnCount15" onclick="setSessionCount(15)">15 سؤالاً</button>
           <button class="tr-count-btn active" id="btnCount20" onclick="setSessionCount(20)">20 سؤالاً ⭐</button>
@@ -671,25 +915,34 @@
       </div>
     </section>
 
-    <!-- منطقة السؤال التفاعلية -->
+    <!-- شريط الأدوات المساعدة الذكية في بلوك منفصل ومستقل تماماً -->
+    <div class="tr-smart-tools-card">
+      <div class="tr-smart-tools-grid">
+        <button class="tr-smart-tool-btn" id="btnToggleBilingual" onclick="toggleBilingualHighlight()" title="تظليل متزامن للمصطلحات بين الإيطالية والعربية">
+          <span id="lblBilingualIcon">🎨</span>
+          <span id="lblBilingualText">المعاني</span>
+        </button>
+        <button class="tr-smart-tool-btn" id="btnToggleHighlight" onclick="toggleTrapHighlight()" title="تفعيل/تعطيل كشف وتظليل الفخاخ الوزارية">
+          <span id="lblHighlightIcon">👁️</span>
+          <span id="lblHighlightText">الأفخاخ</span>
+        </button>
+        <button class="tr-smart-tool-btn active" id="btnToggleDecoder" onclick="toggleAllenamentoDecoder()" title="تفكيك السؤال لـ 3 كتل منطقية والمعادلة القانونية">
+          <span id="lblDecoderIcon">🧩</span>
+          <span id="lblDecoderText">الـ 3 كتل</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- بطاقة السؤال التفاعلية -->
     <main class="tr-question-card" id="qCardSection">
       <div class="tr-q-meta-row">
         <div>
           <span class="tr-subtopic-tag" id="lblSubtopic">المحور: المفاهيم العامة</span>
           <span style="font-size: 0.85rem; color: var(--tr-text-sub); margin-right: 8px;" id="lblProgress">سؤال 1 من 20</span>
         </div>
-        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
-          <button class="tr-audio-btn" id="btnToggleBilingual" onclick="toggleBilingualHighlight()" title="تظليل متزامن للكلمات والمصطلحات بين الإيطالية والعربية">
-            <span id="lblBilingualIcon">🎨</span> <span id="lblBilingualText">تظليل المعاني</span>
-          </button>
-          <button class="tr-audio-btn" id="btnToggleHighlight" onclick="toggleTrapHighlight()" title="تفعيل/تعطيل تظليل كلمات الفخاخ الوزارية">
-            <span id="lblHighlightIcon">👁️</span> <span id="lblHighlightText">تظليل الأفخاخ</span>
-          </button>
-          <button class="tr-audio-btn" id="btnToggleDecoder" onclick="toggleAllenamentoDecoder()" title="تفكيك السؤال لـ 3 كتل منطقية والمعادلة القانونية">
-            <span id="lblDecoderIcon">🧩</span> <span id="lblDecoderText">مفكك الـ 3 كتل</span>
-          </button>
+        <div style="display: flex; gap: 8px; align-items: center;">
           <button class="tr-audio-btn" id="btnHandsFree" onclick="toggleHandsFreeMode()" title="تشغيل وضع الاستماع التلقائي بدون لمس الشاشة">
-            <span>🎧 استماع تلقائي (Podcast)</span>
+            <span>🎧 استماع تلقائي</span>
           </button>
           <button class="tr-audio-btn" onclick="playQuestionSpeech()" title="استمع لنطق السؤال">
             <span>🔊 استمع</span>
@@ -746,19 +999,30 @@
         <div id="decoderDrawerBox" style="margin-top: 12px;"></div>
       </div>
 
-      <!-- أسفل البطاقة -->
+      <!-- أسفل البطاقة: شريط التنقل المتناسق -->
       <div class="tr-card-footer">
-        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
-          <button class="tr-count-btn" id="btnPrevQ" onclick="goToPrevQuestion()">➡ السؤال السابق</button>
-          <a href="piano-studio.html" class="tr-count-btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border-color: rgba(56, 189, 248, 0.4); color: var(--tr-cyan);" title="الرجوع للخطة الدراسية">
-            <span>📅</span>
-            <span>العودة للخطة</span>
+        <div class="tr-nav-row">
+          <!-- السابق (السهم لليمين خارجياً قبل الكلمة) -->
+          <button class="tr-nav-btn tr-nav-prev" id="btnPrevQ" onclick="goToPrevQuestion()">
+            <span class="nav-arrow">▶</span>
+            <span>السابق</span>
+          </button>
+
+          <!-- زر العودة للخطة في المنتصف -->
+          <a href="piano-studio.html" class="tr-nav-plan-link" title="الرجوع لجدول الخطة الدراسية">
+            <span>📅 الخطة</span>
           </a>
+
+          <!-- التالي (السهم لليسار خارجياً بعد الكلمة) -->
+          <button class="tr-nav-btn tr-nav-next" id="btnNextQ" onclick="goToNextQuestion()">
+            <span>التالي</span>
+            <span class="nav-arrow">◀</span>
+          </button>
         </div>
-        <span style="font-size: 0.82rem; color: var(--tr-text-sub);">
-          💡 يتم تسجيل الأسئلة غير الصحيحة تلقائياً في سجل الذاكرة والتكرار (SRS).
-        </span>
-        <button class="tr-count-btn" id="btnNextQ" onclick="goToNextQuestion()">السؤال التالي ⬅</button>
+
+        <div class="tr-srs-tip">
+          <span>💡 يتم تسجيل الأسئلة غير الصحيحة تلقائياً في سجل الذاكرة والتكرار (SRS).</span>
+        </div>
       </div>
     </main>
 
@@ -1329,10 +1593,16 @@
         feedbackDrawer.style.display = "none";
       }
 
-      // حالة أزرار التالي والسابق
-      document.getElementById("btnPrevQ").disabled = (currentIndex === 0);
+      // حالة أزرار التالي والسابق بتوجيه أسهم للخارج دائماً
+      const btnPrevEl = document.getElementById("btnPrevQ");
+      if (btnPrevEl) {
+        btnPrevEl.disabled = (currentIndex === 0);
+        btnPrevEl.innerHTML = '<span class="nav-arrow">▶</span> <span>السابق</span>';
+      }
       if (btnNextQ) {
-        btnNextQ.innerText = (currentIndex === sessionQuestions.length - 1) ? "إنهاء التدريب 🏁" : "السؤال التالي ⬅";
+        btnNextQ.innerHTML = (currentIndex === sessionQuestions.length - 1)
+          ? '<span>إنهاء التدريب 🏁</span>'
+          : '<span>التالي</span> <span class="nav-arrow">◀</span>';
       }
 
       renderNavStrip();
@@ -1385,14 +1655,16 @@
       const btn = document.getElementById("btnToggleHighlight");
       if (!btn) return;
       const isHl = trapEngine ? trapEngine.isHighlightEnabled() : true;
+      const txt = document.getElementById("lblHighlightText");
+      const icon = document.getElementById("lblHighlightIcon");
       if (isHl) {
         btn.classList.add("active");
-        document.getElementById("lblHighlightIcon").innerText = "👁️";
-        document.getElementById("lblHighlightText").innerText = "تظليل الأفخاخ: مفعل";
+        if (icon) icon.innerText = "👁️";
+        if (txt) txt.innerText = "الأفخاخ";
       } else {
         btn.classList.remove("active");
-        document.getElementById("lblHighlightIcon").innerText = "👁️‍🗨️";
-        document.getElementById("lblHighlightText").innerText = "تظليل الأفخاخ: معطل";
+        if (icon) icon.innerText = "👁️‍🗨️";
+        if (txt) txt.innerText = "الأفخاخ";
       }
     }
 
@@ -1408,18 +1680,13 @@
       const btn = document.getElementById("btnToggleBilingual");
       if (!btn || !bilingualEngine) return;
       const isEn = bilingualEngine.isEnabled();
+      const txt = document.getElementById("lblBilingualText");
       if (isEn) {
         btn.classList.add("active");
-        btn.style.color = "var(--tr-cyan)";
-        btn.style.borderColor = "var(--tr-cyan)";
-        const txt = document.getElementById("lblBilingualText");
-        if (txt) txt.innerText = "تظليل المعاني: مفعل";
+        if (txt) txt.innerText = "المعاني";
       } else {
         btn.classList.remove("active");
-        btn.style.color = "var(--tr-text-sub)";
-        btn.style.borderColor = "var(--tr-border)";
-        const txt = document.getElementById("lblBilingualText");
-        if (txt) txt.innerText = "تظليل المعاني: معطل";
+        if (txt) txt.innerText = "المعاني";
       }
     }
 
@@ -1446,14 +1713,10 @@
       const txt = document.getElementById("lblDecoderText");
       if (isEn) {
         btn.classList.add("active");
-        btn.style.color = "var(--tr-amber)";
-        btn.style.borderColor = "var(--tr-amber)";
-        if (txt) txt.innerText = "مفكك الـ 3 كتل: مفعل";
+        if (txt) txt.innerText = "الـ 3 كتل";
       } else {
         btn.classList.remove("active");
-        btn.style.color = "var(--tr-text-sub)";
-        btn.style.borderColor = "var(--tr-border)";
-        if (txt) txt.innerText = "مفكك الـ 3 كتل: معطل";
+        if (txt) txt.innerText = "الـ 3 كتل";
       }
     }
 
@@ -1704,7 +1967,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('../service-worker.js').catch(err => console.log('SW registration failed:', err));
+        navigator.serviceWorker.register('../service-worker.js?v=2026.11.02.FINAL').catch(err => console.log('SW registration failed:', err));
       });
     }
   </script>

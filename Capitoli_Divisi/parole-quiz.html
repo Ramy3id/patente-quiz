@@ -7,9 +7,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/theme-modes.css">
+<link rel="stylesheet" href="../assets/css/theme-modes.css?v=2026.11.02.FINAL">
 <script src="../assets/js/theme-engine.js"></script>
-  <script src="../assets/js/unified-nav.js" defer></script>
+  <script src="../assets/js/unified-nav.js?v=2026.11.02.FINAL" defer></script>
 
 <style>
   :root {
@@ -587,7 +587,7 @@
 
   .segmented-filter-bar {
     display: flex;
-    background: rgba(15, 15, 18, 0.7);
+    background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     padding: 3px;
@@ -1163,6 +1163,1007 @@
     from { opacity: 0; transform: translateY(6px); }
     to { opacity: 1; transform: translateY(0); }
   }
+
+  
+  
+  /* ==========================================================================
+     PERFECTED PAROLE-QUIZ UI (HERO STATS, PRESETS 2-ROW ON MOBILE, CRISP CHIPS)
+     ========================================================================== */
+  @media (max-width: 600px) {
+    .glass-card {
+      padding: 18px 14px !important;
+      border-radius: 18px !important;
+    }
+  }
+
+  /* Block 1: Hero Stats 3-Col Compact Grid */
+  .hero-stats-row {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+    border-top: 1px solid var(--border-subtle) !important;
+    padding-top: 14px !important;
+    margin-top: 12px !important;
+  }
+  .stat-chip {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 8px 4px !important;
+    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+  .stat-chip strong {
+    font-size: 1.15rem !important;
+    font-weight: 800 !important;
+    color: #38bdf8 !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    line-height: 1.1 !important;
+  }
+  .stat-chip span {
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    color: var(--text-secondary) !important;
+    white-space: nowrap !important;
+    margin-top: 2px !important;
+  }
+
+  /* Block 2: Preset Packs - 2 balanced rows on Mobile, neat column in Desktop sidebar */
+  .preset-btn-group {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    margin-top: 8px !important;
+  }
+  .preset-btn-group button:last-child {
+    grid-column: span 2 !important;
+  }
+  @media (min-width: 900px) {
+    .preset-btn-group {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+    }
+    .preset-btn-group button:last-child {
+      grid-column: auto !important;
+    }
+  }
+
+  .btn-action-preset {
+    width: 100% !important;
+    min-height: 38px !important;
+    height: 38px !important;
+    padding: 0 12px !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #e4e4e7 !important;
+    border-radius: 10px !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 6px !important;
+    transition: all 0.2s ease !important;
+    font-family: inherit !important;
+    box-sizing: border-box !important;
+  }
+  .preset-plus {
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    color: #38bdf8 !important;
+    line-height: 1 !important;
+  }
+  .btn-action-preset:hover {
+    background: rgba(56, 189, 248, 0.12) !important;
+    border-color: rgba(56, 189, 248, 0.35) !important;
+    color: #38bdf8 !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* Block 3: Word Bank Input Row */
+  @media (min-width: 480px) {
+    .input-group-row {
+      display: flex !important;
+      gap: 8px !important;
+    }
+    .input-group-row .custom-input {
+      flex: 1 !important;
+    }
+    .input-group-row .btn-primary {
+      width: auto !important;
+      white-space: nowrap !important;
+    }
+  }
+
+  /* Block 3: Chips Toolbar & Actions */
+  .chips-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin-bottom: 12px !important;
+  }
+  .chips-title {
+    font-size: 0.92rem !important;
+    font-weight: 700 !important;
+    color: #e4e4e7 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+  .chips-actions {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    padding: 3px 5px !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  }
+  .btn-subtle {
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    color: #a1a1aa !important;
+    padding: 4px 8px !important;
+    height: 28px !important;
+    line-height: 1 !important;
+    border-radius: 6px !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    transition: all 0.15s ease !important;
+    font-family: inherit !important;
+  }
+  .btn-subtle:hover {
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+  }
+  .btn-subtle.btn-subtle-danger:hover {
+    color: #f43f5e !important;
+    background: rgba(244, 63, 94, 0.12) !important;
+  }
+
+  /* Clean Chips Deck Container */
+  .chips-wrapper {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 6px 8px !important;
+    min-height: 52px !important;
+    padding: 12px 10px !important;
+    background: rgba(24, 24, 27, 0.65) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 16px !important;
+    transition: all 0.25s ease !important;
+  }
+
+  .word-chip {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    background: rgba(39, 39, 42, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 100px !important;
+    padding: 4px 10px !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    color: #f4f4f5 !important;
+    cursor: pointer !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    user-select: none !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+  }
+  .word-chip:hover {
+    background: rgba(56, 189, 248, 0.15) !important;
+    border-color: rgba(56, 189, 248, 0.4) !important;
+    color: #38bdf8 !important;
+    transform: translateY(-1px) !important;
+  }
+  .word-chip.active {
+    background: linear-gradient(135deg, #0284c7, #2563eb) !important;
+    border-color: #0284c7 !important;
+    color: #ffffff !important;
+    box-shadow: 0 3px 10px rgba(2, 132, 199, 0.35) !important;
+  }
+  .chip-count {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    padding: 1px 5px !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-radius: 100px !important;
+    color: #cbd5e1 !important;
+  }
+  .word-chip.active .chip-count {
+    background: rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+  }
+  .chip-del {
+    color: #a1a1aa !important;
+    font-size: 1rem !important;
+    line-height: 1 !important;
+    margin-right: -2px !important;
+    border-radius: 50% !important;
+    width: 18px !important;
+    height: 18px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.15s ease !important;
+  }
+  .word-chip.active .chip-del {
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+  .chip-del:hover {
+    color: #ffffff !important;
+    background: rgba(244, 63, 94, 0.7) !important;
+  }
+
+  /* ==========================================================================
+     LIGHT MODE OVERRIDES FOR PAROLE-QUIZ (CRISP, PURE WHITE & ACCENT BLUE)
+     ========================================================================== */
+  html.light .hero-stats-row {
+    border-top: 1px solid rgba(15, 23, 42, 0.08) !important;
+  }
+  html.light .stat-chip {
+    background: #ffffff !important;
+    border: 1px solid rgba(15, 23, 42, 0.08) !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02) !important;
+  }
+  html.light .stat-chip strong {
+    color: #0284c7 !important;
+  }
+  html.light .stat-chip span {
+    color: #475569 !important;
+  }
+  html.light .btn-action-preset {
+    background: #ffffff !important;
+    border: 1px solid rgba(15, 23, 42, 0.08) !important;
+    color: #1e293b !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+  }
+  html.light .preset-plus {
+    color: #0284c7 !important;
+  }
+  html.light .btn-action-preset:hover {
+    background: #f0f9ff !important;
+    border-color: #38bdf8 !important;
+    color: #0284c7 !important;
+  }
+  html.light .chips-title {
+    color: #0f172a !important;
+  }
+  html.light .chips-actions {
+    background: #f1f5f9 !important;
+    border: 1px solid rgba(15, 23, 42, 0.08) !important;
+  }
+  html.light .btn-subtle {
+    color: #475569 !important;
+  }
+  html.light .btn-subtle:hover {
+    color: #0f172a !important;
+    background: rgba(15, 23, 42, 0.06) !important;
+  }
+  html.light .btn-subtle.btn-subtle-danger:hover {
+    color: #e11d48 !important;
+    background: rgba(225, 29, 72, 0.1) !important;
+  }
+
+  /* NO UGLY GRAY IN LIGHT MODE: PURE CLEAN WHITE CONTAINER WITH SUBTLE BORDER */
+  html.light .chips-wrapper {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
+  }
+  html.light .word-chip {
+    background: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #1e293b !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03) !important;
+  }
+  html.light .word-chip:hover {
+    background: #f0f9ff !important;
+    border-color: #38bdf8 !important;
+    color: #0284c7 !important;
+  }
+  html.light .word-chip.active {
+    background: linear-gradient(135deg, #0284c7, #2563eb) !important;
+    border-color: #0284c7 !important;
+    color: #ffffff !important;
+    box-shadow: 0 3px 10px rgba(2, 132, 199, 0.28) !important;
+  }
+  html.light .chip-count {
+    background: #e2e8f0 !important;
+    color: #334155 !important;
+  }
+  html.light .word-chip.active .chip-count {
+    background: rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+  }
+  html.light .chip-del {
+    color: #64748b !important;
+  }
+  html.light .word-chip.active .chip-del {
+    color: #ffffff !important;
+  }
+  html.light .chip-del:hover {
+    color: #ffffff !important;
+    background: #ef4444 !important;
+  }
+  html.light .empty-chips-msg {
+    color: #64748b !important;
+  }
+
+
+  /* ==========================================================================
+     ADVANCED ENHANCEMENTS: CHIPS ACTIONS, SHELF, THESAURUS, DROPDOWN, SEGMENTED
+     ========================================================================== */
+
+  /* 1. Word Bank Actions Centering & Unified Platform Colors */
+  .chips-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 8px !important;
+    margin-bottom: 14px !important;
+  }
+  .chips-title {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 2px !important;
+  }
+  .chips-subtitle {
+    font-size: 0.78rem !important;
+    color: var(--text-muted) !important;
+    opacity: 0.85 !important;
+  }
+  .chips-actions {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 4px auto 0 !important;
+    width: 100% !important;
+  }
+  .btn-subtle {
+    height: 34px !important;
+    min-height: 34px !important;
+    padding: 0 14px !important;
+    border-radius: 10px !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    transition: all 0.2s ease !important;
+    font-family: inherit !important;
+    box-sizing: border-box !important;
+  }
+  .btn-subtle .btn-icon {
+    font-size: 0.88rem !important;
+    line-height: 1 !important;
+  }
+
+  /* Subtitle button variants */
+  .btn-subtle-primary {
+    background: rgba(14, 165, 233, 0.12) !important;
+    border: 1px solid rgba(14, 165, 233, 0.3) !important;
+    color: #38bdf8 !important;
+  }
+  .btn-subtle-primary:hover {
+    background: rgba(14, 165, 233, 0.24) !important;
+    color: #fff !important;
+    transform: translateY(-1px) !important;
+  }
+
+  .btn-subtle-neutral {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #e4e4e7 !important;
+  }
+  .btn-subtle-neutral:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #fff !important;
+    transform: translateY(-1px) !important;
+  }
+
+  .btn-subtle-danger {
+    background: rgba(244, 63, 94, 0.1) !important;
+    border: 1px solid rgba(244, 63, 94, 0.25) !important;
+    color: #fb7185 !important;
+  }
+  .btn-subtle-danger:hover {
+    background: rgba(244, 63, 94, 0.22) !important;
+    color: #fff !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* Light mode palette for word bank actions */
+  html.light .btn-subtle-primary {
+    background: #e0f2fe !important;
+    border: 1px solid #bae6fd !important;
+    color: #0284c7 !important;
+  }
+  html.light .btn-subtle-primary:hover {
+    background: #0284c7 !important;
+    color: #ffffff !important;
+    border-color: #0284c7 !important;
+  }
+  html.light .btn-subtle-neutral {
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #334155 !important;
+  }
+  html.light .btn-subtle-neutral:hover {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+  }
+  html.light .btn-subtle-danger {
+    background: #ffe4e6 !important;
+    border: 1px solid #fecdd3 !important;
+    color: #e11d48 !important;
+  }
+  html.light .btn-subtle-danger:hover {
+    background: #e11d48 !important;
+    color: #ffffff !important;
+    border-color: #e11d48 !important;
+  }
+
+  /* 2. Semantic Families Shelf (No Scrollbar, Smooth Scroll & Polished Pills) */
+  .families-shelf {
+    display: flex !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    padding: 4px 2px 12px !important;
+    margin-bottom: 20px !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .families-shelf::-webkit-scrollbar {
+    display: none !important;
+  }
+  .family-pill {
+    flex-shrink: 0 !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    padding: 0 16px !important;
+    border-radius: 100px !important;
+    font-size: 0.84rem !important;
+    font-weight: 600 !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #e4e4e7 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    font-family: inherit !important;
+  }
+  .family-pill:hover {
+    background: rgba(56, 189, 248, 0.12) !important;
+    border-color: rgba(56, 189, 248, 0.35) !important;
+    color: #38bdf8 !important;
+  }
+  .family-pill.active {
+    background: linear-gradient(135deg, #0284c7, #2563eb) !important;
+    border-color: #0284c7 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35) !important;
+  }
+  html.light .family-pill {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    color: #334155 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03) !important;
+  }
+  html.light .family-pill:hover {
+    background: #f0f9ff !important;
+    border-color: #38bdf8 !important;
+    color: #0284c7 !important;
+  }
+  html.light .family-pill.active {
+    background: linear-gradient(135deg, #0284c7, #2563eb) !important;
+    border-color: #0284c7 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.28) !important;
+  }
+
+  /* 3. Thesaurus Cards: Elimination of Ugly Gray, Pure Clean Surfaces */
+  .thesaurus-card {
+    border-radius: 20px !important;
+    padding: 22px !important;
+    transition: all 0.25s ease !important;
+  }
+  html.light .thesaurus-card {
+    background: #ffffff !important;
+    border: 1px solid rgba(99, 102, 241, 0.2) !important;
+    box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.08) !important;
+  }
+  html.light .thesaurus-title {
+    color: #1e1b4b !important;
+  }
+  html.light .thesaurus-badge {
+    background: #eef2ff !important;
+    border: 1px solid #c7d2fe !important;
+    color: #4f46e5 !important;
+  }
+  html.light .thesaurus-summary {
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-right: 4px solid #6366f1 !important;
+    color: #334155 !important;
+  }
+
+  /* Thesaurus Subcards (Synonyms & Traps) */
+  html.light .thesaurus-subcard.synonyms {
+    background: #f0fdf4 !important;
+    border: 1px solid #bbf7d0 !important;
+  }
+  html.light .thesaurus-subcard.synonyms h4 {
+    color: #166534 !important;
+    font-weight: 800 !important;
+  }
+  html.light .synonym-chip-btn {
+    background: #ffffff !important;
+    border: 1px solid #86efac !important;
+    color: #15803d !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03) !important;
+    font-weight: 700 !important;
+  }
+  html.light .synonym-chip-btn:hover {
+    background: #15803d !important;
+    color: #ffffff !important;
+    border-color: #15803d !important;
+  }
+
+  html.light .thesaurus-subcard.traps {
+    background: #fff1f2 !important;
+    border: 1px solid #fecdd3 !important;
+  }
+  html.light .thesaurus-subcard.traps h4 {
+    color: #9f1239 !important;
+    font-weight: 800 !important;
+  }
+  html.light .falso-trap-item {
+    background: #ffffff !important;
+    border: 1px solid #fecdd3 !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02) !important;
+    color: #334155 !important;
+  }
+  html.light .falso-trap-term {
+    color: #dc2626 !important;
+    font-weight: 800 !important;
+  }
+
+  /* Dark mode tweaks for Thesaurus */
+  html.dark .thesaurus-card {
+    background: linear-gradient(135deg, rgba(30, 27, 75, 0.8), rgba(15, 23, 42, 0.9)) !important;
+    border: 1px solid rgba(99, 102, 241, 0.35) !important;
+  }
+  html.dark .thesaurus-subcard.synonyms {
+    background: rgba(6, 78, 59, 0.25) !important;
+    border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  }
+  html.dark .thesaurus-subcard.traps {
+    background: rgba(136, 19, 55, 0.25) !important;
+    border: 1px solid rgba(244, 63, 94, 0.25) !important;
+  }
+
+  /* 4. Custom Chapter Dropdown (Prevents OS popover overflow) */
+  .pq-dd-container {
+    position: relative !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .pq-dd-btn {
+    width: 100% !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 14px !important;
+    background: rgba(15, 15, 18, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 12px !important;
+    color: #fff !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    font-family: inherit !important;
+    transition: all 0.2s ease !important;
+    box-sizing: border-box !important;
+    text-align: right !important;
+  }
+  .pq-dd-btn.open {
+    border-color: #38bdf8 !important;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2) !important;
+  }
+  .pq-dd-arrow {
+    font-size: 0.75rem !important;
+    transition: transform 0.2s ease !important;
+    color: #a1a1aa !important;
+    margin-right: 8px !important;
+  }
+  .pq-dd-btn.open .pq-dd-arrow {
+    transform: rotate(180deg) !important;
+    color: #38bdf8 !important;
+  }
+  .pq-dd-label {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    flex: 1 !important;
+  }
+  .pq-dd-menu {
+    display: none;
+    position: absolute !important;
+    top: calc(100% + 6px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-height: 280px !important;
+    overflow-y: auto !important;
+    background: #0f172a !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45) !important;
+    z-index: 1000 !important;
+    padding: 6px !important;
+    box-sizing: border-box !important;
+  }
+  .pq-dd-menu.open {
+    display: block !important;
+    animation: fadeIn 0.15s ease !important;
+  }
+  .pq-dd-item {
+    padding: 10px 12px !important;
+    border-radius: 8px !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    color: #e2e8f0 !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    text-align: right !important;
+  }
+  .pq-dd-item:hover {
+    background: rgba(56, 189, 248, 0.15) !important;
+    color: #38bdf8 !important;
+  }
+  .pq-dd-item.selected {
+    background: rgba(56, 189, 248, 0.25) !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+  }
+  html.light .pq-dd-btn {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03) !important;
+  }
+  html.light .pq-dd-btn.open {
+    border-color: #0284c7 !important;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15) !important;
+  }
+  html.light .pq-dd-menu {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1) !important;
+  }
+  html.light .pq-dd-item {
+    color: #334155 !important;
+  }
+  html.light .pq-dd-item:hover {
+    background: #f0f9ff !important;
+    color: #0284c7 !important;
+  }
+  html.light .pq-dd-item.selected {
+    background: #e0f2fe !important;
+    color: #0284c7 !important;
+    font-weight: 700 !important;
+  }
+
+  /* 5. VERO / FALSO Segmented Filter Bar Centering & Polished Interactions */
+  .segmented-filter-bar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 440px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 3px !important;
+    gap: 4px !important;
+    background: rgba(15, 15, 18, 0.75) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+  }
+  .segmented-btn {
+    flex: 1 !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    border-radius: 9px !important;
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    border: 1px solid transparent !important;
+    cursor: pointer !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    font-family: inherit !important;
+    white-space: nowrap !important;
+  }
+  .segmented-btn.active {
+    background: linear-gradient(135deg, #0284c7, #2563eb) !important;
+    color: #ffffff !important;
+    border-color: #0284c7 !important;
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3) !important;
+  }
+  .segmented-btn.active-vero {
+    background: linear-gradient(135deg, #10b981, #059669) !important;
+    color: #ffffff !important;
+    border-color: #10b981 !important;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3) !important;
+  }
+  .segmented-btn.active-falso {
+    background: linear-gradient(135deg, #f43f5e, #e11d48) !important;
+    color: #ffffff !important;
+    border-color: #f43f5e !important;
+    box-shadow: 0 2px 8px rgba(244, 63, 94, 0.3) !important;
+  }
+
+  html.light .segmented-filter-bar {
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+  }
+  html.light .segmented-btn {
+    color: #475569 !important;
+  }
+  html.light .segmented-btn:hover:not(.active):not(.active-vero):not(.active-falso) {
+    background: rgba(15, 23, 42, 0.05) !important;
+    color: #0f172a !important;
+  }
+  html.light .segmented-btn.active {
+    background: linear-gradient(135deg, #0284c7, #2563eb) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.28) !important;
+  }
+  html.light .segmented-btn.active-vero {
+    background: linear-gradient(135deg, #10b981, #059669) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.28) !important;
+  }
+  html.light .segmented-btn.active-falso {
+    background: linear-gradient(135deg, #f43f5e, #e11d48) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(244, 63, 94, 0.28) !important;
+  }
+
+
+  /* ==========================================================================
+     STRICT REMOVAL OF BACKGROUND BEHIND BUTTONS & REMOVAL OF HORIZONTAL SCROLL
+     ========================================================================== */
+
+  /* Absolutely NO background behind Word Bank buttons (تحديد الكل / إلغاء / تفريغ) */
+  .chips-actions,
+  html.light .chips-actions,
+  html.dark .chips-actions {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 6px auto 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  /* Absolutely NO background behind Filter buttons (الكل / VERO / FALSO) */
+  .segmented-filter-bar,
+  html.light .segmented-filter-bar,
+  html.dark .segmented-filter-bar {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 440px !important;
+    height: auto !important;
+    min-height: 42px !important;
+  }
+
+  /* Enhance segmented buttons when floating with no container background */
+  .segmented-btn {
+    height: 40px !important;
+    min-height: 40px !important;
+    border-radius: 12px !important;
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+    border: 1px solid #cbd5e1 !important;
+    background: #ffffff !important;
+    color: #475569 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+  .segmented-btn:hover {
+    transform: translateY(-1px) !important;
+  }
+  .segmented-btn.active {
+    background: linear-gradient(135deg, #0284c7, #2563eb) !important;
+    color: #ffffff !important;
+    border-color: #0284c7 !important;
+    box-shadow: 0 3px 10px rgba(2, 132, 199, 0.35) !important;
+  }
+  .segmented-btn.active-vero {
+    background: linear-gradient(135deg, #10b981, #059669) !important;
+    color: #ffffff !important;
+    border-color: #10b981 !important;
+    box-shadow: 0 3px 10px rgba(16, 185, 129, 0.35) !important;
+  }
+  .segmented-btn.active-falso {
+    background: linear-gradient(135deg, #f43f5e, #e11d48) !important;
+    color: #ffffff !important;
+    border-color: #f43f5e !important;
+    box-shadow: 0 3px 10px rgba(244, 63, 94, 0.35) !important;
+  }
+
+  html.dark .segmented-btn {
+    background: rgba(30, 41, 59, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: #e2e8f0 !important;
+  }
+
+  
+  /* ==========================================================================
+     PERFECT 2-COLUMN RESPONSIVE GRID FOR FAMILIES (ZERO HORIZONTAL SCROLL)
+     ========================================================================== */
+  .families-shelf {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 12px 0 20px 0 !important;
+    box-sizing: border-box !important;
+  }
+  @media (min-width: 768px) {
+    .families-shelf {
+      grid-template-columns: repeat(3, 1fr) !important;
+    }
+  }
+  @media (min-width: 1024px) {
+    .families-shelf {
+      grid-template-columns: repeat(4, 1fr) !important;
+    }
+  }
+
+  .family-pill {
+    width: 100% !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    padding: 0 8px !important;
+    border-radius: 12px !important;
+    font-size: 0.76rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    transition: all 0.2s ease !important;
+    box-sizing: border-box !important;
+  }
+  .family-pill span {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+
+
+  /* Toggleable Families Shelf Visibility */
+  .family-pill-extra {
+    display: none !important;
+  }
+  .families-shelf.expanded .family-pill-extra {
+    display: inline-flex !important;
+    animation: fadeIn 0.25s ease !important;
+  }
+
+  .shelf-toggle-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 4px auto 20px !important;
+    width: 100% !important;
+  }
+  .btn-toggle-shelf {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    padding: 0 18px !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 100px !important;
+    color: #e4e4e7 !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    font-family: inherit !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+  }
+  .btn-toggle-shelf:hover {
+    background: rgba(56, 189, 248, 0.14) !important;
+    border-color: rgba(56, 189, 248, 0.35) !important;
+    color: #38bdf8 !important;
+    transform: translateY(-1px) !important;
+  }
+  .toggle-icon {
+    font-size: 0.72rem !important;
+    transition: transform 0.2s ease !important;
+  }
+
+  html.light .btn-toggle-shelf {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #334155 !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+  }
+  html.light .btn-toggle-shelf:hover {
+    background: #f0f9ff !important;
+    border-color: #38bdf8 !important;
+    color: #0284c7 !important;
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.15) !important;
+  }
+
 </style>
 </head>
 <body>
@@ -1181,7 +2182,7 @@
     <a href="index.html" class="nav-tab-desktop">📚 بنك أسئلة الأبواب</a>
     <a href="dizionario-sinonimi.html" class="nav-tab-desktop">📖 معجم المترادفات والبدائل</a>
     <a href="parole-quiz.html" class="nav-tab-desktop active">🔤 بنك كلماتي والأسئلة</a>
-    <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
+    <a href="../interactive_pages/scheda-esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
   </div>
 
   <!-- Actions (Audio & Theme) -->
@@ -1224,7 +2225,7 @@
     <a href="parole-quiz.html" class="mobile-nav-link active" onclick="closeMobileNav()">
       <span>🔤</span> <span>بنك كلماتي والأسئلة الوزارية</span>
     </a>
-    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
+    <a href="../interactive_pages/scheda-esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
       <span>⏱️</span> <span>محاكي الامتحان الوزاري</span>
     </a>
   </div>
@@ -1257,16 +2258,16 @@
       </p>
       <div class="hero-stats-row">
         <div class="stat-chip">
-          <span>📊 إجمالي الأسئلة:</span>
           <strong id="statTotalQs">7,139</strong>
+          <span>📊 إجمالي الأسئلة</span>
         </div>
         <div class="stat-chip">
-          <span>📚 عدد الأبواب:</span>
-          <strong>25 باباً</strong>
+          <strong>25</strong>
+          <span>📚 باباً وزارياً</span>
         </div>
         <div class="stat-chip">
-          <span>🏷️ الكلمات في بنكك:</span>
           <strong id="statMyWordsCount">0</strong>
+          <span>🏷️ في بنكك</span>
         </div>
       </div>
     </div>
@@ -1278,17 +2279,17 @@
       </h3>
       <p>أضف أهم الكلمات المصيرية الأكثر تكراراً في الامتحانات بنقرة واحدة:</p>
       <div class="preset-btn-group">
-        <button class="btn-action-preset" onclick="loadPresetPack('pericolo')">
-          <span>⚠️ كلمات إشارات الخطر</span>
-          <span>+</span>
+        <button class="btn-action-preset" onclick="loadPresetPack('pericolo')" title="إضافة كلمات إشارات الخطر الأكثر تكراراً">
+          <span>⚠️ إشارات الخطر</span>
+          <span class="preset-plus">+</span>
         </button>
-        <button class="btn-action-preset" onclick="loadPresetPack('obbligo_divieto')">
-          <span>🛑 كلمات الإلزام والمنع</span>
-          <span>+</span>
+        <button class="btn-action-preset" onclick="loadPresetPack('obbligo_divieto')" title="إضافة كلمات الإلزام والمنع">
+          <span>🛑 الإلزام والمنع</span>
+          <span class="preset-plus">+</span>
         </button>
-        <button class="btn-action-preset" onclick="loadPresetPack('aderenza_meteo')">
-          <span>🌧️ الانزلاق والطقس والسرعة</span>
-          <span>+</span>
+        <button class="btn-action-preset" onclick="loadPresetPack('aderenza_meteo')" title="إضافة كلمات الانزلاق والطقس والسرعة">
+          <span>🌧️ الطقس والسرعة</span>
+          <span class="preset-plus">+</span>
         </button>
       </div>
     </div>
@@ -1307,12 +2308,21 @@
     <div class="chips-header">
       <div class="chips-title">
         <span>🏷️ الكلمات المحفوظة في بنكك:</span>
-        <span style="font-size:0.8rem; color:#71717a;">(اضغط على أي كلمة للفلترة بها أو إزالتها)</span>
+        <span class="chips-subtitle">(اضغط على أي كلمة للفلترة بها أو إزالتها)</span>
       </div>
       <div class="chips-actions">
-        <button class="btn-subtle" onclick="selectAllWords()">تحديد الكل</button>
-        <button class="btn-subtle" onclick="clearWordSelection()">إلغاء التحديد</button>
-        <button class="btn-subtle" onclick="clearAllWords()">مسح البنك</button>
+        <button class="btn-subtle btn-subtle-primary" onclick="selectAllWords()" title="تحديد كافة الكلمات في البنك">
+          <span class="btn-icon">✓</span>
+          <span>تحديد الكل</span>
+        </button>
+        <button class="btn-subtle btn-subtle-neutral" onclick="clearWordSelection()" title="إلغاء تحديد كل الكلمات">
+          <span class="btn-icon">✕</span>
+          <span>إلغاء</span>
+        </button>
+        <button class="btn-subtle btn-subtle-danger" onclick="clearAllWords()" title="مسح كافة الكلمات من البنك">
+          <span class="btn-icon">🗑️</span>
+          <span>تفريغ</span>
+        </button>
       </div>
     </div>
 
@@ -1324,6 +2334,12 @@
   <!-- Semantic Families Shelf (المعجم وعائلات الكلمات) -->
   <div class="families-shelf" id="familiesShelf">
     <!-- Populated by JS -->
+  </div>
+  <div class="shelf-toggle-wrapper">
+    <button type="button" class="btn-toggle-shelf" id="btnToggleFamilies" onclick="toggleFamiliesShelf()">
+      <span id="toggleFamiliesText">عرض باقي العائلات الدلالية (12+)</span>
+      <span id="toggleFamiliesIcon" class="toggle-icon">▼</span>
+    </button>
   </div>
 
   <!-- Thesaurus & False Synonyms Card -->
@@ -1367,11 +2383,21 @@
         <input type="text" id="liveSearchInput" class="search-input" placeholder="بحث مباشر في كل الأسئلة أو الترجمات..." oninput="onSearchChange()">
       </div>
 
-      <!-- Chapter Selector -->
-      <div>
-        <select id="chapterSelect" class="custom-select" onchange="onSearchChange()">
+      <!-- Chapter Selector (Custom Dropdown bounded within screen) -->
+      <div class="pq-dd-container" id="pqChapterDropdown">
+        <select id="chapterSelect" style="display:none;" onchange="onSearchChange()">
           <option value="0">📚 كل الأبواب الـ 25 (المنهج كاملاً)</option>
         </select>
+        <button type="button" class="pq-dd-btn" id="pqDropdownBtn" onclick="toggleChapterDropdown(event)">
+          <span class="pq-dd-label" id="pqDropdownLabel">📚 كل الأبواب الـ 25 (المنهج كاملاً)</span>
+          <span class="pq-dd-arrow">▼</span>
+        </button>
+        <div class="pq-dd-menu" id="pqDropdownMenu">
+          <div class="pq-dd-item selected" onclick="selectChapterOption(0, '📚 كل الأبواب الـ 25 (المنهج كاملاً)')">
+            <span>📚 كل الأبواب الـ 25 (المنهج كاملاً)</span>
+          </div>
+          <!-- Other chapters populated dynamically by JS -->
+        </div>
       </div>
 
       <!-- VERO / FALSO Segmented Bar -->
@@ -1822,23 +2848,41 @@ function renderChips() {
 function initControls() {
   // Populate chapters
   const sel = document.getElementById('chapterSelect');
+  const ddMenu = document.getElementById('pqDropdownMenu');
   if (typeof CHAPTERS_META !== 'undefined') {
     CHAPTERS_META.forEach(ch => {
       const opt = document.createElement('option');
       opt.value = ch.num;
-      opt.textContent = `الباب ${ch.num}: ${ch.titolo_ar || ch.titolo_it} (${ch.count} سؤال)`;
+      const text = `الباب ${ch.num}: ${ch.titolo_ar || ch.titolo_it} (${ch.count} سؤال)`;
+      opt.textContent = text;
       sel.appendChild(opt);
+
+      if (ddMenu) {
+        const item = document.createElement('div');
+        item.className = 'pq-dd-item';
+        item.dataset.value = ch.num;
+        item.innerHTML = `<span>الباب ${ch.num}: ${ch.titolo_ar || ch.titolo_it} <small style="opacity:0.75; font-family:'JetBrains Mono',monospace;">(${ch.count} سؤال)</small></span>`;
+        item.onclick = function() {
+          selectChapterOption(ch.num, text);
+        };
+        ddMenu.appendChild(item);
+      }
     });
   }
 
-  // Populate Semantic Families Shelf
+  // Populate Semantic Families Shelf with balanced 2-column grid layout
   const shelf = document.getElementById('familiesShelf');
   if (typeof PATENTE_THESAURUS !== 'undefined') {
-    shelf.innerHTML = PATENTE_THESAURUS.map(item => `
-      <button class="family-pill" onclick="selectThesaurusFamily('${item.id}')">
-        ${item.categoria}
-      </button>
-    `).join('');
+    shelf.innerHTML = PATENTE_THESAURUS.map((item, idx) => {
+      // Clean Arabic title & show initial 6 items; rest toggled via button
+      const cleanTitle = item.categoria.replace(/\s*\([^)]*\)/g, '').trim();
+      const isExtra = idx >= 6;
+      return `
+        <button class="family-pill ${isExtra ? 'family-pill-extra' : ''}" onclick="selectThesaurusFamily('${item.id}')" title="${item.categoria}">
+          <span>${cleanTitle}</span>
+        </button>
+      `;
+    }).join('');
   }
 }
 
@@ -2143,6 +3187,89 @@ document.addEventListener('DOMContentLoaded', () => {
   renderChips();
   onSearchChange();
 });
+
+/* ==========================================================================
+   Custom Chapter Dropdown Helpers
+   ========================================================================== */
+function toggleChapterDropdown(e) {
+  if (e) e.stopPropagation();
+  const menu = document.getElementById('pqDropdownMenu');
+  const btn = document.getElementById('pqDropdownBtn');
+  if (!menu || !btn) return;
+  const isOpen = menu.classList.contains('open');
+  if (isOpen) {
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+  } else {
+    menu.classList.add('open');
+    btn.classList.add('open');
+  }
+}
+
+function selectChapterOption(val, text) {
+  const sel = document.getElementById('chapterSelect');
+  const label = document.getElementById('pqDropdownLabel');
+  const menu = document.getElementById('pqDropdownMenu');
+  const btn = document.getElementById('pqDropdownBtn');
+
+  if (sel) {
+    sel.value = val;
+  }
+  if (label) {
+    label.textContent = text;
+  }
+  if (menu) {
+    menu.classList.remove('open');
+    menu.querySelectorAll('.pq-dd-item').forEach(it => {
+      const itemVal = it.dataset.value || 0;
+      if (parseInt(itemVal, 10) === parseInt(val, 10)) {
+        it.classList.add('selected');
+      } else {
+        it.classList.remove('selected');
+      }
+    });
+  }
+  if (btn) btn.classList.remove('open');
+  playSound('click');
+  onSearchChange();
+}
+
+// Close dropdown on outside click
+document.addEventListener('click', (e) => {
+  const container = document.getElementById('pqChapterDropdown');
+  if (container && !container.contains(e.target)) {
+    const menu = document.getElementById('pqDropdownMenu');
+    const btn = document.getElementById('pqDropdownBtn');
+    if (menu) menu.classList.remove('open');
+    if (btn) btn.classList.remove('open');
+  }
+});
+
+
+/* ==========================================================================
+   Toggle Families Shelf (Show/Hide Extra Categories)
+   ========================================================================== */
+let familiesShelfExpanded = false;
+function toggleFamiliesShelf() {
+  playSound('click');
+  familiesShelfExpanded = !familiesShelfExpanded;
+  const shelf = document.getElementById('familiesShelf');
+  const txt = document.getElementById('toggleFamiliesText');
+  const icon = document.getElementById('toggleFamiliesIcon');
+  if (shelf) {
+    shelf.classList.toggle('expanded', familiesShelfExpanded);
+  }
+  if (txt && icon) {
+    if (familiesShelfExpanded) {
+      txt.textContent = 'عرض أقل';
+      icon.textContent = '▲';
+    } else {
+      txt.textContent = 'عرض باقي العائلات الدلالية (12+)';
+      icon.textContent = '▼';
+    }
+  }
+}
+
 </script>
 
 </body>

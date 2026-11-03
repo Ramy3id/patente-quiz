@@ -1,0 +1,143 @@
+
+    /* 1. التبويبات العلوية للوحة التحكم */
+    .dash-tabs-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(1
+---
+-x: auto;
+      scrollbar-width: none;
+    }
+    .dash-tabs-bar::-webkit-scrollbar { display: none; }
+    html.light .dash-tabs-bar {
+      background: #FFFFFF;
+      border-color: rgba(15, 23, 42, 0.
+---
+bkit-scrollbar { display: none; }
+    html.light .dash-tabs-bar {
+      background: #FFFFFF;
+      border-color: rgba(15, 23, 42, 0.1);
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+    .
+---
+ow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+    .dash-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      backg
+---
+      font-family: inherit;
+    }
+    html.light .dash-tab-btn { color: #475569; }
+    .dash-tab-btn:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.05);
+    }
+    ht
+---
+html.light .dash-tab-btn { color: #475569; }
+    .dash-tab-btn:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.05);
+    }
+    html.light .dash-tab-btn:hover {
+      c
+---
+ rgba(255, 255, 255, 0.05);
+    }
+    html.light .dash-tab-btn:hover {
+      color: #0F172A;
+      background: rgba(15, 23, 42, 0.04);
+    }
+    .dash-tab-btn.active {
+      background: rgba(56, 189, 
+---
+   background: rgba(15, 23, 42, 0.04);
+    }
+    .dash-tab-btn.active {
+      background: rgba(56, 189, 248, 0.14);
+      border-color: rgba(56, 189, 248, 0.35);
+      color: var(--accent-cyan);
+    }
+---
+ color: var(--accent-cyan);
+    }
+    html.light .dash-tab-btn.active {
+      background: rgba(2, 132, 199, 0.1);
+      border-color: rgba(2, 132, 199, 0.3);
+      color: #0284C7;
+    }
+    .tab-badge
+---
+er: 1px solid rgba(239, 68, 68, 0.35);
+    }
+    .dash-tab-btn.active .tab-badge {
+      background: #EF4444;
+      color: #FFFFFF;
+    }
+
+    /* أوعية التبويبات */
+    .tab-view {
+      display: none
+---
+  <!-- شريط التبويبات العلوية -->
+    <div class="dash-tabs-bar" role="tablist">
+      <button class="dash-tab-btn active" data-tab="tabOverview" role="tab" aria-selected="true">
+        <span>📊</span
+---
+sh-tabs-bar" role="tablist">
+      <button class="dash-tab-btn active" data-tab="tabOverview" role="tab" aria-selected="true">
+        <span>📊</span>
+        <span>الجاهزية والملخص</span>
+      </butt
+---
+لملخص</span>
+      </button>
+      <button class="dash-tab-btn" data-tab="tabMistakes" role="tab" aria-selected="false" id="btnTabMistakes">
+        <span>⚠️</span>
+        <span>بنك أخطائي</span>
+   
+---
+e;">0</span>
+      </button>
+      <button class="dash-tab-btn" data-tab="tabMatrix" role="tab" aria-selected="false">
+        <span>📚</span>
+        <span>خريطة الأبواب (1-25)</span>
+      </button>
+
+---
+1-25)</span>
+      </button>
+      <button class="dash-tab-btn" data-tab="tabHistory" role="tab" aria-selected="false">
+        <span>📜</span>
+        <span>سجل الامتحانات</span>
+      </button>
+     
+---
+حانات</span>
+      </button>
+      <button class="dash-tab-btn" data-tab="tabBackup" role="tab" aria-selected="false" id="btnTabBackup">
+        <span>💾</span>
+        <span>النسخ الاحتياطي والمزامنة<
+---
+hTab(tabId) {
+        document.querySelectorAll('.dash-tab-btn').forEach(b => {
+          b.classList.toggle('active', b.getAttribute('data-tab') === tabId);
+        });
+        document.querySelector
+---
+     }
+      }
+
+      document.querySelectorAll('.dash-tab-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const tab = this.getAttribute('data-tab');
+          swit
+---

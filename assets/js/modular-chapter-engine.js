@@ -63,6 +63,17 @@
         q.gruppo_unificato = this.subtopicMap[rawSub] || rawSub || 'altro';
       });
 
+      // Sort questions so they follow the numerical sequence of the subtopic groups (1..N)
+      // while preserving original ministerial sequence within the same subtopic
+      this.data.domande.sort((a, b) => {
+        const numA = (this.groups[a.gruppo_unificato] && typeof this.groups[a.gruppo_unificato].num === 'number') 
+          ? this.groups[a.gruppo_unificato].num : 9999;
+        const numB = (this.groups[b.gruppo_unificato] && typeof this.groups[b.gruppo_unificato].num === 'number') 
+          ? this.groups[b.gruppo_unificato].num : 9999;
+        if (numA !== numB) return numA - numB;
+        return (a.id || 0) - (b.id || 0);
+      });
+
       // Export globally for inline HTML events
       this.injectQuizStyles();
       this.bindGlobals();
@@ -197,6 +208,26 @@
       if (gMeta) gMeta.innerText = `🏆 أُتقن بالكامل: ${progress.completedGroups} من ${progress.totalGroups} قسماً`;
     },
 
+    
+
+
+        toggleExtraSubtopics() {
+      if (window.soundEngine && window.soundEngine.click) window.soundEngine.click();
+      this.extraSubtopicsExpanded = !this.extraSubtopicsExpanded;
+      const container = document.getElementById('extraSubtopicsContainer');
+      const txt = document.getElementById('extraSubtopicsToggleText');
+      if (container) {
+        container.classList.toggle('is-expanded', this.extraSubtopicsExpanded);
+      }
+      if (txt) {
+        const groupKeys = Object.keys(this.groups || {});
+        const remCount = Math.max(0, groupKeys.length - 4);
+        txt.textContent = this.extraSubtopicsExpanded 
+          ? 'إخفاء الأجزاء الإضافية ▴' 
+          : `عرض باقي الأجزاء (${remCount} أجزاء إضافية) ▾`;
+      }
+    },
+
     bindGlobals() {
       const self = this;
       window.answerQuestion = (id, choice) => self.answerQuestion(id, choice);
@@ -205,6 +236,7 @@
       window.filterQuestions = () => self.filterQuestions();
       window.toggleStudyMode = () => self.toggleStudyMode();
       window.selectSubtopicFilter = (key) => self.selectSubtopicFilter(key);
+      window.toggleExtraSubtopics = () => self.toggleExtraSubtopics();
       window.setViewMode = (mode) => self.setViewMode(mode);
       window.toggleSubtopicSection = (key) => self.toggleSubtopicSection(key);
       window.expandAllSections = () => self.expandAllSections();
@@ -271,7 +303,7 @@
           <div class="subtopics-hub-actions">
             <div class="view-mode-toggle-group">
               <button class="view-mode-btn active" id="btn-mode-grouped" onclick="setViewMode('grouped')" title="عرض مقسم لأقسام وبلوكات">
-                <span>🗂️ عرض مقسم (${groupCount} قسماً)</span>
+                <span>🗂️ قوائم مقسمة</span>
               </button>
               <button class="view-mode-btn" id="btn-mode-flat" onclick="setViewMode('flat')" title="عرض تقليدي متتالي">
                 <span>📜 قائمة كاملة</span>
@@ -293,8 +325,10 @@
               <span class="chapter-progress-pct-badge" id="chapter-progress-pct">${progress.pct}%</span>
             </div>
             <div class="chapter-progress-meta">
-              <span id="chapter-progress-q-meta">🎯 أُتقن: ${progress.answeredCount} من ${progress.totalQuestions} سؤالاً</span>
-              <span id="chapter-progress-g-meta">🏆 أُتقن بالكامل: ${progress.completedGroups} من ${progress.totalGroups} قسماً</span>
+              <div class="chapter-progress-stats-row">
+                <span id="chapter-progress-q-meta">🎯 أُتقن: ${progress.answeredCount} من ${progress.totalQuestions} سؤالاً</span>
+                <span id="chapter-progress-g-meta">🏆 أُتقن بالكامل: ${progress.completedGroups} من ${progress.totalGroups} قسماً</span>
+              </div>
               <button class="chapter-reset-btn" onclick="resetChapterProgress()" title="إعادة تعيين التقدم لهذا الباب">
                 <span>🔄 تصفير الإنجاز</span>
               </button>
@@ -330,17 +364,14 @@
       });
 
       const totalDomande = this.data.domande.length;
-      const groupKeys = Object.keys(this.groups);
+      const groupKeys = Object.keys(this.groups).sort((a, b) => {
+        const numA = (this.groups[a] && typeof this.groups[a].num === 'number') ? this.groups[a].num : 9999;
+        const numB = (this.groups[b] && typeof this.groups[b].num === 'number') ? this.groups[b].num : 9999;
+        return numA - numB;
+      });
       const totalGroups = groupKeys.length;
 
-      let html = `
-        <button class="subtopic-chip ${this.activeGroupFilter === 'all' ? 'active' : ''}" onclick="selectSubtopicFilter('all')" title="عرض كل الأجزاء (${totalDomande} سؤالاً)">
-          <span>🌐 كل الأجزاء (${totalGroups})</span>
-          <span class="chip-count">${totalDomande}</span>
-        </button>
-      `;
-
-      groupKeys.forEach(gKey => {
+      const renderChipHtml = (gKey) => {
         const info = this.groups[gKey] || {};
         const count = counts[gKey] || 0;
         const isActive = (this.activeGroupFilter === gKey);
@@ -356,13 +387,42 @@
         });
         const isCompleted = (count > 0 && gMastered >= count);
 
-        html += `
+        return `
           <button class="subtopic-chip ${isActive ? 'active' : ''} ${isCompleted ? 'is-completed' : ''}" onclick="selectSubtopicFilter('${gKey}')" title="${info.ar || ''} (${info.it || ''})">
             <span>${isCompleted ? '✅' : icon} ${num}${label}</span>
             <span class="chip-count">${isCompleted ? 'مكتمل' : count}</span>
           </button>
         `;
-      });
+      };
+
+      const topKeys = groupKeys.slice(0, 4);
+      const remainingKeys = groupKeys.slice(4);
+      const hasCollapsible = remainingKeys.length > 0;
+
+      // Auto-expand if active filter is among remaining
+      if (this.activeGroupFilter !== 'all' && remainingKeys.includes(this.activeGroupFilter)) {
+        this.extraSubtopicsExpanded = true;
+      }
+
+      let html = `
+        <button class="subtopic-chip ${this.activeGroupFilter === 'all' ? 'active' : ''}" data-filter="all" onclick="selectSubtopicFilter('all')" title="عرض كل الأجزاء (${totalDomande} سؤالاً)">
+          <span>🌐 كل الأجزاء (${totalGroups})</span>
+          <span class="chip-count">${totalDomande} سؤالاً</span>
+        </button>
+        ${topKeys.map(renderChipHtml).join('')}
+      `;
+
+      if (hasCollapsible) {
+        const isExpanded = !!this.extraSubtopicsExpanded;
+        html += `
+          <div id="extraSubtopicsContainer" class="extra-subtopics-container ${isExpanded ? 'is-expanded' : ''}">
+            ${remainingKeys.map(renderChipHtml).join('')}
+          </div>
+          <button type="button" class="subtopics-toggle-btn" id="btnToggleExtraSubtopics" onclick="toggleExtraSubtopics()">
+            <span id="extraSubtopicsToggleText">${isExpanded ? 'إخفاء الأجزاء الإضافية ▴' : `عرض باقي الأجزاء (${remainingKeys.length} أجزاء إضافية) ▾`}</span>
+          </button>
+        `;
+      }
 
       bar.innerHTML = html;
     },
@@ -458,8 +518,10 @@
               </div>
               <div class="q-text-content">${q.domanda}</div>
               <div class="q-actions-row">
-                <button class="btn-ans btn-ans-v"><span>VERO</span></button>
-                <button class="btn-ans btn-ans-f"><span>FALSO</span></button>
+                <div class="q-answers-grid">
+                  <button class="btn-ans btn-ans-v"><span>VERO</span></button>
+                  <button class="btn-ans btn-ans-f"><span>FALSO</span></button>
+                </div>
               </div>
             </div>
           </div>
@@ -504,17 +566,21 @@
             <div class="q-text-content">${q.domanda}</div>
 
             <div class="q-actions-row">
-              <button class="btn-ans btn-ans-v ${ans && ans.userChoice === true ? 'selected' : ''}" onclick="answerQuestion(${q.id}, true)">
-                <span>VERO</span>
-              </button>
-              <button class="btn-ans btn-ans-f ${ans && ans.userChoice === false ? 'selected' : ''}" onclick="answerQuestion(${q.id}, false)">
-                <span>FALSO</span>
-              </button>
+              <div class="q-answers-grid">
+                <button class="btn-ans btn-ans-v ${ans && ans.userChoice === true ? 'selected' : ''}" onclick="answerQuestion(${q.id}, true)">
+                  <span>VERO</span>
+                </button>
+                <button class="btn-ans btn-ans-f ${ans && ans.userChoice === false ? 'selected' : ''}" onclick="answerQuestion(${q.id}, false)">
+                  <span>FALSO</span>
+                </button>
+              </div>
 
-              <span class="${statusClass}" id="status-${q.id}">${statusText}</span>
-              <span class="study-badge-direct ${this.isStudyMode ? 'show' : ''} ${q.risposta ? 'is-v' : 'is-f'}" id="study-badge-${q.id}">
-                ${q.risposta ? 'VERO ✅' : 'FALSO ❌'}
-              </span>
+              <div class="q-feedback-row">
+                <span class="${statusClass}" id="status-${q.id}">${statusText}</span>
+                <span class="study-badge-direct ${this.isStudyMode ? 'show' : ''} ${q.risposta ? 'is-v' : 'is-f'}" id="study-badge-${q.id}">
+                  ${q.risposta ? 'VERO ✅' : 'FALSO ❌'}
+                </span>
+              </div>
 
               <button class="btn-explain-toggle" onclick="toggleDrawer(${q.id})">
                 <span>💡 الترجمة والشرح وكشف الفخ</span>
@@ -616,9 +682,16 @@
           groupsMap.get(gKey).push(q);
         });
 
+        // Ensure groups are rendered strictly in numerical order of this.groups (1, 2, 3...)
+        const sortedGroupEntries = Array.from(groupsMap.entries()).sort((a, b) => {
+          const numA = (this.groups[a[0]] && typeof this.groups[a[0]].num === 'number') ? this.groups[a[0]].num : 9999;
+          const numB = (this.groups[b[0]] && typeof this.groups[b[0]].num === 'number') ? this.groups[b[0]].num : 9999;
+          return numA - numB;
+        });
+
         const totalGroupsCount = Object.keys(this.groups).length || 1;
 
-        groupsMap.forEach((questions, gKey) => {
+        sortedGroupEntries.forEach(([gKey, questions]) => {
           const info = this.groups[gKey] || {
             num: '•',
             short_ar: gKey,
@@ -689,15 +762,23 @@
                 <span class="subtopic-stat-pill progress-pill ${isMasteredDone ? 'done' : ''}" id="sec-progress-${gKey}">
                   ${isMasteredDone ? '🏆 إتقان كامل ' : '🎯 إتقان '}${masteredInSub}/${totalInSub}
                 </span>
+              </div>
+
+              <div class="subtopic-actions-footer">
                 <div class="part-quiz-actions-wrap" onclick="event.stopPropagation()">
                   ${quizBtnHtml}
                 </div>
-                ${this.activeGroupFilter === 'all' ? `
-                  <button class="subtopic-focus-btn" onclick="event.stopPropagation(); selectSubtopicFilter('${gKey}')">
-                    🎯 مذاكرة هذا الجزء
+                <div class="subtopic-footer-nav-row">
+                  ${this.activeGroupFilter === 'all' ? `
+                    <button class="subtopic-focus-btn" onclick="event.stopPropagation(); selectSubtopicFilter('${gKey}')">
+                      <span>🎯 مذاكرة هذا الجزء</span>
+                    </button>
+                  ` : ''}
+                  <button class="subtopic-chevron-btn" onclick="event.stopPropagation(); ModularChapterEngine.toggleSubtopicSection('${gKey}')" title="فتح أو طي أسئلة هذا الجزء">
+                    <span>الأسئلة</span>
+                    <span class="subtopic-chevron">▼</span>
                   </button>
-                ` : ''}
-                <span class="subtopic-chevron">▼</span>
+                </div>
               </div>
             </div>
 

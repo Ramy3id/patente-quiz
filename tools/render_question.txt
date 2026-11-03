@@ -1,0 +1,120 @@
+            curPill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          }
+        }
+
+        const count = exam.getAnsweredCount();
+        const ansCnt = document.getElementById("answeredCounter");
+        const motoAnsCnt = document.getElementById("motoSummaryAnswered");
+        if (ansCnt) ansCnt.textContent = count;
+        if (motoAnsCnt) motoAnsCnt.textContent = `RISPOSTE: ${count} / 30`;
+      }
+
+      // رسم السؤال النشط
+      function renderActiveQuestion() {
+        const q = exam.getCurrentQuestion();
+        if (!q) return;
+
+        const currentAnswer = exam.answers[q.id];
+        const isFlag = flaggedQuestions.has(q.id);
+        const rawImg = (q.img || q.immagine || "").trim();
+        const imgPath = resolveImgPath(rawImg);
+
+        // 1. تحديث واجهة الوضع العصري
+        const stage = document.getElementById("questionCardStage");
+        if (stage) {
+          stage.innerHTML = `
+            <div class="exam-q-header">
+              <span class="exam-q-badge">سؤال ${exam.currentIndex + 1} من 30</span>
+              <button type="button" class="btn-flag-review ${isFlag ? 'active' : ''}" id="btnModernFlag">
+                <span>${isFlag ? '📌 معلّم للمراجعة' : '📌 علّم للمراجعة'}</span>
+              </button>
+            </div>
+
+            <!-- حاوية الصورة الثابتة: ارتفاع 120px دائماً لمنع قفز الأزرار -->
+            <div class="exam-media-slot">
+              ${imgPath ? 
+                `<div class="exam-sign-frame"><img src="${imgPath}" alt="Segnale"></div>` : 
+                `<div class="exam-no-img-placeholder">
+                   <span class="no-img-icon">🚗</span>
+                   <span class="no-img-label">سؤال نظري عام • بدون إشارة مصورة</span>
+                 </div>`
+              }
+            </div>
+
+            <!-- حاوية نصوص السؤال ذات الارتفاع المتناسق -->
+            <div class="exam-text-container">
+              <div class="exam-text-it">${q.domanda}</div>
+              <div class="exam-tr-wrapper">
+                <button type="button" class="btn-toggle-tr ${showArabicTr ? 'active' : ''}" id="btnToggleTr">
+                  <span>${showArabicTr ? '✕ إخفاء الترجمة' : '🌐 الترجمة العربية'}</span>
+                </button>
+                <div class="exam-text-tr" id="examArabicText" style="display:${showArabicTr ? 'block' : 'none'};">
+                  ${q.traduzione || 'سؤال وزاري مباشر.'}
+                </div>
+              </div>
+            </div>
+
+            <!-- أزرار الإجابة الثابتة في منطقة راحة الإبهام -->
+            <div class="exam-choice-buttons">
+              <button type="button" class="choice-btn choice-btn-vero ${currentAnswer === true ? 'selected' : ''}" id="btnVero">
+                <span>VERO (صح) ☑</span>
+              </button>
+              <button type="button" class="choice-btn choice-btn-falso ${currentAnswer === false ? 'selected' : ''}" id="btnFalso">
+                <span>FALSO (خطأ) ✕</span>
+              </button>
+            </div>
+
+            <!-- أزرار التنقل السفلية -->
+            <div class="exam-nav-steps">
+              <button type="button" class="btn-nav-step" id="btnPrev" ${exam.currentIndex === 0 ? 'disabled' : ''}>السابق ➡</button>
+              <button type="button" class="btn-submit-pill" id="btnModernSubmit">📋 تسليم الامتحان</button>
+              <button type="button" class="btn-nav-step" id="btnNext" ${exam.currentIndex === exam.questions.length - 1 ? 'disabled' : ''}>التالي ⬅</button>
+            </div>
+          `;
+
+          document.getElementById("btnVero").addEventListener("click", () => answerAndRefresh(q.id, true));
+          document.getElementById("btnFalso").addEventListener("click", () => answerAndRefresh(q.id, false));
+          document.getElementById("btnNext").addEventListener("click", () => { exam.nextQuestion(); renderActiveQuestion(); renderPills(); });
+          document.getElementById("btnPrev").addEventListener("click", () => { exam.prevQuestion(); renderActiveQuestion(); renderPills(); });
+          document.getElementById("btnModernFlag").addEventListener("click", () => toggleFlag(q.id));
+          document.getElementById("btnToggleTr")?.addEventListener("click", () => {
+            showArabicTr = !showArabicTr;
+            const trBox = document.getElementById("examArabicText");
+            const trBtn = document.getElementById("btnToggleTr");
+            if (trBox && trBtn) {
+              trBox.style.display = showArabicTr ? "block" : "none";
+              trBtn.classList.toggle("active", showArabicTr);
+              trBtn.innerHTML = `<span>${showArabicTr ? "✕ إخفاء الترجمة" : "🌐 الترجمة العربية"}</span>`;
+            }
+          });
+        }
+
+        // 2. تحديث واجهة كمبيوتر الموتوريزاسيون (Official Motorizzazione)
+        const motoBox = document.getElementById("motoSignBox");
+        const motoImg = document.getElementById("motoSignImg");
+        const motoNoSign = document.getElementById("motoNoSignPlaceholder");
+        const motoText = document.getElementById("motoQuestionText");
+        const motoBadge = document.getElementById("motoQuestionBadge");
+        const motoFlagBtn = document.getElementById("btnMotoFlag");
+        const motoV = document.getElementById("btnMotoVero");
+        const motoF = document.getElementById("btnMotoFalso");
+
+        if (motoBadge) motoBadge.textContent = `DOMANDA N. ${exam.currentIndex + 1} DI 30`;
+        if (motoText) motoText.textContent = q.domanda;
+
+        if (motoImg && motoNoSign) {
+          if (imgPath) {
+            motoImg.src = imgPath;
+            motoImg.style.display = 'block';
+            motoNoSign.style.display = 'none';
+          } else {
+            motoImg.src = '';
+            motoImg.style.display = 'none';
+            motoNoSign.style.display = 'flex';
+          }
+        }
+
+        if (motoFlagBtn) {
+          motoFlagBtn.classList.toggle('active', isFlag);
+          motoFlagBtn.onclick = () => toggleFlag(q.id);
+        }

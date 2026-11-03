@@ -50,10 +50,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/theme-modes.css">
+<link rel="stylesheet" href="../assets/css/theme-modes.css?v=2026.11.02.FINAL">
 <script src="../assets/js/security-shield.js"></script>
 <script src="../assets/js/theme-engine.js"></script>
-  <script src="../assets/js/unified-nav.js" defer></script>
+  <script src="../assets/js/unified-nav.js?v=2026.11.02.FINAL" defer></script>
 <style>
   :root {
     --bg-base: #09090b;
@@ -277,10 +277,15 @@
   }
 
   .filter-chips {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
+    display: flex !important;
+    gap: 8px !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    padding-bottom: 6px !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
   }
+  .filter-chips::-webkit-scrollbar { display: none !important; }
   .chip-btn {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--border-subtle);
@@ -315,24 +320,46 @@
     .chapters-grid { grid-template-columns: 1fr; }
   }
 
+  
+  
+  .chapter-card.is-hidden {
+    display: none !important;
+  }
+
   .chapter-card {
     background: var(--bg-surface);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--border-subtle);
     box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05), 0 8px 24px -6px rgba(0,0,0,0.5);
-    border-radius: 16px;
-    padding: 22px;
+    border-radius: 18px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: all 0.2s var(--ease-spring);
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
     position: relative;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
   }
   .chapter-card:hover {
     transform: translateY(-2px);
     border-color: var(--border-highlight);
     box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1), 0 12px 30px -8px rgba(0,0,0,0.7);
+  }
+  .chapter-card:active {
+    transform: scale(0.98);
+  }
+  /* Removed rogue chevron */
+  html.light .chapter-card {
+    background: #ffffff;
+    border-color: rgba(15, 23, 42, 0.08);
+    box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.06);
+  }
+  html.light .chapter-card:hover {
+    border-color: rgba(15, 23, 42, 0.16);
+    box-shadow: 0 10px 25px -4px rgba(15, 23, 42, 0.1);
   }
 
   .card-top-strip {
@@ -546,7 +573,7 @@
      Apple HIG & Design Engineering Responsive Navigation System
      ========================================================================== */
   :root {
-    --nav-base-height: 54px;
+    --nav-base-height: 56px;
     --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -1109,438 +1136,899 @@
     }
   }
 
+
+  /* =========================================================
+     Sleek Decluttered Portal Architecture (HIG & Material 3)
+     ========================================================= */
+  .ch-portal-header {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 20px 24px;
+    margin-bottom: 18px;
+    backdrop-filter: blur(16px);
+  }
+  html.light .ch-portal-header {
+    background: #FFFFFF;
+    border-color: rgba(15, 23, 42, 0.09);
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  }
+  .ch-portal-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .ch-portal-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .ch-portal-badge-strip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .portal-badge-live {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 6px;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    color: #10B981;
+  }
+  .portal-badge-stat {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 6px;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    color: #38BDF8;
+  }
+  html.light .portal-badge-stat {
+    color: #0284C7;
+  }
+  .ch-portal-heading {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin: 0;
+    letter-spacing: -0.3px;
+  }
+  html.light .ch-portal-heading {
+    color: #0F172A;
+  }
+  .ch-portal-subtext {
+    font-size: 0.88rem;
+    color: #94A3B8;
+    margin: 0;
+    line-height: 1.5;
+  }
+  html.light .ch-portal-subtext {
+    color: #64748B;
+  }
+  .btn-portal-exam {
+    min-height: 46px;
+    height: 46px;
+    padding: 0 20px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #0284C7, #2563EB);
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+  .btn-portal-exam:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.45);
+    color: #FFFFFF;
+  }
+
+  /* 2. Tools Quick Horizontal Carousel */
+  .tools-quick-section {
+    margin-bottom: 22px;
+  }
+  .tools-section-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0 4px;
+  }
+  .tools-section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: #FFFFFF;
+  }
+  html.light .tools-section-title {
+    color: #0F172A;
+  }
+  .tools-count-pill {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    color: #38BDF8;
+  }
+  html.light .tools-count-pill {
+    color: #0284C7;
+  }
+  .tools-swipe-hint {
+    font-size: 0.78rem;
+    color: #64748B;
+    font-weight: 600;
+  }
+  .tools-horizontal-carousel {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 4px 2px 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .tools-horizontal-carousel::-webkit-scrollbar {
+    display: none;
+  }
+  .tool-quick-card {
+    flex: 0 0 auto;
+    width: 220px;
+    min-height: 64px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    scroll-snap-align: start;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+  }
+  html.light .tool-quick-card {
+    background: #FFFFFF;
+    border-color: rgba(15, 23, 42, 0.08);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  }
+  .tool-quick-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+  .tool-card-icon {
+    font-size: 1.5rem;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .tool-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+  }
+  .tool-card-title {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  html.light .tool-card-title {
+    color: #0F172A;
+  }
+  .tool-card-meta {
+    font-size: 0.74rem;
+    color: #94A3B8;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  html.light .tool-card-meta {
+    color: #64748B;
+  }
+
+  /* Standardized Touch Targets for All Controls (Apple HIG) */
+  .search-wrapper {
+    min-height: 48px !important;
+  }
+  .search-input {
+    min-height: 48px !important;
+    height: 48px !important;
+    font-size: 0.95rem !important;
+    border-radius: 14px !important;
+  }
+  .chip-btn {
+    min-height: 44px !important;
+    height: 44px !important;
+    padding: 0 16px !important;
+    border-radius: 12px !important;
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .btn-action-study {
+    min-height: 46px !important;
+    height: 46px !important;
+    border-radius: 12px !important;
+    font-size: 0.92rem !important;
+    font-weight: 800 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .btn-action-md {
+    min-height: 46px !important;
+    min-width: 46px !important;
+    height: 46px !important;
+    border-radius: 12px !important;
+    font-weight: 800 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  @media (max-width: 768px) {
+    .ch-portal-header {
+      padding: 16px 18px;
+    }
+    .ch-portal-heading {
+      font-size: 1.25rem;
+    }
+    .btn-portal-exam {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+
+  /* Single-row horizontal scroll for filter chips on all screens <= 992px */
+  @media (max-width: 992px) {
+    .controls-bar {
+      margin-bottom: 18px !important;
+    }
+    .search-wrapper {
+      position: relative !important;
+      display: flex !important;
+      align-items: center !important;
+      width: 100% !important;
+    }
+    .search-icon {
+      position: absolute !important;
+      right: 14px !important;
+      left: auto !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      font-size: 1.1rem !important;
+      pointer-events: none !important;
+      z-index: 2 !important;
+    }
+    .search-input {
+      width: 100% !important;
+      padding-right: 44px !important;
+      padding-left: 16px !important;
+      font-size: 0.92rem !important;
+      box-sizing: border-box !important;
+    }
+    .filter-chips {
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      overflow-x: auto !important;
+      gap: 8px !important;
+      padding: 6px 2px 10px !important;
+      scroll-snap-type: x mandatory !important;
+      -webkit-overflow-scrolling: touch !important;
+      scrollbar-width: none !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .filter-chips::-webkit-scrollbar {
+      display: none !important;
+    }
+    .chip-btn {
+      flex: 0 0 auto !important;
+      scroll-snap-align: start !important;
+      white-space: nowrap !important;
+    }
+  }
+
+
+  /* Full-width primary study action */
+  .btn-action-md {
+    display: none !important;
+  }
+  .card-actions-strip {
+    display: flex !important;
+    width: 100% !important;
+    margin-top: 14px !important;
+  }
+  .btn-action-study {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    border-radius: 14px !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25) !important;
+  }
+
+
+/* Bento Grid App Launcher */
+.bento-tools-section {
+  margin: 18px 0 24px;
+}
+.bento-tools-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding: 0 4px;
+}
+.bento-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.bento-spark-badge {
+  font-size: 1.15rem;
+  color: #F59E0B;
+}
+.bento-main-heading {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.bento-pill-count {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(14, 165, 233, 0.12);
+  color: #0284C7;
+  border: 1px solid rgba(14, 165, 233, 0.25);
+  white-space: nowrap;
+}
+html.dark .bento-pill-count {
+  background: rgba(14, 165, 233, 0.2);
+  color: #38BDF8;
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.bento-tools-section {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+.bento-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+@media (min-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+}
+@media (min-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+  }
+  .bento-extra-grid {
+    display: grid !important;
+  }
+  .bento-toggle-btn {
+    display: none !important;
+  }
+}
+
+.bento-card {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 10px 8px !important;
+  background: var(--surface-card, #ffffff);
+  border: 1px solid var(--border-subtle, rgba(0, 0, 0, 0.08));
+  border-radius: 14px !important;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+  min-height: 60px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+.bento-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-color: var(--primary-accent, #0284C7);
+}
+.bento-card:active {
+  transform: scale(0.97);
+}
+html.dark .bento-card {
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+html.dark .bento-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+.bento-icon-box {
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+  border-radius: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.15rem !important;
+  flex-shrink: 0 !important;
+}
+.bento-info {
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  text-align: right !important;
+  min-width: 0 !important;
+  flex: 1 1 0% !important;
+  width: 100% !important;
+}
+.bento-title {
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  color: var(--text-primary);
+  line-height: 1.25 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: block !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+.bento-meta {
+  font-size: 0.67rem !important;
+  color: var(--text-muted, #64748B);
+  margin-top: 2px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: block !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+html.dark .bento-meta {
+  color: #94A3B8;
+}
+
+.bento-toggle-btn {
+  width: 100%;
+  margin-top: 10px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px dashed var(--border-subtle, rgba(0, 0, 0, 0.15));
+  background: rgba(0, 0, 0, 0.02);
+  color: var(--text-muted, #475569);
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.bento-toggle-btn:hover {
+  background: rgba(14, 165, 233, 0.08);
+  border-color: #0284C7;
+  color: #0284C7;
+}
+.bento-toggle-btn:active {
+  transform: scale(0.98);
+}
+html.dark .bento-toggle-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #94A3B8;
+}
+html.dark .bento-toggle-btn:hover {
+  background: rgba(56, 189, 248, 0.1);
+  border-color: #38BDF8;
+  color: #38BDF8;
+}
+
+
+/* === 2026 MOBILE UI UPGRADES (Bento 4-Tools, 2-Row Chips, Centered CTA, Harmonized Cards) === */
+
+/* Hero Header & Centered Exam CTA */
+.ch-portal-header-content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 14px !important;
+}
+.ch-portal-title-group {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 8px !important;
+}
+.ch-portal-badge-strip {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+}
+.ch-portal-heading {
+  text-align: center !important;
+}
+.ch-portal-subtext {
+  text-align: center !important;
+  max-width: 500px !important;
+  margin: 0 auto !important;
+}
+.ch-portal-quick-actions {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin-top: 4px !important;
+}
+.btn-portal-exam {
+  margin: 0 auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  max-width: 320px !important;
+  width: auto !important;
+  padding: 0 28px !important;
+  border-radius: 999px !important;
+  box-shadow: 0 4px 18px rgba(37, 99, 235, 0.4) !important;
+}
+
+
+/* 2-Row Symmetrical Category Filter Chips (Zero Horizontal Scroll & No Cutoff) */
+.filter-chips {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  overflow-x: visible !important;
+  padding: 8px 0 12px !important;
+}
+@media (max-width: 480px) {
+  .filter-chips {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+}
+.chip-btn {
+  width: 100% !important;
+  min-width: 0 !important;
+  padding: 4px 2px !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  max-height: 48px !important;
+  border-radius: 12px !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 2px !important;
+  line-height: 1.15 !important;
+  transition: all 0.15s ease !important;
+}
+.chip-btn .chip-title {
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+}
+.chip-btn .chip-sub {
+  font-size: 0.64rem !important;
+  opacity: 0.75 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  letter-spacing: 0.2px !important;
+}
+
+
+/* Harmonized Chapter Card Hierarchy & Right Alignment */
+.chapter-card {
+  text-align: right !important;
+  direction: rtl !important;
+}
+.ch-title-it {
+  direction: ltr !important;
+  text-align: right !important; /* Right aligned in RTL card for visual harmony */
+  font-size: 0.92rem !important;
+  font-weight: 600 !important;
+  color: var(--text-secondary, #94A3B8) !important;
+  margin-top: 4px !important;
+  margin-bottom: 12px !important;
+}
+html.light .ch-title-it {
+  color: #475569 !important;
+}
+.ch-title-ar {
+  direction: rtl !important;
+  text-align: right !important;
+  font-size: 1.05rem !important;
+  font-weight: 800 !important;
+  color: var(--text-primary, #FFFFFF) !important;
+  margin-bottom: 2px !important;
+}
+html.light .ch-title-ar {
+  color: #0F172A !important;
+}
+.card-stats-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important; /* Aligned with title on right in RTL */
+  gap: 8px !important;
+  margin-bottom: 14px !important;
+}
+.card-actions-strip {
+  border-top: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08)) !important;
+  padding-top: 12px !important;
+}
+
+
+.bento-extra-grid {
+  display: none !important;
+}
+.bento-extra-grid.is-expanded {
+  display: grid !important;
+  animation: bentoFadeIn 0.25s ease-out;
+}
+@keyframes bentoFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 </style>
 </head>
 <body>
-<!-- شريط العينة المجانية للزوار -->
-<div class="guest-free-sample-banner" id="guestChaptersIndexBanner" style="display:none;">
-  <div class="sample-banner-text">
-    <span>🎁</span>
-    <span><strong>شرح الأبواب التفاعلي:</strong> الباب 1 والباب 2 مفتوحان بالكامل ومجاناً للجميع! الأبواب من 3 إلى 25 تشمل عينة مجانية لـ 5 أسئلة، والشرح الكامل وتفكيك الفخاخ مخصص للطلاب المسجلين. سجّل حسابك المجاني في ثوانٍ لفتح جميع الأبواب!</span>
-  </div>
-  <button class="sample-banner-btn" onclick="window.PatenteAuth && window.PatenteAuth.openAuthModal(true)">
-    <span>🚀 إنشاء حساب مجاني الآن</span>
-  </button>
-</div>
-
-<!-- Unified Portal Navigation (Apple HIG Compliant) -->
-<nav class="unified-portal-nav" id="portal-nav">
-  <!-- Brand (Minimal on mobile, full on desktop) -->
-  <a href="index.html" class="nav-brand">
-    <span style="font-size:1.25rem;">🚦</span>
-    <span>Patente B Pro</span>
-    <span class="badge-tag">A2</span>
-  </a>
-
-  <!-- Desktop Tabs Menu -->
-  <nav class="nav-desktop-tabs">
-    <a href="../interactive_pages/index.html" class="nav-tab-desktop">🏛️ أدلة وقواميس الشرح</a>
-    <a href="index.html" class="nav-tab-desktop active">📚 بنك أسئلة الأبواب</a>
-    <a href="dizionario-sinonimi.html" class="nav-tab-desktop">📖 معجم المترادفات والبدائل</a>
-    <a href="parole-quiz.html" class="nav-tab-desktop">🔤 بنك كلماتي والأسئلة</a>
-    <a href="../Simulatore_Esame.html" class="nav-tab-desktop">⏱️ محاكي الامتحان</a>
-  </nav>
-
-  <!-- Desktop Audio & Dropdown Control -->
-  <div class="nav-desktop-actions">
-    <div class="nav-dropdown-wrapper">
-      <button class="nav-dropdown-btn" onclick="toggleNavDropdown(event)">
-        <span>تصفح الأبواب (1-25)</span>
-        <span style="font-size:0.75rem;">▾</span>
-      </button>
-      <div class="nav-dropdown-menu" id="navDropdownMenu">
-      <a href="Capitolo_01_definizioni_generali_doveri_strada/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 1: المفاهيم العامة والواجبات</span></a>
-      <a href="Capitolo_02_segnali_pericolo/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 2: إشارات الخطر</span></a>
-      <a href="Capitolo_03_segnali_divieto/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 3: إشارات المنع</span></a>
-      <a href="Capitolo_04_segnali_obbligo/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 4: إشارات الإلزام</span></a>
-      <a href="Capitolo_05_segnali_precedenza/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 5: إشارات الأسبقية</span></a>
-      <a href="Capitolo_06_segnaletica_orizzontale_ostacoli/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 6: الإشارات الأفقية والمطبات</span></a>
-      <a href="Capitolo_07_semafori_vigili/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 7: الإشارات الضوئية والشرطي</span></a>
-      <a href="Capitolo_08_segnali_indicazione/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 8: الإشارات الإرشادية</span></a>
-      <a href="Capitolo_09_segnali_complementari_cantiere/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 9: إشارات الورش والتحويلات</span></a>
-      <a href="Capitolo_10_pannelli_integrativi/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 10: اللوحات التكميلية</span></a>
-      <a href="Capitolo_11_limiti_di_velocita/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 11: حدود السرعة</span></a>
-      <a href="Capitolo_12_distanza_di_sicurezza/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 12: مسافة الأمان</span></a>
-      <a href="Capitolo_13_norme_di_circolazione/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 13: قواعد السير والمسارات</span></a>
-      <a href="Capitolo_14_precedenza_incroci/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 14: أسبقية المرور والتقاطعات</span></a>
-      <a href="Capitolo_15_sorpasso/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 15: مناورة التجاوز والتخطي</span></a>
-      <a href="Capitolo_16_fermata_sosta_arresto/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 16: الوقوف والتوقف والركن</span></a>
-      <a href="Capitolo_17_norme_varie_autostrade_pannelli/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 17: الأوتوستراد والمقطورات</span></a>
-      <a href="Capitolo_18_luci_dispositivi_acustici/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 18: الأضواء ولمبات التابلوه</span></a>
-      <a href="Capitolo_19_cinture_casco_sicurezza/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 19: أحزمة الأمان والخوذة</span></a>
-      <a href="Capitolo_20_patente_punti_documenti/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 20: رخص القيادة والعقوبات</span></a>
-      <a href="Capitolo_21_incidenti_stradali_comportamenti/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 21: حوادث السير والطقس</span></a>
-      <a href="Capitolo_22_alcool_droga_primo_soccorso/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 22: الكحول والمخدرات والإسعافات</span></a>
-      <a href="Capitolo_23_responsabilita_civile_penale_e_assicurazione/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 23: المسؤولية والتأمين RCA</span></a>
-      <a href="Capitolo_24_consumi_ambiente_inquinamento/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 24: استهلاك الوقود والبيئة</span></a>
-      <a href="Capitolo_25_elementi_veicolo_manutenzione_comportamenti/index.html" class="nav-dropdown-item"><span>📖</span> <span>الباب 25: الميكانيكا وصيانة المركبة</span></a>
-      </div>
-    </div>
-
-    <button class="nav-audio-btn" onclick="toggleAudio()" title="كتم/تشغيل المؤثرات الصوتية [M]">
-      <span class="audio-icon-span">🔊</span>
-      <span class="audio-label-span">الصوت نشط</span>
-    </button>
-
-    <button class="nav-theme-btn" onclick="toggleTheme()" id="themeToggleBtn" title="التبديل بين الوضع الفاتح والمظلم [Alt + T]">
-      <span class="theme-icon-span" id="themeIcon">☀️</span>
-      <span class="theme-label-span" id="themeLabel">الوضع النهاري</span>
-    </button>
-  </div>
-
-  <!-- Animated Hamburger Button -->
-  <button class="nav-hamburger-btn" id="nav-hamburger-btn" onclick="toggleMobileNav()" aria-label="قائمة التنقل" aria-expanded="false">
-    <div class="hamburger-box">
-      <span class="hamburger-line line-top"></span>
-      <span class="hamburger-line line-mid"></span>
-      <span class="hamburger-line line-bot"></span>
-    </div>
-  </button>
-</nav>
-
-<!-- Backdrop Blur Overlay -->
-<div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav()"></div>
-
-<!-- Slide-Down Glassmorphic Drawer Panel -->
-<div class="mobile-drawer-panel" id="mobile-drawer-panel">
-  <div class="mobile-nav-list">
-    <a href="../interactive_pages/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">🏛️</span>
-      <span>أدلة وقواميس الشرح الشاملة</span>
-    </a>
-    <a href="index.html" class="mobile-nav-link active" onclick="closeMobileNav()">
-      <span class="nav-icon">📚</span>
-      <span>بنك أسئلة الأبواب المقسمة (25 باب)</span>
-    </a>
-    <a href="dizionario-sinonimi.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>معجم المترادفات والبدائل القانونية</span>
-    </a>
-    <a href="parole-quiz.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">🔤</span>
-      <span>بنك كلماتي ومستكشف الأسئلة والفخاخ</span>
-    </a>
-    <a href="../Simulatore_Esame.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">⏱️</span>
-      <span>محاكي الامتحان الوزاري (20 دقيقة)</span>
-    </a>
-    <div class="mobile-nav-divider"></div>
-    <a href="Capitolo_01_definizioni_generali_doveri_strada/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 1: المفاهيم العامة والواجبات</span>
-    </a>
-    <a href="Capitolo_02_segnali_pericolo/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 2: إشارات الخطر</span>
-    </a>
-    <a href="Capitolo_03_segnali_divieto/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 3: إشارات المنع</span>
-    </a>
-    <a href="Capitolo_04_segnali_obbligo/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 4: إشارات الإلزام</span>
-    </a>
-    <a href="Capitolo_05_segnali_precedenza/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 5: إشارات الأسبقية</span>
-    </a>
-    <a href="Capitolo_06_segnaletica_orizzontale_ostacoli/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 6: الإشارات الأفقية والمطبات</span>
-    </a>
-    <a href="Capitolo_07_semafori_vigili/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 7: الإشارات الضوئية والشرطي</span>
-    </a>
-    <a href="Capitolo_08_segnali_indicazione/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 8: الإشارات الإرشادية</span>
-    </a>
-    <a href="Capitolo_09_segnali_complementari_cantiere/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 9: إشارات الورش والتحويلات</span>
-    </a>
-    <a href="Capitolo_10_pannelli_integrativi/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 10: اللوحات التكميلية</span>
-    </a>
-    <a href="Capitolo_11_limiti_di_velocita/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 11: حدود السرعة</span>
-    </a>
-    <a href="Capitolo_12_distanza_di_sicurezza/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 12: مسافة الأمان</span>
-    </a>
-    <a href="Capitolo_13_norme_di_circolazione/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 13: قواعد السير والمسارات</span>
-    </a>
-    <a href="Capitolo_14_precedenza_incroci/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 14: أسبقية المرور والتقاطعات</span>
-    </a>
-    <a href="Capitolo_15_sorpasso/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 15: مناورة التجاوز والتخطي</span>
-    </a>
-    <a href="Capitolo_16_fermata_sosta_arresto/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 16: الوقوف والتوقف والركن</span>
-    </a>
-    <a href="Capitolo_17_norme_varie_autostrade_pannelli/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 17: الأوتوستراد والمقطورات</span>
-    </a>
-    <a href="Capitolo_18_luci_dispositivi_acustici/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 18: الأضواء ولمبات التابلوه</span>
-    </a>
-    <a href="Capitolo_19_cinture_casco_sicurezza/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 19: أحزمة الأمان والخوذة</span>
-    </a>
-    <a href="Capitolo_20_patente_punti_documenti/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 20: رخص القيادة والعقوبات</span>
-    </a>
-    <a href="Capitolo_21_incidenti_stradali_comportamenti/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 21: حوادث السير والطقس</span>
-    </a>
-    <a href="Capitolo_22_alcool_droga_primo_soccorso/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 22: الكحول والمخدرات والإسعافات</span>
-    </a>
-    <a href="Capitolo_23_responsabilita_civile_penale_e_assicurazione/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 23: المسؤولية والتأمين RCA</span>
-    </a>
-    <a href="Capitolo_24_consumi_ambiente_inquinamento/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 24: استهلاك الوقود والبيئة</span>
-    </a>
-    <a href="Capitolo_25_elementi_veicolo_manutenzione_comportamenti/index.html" class="mobile-nav-link" onclick="closeMobileNav()">
-      <span class="nav-icon">📖</span>
-      <span>الباب 25: الميكانيكا وصيانة المركبة</span>
-    </a>
-  </div>
-
-  <div class="mobile-drawer-footer">
-    <button class="mobile-control-btn" onclick="toggleAudio()">
-      <span class="audio-icon-span">🔊</span>
-      <span class="audio-label-span">الصوت نشط</span>
-    </button>
-    <button class="mobile-control-btn" onclick="toggleTheme()" title="التبديل بين الوضع الفاتح والمظلم">
-      <span class="theme-icon-span">☀️</span>
-      <span class="theme-label-span">المظهر</span>
-    </button>
-    <div class="mobile-control-btn" style="cursor: default; opacity: 0.85;">
-      <span>🇮🇹 ⬅️ 🇸🇦 Patente B</span>
-    </div>
-  </div>
-</div>
-
 <div class="container">
 
   <!-- Bento Hero Header -->
-  <div class="hero-bento">
-    <div class="hero-main-card">
-      <div>
-        <h1>
-          <span>🚦</span>
-          <span>منظومة بنك أسئلة رخصة القيادة الإيطالية</span>
-        </h1>
-        <p>
-          تم تقسيم وفصل بنك الأسئلة الوزاري الرسمي البالغ <strong>7,139 سؤالاً</strong> إلى 25 مجلداً مستقلاً تماماً. كل باب يحتوي على صوره المعزولة، ترجمته السياقية، وشروحات كشف الفخاخ الامتحانية باللغتين الإيطالية والعربية.
-        </p>
+  <!-- 1. Sleek Compact Portal Header -->
+  <header class="ch-portal-header">
+    <div class="ch-portal-header-content">
+      <div class="ch-portal-title-group">
+        <div class="ch-portal-badge-strip">
+          <span class="portal-badge-live">🟢 بنك الأسئلة المعتمد 2026</span>
+          <span class="portal-badge-stat">25 باباً • 7,139 سؤالاً</span>
+        </div>
+        <h1 class="ch-portal-heading">أبواب المنهج والأسئلة الوزارية</h1>
+        <p class="ch-portal-subtext">تصفّح أبواب رخصة القيادة الإيطالية مع الشرح الصوتي، تفكيك الفخاخ، والترجمة السياقية المعتمدة.</p>
       </div>
-      <div class="hero-stats-row">
-        <div class="stat-chip">
-          <span>📚 الأبواب:</span>
-          <strong>25 باباً</strong>
-        </div>
-        <div class="stat-chip">
-          <span>📝 إجمالي الأسئلة:</span>
-          <strong>7,139 سؤالاً</strong>
-        </div>
-        <div class="stat-chip">
-          <span>🖼️ الصور الرسمية:</span>
-          <strong>413 صورة</strong>
-        </div>
-        <div class="stat-chip">
-          <span>🎯 فخاخ الوزارة:</span>
-          <strong>محللة 100%</strong>
-        </div>
-        <div class="stat-chip">
-          <span>🧩 تفكيك الـ 3 كتل:</span>
-          <strong>مُفعّل بالكامل</strong>
-        </div>
+      <div class="ch-portal-quick-actions">
+        <a href="../interactive_pages/scheda-esame.html" class="btn-portal-exam" onclick="soundEngine.click()">
+          <span class="btn-ico">⏱️</span>
+          <span>خوض امتحان رسمي (30 سؤال)</span>
+        </a>
       </div>
     </div>
+  </header>
 
-    <div class="hero-side-card">
-      <div>
-        <div class="side-tag">محاكي الامتحان الوزاري</div>
-        <div class="side-title">اختبار رسمي موقت</div>
-        <div class="side-desc">
-          30 سؤالاً في 20 دقيقة وفقاً للنموذج المعتمد رسمياً بالمرور، مع عداد تنازلي وبنك أخطاء ذكي تلقائي.
-        </div>
+  <!-- 2. Compact Horizontal Swipe Tools Carousel (13 أداة في شريط أفقي أنيق) -->
+    <!-- 2. Bento Grid App Launcher (13 معملاً تدريبياً ذكياً) -->
+  <section class="bento-tools-section" aria-label="المعامل والأدوات التفاعلية">
+    <div class="bento-tools-header">
+      <div class="bento-title-wrapper">
+        <span class="bento-spark-badge">⚡</span>
+        <h2 class="bento-main-heading">المعامل والأدوات الذكية</h2>
       </div>
-      <a href="../Simulatore_Esame.html" class="btn-hero-launch" onclick="soundEngine.click()">
-        <span>⏱️ بدء الامتحان الرسمي الآن</span>
-        <span>←</span>
+      <span class="bento-pill-count">13 معملاً معتمداً</span>
+    </div>
+
+    <!-- الشبكة الرئيسية: أول 6 معامل أساسية تظهر فوراً -->
+    <div class="bento-grid">
+      <!-- 1. محاكي الامتحان -->
+      <a href="../interactive_pages/scheda-esame.html" class="bento-card" onclick="if(window.soundEngine)soundEngine.click()">
+        <div class="bento-icon-box" style="background: rgba(14, 165, 233, 0.12); color: #0EA5E9;">⏱️</div>
+        <div class="bento-info">
+          <div class="bento-title">محاكي الامتحان</div>
+          <div class="bento-meta">30 سؤالاً • 20 دقيقة</div>
+        </div>
+      </a>
+
+      <!-- 2. رادار الكلمات السحرية -->
+      <a href="../interactive_pages/parole-spia.html" class="bento-card" onclick="if(window.soundEngine)soundEngine.click()">
+        <div class="bento-icon-box" style="background: rgba(236, 72, 153, 0.12); color: #EC4899;">🎯</div>
+        <div class="bento-info">
+          <div class="bento-title">رادار الكلمات السحرية</div>
+          <div class="bento-meta">حسم 462 سؤالاً V/F</div>
+        </div>
+      </a>
+
+      <!-- 3. مفكك التقاطعات -->
+      <a href="../interactive_pages/decodificatore-incroci.html" class="bento-card" onclick="if(window.soundEngine)soundEngine.click()">
+        <div class="bento-icon-box" style="background: rgba(16, 185, 129, 0.12); color: #10B981;">🔄</div>
+        <div class="bento-info">
+          <div class="bento-title">مفكك التقاطعات</div>
+          <div class="bento-meta">أسبقيات الباب 14</div>
+        </div>
+      </a>
+
+      <!-- 4. لوحة الجاهزية وبنك الأخطاء -->
+      <a href="../interactive_pages/dashboard.html" class="bento-card" onclick="if(window.soundEngine)soundEngine.click()">
+        <div class="bento-icon-box" style="background: rgba(245, 158, 11, 0.12); color: #F59E0B;">⚠️</div>
+        <div class="bento-info">
+          <div class="bento-title">بنك الأخطاء والجاهزية</div>
+          <div class="bento-meta">تتبع تقدمك الذكي</div>
+        </div>
       </a>
     </div>
-  </div>
 
-  <!-- Interactive Controls Bar -->
-    <!-- Interactive Tools Hub Banner -->
-  <div class="tools-hub-banner" style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 20px; padding: 22px 24px; margin-bottom: 28px; backdrop-filter: blur(16px); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <span style="font-size: 1.5rem;">⚡</span>
-        <h3 style="margin: 0; font-size: 1.25rem; font-weight: 800; color: #fff;">الأدوات التفاعلية الذكية (Patente Tools)</h3>
-      </div>
-      <span style="font-size: 0.82rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2); padding: 4px 10px; border-radius: 999px; font-weight: 700;">13 أداة تدريب حصرية</span>
-    </div>
-    <div class="tools-hub-grid">
-      <!-- تحدي الـ 0 أخطاء (Modalità Sopravvivenza) -->
-      <a href="../interactive_pages/zero-mistake.html" style="background: rgba(244, 63, 94, 0.1); border: 1px solid rgba(244, 63, 94, 0.4); border-radius: 14px; padding: 14px 16px; text-decoration: none; color: inherit; transition: all 0.2s ease; display: flex; flex-direction: column; gap: 6px;">
-        <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; color: #f43f5e; font-size: 1rem;">
-          <span>🎮</span> <span>تحدي الـ 0 أخطاء (Zero-Mistake Streak)</span>
+    <!-- المعامل الإضافية الـ 9 (ديناميكية مع زر العرض والطي) -->
+    <div class="bento-grid bento-extra-grid" id="bentoExtraGrid" style="margin-top: 8px;">
+      <!-- 5. معمل الأرقام والمقاييس -->
+      <a href="../interactive_pages/laboratorio-numeri.html" class="bento-card" onclick="if(window.soundEngine)soundEngine.click()">
+        <div class="bento-icon-box" style="background: rgba(139, 92, 246, 0.12); color: #8B5CF6;">📐</div>
+        <div class="bento-info">
+          <div class="bento-title">معمل الأرقام والمقاييس</div>
+          <div class="bento-meta">السرعات والمسافات</div>
         </div>
-        <div style="font-size: 0.8rem; color: #fecdd3; line-height: 1.4;">وضع البقاء الناري: أسئلة متتالية بلا توقف على الباب 01 لتحطيم الرقم القياسي.</div>
       </a>
 
-      <!-- كبسولات وجداول ليلة الامتحان -->
-      <a href="../interactive_pages/cheat-sheet.html" style="background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 14px; padding: 14px 16px; text-decoration: none; color: inherit; transition: all 0.2s ease; display: flex; flex-direction: column; gap: 6px;">
-        <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; color: #38bdf8; font-size: 1rem;">
-          <span>📋</span> <span>كبسولات وجداول ليلة الامتحان (Cheat Sheet)</span>
+      <!-- 6. معجم المترادفات والبدائل -->
+      <a href="dizionario-sinonimi.html" class="bento-card" onclick="if(window.soundEngine)soundEngine.click()">
+        <div class="bento-icon-box" style="background: rgba(6, 182, 212, 0.12); color: #06B6D4;">📖</div>
+        <div class="bento-info">
+          <div class="bento-title">معجم المترادفات</div>
+          <div class="bento-meta">فروق الوزارة الخادعة</div>
         </div>
-        <div style="font-size: 0.8rem; color: #bae6fd; line-height: 1.4;">الجداول الخمسة الحاسمة (السرعات، مسافات الأمان، النقاط، الكحول، الإسعافات) + طباعة A4.</div>
       </a>
-      <!-- مفكك الـ 3 كتل المنطقية والمعادلة الرياضية -->
-      <a href="../interactive_pages/allenamento-capitolo.html?mode=decoder&count=20" style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 14px; padding: 14px 16px; text-decoration: none; color: inherit; transition: all 0.2s ease; display: flex; flex-direction: column; gap: 6px;">
-        <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; color: #f59e0b; font-size: 1rem;">
-          <span>🧩</span> <span>مفكك الـ 3 كتل (Il Metodo dei 3 Blocchi)</span>
+      <!-- 7. تحدي الـ 0 أخطاء -->
+      <a href="../interactive_pages/zero-mistake.html" class="bento-card" onclick="if(window.soundEngine)soundEngine.click()">
+        <div class="bento-icon-box" style="background: rgba(239, 68, 68, 0.12); color: #EF4444;">🎮</div>
+        <div class="bento-info">
+          <div class="bento-title">تحدي الـ 0 أخطاء</div>
+          <div class="bento-meta">وضع البقاء الناري</div>
         </div>
-        <div style="font-size: 0.8rem; color: #fde68a; line-height: 1.4;">تفكيك أي سؤال لـ [المسرح + الموضوع ➔ الحكم القانوني] بالمعادلة المنطقية.</div>
-      </a>
-
-      <!-- رادار الكلمات السحرية والأفخاخ الوزارية -->
-      <a href="../interactive_pages/parole-spia.html" style="background: rgba(244, 63, 94, 0.08); border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 14px; padding: 14px 16px; text-decoration: none; color: inherit; transition: all 0.2s ease; display: flex; flex-direction: column; gap: 6px;">
-        <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; color: #f43f5e; font-size: 1rem;">
-          <span>🎯</span> <span>رادار الكلمات السحرية (Le Parole Spia)</span>
-        </div>
-        <div style="font-size: 0.8rem; color: #fecdd3; line-height: 1.4;">كلمات تحسم 100% VERO أو FALSO مع ماراثون إتقان لـ 462 سؤالاً.</div>
       </a>
 
-      <!-- مفكك شفرة التقاطعات -->
-      <a href="../interactive_pages/decodificatore-incroci.html" style="background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.35); border-radius: 14px; padding: 14px 16px; text-decoration: none; color: inherit; transition: all 0.2s ease; display: flex; flex-direction: column; gap: 6px;">
-        <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; color: #818cf8; font-size: 1rem;">
-          <span>🔄</span> <span>مفكك شفرة التقاطعات (Incroci)</span>
+      <!-- 8. مفكك الـ 3 كتل -->
+      <a href="../interactive_pages/allenamento-capitolo.html?mode=decoder&count=20" class="bento-card" onclick="if(window.soundEngine)soundEngine.click()">
+        <div class="bento-icon-box" style="background: rgba(59, 130, 246, 0.12); color: #3B82F6;">🧩</div>
+        <div class="bento-info">
+          <div class="bento-title">مفكك الـ 3 كتل</div>
+          <div class="bento-meta">المعادلة المنطقية</div>
         </div>
-        <div style="font-size: 0.8rem; color: #c7d2fe; line-height: 1.4;">الخوارزمية البصرية لحسم 415 سؤالاً بالباب 14 وفخ كلمة contemporaneamente.</div>
       </a>
 
-      <!-- خزينة التريكات ودستور الأبواب -->
-      <a href="../interactive_pages/trucchi-esame.html" style="background: rgba(168, 85, 247, 0.08); border: 1px solid rgba(168, 85, 247, 0.35); border-radius: 14px; padding: 14px 16px; text-decoration: none; color: inherit; transition: all 0.2s ease; display: flex; flex-direction: column; gap: 6px;">
-        <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; color: #c084fc; font-size: 1rem;">
-          <span>💎</span> <span>خزينة التريكات ودستور الأبواب الـ 25</span>
+      <!-- 9. خزينة التريكات ودستور الأبواب -->
+      <a href="../interactive_pages/trucchi-esame.html" class="bento-card" onclick="if(window.soundEngine)soundEngine.click()">
+        <div class="bento-icon-box" style="background: rgba(234, 179, 8, 0.12); color: #EAB308;">💎</div>
+        <div class="bento-info">
+          <div class="bento-title">دستور التريكات</div>
+          <div class="bento-meta">كبسولات A4 ليلة الامتحان</div>
         </div>
-        <div style="font-size: 0.8rem; color: #e9d5ff; line-height: 1.4;">دستور الأبواب في سطر واحد، فخاخ اللوحات التوأم، ومثلث المسؤولية والتأمين.</div>
       </a>
 
-      <!-- معمل الأرقام والمقاييس الصامتة -->
-      <a href="../interactive_pages/laboratorio-numeri.html" style="background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.35); border-radius: 14px; padding: 14px 16px; text-decoration: none; color: inherit; transition: all 0.2s ease; display: flex; flex-direction: column; gap: 6px;">
-        <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; color: #818cf8; font-size: 1rem;">
-          <span>📏</span> <span>معمل الأرقام والمقاييس الصامتة</span>
+      <!-- 10. كبسولة الإسعافات والكحول -->
+      <a href="Capitolo_22_alcool_droga_primo_soccorso/index.html" class="bento-card" onclick="if(window.soundEngine)soundEngine.click()">
+        <div class="bento-icon-box" style="background: rgba(16, 185, 129, 0.12); color: #10B981;">🚑</div>
+        <div class="bento-info">
+          <div class="bento-title">الإسعافات والكحول</div>
+          <div class="bento-meta">الباب 22 في 96 سؤالاً</div>
         </div>
-        <div style="font-size: 0.8rem; color: #c7d2fe; line-height: 1.4;">الثوابت الرقمية السبعة (نقوش، ركن، مثلث، سرعات، كحول) وماراثون 296 سؤالاً.</div>
       </a>
 
-      <!-- كبسولة الإسعافات والممنوعات القطعية -->
-      <a href="../interactive_pages/primo-soccorso.html" style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.35); border-radius: 14px; padding: 14px 16px; text-decoration: none; color: inherit; transition: all 0.2s ease; display: flex; flex-direction: column; gap: 6px;">
-        <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; color: #f87171; font-size: 1rem;">
-          <span>🚑</span> <span>كبسولة الإسعافات والممنوعات القطعية</span>
+      <!-- 11. محرك البحث الوزاري -->
+      <a href="../interactive_pages/cerca-quiz.html" class="bento-card" onclick="if(window.soundEngine)soundEngine.click()">
+        <div class="bento-icon-box" style="background: rgba(14, 165, 233, 0.12); color: #0EA5E9;">🔍</div>
+        <div class="bento-info">
+          <div class="bento-title">محرك البحث الوزاري</div>
+          <div class="bento-meta">بحث صوتي ولحظي</div>
         </div>
-        <div style="font-size: 0.8rem; color: #fecaca; line-height: 1.4;">حسم أسئلة الباب 22 بالكامل (الممنوعات الـ 6 والواجبات الـ 5) في 96 سؤالاً.</div>
       </a>
 
-      <!-- الخطة الدراسية الذكية -->
-      <a href="../interactive_pages/piano-studio.html" style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 14px; padding: 14px 16px; text-decoration: none; color: inherit; transition: all 0.2s ease; display: flex; flex-direction: column; gap: 6px;">
-        <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; color: #38bdf8; font-size: 1rem;">
-          <span>📅</span> <span>خطة المذاكرة الذكية</span>
+      <!-- 12. خطة المذاكرة الذكية -->
+      <a href="../interactive_pages/piano-studio.html" class="bento-card" onclick="if(window.soundEngine)soundEngine.click()">
+        <div class="bento-icon-box" style="background: rgba(168, 85, 247, 0.12); color: #A855F7;">📅</div>
+        <div class="bento-info">
+          <div class="bento-title">خطة الـ 30 يوماً</div>
+          <div class="bento-meta">جدول إتقان المنهج</div>
         </div>
-        <div style="font-size: 0.8rem; color: #bae6fd; line-height: 1.4;">جدول دراسي منظم ومخصص لاجتياز الامتحان في 30 يوماً.</div>
       </a>
 
-      <!-- معجم المترادفات والبدائل -->
-      <a href="dizionario-sinonimi.html" style="background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 14px; padding: 14px 16px; text-decoration: none; color: inherit; transition: all 0.2s ease; display: flex; flex-direction: column; gap: 6px;">
-        <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; color: #a5b4fc; font-size: 1rem;">
-          <span>📖</span> <span>معجم المترادفات والبدائل</span>
+      <!-- 13. بنك كلماتي ومستكشف الفخاخ -->
+      <a href="parole-quiz.html" class="bento-card" onclick="if(window.soundEngine)soundEngine.click()">
+        <div class="bento-icon-box" style="background: rgba(249, 115, 22, 0.12); color: #F97316;">🔤</div>
+        <div class="bento-info">
+          <div class="bento-title">بنك كلماتي ومستكشف الفخاخ</div>
+          <div class="bento-meta">قاموس المشتقات والمصطلحات</div>
         </div>
-        <div style="font-size: 0.8rem; color: #c7d2fe; line-height: 1.4;">معجم مستقل للكلمات ذات نفس المعنى وفروق الوزارة.</div>
-      </a>
-
-      <!-- بنك كلماتي ومستكشف الفخاخ -->
-      <a href="parole-quiz.html" style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 14px; padding: 14px 16px; text-decoration: none; color: inherit; transition: all 0.2s ease; display: flex; flex-direction: column; gap: 6px;">
-        <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; color: #f59e0b; font-size: 1rem;">
-          <span>🔤</span> <span>بنك كلماتي ومستكشف الفخاخ</span>
-        </div>
-        <div style="font-size: 0.8rem; color: #fde68a; line-height: 1.4;">بحث بدقة فائقة بالمشتقات والمترادفات وفروق الوزارة.</div>
-      </a>
-
-      <!-- محاكي الامتحان الحديث -->
-      <a href="../interactive_pages/scheda-esame.html" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 14px 16px; text-decoration: none; color: inherit; transition: all 0.2s ease; display: flex; flex-direction: column; gap: 6px;">
-        <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; color: #a855f7; font-size: 1rem;">
-          <span>📝</span> <span>محاكي الامتحان الحديث</span>
-        </div>
-        <div style="font-size: 0.8rem; color: #94a3b8; line-height: 1.4;">30 سؤالاً في 20 دقيقة بتصميم تفاعلي سريع.</div>
-      </a>
-
-      <!-- بطاقات الفلاش كاردز -->
-      <a href="../interactive_pages/flashcards.html" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 14px 16px; text-decoration: none; color: inherit; transition: all 0.2s ease; display: flex; flex-direction: column; gap: 6px;">
-        <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; color: #10b981; font-size: 1rem;">
-          <span>💡</span> <span>بطاقات الفلاش كاردز</span>
-        </div>
-        <div style="font-size: 0.8rem; color: #94a3b8; line-height: 1.4;">مراجعة سريعة بنظام التكرار المتباعد الذكي (SRS).</div>
-      </a>
-
-      <!-- لوحة الجاهزية والتقدم -->
-      <a href="../interactive_pages/dashboard.html" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 14px 16px; text-decoration: none; color: inherit; transition: all 0.2s ease; display: flex; flex-direction: column; gap: 6px;">
-        <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; color: #38bdf8; font-size: 1rem;">
-          <span>📊</span> <span>لوحة الجاهزية والتقدم</span>
-        </div>
-        <div style="font-size: 0.8rem; color: #94a3b8; line-height: 1.4;">مؤشر الاستعداد للامتحان وتحليل بنك الأخطاء.</div>
-      </a>
-
-      <!-- بنك الفخاخ وتحدي السرعة -->
-      <a href="../interactive_pages/traps_and_games.html" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 14px 16px; text-decoration: none; color: inherit; transition: all 0.2s ease; display: flex; flex-direction: column; gap: 6px;">
-        <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; color: #f43f5e; font-size: 1rem;">
-          <span>🎮</span> <span>بنك الفخاخ وتحدي السرعة</span>
-        </div>
-        <div style="font-size: 0.8rem; color: #94a3b8; line-height: 1.4;">300+ سؤال فخاخ ولعبة مطابقة المصطلحات.</div>
       </a>
     </div>
-  </div>
+
+    <!-- زر توسيع / طي باقي المعامل -->
+    <button class="bento-toggle-btn" id="btnToggleBentoTools" onclick="toggleBentoExtraTools()">
+      <span id="bentoToggleText">عرض باقي المعامل الذكية (9 معامل إضافية) ▾</span>
+    </button>
+  </section>
 
   <div class="controls-bar">
     <div class="search-wrapper">
       <span class="search-icon">🔍</span>
-      <input type="text" id="chapter-search" class="search-input" placeholder="بحث باسم الباب، الموضوع، أو رقم الباب (مثال: divieto أو إشارات أو 14)..." oninput="filterChapters()">
+      <input type="text" id="chapter-search" class="search-input" placeholder="ابحث باسم الباب أو رقمه..." oninput="filterChapters()">
       <span class="search-shortcut">/</span>
     </div>
 
     <div class="filter-chips">
-      <button class="chip-btn active" data-cat="all" onclick="setCategory('all')">الكل (25)</button>
-      <button class="chip-btn" data-cat="segnali" onclick="setCategory('segnali')">الإشارات (02-10)</button>
-      <button class="chip-btn" data-cat="norme" onclick="setCategory('norme')">القواعد والسرعة (11-13)</button>
-      <button class="chip-btn" data-cat="precedenze" onclick="setCategory('precedenze')">التقاطعات والأسبقية (14-16)</button>
-      <button class="chip-btn" data-cat="sicurezza" onclick="setCategory('sicurezza')">السلامة والمستندات (17-20)</button>
-      <button class="chip-btn" data-cat="meccanica" onclick="setCategory('meccanica')">الميكانيكا والتأمين (21-25)</button>
+      <button class="chip-btn active" data-cat="all" onclick="setCategory('all')">
+        <span class="chip-title">الكل</span>
+        <span class="chip-sub">25 باباً</span>
+      </button>
+      <button class="chip-btn" data-cat="segnali" onclick="setCategory('segnali')">
+        <span class="chip-title">الإشارات</span>
+        <span class="chip-sub">02 - 10</span>
+      </button>
+      <button class="chip-btn" data-cat="norme" onclick="setCategory('norme')">
+        <span class="chip-title">القواعد</span>
+        <span class="chip-sub">11 - 13</span>
+      </button>
+      <button class="chip-btn" data-cat="precedenze" onclick="setCategory('precedenze')">
+        <span class="chip-title">التقاطعات</span>
+        <span class="chip-sub">14 - 16</span>
+      </button>
+      <button class="chip-btn" data-cat="sicurezza" onclick="setCategory('sicurezza')">
+        <span class="chip-title">السلامة</span>
+        <span class="chip-sub">17 - 20</span>
+      </button>
+      <button class="chip-btn" data-cat="meccanica" onclick="setCategory('meccanica')">
+        <span class="chip-title">الميكانيكا</span>
+        <span class="chip-sub">21 - 25</span>
+      </button>
     </div>
   </div>
 
@@ -1564,9 +2052,6 @@
         <a href="Capitolo_01_definizioni_generali_doveri_strada/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
         </a>
-        <a href="Capitolo_01_definizioni_generali_doveri_strada/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
-        </a>
       </div>
     </div>
 
@@ -1586,9 +2071,6 @@
       <div class="card-actions-strip">
         <a href="Capitolo_02_segnali_pericolo/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
-        </a>
-        <a href="Capitolo_02_segnali_pericolo/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
         </a>
       </div>
     </div>
@@ -1610,9 +2092,6 @@
         <a href="Capitolo_03_segnali_divieto/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
         </a>
-        <a href="Capitolo_03_segnali_divieto/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
-        </a>
       </div>
     </div>
 
@@ -1632,9 +2111,6 @@
       <div class="card-actions-strip">
         <a href="Capitolo_04_segnali_obbligo/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
-        </a>
-        <a href="Capitolo_04_segnali_obbligo/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
         </a>
       </div>
     </div>
@@ -1656,9 +2132,6 @@
         <a href="Capitolo_05_segnali_precedenza/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
         </a>
-        <a href="Capitolo_05_segnali_precedenza/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
-        </a>
       </div>
     </div>
 
@@ -1678,9 +2151,6 @@
       <div class="card-actions-strip">
         <a href="Capitolo_06_segnaletica_orizzontale_ostacoli/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
-        </a>
-        <a href="Capitolo_06_segnaletica_orizzontale_ostacoli/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
         </a>
       </div>
     </div>
@@ -1702,9 +2172,6 @@
         <a href="Capitolo_07_semafori_vigili/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
         </a>
-        <a href="Capitolo_07_semafori_vigili/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
-        </a>
       </div>
     </div>
 
@@ -1724,9 +2191,6 @@
       <div class="card-actions-strip">
         <a href="Capitolo_08_segnali_indicazione/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
-        </a>
-        <a href="Capitolo_08_segnali_indicazione/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
         </a>
       </div>
     </div>
@@ -1748,9 +2212,6 @@
         <a href="Capitolo_09_segnali_complementari_cantiere/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
         </a>
-        <a href="Capitolo_09_segnali_complementari_cantiere/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
-        </a>
       </div>
     </div>
 
@@ -1770,9 +2231,6 @@
       <div class="card-actions-strip">
         <a href="Capitolo_10_pannelli_integrativi/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
-        </a>
-        <a href="Capitolo_10_pannelli_integrativi/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
         </a>
       </div>
     </div>
@@ -1794,9 +2252,6 @@
         <a href="Capitolo_11_limiti_di_velocita/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
         </a>
-        <a href="Capitolo_11_limiti_di_velocita/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
-        </a>
       </div>
     </div>
 
@@ -1816,9 +2271,6 @@
       <div class="card-actions-strip">
         <a href="Capitolo_12_distanza_di_sicurezza/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
-        </a>
-        <a href="Capitolo_12_distanza_di_sicurezza/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
         </a>
       </div>
     </div>
@@ -1840,9 +2292,6 @@
         <a href="Capitolo_13_norme_di_circolazione/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
         </a>
-        <a href="Capitolo_13_norme_di_circolazione/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
-        </a>
       </div>
     </div>
 
@@ -1862,9 +2311,6 @@
       <div class="card-actions-strip">
         <a href="Capitolo_14_precedenza_incroci/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
-        </a>
-        <a href="Capitolo_14_precedenza_incroci/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
         </a>
       </div>
     </div>
@@ -1886,9 +2332,6 @@
         <a href="Capitolo_15_sorpasso/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
         </a>
-        <a href="Capitolo_15_sorpasso/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
-        </a>
       </div>
     </div>
 
@@ -1908,9 +2351,6 @@
       <div class="card-actions-strip">
         <a href="Capitolo_16_fermata_sosta_arresto/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
-        </a>
-        <a href="Capitolo_16_fermata_sosta_arresto/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
         </a>
       </div>
     </div>
@@ -1932,9 +2372,6 @@
         <a href="Capitolo_17_norme_varie_autostrade_pannelli/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
         </a>
-        <a href="Capitolo_17_norme_varie_autostrade_pannelli/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
-        </a>
       </div>
     </div>
 
@@ -1954,9 +2391,6 @@
       <div class="card-actions-strip">
         <a href="Capitolo_18_luci_dispositivi_acustici/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
-        </a>
-        <a href="Capitolo_18_luci_dispositivi_acustici/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
         </a>
       </div>
     </div>
@@ -1978,9 +2412,6 @@
         <a href="Capitolo_19_cinture_casco_sicurezza/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
         </a>
-        <a href="Capitolo_19_cinture_casco_sicurezza/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
-        </a>
       </div>
     </div>
 
@@ -2000,9 +2431,6 @@
       <div class="card-actions-strip">
         <a href="Capitolo_20_patente_punti_documenti/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
-        </a>
-        <a href="Capitolo_20_patente_punti_documenti/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
         </a>
       </div>
     </div>
@@ -2024,9 +2452,6 @@
         <a href="Capitolo_21_incidenti_stradali_comportamenti/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
         </a>
-        <a href="Capitolo_21_incidenti_stradali_comportamenti/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
-        </a>
       </div>
     </div>
 
@@ -2046,9 +2471,6 @@
       <div class="card-actions-strip">
         <a href="Capitolo_22_alcool_droga_primo_soccorso/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
-        </a>
-        <a href="Capitolo_22_alcool_droga_primo_soccorso/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
         </a>
       </div>
     </div>
@@ -2070,9 +2492,6 @@
         <a href="Capitolo_23_responsabilita_civile_penale_e_assicurazione/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
         </a>
-        <a href="Capitolo_23_responsabilita_civile_penale_e_assicurazione/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
-        </a>
       </div>
     </div>
 
@@ -2093,9 +2512,6 @@
         <a href="Capitolo_24_consumi_ambiente_inquinamento/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
         </a>
-        <a href="Capitolo_24_consumi_ambiente_inquinamento/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
-        </a>
       </div>
     </div>
 
@@ -2115,9 +2531,6 @@
       <div class="card-actions-strip">
         <a href="Capitolo_25_elementi_veicolo_manutenzione_comportamenti/index.html" class="btn-action-study" onclick="soundEngine.click()">
           <span>🎯 بدء المذاكرة التفاعلية</span>
-        </a>
-        <a href="Capitolo_25_elementi_veicolo_manutenzione_comportamenti/domande.md" class="btn-action-md" title="عرض ملف النصوص بصيغة Markdown">
-          <span>📄 MD</span>
         </a>
       </div>
     </div>
@@ -2169,11 +2582,27 @@
     document.getElementById('audio-label').innerText = soundEngine.enabled ? 'الصوت نشط' : 'مكتوم';
   };
 
+  // Arabic & Multi-language Normalization for instant, forgiving search
+  function normalizeSearchText(str) {
+    if (!str) return '';
+    return String(str)
+      .toLowerCase()
+      .replace(/[أإآٱ]/g, 'ا')
+      .replace(/ة/g, 'ه')
+      .replace(/ى/g, 'ي')
+      .replace(/[ً-ٰٟ]/g, '') // remove Arabic tashkeel
+      .replace(/[^a-z0-9؀-ۿ\s]/g, ' ') // strip punctuation
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
   // Filter & Search Logic
   let activeCategory = 'all';
 
   window.setCategory = function(cat) {
-    soundEngine.click();
+    if (window.soundEngine && typeof window.soundEngine.click === 'function') {
+      soundEngine.click();
+    }
     activeCategory = cat;
     document.querySelectorAll('.chip-btn').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.cat === cat);
@@ -2182,26 +2611,33 @@
   };
 
   window.filterChapters = function() {
-    const query = document.getElementById('chapter-search').value.toLowerCase().trim();
+    const rawQuery = document.getElementById('chapter-search').value;
+    const query = normalizeSearchText(rawQuery);
     const cards = document.querySelectorAll('.chapter-card');
     let visibleCount = 0;
 
     cards.forEach(card => {
       const cat = card.dataset.cat;
-      const searchData = card.dataset.search.toLowerCase();
+      const searchData = normalizeSearchText(card.dataset.search || '');
 
-      const matchCat = (activeCategory === 'all' || cat === activeCategory);
+      // If user is searching specifically, search across all chapters regardless of category filter
+      const matchCat = (query !== '' || activeCategory === 'all' || cat === activeCategory);
       const matchQuery = (query === '' || searchData.includes(query));
 
       if (matchCat && matchQuery) {
-        card.style.display = 'flex';
+        card.classList.remove('is-hidden');
+        card.style.setProperty('display', 'flex', 'important');
         visibleCount++;
       } else {
-        card.style.display = 'none';
+        card.classList.add('is-hidden');
+        card.style.setProperty('display', 'none', 'important');
       }
     });
 
-    document.getElementById('no-results-msg').style.display = (visibleCount === 0) ? 'block' : 'none';
+    const noResults = document.getElementById('no-results-msg');
+    if (noResults) {
+      noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
+    }
   };
 
   // Keyboard shortcut to focus search with '/'
@@ -2375,7 +2811,7 @@
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('../service-worker.js').catch(err => console.log('SW registration failed:', err));
+      navigator.serviceWorker.register('../service-worker.js?v=2026.11.02.FINAL').catch(err => console.log('SW registration failed:', err));
     });
   }
 </script>
@@ -2418,5 +2854,44 @@
   window.addEventListener('DOMContentLoaded', updateChaptersIndexGating);
   window.addEventListener('patente:auth-changed', updateChaptersIndexGating);
 </script>
+
+<script>
+  // تفعيل النقر على بطاقة الباب بالكامل كحاوية تفاعلية
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.chapter-card').forEach((card) => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.btn-action-md') || e.target.closest('button')) {
+          return;
+        }
+        const studyBtn = card.querySelector('.btn-action-study');
+        if (studyBtn) {
+          if (studyBtn.onclick) {
+            studyBtn.onclick(e);
+          } else if (studyBtn.href) {
+            if (window.soundEngine) soundEngine.click();
+            window.location.href = studyBtn.href;
+          }
+        }
+      });
+    });
+  });
+</script>
+
+
+<script>
+function toggleBentoExtraTools() {
+  const extra = document.getElementById('bentoExtraGrid');
+  const txt = document.getElementById('bentoToggleText');
+  if (!extra) return;
+  const isExpanded = extra.classList.toggle('is-expanded');
+  if (txt) {
+    txt.textContent = isExpanded ? 'إخفاء المعامل الإضافية ▴' : 'عرض باقي المعامل الذكية (9 معامل إضافية) ▾';
+  }
+  if (window.soundEngine && window.soundEngine.click) {
+    try { window.soundEngine.click(); } catch(e){}
+  }
+}
+</script>
+
 </body>
 </html>

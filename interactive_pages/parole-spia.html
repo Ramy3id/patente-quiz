@@ -14,9 +14,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="interactive_style.css">
-  <link rel="stylesheet" href="../assets/css/theme-modes.css">
+  <link rel="stylesheet" href="../assets/css/theme-modes.css?v=2026.11.02.FINAL">
   <script src="../assets/js/theme-engine.js"></script>
-  <script src="../assets/js/unified-nav.js" defer></script>
+  <script src="../assets/js/unified-nav.js?v=2026.11.02.FINAL" defer></script>
 
   <style>
     :root {
@@ -165,19 +165,21 @@
     }
 
     .ps-filter-btn {
-      padding: 8px 16px;
-      border-radius: 10px;
+      padding: 7px 14px;
+      border-radius: 999px;
       border: 1px solid var(--ps-card-border);
       background: transparent;
       color: var(--ps-text-sub);
       font-family: inherit;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s ease;
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .ps-filter-btn:hover {
       background: rgba(255, 255, 255, 0.05);
@@ -208,10 +210,6 @@
       background: var(--ps-purple);
       color: #FFFFFF;
       border-color: var(--ps-purple);
-    }
-      background: var(--ps-amber);
-      color: #0B0F19;
-      border-color: var(--ps-amber);
     }
 
     /* شبكة بطاقات الكلمات */
@@ -1162,7 +1160,385 @@
       border-color: var(--ps-cyan);
     }
 
-  </style>
+  
+  /* ==========================================================================
+     High-End Mobile Redesign for Radar (Parole Spia) - Apple HIG & Material 3
+     ========================================================================== */
+
+  /* 1. Master Tabs Redesign */
+  .ps-master-tabs {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10px !important;
+    margin-bottom: 20px !important;
+  }
+
+  @media (max-width: 768px) {
+    .ps-master-tabs {
+      grid-template-columns: 1fr !important;
+      gap: 8px !important;
+    }
+
+    .ps-master-tab {
+      padding: 12px 14px !important;
+      gap: 12px !important;
+      border-radius: 16px !important;
+      position: relative !important;
+    }
+
+    .pmt-icon {
+      font-size: 1.6rem !important;
+    }
+
+    .pmt-title {
+      font-size: 0.95rem !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      flex-wrap: wrap !important;
+    }
+
+    .pmt-desc {
+      font-size: 0.74rem !important;
+    }
+
+    .pmt-badge {
+      position: static !important;
+      display: inline-block !important;
+      font-size: 0.68rem !important;
+      padding: 2px 7px !important;
+      vertical-align: middle !important;
+    }
+
+    /* 2. Marathon Card Streamlining */
+    .ps-marathon-card {
+      padding: 16px !important;
+      border-radius: 18px !important;
+      margin-bottom: 16px !important;
+    }
+
+    .ps-m-title {
+      font-size: 1.15rem !important;
+      margin-bottom: 6px !important;
+    }
+
+    .ps-m-desc {
+      font-size: 0.82rem !important;
+      line-height: 1.5 !important;
+      margin-bottom: 14px !important;
+    }
+
+    .ps-m-stats-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 8px !important;
+    }
+
+    .ps-m-stat-card {
+      padding: 8px 10px !important;
+    }
+
+    .ps-m-stat-label {
+      font-size: 0.72rem !important;
+    }
+
+    .ps-m-stat-val {
+      font-size: 1.15rem !important;
+    }
+
+    .ps-m-actions {
+      flex-direction: column !important;
+      gap: 8px !important;
+      width: 100% !important;
+    }
+
+    .ps-m-btn-primary {
+      width: 100% !important;
+      justify-content: center !important;
+      padding: 12px 16px !important;
+      font-size: 0.95rem !important;
+      white-space: nowrap !important;
+      box-sizing: border-box !important;
+    }
+
+    .ps-m-btn-outline {
+      width: 100% !important;
+      justify-content: center !important;
+      padding: 10px 16px !important;
+      font-size: 0.85rem !important;
+      box-sizing: border-box !important;
+    }
+
+    /* 3. Single-Row Swipeable Filter Chips */
+    .ps-controls {
+      padding: 12px !important;
+      border-radius: 16px !important;
+      gap: 10px !important;
+      margin-bottom: 16px !important;
+    }
+
+    .ps-search-input {
+      padding: 10px 14px !important;
+      font-size: 0.88rem !important;
+      min-height: 44px !important;
+    }
+
+    .ps-filters-row {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      align-items: center !important;
+      gap: 8px !important;
+      padding: 4px 0 10px !important;
+      overflow: visible !important;
+      width: 100% !important;
+    }
+
+    .ps-filters-row::-webkit-scrollbar {
+      display: none !important;
+    }
+
+    .ps-filter-btn {
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+      padding: 8px 12px !important;
+      font-size: 0.78rem !important;
+      min-height: 40px !important;
+    }
+
+    /* 4. Compact Word Cards */
+    .ps-grid {
+      grid-template-columns: 1fr !important;
+      gap: 10px !important;
+    }
+
+    .ps-card {
+      padding: 14px 16px !important;
+      border-radius: 16px !important;
+    }
+
+    .ps-card-title {
+      font-size: 1.15rem !important;
+    }
+
+    .ps-card-ar {
+      font-size: 0.92rem !important;
+    }
+
+    .ps-rule-box {
+      font-size: 0.8rem !important;
+      padding: 8px 10px !important;
+      margin-bottom: 8px !important;
+    }
+
+    .ps-btn-explore {
+      padding: 8px 14px !important;
+      font-size: 0.82rem !important;
+    }
+  }
+
+
+    /* =========================================================
+       RADAR HERO METRICS DASHBOARD (Unified 3-Column Strip)
+       ========================================================= */
+    .ps-stats-strip {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 4px !important;
+      margin-top: 16px !important;
+      background: rgba(255, 255, 255, 0.04) !important;
+      border: 1px solid var(--ps-card-border) !important;
+      border-radius: 16px !important;
+      padding: 10px 4px !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+    }
+    html.light .ps-stats-strip {
+      background: #FFFFFF !important;
+      border-color: rgba(15, 23, 42, 0.08) !important;
+      box-shadow: 0 2px 12px rgba(15, 23, 42, 0.04) !important;
+    }
+    .ps-stat-item {
+      background: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      padding: 4px 2px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      gap: 2px !important;
+    }
+    .ps-stat-item:not(:last-child) {
+      border-left: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+    html.light .ps-stat-item:not(:last-child) {
+      border-left-color: rgba(15, 23, 42, 0.08) !important;
+    }
+    .ps-stat-item strong {
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 1.15rem !important;
+      font-weight: 900 !important;
+      color: var(--ps-cyan) !important;
+      line-height: 1.15 !important;
+      display: block !important;
+    }
+    html.light .ps-stat-item strong {
+      color: #0284C7 !important;
+    }
+    .ps-stat-item span {
+      font-size: 0.68rem !important;
+      font-weight: 700 !important;
+      color: var(--ps-text-sub) !important;
+      line-height: 1.2 !important;
+      display: block !important;
+      white-space: nowrap !important;
+    }
+    html.light .ps-stat-item span {
+      color: #64748B !important;
+    }
+
+    /* =========================================================
+       STRUCTURED BALANCED FILTER GRID (2-Column Symmetrical Layout)
+       ========================================================= */
+    .ps-controls {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+      margin-bottom: 20px !important;
+      background: var(--ps-card-bg) !important;
+      padding: 14px !important;
+      border-radius: 18px !important;
+      border: 1px solid var(--ps-card-border) !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+    }
+    html.light .ps-controls {
+      background: #FFFFFF !important;
+      border-color: rgba(15, 23, 42, 0.08) !important;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04) !important;
+    }
+    .ps-search-input {
+      width: 100% !important;
+      padding: 12px 16px !important;
+      border-radius: 12px !important;
+      border: 1px solid var(--ps-card-border) !important;
+      background: rgba(255, 255, 255, 0.04) !important;
+      color: var(--ps-text) !important;
+      font-family: inherit !important;
+      font-size: 0.90rem !important;
+      font-weight: 600 !important;
+      outline: none !important;
+      transition: all 0.2s ease !important;
+      box-sizing: border-box !important;
+    }
+    html.light .ps-search-input {
+      background: #F8FAFC !important;
+      border-color: #CBD5E1 !important;
+      color: #0F172A !important;
+    }
+    .ps-search-input:focus {
+      border-color: var(--ps-cyan) !important;
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15) !important;
+    }
+    .ps-filters-row {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 8px !important;
+      width: 100% !important;
+      margin-top: 2px !important;
+      padding: 0 !important;
+      box-sizing: border-box !important;
+    }
+    @media (min-width: 640px) {
+      .ps-filters-row {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+    }
+    @media (min-width: 1024px) {
+      .ps-filters-row {
+        grid-template-columns: repeat(4, 1fr) !important;
+      }
+    }
+    .ps-filter-btn {
+      width: 100% !important;
+      height: 40px !important;
+      min-height: 40px !important;
+      max-height: 40px !important;
+      padding: 0 8px !important;
+      border-radius: 12px !important;
+      border: 1px solid var(--ps-card-border) !important;
+      background: rgba(255, 255, 255, 0.03) !important;
+      color: var(--ps-text-sub) !important;
+      font-family: inherit !important;
+      font-size: 0.77rem !important;
+      font-weight: 700 !important;
+      cursor: pointer !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 5px !important;
+      text-align: center !important;
+      box-sizing: border-box !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      transition: all 0.15s ease !important;
+    }
+    html.light .ps-filter-btn {
+      background: #F8FAFC !important;
+      border-color: #E2E8F0 !important;
+      color: #475569 !important;
+    }
+    .ps-filter-btn:hover {
+      background: rgba(255, 255, 255, 0.08) !important;
+      color: var(--ps-text) !important;
+    }
+    html.light .ps-filter-btn:hover {
+      background: #F1F5F9 !important;
+      color: #0F172A !important;
+    }
+    .ps-filter-btn.active {
+      background: var(--ps-cyan) !important;
+      color: #0B0F19 !important;
+      border-color: var(--ps-cyan) !important;
+      font-weight: 800 !important;
+      box-shadow: 0 2px 8px rgba(56, 189, 248, 0.3) !important;
+    }
+    html.light .ps-filter-btn.active {
+      background: #0284C7 !important;
+      color: #FFFFFF !important;
+      border-color: #0284C7 !important;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3) !important;
+    }
+    .ps-filter-btn.filter-falso.active {
+      background: var(--ps-rose) !important;
+      color: #FFFFFF !important;
+      border-color: var(--ps-rose) !important;
+      box-shadow: 0 2px 8px rgba(244, 63, 94, 0.3) !important;
+    }
+    .ps-filter-btn.filter-vero.active {
+      background: var(--ps-emerald) !important;
+      color: #FFFFFF !important;
+      border-color: var(--ps-emerald) !important;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3) !important;
+    }
+    .ps-filter-btn.filter-exception.active {
+      background: var(--ps-amber) !important;
+      color: #0B0F19 !important;
+      border-color: var(--ps-amber) !important;
+      box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3) !important;
+    }
+    .ps-filter-btn span {
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 0.72rem !important;
+      font-weight: 800 !important;
+      opacity: 0.9 !important;
+    }
+    #btnFilterAll,
+    #btnTheoryFilterAll {
+      grid-column: 1 / -1 !important;
+    }
+
+</style>
 </head>
 <body>
   <!-- شريط العينة المجانية للزوار -->
@@ -1175,31 +1551,6 @@
       <span>🚀 فتح باقي الكلمات والماراثون مجاناً</span>
     </button>
   </div>
-
-  <!-- شريط الملاحة الموحد والأدوات التفاعلية -->
-  <nav class="unified-portal-nav" id="portal-nav">
-    <a href="../index.html" class="nav-brand">
-      <span style="font-size:1.25rem;">🚦</span>
-      <span>Patente B Pro</span>
-      <span class="badge-tag">A2</span>
-    </a>
-    <nav class="nav-desktop-tabs">
-      <a href="piano-studio.html" class="nav-tab-desktop">📅 الخطة الدراسية</a>
-      <a href="parole-spia.html" class="nav-tab-desktop active">🎯 الكلمات السحرية</a>
-      <a href="scheda-esame.html" class="nav-tab-desktop">📝 الامتحان</a>
-      <a href="flashcards.html" class="nav-tab-desktop">💡 بطاقات الفلاش</a>
-      <a href="dashboard.html" class="nav-tab-desktop">📊 لوحة البيانات</a>
-      <a href="traps_and_games.html" class="nav-tab-desktop">🎮 الفخاخ والألعاب</a>
-      <a href="index.html" class="nav-tab-desktop">🏛️ أدلة الشرح</a>
-      <a href="../Capitoli_Divisi/index.html" class="nav-tab-desktop">📚 بنك الأسئلة</a>
-    </nav>
-    <div class="nav-desktop-actions">
-      <button class="nav-theme-btn" id="themeToggleBtn" onclick="toggleTheme()" title="تبديل الوضع (نهاري / ليلي) [Alt + T]">
-        <span class="theme-icon-span">☀️</span>
-        <span class="theme-label-span">الوضع النهاري</span>
-      </button>
-    </div>
-  </nav>
 
   <div class="ps-container">
     
@@ -1216,16 +1567,16 @@
 
       <div class="ps-stats-strip">
         <div class="ps-stat-item">
-          <span>المصطلحات المفتاحية:</span>
-          <strong id="statWordsCount">36</strong>
+          <strong id="statWordsCount">154</strong>
+          <span>المصطلحات المفتاحية</span>
         </div>
         <div class="ps-stat-item">
-          <span>الأسئلة المغطاة بالبنك:</span>
-          <strong id="statQuestionsCovered">457 سؤالاً</strong>
+          <strong id="statQuestionsCovered">1008</strong>
+          <span>الأسئلة المغطاة</span>
         </div>
         <div class="ps-stat-item">
-          <span>دقة الحسم المباشر:</span>
-          <strong style="color:var(--ps-emerald);">تصل إلى 100%</strong>
+          <strong style="color:var(--ps-emerald) !important;">100%</strong>
+          <span>دقة الحسم المباشر</span>
         </div>
       </div>
     </header>
@@ -1481,11 +1832,11 @@
   </div>
 
   <!-- استدعاء ملفات البيانات والسكربتات -->
-  <script src="../Capitoli_Divisi/data_all_questions.js"></script>
-  <script src="../assets/js/bilingual-highlighter.js"></script>
-  <script src="../assets/js/trap-vault.js"></script>
-  <script src="../assets/js/question-decoder.js"></script>
-  <script src="../assets/js/data-radar-expanded.js"></script>
+  <script src="../Capitoli_Divisi/data_all_questions.js" defer></script>
+  <script src="../assets/js/bilingual-highlighter.js" defer></script>
+  <script src="../assets/js/trap-vault.js" defer></script>
+  <script src="../assets/js/question-decoder.js" defer></script>
+  <script src="../assets/js/data-radar-expanded.js" defer></script>
 
   <script>
     /**
@@ -3115,13 +3466,21 @@
     window.addEventListener('patente:auth-changed', () => {
       if (typeof renderCards === 'function') renderCards();
     });
-    window.addEventListener("DOMContentLoaded", () => {
+    function initRadarFull() {
       calculateCounts();
       renderCards();
-      initMagicQuestionsIndex();
-      updateMarathonDashboardUI();
+      if (typeof ALL_QUESTIONS_DATA !== 'undefined' && Array.isArray(ALL_QUESTIONS_DATA) && ALL_QUESTIONS_DATA.length > 0) {
+        if (typeof initMagicQuestionsIndex === 'function') initMagicQuestionsIndex();
+        if (typeof updateMarathonDashboardUI === 'function') updateMarathonDashboardUI();
+      }
       if (typeof initSignCounts === 'function') initSignCounts();
       if (typeof initTheoryCounts === 'function') initTheoryCounts();
+    }
+
+    window.addEventListener("DOMContentLoaded", initRadarFull);
+    window.addEventListener("load", () => {
+      // Re-run when data_all_questions.js finishes loading
+      initRadarFull();
     });
 
     /**
@@ -3130,12 +3489,17 @@
     function calculateCounts() {
       let totalQuestionsSet = new Set();
       let cntF = 0, cntV = 0, cntE = 0, cntP = 0, cntPairs = 0, cntRep = 0;
+      const hasQ = (typeof ALL_QUESTIONS_DATA !== 'undefined' && Array.isArray(ALL_QUESTIONS_DATA) && ALL_QUESTIONS_DATA.length > 0);
 
       MAGIC_WORDS_DB.forEach(w => {
-        const re = new RegExp(w.regex, "i");
-        const matched = ALL_QUESTIONS_DATA.filter(q => re.test(q.q || ""));
-        w.questionCount = matched.length;
-        matched.forEach(q => totalQuestionsSet.add((q.ch || 1) + "_" + (q.id || 0)));
+        if (hasQ) {
+          const re = new RegExp(w.regex, "i");
+          const matched = ALL_QUESTIONS_DATA.filter(q => re.test(q.q || ""));
+          w.questionCount = matched.length;
+          matched.forEach(q => totalQuestionsSet.add((q.ch || 1) + "_" + (q.id || 0)));
+        } else {
+          w.questionCount = w.questionCount || 0;
+        }
 
         if (w.isPair) cntPairs++;
         else if (w.isRepeated) cntRep++;
@@ -3146,15 +3510,30 @@
         if (w.hasException) cntE++;
       });
 
-      document.getElementById("cntAll").innerText = MAGIC_WORDS_DB.length;
-      document.getElementById("cntFalso").innerText = cntF;
-      document.getElementById("cntVero").innerText = cntV;
-      document.getElementById("cntExc").innerText = cntE;
-      if (document.getElementById("cntPhrases")) document.getElementById("cntPhrases").innerText = cntP;
-      if (document.getElementById("cntPairs")) document.getElementById("cntPairs").innerText = cntPairs;
-      if (document.getElementById("cntRepeated")) document.getElementById("cntRepeated").innerText = cntRep;
-      document.getElementById("statWordsCount").innerText = MAGIC_WORDS_DB.length;
-      document.getElementById("statQuestionsCovered").innerText = totalQuestionsSet.size + " سؤالاً";
+      const elAll = document.getElementById("cntAll");
+      if (elAll) elAll.innerText = MAGIC_WORDS_DB.length;
+      const elF = document.getElementById("cntFalso");
+      if (elF) elF.innerText = cntF;
+      const elV = document.getElementById("cntVero");
+      if (elV) elV.innerText = cntV;
+      const elExc = document.getElementById("cntExc");
+      if (elExc) elExc.innerText = cntE;
+      const elP = document.getElementById("cntPhrases");
+      if (elP) elP.innerText = cntP;
+      const elPairs = document.getElementById("cntPairs");
+      if (elPairs) elPairs.innerText = cntPairs;
+      const elRep = document.getElementById("cntRepeated");
+      if (elRep) elRep.innerText = cntRep;
+      const elStatWords = document.getElementById("statWordsCount");
+      if (elStatWords) elStatWords.innerText = MAGIC_WORDS_DB.length;
+      const elStatQ = document.getElementById("statQuestionsCovered");
+      if (elStatQ) {
+        if (hasQ && totalQuestionsSet.size > 0) {
+          elStatQ.innerText = totalQuestionsSet.size + " سؤالاً";
+        } else {
+          elStatQ.innerText = "457 سؤالاً";
+        }
+      }
     }
 
     /**
@@ -3314,7 +3693,11 @@
 
       activeModalWord = item;
       const re = new RegExp(item.regex, "i");
-      activeModalQuestions = ALL_QUESTIONS_DATA.filter(q => re.test(q.q || ""));
+      if (typeof ALL_QUESTIONS_DATA !== 'undefined' && Array.isArray(ALL_QUESTIONS_DATA)) {
+        activeModalQuestions = ALL_QUESTIONS_DATA.filter(q => re.test(q.q || ""));
+      } else {
+        activeModalQuestions = [];
+      }
 
       document.getElementById("modalWordIt").innerText = item.it;
       document.getElementById("modalSummaryText").innerHTML = `
@@ -4236,7 +4619,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('../service-worker.js').catch(err => console.log('SW registration failed:', err));
+        navigator.serviceWorker.register('../service-worker.js?v=2026.11.02.FINAL').catch(err => console.log('SW registration failed:', err));
       });
     }
   

@@ -269,6 +269,9 @@ class PatenteExamEngine {
     });
 
     analysis.passed = analysis.errors <= this.maxAllowedErrors;
+    if (analysis.passed && typeof window !== 'undefined' && window.triggerConfetti) {
+      try { window.triggerConfetti({ count: 130 }); } catch (_) {}
+    }
 
     // Haptic Feedback based on Exam Result (Pass vs Fail)
     if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {

@@ -1868,6 +1868,10 @@
         <span>🔄 مزامنة سحابية فورية الآن</span>
       </button>
 
+      <button id="btnResetPasswordInline" style="width:100%; height:36px; border-radius:10px; background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.3); color:#0284C7; font-weight:700; font-size:0.82rem; cursor:pointer; font-family:inherit; margin-bottom:8px; display:flex; align-items:center; justify-content:center; gap:6px;">
+        <span>🔑 تغيير / استعادة كلمة المرور</span>
+      </button>
+
       <button id="btnAuthLogout" style="width:100%; height:36px; border-radius:10px; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.28); color:#EF4444; font-weight:700; font-size:0.82rem; cursor:pointer; font-family:inherit; display:flex; align-items:center; justify-content:center; gap:6px;">
         <span>🚪 تسجيل الخروج</span>
       </button>
@@ -1915,6 +1919,31 @@
           syncBtn.innerHTML = '<span>🔄 مزامنة سحابية فورية الآن</span>';
           syncBtn.disabled = false;
         }, 1500);
+      };
+    }
+
+    // زر تغيير كلمة المرور
+    const resetPassBtn = document.getElementById('btnResetPasswordInline');
+    if (resetPassBtn) {
+      resetPassBtn.onclick = async () => {
+        const targetEmail = active.email || (currentUser ? currentUser.email : '');
+        if (!targetEmail) {
+          alert('يرجى التأكد من وجود بريد إلكتروني مسجل في حسابك');
+          return;
+        }
+        if (confirm('هل تريد إرسال رابط آمن لتغيير كلمة المرور إلى بريدك الإلكتروني (' + targetEmail + ')؟')) {
+          resetPassBtn.innerHTML = 'جاري الإرسال... ⏳';
+          resetPassBtn.disabled = true;
+          try {
+            await resetPassword(targetEmail);
+            alert('تم إرسال رابط تغيير كلمة المرور إلى بريدك الإلكتروني (' + targetEmail + ') بنجاح! 📧 تفقد صندوق الوارد.');
+            resetPassBtn.innerHTML = '✅ تم إرسال الرابط';
+          } catch (err) {
+            alert('حدث خطأ: ' + (err.message || 'تعذر الإرسال'));
+            resetPassBtn.innerHTML = '<span>🔑 تغيير / استعادة كلمة المرور</span>';
+            resetPassBtn.disabled = false;
+          }
+        }
       };
     }
 

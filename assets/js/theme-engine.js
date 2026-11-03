@@ -8,13 +8,15 @@
  */
 
 (function () {
-  const THEME_KEY = 'patente_theme';
+  const THEME_KEYS = ['patente_theme', 'patente_app_theme', 'patente_theme_mode'];
 
   // 1. Instant execution to set class on <html> before paint
   function getPreferredTheme() {
     try {
-      const saved = localStorage.getItem(THEME_KEY);
-      if (saved === 'light' || saved === 'dark') return saved;
+      for (const key of THEME_KEYS) {
+        const saved = localStorage.getItem(key);
+        if (saved === 'light' || saved === 'dark') return saved;
+      }
     } catch (_) {}
     // Default to light mode for Patente B Pro
     return 'light';
@@ -41,7 +43,9 @@
       html.classList.add('dark');
     }
     try {
-      localStorage.setItem(THEME_KEY, theme);
+      for (const key of THEME_KEYS) {
+        localStorage.setItem(key, theme);
+      }
     } catch (e) {
       console.warn('[ThemeEngine] Could not save theme to localStorage:', e);
     }

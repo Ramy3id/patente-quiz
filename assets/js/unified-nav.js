@@ -581,30 +581,24 @@
           </button>
         </div>
 
-        <!-- 4. عناصر تحكم الموبايل (<= 992px) -->
+        <!-- 4. عناصر تحكم الموبايل (<= 992px) - مظهر أنيق وموحد مع أيقونة الحساب -->
         <div class="nav-mobile-controls" id="globalMobileControls">
-          <!-- شارة الإنجاز للموبايل -->
-          <a href="${ctx.interactive}dashboard.html" class="mobile-prog-pill" id="globalMobileProgressPill" title="إنجازك العام">
-            <span class="mob-prog-icon">🎯</span>
-            <span class="mob-prog-text" id="globalMobileProgressVal">${globalStats.pct}%</span>
-          </a>
-
-          <!-- زر الحساب للموبايل -->
-          <button class="nav-mobile-btn" id="btnOpenMobileAuth" title="حسابي والمزامنة السحابية" aria-label="حسابي">
-            <span style="font-size:1.15rem;">👤</span>
-          </button>
-
-          <!-- زر البحث للموبايل -->
-          <button class="nav-mobile-btn" id="btnOpenMobileSearch" title="بحث فوري" aria-label="بحث سريع">
+          <!-- زر البحث الفوري السريع -->
+          <button class="nav-mobile-btn" id="btnOpenMobileSearch" title="بحث فوري [Ctrl + K]" aria-label="بحث سريع">
             <span style="font-size:1.15rem;">🔍</span>
           </button>
 
-          <!-- زر الثيم للموبايل -->
+          <!-- زر الحساب والمصادقة الموحد للموبايل -->
+          <button class="nav-mobile-btn" id="btnOpenMobileAuth" title="تسجيل الدخول أو عرض الملف الشخصي" aria-label="حساب المستخدم">
+            <span style="font-size:1.15rem;">👤</span>
+          </button>
+
+          <!-- زر تبديل الوضع النهاري والليلي -->
           <button class="nav-mobile-btn nav-mobile-theme-btn" onclick="window.toggleTheme && window.toggleTheme()" title="تبديل الوضع" aria-label="تبديل الوضع">
             <span class="theme-icon-span">☀️</span>
           </button>
 
-          <!-- زر الهمبرغر المتطور -->
+          <!-- زر الهمبرغر المتطور لفتح القائمة الشاملة -->
           <button class="nav-hamburger-btn nav-mobile-hamburger" id="btnToggleMobileDrawer" aria-label="فتح قائمة التنقل وتصفح الأبواب" aria-expanded="false">
             <div class="hamburger-box">
               <span class="hamburger-line line-top"></span>
@@ -827,50 +821,106 @@
   // 7. ==================== بناء الفوتر الموحد ====================
   function renderGlobalFooter(ctx) {
     return `
-      <footer class="unified-portal-footer" id="globalPortalFooter">
-        <div class="footer-inner-container">
-          <div class="dev-footer-card">
-            <div class="dev-info-left">
-              <div class="dev-avatar-wrap">
-                <span class="dev-avatar-icon">👨‍💻</span>
+      <footer class="unified-portal-footer" id="globalPortalFooter" role="contentinfo" dir="rtl">
+        <div class="footer-container">
+          
+          <!-- الجزء 1: شبكة الأقسام المنظمة (Desktop & Mobile 2026) -->
+          <div class="footer-top-grid">
+            
+            <!-- العمود 1: الشعار ورؤية المنصة -->
+            <div class="footer-col footer-col-brand">
+              <div class="footer-brand-header">
+                <span class="footer-brand-icon">🚦</span>
+                <span class="footer-brand-title">Patente B Pro</span>
+                <span class="footer-brand-year">2026</span>
               </div>
-              <div class="dev-text-details">
-                <div class="dev-name-row">
-                  <span class="dev-name">Eng. Ramy Eid Saad Fahmy</span>
-                  <span class="dev-badge">Ingegnere Informatico</span>
-                </div>
-                <p class="dev-sub-desc">
-                  Full Stack & Automation Developer • Brindisi, Italia
-                </p>
+              <p class="footer-brand-desc">
+                المنظومة الرقمية الشاملة والمعتمدة لتدريب وتأهيل طلاب رخصة القيادة الإيطالية باللغتين العربية والإيطالية، مع كشف الفخاخ الوزارية والمحاكاة الرسمية.
+              </p>
+              <div class="footer-brand-stats">
+                <span class="footer-stat-badge">📚 25 باباً رسمياً</span>
+                <span class="footer-stat-badge">📝 7,139 سؤالاً معتمداً</span>
+                <span class="footer-stat-badge">⚡ PWA جاهز أوفلاين</span>
               </div>
             </div>
 
-            <div class="dev-links-right">
-              <a href="https://portfolio-taupe-eight-84.vercel.app/" target="_blank" rel="noopener noreferrer" class="dev-pill-btn" title="Portfolio Personale">
-                <span>🌐</span>
-                <span>Portfolio</span>
-              </a>
-              <a href="https://github.com/Ramy3id" target="_blank" rel="noopener noreferrer" class="dev-pill-btn" title="GitHub Profile">
-                <span>💻</span>
-                <span>GitHub</span>
-              </a>
-              <a href="mailto:ramyeid.dev@gmail.com" class="dev-pill-btn" title="Email: ramyeid.dev@gmail.com">
-                <span>✉️</span>
-                <span>Email</span>
-              </a>
-              <a href="https://wa.me/393447044605" target="_blank" rel="noopener noreferrer" class="dev-pill-btn" title="WhatsApp: (+39) 3447044605">
-                <span>💬</span>
-                <span>WhatsApp</span>
-              </a>
-              <button class="footer-btn-scrolltop" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="العودة لأعلى الصفحة (Scroll to top)">
-                <span>⬆️</span>
-              </button>
+            <!-- العمود 2: روابط المناهج والأبواب -->
+            <div class="footer-col">
+              <h4 class="footer-col-title">📖 المناهج والأبواب</h4>
+              <ul class="footer-nav-list">
+                <li><a href="${ctx.capitoli}index.html" class="footer-nav-link"><span>فهرس بنك الأسئلة الـ 25</span></a></li>
+                <li><a href="${ctx.interactive}index.html" class="footer-nav-link"><span>مكتبة أدلة وشروحات الأبواب</span></a></li>
+                <li><a href="${ctx.capitoli}dizionario-sinonimi.html" class="footer-nav-link"><span>معجم المترادفات والبدائل</span></a></li>
+                <li><a href="${ctx.capitoli}parole-quiz.html" class="footer-nav-link"><span>بنك كلماتي ومستكشف الفخاخ</span></a></li>
+              </ul>
+            </div>
+
+            <!-- العمود 3: المعامل والأدوات التفاعلية -->
+            <div class="footer-col">
+              <h4 class="footer-col-title">🔬 المعامل الذكية</h4>
+              <ul class="footer-nav-list">
+                <li><a href="${ctx.interactive}scheda-esame.html" class="footer-nav-link"><span>محاكي الامتحان الوزاري (30 سؤال)</span></a></li>
+                <li><a href="${ctx.interactive}parole-spia.html" class="footer-nav-link"><span>رادار الكلمات السحرية (Parole Spia)</span></a></li>
+                <li><a href="${ctx.interactive}decodificatore-incroci.html" class="footer-nav-link"><span>مفكك شفرة التقاطعات (Incroci)</span></a></li>
+                <li><a href="${ctx.interactive}laboratorio-numeri.html" class="footer-nav-link"><span>معمل الأرقام والمقاييس والسرعات</span></a></li>
+                <li><a href="${ctx.interactive}trucchi-esame.html" class="footer-nav-link"><span>خزينة التريكات ودستور الأبواب</span></a></li>
+              </ul>
+            </div>
+
+            <!-- العمود 4: أدوات المتابعة والإنجاز -->
+            <div class="footer-col">
+              <h4 class="footer-col-title">📊 الإنجاز والمتابعة</h4>
+              <ul class="footer-nav-list">
+                <li><a href="${ctx.interactive}dashboard.html" class="footer-nav-link"><span>لوحة الجاهزية وبنك الأخطاء</span></a></li>
+                <li><a href="${ctx.interactive}zero-mistake.html" class="footer-nav-link"><span>تحدي الـ 0 أخطاء (وضع البقاء)</span></a></li>
+                <li><a href="${ctx.interactive}piano-studio.html" class="footer-nav-link"><span>خطة المذاكرة الذكية (30 يوماً)</span></a></li>
+                <li><a href="${ctx.interactive}cerca-quiz.html" class="footer-nav-link"><span>محرك البحث الوزاري الفوري</span></a></li>
+              </ul>
             </div>
           </div>
 
-          <div class="dev-copyright-row">
-            <span>Patente B Pro &copy; 2026 • Progettato e sviluppato da <strong>Eng. Ramy Eid Saad Fahmy</strong></span>
-            <span class="dev-status-pill">⚡ Offline PWA Ready • 7,139 Domande</span>
+          <!-- الجزء 2: بطاقة توقيع المطور الفاخرة المدمجة (Compact Architect ID Card) -->
+          <div class="footer-dev-card-compact">
+            <div class="footer-dev-info-row">
+              <div class="footer-dev-avatar-wrapper">
+                <div class="footer-dev-avatar">👨‍💻</div>
+                <span class="footer-dev-status" title="Active Engineer"></span>
+              </div>
+              <div class="footer-dev-meta">
+                <div class="footer-dev-name">Eng. Ramy Fahmy</div>
+                <div class="footer-dev-title">Software Architecture Engineer • Brindisi, IT</div>
+              </div>
+            </div>
+
+            <!-- شريط الأيقونات الـ 5 المعتمد طبقاً لـ Apple HIG -->
+            <div class="footer-dev-icons-bar">
+              <a href="https://github.com/Ramy3id" target="_blank" rel="noopener noreferrer" class="dev-icon-btn" title="GitHub" aria-label="GitHub">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+              <a href="https://portfolio-taupe-eight-84.vercel.app/" target="_blank" rel="noopener noreferrer" class="dev-icon-btn" title="Portfolio" aria-label="Portfolio">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </a>
+              <a href="https://wa.me/393447044605" target="_blank" rel="noopener noreferrer" class="dev-icon-btn" title="WhatsApp" aria-label="WhatsApp">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.456 5.711 1.457h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 00-3.48-8.413z"/></svg>
+              </a>
+              <a href="mailto:ramyeid.dev@gmail.com" class="dev-icon-btn" title="Email" aria-label="Email">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </a>
+              <a href="https://linkedin.com/in/ramy-fahmy" target="_blank" rel="noopener noreferrer" class="dev-icon-btn" title="LinkedIn" aria-label="LinkedIn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- الجزء 3: شريط الحقوق والأمان النهائي فائق الأناقة (2 سطر فقط) -->
+          <div class="footer-bottom-compact">
+            <div class="footer-copy-line">Patente B Pro © 2026 • مبادرة تعليمية غير ربحية</div>
+            <div class="footer-meta-line">
+              <span>Vanilla JS</span> • <span>WCAG 2.1 AA</span> • <span>Safe Storage</span>
+            </div>
+            <button class="footer-cache-reset-btn" onclick="window.PatenteApp && window.PatenteApp.purgeCacheAndReload ? window.PatenteApp.purgeCacheAndReload() : (caches.keys().then(k=>Promise.all(k.map(x=>caches.delete(x)))).then(()=>location.reload(true)))" title="تحديث لآخر إصدار ومسح الكاش">
+              <span>🔄 تحديث المنصة ومسح الكاش</span>
+            </button>
           </div>
         </div>
       </footer>
@@ -878,15 +928,37 @@
   }
 
   // 8. ==================== التنسيقات المتكاملة (High-Contrast Apple HIG) ====================
-  function injectStyles() {
+  function injectStyles()
+   {
     if (document.getElementById('unifiedNavCustomStyles')) return;
     const style = document.createElement('style');
     style.id = 'unifiedNavCustomStyles';
     style.textContent = `
-      /* =========================================================
-         1. شريط التنقل العلوي الموحد (Unified Portal Nav)
+      #globalPortalNav {
+        direction: rtl !important;
+        text-align: right !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 0 16px !important;
+      }
+      #globalPortalNav .nav-brand-group {
+        direction: rtl !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+      }
+      #globalPortalNav .nav-mobile-controls {
+        direction: rtl !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        margin-right: auto !important;
+        margin-left: 0 !important;
+      }
 
-      
       /* =========================================================
          Harmonized GDPR Cookie Banner (Adaptive Light & Dark Mode)
          ========================================================= */
@@ -1177,12 +1249,14 @@
         color: #059669 !important;
       }
 
+      /* =========================================================
+         1. شريط التنقل الموحد الرئيسي (Unified Portal Nav)
          ========================================================= */
       .unified-portal-nav {
         position: sticky;
         top: 0;
         z-index: 9999;
-        min-height: 60px;
+        height: 56px; min-height: 56px; max-height: 56px;
         background: rgba(11, 15, 25, 0.94);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
@@ -2408,8 +2482,16 @@
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
+        overflow: hidden !important;
         transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
                     visibility 0.3s ease;
+      }
+      .mobile-drawer-backdrop:not(.open) {
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
+      .mobile-drawer-backdrop:not(.open) .mobile-drawer-pane {
+        display: none !important;
       }
       .mobile-drawer-backdrop.open {
         opacity: 1;
@@ -2974,6 +3056,129 @@
           justify-content: flex-start;
         }
       }
+
+      /* =========================================================
+         Native Bottom Dock - 5 Pillars (Apple HIG & Material 3)
+         ========================================================= */
+      .native-bottom-dock {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 9998 !important;
+        display: flex !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        background: rgba(15, 23, 42, 0.94) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+        padding: 6px 6px calc(6px + env(safe-area-inset-bottom, 0px)) !important;
+        box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.4) !important;
+        direction: rtl !important;
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        touch-action: manipulation !important;
+      }
+      html.light .native-bottom-dock {
+        background: rgba(255, 255, 255, 0.96) !important;
+        border-top: 1px solid rgba(15, 23, 42, 0.08) !important;
+        box-shadow: 0 -4px 24px rgba(15, 23, 42, 0.06) !important;
+      }
+      @media (min-width: 641px) {
+        .native-bottom-dock {
+          max-width: 480px !important;
+          left: 50% !important;
+          right: auto !important;
+          transform: translateX(-50%) !important;
+          bottom: 12px !important;
+          border-radius: 22px !important;
+          border: 1px solid rgba(255, 255, 255, 0.12) !important;
+          padding: 6px 14px !important;
+        }
+        html.light .native-bottom-dock {
+          border: 1px solid rgba(15, 23, 42, 0.1) !important;
+        }
+      }
+      body {
+        padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
+      }
+      .dock-tab {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex: 1 !important;
+        min-height: 48px !important;
+        padding: 3px 2px !important;
+        text-decoration: none !important;
+        color: #94a3b8 !important;
+        position: relative !important;
+        border-radius: 12px !important;
+        transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+        -webkit-tap-highlight-color: transparent !important;
+      }
+      html.light .dock-tab {
+        color: #64748b !important;
+      }
+      .dock-tab:active {
+        transform: scale(0.92) !important;
+      }
+      .dock-tab.active {
+        color: #38bdf8 !important;
+      }
+      html.light .dock-tab.active {
+        color: #0284c7 !important;
+      }
+      .dock-tab.active .dock-icon {
+        transform: scale(1.15) !important;
+        filter: drop-shadow(0 2px 8px rgba(56, 189, 248, 0.4)) !important;
+      }
+      .dock-icon-wrapper {
+        position: relative !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      .dock-icon {
+        font-size: 1.25rem !important;
+        line-height: 1 !important;
+        margin-bottom: 2px !important;
+        transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+      }
+      .dock-label {
+        font-family: 'Cairo', system-ui, sans-serif !important;
+        font-size: 0.68rem !important;
+        font-weight: 700 !important;
+        line-height: 1 !important;
+      }
+      .dock-badge {
+        position: absolute !important;
+        top: -4px !important;
+        left: -8px !important;
+        background: #ef4444 !important;
+        color: #ffffff !important;
+        font-family: 'JetBrains Mono', monospace !important;
+        font-size: 0.62rem !important;
+        font-weight: 800 !important;
+        min-width: 16px !important;
+        height: 16px !important;
+        border-radius: 999px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 4px !important;
+        box-shadow: 0 2px 6px rgba(239, 68, 68, 0.5) !important;
+        animation: badgePulse 2s infinite !important;
+      }
+      @keyframes badgePulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+      }
+      #patenteScrollTopBtn {
+        bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
+      }
+
     `;
     document.head.appendChild(style);
   }
@@ -3361,7 +3566,7 @@
   
   // 6. ==================== موديول حماية البيانات والخصوصية الأوروبية (GDPR Suite) ====================
   function initGdprConsentBanner(ctx) {
-    if (localStorage.getItem('patente_gdpr_consent') === 'accepted') return;
+    const _c = localStorage.getItem('patente_gdpr_consent'); if (_c === 'accepted' || _c === 'true' || _c === '1') return;
     if (document.getElementById('patenteGdprBanner')) return;
 
     const bannerHtml = `
@@ -3487,6 +3692,64 @@
     });
   }
 
+  // 12. ==================== شريط التنقل السفلي الأصيل (Native Bottom TabBar - 5 أركان) ====================
+  function renderNativeBottomDock(ctx) {
+    if (document.getElementById('nativeBottomDock')) return;
+    
+    // فحص الصفحة الحالية لتحديد التبويب النشط
+    const path = (window.location.pathname || '').toLowerCase();
+    const isHome = path.includes('capitoli_divisi/index.html') || path.endsWith('patente_pro_app/') || path.endsWith('patente_pro_app') || path.endsWith('/index.html') || path === '/' || (!path.includes('interactive_pages') && !path.includes('capitolo_'));
+    const isExam = path.includes('scheda-esame.html');
+    const isRadar = path.includes('parole-spia.html') || path.includes('trucchi-esame.html');
+    const isMistakes = path.includes('dashboard.html') || path.includes('zero-mistake.html');
+    const isVocab = path.includes('dizionario-sinonimi.html') || path.includes('cerca-quiz.html') || path.includes('parole-quiz.html');
+
+    // عداد الأخطاء غير المصححة من التخزين المحلي
+    let mistakeCount = 0;
+    try {
+      const errs = JSON.parse(localStorage.getItem('patente_mistakes') || localStorage.getItem('patente_errors') || '[]');
+      mistakeCount = Array.isArray(errs) ? errs.length : 0;
+    } catch (_) {}
+
+    const badgeHtml = mistakeCount > 0 
+      ? '<span class="dock-badge">' + (mistakeCount > 99 ? '99+' : mistakeCount) + '</span>' 
+      : '';
+
+    const dock = document.createElement('nav');
+    dock.id = 'nativeBottomDock';
+    dock.className = 'native-bottom-dock';
+    dock.setAttribute('aria-label', 'شريط التنقل السفلي السريع');
+    dock.setAttribute('role', 'navigation');
+    
+    dock.innerHTML = `
+      <a href="${ctx.capitoli}index.html" class="dock-tab ${isHome ? 'active' : ''}" onclick="if(window.soundEngine)soundEngine.click()" title="فهرس الأبواب (الرئيسية)">
+        <span class="dock-icon">🏠</span>
+        <span class="dock-label">الرئيسية</span>
+      </a>
+      <a href="${ctx.interactive}scheda-esame.html" class="dock-tab ${isExam ? 'active' : ''}" onclick="if(window.soundEngine)soundEngine.click()" title="محاكي الامتحان الوزاري">
+        <span class="dock-icon">⏱️</span>
+        <span class="dock-label">الامتحان</span>
+      </a>
+      <a href="${ctx.interactive}parole-spia.html" class="dock-tab ${isRadar ? 'active' : ''}" onclick="if(window.soundEngine)soundEngine.click()" title="رادار الكلمات السحرية">
+        <span class="dock-icon">🎯</span>
+        <span class="dock-label">الرادار</span>
+      </a>
+      <a href="${ctx.interactive}dashboard.html" class="dock-tab ${isMistakes ? 'active' : ''}" onclick="if(window.soundEngine)soundEngine.click()" title="بنك الأخطاء والإنجاز">
+        <span class="dock-icon-wrapper">
+          <span class="dock-icon">⚠️</span>
+          ${badgeHtml}
+        </span>
+        <span class="dock-label">أخطائي</span>
+      </a>
+      <a href="${ctx.capitoli}dizionario-sinonimi.html" class="dock-tab ${isVocab ? 'active' : ''}" onclick="if(window.soundEngine)soundEngine.click()" title="معجم المترادفات والبدائل">
+        <span class="dock-icon">📖</span>
+        <span class="dock-label">المعجم</span>
+      </a>
+    `;
+
+    document.body.appendChild(dock);
+  }
+
   function initUnifiedPortalUI() {
     injectStyles();
     const ctx = getPathContext();
@@ -3559,6 +3822,9 @@
     // 7. زر العودة للأعلى التلقائي
     initScrollToTopButton();
 
+    // 8. شريط التنقل السفلي الأصيل (Native Bottom Dock - 5 أركان)
+    renderNativeBottomDock(ctx);
+
     // 5. تحميل محرك المصادقة والمزامنة السحابية (Firebase Auth Engine)
     if (!window.PatenteAuth && !document.querySelector('script[src*="firebase-auth-engine.js"]')) {
       const authScript = document.createElement('script');
@@ -3568,10 +3834,47 @@
     }
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initUnifiedPortalUI);
-  } else {
-    initUnifiedPortalUI();
+  window.PatenteApp = window.PatenteApp || {};
+  window.PatenteApp.purgeCacheAndReload = function() {
+    if (confirm('هل تريد مسح الكاش وتحديث المنصة لآخر إصدار فوراً؟')) {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(regs) {
+          for (var i = 0; i < regs.length; i++) {
+            regs[i].unregister();
+          }
+        });
+      }
+      if ('caches' in window) {
+        caches.keys().then(function(keys) {
+          return Promise.all(keys.map(function(k) { return caches.delete(k); }));
+        }).then(function() {
+          window.location.reload(true);
+        });
+      } else {
+        window.location.reload(true);
+      }
+    }
+  };
+
+  // ==================== التشغيل الفوري الموفر للأداء (Instant Shell Render) ====================
+  function triggerPortalInit() {
+    if (window._unifiedPortalUIRendered) return;
+    if (document.body) {
+      window._unifiedPortalUIRendered = true;
+      initUnifiedPortalUI();
+    }
+  }
+
+  // 1. تشغيل فوري بدون أي تأخير إذا كان document.body متاحاً
+  triggerPortalInit();
+
+  // 2. ضمان التشغيل في حال تم تحميل السكربت في الـ head قبل نشوء الـ body
+  if (!window._unifiedPortalUIRendered) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', triggerPortalInit);
+    } else {
+      triggerPortalInit();
+    }
   }
 
 })();
