@@ -474,10 +474,11 @@
       border-color: rgba(15, 23, 42, 0.12);
       color: #475569;
     }
-    .sp-pill-btn.active {
-      background: var(--sp-cyan);
+    .sp-pill-btn.active,
+    html.light .sp-pill-btn.active {
+      background: var(--sp-cyan) !important;
       color: #FFFFFF !important;
-      border-color: var(--sp-cyan);
+      border-color: var(--sp-cyan) !important;
     }
 
     .sp-days-grid {
@@ -1242,6 +1243,372 @@
     .sp-backup-textarea:focus {
       border-color: var(--sp-cyan);
     }
+  
+  /* ==========================================================================
+     PATENTE PRO: PIANO STUDIO ULTRA-MODERN MODULAR OVERHAUL (LIGHT & DARK)
+     ========================================================================== */
+  
+  /* Root & Global Harmony */
+  html.light {
+    --sp-bg: #F8FAFC;
+    --sp-surface: #FFFFFF;
+    --sp-surface-card: #FFFFFF;
+    --sp-border: #E2E8F0;
+    --sp-text: #0F172A;
+    --sp-text-sub: #475569;
+    --sp-cyan: #0284C7;
+    --sp-emerald: #059669;
+    --sp-amber: #D97706;
+  }
+
+  /* 1. HERO BLOCK */
+  .sp-hero {
+    background: var(--sp-surface) !important;
+    border: 1px solid var(--sp-border) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05) !important;
+    padding: 24px !important;
+    margin-bottom: 20px !important;
+  }
+  html.light .sp-hero {
+    background: #FFFFFF !important;
+    border-color: #E2E8F0 !important;
+  }
+  .sp-hero-title {
+    font-size: 1.55rem !important;
+    font-weight: 900 !important;
+    color: var(--sp-text) !important;
+    line-height: 1.3 !important;
+    margin-bottom: 8px !important;
+  }
+  .sp-hero-desc {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    color: var(--sp-text-sub) !important;
+    max-width: 680px;
+    margin: 0 auto 18px auto;
+  }
+
+  /* Top Hero Actions */
+  .sp-hero-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+  }
+  @media (max-width: 640px) {
+    .sp-hero-actions {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 10px !important;
+      width: 100% !important;
+    }
+    .sp-hero-actions > button:last-child {
+      grid-column: span 2 !important;
+    }
+    .sp-hero-actions .sp-btn {
+      min-height: 46px !important;
+      padding: 10px 14px !important;
+      font-size: 0.88rem !important;
+      font-weight: 700 !important;
+      border-radius: 12px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      width: 100% !important;
+    }
+  }
+
+  /* 2. METRICS 4-BLOCK GRID */
+  .sp-metrics-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 12px !important;
+    margin-bottom: 20px !important;
+  }
+  @media (max-width: 640px) {
+    .sp-metrics-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 10px !important;
+    }
+  }
+  .sp-metric-box {
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 14px !important;
+    padding: 14px 10px !important;
+    text-align: center !important;
+    transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 86px !important;
+  }
+  html.dark .sp-metric-box {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+  .sp-metric-num {
+    font-size: 1.35rem !important;
+    font-weight: 800 !important;
+    color: var(--sp-cyan) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 4px !important;
+  }
+  .sp-metric-label {
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    color: var(--sp-text-sub) !important;
+  }
+
+  /* 3. HERO PROGRESS BAR */
+  .sp-hero-progress {
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 14px !important;
+    padding: 14px 16px !important;
+  }
+  html.dark .sp-hero-progress {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  /* 4. QUICK TRAINING MODES BENTO BLOCK */
+  .sp-quick-modes-card {
+    background: var(--sp-surface) !important;
+    border: 1px solid var(--sp-border) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05) !important;
+    padding: 24px !important;
+    margin-bottom: 20px !important;
+  }
+  html.light .sp-quick-modes-card {
+    background: #FFFFFF !important;
+    border-color: #E2E8F0 !important;
+  }
+  .sp-quick-modes-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    margin-top: 16px !important;
+  }
+  @media (max-width: 768px) {
+    .sp-quick-modes-grid {
+      grid-template-columns: 1fr !important;
+      gap: 10px !important;
+    }
+  }
+  .sp-quick-mode-card {
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 14px !important;
+    padding: 14px 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+    text-decoration: none !important;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease !important;
+  }
+  html.dark .sp-quick-mode-card {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+  .sp-quick-mode-card:hover {
+    transform: translateY(-2px) !important;
+    border-color: var(--sp-cyan) !important;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.12) !important;
+  }
+
+  /* 5. READINESS SCORE BLOCK */
+  .sp-readiness-card {
+    background: var(--sp-surface) !important;
+    border: 1px solid var(--sp-border) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05) !important;
+    padding: 24px !important;
+    margin-bottom: 20px !important;
+  }
+  html.light .sp-readiness-card {
+    background: #FFFFFF !important;
+    border-color: #E2E8F0 !important;
+  }
+  .sp-readiness-chips-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 12px !important;
+    margin-top: 18px !important;
+  }
+  @media (max-width: 640px) {
+    .sp-readiness-chips-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 10px !important;
+    }
+    .sp-readiness-chip {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      justify-content: center !important;
+      gap: 6px !important;
+      padding: 10px 12px !important;
+    }
+  }
+  .sp-readiness-chip {
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 14px !important;
+    padding: 12px 14px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  html.dark .sp-readiness-chip {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+  .sp-readiness-chip-label {
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    color: var(--sp-text-sub) !important;
+  }
+  .sp-readiness-chip-val {
+    font-size: 1.15rem !important;
+    font-weight: 800 !important;
+    color: var(--sp-cyan) !important;
+    line-height: 1.2 !important;
+  }
+
+  /* 6. MISSION BLOCK */
+  .sp-mission-card {
+    background: var(--sp-surface) !important;
+    border: 1px solid var(--sp-border) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05) !important;
+    padding: 24px !important;
+    margin-bottom: 20px !important;
+  }
+  html.light .sp-mission-card {
+    background: #FFFFFF !important;
+    border-color: #E2E8F0 !important;
+  }
+  .sp-station-item {
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    padding: 16px 18px !important;
+    margin-bottom: 12px !important;
+    transition: all 0.2s ease !important;
+  }
+  html.dark .sp-station-item {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+  html.light .sp-station-item:hover {
+    border-color: var(--sp-cyan) !important;
+    box-shadow: 0 4px 16px rgba(2, 132, 199, 0.08) !important;
+  }
+  .sp-station-item.completed {
+    background: rgba(5, 150, 105, 0.05) !important;
+    border-color: rgba(5, 150, 105, 0.35) !important;
+  }
+
+  /* 7. FULL CURRICULUM TIMELINE BLOCK */
+  .sp-timeline-section {
+    background: var(--sp-surface) !important;
+    border: 1px solid var(--sp-border) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05) !important;
+    padding: 24px !important;
+    margin-bottom: 30px !important;
+  }
+  html.light .sp-timeline-section {
+    background: #FFFFFF !important;
+    border-color: #E2E8F0 !important;
+  }
+  .sp-timeline-header {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    margin-bottom: 16px !important;
+  }
+  @media (min-width: 641px) {
+    .sp-timeline-header {
+      flex-direction: row !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+    }
+  }
+  .sp-filter-pills {
+    display: flex !important;
+    gap: 8px !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    max-width: 380px !important;
+  }
+  .sp-pill-btn {
+    flex: 1 !important;
+    text-align: center !important;
+    padding: 9px 12px !important;
+    border-radius: 10px !important;
+    font-size: 0.84rem !important;
+    font-weight: 700 !important;
+    border: 1px solid #E2E8F0 !important;
+    background: #F8FAFC !important;
+    color: #475569 !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  html.dark .sp-pill-btn {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: #94A3B8 !important;
+  }
+  .sp-pill-btn.active,
+  html.light .sp-pill-btn.active,
+  html.dark .sp-pill-btn.active {
+    background: #0284C7 !important;
+    color: #FFFFFF !important;
+    border-color: #0284C7 !important;
+  }
+  .sp-day-card {
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 14px !important;
+    padding: 14px 16px !important;
+  }
+  html.dark .sp-day-card {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  /* 8. MODAL REFINEMENTS */
+  .sp-modal-box {
+    border-radius: 24px !important;
+    border: 1px solid #E2E8F0 !important;
+  }
+  html.light .sp-modal-box {
+    background: #FFFFFF !important;
+    border-color: #E2E8F0 !important;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.18) !important;
+  }
+  .sp-opt-card {
+    border-radius: 14px !important;
+    border: 1.5px solid #E2E8F0 !important;
+    background: #F8FAFC !important;
+    transition: all 0.15s ease !important;
+  }
+  html.light .sp-opt-card.selected {
+    background: rgba(2, 132, 199, 0.05) !important;
+    border-color: #0284C7 !important;
+  }
+
   </style>
 </head>
 <body>
