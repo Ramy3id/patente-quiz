@@ -1,10 +1,10 @@
-import io, sys
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+import sys
+
+sys.stdout.reconfigure(encoding='utf-8')
 
 with open(r'R:\Ramy\PATENTE_PRO_APP\Capitoli_Divisi\dizionario-sinonimi.html', 'r', encoding='utf-8') as f:
-    text = f.read()
+    diz = f.read()
 
-print("File size:", len(text))
-print("Has hardcoded #fecdd3:", "#fecdd3" in text)
-print("Has categoryChipsDeck:", "categoryChipsDeck" in text)
-print("Has hero-stats-row:", "hero-stats-row" in text)
+idx = diz.find('PATENTE_THESAURUS')
+print("=== dizionario around PATENTE_THESAURUS ===")
+print(diz[max(0, idx-100):min(len(diz), idx+800)])
