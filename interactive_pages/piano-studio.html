@@ -1959,12 +1959,26 @@
   }
   @media (max-width: 768px) {
     .sp-modal-backdrop#planSetupModal .sp-modal-box {
-      padding: 72px 14px 180px 14px !important;
+      padding: 68px 14px 80px 14px !important;
     }
     .sp-modal-actions-bar {
-      margin-top: 30px !important;
-      margin-bottom: 120px !important;
+      margin-top: 20px !important;
+      margin-bottom: 16px !important;
     }
+  }
+  .sp-options-flow {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+  .sp-options-flow .sp-opt-card {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    text-align: right !important;
+    padding: 14px 16px !important;
+    border-radius: 14px !important;
+    cursor: pointer !important;
   }
   .sp-btn-save-plan {
     flex: 2 !important;
@@ -2667,41 +2681,33 @@
         </div>
       </div>
 
-      <!-- السؤال 4: منهجية تدفق وترتيب الأبواب (تصميم مدمج بالأيقونات) -->
+      <!-- السؤال 4: منهجية تدفق وترتيب الأبواب (تصميم أنيق ومريح) -->
       <div class="sp-question-block">
         <div class="sp-q-label">
           <span>4. منهجية تدفق وترتيب الأبواب:</span>
           <span class="sp-q-helper">اختر نمط دراسة المنهج</span>
         </div>
-        <div class="sp-flow-clean-grid">
+        <div class="sp-options-flow">
           <!-- المسار العنقودي الذكي -->
-          <div class="sp-opt-card sp-flow-icon-card selected" id="optFlowCluster" onclick="selectFlowMode('cluster')">
-            <div class="sp-flow-ico-box">🧠</div>
-            <div class="sp-flow-info-col">
-              <div class="sp-flow-title-row">
-                <span class="sp-flow-name">المسار العنقودي الذكي</span>
-                <span class="sp-flow-micro-tag" title="الأعلى فاعلية">⚡ موصى به</span>
-              </div>
-              <div class="sp-flow-sub-row">
-                يبدأ بالأبواب الأسهل وأعلى درجات لكسر الملل وسرعة الإنجاز وتثبيت القواعد مبكراً.
-              </div>
+          <div class="sp-opt-card selected" id="optFlowCluster" onclick="selectFlowMode('cluster')">
+            <div class="sp-opt-title" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+              <span style="display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 0.96rem;">🧠 المسار العنقودي الذكي ⭐</span>
+              <span class="sp-flow-tag" style="font-size: 0.76rem; font-weight: 700; color: #0284c7; background: rgba(2, 132, 199, 0.12); padding: 4px 10px; border-radius: 6px; white-space: nowrap;">⚡ موصى به</span>
             </div>
-            <div class="sp-flow-radio-circle"></div>
+            <div class="sp-opt-note" style="margin-top: 6px; font-size: 0.84rem; line-height: 1.5; color: var(--sp-text-muted);">
+              يبدأ بالأبواب الأسهل وأعلى درجات لكسر الملل وسرعة الإنجاز وتثبيت القواعد مبكراً.
+            </div>
           </div>
 
           <!-- المسار التسلسلي التقليدي -->
-          <div class="sp-opt-card sp-flow-icon-card" id="optFlowSequential" onclick="selectFlowMode('sequential')">
-            <div class="sp-flow-ico-box">📖</div>
-            <div class="sp-flow-info-col">
-              <div class="sp-flow-title-row">
-                <span class="sp-flow-name">المسار التسلسلي التقليدي</span>
-                <span class="sp-flow-micro-tag-classic">🔢 ترتيب 1 - 25</span>
-              </div>
-              <div class="sp-flow-sub-row">
-                دراسة الأبواب بالتتابع الرقمي من الباب 01 حتى الباب 25 بالتسلسل المعتاد لكتاب المدرسة.
-              </div>
+          <div class="sp-opt-card" id="optFlowSequential" onclick="selectFlowMode('sequential')">
+            <div class="sp-opt-title" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+              <span style="display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 0.96rem;">📖 المسار التسلسلي التقليدي</span>
+              <span class="sp-flow-tag" style="font-size: 0.76rem; font-weight: 700; color: #64748b; background: rgba(100, 116, 139, 0.12); padding: 4px 10px; border-radius: 6px; white-space: nowrap;">🔢 ترتيب 1 - 25</span>
             </div>
-            <div class="sp-flow-radio-circle"></div>
+            <div class="sp-opt-note" style="margin-top: 6px; font-size: 0.84rem; line-height: 1.5; color: var(--sp-text-muted);">
+              دراسة الأبواب بالتتابع الرقمي من الباب 01 حتى الباب 25 بالتسلسل المعتاد لكتاب المدرسة.
+            </div>
           </div>
         </div>
       </div>
