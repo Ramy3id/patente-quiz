@@ -825,7 +825,7 @@
           <!-- الجزء 1: شبكة الأقسام المنظمة والمختصرة (Desktop & Mobile 2026) -->
           <div class="footer-top-grid">
             
-            <!-- العمود 1: الشعار ورؤية المنصة والإحصائيات والمعايير -->
+            <!-- العمود 1: الشعار ورؤية المنصة والإحصائيات -->
             <div class="footer-col footer-col-brand">
               <div class="footer-brand-header">
                 <span class="footer-brand-year">2026</span>
@@ -839,15 +839,6 @@
               <!-- إحصائيات باهتة بدون إطارات ولا خلفيات بجانب بعض -->
               <div class="footer-brand-stats-inline">
                 <span>25 باباً رسمياً</span> • <span>7,139 سؤالاً معتمداً</span> • <span>متوافق مع الهواتف وPWA</span>
-              </div>
-
-              <!-- قسم المعايير والخصوصية الأوروبية -->
-              <div class="footer-standards-block">
-                <div class="footer-standards-title">المعايير والخصوصية</div>
-                <p class="footer-standards-desc">
-                  حماية البيانات مطابقة للائحة الأوروبية EU 2016/679 (GDPR). يتم حفظ التقدم في متصفحك محلياً بشكل آمن دون تتبع إعلاني خارجي.
-                </p>
-                <div class="footer-official-badge">Ministero delle Infrastrutture e dei Trasporti</div>
               </div>
             </div>
 
@@ -871,6 +862,15 @@
                 <li><a href="${ctx.interactive}dashboard.html" class="footer-nav-link"><span>لوحة الجاهزية وبنك الأخطاء</span></a></li>
                 <li><a href="${ctx.interactive}piano-studio.html" class="footer-nav-link"><span>خطة المذاكرة الذكية (30 يوماً)</span></a></li>
               </ul>
+            </div>
+
+            <!-- العمود 4: المعايير والخصوصية (بعد المعامل والتدريب) -->
+            <div class="footer-col footer-col-standards">
+              <h4 class="footer-col-title">⚖️ المعايير والخصوصية</h4>
+              <p class="footer-standards-desc">
+                حماية البيانات مطابقة للائحة الأوروبية EU 2016/679 (GDPR). يتم حفظ التقدم في متصفحك محلياً بشكل آمن دون تتبع إعلاني خارجي.
+              </p>
+              <div class="footer-official-badge">Ministero delle Infrastrutture e dei Trasporti</div>
             </div>
           </div>
 
