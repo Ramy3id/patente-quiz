@@ -882,10 +882,7 @@
           <!-- الجزء 2: بطاقة توقيع المطور الفاخرة المدمجة (Compact Architect ID Card) -->
           <div class="footer-dev-card-compact">
             <div class="footer-dev-info-row">
-              <div class="footer-dev-avatar-wrapper">
-                <div class="footer-dev-avatar">👨‍💻</div>
-                <span class="footer-dev-status" title="Active Engineer"></span>
-              </div>
+
               <div class="footer-dev-meta">
                 <div class="footer-dev-name">Eng. Ramy Fahmy</div>
                 <div class="footer-dev-title">Software Architecture Engineer • Brindisi, IT</div>
@@ -918,9 +915,7 @@
             <div class="footer-meta-line">
               <span>Vanilla JS</span> • <span>WCAG 2.1 AA</span> • <span>Safe Storage</span>
             </div>
-            <button class="footer-cache-reset-btn" onclick="window.PatenteApp && window.PatenteApp.purgeCacheAndReload ? window.PatenteApp.purgeCacheAndReload() : (caches.keys().then(k=>Promise.all(k.map(x=>caches.delete(x)))).then(()=>location.reload(true)))" title="تحديث لآخر إصدار ومسح الكاش">
-              <span>🔄 تحديث المنصة ومسح الكاش</span>
-            </button>
+            
           </div>
         </div>
       </footer>
