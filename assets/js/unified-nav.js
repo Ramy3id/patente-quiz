@@ -607,11 +607,11 @@
       <!-- 5. نافذة البحث السريع الفوري المنبثقة (Spotlight Command Palette) -->
       <div class="global-search-backdrop" id="globalSearchModal" style="display:none;" aria-hidden="true">
         <div class="search-modal-container" role="dialog" aria-modal="true" aria-labelledby="globalSearchInput">
-          <!-- شريط الإدخال الرئيسي -->
+          <!-- شريط الإدخال الرئيسي فائق النقاء -->
           <div class="search-modal-header">
             <span class="search-modal-icon">🔍</span>
-            <input type="text" id="globalSearchInput" class="search-modal-input" placeholder="ابحث عن أي باب، إشارة، مفهوم، أو مصطلح إيطالي... (مثال: precedenza, سرعة, 14, sempre)" autocomplete="off">
-            <button class="search-modal-close" id="btnCloseGlobalSearch" aria-label="إغلاق نافذة البحث" title="إغلاق [Esc]">⎋ Esc</button>
+            <input type="text" id="globalSearchInput" class="search-modal-input" placeholder="ابحث في الأبواب والمفاهيم..." autocomplete="off">
+            <button class="search-modal-close" id="btnCloseGlobalSearch" aria-label="إغلاق نافذة البحث" title="إغلاق">✕</button>
           </div>
 
           <!-- أزرار التصفية السريعة -->
@@ -3390,7 +3390,7 @@
       selectedResultIndex = 0;
       searchResults.innerHTML = filtered.map((item, idx) => `
         <a href="${item.href}" class="search-result-row ${idx === 0 ? 'selected' : ''}" data-idx="${idx}">
-          <div class="result-badge">${item.badge}</div>
+          <div class="result-badge ${item.type === 'chapter' ? 'badge-ch' : 'badge-tool'}">${item.type === 'chapter' ? item.badge.replace('Cap. ', '') : (item.icon || '🔬')}</div>
           <div class="result-info">
             <div class="result-title-row">
               <span class="result-title">${window.escapeHtml(item.title)}</span>
@@ -3398,7 +3398,7 @@
             </div>
             <div class="result-subtitle">${window.escapeHtml(item.subtitle)}</div>
           </div>
-          <span class="result-jump-icon">↵</span>
+          <span class="result-jump-icon">‹</span>
         </a>
       `).join('');
 
