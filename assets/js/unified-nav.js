@@ -645,14 +645,17 @@
       <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop">
         <aside class="mobile-drawer-pane" id="mobileDrawerPane">
           <div class="mobile-drawer-header">
+            <!-- زر الإغلاق على اليمين في نفس موضع زر الهمبرغر لتسهيل التحكم بالإبهام -->
+            <button class="mobile-drawer-close" id="btnCloseMobileDrawer" aria-label="إغلاق القائمة" title="إغلاق القائمة">✕</button>
+
+            <!-- الشعار والاسم على اليسار ليتطابق مع هيدر التطبيق الرئيسي -->
             <div class="drawer-header-brand">
-              <span style="font-size:1.4rem;">🚦</span>
               <div>
                 <strong class="drawer-app-title">Patente B Pro</strong>
                 <span class="drawer-app-subtitle">القائمة الموحدة وتصفح الأبواب</span>
               </div>
+              <span style="font-size:1.4rem;">🚦</span>
             </div>
-            <button class="mobile-drawer-close" id="btnCloseMobileDrawer" aria-label="إغلاق القائمة">✕</button>
           </div>
 
           <!-- بطاقة الإنجاز في أعلى قائمة الموبايل -->
@@ -2580,12 +2583,35 @@
         color: #94A3B8;
       }
       .mobile-drawer-close {
-        background: transparent;
-        border: none;
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        min-height: 36px !important; max-height: 36px !important; height: 36px !important; width: 36px !important; min-width: 36px !important; max-width: 36px !important;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
         color: #94A3B8;
-        font-size: 1.3rem;
+        font-size: 1.15rem;
         cursor: pointer;
-        padding: 4px;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+      }
+      .mobile-drawer-close:hover {
+        background: rgba(239, 68, 68, 0.15);
+        color: #EF4444;
+        border-color: rgba(239, 68, 68, 0.3);
+      }
+      html.light .mobile-drawer-close {
+        background: rgba(15, 23, 42, 0.05);
+        border-color: rgba(15, 23, 42, 0.1);
+        color: #64748B;
+      }
+      html.light .mobile-drawer-close:hover {
+        background: rgba(239, 68, 68, 0.1);
+        color: #EF4444;
       }
 
       /* بطاقة الإنجاز في الموبايل */
