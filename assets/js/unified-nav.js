@@ -345,8 +345,8 @@
       <header class="unified-portal-nav" id="globalPortalNav">
         <!-- 1. الشعار وزر تصفح الأبواب المنسدل السريع -->
         <div class="nav-brand-group">
-          <a href="${ctx.capitoli}index.html" class="nav-brand" title="الرئيسية — Patente B Pro">
-            <span class="brand-emoji">🚦</span>
+          <a href="${ctx.capitoli}index.html" class="nav-brand" title="الرئيسية — Patente B Pro" style="direction: ltr !important;">
+            <img src="${ctx.root}assets/brand/brand_logo_steering_trans.png" alt="Patente B Pro" class="brand-logo-img" width="28" height="28" style="width:28px; height:28px; object-fit:contain; border-radius:50%; box-shadow: 0 2px 8px rgba(0,0,0,0.35); flex-shrink:0;">
             <span class="brand-text">Patente B Pro</span>
             <span class="badge-tag">2026</span>
           </a>
@@ -649,12 +649,12 @@
             <button class="mobile-drawer-close" id="btnCloseMobileDrawer" aria-label="إغلاق القائمة" title="إغلاق القائمة">✕</button>
 
             <!-- الشعار والاسم على اليسار ليتطابق مع هيدر التطبيق الرئيسي -->
-            <div class="drawer-header-brand">
-              <div>
+            <div class="drawer-header-brand" style="direction: ltr !important; display: flex !important; align-items: center !important; gap: 10px !important;">
+              <img src="${ctx.root}assets/brand/brand_logo_steering_trans.png" alt="Patente B Pro" class="brand-logo-img" width="30" height="30" style="width:30px; height:30px; object-fit:contain; border-radius:50%; box-shadow: 0 2px 8px rgba(0,0,0,0.35); flex-shrink:0;">
+              <div style="text-align: left;">
                 <strong class="drawer-app-title">Patente B Pro</strong>
                 <span class="drawer-app-subtitle">القائمة الموحدة وتصفح الأبواب</span>
               </div>
-              <span style="font-size:1.4rem;">🚦</span>
             </div>
           </div>
 
