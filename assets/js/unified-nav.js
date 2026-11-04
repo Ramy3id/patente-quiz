@@ -41,7 +41,16 @@
     shieldCheck: '<svg class="ui-svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>',
     user: '<svg class="ui-svg" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>',
     zap: '<svg class="ui-svg" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>',
-    chevronDown: '<svg class="ui-svg chevron-svg" viewBox="0 0 24 24" style="width:12px;height:12px;"><polyline points="6 9 12 15 18 9"></polyline></svg>'
+    chevronDown: '<svg class="ui-svg chevron-svg" viewBox="0 0 24 24" style="width:12px;height:12px;"><polyline points="6 9 12 15 18 9"></polyline></svg>',
+    image: '<svg class="ui-svg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>',
+    play: '<svg class="ui-svg" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>',
+    lock: '<svg class="ui-svg" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>',
+    soundOn: '<svg class="ui-svg" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>',
+    sun: '<svg class="ui-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>',
+    moon: '<svg class="ui-svg" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>',
+    checkCircle: '<svg class="ui-svg" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>',
+    lightbulb: '<svg class="ui-svg" viewBox="0 0 24 24"><line x1="9" y1="18" x2="15" y2="18"></line><line x1="10" y1="22" x2="14" y2="22"></line><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"></path></svg>',
+    soundOff: '<svg class="ui-svg" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>'
   };
 
 
@@ -230,7 +239,7 @@
       items.push({
         type: 'chapter',
         category: 'chapters',
-        categoryLabel: '📚 الأبواب الرسمية',
+        categoryLabel: 'الأبواب الرسمية',
         title: `الباب ${pad}: ${ch.title}`,
         subtitle: `${ch.itTitle} (${ch.questions} سؤال)`,
         badge: `Cap. ${pad}`,
@@ -243,26 +252,26 @@
 
     // 2. الأدوات والمعامل الـ 12
     const tools = [
-      { id: 'mistakes', title: 'بنك أخطائي وتحدي التصحيح', it: 'Banca Errori e Correzione', desc: 'تجميع كافة أخطائك في كويز مخصص لإتقانها وتفادي الرسوب في الامتحان', icon: '⚠️', href: ctx.interactive + 'dashboard.html#mistakes', tags: 'اخطاء بنك اخطائي اسئلة خاطئة مراجعة تصحيح غلط غلطات errori sbagli srs' },
-      { id: 'scheda', title: 'محاكي الامتحان الوزاري الرسمي', it: 'Scheda d’Esame Ministeriale', desc: '30 سؤال في 20 دقيقة بنظام الوزارة المحدث وتقييم النجاح', icon: '⏱️', href: ctx.interactive + 'scheda-esame.html', tags: 'محاكي امتحان تجريبي اختبار رسمي scheda esame timer وقت نتيجة' },
-      { id: 'incroci', title: 'مفكك التقاطعات التفاعلي', it: 'Decodificatore Incroci', desc: 'تحليل أسبقية السير في الميادين وحساب مسار السيارات خطوة بخطوة', icon: '🔄', href: ctx.interactive + 'decodificatore-incroci.html', tags: 'تقاطعات مفكك اسبقية ميادين incroci precedenza rotatoria destra' },
-      { id: 'parole', title: 'رادار الكلمات المفتاحية والفخاخ', it: 'Parole Spia e Trabocchetti', desc: 'كشف كلمات التأكيد (Sempre / Mai) وكلمات الخداع في أسئلة الباتنت', icon: '🎯', href: ctx.interactive + 'parole-spia.html', tags: 'رادار كلمات فخاخ مفتاحية sempre mai solo soltanto trabocchetti parole spia' },
-      { id: 'numeri', title: 'معمل الأرقام وحساب المسافات', it: 'Laboratorio Numeri e Distanze', desc: 'حاسبة السرعات ومسافات الأمان وزمن رد الفعل وأبعاد المركبات', icon: '📏', href: ctx.interactive + 'laboratorio-numeri.html', tags: 'ارقام مسافات سرعة فرملة رد فعل مسافة الامان numeri distanza velocita' },
-      { id: 'flashcards', title: 'الفلاش كاردز التفاعلية', it: 'Flashcards Segnali Stradali', desc: 'بطاقات بصرية ذكية لحفظ الإشارات ورموز الطريق وتكرارها', icon: '🗂️', href: ctx.interactive + 'flashcards.html', tags: 'فلاش كارد بطاقات اشارات حفظ مراجعة سريعة flashcards segnali' },
-      { id: 'traps', title: 'بنك الفخاخ والألعاب التفاعلية', it: 'Banca Trappole e Sfide', desc: 'تحدي أصعب الأسئلة الوزارية وتدريبات التحدي الموقوتة', icon: '🎮', href: ctx.interactive + 'traps_and_games.html', tags: 'فخاخ العاب تحدي اسئلة صعبة traps games quiz' },
-      { id: 'trucchi', title: 'خزينة التريكات وأسرار النجاح', it: 'Trucchi e Segreti d’Esame', desc: 'قواعد ذهبية واستراتيجيات استنتاج الإجابة الصحيحة بسرعة', icon: '💎', href: ctx.interactive + 'trucchi-esame.html', tags: 'تريكات حيل اسرار نصائح trucchi esame trucchi patente' },
-      { id: 'soccorso', title: 'دليل الإسعافات الأولية والتصرف', it: 'Primo Soccorso Stradale', desc: 'خطوات الإنقاذ والتصرف السليم أثناء حوادث السير وإسعاف المصابين', icon: '🚑', href: ctx.interactive + 'primo-soccorso.html', tags: 'اسعافات اولية حوادث انقاذ صدمة تنفس primo soccorso ferito' },
-      { id: 'piano', title: 'خطة الدراسة والجدول الزمني', it: 'Piano di Studio Personalizzato', desc: 'جدول زمني منظم لاجتياز اختبار الباتنت خلال 4 أو 8 أسابيع', icon: '📅', href: ctx.interactive + 'piano-studio.html', tags: 'خطة دراسة جدول برنامج زمني تنظيم وقت piano studio' },
-      { id: 'dashboard', title: 'لوحة الإنجاز ومتابعة التقدم', it: 'Dashboard Statistiche Personali', desc: 'إحصائيات تفصيلية ونسبة الدقة ومؤشر الجاهزية لدخول الامتحان', icon: '📊', href: ctx.interactive + 'dashboard.html', tags: 'لوحة انجاز تقدم احصائيات نقاط dashboard statistiche progresso' },
+      { id: 'mistakes', title: 'بنك أخطائي وتحدي التصحيح', it: 'Banca Errori e Correzione', desc: 'تجميع كافة أخطائك في كويز مخصص لإتقانها وتفادي الرسوب في الامتحان', icon: SVG_ICONS.shieldAlert, href: ctx.interactive + 'dashboard.html#mistakes', tags: 'اخطاء بنك اخطائي اسئلة خاطئة مراجعة تصحيح غلط غلطات errori sbagli srs' },
+      { id: 'scheda', title: 'محاكي الامتحان الوزاري الرسمي', it: 'Scheda d’Esame Ministeriale', desc: '30 سؤال في 20 دقيقة بنظام الوزارة المحدث وتقييم النجاح', icon: SVG_ICONS.timer, href: ctx.interactive + 'scheda-esame.html', tags: 'محاكي امتحان تجريبي اختبار رسمي scheda esame timer وقت نتيجة' },
+      { id: 'incroci', title: 'مفكك التقاطعات التفاعلي', it: 'Decodificatore Incroci', desc: 'تحليل أسبقية السير في الميادين وحساب مسار السيارات خطوة بخطوة', icon: SVG_ICONS.repeat, href: ctx.interactive + 'decodificatore-incroci.html', tags: 'تقاطعات مفكك اسبقية ميادين incroci precedenza rotatoria destra' },
+      { id: 'parole', title: 'رادار الكلمات المفتاحية والفخاخ', it: 'Parole Spia e Trabocchetti', desc: 'كشف كلمات التأكيد (Sempre / Mai) وكلمات الخداع في أسئلة الباتنت', icon: SVG_ICONS.crosshair, href: ctx.interactive + 'parole-spia.html', tags: 'رادار كلمات فخاخ مفتاحية sempre mai solo soltanto trabocchetti parole spia' },
+      { id: 'numeri', title: 'معمل الأرقام وحساب المسافات', it: 'Laboratorio Numeri e Distanze', desc: 'حاسبة السرعات ومسافات الأمان وزمن رد الفعل وأبعاد المركبات', icon: SVG_ICONS.ruler, href: ctx.interactive + 'laboratorio-numeri.html', tags: 'ارقام مسافات سرعة فرملة رد فعل مسافة الامان numeri distanza velocita' },
+      { id: 'flashcards', title: 'الفلاش كاردز التفاعلية', it: 'Flashcards Segnali Stradali', desc: 'بطاقات بصرية ذكية لحفظ الإشارات ورموز الطريق وتكرارها', icon: SVG_ICONS.cards, href: ctx.interactive + 'flashcards.html', tags: 'فلاش كارد بطاقات اشارات حفظ مراجعة سريعة flashcards segnali' },
+      { id: 'traps', title: 'بنك الفخاخ والألعاب التفاعلية', it: 'Banca Trappole e Sfide', desc: 'تحدي أصعب الأسئلة الوزارية وتدريبات التحدي الموقوتة', icon: SVG_ICONS.gamepad, href: ctx.interactive + 'traps_and_games.html', tags: 'فخاخ العاب تحدي اسئلة صعبة traps games quiz' },
+      { id: 'trucchi', title: 'خزينة التريكات وأسرار النجاح', it: 'Trucchi e Segreti d’Esame', desc: 'قواعد ذهبية واستراتيجيات استنتاج الإجابة الصحيحة بسرعة', icon: SVG_ICONS.gem, href: ctx.interactive + 'trucchi-esame.html', tags: 'تريكات حيل اسرار نصائح trucchi esame trucchi patente' },
+      { id: 'soccorso', title: 'دليل الإسعافات الأولية والتصرف', it: 'Primo Soccorso Stradale', desc: 'خطوات الإنقاذ والتصرف السليم أثناء حوادث السير وإسعاف المصابين', icon: SVG_ICONS.ambulance, href: ctx.interactive + 'primo-soccorso.html', tags: 'اسعافات اولية حوادث انقاذ صدمة تنفس primo soccorso ferito' },
+      { id: 'piano', title: 'خطة الدراسة والجدول الزمني', it: 'Piano di Studio Personalizzato', desc: 'جدول زمني منظم لاجتياز اختبار الباتنت خلال 4 أو 8 أسابيع', icon: SVG_ICONS.calendar, href: ctx.interactive + 'piano-studio.html', tags: 'خطة دراسة جدول برنامج زمني تنظيم وقت piano studio' },
+      { id: 'dashboard', title: 'لوحة الإنجاز ومتابعة التقدم', it: 'Dashboard Statistiche Personali', desc: 'إحصائيات تفصيلية ونسبة الدقة ومؤشر الجاهزية لدخول الامتحان', icon: SVG_ICONS.chart, href: ctx.interactive + 'dashboard.html', tags: 'لوحة انجاز تقدم احصائيات نقاط dashboard statistiche progresso' },
       { id: 'hub', title: 'بنك أسئلة الأبواب الـ 25', it: 'Hub Capitoli Divisi (7,139 Domande)', desc: 'فهرس الوحدات التدريبية المباشرة لجميع أسئلة رخصة القيادة', icon: '📝', href: ctx.capitoli + 'index.html', tags: 'بنك اسئلة ابواب 7139 وحدة تدريب capitoli hub quiz' },
-      { id: 'guide', title: 'شرح وأدلة الأبواب (1-25)', it: 'Guida Completa ai Capitoli', desc: 'الشرح الشامل باللغة العربية والرسوم التوضيحية لجميع الدروس', icon: '📖', href: ctx.interactive + 'index.html', tags: 'شرح ادلة دروس تلخيص كتاب guida spiegazione teoria' }
+      { id: 'guide', title: 'شرح وأدلة الأبواب (1-25)', it: 'Guida Completa ai Capitoli', desc: 'الشرح الشامل باللغة العربية والرسوم التوضيحية لجميع الدروس', icon: SVG_ICONS.book, href: ctx.interactive + 'index.html', tags: 'شرح ادلة دروس تلخيص كتاب guida spiegazione teoria' }
     ];
 
     tools.forEach(t => {
       items.push({
         type: 'tool',
         category: 'tools',
-        categoryLabel: '🔬 المعامل والأدوات',
+        categoryLabel: 'المعامل والأدوات',
         title: t.title,
         subtitle: `${t.it} — ${t.desc}`,
         badge: t.icon,
@@ -291,10 +300,10 @@
       items.push({
         type: 'vocab',
         category: 'vocab',
-        categoryLabel: '🔤 مصطلحات وفخاخ هامة',
+        categoryLabel: 'المصطلحات والفخاخ',
         title: `${g.it} — ${g.ar}`,
         subtitle: g.desc,
-        badge: '💡',
+        badge: 'مهم',
         href: g.href,
         tags: `${g.it} ${g.ar} ${g.desc} ${g.tags}`.toLowerCase()
       });
@@ -342,7 +351,7 @@
                     cur.includes(`الباب_${ch.num}`);
       const prog = getChapterProgress(ch.num);
       const progBadge = prog.completed 
-        ? `<span class="ch-prog-badge done" title="تم إنهاء جميع أسئلة الباب بنجاح">✅ 100%</span>`
+        ? `<span class="ch-prog-badge done" title="تم إنهاء جميع أسئلة الباب بنجاح">${SVG_ICONS.checkCircle} 100%</span>`
         : (prog.answered > 0 ? `<span class="ch-prog-badge partial" title="تم حل ${prog.answered} من ${ch.questions}">${prog.pct}%</span>` : '');
 
       return `
@@ -358,10 +367,10 @@
           </div>
           <div class="megamenu-ch-actions">
             <a href="${ctx.capitoli}${ch.folder}/index.html" class="megamenu-btn quiz" title="فتح بنك الأسئلة والتدريب الموديلار">
-              <span>📝 أسئلة</span>
+              <span>${SVG_ICONS.notes} أسئلة</span>
             </a>
             <a href="${ctx.interactive}${ch.guide}" class="megamenu-btn guide" title="فتح الشرح التفاعلي والقاموس">
-              <span>📖 شرح</span>
+              <span>${SVG_ICONS.book} شرح</span>
             </a>
           </div>
         </div>
@@ -381,7 +390,7 @@
           <!-- زر تصفح الأبواب الـ 25 المنسدل السريع (ديسكتوب) -->
           <div class="nav-dropdown-wrapper nav-chapters-wrapper">
             <button class="nav-dropdown-btn nav-chapters-btn" id="btnToggleChaptersMenu" aria-expanded="false" title="تصفح جميع الأبواب الـ 25 والوصول اللحظي للأسئلة والشروحات">
-              <span class="btn-icon">📚</span>
+              <span class="btn-icon">${SVG_ICONS.book}</span>
               <span class="btn-label">تصفح الأبواب (1-25)</span>
               <span class="dropdown-chevron">▾</span>
             </button>
@@ -394,7 +403,7 @@
                   <strong>فهرس أبواب رخصة القيادة الإيطالية (7,139 سؤال)</strong>
                 </div>
                 <div class="megamenu-search-wrapper">
-                  <span class="input-search-icon">🔍</span>
+                  <span class="input-search-icon">${SVG_ICONS.search}</span>
                   <input type="text" id="chaptersMenuFilter" class="megamenu-filter-input" placeholder="تصفية بالرقم أو العنوان أو المصطلح الإيطالي..." autocomplete="off">
                   <button class="megamenu-clear-btn" id="btnClearChaptersFilter" style="display:none;" title="مسح التصفية">✕</button>
                 </div>
@@ -403,8 +412,8 @@
                 ${chaptersGridHtml}
               </div>
               <div class="megamenu-bottombar">
-                <span class="bottombar-hint">💡 اختر "📝 أسئلة" للتدريب الموديلار وحفظ الإنجاز، أو "📖 شرح" لقاموس المفاهيم والرسوم.</span>
-                <a href="${ctx.interactive}dashboard.html" class="bottombar-dash-link">📊 عرض لوحة الإنجاز العامة ⬅</a>
+                <span class="bottombar-hint">${SVG_ICONS.lightbulb} اختر "📝 أسئلة" للتدريب الموديلار وحفظ الإنجاز، أو "📖 شرح" لقاموس المفاهيم والرسوم.</span>
+                <a href="${ctx.interactive}dashboard.html" class="bottombar-dash-link">${SVG_ICONS.chart} عرض لوحة الإنجاز العامة ⬅</a>
               </div>
             </div>
           </div>
@@ -509,7 +518,7 @@
           <!-- المجموعة 3: 🎮 التدريب والامتحانات ▾ -->
           <div class="nav-dropdown-wrapper">
             <button class="nav-dropdown-tab ${isTrainingActive ? 'active' : ''}" id="btnDropdownTraining">
-              <span class="tab-icon">🎮</span>
+              <span class="tab-icon">${SVG_ICONS.gamepad}</span>
               <span>التدريب والامتحانات</span>
               <span class="dropdown-chevron">▾</span>
             </button>
@@ -603,7 +612,7 @@
 
           <!-- زر تبديل الوضع النهاري / الليلي -->
           <button class="nav-theme-btn" onclick="window.toggleTheme && window.toggleTheme()" title="تبديل الوضع (نهاري / ليلي) [Alt + T]">
-            <span class="theme-icon-span">☀️</span>
+            <span class="theme-icon-span">${SVG_ICONS.sun}</span>
             <span class="theme-label-span">الوضع</span>
           </button>
         </div>
@@ -621,12 +630,12 @@
 
           <!-- زر الحساب والمصادقة الموحد للموبايل -->
           <button class="nav-mobile-btn" id="btnOpenMobileAuth" title="تسجيل الدخول أو عرض الملف الشخصي" aria-label="حساب المستخدم">
-            <span style="font-size:1.15rem;">👤</span>
+            <span class="btn-svg-wrap" style="display:inline-flex;align-items:center;justify-content:center;">${SVG_ICONS.user}</span>
           </button>
 
           <!-- زر البحث الفوري السريع -->
           <button class="nav-mobile-btn" id="btnOpenMobileSearch" title="بحث فوري [Ctrl + K]" aria-label="بحث سريع">
-            <span style="font-size:1.15rem;">🔍</span>
+            <span class="btn-svg-wrap" style="display:inline-flex;align-items:center;justify-content:center;">${SVG_ICONS.search}</span>
           </button>
         </div>
       </header>
@@ -689,7 +698,7 @@
           <a href="${ctx.interactive}dashboard.html" class="drawer-progress-card">
             <div class="drawer-prog-top">
               <div class="drawer-prog-title">
-                <span>🎯</span>
+                <span>${SVG_ICONS.crosshair}</span>
                 <strong>تقدمك الإجمالي في المنهج</strong>
               </div>
               <span class="drawer-prog-pct" id="drawerProgressPctVal">${globalStats.pct}%</span>
@@ -704,7 +713,7 @@
 
           <!-- زر البحث السريع في قائمة الموبايل -->
           <button class="drawer-search-trigger-btn" id="btnDrawerSearchTrigger">
-            <span>🔍</span>
+            <span>${SVG_ICONS.search}</span>
             <span>ابحث عن أي باب، إشارة أو مصطلح...</span>
             <kbd>بحث</kbd>
           </button>
@@ -794,7 +803,7 @@
             <div class="mobile-drawer-divider"></div>
             <div class="mobile-drawer-accordion-btn" id="btnToggleChaptersAccordion" role="button" tabindex="0">
               <div style="display:flex; align-items:center; gap:8px;">
-                <span style="font-size:1.15rem;">📚</span>
+                <span style="display:inline-flex;">${SVG_ICONS.book}</span>
                 <span style="font-weight:800; color:var(--text-primary, #FFF);">تصفح الأبواب المقسمة (1 - 25)</span>
               </div>
               <span class="accordion-arrow" id="chaptersAccordionArrow" style="transition:transform 0.25s ease; font-size:0.9rem;">▾</span>
@@ -808,7 +817,7 @@
                               cur.includes(`الباب_${ch.num}`);
                 const prog = getChapterProgress(ch.num);
                 const progBadge = prog.completed 
-                  ? `<span class="drawer-prog-pill done">✅ مكتمل</span>`
+                  ? `<span class="drawer-prog-pill done">${SVG_ICONS.checkCircle} مكتمل</span>`
                   : (prog.answered > 0 ? `<span class="drawer-prog-pill partial">${prog.pct}%</span>` : '');
 
                 return `
@@ -820,10 +829,10 @@
                     </div>
                     <div class="drawer-ch-pills">
                       <a href="${ctx.capitoli}${ch.folder}/index.html" class="drawer-ch-pill quiz" title="كويز وبنك أسئلة">
-                        <span>📝 أسئلة</span>
+                        <span>${SVG_ICONS.notes} أسئلة</span>
                       </a>
                       <a href="${ctx.interactive}${ch.guide}" class="drawer-ch-pill guide" title="الشرح والقاموس">
-                        <span>📖 شرح</span>
+                        <span>${SVG_ICONS.book} شرح</span>
                       </a>
                     </div>
                   </div>
@@ -834,7 +843,7 @@
 
           <div class="mobile-drawer-footer">
             <button class="mobile-control-btn" onclick="window.toggleTheme && window.toggleTheme()">
-              <span class="theme-icon-span">☀️</span>
+              <span class="theme-icon-span">${SVG_ICONS.sun}</span>
               <span class="theme-label-span">تبديل الوضع النهاري / الليلي</span>
             </button>
           </div>
@@ -860,12 +869,12 @@
                 <img src="${ctx.root}assets/brand/brand_logo_steering_trans.png" alt="Patente B Pro" class="footer-brand-logo" width="30" height="30" style="width:30px; height:30px; object-fit:contain; border-radius:50%; flex-shrink:0;">
               </div>
               <p class="footer-brand-desc">
-                المنظومة الرقمية الشاملة لتأهيل الطلاب لاجتياز رخصة القيادة الإيطالية باللغتين العربية والإيطالية، مع كشف الفخاخ الوزارية والمحاكاة الرسمية للاختبارات وفق كود المرور الإيطالي (Codice della Strada).
+                المنظومة الرقمية الشاملة لتأهيل الطلاب لاجتياز رخصة القيادة الإيطالية باللغتين العربية والإيطالية، مع كشف الفخاخ الوزارية والمحاكاة الرسمية للاختبارات وفق كود المرور الإيطالي <span dir="ltr" style="unicode-bidi:isolate;">(Codice della Strada)</span>
               </p>
               
               <!-- إحصائيات باهتة بدون إطارات ولا خلفيات بجانب بعض -->
               <div class="footer-brand-stats-inline">
-                <span>25 باباً رسمياً</span> • <span>7,139 سؤالاً معتمداً</span> • <span>متوافق مع الهواتف وPWA</span>
+                <span>25 باباً معتمداً</span> • <span>7,139 سؤالاً رسمياً</span> • <span>تطبيق ويب تقدمي (PWA) أوفلاين</span>
               </div>
             </div>
 
@@ -895,7 +904,7 @@
             <div class="footer-col footer-col-standards">
               <h4 class="footer-col-title"><span class="footer-title-icon">${SVG_ICONS.shieldCheck}</span> المعايير والخصوصية</h4>
               <p class="footer-standards-desc">
-                حماية البيانات مطابقة للائحة الأوروبية EU 2016/679 (GDPR). يتم حفظ التقدم في متصفحك محلياً بشكل آمن دون تتبع إعلاني خارجي.
+                حماية البيانات مطابقة للائحة الأوروبية <bdi dir="ltr">EU 2016/679 (GDPR)</bdi>. يتم حفظ التقدم في متصفحك محلياً بشكل آمن دون تتبع إعلاني خارجي.
               </p>
               <div class="footer-official-badge">Ministero delle Infrastrutture e dei Trasporti</div>
             </div>
@@ -3465,7 +3474,7 @@
       if (filtered.length === 0) {
         searchResults.innerHTML = `
           <div class="search-empty-state">
-            <span style="font-size:2rem; display:block; margin-bottom:8px;">🔍</span>
+            <span style="font-size:1.8rem; display:inline-flex; justify-content:center; margin-bottom:8px;">${SVG_ICONS.search}</span>
             <strong>لم يتم العثور على نتائج مطابقة لـ "${window.escapeHtml(q)}"</strong>
             <p style="margin:6px 0 0; font-size:0.78rem; opacity:0.8;">جرّب البحث برقم الباب (مثال: 14)، أو اسم الإشارة، أو كلمة إيطالية (precedenza, sempre, velocità).</p>
           </div>
@@ -3477,7 +3486,7 @@
       selectedResultIndex = 0;
       searchResults.innerHTML = filtered.map((item, idx) => `
         <a href="${item.href}" class="search-result-row ${idx === 0 ? 'selected' : ''}" data-idx="${idx}">
-          <div class="result-badge ${item.type === 'chapter' ? 'badge-ch' : 'badge-tool'}">${item.type === 'chapter' ? item.badge.replace('Cap. ', '') : (item.icon || '🔬')}</div>
+          <div class="result-badge ${item.type === 'chapter' ? 'badge-ch' : 'badge-tool'}">${item.type === 'chapter' ? item.badge.replace('Cap. ', '') : (item.icon || SVG_ICONS.flask)}</div>
           <div class="result-info">
             <div class="result-title-row">
               <span class="result-title">${window.escapeHtml(item.title)}</span>
@@ -3908,6 +3917,134 @@
     `;
 
     document.body.appendChild(dock);
+  }
+
+
+  // ==========================================================================
+  // UNIVERSAL SVG ICON GUARDIAN (Platform-Wide Auto-Hydration)
+  // Replaces all arbitrary UI emojis across ALL pages automatically
+  // ==========================================================================
+  function hydratePlatformIcons() {
+    try {
+      const emojiMap = {
+        '⚡': SVG_ICONS.zap,
+        '🔍': SVG_ICONS.search,
+        '📅': SVG_ICONS.calendar,
+        '⏱️': SVG_ICONS.timer,
+        '⏱': SVG_ICONS.timer,
+        '🎯': SVG_ICONS.crosshair,
+        '🔄': SVG_ICONS.repeat,
+        '📐': SVG_ICONS.ruler,
+        '📏': SVG_ICONS.ruler,
+        '📖': SVG_ICONS.book,
+        '📚': SVG_ICONS.book,
+        '🎮': SVG_ICONS.gamepad,
+        '🧩': SVG_ICONS.cards,
+        '🗂️': SVG_ICONS.cards,
+        '🗂': SVG_ICONS.cards,
+        '💎': SVG_ICONS.gem,
+        '🚑': SVG_ICONS.ambulance,
+        '⚠️': SVG_ICONS.shieldAlert,
+        '⚠': SVG_ICONS.shieldAlert,
+        '🔤': SVG_ICONS.notes,
+        '📝': SVG_ICONS.notes,
+        '🖼️': SVG_ICONS.image,
+        '🖼': SVG_ICONS.image,
+        '📊': SVG_ICONS.chart,
+        '👤': SVG_ICONS.user,
+        '⚖️': SVG_ICONS.shieldCheck,
+        '⚖': SVG_ICONS.shieldCheck,
+        '🔒': SVG_ICONS.lock,
+        '🔊': SVG_ICONS.soundOn,
+        '🔇': SVG_ICONS.soundOff,
+        '☀️': SVG_ICONS.sun,
+        '🌙': SVG_ICONS.moon,
+        '💡': SVG_ICONS.lightbulb,
+        '✅': SVG_ICONS.checkCircle,
+        '🏠': SVG_ICONS.home
+      };
+
+      // 1. استبدال الأيقونات في الحاويات المخصصة للأيقونات
+      const selectors = [
+        '.bento-icon-box', '.stat-ico', '.meta-icon', '.card-icon', '.tool-icon',
+        '.btn-ico', '.bento-spark-badge', '.cat-item-icon', '.drawer-link-icon',
+        '.search-icon', '.tab-icon', '.chapter-gated-badge', '.stat-pill',
+        '.portal-badge-live', '.hero-badge', '.badge-tag', '.nav-tab-desktop',
+        '.nav-dropdown-item', '.result-badge', '.pill-icon', '.nav-mobile-btn span'
+      ];
+
+      document.querySelectorAll(selectors.join(',')).forEach(el => {
+        if (el.querySelector('svg') || el.querySelector('img')) return;
+        const text = el.textContent.trim();
+        if (emojiMap[text]) {
+          el.innerHTML = emojiMap[text];
+          el.classList.add('hydrated-svg');
+        }
+      });
+
+      // 2. فحص أزرار بدء المذاكرة
+      document.querySelectorAll('.btn-action-study, .btn-study, .study-btn').forEach(btn => {
+        if (btn.querySelector('svg')) return;
+        if (btn.textContent.includes('بدء المذاكرة') || btn.textContent.includes('🎯')) {
+          btn.innerHTML = '<span>' + SVG_ICONS.play + ' ' + btn.textContent.replace('🎯', '').trim() + '</span>';
+        }
+      });
+
+      // 3. تطهير علامات المرور 🚦 من شريط اللوجو واستبداله بشعار المنصة
+      document.querySelectorAll('.nav-brand, .brand-wrapper, .footer-brand-header').forEach(b => {
+        const spanEmoji = Array.from(b.querySelectorAll('span')).find(s => s.textContent.includes('🚦'));
+        if (spanEmoji) {
+          const ctx = (typeof getPathContext === 'function') ? getPathContext() : { root: '../' };
+          spanEmoji.outerHTML = `<img src="${ctx.root}assets/brand/brand_logo_steering_trans.png" alt="Patente B Pro" class="footer-brand-logo" width="28" height="28" style="width:28px;height:28px;object-fit:contain;border-radius:50%;vertical-align:middle;">`;
+        }
+      });
+
+      // 4. استبدال الإيموجيز داخل النصوص في العناوين والبادجات
+      const textTargets = document.querySelectorAll('h1, h2, h3, h4, .stat-pill, .bento-main-heading, .portal-badge-live, .chapter-gated-badge');
+      textTargets.forEach(el => {
+        if (el.dataset.emojiHydrated) return;
+        let html = el.innerHTML;
+        let changed = false;
+        for (const [em, svg] of Object.entries(emojiMap)) {
+          if (html.includes(em)) {
+            html = html.split(em).join('<span class="inline-ui-svg" style="display:inline-flex;vertical-align:middle;margin:0 3px;">' + svg + '</span>');
+            changed = true;
+          }
+        }
+        if (changed) {
+          el.innerHTML = html;
+          el.dataset.emojiHydrated = 'true';
+        }
+      });
+
+    } catch(err) {
+      console.warn('[IconHydrator] Non-fatal hydration note:', err);
+    }
+  }
+
+  // Run automatically on DOM ready and after dynamic contents
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', hydratePlatformIcons);
+  } else {
+    hydratePlatformIcons();
+  }
+  window.addEventListener('load', hydratePlatformIcons);
+
+  // مراقب ديناميكي لتطهير أي نتائج بحث أو محتويات يتم حقنها لاحقاً
+  if (window.MutationObserver) {
+    const observer = new MutationObserver((mutations) => {
+      let shouldHydrate = false;
+      for (const m of mutations) {
+        if (m.addedNodes.length > 0) {
+          shouldHydrate = true;
+          break;
+        }
+      }
+      if (shouldHydrate) {
+        hydratePlatformIcons();
+      }
+    });
+    observer.observe(document.body || document.documentElement, { childList: true, subtree: true });
   }
 
   function initUnifiedPortalUI() {
