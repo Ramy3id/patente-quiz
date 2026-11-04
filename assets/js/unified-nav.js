@@ -828,9 +828,9 @@
             <!-- العمود 1: الشعار ورؤية المنصة -->
             <div class="footer-col footer-col-brand">
               <div class="footer-brand-header">
-                <span class="footer-brand-icon">🚦</span>
-                <span class="footer-brand-title">Patente B Pro</span>
                 <span class="footer-brand-year">2026</span>
+                <span class="footer-brand-title">Patente B Pro</span>
+                <img src="${ctx.root}assets/brand/brand_logo_steering_trans.png" alt="Patente B Pro" class="footer-brand-logo" width="30" height="30" style="width:30px; height:30px; object-fit:contain; border-radius:50%; flex-shrink:0;">
               </div>
               <p class="footer-brand-desc">
                 المنظومة الرقمية الشاملة والمعتمدة لتدريب وتأهيل طلاب رخصة القيادة الإيطالية باللغتين العربية والإيطالية، مع كشف الفخاخ الوزارية والمحاكاة الرسمية.
