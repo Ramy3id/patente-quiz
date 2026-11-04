@@ -2000,6 +2000,114 @@
     color: #CBD5E1 !important;
   }
 
+  
+  /* ==========================================================================
+     BODY SCROLL LOCK & QUESTION 4 COMPACT ICON CARDS
+     ========================================================================== */
+  
+  /* Prevent scroll chaining & lock background page completely */
+  .sp-modal-backdrop {
+    overscroll-behavior: contain !important;
+  }
+  html.sp-modal-locked,
+  body.sp-modal-locked {
+    overflow: hidden !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+  }
+  body.sp-modal-locked #patenteScrollTopBtn {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  /* Question 4: Expressive Icon Cards */
+  .sp-flow-clean-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .sp-flow-icon-card {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 14px 16px !important;
+    border-radius: 16px !important;
+    border: 1.5px solid #E2E8F0 !important;
+    background: #F8FAFC !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+  }
+  html.light .sp-flow-icon-card.selected {
+    background: rgba(2, 132, 199, 0.05) !important;
+    border-color: #0284C7 !important;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.12) !important;
+  }
+  html.dark .sp-flow-icon-card {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+  html.dark .sp-flow-icon-card.selected {
+    background: rgba(56, 189, 248, 0.08) !important;
+    border-color: #38BDF8 !important;
+  }
+  .sp-flow-ico-box {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    font-size: 1.4rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04) !important;
+  }
+  html.dark .sp-flow-ico-box {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+  .sp-flow-info-col {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    min-width: 0 !important;
+    text-align: right !important;
+  }
+  .sp-flow-title-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+  .sp-flow-name {
+    font-size: 0.96rem !important;
+    font-weight: 800 !important;
+    color: var(--sp-text) !important;
+  }
+  .sp-flow-micro-tag {
+    font-size: 0.72rem !important;
+    font-weight: 800 !important;
+    padding: 2px 8px !important;
+    border-radius: 999px !important;
+    background: rgba(2, 132, 199, 0.12) !important;
+    color: #0284C7 !important;
+  }
+  .sp-flow-micro-tag-classic {
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    padding: 2px 8px !important;
+    border-radius: 999px !important;
+    background: rgba(100, 116, 139, 0.12) !important;
+    color: #64748B !important;
+  }
+  .sp-flow-sub-row {
+    font-size: 0.78rem !important;
+    line-height: 1.4 !important;
+    color: var(--sp-text-sub) !important;
+  }
+
   </style>
 </head>
 <body>
@@ -2559,57 +2667,41 @@
         </div>
       </div>
 
-      <!-- السؤال 4: مسار وتدفق ترتيب الأبواب -->
+      <!-- السؤال 4: منهجية تدفق وترتيب الأبواب (تصميم مدمج بالأيقونات) -->
       <div class="sp-question-block">
         <div class="sp-q-label">
-          <span>4. منهجية ترتيب تدفق الأبواب:</span>
-          <span class="sp-q-helper">طريقة تسلسل الدروس</span>
+          <span>4. منهجية تدفق وترتيب الأبواب:</span>
+          <span class="sp-q-helper">اختر نمط دراسة المنهج</span>
         </div>
-        <div class="sp-flow-grid">
+        <div class="sp-flow-clean-grid">
           <!-- المسار العنقودي الذكي -->
-          <div class="sp-opt-card sp-flow-item selected" id="optFlowCluster" onclick="selectFlowMode('cluster')">
-            <div class="sp-flow-item-head">
-              <div class="sp-flow-item-title">
-                <span class="sp-flow-item-badge badge-recommended">⭐ الموصى به رسمياً</span>
-                <h4>المسار العنقودي الذكي</h4>
+          <div class="sp-opt-card sp-flow-icon-card selected" id="optFlowCluster" onclick="selectFlowMode('cluster')">
+            <div class="sp-flow-ico-box">🧠</div>
+            <div class="sp-flow-info-col">
+              <div class="sp-flow-title-row">
+                <span class="sp-flow-name">المسار العنقودي الذكي</span>
+                <span class="sp-flow-micro-tag" title="الأعلى فاعلية">⚡ موصى به</span>
               </div>
-              <div class="sp-flow-radio-circle"></div>
+              <div class="sp-flow-sub-row">
+                يبدأ بالأبواب الأسهل وأعلى درجات لكسر الملل وسرعة الإنجاز وتثبيت القواعد مبكراً.
+              </div>
             </div>
-            <p class="sp-flow-item-desc">
-              توزيع ذكي يكسر حاجز الخوف والملل، يبدأ بالأبواب الأكثر وضوحاً وأعلى درجات في الامتحان:
-            </p>
-            <div class="sp-flow-roadmap">
-              <span class="sp-flow-chip">1️⃣ باب 01 (التأسيس)</span>
-              <span class="sp-flow-arrow">←</span>
-              <span class="sp-flow-chip">2️⃣ أبواب 21-25 (السلامة)</span>
-              <span class="sp-flow-arrow">←</span>
-              <span class="sp-flow-chip">3️⃣ أبواب 11-20 (الأوتوستراد والسرعة)</span>
-              <span class="sp-flow-arrow">←</span>
-              <span class="sp-flow-chip">4️⃣ أبواب 2-10 (كتلة الإشارات)</span>
-            </div>
+            <div class="sp-flow-radio-circle"></div>
           </div>
 
-          <!-- المسار التسلسلي الكلاسيكي -->
-          <div class="sp-opt-card sp-flow-item" id="optFlowSequential" onclick="selectFlowMode('sequential')">
-            <div class="sp-flow-item-head">
-              <div class="sp-flow-item-title">
-                <span class="sp-flow-item-badge badge-classic">ترتيب تقليدي</span>
-                <h4>المسار التسلسلي الكلاسيكي</h4>
+          <!-- المسار التسلسلي التقليدي -->
+          <div class="sp-opt-card sp-flow-icon-card" id="optFlowSequential" onclick="selectFlowMode('sequential')">
+            <div class="sp-flow-ico-box">📖</div>
+            <div class="sp-flow-info-col">
+              <div class="sp-flow-title-row">
+                <span class="sp-flow-name">المسار التسلسلي التقليدي</span>
+                <span class="sp-flow-micro-tag-classic">🔢 ترتيب 1 - 25</span>
               </div>
-              <div class="sp-flow-radio-circle"></div>
+              <div class="sp-flow-sub-row">
+                دراسة الأبواب بالتتابع الرقمي من الباب 01 حتى الباب 25 بالتسلسل المعتاد لكتاب المدرسة.
+              </div>
             </div>
-            <p class="sp-flow-item-desc">
-              دراسة الأبواب بالتتابع الرقمي المباشر من الباب 01 وحتى الباب 25 وفق الترتيب المعتاد لكتاب المدرسة.
-            </p>
-            <div class="sp-flow-roadmap">
-              <span class="sp-flow-chip">باب 01</span>
-              <span class="sp-flow-arrow">←</span>
-              <span class="sp-flow-chip">باب 02</span>
-              <span class="sp-flow-arrow">←</span>
-              <span class="sp-flow-chip">باب 03</span>
-              <span class="sp-flow-arrow">...</span>
-              <span class="sp-flow-chip">باب 25</span>
-            </div>
+            <div class="sp-flow-radio-circle"></div>
           </div>
         </div>
       </div>
@@ -4065,17 +4157,29 @@
     }
 
     function openPlanSetupModal() {
-      document.getElementById("planSetupModal").classList.add("open");
+      const m = document.getElementById("planSetupModal");
+      if (m) m.classList.add("open");
+      document.documentElement.classList.add("sp-modal-locked");
+      document.body.classList.add("sp-modal-locked");
     }
     function closePlanSetupModal() {
-      document.getElementById("planSetupModal").classList.remove("open");
+      const m = document.getElementById("planSetupModal");
+      if (m) m.classList.remove("open");
+      document.documentElement.classList.remove("sp-modal-locked");
+      document.body.classList.remove("sp-modal-locked");
     }
 
     function openRebalanceModal() {
-      document.getElementById("rebalanceModal").classList.add("open");
+      const m = document.getElementById("rebalanceModal");
+      if (m) m.classList.add("open");
+      document.documentElement.classList.add("sp-modal-locked");
+      document.body.classList.add("sp-modal-locked");
     }
     function closeRebalanceModal() {
-      document.getElementById("rebalanceModal").classList.remove("open");
+      const m = document.getElementById("rebalanceModal");
+      if (m) m.classList.remove("open");
+      document.documentElement.classList.remove("sp-modal-locked");
+      document.body.classList.remove("sp-modal-locked");
     }
 
     function executeRebalance(mode) {
