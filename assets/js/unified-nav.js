@@ -585,36 +585,29 @@
         </nav>
 
         <!-- 3. أدوات الديسكتوب اليمنى: بحث سريع + شارة الإنجاز + الثيم -->
+                <!-- 3. أدوات الديسكتوب السريعة: أيقونات فقط لتوفير المساحة وتسهيل الوصول -->
         <div class="nav-desktop-actions" id="globalDesktopActions">
-          <!-- زر البحث السريع (Spotlight Search Button) -->
-          <button class="nav-search-trigger" id="btnOpenGlobalSearch" title="بحث فوري في الأبواب والمصطلحات والمعامل [Ctrl + K]">
+          <!-- زر البحث الفوري (Spotlight Search Icon) -->
+          <button class="nav-search-trigger" id="btnOpenGlobalSearch" title="بحث فوري في الأبواب والمصطلحات والأسئلة [Ctrl + K]" aria-label="بحث فوري">
             <span class="search-icon">${SVG_ICONS.search}</span>
-            <span class="search-text">بحث سريع...</span>
-            <kbd class="search-kbd">Ctrl K</kbd>
           </button>
 
-          <!-- شارة الإنجاز العامة الفاخرة (Clean Horizontal Layout) -->
-          <a href="${ctx.interactive}dashboard.html" class="nav-progress-pill" id="globalProgressPill" title="إنجازك العام: تم حل ${globalStats.answered} من ${globalStats.total} سؤال (انقر لعرض لوحة التحكم)">
-            <span class="prog-pill-icon">${SVG_ICONS.crosshair}</span>
-            <span class="prog-pill-label">إنجازك</span>
-            <strong class="prog-pill-val" id="globalProgressPctVal">${globalStats.pct}%</strong>
-            <div class="prog-pill-bar-track">
-              <div class="prog-pill-bar-fill" id="globalProgressMiniFill" style="width:${globalStats.pct}%;"></div>
-            </div>
+          <!-- زر لوحة الإنجاز كأيقونة معبرة (Expressive Progress Icon) -->
+          <a href="${ctx.interactive}dashboard.html" class="nav-progress-pill" id="globalProgressPill" title="إنجازك العام: حللت ${globalStats.answered} من ${globalStats.total} سؤالاً (${globalStats.pct}%)" aria-label="إنجازك">
+            <span class="prog-pill-icon">${SVG_ICONS.chart}</span>
           </a>
 
-          <!-- زر الحساب السحابي الموحد (Desktop Auth Pill) -->
+          <!-- زر حساب المستخدم كأيقونة (Desktop Auth Icon) -->
           <div style="position:relative; display:inline-flex; align-items:center;">
-            <button class="nav-auth-pill guest" id="globalAuthPill" title="تسجيل الدخول أو إنشاء حساب جديد لحفظ تقدمك سحابياً">
+            <button class="nav-auth-pill guest" id="globalAuthPill" title="تسجيل الدخول أو بيانات الحساب" aria-label="بيانات الدخول">
               <span>${SVG_ICONS.user}</span>
-              <span>دخول / تسجيل</span>
             </button>
           </div>
 
-          <!-- زر تبديل الوضع النهاري / الليلي -->
-          <button class="nav-theme-btn" onclick="window.toggleTheme && window.toggleTheme()" title="تبديل الوضع (نهاري / ليلي) [Alt + T]">
+          <!-- زر تبديل المظهر النهاري / الليلي كأيقونة -->
+          <button class="nav-theme-btn" onclick="window.toggleTheme && window.toggleTheme()" title="تبديل المظهر (نهاري / ليلي) [Alt + T]" aria-label="تبديل المظهر">
             <span class="theme-icon-span">${SVG_ICONS.sun}</span>
-            <span class="theme-label-span">الوضع</span>
+            <span class="theme-label-span" style="display:none;">المظهر</span>
           </button>
         </div>
 
@@ -997,11 +990,108 @@
           border: 1px solid rgba(255, 255, 255, 0.12) !important;
           box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28), 0 2px 8px rgba(0, 0, 0, 0.18) !important;
           background: rgba(15, 23, 42, 0.88) !important;
+          display: flex !important;
+          justify-content: space-between !important;
+          align-items: center !important;
+          direction: rtl !important;
         }
         html.light #globalPortalNav {
           border: 1px solid rgba(15, 23, 42, 0.12) !important;
           box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.04) !important;
           background: rgba(255, 255, 255, 0.92) !important;
+        }
+
+        /* 1. Actions on EXTREME RIGHT (Order 1 in RTL) */
+        #globalPortalNav .nav-desktop-actions {
+          order: 1 !important;
+          margin: 0 !important;
+          display: flex !important;
+          align-items: center !important;
+          gap: 8px !important;
+        }
+
+        /* 2. Tabs in CENTER (Order 2 in RTL) */
+        #globalPortalNav .nav-desktop-tabs {
+          order: 2 !important;
+          margin: 0 auto !important;
+        }
+
+        /* 3. Logo and Chapters on EXTREME LEFT (Order 3 in RTL) */
+        #globalPortalNav .nav-brand-group {
+          order: 3 !important;
+          margin: 0 !important;
+          display: flex !important;
+          flex-direction: row-reverse !important;
+          align-items: center !important;
+          gap: 10px !important;
+        }
+
+        /* Megamenu opens inwards to the right from left position */
+        .nav-chapters-megamenu {
+          left: 0 !important;
+          right: auto !important;
+        }
+
+        /* Action Buttons -> Icon Only (38x38px) */
+        .nav-desktop-actions .nav-search-trigger,
+        .nav-desktop-actions .nav-progress-pill,
+        .nav-desktop-actions .nav-auth-pill,
+        .nav-desktop-actions .nav-theme-btn {
+          width: 38px !important;
+          min-width: 38px !important;
+          max-width: 38px !important;
+          height: 38px !important;
+          min-height: 38px !important;
+          max-height: 38px !important;
+          padding: 0 !important;
+          border-radius: 10px !important;
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          box-sizing: border-box !important;
+          cursor: pointer !important;
+          background: rgba(255, 255, 255, 0.05) !important;
+          border: 1px solid rgba(255, 255, 255, 0.1) !important;
+          color: #94a3b8 !important;
+          transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        html.light .nav-desktop-actions .nav-search-trigger,
+        html.light .nav-desktop-actions .nav-progress-pill,
+        html.light .nav-desktop-actions .nav-auth-pill,
+        html.light .nav-desktop-actions .nav-theme-btn {
+          background: rgba(15, 23, 42, 0.04) !important;
+          border: 1px solid rgba(15, 23, 42, 0.1) !important;
+          color: #475569 !important;
+        }
+
+        .nav-desktop-actions .nav-search-trigger:hover,
+        .nav-desktop-actions .nav-progress-pill:hover,
+        .nav-desktop-actions .nav-auth-pill:hover,
+        .nav-desktop-actions .nav-theme-btn:hover {
+          background: rgba(255, 255, 255, 0.12) !important;
+          border-color: rgba(56, 189, 248, 0.45) !important;
+          color: #38bdf8 !important;
+          transform: translateY(-1px) !important;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        html.light .nav-desktop-actions .nav-search-trigger:hover,
+        html.light .nav-desktop-actions .nav-progress-pill:hover,
+        html.light .nav-desktop-actions .nav-auth-pill:hover,
+        html.light .nav-desktop-actions .nav-theme-btn:hover {
+          background: rgba(15, 23, 42, 0.08) !important;
+          border-color: rgba(2, 132, 199, 0.35) !important;
+          color: #0284c7 !important;
+          transform: translateY(-1px) !important;
+          box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08) !important;
+        }
+
+        .nav-desktop-actions svg.ui-svg {
+          width: 18px !important;
+          height: 18px !important;
+          stroke-width: 2 !important;
+          margin: 0 !important;
         }
       }
       @media (max-width: 992px) {
