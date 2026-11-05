@@ -54,10 +54,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/theme-modes.css?v=2026.11.05.V14_TOP_CURVED_ARCH_TRICOLORE">
+<link rel="stylesheet" href="../assets/css/theme-modes.css?v=2026.11.05.V15_LUXURY_CARD_HOVER_SYSTEM">
 <script src="../assets/js/security-shield.js"></script>
 <script src="../assets/js/theme-engine.js"></script>
-  <script src="../assets/js/unified-nav.js?v=2026.11.05.V14_TOP_CURVED_ARCH_TRICOLORE" defer></script>
+  <script src="../assets/js/unified-nav.js?v=2026.11.05.V15_LUXURY_CARD_HOVER_SYSTEM" defer></script>
 <style>
   :root {
     --bg-base: #09090b;
@@ -335,35 +335,20 @@
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--border-subtle);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05), 0 8px 24px -6px rgba(0,0,0,0.5);
     border-radius: 18px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
     position: relative;
     cursor: pointer;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
-  }
-  .chapter-card:hover {
-    transform: translateY(-2px);
-    border-color: var(--border-highlight);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1), 0 12px 30px -8px rgba(0,0,0,0.7);
-  }
-  .chapter-card:active {
-    transform: scale(0.98);
-  }
-  /* Removed rogue chevron */
-  html.light .chapter-card {
-    background: #ffffff;
-    border-color: rgba(15, 23, 42, 0.08);
-    box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.06);
-  }
-  html.light .chapter-card:hover {
-    border-color: rgba(15, 23, 42, 0.16);
-    box-shadow: 0 10px 25px -4px rgba(15, 23, 42, 0.1);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.35s ease, 
+                background 0.35s ease;
+    will-change: transform, box-shadow;
   }
 
   .card-top-strip {
