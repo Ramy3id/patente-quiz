@@ -587,27 +587,33 @@
         <!-- 3. أدوات الديسكتوب اليمنى: بحث سريع + شارة الإنجاز + الثيم -->
                 <!-- 3. أدوات الديسكتوب السريعة: أيقونات فقط لتوفير المساحة وتسهيل الوصول -->
         <div class="nav-desktop-actions" id="globalDesktopActions">
-          <!-- زر البحث الفوري (Spotlight Search Icon) -->
-          <button class="nav-search-trigger" id="btnOpenGlobalSearch" title="بحث فوري في الأبواب والمصطلحات والأسئلة [Ctrl + K]" aria-label="بحث فوري">
-            <span class="search-icon">${SVG_ICONS.search}</span>
-          </button>
-
-          <!-- زر لوحة الإنجاز كأيقونة معبرة (Expressive Progress Icon) -->
-          <a href="${ctx.interactive}dashboard.html" class="nav-progress-pill" id="globalProgressPill" title="إنجازك العام: حللت ${globalStats.answered} من ${globalStats.total} سؤالاً (${globalStats.pct}%)" aria-label="إنجازك">
-            <span class="prog-pill-icon">${SVG_ICONS.chart}</span>
-          </a>
-
-          <!-- زر حساب المستخدم كأيقونة (Desktop Auth Icon) -->
-          <div style="position:relative; display:inline-flex; align-items:center;">
+          <!-- 1. حساب المستخدم (أقصى اليمين - الحافة الخارجية) -->
+          <div class="nav-auth-wrapper" style="position:relative; display:inline-flex; align-items:center;">
             <button class="nav-auth-pill guest" id="globalAuthPill" title="تسجيل الدخول أو بيانات الحساب" aria-label="بيانات الدخول">
-              <span>${SVG_ICONS.user}</span>
+              <span class="auth-icon-wrap" style="display:inline-flex;align-items:center;justify-content:center;">${SVG_ICONS.user}</span>
             </button>
           </div>
 
-          <!-- زر تبديل المظهر النهاري / الليلي كأيقونة -->
+          <!-- 2. تبديل المظهر النهاري / الليلي -->
           <button class="nav-theme-btn" onclick="window.toggleTheme && window.toggleTheme()" title="تبديل المظهر (نهاري / ليلي) [Alt + T]" aria-label="تبديل المظهر">
             <span class="theme-icon-span">${SVG_ICONS.sun}</span>
             <span class="theme-label-span" style="display:none;">المظهر</span>
+          </button>
+
+          <!-- 3. لوحة الإنجاز ونسبة التقدم الحية (Circular Progress Gauge) -->
+          <a href="${ctx.interactive}dashboard.html" class="nav-progress-pill" id="globalProgressPill" title="إنجازك العام: حللت ${globalStats.answered} من ${globalStats.total} سؤالاً (${globalStats.pct}%)" aria-label="إنجازك">
+            <div class="prog-circular-wrap" style="position:relative; width:28px; height:28px; display:inline-flex; align-items:center; justify-content:center;">
+              <svg viewBox="0 0 36 36" style="width:28px; height:28px; transform:rotate(-90deg);">
+                <circle cx="18" cy="18" r="14" fill="none" stroke="currentColor" stroke-width="3" opacity="0.15"></circle>
+                <circle id="globalProgressCircleStroke" cx="18" cy="18" r="14" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="88" stroke-dashoffset="${88 - (88 * globalStats.pct / 100)}" stroke-linecap="round"></circle>
+              </svg>
+              <span id="globalProgressPctVal" style="position:absolute; font-size:10px; font-weight:800; font-family:'Cairo',sans-serif; color:inherit; direction:ltr;">${globalStats.pct}%</span>
+            </div>
+          </a>
+
+          <!-- 4. البحث الفوري (الأقرب للتبويبات والمناهج) -->
+          <button class="nav-search-trigger" id="btnOpenGlobalSearch" title="بحث فوري في الأبواب والمصطلحات والأسئلة [Ctrl + K]" aria-label="بحث فوري">
+            <span class="search-icon">${SVG_ICONS.search}</span>
           </button>
         </div>
 
@@ -1043,7 +1049,7 @@
           box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08), 0 2px 8px rgba(15, 23, 42, 0.04) !important;
         }
 
-        /* 1. Actions on FAR RIGHT */
+        /* 1. Actions on FAR RIGHT (Order 1 in RTL) */
         #globalPortalNav .nav-desktop-actions {
           order: 1 !important;
           margin: 0 !important;
@@ -1051,15 +1057,41 @@
           align-items: center !important;
           gap: 8px !important;
           flex-shrink: 0 !important;
+          direction: rtl !important;
         }
 
-        /* 2. Tabs in CENTER */
+        /* Order inside Actions (Rightmost to Leftmost):
+           1: Auth (Profile)
+           2: Theme Toggle
+           3: Progress Ring %
+           4: Search
+        */
+        .nav-desktop-actions .nav-auth-wrapper { order: 1 !important; }
+        .nav-desktop-actions .nav-theme-btn { order: 2 !important; }
+        .nav-desktop-actions .nav-progress-pill { order: 3 !important; }
+        .nav-desktop-actions .nav-search-trigger { order: 4 !important; }
+
+        /* 2. Tabs in CENTER (Equalized 40px Height for ALL tabs) */
         #globalPortalNav .nav-desktop-tabs {
           order: 2 !important;
           margin: 0 auto !important;
           display: flex !important;
           align-items: center !important;
           gap: 4px !important;
+        }
+        .nav-desktop-tabs .nav-dropdown-tab,
+        .nav-desktop-tabs .nav-direct-tab {
+          height: 40px !important;
+          min-height: 40px !important;
+          max-height: 40px !important;
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          box-sizing: border-box !important;
+          border-radius: 10px !important;
+          font-size: 0.86rem !important;
+          font-weight: 700 !important;
+          padding: 0 14px !important;
         }
 
         /* 3. Logo and Chapters on FAR LEFT */
@@ -1110,7 +1142,8 @@
           background: rgba(255, 255, 255, 0.05) !important;
           border: 1px solid rgba(255, 255, 255, 0.1) !important;
           color: #94a3b8 !important;
-          transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+          transform: none !important;
+          transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease !important;
         }
 
         html.light .nav-desktop-actions .nav-search-trigger,
@@ -1122,6 +1155,7 @@
           color: #475569 !important;
         }
 
+        /* Smooth, stable hover WITHOUT any jitter / jump */
         .nav-desktop-actions .nav-search-trigger:hover,
         .nav-desktop-actions .nav-progress-pill:hover,
         .nav-desktop-actions .nav-auth-pill:hover,
@@ -1129,7 +1163,7 @@
           background: rgba(255, 255, 255, 0.12) !important;
           border-color: rgba(56, 189, 248, 0.45) !important;
           color: #38bdf8 !important;
-          transform: translateY(-1px) !important;
+          transform: none !important;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
         }
 
@@ -1140,11 +1174,11 @@
           background: rgba(15, 23, 42, 0.08) !important;
           border-color: rgba(2, 132, 199, 0.35) !important;
           color: #0284c7 !important;
-          transform: translateY(-1px) !important;
+          transform: none !important;
           box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08) !important;
         }
 
-        /* Hide text completely inside action buttons */
+        /* Hide any injected text */
         .nav-desktop-actions .nav-search-trigger .search-text,
         .nav-desktop-actions .nav-search-trigger .search-kbd,
         .nav-desktop-actions .nav-progress-pill .prog-pill-label,
@@ -3873,15 +3907,20 @@
   }
 
   // 10. ==================== تحديث فوري لشارات الإنجاز ====================
-  function updateAllProgressBadges() {
+    function updateAllProgressBadges() {
     const stats = getGlobalProgressStats();
-    // Desktop Pill
+    // Desktop Circular Pill
     const pctVal = document.getElementById('globalProgressPctVal');
+    const circleStroke = document.getElementById('globalProgressCircleStroke');
     const fill = document.getElementById('globalProgressMiniFill');
     const pill = document.getElementById('globalProgressPill');
     if (pctVal) pctVal.textContent = `${stats.pct}%`;
+    if (circleStroke) {
+      const offset = 88 - (88 * stats.pct / 100);
+      circleStroke.style.strokeDashoffset = offset;
+    }
     if (fill) fill.style.width = `${stats.pct}%`;
-    if (pill) pill.setAttribute('title', `إنجازك العام: تم حل ${stats.answered} من ${stats.total} سؤال رسمي`);
+    if (pill) pill.setAttribute('title', `إنجازك العام: حللت ${stats.answered} من ${stats.total} سؤالاً (${stats.pct}%)`);
 
     // Mobile Pill
     const mobVal = document.getElementById('globalMobileProgressVal');
