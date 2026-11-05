@@ -1232,10 +1232,17 @@
    Luxury Italian Tricolore Curved Frame (Red on Far Right, Green on Far Left)
    ========================================================================== */
 @media (min-width: 993px) {
-  #globalPortalNav {
+  #globalPortalNav,
+  .unified-portal-nav,
+  #portal-nav {
     position: fixed !important;
+    height: 64px !important;
+    max-height: 64px !important;
+    border-radius: 18px !important;
   }
-  #globalPortalNav::before {
+  #globalPortalNav::before,
+  .unified-portal-nav::before,
+  #portal-nav::before {
     content: '' !important;
     position: absolute !important;
     inset: 0 !important;
@@ -1256,7 +1263,9 @@
     clip-path: polygon(0 0, 100% 0, 100% 22px, 0 22px) !important;
     box-shadow: 0 2px 10px rgba(206, 43, 55, 0.12) !important;
   }
-  html.light #globalPortalNav::before {
+  html.light #globalPortalNav::before,
+  html.light .unified-portal-nav::before,
+  html.light #portal-nav::before {
     background: linear-gradient(to right, 
       #009246 0%, #009246 33.33%, 
       #ffffff 33.33%, #ffffff 66.66%, 
