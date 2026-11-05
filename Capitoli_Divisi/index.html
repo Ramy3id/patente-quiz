@@ -54,10 +54,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/theme-modes.css?v=2026.11.05.V8_SOLVED_OVERLAP">
+<link rel="stylesheet" href="../assets/css/theme-modes.css?v=2026.11.05.V9_EXPANDABLE_BENTO">
 <script src="../assets/js/security-shield.js"></script>
 <script src="../assets/js/theme-engine.js"></script>
-  <script src="../assets/js/unified-nav.js?v=2026.11.05.V8_SOLVED_OVERLAP" defer></script>
+  <script src="../assets/js/unified-nav.js?v=2026.11.05.V9_EXPANDABLE_BENTO" defer></script>
 <style>
   :root {
     --bg-base: #09090b;
@@ -1555,12 +1555,6 @@ html.dark .bento-pill-count {
     grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
     gap: 14px !important;
   }
-  .bento-extra-grid {
-    display: grid !important;
-  }
-  .bento-toggle-btn {
-    display: none !important;
-  }
 }
 
 .bento-card {
@@ -1648,39 +1642,56 @@ html.dark .bento-meta {
 }
 
 .bento-toggle-btn {
-  width: 100%;
-  margin-top: 10px;
-  height: 44px;
-  border-radius: 14px;
-  border: 1px dashed var(--border-subtle, rgba(0, 0, 0, 0.15));
-  background: rgba(0, 0, 0, 0.02);
-  color: var(--text-muted, #475569);
-  font-size: 0.82rem;
-  font-weight: 700;
-  font-family: inherit;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
+  width: 100% !important;
+  margin-top: 12px !important;
+  height: 46px !important;
+  min-height: 46px !important;
+  border-radius: 14px !important;
+  border: 1px dashed rgba(2, 132, 199, 0.35) !important;
+  background: rgba(2, 132, 199, 0.04) !important;
+  color: #0284c7 !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  font-family: inherit !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-sizing: border-box !important;
 }
 .bento-toggle-btn:hover {
-  background: rgba(14, 165, 233, 0.08);
-  border-color: #0284C7;
-  color: #0284C7;
+  background: rgba(2, 132, 199, 0.1) !important;
+  border-color: #0284c7 !important;
+  border-style: solid !important;
+  color: #0369a1 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.12) !important;
 }
 .bento-toggle-btn:active {
-  transform: scale(0.98);
+  transform: scale(0.99) !important;
 }
 html.dark .bento-toggle-btn {
-  background: rgba(255, 255, 255, 0.03);
-  border-color: rgba(255, 255, 255, 0.15);
-  color: #94A3B8;
+  border: 1px dashed rgba(56, 189, 248, 0.3) !important;
+  background: rgba(56, 189, 248, 0.05) !important;
+  color: #38bdf8 !important;
 }
 html.dark .bento-toggle-btn:hover {
-  background: rgba(56, 189, 248, 0.1);
-  border-color: #38BDF8;
-  color: #38BDF8;
+  background: rgba(56, 189, 248, 0.14) !important;
+  border-color: #38bdf8 !important;
+  border-style: solid !important;
+  color: #7dd3fc !important;
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.18) !important;
+}
+.bento-toggle-btn .bento-chevron-svg {
+  width: 17px !important;
+  height: 17px !important;
+  transition: transform 0.28s ease !important;
+  flex-shrink: 0 !important;
+}
+.bento-toggle-btn.is-active .bento-chevron-svg {
+  transform: rotate(180deg) !important;
 }
 
 
@@ -1848,13 +1859,14 @@ html.light .ch-title-ar {
 
 .bento-extra-grid {
   display: none !important;
+  margin-top: 12px !important;
 }
 .bento-extra-grid.is-expanded {
   display: grid !important;
-  animation: bentoFadeIn 0.25s ease-out;
+  animation: bentoSlideFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
 }
-@keyframes bentoFadeIn {
-  from { opacity: 0; transform: translateY(-6px); }
+@keyframes bentoSlideFadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -2026,8 +2038,9 @@ html.light .ch-title-ar {
     </div>
 
     <!-- زر توسيع / طي باقي المعامل -->
-    <button class="bento-toggle-btn" id="btnToggleBentoTools" onclick="toggleBentoExtraTools()">
-      <span id="bentoToggleText">عرض باقي المعامل الذكية (9 معامل إضافية) ▾</span>
+    <button class="bento-toggle-btn" id="btnToggleBentoTools" onclick="toggleBentoExtraTools()" aria-expanded="false" aria-controls="bentoExtraGrid">
+      <span id="bentoToggleText">عرض باقي المعامل الذكية (9 معامل إضافية)</span>
+      <svg class="ui-svg bento-chevron-svg" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
     </button>
   </section>
 
@@ -2865,11 +2878,16 @@ html.light .ch-title-ar {
 <script>
 function toggleBentoExtraTools() {
   const extra = document.getElementById('bentoExtraGrid');
+  const btn = document.getElementById('btnToggleBentoTools');
   const txt = document.getElementById('bentoToggleText');
   if (!extra) return;
   const isExpanded = extra.classList.toggle('is-expanded');
+  if (btn) {
+    btn.classList.toggle('is-active', isExpanded);
+    btn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+  }
   if (txt) {
-    txt.textContent = isExpanded ? 'إخفاء المعامل الإضافية ▴' : 'عرض باقي المعامل الذكية (9 معامل إضافية) ▾';
+    txt.textContent = isExpanded ? 'إخفاء المعامل الإضافية' : 'عرض باقي المعامل الذكية (9 معامل إضافية)';
   }
   if (window.soundEngine && window.soundEngine.click) {
     try { window.soundEngine.click(); } catch(e){}
