@@ -3715,56 +3715,112 @@ html.light .unified-portal-nav {
 
 /* ==========================================================================
    DESKTOP FLOATING ISLAND CAPSULE SPECIFICATION (Apple VisionOS / Raycast)
-   Preserves mobile edge-to-edge 100% while floating on 1200px desktop grid
+   Preserves mobile edge-to-edge 100% while floating with exact 1164px grid match
    ========================================================================== */
-@media (min-width: 993px) {
+@media (min-width: 1200px) {
   #globalPortalNav,
   .unified-portal-nav {
-    max-width: 1200px !important;
-    width: calc(100% - 36px) !important;
-    margin: 12px auto 0 auto !important;
-    top: 12px !important;
-    border-radius: 16px !important;
-    padding: 0 20px !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28), 0 2px 8px rgba(0, 0, 0, 0.18) !important;
-    background: rgba(15, 23, 42, 0.88) !important;
+    position: fixed !important;
+    top: 14px !important;
+    left: calc((100% - 1164px) / 2) !important;
+    right: calc((100% - 1164px) / 2) !important;
+    width: 1164px !important;
+    max-width: 1164px !important;
+    height: 64px !important;
+    min-height: 64px !important;
+    max-height: 64px !important;
+    border-radius: 18px !important;
+    padding: 0 16px !important;
+    margin: 0 !important;
+    z-index: 10000 !important;
+    box-sizing: border-box !important;
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
     direction: rtl !important;
+    background: rgba(15, 23, 42, 0.88) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.18) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
   }
-
+}
+@media (max-width: 1199px) and (min-width: 993px) {
+  #globalPortalNav,
+  .unified-portal-nav {
+    position: fixed !important;
+    top: 14px !important;
+    left: 18px !important;
+    right: 18px !important;
+    width: calc(100% - 36px) !important;
+    max-width: calc(100% - 36px) !important;
+    height: 64px !important;
+    min-height: 64px !important;
+    max-height: 64px !important;
+    border-radius: 18px !important;
+    padding: 0 16px !important;
+    margin: 0 !important;
+    z-index: 10000 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    direction: rtl !important;
+    background: rgba(15, 23, 42, 0.88) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.18) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+  }
+}
+@media (min-width: 993px) {
+  body {
+    padding-top: 92px !important;
+  }
   html.light #globalPortalNav,
   html.light .unified-portal-nav {
+    background: rgba(255, 255, 255, 0.94) !important;
     border: 1px solid rgba(15, 23, 42, 0.12) !important;
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.04) !important;
-    background: rgba(255, 255, 255, 0.92) !important;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08), 0 2px 8px rgba(15, 23, 42, 0.04) !important;
   }
 
-  /* 1. Actions on EXTREME RIGHT (Order 1 in RTL) */
+  /* 1. Actions on FAR RIGHT */
   #globalPortalNav .nav-desktop-actions {
     order: 1 !important;
     margin: 0 !important;
     display: flex !important;
     align-items: center !important;
     gap: 8px !important;
+    flex-shrink: 0 !important;
   }
 
-  /* 2. Tabs in CENTER (Order 2 in RTL) */
+  /* 2. Tabs in CENTER */
   #globalPortalNav .nav-desktop-tabs {
     order: 2 !important;
     margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
   }
 
-  /* 3. Logo and Chapters on EXTREME LEFT (Order 3 in RTL) */
+  /* 3. Logo and Chapters on FAR LEFT */
   #globalPortalNav .nav-brand-group {
     order: 3 !important;
     margin: 0 !important;
     display: flex !important;
     flex-direction: row-reverse !important;
     align-items: center !important;
-    gap: 10px !important;
+    gap: 8px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Chapters button compact */
+  .nav-chapters-btn {
+    height: 40px !important;
+    padding: 0 10px !important;
+    gap: 5px !important;
+    font-size: 0.82rem !important;
+    border-radius: 10px !important;
   }
 
   /* Megamenu opens inwards to the right from left position */
@@ -3773,17 +3829,17 @@ html.light .unified-portal-nav {
     right: auto !important;
   }
 
-  /* Luxury Icon-Only Action Buttons */
+  /* Action Buttons -> Strictly 40x40 Icon Only */
   .nav-desktop-actions .nav-search-trigger,
   .nav-desktop-actions .nav-progress-pill,
   .nav-desktop-actions .nav-auth-pill,
   .nav-desktop-actions .nav-theme-btn {
-    width: 38px !important;
-    min-width: 38px !important;
-    max-width: 38px !important;
-    height: 38px !important;
-    min-height: 38px !important;
-    max-height: 38px !important;
+    width: 40px !important;
+    min-width: 40px !important;
+    max-width: 40px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    max-height: 40px !important;
     padding: 0 !important;
     border-radius: 10px !important;
     display: inline-flex !important;
@@ -3791,6 +3847,7 @@ html.light .unified-portal-nav {
     justify-content: center !important;
     box-sizing: border-box !important;
     cursor: pointer !important;
+    overflow: hidden !important;
     background: rgba(255, 255, 255, 0.05) !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     color: #94a3b8 !important;
@@ -3828,9 +3885,20 @@ html.light .unified-portal-nav {
     box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08) !important;
   }
 
+  /* Hide text completely inside action buttons */
+  .nav-desktop-actions .nav-search-trigger .search-text,
+  .nav-desktop-actions .nav-search-trigger .search-kbd,
+  .nav-desktop-actions .nav-progress-pill .prog-pill-label,
+  .nav-desktop-actions .nav-progress-pill .prog-pill-val,
+  .nav-desktop-actions .nav-progress-pill .prog-pill-bar-track,
+  .nav-desktop-actions .nav-auth-pill span:not(.auth-icon-wrap):not(.auth-online-dot),
+  .nav-desktop-actions .nav-theme-btn .theme-label-span {
+    display: none !important;
+  }
+
   .nav-desktop-actions svg.ui-svg {
-    width: 18px !important;
-    height: 18px !important;
+    width: 19px !important;
+    height: 19px !important;
     stroke-width: 2 !important;
     margin: 0 !important;
   }

@@ -1757,7 +1757,7 @@
     const pill = document.getElementById('globalAuthPill');
     if (pill) {
       pill.className = 'nav-auth-pill guest';
-      pill.innerHTML = '<span>👤</span> <span>دخول / تسجيل</span>';
+      pill.innerHTML = '<span class="auth-icon-wrap" style="display:inline-flex;align-items:center;justify-content:center;"><svg class="ui-svg" viewBox="0 0 24 24" style="width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:2;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>';
       pill.title = 'تسجيل الدخول أو إنشاء حساب جديد لحفظ تقدمك سحابياً';
       pill.onclick = () => {
         document.getElementById('patenteAuthModal').classList.add('open');
@@ -1786,9 +1786,8 @@
     if (pill) {
       pill.className = 'nav-auth-pill logged-in';
       pill.innerHTML = `
-        <span class="auth-online-dot" id="authSyncDot"></span>
-        <span>👤 ${escapeHtml(name)}</span>
-        <span style="font-size:0.7rem;">▾</span>
+        <span class="auth-online-dot" id="authSyncDot" style="position:absolute;top:6px;right:6px;width:7px;height:7px;border-radius:50%;background:#10b981;box-shadow:0 0 6px #10b981;"></span>
+        <span class="auth-icon-wrap" style="display:inline-flex;align-items:center;justify-content:center;"><svg class="ui-svg" viewBox="0 0 24 24" style="width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:2;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>
       `;
       pill.title = `مسجل كـ: ${active.email || ''} (انقر لعرض الملف الشخصي والمزامنة)`;
       pill.onclick = (e) => {
