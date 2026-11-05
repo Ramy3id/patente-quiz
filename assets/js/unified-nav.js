@@ -1205,7 +1205,29 @@
           box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08) !important;
         }
 
-        /* Hide any injected text */
+        
+/* Unbreakable Search Icon Isolation inside Navbar */
+.nav-search-trigger .search-icon,
+.nav-desktop-actions .search-icon,
+.nav-mobile-controls .search-icon {
+  position: static !important;
+  inset: auto !important;
+  right: auto !important;
+  left: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  pointer-events: auto !important;
+  z-index: auto !important;
+  font-size: inherit !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Hide any injected text */
         .nav-desktop-actions .nav-search-trigger .search-text,
         .nav-desktop-actions .nav-search-trigger .search-kbd,
         .nav-desktop-actions .nav-progress-pill .prog-pill-label,
