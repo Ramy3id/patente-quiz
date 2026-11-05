@@ -43,6 +43,7 @@
     zap: '<svg class="ui-svg" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>',
     chevronDown: '<svg class="ui-svg chevron-svg" viewBox="0 0 24 24" style="width:12px;height:12px;"><polyline points="6 9 12 15 18 9"></polyline></svg>',
     image: '<svg class="ui-svg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>',
+    arrowLeft: '<svg class="ui-svg btn-arrow-svg" viewBox="0 0 24 24" style="width:15px;height:15px;stroke-width:2.5;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;margin-right:6px;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>',
     play: '<svg class="ui-svg" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>',
     lock: '<svg class="ui-svg" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>',
     soundOn: '<svg class="ui-svg" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>',
@@ -3984,10 +3985,9 @@
 
       // 2. فحص أزرار بدء المذاكرة
       document.querySelectorAll('.btn-action-study, .btn-study, .study-btn').forEach(btn => {
-        if (btn.querySelector('svg')) return;
-        if (btn.textContent.includes('بدء المذاكرة') || btn.textContent.includes('🎯')) {
-          btn.innerHTML = '<span>' + SVG_ICONS.play + ' ' + btn.textContent.replace('🎯', '').trim() + '</span>';
-        }
+        if (btn.querySelector('.btn-arrow-svg')) return;
+        const text = btn.textContent.replace('🎯', '').replace('▷', '').replace('◁', '').trim();
+        btn.innerHTML = '<span>' + text + '</span>' + SVG_ICONS.arrowLeft;
       });
 
       // 3. تطهير علامات المرور 🚦 من شريط اللوجو واستبداله بشعار المنصة
