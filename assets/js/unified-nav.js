@@ -1238,9 +1238,9 @@
   #globalPortalNav::before {
     content: '' !important;
     position: absolute !important;
-    inset: -1.5px !important;
-    border-radius: 19.5px !important;
-    padding: 1.5px !important;
+    inset: 0 !important;
+    border-radius: 18px !important;
+    padding: 2.5px !important;
     background: linear-gradient(to right, 
       #009246 0%, #009246 33.33%, 
       #ffffff 33.33%, #ffffff 66.66%, 
@@ -1253,7 +1253,8 @@
             mask-composite: exclude;
     pointer-events: none !important;
     z-index: 10 !important;
-    box-shadow: 0 0 14px rgba(206, 43, 55, 0.12) !important;
+    clip-path: polygon(0 0, 100% 0, 100% 22px, 0 22px) !important;
+    box-shadow: 0 2px 10px rgba(206, 43, 55, 0.12) !important;
   }
   html.light #globalPortalNav::before {
     background: linear-gradient(to right, 
@@ -1261,7 +1262,7 @@
       #ffffff 33.33%, #ffffff 66.66%, 
       #ce2b37 66.66%, #ce2b37 100%
     ) !important;
-    box-shadow: 0 0 14px rgba(206, 43, 55, 0.12) !important;
+    box-shadow: 0 2px 10px rgba(206, 43, 55, 0.08) !important;
   }
 }
 
