@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>نماذج تفاعلية لاقتراحات أنظمة الأيقونات - Patente B Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090D16;
+      --card-bg: rgba(255, 255, 255, 0.035);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      --primary: #38BDF8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Cairo', system-ui, sans-serif;
+      padding: 30px 20px;
+      line-height: 1.6;
+    }
+    .header {
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto 36px;
+    }
+    .header-tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: #38BDF8;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    .header h1 {
+      font-size: 2.1rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #FFF, #94A3B8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .header p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .proposals-container {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .proposal-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 28px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+    .proposal-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 16px;
+      margin-bottom: 22px;
+      gap: 16px;
+    }
+    .proposal-meta h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #F8FAFC;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .proposal-meta p {
+      font-size: 0.9rem;
+      color: #94A3B8;
+      margin-top: 4px;
+    }
+    .badge-pill {
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .p-recommended { background: rgba(56, 189, 248, 0.15); color: #38BDF8; border: 1px solid rgba(56, 189, 248, 0.35); }
+    .p-luxury { background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.35); }
+    .p-vision { background: rgba(168, 85, 247, 0.15); color: #C084FC; border: 1px solid rgba(168, 85, 247, 0.35); }
+    .p-gamified { background: rgba(16, 185, 129, 0.15); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.35); }
+
+    /* Live Preview Section */
+    .preview-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .preview-grid { grid-template-columns: 1fr; }
+    }
+
+    .preview-box-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #64748B;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    /* SPECIMEN 1: Bottom Dock Prototype */
+    .dock-prototype {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .dock-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #64748B;
+      padding: 6px 10px;
+      border-radius: 12px;
+      transition: all 0.2s;
+    }
+
+    /* SPECIMEN 2: Bento Cards Row */
+    .bento-prototype-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .bento-mock-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 14px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .bento-mock-title { font-size: 0.88rem; font-weight: 800; color: #F1F5F9; }
+    .bento-mock-sub { font-size: 0.72rem; color: #64748B; }
+
+    /* ====================================================================
+       PROPOSAL 1: Smart Functional Hybrid (الهجين الوظيفي الذكي)
+       ==================================================================== */
+    /* Dock */
+    .p1-dock .dock-item { color: #94A3B8; }
+    .p1-dock .dock-item svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .p1-dock .dock-item.active {
+      color: #38BDF8;
+      background: rgba(56, 189, 248, 0.12);
+    }
+    .p1-dock .dock-item.active svg path.duo-fill { fill: rgba(56, 189, 248, 0.25); }
+    .p1-dock .dock-item.hero-exam {
+      background: linear-gradient(135deg, #0284C7, #0EA5E9);
+      color: #FFF;
+      border-radius: 16px;
+      padding: 8px 14px;
+      box-shadow: 0 4px 14px rgba(14, 165, 233, 0.45);
+      transform: translateY(-6px);
+    }
+    /* Bento */
+    .p1-bento-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .p1-cal { background: rgba(168, 85, 247, 0.14); color: #C084FC; }
+    .p1-radar { background: rgba(236, 72, 153, 0.14); color: #F472B6; }
+
+    /* ====================================================================
+       PROPOSAL 2: Duotone Architectural (النمط المعماري ثنائي النقاء)
+       ==================================================================== */
+    .p2-dock .dock-item { color: #64748B; }
+    .p2-dock .dock-item svg { width: 22px; height: 22px; }
+    .p2-dock .dock-item.active {
+      color: #F8FAFC;
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .p2-duo-fg { stroke: currentColor; stroke-width: 2; fill: none; }
+    .p2-duo-bg { fill: currentColor; opacity: 0.22; }
+    .p2-dock .dock-item.active .p2-duo-fg { stroke: #38BDF8; }
+    .p2-dock .dock-item.active .p2-duo-bg { fill: #38BDF8; opacity: 0.35; }
+    .p2-dock .dock-item.hero-exam {
+      background: #1E293B;
+      border: 1px solid #38BDF8;
+      color: #38BDF8;
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.25);
+    }
+    .p2-bento-card {
+      border: 1px solid rgba(56, 189, 248, 0.15);
+    }
+    .p2-bento-icon svg { width: 26px; height: 26px; }
+
+    /* ====================================================================
+       PROPOSAL 3: Apple Vision Glass / Specular 3D (النمط الزجاجي التجسيدي)
+       ==================================================================== */
+    .p3-dock {
+      background: rgba(30, 41, 59, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(24px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 16px 32px rgba(0,0,0,0.5);
+    }
+    .p3-dock .dock-item.active {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      color: #38BDF8;
+    }
+    .p3-bento-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 6px 14px rgba(0, 0, 0, 0.3);
+    }
+    .p3-cal { background: linear-gradient(135deg, rgba(168, 85, 247, 0.4), rgba(168, 85, 247, 0.1)); color: #E9D5FF; }
+    .p3-radar { background: linear-gradient(135deg, rgba(236, 72, 153, 0.4), rgba(236, 72, 153, 0.1)); color: #FBCFE8; }
+
+    /* ====================================================================
+       PROPOSAL 4: Solid Active Switch (المصمت الممتلئ للتفعيل الصريح)
+       ==================================================================== */
+    .p4-dock .dock-item { color: #64748B; }
+    .p4-dock .dock-item svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; }
+    .p4-dock .dock-item.active {
+      color: #38BDF8;
+    }
+    .p4-dock .dock-item.active svg {
+      fill: #38BDF8;
+      stroke: none;
+    }
+    .p4-dock .dock-item.hero-exam {
+      background: #0284C7;
+      color: #FFF;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.4);
+    }
+    .p4-bento-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .p4-cal { background: rgba(168, 85, 247, 0.12); color: #C084FC; }
+    .p4-radar { background: rgba(236, 72, 153, 0.12); color: #F472B6; }
+
+    .feature-list {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .f-tag {
+      font-size: 0.74rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 3px 10px;
+      border-radius: 6px;
+      color: #94A3B8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <span class="header-tag">INTERACTIVE ICONOGRAPHY PROPOSALS</span>
+    <h1>نماذج تطبيقية حية لاقتراحات أنظمة الأيقونات</h1>
+    <p>شاهد كيف تظهر الأيقونات مباشرة داخل شريط التنقل السفلي وبطاقات المعامل الذكية لتحديد الاتجاه الأنسب لمنصة Patente B Pro</p>
+  </div>
+
+  <div class="proposals-container">
+
+    <!-- المقترح 1: الدمج الوظيفي الذكي (الخيار الموصى به معمارياً) -->
+    <div class="proposal-card">
+      <div class="proposal-header">
+        <div class="proposal-meta">
+          <h3>
+            <span>المقترح 1: الدمج الوظيفي الذكي (Smart Functional Hybrid)</span>
+          </h3>
+          <p>أيقونات خطية هادئة (2px) في الحالات الخاملة، تتحول إلى Duotone أنيق بلون سماوي في التبويب النشط، مع بروز كبسولة الامتحان وكروت ملونة متناسقة.</p>
+        </div>
+        <span class="badge-pill p-recommended">★ الموصى به للمنصة</span>
+      </div>
+
+      <div class="preview-grid">
+        <div>
+          <span class="preview-box-label">شريط التنقل السفلي (الموبايل والتابلت)</span>
+          <div class="dock-prototype p1-dock">
+            <div class="dock-item active">
+              <svg viewBox="0 0 24 24"><path class="duo-fill" d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              <span>الرئيسية</span>
+            </div>
+            <div class="dock-item">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle></svg>
+              <span>الرادار</span>
+            </div>
+            <div class="dock-item hero-exam">
+              <svg viewBox="0 0 24 24" style="stroke:#FFF;"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2 2"></path></svg>
+              <span style="color:#FFF;">الامتحان</span>
+            </div>
+            <div class="dock-item">
+              <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+              <span>أخطائي</span>
+            </div>
+            <div class="dock-item">
+              <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15z"></path></svg>
+              <span>المعجم</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <span class="preview-box-label">كروت المعامل الذكية (Bento Cards)</span>
+          <div class="bento-prototype-row">
+            <div class="bento-mock-card">
+              <div class="p1-bento-icon p1-cal">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              </div>
+              <div>
+                <div class="bento-mock-title">خطة الـ 30 يوماً</div>
+                <div class="bento-mock-sub">جدول إتقان المنهج</div>
+              </div>
+            </div>
+            <div class="bento-mock-card">
+              <div class="p1-bento-icon p1-radar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle></svg>
+              </div>
+              <div>
+                <div class="bento-mock-title">رادار الكلمات</div>
+                <div class="bento-mock-sub">حسم 462 سؤالاً</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-list">
+        <span class="f-tag">أقصى درجات الوضوح والراحة</span>
+        <span class="f-tag">متطابق مع هوية آبل HIG وGoogle Material 3</span>
+        <span class="f-tag">التبويب النشط يبرز فوراً دون إزعاج</span>
+      </div>
+    </div>
+
+    <!-- المقترح 2: ثنائي النقاء الفاخر Duotone Architectural -->
+    <div class="proposal-card">
+      <div class="proposal-header">
+        <div class="proposal-meta">
+          <h3>
+            <span>المقترح 2: النمط الفاخر ثنائي النقاء (Duotone Architectural)</span>
+          </h3>
+          <p>جميع الأيقونات في المنصة تستخدم نمط ثنائي الطبقات (Stroke قوي + Fill شبه شفاف) ليعطي طابعاً تقنياً معمارياً شديد الفخامة.</p>
+        </div>
+        <span class="badge-pill p-luxury">★ طابع فخم وتقني</span>
+      </div>
+
+      <div class="preview-grid">
+        <div>
+          <span class="preview-box-label">شريط التنقل السفلي (الموبايل والتابلت)</span>
+          <div class="dock-prototype p2-dock">
+            <div class="dock-item active">
+              <svg viewBox="0 0 24 24"><path class="p2-duo-bg" d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path class="p2-duo-fg" d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline class="p2-duo-fg" points="9 22 9 12 15 12 15 22"></polyline></svg>
+              <span>الرئيسية</span>
+            </div>
+            <div class="dock-item">
+              <svg viewBox="0 0 24 24"><circle class="p2-duo-bg" cx="12" cy="12" r="9"></circle><circle class="p2-duo-fg" cx="12" cy="12" r="9"></circle><circle class="p2-duo-fg" cx="12" cy="12" r="5"></circle></svg>
+              <span>الرادار</span>
+            </div>
+            <div class="dock-item hero-exam">
+              <svg viewBox="0 0 24 24"><circle class="p2-duo-bg" cx="12" cy="13" r="8"></circle><circle class="p2-duo-fg" cx="12" cy="13" r="8"></circle><path class="p2-duo-fg" d="M12 9v4l2 2"></path></svg>
+              <span>الامتحان</span>
+            </div>
+            <div class="dock-item">
+              <svg viewBox="0 0 24 24"><path class="p2-duo-bg" d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><path class="p2-duo-fg" d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+              <span>أخطائي</span>
+            </div>
+            <div class="dock-item">
+              <svg viewBox="0 0 24 24"><path class="p2-duo-bg" d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20v-15H6.5A2.5 2.5 0 0 0 4 4.5v15z"></path><path class="p2-duo-fg" d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path class="p2-duo-fg" d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15z"></path></svg>
+              <span>المعجم</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <span class="preview-box-label">كروت المعامل الذكية (Bento Cards)</span>
+          <div class="bento-prototype-row">
+            <div class="bento-mock-card p2-bento-card">
+              <div class="p2-bento-icon" style="color:#A855F7;">
+                <svg viewBox="0 0 24 24"><rect class="p2-duo-bg" x="3" y="4" width="18" height="18" rx="2"></rect><rect class="p2-duo-fg" x="3" y="4" width="18" height="18" rx="2"></rect><line class="p2-duo-fg" x1="16" y1="2" x2="16" y2="6"></line><line class="p2-duo-fg" x1="8" y1="2" x2="8" y2="6"></line></svg>
+              </div>
+              <div>
+                <div class="bento-mock-title">خطة الـ 30 يوماً</div>
+                <div class="bento-mock-sub">جدول إتقان المنهج</div>
+              </div>
+            </div>
+            <div class="bento-mock-card p2-bento-card">
+              <div class="p2-bento-icon" style="color:#EC4899;">
+                <svg viewBox="0 0 24 24"><circle class="p2-duo-bg" cx="12" cy="12" r="9"></circle><circle class="p2-duo-fg" cx="12" cy="12" r="9"></circle><circle class="p2-duo-fg" cx="12" cy="12" r="5"></circle></svg>
+              </div>
+              <div>
+                <div class="bento-mock-title">رادار الكلمات</div>
+                <div class="bento-mock-sub">حسم 462 سؤالاً</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-list">
+        <span class="f-tag">طابع Phosphor Pro العالمي</span>
+        <span class="f-tag">مظهر تقني معاصر للـ Dark Mode</span>
+        <span class="f-tag">يعطي هيبة وقيمة للمحتوى العلمي</span>
+      </div>
+    </div>
+
+    <!-- المقترح 3: الزجاجي التجسيدي Apple Vision Glass -->
+    <div class="proposal-card">
+      <div class="proposal-header">
+        <div class="proposal-meta">
+          <h3>
+            <span>المقترح 3: النمط الزجاجي التجسيدي (VisionOS Frosted Glass)</span>
+          </h3>
+          <p>مستوحى من واجهات Apple VisionOS و iOS 18: أيقونات داخل كبسولات زجاجية شبه شفافة ذات انعكاسات ضوئية مجهرية وبريق خفيف.</p>
+        </div>
+        <span class="badge-pill p-vision">★ أحدث صيحات Apple 2026</span>
+      </div>
+
+      <div class="preview-grid">
+        <div>
+          <span class="preview-box-label">شريط التنقل السفلي (الموبايل والتابلت)</span>
+          <div class="dock-prototype p3-dock">
+            <div class="dock-item active">
+              <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#38BDF8;fill:none;stroke-width:2.2;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+              <span>الرئيسية</span>
+            </div>
+            <div class="dock-item">
+              <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#94A3B8;fill:none;stroke-width:2;"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle></svg>
+              <span>الرادار</span>
+            </div>
+            <div class="dock-item" style="background:rgba(56,189,248,0.2); border:1px solid rgba(56,189,248,0.4); color:#38BDF8;">
+              <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#38BDF8;fill:none;stroke-width:2.2;"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2 2"></path></svg>
+              <span>الامتحان</span>
+            </div>
+            <div class="dock-item">
+              <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#94A3B8;fill:none;stroke-width:2;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+              <span>أخطائي</span>
+            </div>
+            <div class="dock-item">
+              <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#94A3B8;fill:none;stroke-width:2;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15z"></path></svg>
+              <span>المعجم</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <span class="preview-box-label">كروت المعامل الذكية (Bento Cards)</span>
+          <div class="bento-prototype-row">
+            <div class="bento-mock-card">
+              <div class="p3-bento-icon p3-cal">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line></svg>
+              </div>
+              <div>
+                <div class="bento-mock-title">خطة الـ 30 يوماً</div>
+                <div class="bento-mock-sub">جدول إتقان المنهج</div>
+              </div>
+            </div>
+            <div class="bento-mock-card">
+              <div class="p3-bento-icon p3-radar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle></svg>
+              </div>
+              <div>
+                <div class="bento-mock-title">رادار الكلمات</div>
+                <div class="bento-mock-sub">حسم 462 سؤالاً</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-list">
+        <span class="f-tag">تأثيرات Glassmorphism عميقة</span>
+        <span class="f-tag">انعكاسات Specular ناعمة</span>
+        <span class="f-tag">طابع منصات 2026 المستقبلية</span>
+      </div>
+    </div>
+
+    <!-- المقترح 4: النمط التفاعلي الممتلئ Solid Active Switch -->
+    <div class="proposal-card">
+      <div class="proposal-header">
+        <div class="proposal-meta">
+          <h3>
+            <span>المقترح 4: التحول المصمت الصريح (Solid Active Switch)</span>
+          </h3>
+          <p>أيقونات خطية هادئة تتغير كلياً إلى كتلة مصمتة ممتلئة (Solid Fill) عند الضغط عليها، وهو النمط المفضل في تطبيقات التواصل المليونية.</p>
+        </div>
+        <span class="badge-pill p-gamified">★ كلاسيكي وواضح للمستخدم</span>
+      </div>
+
+      <div class="preview-grid">
+        <div>
+          <span class="preview-box-label">شريط التنقل السفلي (الموبايل والتابلت)</span>
+          <div class="dock-prototype p4-dock">
+            <div class="dock-item active">
+              <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg>
+              <span>الرئيسية</span>
+            </div>
+            <div class="dock-item">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle></svg>
+              <span>الرادار</span>
+            </div>
+            <div class="dock-item hero-exam">
+              <svg viewBox="0 0 24 24" style="stroke:#FFF;"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2 2"></path></svg>
+              <span style="color:#FFF;">الامتحان</span>
+            </div>
+            <div class="dock-item">
+              <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+              <span>أخطائي</span>
+            </div>
+            <div class="dock-item">
+              <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15z"></path></svg>
+              <span>المعجم</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <span class="preview-box-label">كروت المعامل الذكية (Bento Cards)</span>
+          <div class="bento-prototype-row">
+            <div class="bento-mock-card">
+              <div class="p4-bento-icon p4-cal">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"></path></svg>
+              </div>
+              <div>
+                <div class="bento-mock-title">خطة الـ 30 يوماً</div>
+                <div class="bento-mock-sub">جدول إتقان المنهج</div>
+              </div>
+            </div>
+            <div class="bento-mock-card">
+              <div class="p4-bento-icon p4-radar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"></path></svg>
+              </div>
+              <div>
+                <div class="bento-mock-title">رادار الكلمات</div>
+                <div class="bento-mock-sub">حسم 462 سؤالاً</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-list">
+        <span class="f-tag">مألوف جداً لكافة الفئات العمرية</span>
+        <span class="f-tag">تأكيد حاسم على الصفحة الحالية</span>
+        <span class="f-tag">تدرج لوني ثابت</span>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

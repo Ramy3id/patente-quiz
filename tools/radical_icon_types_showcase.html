@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>المقارنة الكبرى: أنواع الأيقونات المختلفة جذرياً - Patente B Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070A10;
+      --card-bg: rgba(255, 255, 255, 0.035);
+      --card-border: rgba(255, 255, 255, 0.07);
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      --primary: #38BDF8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Cairo', system-ui, sans-serif;
+      padding: 30px 20px;
+      line-height: 1.6;
+    }
+    .header {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 36px;
+    }
+    .header-tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: #38BDF8;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    .header h1 {
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #FFF, #94A3B8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .header p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .comparison-container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .family-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      padding: 24px;
+      position: relative;
+      transition: all 0.25s ease;
+    }
+    .family-card.current-benchmark {
+      border: 1.5px solid rgba(56, 189, 248, 0.45);
+      background: rgba(56, 189, 248, 0.04);
+      box-shadow: 0 8px 30px rgba(56, 189, 248, 0.12);
+    }
+
+    .family-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 14px;
+    }
+    .family-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .family-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.95rem;
+      color: #38BDF8;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .family-card.current-benchmark .family-num {
+      background: #38BDF8;
+      color: #0F172A;
+    }
+    .family-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #F8FAFC;
+    }
+    .family-sub {
+      font-size: 0.86rem;
+      color: #94A3B8;
+      margin-top: 2px;
+    }
+    .family-badge {
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .b-current { background: rgba(56, 189, 248, 0.2); color: #38BDF8; border: 1px solid #38BDF8; }
+    .b-3d { background: rgba(236, 72, 153, 0.2); color: #F472B6; border: 1px solid rgba(236, 72, 153, 0.4); }
+    .b-vector { background: rgba(16, 185, 129, 0.2); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .b-neon { background: rgba(168, 85, 247, 0.2); color: #C084FC; border: 1px solid rgba(168, 85, 247, 0.4); }
+    .b-glass { background: rgba(245, 158, 11, 0.2); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.4); }
+
+    /* The 5 Icons Live Row */
+    .icons-live-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 20px 14px;
+    }
+    @media (max-width: 768px) {
+      .icons-live-strip { grid-template-columns: repeat(3, 1fr); }
+    }
+    .live-slot {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+    }
+    .slot-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #94A3B8;
+    }
+
+    /* ----------------------------------------------------------------------
+       FAMILY 0: OUR EXACT CURRENT ICONS (The Benchmark)
+       ---------------------------------------------------------------------- */
+    .c0-icon {
+      width: 28px;
+      height: 28px;
+      stroke: #38BDF8;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    /* ----------------------------------------------------------------------
+       FAMILY 1: 3D CLAYMORPHISM & RENDERED VOLUMES (مجسمات ثلاثية الأبعاد)
+       ---------------------------------------------------------------------- */
+    .c1-box {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .c1-box:hover { transform: scale(1.08) translateY(-2px); }
+    /* 3D Home (Clay Cyan) */
+    .c1-home {
+      background: linear-gradient(145deg, #38BDF8, #0284C7);
+      box-shadow: 
+        inset 0 3px 6px rgba(255, 255, 255, 0.5),
+        inset 0 -4px 6px rgba(0, 0, 0, 0.35),
+        0 10px 20px rgba(14, 165, 233, 0.4);
+    }
+    /* 3D Exam (Clay Amber) */
+    .c1-exam {
+      background: linear-gradient(145deg, #FBBF24, #D97706);
+      box-shadow: 
+        inset 0 3px 6px rgba(255, 255, 255, 0.6),
+        inset 0 -4px 6px rgba(0, 0, 0, 0.35),
+        0 10px 20px rgba(245, 158, 11, 0.4);
+    }
+    /* 3D Radar (Clay Rose) */
+    .c1-radar {
+      background: linear-gradient(145deg, #F472B6, #DB2777);
+      box-shadow: 
+        inset 0 3px 6px rgba(255, 255, 255, 0.6),
+        inset 0 -4px 6px rgba(0, 0, 0, 0.35),
+        0 10px 20px rgba(236, 72, 153, 0.4);
+    }
+    /* 3D Alert (Clay Crimson) */
+    .c1-alert {
+      background: linear-gradient(145deg, #F87171, #DC2626);
+      box-shadow: 
+        inset 0 3px 6px rgba(255, 255, 255, 0.6),
+        inset 0 -4px 6px rgba(0, 0, 0, 0.35),
+        0 10px 20px rgba(239, 68, 68, 0.4);
+    }
+    /* 3D Book (Clay Violet) */
+    .c1-book {
+      background: linear-gradient(145deg, #C084FC, #9333EA);
+      box-shadow: 
+        inset 0 3px 6px rgba(255, 255, 255, 0.6),
+        inset 0 -4px 6px rgba(0, 0, 0, 0.35),
+        0 10px 20px rgba(168, 85, 247, 0.4);
+    }
+    .c1-svg {
+      width: 26px;
+      height: 26px;
+      fill: none;
+      stroke: #FFFFFF;
+      stroke-width: 2.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4));
+    }
+
+    /* ----------------------------------------------------------------------
+       FAMILY 2: MULTI-COLOR FLAT VECTOR (فيكتور ملون بدون خطوط)
+       ---------------------------------------------------------------------- */
+    .c2-icon {
+      width: 44px;
+      height: 44px;
+      transition: transform 0.2s;
+    }
+    .c2-icon:hover { transform: scale(1.1); }
+
+    /* ----------------------------------------------------------------------
+       FAMILY 3: NEON CYBER GLOW (نيون القيادة الرياضية المشع)
+       ---------------------------------------------------------------------- */
+    .c3-icon {
+      width: 32px;
+      height: 32px;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .c3-home {
+      stroke: #38BDF8;
+      filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.8)) drop-shadow(0 0 16px rgba(56, 189, 248, 0.5));
+    }
+    .c3-exam {
+      stroke: #FBBF24;
+      filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.8)) drop-shadow(0 0 16px rgba(251, 191, 36, 0.5));
+    }
+    .c3-radar {
+      stroke: #EC4899;
+      filter: drop-shadow(0 0 6px rgba(236, 72, 153, 0.8)) drop-shadow(0 0 16px rgba(236, 72, 153, 0.5));
+    }
+    .c3-alert {
+      stroke: #EF4444;
+      filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.8)) drop-shadow(0 0 16px rgba(239, 68, 68, 0.5));
+    }
+    .c3-book {
+      stroke: #A855F7;
+      filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.8)) drop-shadow(0 0 16px rgba(168, 85, 247, 0.5));
+    }
+
+    /* ----------------------------------------------------------------------
+       FAMILY 4: FROSTED ACRYLIC GLASS (زجاج أكريليك متدرج وانعكاسات)
+       ---------------------------------------------------------------------- */
+    .c4-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .c4-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 50%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), transparent);
+      border-radius: 16px 16px 0 0;
+      pointer-events: none;
+    }
+    .c4-home { background: rgba(14, 165, 233, 0.16); box-shadow: 0 8px 24px rgba(14, 165, 233, 0.25); }
+    .c4-exam { background: rgba(245, 158, 11, 0.16); box-shadow: 0 8px 24px rgba(245, 158, 11, 0.25); }
+    .c4-radar { background: rgba(236, 72, 153, 0.16); box-shadow: 0 8px 24px rgba(236, 72, 153, 0.25); }
+    .c4-alert { background: rgba(239, 68, 68, 0.16); box-shadow: 0 8px 24px rgba(239, 68, 68, 0.25); }
+    .c4-book { background: rgba(168, 85, 247, 0.16); box-shadow: 0 8px 24px rgba(168, 85, 247, 0.25); }
+
+    .c4-svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .c4-home .c4-svg { stroke: #38BDF8; }
+    .c4-exam .c4-svg { stroke: #FBBF24; }
+    .c4-radar .c4-svg { stroke: #F472B6; }
+    .c4-alert .c4-svg { stroke: #F87171; }
+    .c4-book .c4-svg { stroke: #C084FC; }
+
+    .family-analysis {
+      margin-top: 14px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .analysis-pill {
+      font-size: 0.76rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 3px 10px;
+      border-radius: 6px;
+      color: #CBD5E1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <span class="header-tag">ICONOGRAPHY BENCHMARK & SPECTRUM</span>
+    <h1>مقارنة عائلات الأيقونات المختلفة جذرياً</h1>
+    <p>مع المقارنة المباشرة مع <strong>أيقونات منصتنا الحالية</strong> لترى الفروق البصرية والحسية وتحدد ما يناسب ذوقك</p>
+  </div>
+
+  <div class="comparison-container">
+
+    <!-- 0. الوضع الحالي لمنصتنا (The Real Baseline) -->
+    <div class="family-card current-benchmark">
+      <div class="family-header">
+        <div class="family-title-wrap">
+          <div class="family-num">0</div>
+          <div>
+            <div class="family-title">أيقونات منصتنا الحالية (المطبقة الآن في التطبيق)</div>
+            <div class="family-sub">النمط الخطي النقي الموحد (2px Pure Lucide Vectors) بدون تعبئة ولا إضاءات</div>
+          </div>
+        </div>
+        <span class="family-badge b-current">● الوضع الحالي المعتمد الآن</span>
+      </div>
+
+      <div class="icons-live-strip">
+        <div class="live-slot">
+          <svg class="c0-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <span class="slot-label">الرئيسية</span>
+        </div>
+        <div class="live-slot">
+          <svg class="c0-icon" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2.5 2.5"></path><path d="M10 2h4"></path></svg>
+          <span class="slot-label">الامتحان</span>
+        </div>
+        <div class="live-slot">
+          <svg class="c0-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="3" x2="12" y2="7"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          <span class="slot-label">الرادار</span>
+        </div>
+        <div class="live-slot">
+          <svg class="c0-icon" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          <span class="slot-label">أخطائي</span>
+        </div>
+        <div class="live-slot">
+          <svg class="c0-icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          <span class="slot-label">المعجم</span>
+        </div>
+      </div>
+
+      <div class="family-analysis">
+        <span class="analysis-pill">الطابع: رصين، تقني، وهادئ جداً</span>
+        <span class="analysis-pill">الهدف: عدم تشتيت الطالب أثناء قراءة أسئلة الباتنت المعقدة</span>
+        <span class="analysis-pill">السرعة: أعلى أداء ممكن 0ms Render</span>
+      </div>
+    </div>
+
+    <!-- 1. النمط المجسم ثلاثي الأبعاد 3D Claymorphism -->
+    <div class="family-card">
+      <div class="family-header">
+        <div class="family-title-wrap">
+          <div class="family-num">1</div>
+          <div>
+            <div class="family-title">عائلة المجسمات ثلاثية الأبعاد (3D Soft Clay / Neomorphism)</div>
+            <div class="family-sub">أيقونات ذات كتلة ملموسة مجسمة وظلال عميقة وإضاءة علوية (أسلوب Duolingo 3D و Apple macOS)</div>
+          </div>
+        </div>
+        <span class="family-badge b-3d">★ حيوية وجذابة وتفاعلية</span>
+      </div>
+
+      <div class="icons-live-strip">
+        <div class="live-slot">
+          <div class="c1-box c1-home">
+            <svg class="c1-svg" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+          </div>
+          <span class="slot-label">الرئيسية</span>
+        </div>
+        <div class="live-slot">
+          <div class="c1-box c1-exam">
+            <svg class="c1-svg" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2 2"></path><path d="M10 2h4"></path></svg>
+          </div>
+          <span class="slot-label">الامتحان</span>
+        </div>
+        <div class="live-slot">
+          <div class="c1-box c1-radar">
+            <svg class="c1-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4.5"></circle></svg>
+          </div>
+          <span class="slot-label">الرادار</span>
+        </div>
+        <div class="live-slot">
+          <div class="c1-box c1-alert">
+            <svg class="c1-svg" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+          </div>
+          <span class="slot-label">أخطائي</span>
+        </div>
+        <div class="live-slot">
+          <div class="c1-box c1-book">
+            <svg class="c1-svg" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15z"></path></svg>
+          </div>
+          <span class="slot-label">المعجم</span>
+        </div>
+      </div>
+
+      <div class="family-analysis">
+        <span class="analysis-pill">الطابع: مبهج وتفاعلي ومشجع جداً</span>
+        <span class="analysis-pill">الاستخدام الأنسب: تطبيقات الألعاب التعليمية وبطاقات المكافآت</span>
+        <span class="analysis-pill">الجاذبية البصرية: تلفت انتباه العين بنسبة 100%</span>
+      </div>
+    </div>
+
+    <!-- 2. عائلة الفيكتور الملون المسطح (Multi-Color Flat Vector) -->
+    <div class="family-card">
+      <div class="family-header">
+        <div class="family-title-wrap">
+          <div class="family-num">2</div>
+          <div>
+            <div class="family-title">عائلة الفيكتور الملون متعدد الطبقات (Multi-Color Flat Vector)</div>
+            <div class="family-sub">رسوم توضيحية مصغرة (Illustrated Shapes) بدون خطوط خارجية، أشكال هندسية مركبة بألوان صريحة</div>
+          </div>
+        </div>
+        <span class="family-badge b-vector">★ مبهج وسهل الفهم</span>
+      </div>
+
+      <div class="icons-live-strip">
+        <!-- Home -->
+        <div class="live-slot">
+          <svg class="c2-icon" viewBox="0 0 48 48">
+            <path fill="#0284C7" d="M24 4L6 20v22a2 2 0 0 0 2 2h10V30h12v14h10a2 2 0 0 0 2-2V20L24 4z"/>
+            <polygon fill="#38BDF8" points="24,4 42,20 38,20 24,7 10,20 6,20"/>
+            <rect fill="#F0F9FF" x="20" y="30" width="8" height="14" rx="1"/>
+          </svg>
+          <span class="slot-label">الرئيسية</span>
+        </div>
+        <!-- Exam/Timer -->
+        <div class="live-slot">
+          <svg class="c2-icon" viewBox="0 0 48 48">
+            <circle fill="#F59E0B" cx="24" cy="26" r="18"/>
+            <circle fill="#FEF3C7" cx="24" cy="26" r="14"/>
+            <rect fill="#D97706" x="21" y="4" width="6" height="5" rx="2"/>
+            <path stroke="#B45309" stroke-width="3" stroke-linecap="round" d="M24 18v8l5 5"/>
+          </svg>
+          <span class="slot-label">الامتحان</span>
+        </div>
+        <!-- Radar -->
+        <div class="live-slot">
+          <svg class="c2-icon" viewBox="0 0 48 48">
+            <circle fill="#F43F5E" cx="24" cy="24" r="20"/>
+            <circle fill="#FFF" cx="24" cy="24" r="14"/>
+            <circle fill="#F43F5E" cx="24" cy="24" r="8"/>
+            <circle fill="#FEE2E2" cx="24" cy="24" r="3"/>
+          </svg>
+          <span class="slot-label">الرادار</span>
+        </div>
+        <!-- Alert -->
+        <div class="live-slot">
+          <svg class="c2-icon" viewBox="0 0 48 48">
+            <polygon fill="#EF4444" points="24,4 46,42 2,42"/>
+            <polygon fill="#FEE2E2" points="24,10 41,39 7,39"/>
+            <rect fill="#B91C1C" x="22" y="19" width="4" height="11" rx="2"/>
+            <circle fill="#B91C1C" cx="24" cy="34" r="2.5"/>
+          </svg>
+          <span class="slot-label">أخطائي</span>
+        </div>
+        <!-- Book -->
+        <div class="live-slot">
+          <svg class="c2-icon" viewBox="0 0 48 48">
+            <rect fill="#8B5CF6" x="8" y="6" width="32" height="36" rx="4"/>
+            <rect fill="#DDD6FE" x="12" y="8" width="24" height="32" rx="2"/>
+            <path fill="#7C3AED" d="M8 38h32v4H8z"/>
+            <rect fill="#8B5CF6" x="16" y="16" width="16" height="3" rx="1.5"/>
+            <rect fill="#8B5CF6" x="16" y="23" width="12" height="3" rx="1.5"/>
+          </svg>
+          <span class="slot-label">المعجم</span>
+        </div>
+      </div>
+
+      <div class="family-analysis">
+        <span class="analysis-pill">الطابع: رسم توضيحي مبسط ومحبب</span>
+        <span class="analysis-pill">الاستخدام: Google Icons و Notion Illustrations</span>
+        <span class="analysis-pill">لا يعتمد على حدود Stroke بل على المساحات اللونية</span>
+      </div>
+    </div>
+
+    <!-- 3. عائلة النيون السيبراني المشع (Neon Cyber Glow) -->
+    <div class="family-card">
+      <div class="family-header">
+        <div class="family-title-wrap">
+          <div class="family-num">3</div>
+          <div>
+            <div class="family-title">عائلة النيون المتوهج (Neon Cyber Glow / Racing HUD)</div>
+            <div class="family-sub">خطوط ليزرية مشعة بهالة نيون مضيئة، مستوحاة من لوحات عدادات السيارات الرياضية (Cockpit Speedometers)</div>
+          </div>
+        </div>
+        <span class="family-badge b-neon">★ رياضي وحماسي للقيادة</span>
+      </div>
+
+      <div class="icons-live-strip">
+        <div class="live-slot">
+          <svg class="c3-icon c3-home" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+          <span class="slot-label" style="color:#38BDF8;">الرئيسية</span>
+        </div>
+        <div class="live-slot">
+          <svg class="c3-icon c3-exam" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2.5 2.5"></path><path d="M10 2h4"></path></svg>
+          <span class="slot-label" style="color:#FBBF24;">الامتحان</span>
+        </div>
+        <div class="live-slot">
+          <svg class="c3-icon c3-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle></svg>
+          <span class="slot-label" style="color:#EC4899;">الرادار</span>
+        </div>
+        <div class="live-slot">
+          <svg class="c3-icon c3-alert" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+          <span class="slot-label" style="color:#EF4444;">أخطائي</span>
+        </div>
+        <div class="live-slot">
+          <svg class="c3-icon c3-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15z"></path></svg>
+          <span class="slot-label" style="color:#A855F7;">المعجم</span>
+        </div>
+      </div>
+
+      <div class="family-analysis">
+        <span class="analysis-pill">الطابع: لوحة تحكم سيارة ليلية فائقة الحماس</span>
+        <span class="analysis-pill">متناسق جداً مع روح رخصة القيادة الإيطالية والسرعة</span>
+        <span class="analysis-pill">توهج نيون حقيقي في الشاشات الداكنة OLED</span>
+      </div>
+    </div>
+
+    <!-- 4. عائلة زجاج الأكريليك المتوهج (Frosted Acrylic Glassmorphism) -->
+    <div class="family-card">
+      <div class="family-header">
+        <div class="family-title-wrap">
+          <div class="family-num">4</div>
+          <div>
+            <div class="family-title">عائلة زجاج الأكريليك المتوهج (Frosted Acrylic Glass)</div>
+            <div class="family-sub">كبسولات زجاجية شبه شفافة ذات بريق علوي (Specular Sheen) وألوان هادئة منكسرة في الخلفية</div>
+          </div>
+        </div>
+        <span class="family-badge b-glass">★ فخامة معمارية عصرية</span>
+      </div>
+
+      <div class="icons-live-strip">
+        <div class="live-slot">
+          <div class="c4-box c4-home">
+            <svg class="c4-svg" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+          </div>
+          <span class="slot-label">الرئيسية</span>
+        </div>
+        <div class="live-slot">
+          <div class="c4-box c4-exam">
+            <svg class="c4-svg" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2 2"></path></svg>
+          </div>
+          <span class="slot-label">الامتحان</span>
+        </div>
+        <div class="live-slot">
+          <div class="c4-box c4-radar">
+            <svg class="c4-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle></svg>
+          </div>
+          <span class="slot-label">الرادار</span>
+        </div>
+        <div class="live-slot">
+          <div class="c4-box c4-alert">
+            <svg class="c4-svg" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+          </div>
+          <span class="slot-label">أخطائي</span>
+        </div>
+        <div class="live-slot">
+          <div class="c4-box c4-book">
+            <svg class="c4-svg" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15z"></path></svg>
+          </div>
+          <span class="slot-label">المعجم</span>
+        </div>
+      </div>
+
+      <div class="family-analysis">
+        <span class="analysis-pill">الطابع: لوح زجاجي مصقول فاخر</span>
+        <span class="analysis-pill">يمنح المنصة قيمة برمجية وتصميمية فارهة</span>
+        <span class="analysis-pill">انعكاسات ضوئية حقيقية تحاكي زجاج السيارة المعالج</span>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
